@@ -1,0 +1,537 @@
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.navbar {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 1.5em;
+  background-color: white;
+  mix-blend-mode: screen;
+}
+
+.navbar.fadeOut {
+  top: -5em;
+  transition: top 0.5s ease;
+}
+
+.navbar.fadeIn {
+  top: 0em;
+  transition: top 0.5s ease;
+}
+
+.hamburger {
+    display: none;
+
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+
+    background-color: #3b8695;
+    /* Create the gradient. */
+    background-image: linear-gradient(135deg, rgba(109,135,144,1) 0%, rgba(128,125,143,1) 25%, rgba(151,108,132,1) 50%, rgba(162,99,127,1) 75%, rgba(156,89,140,1) 100%);
+    
+    /* Set the background size and repeat properties. */
+    background-size: 100%;
+    background-repeat: repeat;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 1;
+}
+
+.nav-item {
+    margin-left: 5em;
+}
+
+.nav-link{
+  position: relative;
+    font-size: 1.6em;
+    font-weight: 400;
+    color: black;
+}
+
+a.nav-link:after {
+  background: none repeat scroll 0 0 transparent;
+  bottom: -5px;
+  content: "";
+  display: block;
+  height: 3px;
+  left: 50%;
+  position: absolute;
+  background: #000;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+a.nav-link:hover:after {
+  width: 100%;
+  left: 0;
+}
+
+.nav-logo {
+    font-size: 2.1em;
+    font-weight: 500;
+    color: #3b8695;
+}
+
+
+.section_inner {
+  width: 100%;
+  height: 100%;
+}
+
+.image-container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: block;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  
+}
+
+#image-container0 {
+  background-image: url("music-festival.jpeg"); /* The image used - important! */
+  filter: blur(1px) brightness(0.6) saturate(1.2);
+}
+
+#image-container1 {
+  background-image: url("music-festival2.jpeg"); /* The image used - important! */
+  filter: blur(1px) brightness(0.3) saturate(1.4);
+}
+
+#image-container2 {
+  background-image: url("music-festival4.jpeg"); /* The image used - important! */
+  filter: blur(1px) brightness(0.8) saturate(1.2);
+}
+
+#image-container3 {
+  background-image: url("music-festival3.jpeg"); /* The image used - important! */
+  filter: blur(1px) brightness(0.8) saturate(1.2);
+}
+
+.image_title_main {
+  color: white;
+  border: 5px solid white;
+  box-sizing: content-box;
+  font-size: 10vw; /* Responsive font size */
+  font-weight: bold;
+  margin: 0 auto; /* Center the text container */
+  padding: 10px;
+  width: 50%;
+  z-index: 1;
+  text-align: center; /* Center text */
+  position: absolute; /* Position text */
+  top: 25%; /* Position text in the middle */
+  left: 25%;
+  mix-blend-mode: screen;
+  will-change: transform;
+  -moz-animation-name: menu_slideDown;
+  -webkit-animation-name: menu_slideDown;
+  -o-animation-name: menu_slideDown;
+  -ms-animation-name: menu_slideDown;
+  animation-name: menu_slideDown;
+  -moz-animation-duration: 800ms;
+  -webkit-animation-duration: 800ms;
+  -o-animation-duration: 800ms;
+  -ms-animation-duration: 800ms;
+  animation-duration: 800ms;
+  -moz-animation-timing-function: ease;
+  -webkit-animation-timing-function: ease;
+  -o-animation-timing-function: ease;
+  -ms-animation-timing-function: ease;
+  animation-timing-function: ease;
+  -moz-animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
+  -ms-animation-fill-mode: forwards;
+  animation-fill-mode: forwards
+}
+
+.button_bar {
+  display: block;
+  position:  fixed;
+  padding-left: 15px;
+  line-height: 60px;
+  z-index: 1;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 80px;
+  background-color: white;
+  mix-blend-mode: screen; /* This makes the cutout text possible */
+}
+
+.logo_box {
+  display: inline-block;
+  position: relative;
+  /*border-radius: 1em;*/
+  color: yellow;
+  padding: 10px 15px;
+  width: auto;
+  text-align: center; /* Center text */
+}
+
+.logo {
+  font-size: 2em; /* Responsive font size */
+  font-weight: bold;
+  transform: rotate(-45deg);
+}
+
+.button {
+  display: inline-block;
+  position: relative;
+  /*border-radius: 1em;*/
+  color: black;
+  font-size: 2em; /* Responsive font size */
+  font-weight: bold;
+  /*padding: 10px 15px;*/
+  margin: 10px 15px;
+  width: auto;
+  text-align: center; /* Center text */
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 5px;
+  bottom: 5px;
+  left: 0;
+  background-color: #000;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.button:hover::before {
+  transform: scaleX(1);
+}
+
+.text_box {
+  display: flex;
+  position: absolute;
+  flex-wrap: wrap;
+  z-index: 1;
+  top: 75px;
+  left: 25%;
+  width: 50%;
+  height: 80%;
+  border: 5px solid white;
+}
+
+.text_box_title {
+  display: flex;
+  width: 100%;
+  font-size: 5vw; /* Responsive font size */
+  font-weight: bold;
+  color: white;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.main_text_content {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  font-size: 2vw; /* Responsive font size */
+  font-weight: normal;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.text_box_column {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.text_box_row {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.headliner {
+  font-weight: bold;
+}
+
+#fp-nav ul li a span, 
+.fp-slidesNav ul li a span {
+    background: white;
+}
+
+@-webkit-keyframes menu_slideDown {
+  0% {
+    opacity: 0;
+    -moz-transform: translateY(20px);
+    -webkit-transform: translateY(20px);
+    -o-transform: translateY(20px);
+    -ms-transform: translateY(20px);
+    transform: translateY(20px)
+  }
+  95% {
+    -moz-transform: translateY(0px);
+    -webkit-transform: translateY(0px);
+    -o-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    transform: translateY(0px)
+  }
+  100% {
+    opacity: 1
+  }
+}
+
+@keyframes menu_slideDown {
+  0% {
+    opacity: 0;
+    -moz-transform: translateY(20px);
+    -webkit-transform: translateY(20px);
+    -o-transform: translateY(20px);
+    -ms-transform: translateY(20px);
+    transform: translateY(20px)
+  }
+  95% {
+    -moz-transform: translateY(0px);
+    -webkit-transform: translateY(0px);
+    -o-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    transform: translateY(0px)
+  }
+  100% {
+    opacity: 1
+  }
+}
+
+@media only screen and (max-width: 768px) {
+    @keyframes fadeInOpacity {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    .navbar {
+      mix-blend-mode: normal;
+    }
+
+    .nav-menu {
+        position: fixed;
+        /*left: -100%;*/
+        left: 0;
+        display: none;
+        opacity: 0;
+        top: 4.4em;
+        flex-direction: column;
+        background-color: #fff;
+        width: 100%;
+        /*border-radius: 10px;*/
+        text-align: center;
+        transition: 0.3s;
+        box-shadow:
+            0 10px 27px rgba(0, 0, 0, 0.05);
+
+        animation-name: fadeInOpacity;
+        animation-iteration-count: 1;
+        animation-timing-function: ease-in;
+        animation-duration: 0.1s;
+    }
+
+    .nav-menu.active {
+        /*left: 0;*/
+        display: flex;
+        opacity: 1;
+
+    }
+
+
+    .nav-item {
+        margin: 2.5em 0em;
+        opacity: 0;
+        will-change: transform;
+        -moz-animation-name: menu_slideDown;
+        -webkit-animation-name: menu_slideDown;
+        -o-animation-name: menu_slideDown;
+        -ms-animation-name: menu_slideDown;
+        animation-name: menu_slideDown;
+        -moz-animation-duration: 800ms;
+        -webkit-animation-duration: 800ms;
+        -o-animation-duration: 800ms;
+        -ms-animation-duration: 800ms;
+        animation-duration: 800ms;
+        -moz-animation-timing-function: ease;
+        -webkit-animation-timing-function: ease;
+        -o-animation-timing-function: ease;
+        -ms-animation-timing-function: ease;
+        animation-timing-function: ease;
+        -moz-animation-fill-mode: forwards;
+        -webkit-animation-fill-mode: forwards;
+        -o-animation-fill-mode: forwards;
+        -ms-animation-fill-mode: forwards;
+        animation-fill-mode: forwards
+    }
+
+    .nav-menu.active li:nth-child(1) {
+      -moz-animation-delay: 40ms;
+      -webkit-animation-delay: 40ms;
+      -o-animation-delay: 40ms;
+      -ms-animation-delay: 40ms;
+      animation-delay: 40ms;
+    }
+    .nav-menu.active li:nth-child(2) {
+      -moz-animation-delay: 100ms;
+      -webkit-animation-delay: 100ms;
+      -o-animation-delay: 100ms;
+      -ms-animation-delay: 100ms;
+      animation-delay: 100ms;
+    }
+    .nav-menu.active li:nth-child(3) {
+      -moz-animation-delay: 160ms;
+      -webkit-animation-delay: 160ms;
+      -o-animation-delay: 160ms;
+      -ms-animation-delay: 160ms;
+      animation-delay: 160ms;
+    }
+    .nav-menu.active li:nth-child(4) {
+      -moz-animation-delay: 220ms;
+      -webkit-animation-delay: 220ms;
+      -o-animation-delay: 220ms;
+      -ms-animation-delay: 220ms;
+      animation-delay: 220ms;
+    }
+    /*.nav-menu.active li:nth-child(5) {
+      -moz-animation-delay: 200ms;
+      -webkit-animation-delay: 200ms;
+      -o-animation-delay: 200ms;
+      -ms-animation-delay: 200ms;
+      animation-delay: 200ms
+    }
+    .nav-menu.active li:nth-child(6) {
+      -moz-animation-delay: 240ms;
+      -webkit-animation-delay: 240ms;
+      -o-animation-delay: 240ms;
+      -ms-animation-delay: 240ms;
+      animation-delay: 240ms
+    }
+    .nav-menu.active li:nth-child(7) {
+      -moz-animation-delay: 280ms;
+      -webkit-animation-delay: 280ms;
+      -o-animation-delay: 280ms;
+      -ms-animation-delay: 280ms;
+      animation-delay: 280ms
+    }
+    .nav-menu.active li:nth-child(8) {
+      -moz-animation-delay: 320ms;
+      -webkit-animation-delay: 320ms;
+      -o-animation-delay: 320ms;
+      -ms-animation-delay: 320ms;
+      animation-delay: 320ms
+    }
+    .nav-menu.active li:nth-child(9) {
+      -moz-animation-delay: 360ms;
+      -webkit-animation-delay: 360ms;
+      -o-animation-delay: 360ms;
+      -ms-animation-delay: 360ms;
+      animation-delay: 360ms
+    }
+    .nav-menu.active li:nth-child(10) {
+      -moz-animation-delay: 400ms;
+      -webkit-animation-delay: 400ms;
+      -o-animation-delay: 400ms;
+      -ms-animation-delay: 400ms;
+      animation-delay: 400ms
+    }*/
+
+    .nav-link {
+      /*color: #3b8695;*/
+      /* Fallback: Set a background color. */
+      background-color: red;
+      
+      /* Create the gradient. */
+      background-image: linear-gradient(135deg, rgba(109,135,144,1) 0%, rgba(128,125,143,1) 25%, rgba(151,108,132,1) 50%, rgba(162,99,127,1) 75%, rgba(156,89,140,1) 100%);
+      
+      /* Set the background size and repeat properties. */
+      background-size: 100%;
+      background-repeat: repeat;
+
+      /* Use the text as a mask for the background. */
+      /* This will show the gradient as a text color rather than element bg. */
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; 
+      -moz-background-clip: text;
+      -moz-text-fill-color: transparent;
+    }
+
+    a.nav-link:after {
+      background-color: red;
+      
+      /* Create the gradient. */
+      background-image: linear-gradient(135deg, rgba(109,135,144,1) 0%, rgba(128,125,143,1) 25%, rgba(151,108,132,1) 50%, rgba(162,99,127,1) 75%, rgba(156,89,140,1) 100%);
+      
+      /* Set the background size and repeat properties. */
+      background-size: 100%;
+      background-repeat: repeat;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+}
