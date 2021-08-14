@@ -85,9 +85,9 @@ a {
 
 .nav-link{
   position: relative;
-    font-size: 1.6em;
-    font-weight: 400;
-    color: black;
+  font-size: 1.6em;
+  font-weight: 400;
+  color: black;
 }
 
 a.nav-link:after {
@@ -390,7 +390,7 @@ a.nav-link:hover:after {
 
 
     .nav-item {
-        margin: 2.5em 0em;
+        margin: 1em 0em;
         opacity: 0;
         will-change: transform;
         -moz-animation-name: menu_slideDown;
@@ -443,48 +443,6 @@ a.nav-link:hover:after {
       -ms-animation-delay: 220ms;
       animation-delay: 220ms;
     }
-    /*.nav-menu.active li:nth-child(5) {
-      -moz-animation-delay: 200ms;
-      -webkit-animation-delay: 200ms;
-      -o-animation-delay: 200ms;
-      -ms-animation-delay: 200ms;
-      animation-delay: 200ms
-    }
-    .nav-menu.active li:nth-child(6) {
-      -moz-animation-delay: 240ms;
-      -webkit-animation-delay: 240ms;
-      -o-animation-delay: 240ms;
-      -ms-animation-delay: 240ms;
-      animation-delay: 240ms
-    }
-    .nav-menu.active li:nth-child(7) {
-      -moz-animation-delay: 280ms;
-      -webkit-animation-delay: 280ms;
-      -o-animation-delay: 280ms;
-      -ms-animation-delay: 280ms;
-      animation-delay: 280ms
-    }
-    .nav-menu.active li:nth-child(8) {
-      -moz-animation-delay: 320ms;
-      -webkit-animation-delay: 320ms;
-      -o-animation-delay: 320ms;
-      -ms-animation-delay: 320ms;
-      animation-delay: 320ms
-    }
-    .nav-menu.active li:nth-child(9) {
-      -moz-animation-delay: 360ms;
-      -webkit-animation-delay: 360ms;
-      -o-animation-delay: 360ms;
-      -ms-animation-delay: 360ms;
-      animation-delay: 360ms
-    }
-    .nav-menu.active li:nth-child(10) {
-      -moz-animation-delay: 400ms;
-      -webkit-animation-delay: 400ms;
-      -o-animation-delay: 400ms;
-      -ms-animation-delay: 400ms;
-      animation-delay: 400ms
-    }*/
 
     .nav-link {
       /*color: #3b8695;*/
