@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Drug Calculator">
+  <meta name="apple-mobile-web-app-title" content="Cancer Referral Checker">
+  <meta name="theme-color" content="rgb(33,197,134)">
+  <meta name="msapplication-starturl" content="">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=0, shrink-to-fit=no">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script type="text/javascript" src="src/2ww.js"></script>
+  <title>Cancer Referral Checker</title>
+  <style>
+      /*Colour Scheme*/
+      :root {
+        --green-color: rgb(33,197,134);
+        --green-color-dark: rgb(26, 153, 104);
+        --blue-color: rgb(28,87,101);
+      }
+
+      html {
+        /*background-image: linear-gradient(318deg, color(srgb 0.1174 0.6766 0.5767), color(srgb 0.1516 0.8038 0.5354));*/
+        height:100%;
+        width:100%;
+        /*overflow: hidden;*/
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+        /*min-height: 100vh;
+        min-height: -webkit-fill-available;*/
+        margin: 0;
+        font-family: Facit,Calibri,Helvetica,sans-serif;
+        color: #595959;
+        -webkit-user-select: none; /* Safari */
+        -ms-user-select: none; /* IE 10 and IE 11 */
+        user-select: none; /* Standard syntax */
+        /*overflow: hidden;*/
+      }
+      #title {
+        display:flex;
+        width: 100%;
+        justify-content: center;
+        font-size: 2em;
+        font-weight: bold;
+        margin-bottom: 0.25em;
+        padding: 0.5em 0;
+        color: white;
+        background-image: linear-gradient(318deg, color(srgb 0.1174 0.6766 0.5767), color(srgb 0.1516 0.8038 0.5354));
+      }
+
+      #float-container {
+        display: none;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+        background-color: rgba(0,0,0,0.4);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+      }
+
+      #float-form {
+        display: flex;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        margin: 4% auto;
+        width: 90%;
+        max-width: 610px;
+        /*need separate media css to make this bit work on mobile max-width: 610px;*/
+        background-color: white;
+        border-radius: 4px;
+        overflow-y: auto;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;
+      }
+
+      #float-form::-webkit-scrollbar {
+        display: none;
+      }
+
+      #modal-close-container {
+        display: flex;
+        width: 100%;
+        justify-content: flex-end;
+      }
+
+      #close-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 1.3em;
+        height: 1.3em;
+        font-size: 2em;
+        color: var(--blue-color);
+        cursor: pointer;
+      }
+
+      #main-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 90%;
+        max-width:610px;
+        /*border: 1px solid #ccfff0;*/
+      }
+
+      form {
+        display:flex;
+        flex-wrap:wrap;
+        width:100%;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      #check-button-container {
+        display: flex;
+        width:100%;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1em;
+      }
+
+      #show-modal-button {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        height: 2em;
+        background-color: var(--green-color);
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+
+      #show-modal-button:hover{
+        background-color: var(--green-color-dark);
+      }
+
+      .refer {
+        background-color: rgb(221, 34, 34) !important;
+      }
+
+      #referral-result {
+        position: fixed;
+        bottom: 0;
+        display: flex;
+        width: 100%;
+        max-width: 610px;
+        justify-content: center;
+        background-color: var(--green-color-dark);
+        color: white;
+        padding: 0.5em 0;
+      }    
+
+      .collapsible-section {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--green-color);
+        color: white;   
+        border: none;
+        border-radius: 4px;
+        text-align: left;
+        outline: none;
+        font-size: 1.5em;
+        margin-bottom: 0.5em;
+      }
+
+      .collapsible-section-button {
+        display:flex;
+        width: 100%;
+        padding: 0.5em 0;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+
+      .collapsible-section-button:hover {
+        background-color: var(--green-color-dark);
+      }
+
+      .collapsible-content {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: center;
+        display: none;
+        overflow: hidden;
+        background-color: var(--green-color);
+        color: #595959;
+        padding-top: 1em;
+        padding-left: 1em;
+      }
+
+      fieldset {
+        width: 100%;
+        border: none;
+        padding: 1em;
+      }
+
+      input {
+        text-transform: none;
+        text-indent: 0px;
+        text-shadow: none;
+        text-align: start;
+      }
+
+      .section-title {
+        display: flex;
+        width: 100%;
+        justify-content: flex-start;
+        font-size: 1.5em;
+        font-weight: bold;
+        margin: 6px 0px;
+        color: var(--blue-color);
+      }
+
+      #development-warning {
+        font-size: 1em;
+        color: rgb(199,0,0);
+        justify-content: center;
+        margin: 0 0 0.5em 0;
+      }
+
+      #selected-symptoms-list {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        overflow-x: hidden;
+        min-height: 20vh;
+        /*height: 30vh;*/
+
+      }
+
+      .text-input-container {
+        display: flex;
+        width: 100%;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid rgb(209, 209, 209);
+        padding: 0.5em 0;
+      }
+
+      .text-input-label {
+        display: flex;
+        width: 50%;
+        align-items: center;
+        justify-content: flex-start;
+        color: var(--blue-color);
+        font-size: 1.5em;
+      }
+
+      .number-input{
+        display: flex;
+        align-items: center;
+        width: 50%;
+        border:1px solid var(--blue-color);
+        border-radius: 4px;
+        box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+        box-sizing: border-box;
+        height: 1.5em;
+        font-size: 1.5em;
+        color: var(--blue-color);
+      }
+
+      .checkbox-container {
+        display: flex;
+        width: 100%;
+        position: relative;
+        padding-left: 35px;
+        margin: 6px 0px;
+        cursor: pointer;
+        font-size: 22px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      /* Hide the browser's default checkbox */
+      .checkbox-container input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+      }
+
+      /* Create a custom checkbox */
+      .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 25px;
+        width: 25px;
+        background-color: #eee;
+      }
+
+      /* On mouse-over, add a grey background color */
+      .checkbox-container:hover input ~ .checkmark {
+        background-color: #ccc;
+      }
+
+      /* When the checkbox is checked, add a blue background */
+      .checkbox-container input:checked ~ .checkmark {
+        background-color: var(--blue-color);
+      }
+
+      /* Create the checkmark/indicator (hidden when not checked) */
+      .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+      }
+
+      /* Show the checkmark when checked */
+      .checkbox-container input:checked ~ .checkmark:after {
+        display: block;
+      }
+
+      /* Style the checkmark/indicator */
+      .checkbox-container .checkmark:after {
+        left: 9px;
+        top: 5px;
+        width: 5px;
+        height: 10px;
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+
+      .switch-field {
+        display: flex;
+        justify-content: flex-end;
+        width: 50%;
+        overflow: hidden;
+      }
+
+      .switch-field input {
+        position: absolute !important;
+        clip: rect(0, 0, 0, 0);
+        height: 1px;
+        width: 1px;
+        border: 0;
+        overflow: hidden;
+      }
+
+      .switch-field label {
+        width: 100%;
+        background-color: #e4e4e4;
+        color: rgba(0, 0, 0, 0.6);
+        font-size: 14px;
+        line-height: 1;
+        text-align: center;
+        padding: 8px 16px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+        transition: all 0.1s ease-in-out;
+      }
+
+      .switch-field label:hover {
+        cursor: pointer;
+      }
+
+      .switch-field input:checked + label {
+        background-color: var(--green-color);
+        color: white;
+        box-shadow: none;
+      }
+
+      .switch-field label:first-of-type {
+        border-radius: 4px 0 0 4px;
+      }
+
+      .switch-field label:last-of-type {
+        border-radius: 0 4px 4px 0;
+      }
+
+      @media (min-width: 640px) {
+        #referral-result {
+          position: relative;
+        }
+        #selected-symptoms-list::-webkit-scrollbar {
+          display: none;
+        }
+      }
+
+
+  </style>
+</head>
+<body>
+  <div id="title">Cancer Referral Checker</div>
+  <div id="float-container">
+    <form id="float-form" class="form" name="float-form">
+      <div id="modal-close-container"><span id="close-button" onclick="closeModal();">&times;</span></div>
+    </form>
+  </div>
+  <div id="main-container">
+    <form id="referral-form" class="form">
+      <div class="section-title" id="development-warning">In Development - Not For Clinical Use</div>
+      <div class="section-title">Patient Details</div>
+        <div class="text-input-container">
+          <div class="text-input-label">Age</div><input type="text" class="number-input" id="age" name="age" placeholder="years"/>
+        </div>
+        <div class="text-input-container">
+          <div class="text-input-label">Sex</div>
+          <div class="switch-field">
+            <input type="radio" id="radio-male" name="gender" value="male" checked/>
+            <label for="radio-male">Male</label>
+            <input type="radio" id="radio-female" name="gender" value="female" />
+            <label for="radio-female">Female</label>
+          </div>
+        </div>
+        <label class="checkbox-container">Smoker<input type="checkbox" class="patient_info" name="smoker" id="checkbox-smoker"><span class="checkmark"></span></label>
+        <label class="checkbox-container">Ex-Smoker<input type="checkbox" class="patient_info" name="ex_smoker" id="checkbox-ex_smoker"><span class="checkmark"></span></label>
+      <div id="show-modal-button" onclick="showModal();">Select Symptoms</div>
+      <div class="section-title" id="selected-symptoms-title">Selected Symptoms and Signs</div>
+      <div id="selected-symptoms-list"></div>
+    </form>
+    <div id="referral-result">Please Enter the Patient Age</div>
+  </div> 
+  <script>
+    var all_symptoms = [];
+    var json_symptoms = Object;
+    var float_container = document.getElementById("float-container");
+
+    function showModal() {
+      float_container.style.display = "flex";
+    }
+
+    function closeModal() {
+      float_container.style.display = "none";
+    }
+
+    function removeItemAll(arr, value) {
+      var i = 0;
+      while (i < arr.length) {
+        if (arr[i] === value) {
+          arr.splice(i, 1);
+        } else {
+          ++i;
+        }
+      }
+      return arr;
+    }
+
+    function getOffset(el) {
+      const rect = el.getBoundingClientRect();
+      return {
+        left: rect.left + window.scrollX,
+        top: rect.top + window.scrollY,
+        bottom: rect.top + window.scrollY + el.offsetHeight,
+        off_screen: (rect.top + window.scrollY + el.offsetHeight) > window.innerHeight
+      };
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      // function body
+      all_symptoms = [];
+      var categories_created = [];
+      mydata = JSON.stringify(data);
+      json_symptoms = JSON.parse(mydata)
+      
+      Object.keys(json_symptoms).forEach(function(key) {
+        // create html for the symptoms
+        var categories = json_symptoms[key]["categories"];
+        var symptom_name = json_symptoms[key]["text"]
+
+        var float_form = document.getElementById("float-form");
+
+        for (var i=0;i<categories.length;i++){
+          if (!categories_created.includes(categories[i])) {
+            // if category not already displayed - create it
+            var collapsible_section = document.createElement("div");
+            collapsible_section.classList.add("collapsible-section");
+            float_form.appendChild(collapsible_section);
+
+            var collapsible_section_button = document.createElement("div");
+            collapsible_section_button.classList.add("collapsible-section-button");
+            collapsible_section_button.innerText = categories[i];
+            collapsible_section.appendChild(collapsible_section_button);
+
+            var collapsible_content = document.createElement("div");
+            collapsible_content.classList.add("collapsible-content");
+            collapsible_content.id = categories[i];
+            collapsible_section.appendChild(collapsible_content);
+
+            // save to created list
+            categories_created.push(categories[i]);
+          }
+          // code to add symptom to the category
+          var category_collapsible_content = document.getElementById(categories[i]);
+          $(category_collapsible_content).append(`<label class="checkbox-container">${symptom_name}<input type="checkbox" class="symptoms" name="${key}" value="${key}"><span class="checkmark"></span></label>`);
+        }
+
+
+        all_symptoms.push(key);
+
+      });
+
+      var coll = document.getElementsByClassName("collapsible-section-button");
+      var i;
+      for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+          //console.log(this);
+          var content = this.nextSibling;
+          if (content.style.display === "flex") {
+            content.style.display = "none";
+          } else {
+            content.style.display = "flex";
+          }
+        });
+      }
+
+    });
+
+    float_container.addEventListener('click', function(e){
+      if (!(document.getElementById('float-form').contains(e.target))) {
+        // Clicked outside popup box
+        closeModal();
+      }
+    });
+
+
+    $(document).on('input', 'input', function(e) {
+      // 'input' rather than 'change' as updates as text field typed rather than on defocussing
+
+      // when input changed review all checkboxes in the symptom selector form and if checked ...
+      // ... add to the chosen_symptoms array
+      chosen_symptoms = getCheckedSymptoms();
+
+      // if e.target is on the symptoms list form then if now unchecked remove it from the chosen_symptoms list 
+      var elem = e.target;
+      var elem_name = elem.getAttribute("name");
+      if (elem.classList.contains("listed")) {
+        if (!elem.checked) {
+          chosen_symptoms = removeItemAll(chosen_symptoms, elem_name);
+        }
+      }else{
+        // if input is from the symptom list form, and it is now not checked - remove it from the chosen symptoms
+        // this is so that if there is the same symptoms in multiple sections, if one is unchecked they will all be unchecked
+        if (!elem.checked){
+          chosen_symptoms = removeItemAll(chosen_symptoms, elem_name);
+        }
+      }
+
+      updateSelectedSymptoms(chosen_symptoms);
+
+      //loop through chosen_symptoms
+      checkReferral(chosen_symptoms);
+    });
+
+
+    function getCheckedSymptoms() {
+      //returns an array of checked symptoms from the symptom selector form only (not the selected symptom list)
+      chosen_symptoms = [];
+
+      var symptoms = document.querySelectorAll(".symptoms:not(.listed)");
+      for (var i = 0; i < symptoms.length; i++) {
+        if (symptoms[i].checked) {
+          var symptom_name = symptoms[i].getAttribute("name");
+          if (!chosen_symptoms.includes(symptom_name)){
+            chosen_symptoms.push(symptom_name);
+          }
+        }   
+      }
+      return chosen_symptoms;
+    }
+
+
+    function getSymptomText(symptom) {
+      return json_symptoms[symptom]["text"];
+    }
+
+
+    function updateSelectedSymptoms(chosen_symptoms){
+      // clear selected symptoms array
+      var already_added_symptoms = [];
+      document.getElementById("selected-symptoms-list").innerHTML = "";
+
+
+      // for each symptom set it to unchecked, then if in symptom array check the box again, and add it to the symptom list form
+      var symptoms = document.querySelectorAll(".symptoms,.listed");
+      for (var i = 0; i < symptoms.length; i++) {
+        symptoms[i].checked = false;
+        var symptom_name = symptoms[i].getAttribute("name");
+        if (chosen_symptoms.includes(symptom_name)) {
+          symptoms[i].checked = true;
+          if (!already_added_symptoms.includes(symptom_name)) {
+            $('#selected-symptoms-list').append(`<label class="checkbox-container">${getSymptomText(symptom_name)}<input type="checkbox" class="symptoms listed" name="${symptom_name}" value="${symptom_name}" checked><span class="checkmark"></span></label>`);
+          }
+          already_added_symptoms.push(symptom_name);
+        }   
+      }
+    }
+    
+
+    function checkReferral(check_symptoms) {
+      var referral = false;
+
+      // check if any referral criteria met from the list of checked symptoms
+      var refer_outcome = symptomLogic(check_symptoms);
+
+      // display the result
+      var ref_elem = document.getElementById("referral-result");
+      if (refer_outcome) {
+        ref_elem.innerHTML = refer_outcome;
+        ref_elem.classList.add("refer");
+      } else {
+        ref_elem.innerHTML = "No criteria met";
+        ref_elem.classList.remove("refer");
+
+      }
+      // update selected symptom list bottom padding to ensure not cut off by the referral-result (for mobile users)
+      var ssl = document.getElementById('selected-symptoms-list');
+      sslBottom = ssl.offsetHeight + getOffset(ssl).top;
+      console.log("ssl Bottom: "+sslBottom);
+      console.log("window height: "+window.innerHeight)
+
+      if (getOffset(ssl).off_screen || getOffset(ref_elem).off_screen){
+        ref_elem.style.position = "fixed";
+        ssl.style.paddingBottom = ref_elem.offsetHeight + "px";
+      }else{
+        // if symptom list all visible and screen width > 640 (not mobile), then set the referral-result div back to relative, so it moves up the page
+        const mediaQuery = window.matchMedia('(min-width: 640px)')
+        if (mediaQuery.matches) {
+          ref_elem.style.position = "relative";
+          ssl.style.paddingBottom = "0px";
+        }
+      }
+    }
+
+
+    function countSymptoms(symptom_list, symptom_required){
+      count_symptoms = 0;
+
+      for (var i = 0; i < symptom_required.length; i++){
+        if (symptom_list.includes(symptom_required[i])){
+          count_symptoms += 1;
+        }
+      }
+
+      return count_symptoms;
+    }
+
+
+    function symptomLogic(symptom_list) {
+      //code to take the symptom list and return a list of referral options, or false if nil
+      // Used NICE NG12 guidance 2023
+
+      var referral_return = "";
+      var age_text = document.getElementById("age").value;
+      if (age_text == ""){return "Please Enter the Patient Age";}
+      if (isNaN(age_text)){return "Age Invalid";}
+      var age = (age_text == "") ? 0 : parseInt(document.getElementById("age").value);
+      var gender = (document.getElementById("radio-male").checked ? "male" : "female");
+      var smoker = document.getElementById("checkbox-smoker").checked;
+      var ex_smoker = document.getElementById("checkbox-ex_smoker").checked;
+
+
+      // breast
+      if (age>=30 && symptom_list.includes("unexplained_breast_lump")) {
+        referral_return += " - 2WW Referral to Breast<br>";
+      } else if (age>=50 && (symptom_list.includes("unilateral_nipple_discharge") || symptom_list.includes("unilateral_nipple_retraction") || symptom_list.includes("concerning_breast_changes"))) {
+        referral_return += " - 2WW Referral to Breast<br>";
+      } else if (symptom_list.includes("skin_changes_suggesting_breast_cancer") || (age>=30 && symptom_list.includes("unexplained_lump_axilla"))) {
+        referral_return += " - Consider 2WW Referral to Breast<br>";
+      } else if (age<=30 && symptom_list.includes("unexplained_breast_lump")) {
+        referral_return += " - Consider Non-Urgent Referral to Breast<br>";
+      }
+
+      // urology: prostate
+      if (gender == "male") {
+        if (symptom_list.includes("malignant_feeling_prostate")) {
+          referral_return += " - 2WW Referral to Urology<br>";
+        } else if (symptom_list.includes("psa_level_above_age_threshold")) {
+          referral_return += " - Consider 2WW Referral to Urology<br>";
+        } else if (symptom_list.includes("lower_urinary_tract_symptoms") || symptom_list.includes("erectile_dysfunction") || symptom_list.includes("visible_haematuria")) {
+          referral_return += " - Consider PSA and D.R.E to Assess<br>";
+        }
+      }
+
+      // urology: bladder / renal
+      if (age>=45 && (symptom_list.includes("visible_haematuria_no_uti") || symptom_list.includes("visible_haematuria_recurring_after_uti_treatment"))) {
+        referral_return += " - 2WW Referral to Urology<br>";
+      } else if (age>=60 && symptom_list.includes("unexplained_non_visible_haematuria") && (symptom_list.includes("dysuria") || symptom_list.includes("raise_white_cell_count"))) {
+        referral_return += " - 2WW Referral to Urology<br>";
+      } else if (age>=60 && symptom_list.includes("recurrent_or_persistent_unexplained_uti")) {
+        referral_return += " - Consider Non-Urgent Referral to Urology<br>";
+      }
+
+      // urology: testicular
+      if (gender == "male") {
+        if (symptom_list.includes("non_painful_enlargement_testis") || symptom_list.includes("change_shape_or_texture_testis")) {
+          referral_return += " - Consider 2WW Referral to Urology<br>";
+        } else if (symptom_list.includes("unexplained_or_persistent_testicular_symptoms")) {
+          referral_return += " - Consider Direct Access Ultrasound<br>";
+        }
+      }
+
+
+      // urology: penis
+      if (gender == "male") {
+        if (symptom_list.includes("penile_mass_or_ulcerated_lesion")) {
+          referral_return += " - Consider 2WW Referral to Urology<br>";
+        } else if (symptom_list.includes("unexplained_or_persistent_symptoms_of_foreskin_or_glans")) {
+          referral_return += " - Consider 2WW Referral to Urology<br>";
+        }
+      }
+
+      // lower GI
+      if (age>=40 && symptom_list.includes("weight_loss") && symptom_list.includes("abdominal_pain")) {
+        referral_return += " - 2WW Referral to Lower GI<br>";
+      }else if (age>=50 && symptom_list.includes("rectal_bleeding")) {
+        referral_return += " - 2WW Referral to Lower GI<br>";
+      }else if (age>=60 && (symptom_list.includes("iron_deficiency_anaemia") || symptom_list.includes("change_in_bowel_habit"))) {
+        referral_return += " - 2WW Referral to Lower GI<br>";
+      }else if (symptom_list.includes("test_occult_blood_faeces")) {
+        referral_return += " - 2WW Referral to Lower GI<br>";
+      }else if (symptom_list.includes("rectal_mass") || symptom_list.includes("abdominal_mass") || symptom_list.includes("anal_mass") || symptom_list.includes("anal_ulceration")) {
+        referral_return += " - Consider 2WW Referral to Lower GI<br>";
+      }else if (age<50 && symptom_list.includes("rectal_bleeding") && (symptom_list.includes("abdominal_pain") || symptom_list.includes("change_in_bowel_habit") || symptom_list.includes("weight_loss") || symptom_list.includes("iron_deficiency_anaemia"))) {
+        referral_return += " - Consider 2WW Referral to Lower GI<br>";
+      }else if (!symptom_list.includes("rectal_bleeding") && ((age>=50 && symptom_list.includes("abdominal_pain")) || (age>=50 && symptom_list.includes("weight_loss")) || (age>=60 && symptom_list.includes("non_iron_deficiency_anaemia")) || (age<60 && (symptom_list.includes("change_in_bowel_habit") || symptom_list.includes("iron_deficiency_anaemia"))))) {
+        referral_return += " - Suggest sending a FIT test<br>";
+      }
+
+      // upper GI
+      if (symptom_list.includes("dysphagia")) {
+        referral_return += " - 2WW Direct Access Upper GI Endoscopy<br>";
+      }else if (age>=55 && symptom_list.includes("weight_loss") && (symptom_list.includes("upper_abdominal_pain") || symptom_list.includes("reflux") || symptom_list.includes("dyspepsia") || symptom_list.includes("treatment_resistant_dyspepsia"))) {
+        referral_return += " - 2WW Direct Access Upper GI Endoscopy<br>";
+      }else if (symptom_list.includes("upper_abdominal_mass")) {
+        referral_return += " - Consider 2WW Referral to Upper GI<br>";
+      }else if (symptom_list.includes("haematemesis")) {
+        referral_return += " - Consider Non-Urgent Direct Access Upper GI Endoscopy<br>";
+      }else if (age>=55 && symptom_list.includes("treatment_resistant_dyspepsia")) {
+        referral_return += " - Consider Non-Urgent Direct Access Upper GI Endoscopy<br>";
+      }else if (age>=55 && symptom_list.includes("upper_abdominal_pain") && (symptom_list.includes("low_haemoglobin") || symptom_list.includes("iron_deficiency_anaemia") || symptom_list.includes("non_iron_deficiency_anaemia"))) {
+        referral_return += " - Consider Non-Urgent Direct Access Upper GI Endoscopy<br>";
+      }else if (age>=55 && symptom_list.includes("thrombocytosis") && (symptom_list.includes("nausea_or_vomiting") || symptom_list.includes("weight_loss") || symptom_list.includes("reflux") || symptom_list.includes("dyspepsia") || symptom_list.includes("upper_abdominal_pain"))) {
+        referral_return += " - Consider Non-Urgent Direct Access Upper GI Endoscopy<br>";
+      }
+      else if (age>=55 && symptom_list.includes("nausea_or_vomiting") && (symptom_list.includes("weight_loss") || symptom_list.includes("reflux") || symptom_list.includes("dyspepsia") || symptom_list.includes("upper_abdominal_pain"))) {
+        referral_return += " - Consider Non-Urgent Direct Access Upper GI Endoscopy<br>";
+      }
+
+      // pancreatic / liver / gallbladder
+      if (age>=40 && symptom_list.includes("jaundice")) {
+        referral_return += " - 2WW Referral to Upper GI<br>";
+      }else if (age>=60 && symptom_list.includes("weight_loss") && (symptom_list.includes("diarrhoea") || symptom_list.includes("back_pain") || symptom_list.includes("abdominal_pain") || symptom_list.includes("upper_abdominal_pain") || symptom_list.includes("nausea_or_vomiting") || symptom_list.includes("constipation") || symptom_list.includes("new_onset_diabetes"))) {
+        referral_return += " - Consider 2WW Urgent CT scan (or Urgent Ultrasound if CT unavailable) for Pancreatic Cancer<br>";
+      }else if (symptom_list.includes("upper_abdominal_mass_enlarged_gallbladder") || symptom_list.includes("upper_abdominal_mass_enlarged_liver")) {
+        referral_return += " - Consider 2WW Direct Access Urgent Ultrasound for Gall Bladder / Liver Cancer<br>";
+      }
+
+      // lung
+      var count_lung_symptoms = countSymptoms(symptom_list,["cough","fatigue","shortness_of_breath","chest_pain","weight_loss","appetite_loss"]);
+      if (age>=40 && symptom_list.includes("unexplained_haemoptysis")) {
+        referral_return += " - 2WW Referral to Respiratory<br>";
+      }else if (symptom_list.includes("chest_xray_suggesting_lung_cancer") || symptom_list.includes("chest_xray_suggesting_mesothelioma")) {
+        referral_return += " - 2WW Referral to Respiratory<br>";
+      }else if (age>=40 && (count_lung_symptoms>=2)) {
+        referral_return += " - Urgent 2WW Chest X-Ray for Lung Cancer<br>";
+      }else if (age>=40 && (smoker || ex_smoker) && (count_lung_symptoms>=1)) {
+        referral_return += " - Urgent 2WW Chest X-Ray for Lung Cancer<br>";
+      }else if (age>=40 && symptom_list.includes("asbestos_exposure") && (count_lung_symptoms>=1)) {
+        referral_return += " - Urgent 2WW Chest X-Ray for Mesothelioma<br>";
+      }else if (age>=40 && (symptom_list.includes("persistent_or_recurrent_chest_infection") || symptom_list.includes("finger_clubbing") || symptom_list.includes("supraclavicular_lymphadenopathy") || symptom_list.includes("persistent_cervical_lymphadenopathy") || symptom_list.includes("chest_signs_consistent_with_lung_cancer") || symptom_list.includes("thrombocytosis"))) {
+        referral_return += " - Urgent 2WW Chest X-Ray for Lung Cancer<br>";
+      }else if (age>=40 && (symptom_list.includes("finger_clubbing") || symptom_list.includes("chest_signs_pleural_disease"))) {
+        referral_return += " - Urgent 2WW Chest X-Ray for Mesothelioma<br>";
+      }
+
+      // gynae
+      if (gender == "female") {
+        if (symptom_list.includes("ascites") || symptom_list.includes("abdominal_mass") || symptom_list.includes("pelvic_mass")) {
+          referral_return += " - 2WW Referral to Gynaecology<br>";
+        }else if (age>=55 && symptom_list.includes("post_menopausal_bleeding")) {
+          referral_return += " - 2WW Referral to Gynaecology<br>";
+        }else if (age<55 && symptom_list.includes("post_menopausal_bleeding")) {
+          referral_return += " - Consider 2WW Referral to Gynaecology<br>";
+        }else if (symptom_list.includes("cervix_consistent_with_cancer")) {
+          referral_return += " - Consider 2WW Referral to Gynaecology<br>";
+        }else if (symptom_list.includes("unexplained_vulval_lump") || symptom_list.includes("unexplained_vulval_ulceration") || symptom_list.includes("unexplained_vulval_bleeding")) {
+          referral_return += " - Consider 2WW Referral to Gynaecology<br>";
+        }else if (symptom_list.includes("unexplained_vaginal_mass")) {
+          referral_return += " - Consider 2WW Referral to Gynaecology<br>";
+        }
+
+        // endometrial direct access scanning
+        if (age>=55 && symptom_list.includes("unexplained_vaginal_discharge")) {
+          referral_return += " - Consider Direct Access Ultrasound for Endometrial cancer<br>";
+        }else if (age>=55 && (symptom_list.includes("visible_haematuria") || symptom_list.includes("visible_haematuria_no_uti") || symptom_list.includes("visible_haematuria_recurring_after_uti_treatment")) && (symptom_list.includes("low_haemoglobin") || symptom_list.includes("iron_deficiency_anaemia") || symptom_list.includes("non_iron_deficiency_anaemia") || symptom_list.includes("thrombocytosis") || symptom_list.includes("high_blood_glucose")) ) {
+          referral_return += " - Consider Direct Access Ultrasound for Endometrial cancer<br>";
+        }
+
+        // gynae ca125/uss
+        if (age>=50 && symptom_list.includes("IBS_symptoms")) {
+          referral_return += " - CA125 and/or Ultrasound tests<br>";
+        }else if (symptom_list.includes("abdominal_distension") || symptom_list.includes("early_satiety") || symptom_list.includes("appetite_loss") || symptom_list.includes("pelvic_pain") || symptom_list.includes("abdominal_pain") || symptom_list.includes("urinary_urgency") || symptom_list.includes("urinary_frequency")) {
+          referral_return += " - CA125 and/or Ultrasound tests (especially if >=50yo) who persistently/frequently (particularly > 12 times/month) have these symptoms<br>";
+        }
+      }
+
+      // haematology - children&young people (<=24)
+      if (age<=24 && (symptom_list.includes("unexplained_petechiae") || symptom_list.includes("hepatosplenomegaly"))) {
+        referral_return += " - Immediate Assessment by Paediatrics/Haematology for Leukaemia<br>";
+      }else if (age<=24 && (symptom_list.includes("pallor") || symptom_list.includes("fatigue") || symptom_list.includes("unexplained_fever") || symptom_list.includes("unexplained_persistent_infection") || symptom_list.includes("generalised_lymphadenopathy") || symptom_list.includes("persistent_unexplained_bone_pain") || symptom_list.includes("unexplained_bruising") || symptom_list.includes("unexplained_bleeding"))) {
+        referral_return += " - Very Urgent (<48hr) FBC for Leukaemia<br>";
+      }
+
+      if (age<=24 && (symptom_list.includes("unexplained_lymphadenopathy") || symptom_list.includes("splenomegaly"))) {
+        referral_return += " - Very Urgent Referral for Appointment <48hr for Lymphoma<br>";
+      }
+
+      // haematology - adults
+      if (age>24 && (symptom_list.includes("unexplained_lymphadenopathy") || symptom_list.includes("splenomegaly"))) {
+        referral_return += " - 2WW Referral to Haematology<br>";
+      }else if (age>24 && (symptom_list.includes("pallor") || symptom_list.includes("fatigue") || symptom_list.includes("unexplained_fever") || symptom_list.includes("unexplained_persistent_infection") || symptom_list.includes("generalised_lymphadenopathy") || symptom_list.includes("unexplained_bruising") || symptom_list.includes("unexplained_bleeding") || symptom_list.includes("unexplained_petechiae") || symptom_list.includes("hepatosplenomegaly"))) {
+        referral_return += " - Very Urgent (<48hr) FBC for Leukaemia<br>";
+      }
+
+      if (symptom_list.includes("protein_electrophoresis_suggesting_myeloma") || symptom_list.includes("bence_jones_suggesting_myeloma")) {
+        referral_return += " - 2WW Referral to Haematology<br>";
+      }else if (age>=60 && (symptom_list.includes("hypercalcaemia") || symptom_list.includes("leukopenia"))) {
+        referral_return += " - If Presentation Consistent with Myeloma: Very Urgent (<48hr) Protein Electrophoresis and Bence-Jones Protein Urine Test<br>";
+      }else if (symptom_list.includes("raised_plasma_viscosity") || symptom_list.includes("raised_ESR")) {
+        referral_return += " - If Presentation Consistent with Myeloma: Very Urgent (<48hr) Protein Electrophoresis and Bence-Jones Protein Urine Test<br>";
+      }else if (age>=60 && (symptom_list.includes("persistent_unexplained_bone_pain") || symptom_list.includes("back_pain") || symptom_list.includes("unexplained_fracture"))) {
+        referral_return += " - FBC, Calcium, Plasma Viscosity/ESR for Myeloma<br>";
+      }
+
+
+
+      return referral_return;
+    }
+  </script>
+</body>
+</html>
