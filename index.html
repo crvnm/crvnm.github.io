@@ -74,8 +74,8 @@
         right: 0;
         z-index: 1;
         background-color: rgba(0,0,0,0.4);
-        backdrop-filter: blur(5px);
-        -webkit-backdrop-filter: blur(5px);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
       }
 
       #float-form {
@@ -86,7 +86,7 @@
         width: 90%;
         max-width: 610px;
         /*need separate media css to make this bit work on mobile max-width: 610px;*/
-        background-color: white;
+        background-color: rgba(0, 0, 0, 0);
         border-radius: 4px;
         overflow-y: auto;
         -ms-overflow-style: none;  /* IE and Edge */
@@ -103,15 +103,31 @@
         justify-content: flex-end;
       }
 
-      #close-button {
+      #close-button-float {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 1.3em;
-        height: 1.3em;
-        font-size: 2em;
-        color: var(--blue-color);
+        position: fixed;
+        top: 0px;
+        right: 60px;
+        background-color: var(--blue-color);
+        color: white;
+        border: none;
+        padding: 5px;
+        font-size: 30px;
+        height: 60px;
+        width: 60px;
+        box-shadow: 0 2px 4px darkslategray;
         cursor: pointer;
+        /*transition: all 0.2s ease;*/
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+        border-radius: 50%;
+      }
+
+      #close-button-float:active {
+        background-color: var(--blue-color);
+        box-shadow: 0 0 2px darkslategray;
+        transform: translateY(2px);
       }
 
       #main-container {
@@ -442,7 +458,7 @@
   <div id="title">Cancer Referral Checker</div>
   <div id="float-container">
     <form id="float-form" class="form" name="float-form">
-      <div id="modal-close-container"><span id="close-button" onclick="closeModal();">&times;</span></div>
+      <button id="close-button-float" onclick="closeModal();">&times;</button>
     </form>
   </div>
   <div id="main-container">
@@ -474,8 +490,33 @@
     var json_symptoms = Object;
     var float_container = document.getElementById("float-container");
 
+    function getOffset(el) {
+      const rect = el.getBoundingClientRect();
+      return {
+        left: rect.left + window.scrollX,
+        top: rect.top + window.scrollY,
+        bottom: rect.top + window.scrollY + el.offsetHeight,
+        off_screen: (rect.top + window.scrollY + el.offsetHeight) > window.innerHeight
+      };
+    }
+
     function showModal() {
       float_container.style.display = "flex";
+
+      var form_elem = document.getElementById("float-form");
+      var form_offset = getOffset(form_elem);
+      var form_top = form_offset.top;
+      var form_left = form_offset.left;
+      var form_right = form_offset.left + form_elem.offsetWidth;
+      const button_elem = document.getElementById("close-button-float");
+      var new_top = (form_top - (button_elem.offsetHeight / 2));
+      if (new_top < 0){new_top = 0;}
+      button_elem.style.top = new_top + "px";
+      var new_right = window.innerWidth - (form_right + (button_elem.offsetWidth / 2));
+      if (new_right < 0){new_right = 0;}
+      button_elem.style.right =  new_right + "px";
+      console.log("right: "+(button_elem.style.left+button_elem.offsetWidth));
+      //if ((button_elem.style.left + button_elem.offsetWidth) > window.innerWidth){button_elem.style.left = (window.innerWidth - button_elem.offsetWidth);}
     }
 
     function closeModal() {
@@ -494,15 +535,6 @@
       return arr;
     }
 
-    function getOffset(el) {
-      const rect = el.getBoundingClientRect();
-      return {
-        left: rect.left + window.scrollX,
-        top: rect.top + window.scrollY,
-        bottom: rect.top + window.scrollY + el.offsetHeight,
-        off_screen: (rect.top + window.scrollY + el.offsetHeight) > window.innerHeight
-      };
-    }
 
     document.addEventListener("DOMContentLoaded", function() {
       // function body
@@ -558,6 +590,7 @@
             content.style.display = "none";
           } else {
             content.style.display = "flex";
+            content.parentElement.scrollIntoView();
           }
         });
       }
@@ -664,8 +697,6 @@
       // update selected symptom list bottom padding to ensure not cut off by the referral-result (for mobile users)
       var ssl = document.getElementById('selected-symptoms-list');
       sslBottom = ssl.offsetHeight + getOffset(ssl).top;
-      console.log("ssl Bottom: "+sslBottom);
-      console.log("window height: "+window.innerHeight)
 
       if (getOffset(ssl).off_screen || getOffset(ref_elem).off_screen){
         ref_elem.style.position = "fixed";
