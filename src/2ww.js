@@ -1,19 +1,39 @@
 var data = {
-	"iron_deficiency_anaemia": {
-		"text": "Iron Deficiency Anaemia",
-		"categories": ["Frequently Used","Blood Tests","Lower GI"]
-	},
 	"weight_loss": {
 		"text": "Weight Loss",
-		"categories": ["Frequently Used","Lower GI", "Upper GI", "Lung"]
+		"categories": ["General / Non-specific","Lower GI", "Upper GI", "Lung"]
 	},
 	"abdominal_pain": {
 		"text": "Abdominal Pain",
-		"categories": ["Frequently Used","Lower GI","Upper GI", "Gynaecology"]
+		"categories": ["General / Non-specific","Lower GI","Upper GI", "Gynaecology"]
+	},
+	"upper_abdominal_pain": {
+		"text": "Upper Abdominal Pain",
+		"categories": ["General / Non-specific","Upper GI"]
+	},
+	"back_pain": {
+		"text": "Back Pain",
+		"categories": ["General / Non-specific","Upper GI","Gynaecology"]
+	},
+	"iron_deficiency_anaemia": {
+		"text": "Iron Deficiency Anaemia",
+		"categories": ["General / Non-specific","Blood Tests","Lower GI"]
+	},
+	"non_iron_deficiency_anaemia": {
+		"text": "Non-iron Deficiency Anaemia",
+		"categories": ["General / Non-specific","Lower GI","Blood Tests"]
+	},
+	"low_haemoglobin": {
+		"text": "Low Haemoglobin",
+		"categories": ["General / Non-specific","Upper GI","Blood Tests","Gynaecology"]
+	},
+	"raise_white_cell_count": {
+		"text": "Raised White Cell Count",
+		"categories": ["Urology: Bladder / Renal","Blood Tests"]
 	},
 	"thrombocytosis": {
 		"text": "Thrombocytosis",
-		"categories": ["Frequently Used","Blood Tests","Upper GI","Lung","Gynaecology"]
+		"categories": ["General / Non-specific","Blood Tests","Upper GI","Lung","Gynaecology"]
 	},
 	"unexplained_breast_lump": {
 		"text": "Unexplained Breast Lump",
@@ -63,16 +83,8 @@ var data = {
 		"text": "Test Shows Occult Blood in Faeces",
 		"categories": ["Lower GI"]
 	},
-	"non_iron_deficiency_anaemia": {
-		"text": "Non-iron Deficiency Anaemia",
-		"categories": ["Lower GI","Blood Tests"]
-	},
 	"dysphagia": {
 		"text": "Dysphagia",
-		"categories": ["Upper GI"]
-	},
-	"upper_abdominal_pain": {
-		"text": "Upper Abdominal Pain",
 		"categories": ["Upper GI"]
 	},
 	"reflux": {
@@ -91,10 +103,6 @@ var data = {
 		"text": "Treatment Resistant Dyspepsia",
 		"categories": ["Upper GI"]
 	},
-	"low_haemoglobin": {
-		"text": "Low Haemoglobin",
-		"categories": ["Upper GI","Blood Tests","Gynaecology"]
-	},
 	"nausea_or_vomiting": {
 		"text": "Nausea / Vomiting",
 		"categories": ["Upper GI"]
@@ -106,10 +114,6 @@ var data = {
 	"diarrhoea": {
 		"text": "Diarrhoea",
 		"categories": ["Upper GI"]
-	},
-	"back_pain": {
-		"text": "Back Pain",
-		"categories": ["Upper GI","Gynaecology"]
 	},
 	"constipation": {
 		"text": "Constipation",
@@ -218,10 +222,6 @@ var data = {
 	"dysuria": {
 		"text": "Dysuria",
 		"categories": ["Urology: Bladder / Renal"]
-	},
-	"raise_white_cell_count": {
-		"text": "Raised White Cell Count",
-		"categories": ["Urology: Bladder / Renal","Blood Tests"]
 	},
 	"recurrent_or_persistent_unexplained_uti": {
 		"text": "Recurrent / Persistent Unexplained UTI",
