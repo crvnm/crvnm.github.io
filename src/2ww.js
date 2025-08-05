@@ -155,10 +155,6 @@ var data = {
 		"text": "Chest X-Ray Suggesting Lung Cancer",
 		"categories": ["Lung"]
 	},
-	"chest_xray_suggesting_mesothelioma": {
-		"text": "Chest X-Ray Suggesting Mesothelioma",
-		"categories": ["Lung"]
-	},
 	"persistent_or_recurrent_chest_infection": {
 		"text": "Persistent / Recurrent Chest Infection",
 		"categories": ["Lung"]
@@ -186,6 +182,30 @@ var data = {
 	"chest_signs_pleural_disease": {
 		"text": "Chest Signs Compatible with Pleural Disease",
 		"categories": ["Lung"]
+	},
+	"persistent_unexplained_hoarseness": {
+		"text": "Persistent Unexplained Hoarseness",
+		"categories": ["ENT"]
+	},
+	"unexplained_neck_lump": {
+		"text": "Unexplained Neck Lump",
+		"categories": ["ENT"]
+	},
+	"unexplained_oral_ulcer": {
+		"text": "Unexplained Oral Ulcer (>3 weeks)",
+		"categories": ["ENT"]
+	},
+	"lump_lip_oral_cavity": {
+		"text": "Lump on Lip or in Oral Cavity",
+		"categories": ["ENT"]
+	},
+	"red_or_red_white_oral_patch": {
+		"text": "Red / Red and White Oral Patch",
+		"categories": ["ENT"]
+	},
+	"unexplained_thyroid_lump": {
+		"text": "Unexplained Thyroid Lump",
+		"categories": ["ENT"]
 	},
 	"malignant_feeling_prostate": {
 		"text": "Malignant Feeling Prostate",

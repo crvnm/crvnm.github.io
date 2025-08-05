@@ -859,6 +859,20 @@
         referral_return += " - Urgent 2WW Chest X-Ray for Mesothelioma<br>";
       }
 
+      // ENT / Maxfax
+      if (age>=45 && (symptom_list.includes("persistent_unexplained_hoarseness") || symptom_list.includes("unexplained_neck_lump"))) {
+        referral_return += " - 2WW Referral to ENT<br>";
+      }
+      if (symptom_list.includes("unexplained_oral_ulcer") || symptom_list.includes("unexplained_neck_lump")) {
+        referral_return += " - 2WW Referral to ENT / Maxfax<br>";
+      }
+      if (symptom_list.includes("lump_lip_oral_cavity") || symptom_list.includes("red_or_red_white_oral_patch")) {
+        referral_return += " - 2WW Referral to Dentist<br>";
+      }
+      if (symptom_list.includes("unexplained_thyroid_lump")) {
+        referral_return += " - 2WW Referral to ENT<br>";
+      }
+
       // gynae
       if (gender == "female") {
         if (symptom_list.includes("ascites") || symptom_list.includes("abdominal_mass") || symptom_list.includes("pelvic_mass")) {
