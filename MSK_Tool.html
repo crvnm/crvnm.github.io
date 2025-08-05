@@ -772,7 +772,8 @@
 
 
     //TODO:
-    // 1. Code to include the movement specific non-root neurological causes
+    // 1. FIX TO RETURN THE SCROLL ICON
+    // 2. Code to include the movement specific non-root neurological causes
 
 
     function updateOutput() {
@@ -852,6 +853,24 @@
           : "Dermatome Map";
 
       outputBox.innerHTML = output || "Select a dermatome and/or myotome.";
+
+      const scrollIndicator = document.getElementById("scroll-indicator");
+
+      if (window.innerWidth <= 600 && output !== "") {
+        // Check if results are below the visible viewport
+        const outputBox = document.getElementById("output");
+        const rect = outputBox.getBoundingClientRect();
+        const isBelowView = rect.top > window.innerHeight;
+
+        if (isBelowView) {
+          scrollIndicator.style.display = "flex";
+        } else {
+          scrollIndicator.style.display = "none";
+        }
+      } else {
+        scrollIndicator.style.display = "none";
+      }
+      
     }
 
 
