@@ -1,0 +1,29 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+*.cfg
+
+# Node
+node_modules/
+.env
+
+# Build output
+dist/
+build/
+
+uk-chart-browser/venv/
+uk-chart-browser/scripts/
+uk-chart-browser/raw/
+
+uk-chart-browser/.*.json
+uk-chart-browser/.*.pkl
+
+uk-chart-browser/out/old/
+uk-chart-browser/Progress.txt
+uk-chart-browser/README_FULL_PROCESS.md
+uk-chart-browser/RunWebServer.txt
+
