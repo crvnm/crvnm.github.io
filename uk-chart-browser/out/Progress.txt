@@ -1,0 +1,8 @@
+Progress:
+enrich applied to 2012, 2013, 2014
+Partial manual on 2012, 2013, 2014
+Musicbrainz only on 2016
+Musicbrainz and partial manual on 2015, 1997
+
+Still to spotify:
+2015, 1997

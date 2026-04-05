@@ -1,0 +1,4789 @@
+{
+  "year": 2024,
+  "weeks": [
+    "2024-01-05",
+    "2024-01-12",
+    "2024-01-19",
+    "2024-01-26",
+    "2024-02-02",
+    "2024-02-09",
+    "2024-02-16",
+    "2024-02-23",
+    "2024-03-01",
+    "2024-03-08",
+    "2024-03-15",
+    "2024-03-22",
+    "2024-03-29"
+  ],
+  "minPosition": 1,
+  "maxPosition": 40,
+  "positions": {
+    "1": [
+      {
+        "w": "2024-01-05",
+        "t": "STICK SEASON",
+        "a": "NOAH KAHAN",
+        "lw": 10,
+        "pk": 1,
+        "wc": 14,
+        "sid": null
+      },
+      {
+        "w": "2024-01-12",
+        "t": "STICK SEASON",
+        "a": "NOAH KAHAN",
+        "lw": 1,
+        "pk": 1,
+        "wc": 15,
+        "sid": null
+      },
+      {
+        "w": "2024-01-19",
+        "t": "STICK SEASON",
+        "a": "NOAH KAHAN",
+        "lw": 1,
+        "pk": 1,
+        "wc": 16,
+        "sid": null
+      },
+      {
+        "w": "2024-01-26",
+        "t": "STICK SEASON",
+        "a": "NOAH KAHAN",
+        "lw": 1,
+        "pk": 1,
+        "wc": 17,
+        "sid": null
+      },
+      {
+        "w": "2024-02-02",
+        "t": "STICK SEASON",
+        "a": "NOAH KAHAN",
+        "lw": 1,
+        "pk": 1,
+        "wc": 18,
+        "sid": null
+      },
+      {
+        "w": "2024-02-09",
+        "t": "STICK SEASON",
+        "a": "NOAH KAHAN",
+        "lw": 1,
+        "pk": 1,
+        "wc": 19,
+        "sid": null
+      },
+      {
+        "w": "2024-02-16",
+        "t": "STICK SEASON",
+        "a": "NOAH KAHAN",
+        "lw": 1,
+        "pk": 1,
+        "wc": 20,
+        "sid": null
+      },
+      {
+        "w": "2024-02-23",
+        "t": "TEXAS HOLD 'EM",
+        "a": "BEYONCE",
+        "lw": 9,
+        "pk": 1,
+        "wc": 2,
+        "sid": null
+      },
+      {
+        "w": "2024-03-01",
+        "t": "TEXAS HOLD 'EM",
+        "a": "BEYONCE",
+        "lw": 1,
+        "pk": 1,
+        "wc": 3,
+        "sid": null
+      },
+      {
+        "w": "2024-03-08",
+        "t": "TEXAS HOLD 'EM",
+        "a": "BEYONCE",
+        "lw": 1,
+        "pk": 1,
+        "wc": 4,
+        "sid": null
+      },
+      {
+        "w": "2024-03-15",
+        "t": "TEXAS HOLD 'EM",
+        "a": "BEYONCE",
+        "lw": 1,
+        "pk": 1,
+        "wc": 5,
+        "sid": null
+      },
+      {
+        "w": "2024-03-22",
+        "t": "BEAUTIFUL THINGS",
+        "a": "BENSON BOONE",
+        "lw": 2,
+        "pk": 1,
+        "wc": 9,
+        "sid": null
+      },
+      {
+        "w": "2024-03-29",
+        "t": "BEAUTIFUL THINGS",
+        "a": "BENSON BOONE",
+        "lw": 1,
+        "pk": 1,
+        "wc": 10,
+        "sid": null
+      }
+    ],
+    "2": [
+      {
+        "w": "2024-01-05",
+        "t": "LOVIN ON ME",
+        "a": "JACK HARLOW",
+        "lw": 27,
+        "pk": 1,
+        "wc": 8,
+        "sid": null
+      },
+      {
+        "w": "2024-01-12",
+        "t": "MURDER ON THE DANCEFLOOR",
+        "a": "SOPHIE ELLIS-BEXTOR",
+        "lw": 8,
+        "pk": 2,
+        "wc": 18,
+        "sid": null
+      },
+      {
+        "w": "2024-01-19",
+        "t": "YES AND",
+        "a": "ARIANA GRANDE",
+        "lw": "New",
+        "pk": 2,
+        "wc": 1,
+        "sid": null
+      },
+      {
+        "w": "2024-01-26",
+        "t": "MURDER ON THE DANCEFLOOR",
+        "a": "SOPHIE ELLIS-BEXTOR",
+        "lw": 3,
+        "pk": 2,
+        "wc": 20,
+        "sid": null
+      },
+      {
+        "w": "2024-02-02",
+        "t": "MURDER ON THE DANCEFLOOR",
+        "a": "SOPHIE ELLIS-BEXTOR",
+        "lw": 2,
+        "pk": 2,
+        "wc": 21,
+        "sid": null
+      },
+      {
+        "w": "2024-02-09",
+        "t": "MURDER ON THE DANCEFLOOR",
+        "a": "SOPHIE ELLIS-BEXTOR",
+        "lw": 2,
+        "pk": 2,
+        "wc": 22,
+        "sid": null
+      },
+      {
+        "w": "2024-02-16",
+        "t": "MURDER ON THE DANCEFLOOR",
+        "a": "SOPHIE ELLIS-BEXTOR",
+        "lw": 2,
+        "pk": 2,
+        "wc": 23,
+        "sid": null
+      },
+      {
+        "w": "2024-02-23",
+        "t": "BEAUTIFUL THINGS",
+        "a": "BENSON BOONE",
+        "lw": 3,
+        "pk": 2,
+        "wc": 5,
+        "sid": null
+      },
+      {
+        "w": "2024-03-01",
+        "t": "LOSE CONTROL",
+        "a": "TEDDY SWIMS",
+        "lw": 3,
+        "pk": 2,
+        "wc": 17,
+        "sid": null
+      },
+      {
+        "w": "2024-03-08",
+        "t": "BEAUTIFUL THINGS",
+        "a": "BENSON BOONE",
+        "lw": 3,
+        "pk": 2,
+        "wc": 7,
+        "sid": null
+      },
+      {
+        "w": "2024-03-15",
+        "t": "BEAUTIFUL THINGS",
+        "a": "BENSON BOONE",
+        "lw": 2,
+        "pk": 2,
+        "wc": 8,
+        "sid": null
+      },
+      {
+        "w": "2024-03-22",
+        "t": "WE CAN'T BE FRIENDS (WAIT FOR YOUR LOVE)",
+        "a": "ARIANA GRANDE",
+        "lw": 3,
+        "pk": 2,
+        "wc": 2,
+        "sid": null
+      },
+      {
+        "w": "2024-03-29",
+        "t": "LOSE CONTROL",
+        "a": "TEDDY SWIMS",
+        "lw": 4,
+        "pk": 2,
+        "wc": 21,
+        "sid": null
+      }
+    ],
+    "3": [
+      {
+        "w": "2024-01-05",
+        "t": "PRADA",
+        "a": "CASSO/RAYE/D-BLOCK EUROPE",
+        "lw": 73,
+        "pk": 2,
+        "wc": 21,
+        "sid": null
+      },
+      {
+        "w": "2024-01-12",
+        "t": "LOVIN ON ME",
+        "a": "JACK HARLOW",
+        "lw": 2,
+        "pk": 1,
+        "wc": 9,
+        "sid": null
+      },
+      {
+        "w": "2024-01-19",
+        "t": "MURDER ON THE DANCEFLOOR",
+        "a": "SOPHIE ELLIS-BEXTOR",
+        "lw": 2,
+        "pk": 2,
+        "wc": 19,
+        "sid": null
+      },
+      {
+        "w": "2024-01-26",
+        "t": "YES AND",
+        "a": "ARIANA GRANDE",
+        "lw": 2,
+        "pk": 2,
+        "wc": 2,
+        "sid": null
+      },
+      {
+        "w": "2024-02-02",
+        "t": "LOSE CONTROL",
+        "a": "TEDDY SWIMS",
+        "lw": 6,
+        "pk": 3,
+        "wc": 13,
+        "sid": null
+      },
+      {
+        "w": "2024-02-09",
+        "t": "LOSE CONTROL",
+        "a": "TEDDY SWIMS",
+        "lw": 3,
+        "pk": 3,
+        "wc": 14,
+        "sid": null
+      },
+      {
+        "w": "2024-02-16",
+        "t": "BEAUTIFUL THINGS",
+        "a": "BENSON BOONE",
+        "lw": 5,
+        "pk": 3,
+        "wc": 4,
+        "sid": null
+      },
+      {
+        "w": "2024-02-23",
+        "t": "LOSE CONTROL",
+        "a": "TEDDY SWIMS",
+        "lw": 4,
+        "pk": 3,
+        "wc": 16,
+        "sid": null
+      },
+      {
+        "w": "2024-03-01",
+        "t": "BEAUTIFUL THINGS",
+        "a": "BENSON BOONE",
+        "lw": 2,
+        "pk": 2,
+        "wc": 6,
+        "sid": null
+      },
+      {
+        "w": "2024-03-08",
+        "t": "LOSE CONTROL",
+        "a": "TEDDY SWIMS",
+        "lw": 2,
+        "pk": 2,
+        "wc": 18,
+        "sid": null
+      },
+      {
+        "w": "2024-03-15",
+        "t": "WE CAN'T BE FRIENDS (WAIT FOR YOUR LOVE)",
+        "a": "ARIANA GRANDE",
+        "lw": "New",
+        "pk": 3,
+        "wc": 1,
+        "sid": null
+      },
+      {
+        "w": "2024-03-22",
+        "t": "TEXAS HOLD 'EM",
+        "a": "BEYONCE",
+        "lw": 1,
+        "pk": 1,
+        "wc": 6,
+        "sid": null
+      },
+      {
+        "w": "2024-03-29",
+        "t": "TEXAS HOLD 'EM",
+        "a": "BEYONCE",
+        "lw": 3,
+        "pk": 1,
+        "wc": 7,
+        "sid": null
+      }
+    ],
+    "4": [
+      {
+        "w": "2024-01-05",
+        "t": "GEDY",
+        "a": "TATE MCRAE",
+        "lw": 37,
+        "pk": 3,
+        "wc": 16,
+        "sid": null
+      },
+      {
+        "w": "2024-01-12",
+        "t": "PRADA",
+        "a": "CASSO/RAYE/D-BLOCK EUROPE",
+        "lw": 3,
+        "pk": 2,
+        "wc": 22,
+        "sid": null
+      },
+      {
+        "w": "2024-01-19",
+        "t": "LOVIN ON ME",
+        "a": "JACK HARLOW",
+        "lw": 3,
+        "pk": 1,
+        "wc": 10,
+        "sid": null
+      },
+      {
+        "w": "2024-01-26",
+        "t": "LOVIN ON ME",
+        "a": "JACK HARLOW",
+        "lw": 4,
+        "pk": 1,
+        "wc": 11,
+        "sid": null
+      },
+      {
+        "w": "2024-02-02",
+        "t": "LOVIN ON ME",
+        "a": "JACK HARLOW",
+        "lw": 4,
+        "pk": 1,
+        "wc": 12,
+        "sid": null
+      },
+      {
+        "w": "2024-02-09",
+        "t": "LOVIN ON ME",
+        "a": "JACK HARLOW",
+        "lw": 4,
+        "pk": 1,
+        "wc": 13,
+        "sid": null
+      },
+      {
+        "w": "2024-02-16",
+        "t": "LOSE CONTROL",
+        "a": "TEDDY SWIMS",
+        "lw": 3,
+        "pk": 3,
+        "wc": 15,
+        "sid": null
+      },
+      {
+        "w": "2024-02-23",
+        "t": "TRAINING SEASON",
+        "a": "DUA LIPA",
+        "lw": "New",
+        "pk": 4,
+        "wc": 1,
+        "sid": null
+      },
+      {
+        "w": "2024-03-01",
+        "t": "STICK SEASON",
+        "a": "NOAH KAHAN",
+        "lw": 5,
+        "pk": 1,
+        "wc": 22,
+        "sid": null
+      },
+      {
+        "w": "2024-03-08",
+        "t": "END OF BEGINNING",
+        "a": "DJO",
+        "lw": 5,
+        "pk": 4,
+        "wc": 4,
+        "sid": null
+      },
+      {
+        "w": "2024-03-15",
+        "t": "END OF BEGINNING",
+        "a": "DJO",
+        "lw": 4,
+        "pk": 4,
+        "wc": 5,
+        "sid": null
+      },
+      {
+        "w": "2024-03-22",
+        "t": "LOSE CONTROL",
+        "a": "TEDDY SWIMS",
+        "lw": 5,
+        "pk": 2,
+        "wc": 20,
+        "sid": null
+      },
+      {
+        "w": "2024-03-29",
+        "t": "WE CAN'T BE FRIENDS (WAIT FOR YOUR LOVE)",
+        "a": "ARIANA GRANDE",
+        "lw": 2,
+        "pk": 2,
+        "wc": 3,
+        "sid": null
+      }
+    ],
+    "5": [
+      {
+        "w": "2024-01-05",
+        "t": "CRUEL SUMMER",
+        "a": "TAYLOR SWIFT",
+        "lw": 96,
+        "pk": 2,
+        "wc": 29,
+        "sid": null
+      },
+      {
+        "w": "2024-01-12",
+        "t": "GEDY",
+        "a": "TATE MCRAE",
+        "lw": 4,
+        "pk": 3,
+        "wc": 17,
+        "sid": null
+      },
+      {
+        "w": "2024-01-19",
+        "t": "LOSE CONTROL",
+        "a": "TEDDY SWIMS",
+        "lw": 6,
+        "pk": 5,
+        "wc": 11,
+        "sid": null
+      },
+      {
+        "w": "2024-01-26",
+        "t": "HOMESICK",
+        "a": "NOAH KAHAN & SAM FENDER",
+        "lw": "New",
+        "pk": 5,
+        "wc": 1,
+        "sid": null
+      },
+      {
+        "w": "2024-02-02",
+        "t": "YES AND",
+        "a": "ARIANA GRANDE",
+        "lw": 3,
+        "pk": 2,
+        "wc": 3,
+        "sid": null
+      },
+      {
+        "w": "2024-02-09",
+        "t": "BEAUTIFUL THINGS",
+        "a": "BENSON BOONE",
+        "lw": 11,
+        "pk": 5,
+        "wc": 3,
+        "sid": null
+      },
+      {
+        "w": "2024-02-16",
+        "t": "PRAISE JAH IN THE MOONLIGHT",
+        "a": "YG MARLEY",
+        "lw": 9,
+        "pk": 5,
+        "wc": 5,
+        "sid": null
+      },
+      {
+        "w": "2024-02-23",
+        "t": "STICK SEASON",
+        "a": "NOAH KAHAN",
+        "lw": 1,
+        "pk": 1,
+        "wc": 21,
+        "sid": null
+      },
+      {
+        "w": "2024-03-01",
+        "t": "END OF BEGINNING",
+        "a": "DJO",
+        "lw": 11,
+        "pk": 5,
+        "wc": 3,
+        "sid": null
+      },
+      {
+        "w": "2024-03-08",
+        "t": "CARNIVAL",
+        "a": "KANYE WEST/TY DOLLA SIGN",
+        "lw": 9,
+        "pk": 5,
+        "wc": 4,
+        "sid": null
+      },
+      {
+        "w": "2024-03-15",
+        "t": "LOSE CONTROL",
+        "a": "TEDDY SWIMS",
+        "lw": 3,
+        "pk": 2,
+        "wc": 19,
+        "sid": null
+      },
+      {
+        "w": "2024-03-22",
+        "t": "END OF BEGINNING",
+        "a": "DJO",
+        "lw": 4,
+        "pk": 4,
+        "wc": 6,
+        "sid": null
+      },
+      {
+        "w": "2024-03-29",
+        "t": "END OF BEGINNING",
+        "a": "DJO",
+        "lw": 5,
+        "pk": 4,
+        "wc": 7,
+        "sid": null
+      }
+    ],
+    "6": [
+      {
+        "w": "2024-01-05",
+        "t": "HOUDINI",
+        "a": "DUA LIPA",
+        "lw": 52,
+        "pk": 2,
+        "wc": 8,
+        "sid": null
+      },
+      {
+        "w": "2024-01-12",
+        "t": "LOSE CONTROL",
+        "a": "TEDDY SWIMS",
+        "lw": 14,
+        "pk": 6,
+        "wc": 10,
+        "sid": null
+      },
+      {
+        "w": "2024-01-19",
+        "t": "PRADA",
+        "a": "CASSO/RAYE/D-BLOCK EUROPE",
+        "lw": 4,
+        "pk": 2,
+        "wc": 23,
+        "sid": null
+      },
+      {
+        "w": "2024-01-26",
+        "t": "LOSE CONTROL",
+        "a": "TEDDY SWIMS",
+        "lw": 5,
+        "pk": 5,
+        "wc": 12,
+        "sid": null
+      },
+      {
+        "w": "2024-02-02",
+        "t": "PRADA",
+        "a": "CASSO/RAYE/D-BLOCK EUROPE",
+        "lw": 7,
+        "pk": 2,
+        "wc": 25,
+        "sid": null
+      },
+      {
+        "w": "2024-02-09",
+        "t": "PRADA",
+        "a": "CASSO/RAYE/D-BLOCK EUROPE",
+        "lw": 6,
+        "pk": 2,
+        "wc": 26,
+        "sid": null
+      },
+      {
+        "w": "2024-02-16",
+        "t": "PRADA",
+        "a": "CASSO/RAYE/D-BLOCK EUROPE",
+        "lw": 6,
+        "pk": 2,
+        "wc": 27,
+        "sid": null
+      },
+      {
+        "w": "2024-02-23",
+        "t": "PRAISE JAH IN THE MOONLIGHT",
+        "a": "YG MARLEY",
+        "lw": 5,
+        "pk": 5,
+        "wc": 6,
+        "sid": null
+      },
+      {
+        "w": "2024-03-01",
+        "t": "PRAISE JAH IN THE MOONLIGHT",
+        "a": "YG MARLEY",
+        "lw": 6,
+        "pk": 5,
+        "wc": 7,
+        "sid": null
+      },
+      {
+        "w": "2024-03-08",
+        "t": "STICK SEASON",
+        "a": "NOAH KAHAN",
+        "lw": 4,
+        "pk": 1,
+        "wc": 23,
+        "sid": null
+      },
+      {
+        "w": "2024-03-15",
+        "t": "YES AND",
+        "a": "ARIANA GRANDE",
+        "lw": 11,
+        "pk": 2,
+        "wc": 9,
+        "sid": null
+      },
+      {
+        "w": "2024-03-22",
+        "t": "STICK SEASON",
+        "a": "NOAH KAHAN",
+        "lw": 7,
+        "pk": 1,
+        "wc": 25,
+        "sid": null
+      },
+      {
+        "w": "2024-03-29",
+        "t": "LIKE THAT",
+        "a": "FUTURE & METRO BOOMIN/KENDRICK",
+        "lw": "New",
+        "pk": 6,
+        "wc": 1,
+        "sid": null
+      }
+    ],
+    "7": [
+      {
+        "w": "2024-01-05",
+        "t": "WATER",
+        "a": "TYLA",
+        "lw": 99,
+        "pk": 4,
+        "wc": 17,
+        "sid": null
+      },
+      {
+        "w": "2024-01-12",
+        "t": "CRUEL SUMMER",
+        "a": "TAYLOR SWIFT",
+        "lw": 5,
+        "pk": 2,
+        "wc": 30,
+        "sid": null
+      },
+      {
+        "w": "2024-01-19",
+        "t": "GEDY",
+        "a": "TATE MCRAE",
+        "lw": 5,
+        "pk": 3,
+        "wc": 18,
+        "sid": null
+      },
+      {
+        "w": "2024-01-26",
+        "t": "PRADA",
+        "a": "CASSO/RAYE/D-BLOCK EUROPE",
+        "lw": 6,
+        "pk": 2,
+        "wc": 24,
+        "sid": null
+      },
+      {
+        "w": "2024-02-02",
+        "t": "GEDY",
+        "a": "TATE MCRAE",
+        "lw": 8,
+        "pk": 3,
+        "wc": 20,
+        "sid": null
+      },
+      {
+        "w": "2024-02-09",
+        "t": "YES AND",
+        "a": "ARIANA GRANDE",
+        "lw": 5,
+        "pk": 2,
+        "wc": 4,
+        "sid": null
+      },
+      {
+        "w": "2024-02-16",
+        "t": "CRUEL SUMMER",
+        "a": "TAYLOR SWIFT",
+        "lw": 10,
+        "pk": 2,
+        "wc": 35,
+        "sid": null
+      },
+      {
+        "w": "2024-02-23",
+        "t": "YES AND",
+        "a": "ARIANA GRANDE",
+        "lw": 10,
+        "pk": 2,
+        "wc": 6,
+        "sid": null
+      },
+      {
+        "w": "2024-03-01",
+        "t": "CRUEL SUMMER",
+        "a": "TAYLOR SWIFT",
+        "lw": 9,
+        "pk": 2,
+        "wc": 37,
+        "sid": null
+      },
+      {
+        "w": "2024-03-08",
+        "t": "PRAISE JAH IN THE MOONLIGHT",
+        "a": "YG MARLEY",
+        "lw": 6,
+        "pk": 5,
+        "wc": 8,
+        "sid": null
+      },
+      {
+        "w": "2024-03-15",
+        "t": "STICK SEASON",
+        "a": "NOAH KAHAN",
+        "lw": 6,
+        "pk": 1,
+        "wc": 24,
+        "sid": null
+      },
+      {
+        "w": "2024-03-22",
+        "t": "YES AND",
+        "a": "ARIANA GRANDE",
+        "lw": 6,
+        "pk": 2,
+        "wc": 10,
+        "sid": null
+      },
+      {
+        "w": "2024-03-29",
+        "t": "STICK SEASON",
+        "a": "NOAH KAHAN",
+        "lw": 6,
+        "pk": 1,
+        "wc": 26,
+        "sid": null
+      }
+    ],
+    "8": [
+      {
+        "w": "2024-01-05",
+        "t": "MURDER ON THE DANCEFLOOR",
+        "a": "SOPHIE ELLIS-BEXTOR",
+        "lw": "RE",
+        "pk": 2,
+        "wc": 17,
+        "sid": null
+      },
+      {
+        "w": "2024-01-12",
+        "t": "WATER",
+        "a": "TYLA",
+        "lw": 7,
+        "pk": 4,
+        "wc": 18,
+        "sid": null
+      },
+      {
+        "w": "2024-01-19",
+        "t": "CRUEL SUMMER",
+        "a": "TAYLOR SWIFT",
+        "lw": 7,
+        "pk": 2,
+        "wc": 31,
+        "sid": null
+      },
+      {
+        "w": "2024-01-26",
+        "t": "GEDY",
+        "a": "TATE MCRAE",
+        "lw": 7,
+        "pk": 3,
+        "wc": 19,
+        "sid": null
+      },
+      {
+        "w": "2024-02-02",
+        "t": "HOMESICK",
+        "a": "NOAH KAHAN & SAM FENDER",
+        "lw": 5,
+        "pk": 5,
+        "wc": 2,
+        "sid": null
+      },
+      {
+        "w": "2024-02-09",
+        "t": "GEDY",
+        "a": "TATE MCRAE",
+        "lw": 7,
+        "pk": 3,
+        "wc": 21,
+        "sid": null
+      },
+      {
+        "w": "2024-02-16",
+        "t": "GEDY",
+        "a": "TATE MCRAE",
+        "lw": 8,
+        "pk": 3,
+        "wc": 22,
+        "sid": null
+      },
+      {
+        "w": "2024-02-23",
+        "t": "PRADA",
+        "a": "CASSO/RAYE/D-BLOCK EUROPE",
+        "lw": 6,
+        "pk": 2,
+        "wc": 28,
+        "sid": null
+      },
+      {
+        "w": "2024-03-01",
+        "t": "TRAINING SEASON",
+        "a": "DUA LIPA",
+        "lw": 4,
+        "pk": 4,
+        "wc": 2,
+        "sid": null
+      },
+      {
+        "w": "2024-03-08",
+        "t": "TRAINING SEASON",
+        "a": "DUA LIPA",
+        "lw": 8,
+        "pk": 4,
+        "wc": 3,
+        "sid": null
+      },
+      {
+        "w": "2024-03-15",
+        "t": "CARNIVAL",
+        "a": "KANYE WEST/TY DOLLA SIGN",
+        "lw": 5,
+        "pk": 5,
+        "wc": 5,
+        "sid": null
+      },
+      {
+        "w": "2024-03-22",
+        "t": "CARNIVAL",
+        "a": "KANYE WEST/TY DOLLA SIGN",
+        "lw": 8,
+        "pk": 5,
+        "wc": 6,
+        "sid": null
+      },
+      {
+        "w": "2024-03-29",
+        "t": "TOO SWEET",
+        "a": "HOZIER",
+        "lw": "New",
+        "pk": 8,
+        "wc": 1,
+        "sid": null
+      }
+    ],
+    "9": [
+      {
+        "w": "2024-01-05",
+        "t": "DNA (LOVING YOU)",
+        "a": "BILLY GILLIES FT HANNAH BOLEYN",
+        "lw": 55,
+        "pk": 9,
+        "wc": 20,
+        "sid": null
+      },
+      {
+        "w": "2024-01-12",
+        "t": "HOUDINI",
+        "a": "DUA LIPA",
+        "lw": 6,
+        "pk": 2,
+        "wc": 9,
+        "sid": null
+      },
+      {
+        "w": "2024-01-19",
+        "t": "HOUDINI",
+        "a": "DUA LIPA",
+        "lw": 9,
+        "pk": 2,
+        "wc": 10,
+        "sid": null
+      },
+      {
+        "w": "2024-01-26",
+        "t": "CRUEL SUMMER",
+        "a": "TAYLOR SWIFT",
+        "lw": 8,
+        "pk": 2,
+        "wc": 32,
+        "sid": null
+      },
+      {
+        "w": "2024-02-02",
+        "t": "CRUEL SUMMER",
+        "a": "TAYLOR SWIFT",
+        "lw": 9,
+        "pk": 2,
+        "wc": 33,
+        "sid": null
+      },
+      {
+        "w": "2024-02-09",
+        "t": "PRAISE JAH IN THE MOONLIGHT",
+        "a": "YG MARLEY",
+        "lw": 20,
+        "pk": 9,
+        "wc": 4,
+        "sid": null
+      },
+      {
+        "w": "2024-02-16",
+        "t": "TEXAS HOLD 'EM",
+        "a": "BEYONCE",
+        "lw": "New",
+        "pk": 9,
+        "wc": 1,
+        "sid": null
+      },
+      {
+        "w": "2024-02-23",
+        "t": "CRUEL SUMMER",
+        "a": "TAYLOR SWIFT",
+        "lw": 7,
+        "pk": 2,
+        "wc": 36,
+        "sid": null
+      },
+      {
+        "w": "2024-03-01",
+        "t": "CARNIVAL",
+        "a": "KANYE WEST/TY DOLLA SIGN",
+        "lw": 13,
+        "pk": 9,
+        "wc": 3,
+        "sid": null
+      },
+      {
+        "w": "2024-03-08",
+        "t": "CRUEL SUMMER",
+        "a": "TAYLOR SWIFT",
+        "lw": 7,
+        "pk": 2,
+        "wc": 38,
+        "sid": null
+      },
+      {
+        "w": "2024-03-15",
+        "t": "TRAINING SEASON",
+        "a": "DUA LIPA",
+        "lw": 8,
+        "pk": 4,
+        "wc": 4,
+        "sid": null
+      },
+      {
+        "w": "2024-03-22",
+        "t": "TRAINING SEASON",
+        "a": "DUA LIPA",
+        "lw": 9,
+        "pk": 4,
+        "wc": 5,
+        "sid": null
+      },
+      {
+        "w": "2024-03-29",
+        "t": "SCAD TO START",
+        "a": "MICHAEL MARCAGI",
+        "lw": 10,
+        "pk": 9,
+        "wc": 11,
+        "sid": null
+      }
+    ],
+    "10": [
+      {
+        "w": "2024-01-05",
+        "t": "RICH BABY DADDY",
+        "a": "DRAKE FT SEXYY RED & SZA",
+        "lw": 65,
+        "pk": 10,
+        "wc": 12,
+        "sid": null
+      },
+      {
+        "w": "2024-01-12",
+        "t": "DNA (LOVING YOU)",
+        "a": "BILLY GILLIES FT HANNAH BOLEYN",
+        "lw": 9,
+        "pk": 9,
+        "wc": 21,
+        "sid": null
+      },
+      {
+        "w": "2024-01-19",
+        "t": "WATER",
+        "a": "TYLA",
+        "lw": 8,
+        "pk": 4,
+        "wc": 19,
+        "sid": null
+      },
+      {
+        "w": "2024-01-26",
+        "t": "HOUDINI",
+        "a": "DUA LIPA",
+        "lw": 9,
+        "pk": 2,
+        "wc": 11,
+        "sid": null
+      },
+      {
+        "w": "2024-02-02",
+        "t": "POPULAR",
+        "a": "WEEKND/PLAYBOI CARTI/MADONNA",
+        "lw": 14,
+        "pk": 10,
+        "wc": 28,
+        "sid": null
+      },
+      {
+        "w": "2024-02-09",
+        "t": "CRUEL SUMMER",
+        "a": "TAYLOR SWIFT",
+        "lw": 9,
+        "pk": 2,
+        "wc": 34,
+        "sid": null
+      },
+      {
+        "w": "2024-02-16",
+        "t": "YES AND",
+        "a": "ARIANA GRANDE",
+        "lw": 7,
+        "pk": 2,
+        "wc": 5,
+        "sid": null
+      },
+      {
+        "w": "2024-02-23",
+        "t": "GEDY",
+        "a": "TATE MCRAE",
+        "lw": 8,
+        "pk": 3,
+        "wc": 23,
+        "sid": null
+      },
+      {
+        "w": "2024-03-01",
+        "t": "YES AND",
+        "a": "ARIANA GRANDE",
+        "lw": 7,
+        "pk": 2,
+        "wc": 7,
+        "sid": null
+      },
+      {
+        "w": "2024-03-08",
+        "t": "ALIBI",
+        "a": "ELLA HENDERSON FT RUDIMENTAL",
+        "lw": 11,
+        "pk": 10,
+        "wc": 8,
+        "sid": null
+      },
+      {
+        "w": "2024-03-15",
+        "t": "CRUEL SUMMER",
+        "a": "TAYLOR SWIFT",
+        "lw": 9,
+        "pk": 2,
+        "wc": 39,
+        "sid": null
+      },
+      {
+        "w": "2024-03-22",
+        "t": "SCAD TO START",
+        "a": "MICHAEL MARCAGI",
+        "lw": 14,
+        "pk": 10,
+        "wc": 10,
+        "sid": null
+      },
+      {
+        "w": "2024-03-29",
+        "t": "OBSESSED",
+        "a": "OLIVIA RODRIGO",
+        "lw": "New",
+        "pk": 10,
+        "wc": 1,
+        "sid": null
+      }
+    ],
+    "11": [
+      {
+        "w": "2024-01-05",
+        "t": "LEAVEMEALONE",
+        "a": "FRED AGAIN & BABY KEEM",
+        "lw": 75,
+        "pk": 11,
+        "wc": 4,
+        "sid": null
+      },
+      {
+        "w": "2024-01-12",
+        "t": "POPULAR",
+        "a": "WEEKND/PLAYBOI CARTI/MADONNA",
+        "lw": 48,
+        "pk": 11,
+        "wc": 25,
+        "sid": null
+      },
+      {
+        "w": "2024-01-19",
+        "t": "DRUM",
+        "a": "21 SAVAGE",
+        "lw": "New",
+        "pk": 11,
+        "wc": 1,
+        "sid": null
+      },
+      {
+        "w": "2024-01-26",
+        "t": "WATER",
+        "a": "TYLA",
+        "lw": 10,
+        "pk": 4,
+        "wc": 20,
+        "sid": null
+      },
+      {
+        "w": "2024-02-02",
+        "t": "BEAUTIFUL THINGS",
+        "a": "BENSON BOONE",
+        "lw": 18,
+        "pk": 11,
+        "wc": 2,
+        "sid": null
+      },
+      {
+        "w": "2024-02-09",
+        "t": "HOMESICK",
+        "a": "NOAH KAHAN & SAM FENDER",
+        "lw": 8,
+        "pk": 5,
+        "wc": 3,
+        "sid": null
+      },
+      {
+        "w": "2024-02-16",
+        "t": "HOMESICK",
+        "a": "NOAH KAHAN & SAM FENDER",
+        "lw": 11,
+        "pk": 5,
+        "wc": 4,
+        "sid": null
+      },
+      {
+        "w": "2024-02-23",
+        "t": "END OF BEGINNING",
+        "a": "DJO",
+        "lw": 100,
+        "pk": 11,
+        "wc": 2,
+        "sid": null
+      },
+      {
+        "w": "2024-03-01",
+        "t": "ALIBI",
+        "a": "ELLA HENDERSON FT RUDIMENTAL",
+        "lw": 12,
+        "pk": 11,
+        "wc": 7,
+        "sid": null
+      },
+      {
+        "w": "2024-03-08",
+        "t": "YES AND",
+        "a": "ARIANA GRANDE",
+        "lw": 10,
+        "pk": 2,
+        "wc": 8,
+        "sid": null
+      },
+      {
+        "w": "2024-03-15",
+        "t": "PRAISE JAH IN THE MOONLIGHT",
+        "a": "YG MARLEY",
+        "lw": 7,
+        "pk": 5,
+        "wc": 9,
+        "sid": null
+      },
+      {
+        "w": "2024-03-22",
+        "t": "ALIBI",
+        "a": "ELLA HENDERSON FT RUDIMENTAL",
+        "lw": 12,
+        "pk": 10,
+        "wc": 10,
+        "sid": null
+      },
+      {
+        "w": "2024-03-29",
+        "t": "TRAINING SEASON",
+        "a": "DUA LIPA",
+        "lw": 9,
+        "pk": 4,
+        "wc": 6,
+        "sid": null
+      }
+    ],
+    "12": [
+      {
+        "w": "2024-01-05",
+        "t": "MY LOVE MINE ALL MINE",
+        "a": "MITSKI",
+        "lw": "RE",
+        "pk": 8,
+        "wc": 15,
+        "sid": null
+      },
+      {
+        "w": "2024-01-12",
+        "t": "LEAVEMEALONE",
+        "a": "FRED AGAIN & BABY KEEM",
+        "lw": 11,
+        "pk": 11,
+        "wc": 5,
+        "sid": null
+      },
+      {
+        "w": "2024-01-19",
+        "t": "POPULAR",
+        "a": "WEEKND/PLAYBOI CARTI/MADONNA",
+        "lw": 11,
+        "pk": 11,
+        "wc": 26,
+        "sid": null
+      },
+      {
+        "w": "2024-01-26",
+        "t": "DRUM",
+        "a": "21 SAVAGE",
+        "lw": 11,
+        "pk": 11,
+        "wc": 2,
+        "sid": null
+      },
+      {
+        "w": "2024-02-02",
+        "t": "HOUDINI",
+        "a": "DUA LIPA",
+        "lw": 10,
+        "pk": 2,
+        "wc": 12,
+        "sid": null
+      },
+      {
+        "w": "2024-02-09",
+        "t": "HOUDINI",
+        "a": "DUA LIPA",
+        "lw": 12,
+        "pk": 2,
+        "wc": 13,
+        "sid": null
+      },
+      {
+        "w": "2024-02-16",
+        "t": "CARNIVAL",
+        "a": "KANYE WEST/TY DOLLA SIGN",
+        "lw": "New",
+        "pk": 12,
+        "wc": 1,
+        "sid": null
+      },
+      {
+        "w": "2024-02-23",
+        "t": "ALIBI",
+        "a": "ELLA HENDERSON FT RUDIMENTAL",
+        "lw": 15,
+        "pk": 12,
+        "wc": 6,
+        "sid": null
+      },
+      {
+        "w": "2024-03-01",
+        "t": "UNWRITTEN",
+        "a": "NATASHA BEDINGFIELD",
+        "lw": 14,
+        "pk": 6,
+        "wc": 25,
+        "sid": null
+      },
+      {
+        "w": "2024-03-08",
+        "t": "UNWRITTEN",
+        "a": "NATASHA BEDINGFIELD",
+        "lw": 12,
+        "pk": 6,
+        "wc": 26,
+        "sid": null
+      },
+      {
+        "w": "2024-03-15",
+        "t": "ALIBI",
+        "a": "ELLA HENDERSON FT RUDIMENTAL",
+        "lw": 10,
+        "pk": 10,
+        "wc": 9,
+        "sid": null
+      },
+      {
+        "w": "2024-03-22",
+        "t": "UNWRITTEN",
+        "a": "NATASHA BEDINGFIELD",
+        "lw": 15,
+        "pk": 6,
+        "wc": 28,
+        "sid": null
+      },
+      {
+        "w": "2024-03-29",
+        "t": "ALIBI",
+        "a": "ELLA HENDERSON FT RUDIMENTAL",
+        "lw": 11,
+        "pk": 10,
+        "wc": 11,
+        "sid": null
+      }
+    ],
+    "13": [
+      {
+        "w": "2024-01-05",
+        "t": "ASKING",
+        "a": "SONNY FODERA/MK/DOUGLAS",
+        "lw": "RE",
+        "pk": 7,
+        "wc": 22,
+        "sid": null
+      },
+      {
+        "w": "2024-01-12",
+        "t": "RICH BABY DADDY",
+        "a": "DRAKE FT SEXYY RED & SZA",
+        "lw": 10,
+        "pk": 10,
+        "wc": 13,
+        "sid": null
+      },
+      {
+        "w": "2024-01-19",
+        "t": "RICH BABY DADDY",
+        "a": "DRAKE FT SEXYY RED & SZA",
+        "lw": 13,
+        "pk": 10,
+        "wc": 14,
+        "sid": null
+      },
+      {
+        "w": "2024-01-26",
+        "t": "UNWRITTEN",
+        "a": "NATASHA BEDINGFIELD",
+        "lw": 18,
+        "pk": 6,
+        "wc": 20,
+        "sid": null
+      },
+      {
+        "w": "2024-02-02",
+        "t": "UNWRITTEN",
+        "a": "NATASHA BEDINGFIELD",
+        "lw": 13,
+        "pk": 6,
+        "wc": 21,
+        "sid": null
+      },
+      {
+        "w": "2024-02-09",
+        "t": "POPULAR",
+        "a": "WEEKND/PLAYBOI CARTI/MADONNA",
+        "lw": 10,
+        "pk": 10,
+        "wc": 29,
+        "sid": null
+      },
+      {
+        "w": "2024-02-16",
+        "t": "HOUDINI",
+        "a": "DUA LIPA",
+        "lw": 12,
+        "pk": 2,
+        "wc": 14,
+        "sid": null
+      },
+      {
+        "w": "2024-02-23",
+        "t": "CARNIVAL",
+        "a": "KANYE WEST/TY DOLLA SIGN",
+        "lw": 12,
+        "pk": 12,
+        "wc": 2,
+        "sid": null
+      },
+      {
+        "w": "2024-03-01",
+        "t": "LOVERS IN A PAST LIFE",
+        "a": "CALVIN HARRIS & RAG'N'BONE MAN",
+        "lw": 19,
+        "pk": 13,
+        "wc": 2,
+        "sid": null
+      },
+      {
+        "w": "2024-03-08",
+        "t": "ESCAPISM",
+        "a": "RAYE FT 070 SHAKE",
+        "lw": "RE",
+        "pk": 1,
+        "wc": 58,
+        "sid": null
+      },
+      {
+        "w": "2024-03-15",
+        "t": "BYE",
+        "a": "ARIANA GRANDE",
+        "lw": "New",
+        "pk": 13,
+        "wc": 1,
+        "sid": null
+      },
+      {
+        "w": "2024-03-22",
+        "t": "FRI(END)S",
+        "a": "V",
+        "lw": "New",
+        "pk": 13,
+        "wc": 1,
+        "sid": null
+      },
+      {
+        "w": "2024-03-29",
+        "t": "I LIKE THE WAY YOU KISS ME",
+        "a": "ARTEMAS",
+        "lw": "New",
+        "pk": 13,
+        "wc": 1,
+        "sid": null
+      }
+    ],
+    "14": [
+      {
+        "w": "2024-01-05",
+        "t": "LOSE CONTROL",
+        "a": "TEDDY SWIMS",
+        "lw": 81,
+        "pk": 14,
+        "wc": 9,
+        "sid": null
+      },
+      {
+        "w": "2024-01-12",
+        "t": "I MEMBER EVERYTHING",
+        "a": "ZACH BRYAN FT KACEY MUSGRAVES",
+        "lw": 16,
+        "pk": 14,
+        "wc": 20,
+        "sid": null
+      },
+      {
+        "w": "2024-01-19",
+        "t": "LEAVEMEALONE",
+        "a": "FRED AGAIN & BABY KEEM",
+        "lw": 12,
+        "pk": 11,
+        "wc": 6,
+        "sid": null
+      },
+      {
+        "w": "2024-01-26",
+        "t": "POPULAR",
+        "a": "WEEKND/PLAYBOI CARTI/MADONNA",
+        "lw": 12,
+        "pk": 11,
+        "wc": 27,
+        "sid": null
+      },
+      {
+        "w": "2024-02-02",
+        "t": "DRUM",
+        "a": "21 SAVAGE",
+        "lw": 12,
+        "pk": 11,
+        "wc": 3,
+        "sid": null
+      },
+      {
+        "w": "2024-02-09",
+        "t": "UNWRITTEN",
+        "a": "NATASHA BEDINGFIELD",
+        "lw": 13,
+        "pk": 6,
+        "wc": 22,
+        "sid": null
+      },
+      {
+        "w": "2024-02-16",
+        "t": "UNWRITTEN",
+        "a": "NATASHA BEDINGFIELD",
+        "lw": 14,
+        "pk": 6,
+        "wc": 23,
+        "sid": null
+      },
+      {
+        "w": "2024-02-23",
+        "t": "UNWRITTEN",
+        "a": "NATASHA BEDINGFIELD",
+        "lw": 14,
+        "pk": 6,
+        "wc": 24,
+        "sid": null
+      },
+      {
+        "w": "2024-03-01",
+        "t": "HOUDINI",
+        "a": "DUA LIPA",
+        "lw": 15,
+        "pk": 2,
+        "wc": 16,
+        "sid": null
+      },
+      {
+        "w": "2024-03-08",
+        "t": "LOVERS IN A PAST LIFE",
+        "a": "CALVIN HARRIS & RAG'N'BONE MAN",
+        "lw": 13,
+        "pk": 13,
+        "wc": 3,
+        "sid": null
+      },
+      {
+        "w": "2024-03-15",
+        "t": "SCAD TO START",
+        "a": "MICHAEL MARCAGI",
+        "lw": 16,
+        "pk": 14,
+        "wc": 9,
+        "sid": null
+      },
+      {
+        "w": "2024-03-22",
+        "t": "LOVERS IN A PAST LIFE",
+        "a": "CALVIN HARRIS & RAG'N'BONE MAN",
+        "lw": 19,
+        "pk": 13,
+        "wc": 5,
+        "sid": null
+      },
+      {
+        "w": "2024-03-29",
+        "t": "YES AND",
+        "a": "ARIANA GRANDE",
+        "lw": 7,
+        "pk": 2,
+        "wc": 11,
+        "sid": null
+      }
+    ],
+    "15": [
+      {
+        "w": "2024-01-05",
+        "t": "ON MY LOVE",
+        "a": "ZARA LARSSON & DAVID GUETTA",
+        "lw": 80,
+        "pk": 15,
+        "wc": 16,
+        "sid": null
+      },
+      {
+        "w": "2024-01-12",
+        "t": "ON MY LOVE",
+        "a": "ZARA LARSSON & DAVID GUETTA",
+        "lw": 15,
+        "pk": 15,
+        "wc": 17,
+        "sid": null
+      },
+      {
+        "w": "2024-01-19",
+        "t": "DNA (LOVING YOU)",
+        "a": "BILLY GILLIES FT HANNAH BOLEYN",
+        "lw": 10,
+        "pk": 9,
+        "wc": 22,
+        "sid": null
+      },
+      {
+        "w": "2024-01-26",
+        "t": "RICH BABY DADDY",
+        "a": "DRAKE FT SEXYY RED & SZA",
+        "lw": 13,
+        "pk": 10,
+        "wc": 15,
+        "sid": null
+      },
+      {
+        "w": "2024-02-02",
+        "t": "NEVER LOSE ME",
+        "a": "FLO MILLI",
+        "lw": 17,
+        "pk": 15,
+        "wc": 5,
+        "sid": null
+      },
+      {
+        "w": "2024-02-09",
+        "t": "NEVER LOSE ME",
+        "a": "FLO MILLI",
+        "lw": 15,
+        "pk": 15,
+        "wc": 6,
+        "sid": null
+      },
+      {
+        "w": "2024-02-16",
+        "t": "ALIBI",
+        "a": "ELLA HENDERSON FT RUDIMENTAL",
+        "lw": 16,
+        "pk": 15,
+        "wc": 5,
+        "sid": null
+      },
+      {
+        "w": "2024-02-23",
+        "t": "HOUDINI",
+        "a": "DUA LIPA",
+        "lw": 13,
+        "pk": 2,
+        "wc": 15,
+        "sid": null
+      },
+      {
+        "w": "2024-03-01",
+        "t": "SATURN",
+        "a": "SZA",
+        "lw": "New",
+        "pk": 15,
+        "wc": 1,
+        "sid": null
+      },
+      {
+        "w": "2024-03-08",
+        "t": "WHATEVER",
+        "a": "KYGO & AVA MAX",
+        "lw": 17,
+        "pk": 15,
+        "wc": 7,
+        "sid": null
+      },
+      {
+        "w": "2024-03-15",
+        "t": "UNWRITTEN",
+        "a": "NATASHA BEDINGFIELD",
+        "lw": 12,
+        "pk": 6,
+        "wc": 27,
+        "sid": null
+      },
+      {
+        "w": "2024-03-22",
+        "t": "AUSTIN",
+        "a": "DASHA",
+        "lw": 25,
+        "pk": 15,
+        "wc": 4,
+        "sid": null
+      },
+      {
+        "w": "2024-03-29",
+        "t": "AUSTIN",
+        "a": "DASHA",
+        "lw": 15,
+        "pk": 15,
+        "wc": 5,
+        "sid": null
+      }
+    ],
+    "16": [
+      {
+        "w": "2024-01-05",
+        "t": "I MEMBER EVERYTHING",
+        "a": "ZACH BRYAN FT KACEY MUSGRAVES",
+        "lw": 82,
+        "pk": 16,
+        "wc": 19,
+        "sid": null
+      },
+      {
+        "w": "2024-01-12",
+        "t": "JUST ANOTHER RAINBOW",
+        "a": "LIAM GALLAGHER & JOHN SQUIRE",
+        "lw": "New",
+        "pk": 16,
+        "wc": 1,
+        "sid": null
+      },
+      {
+        "w": "2024-01-19",
+        "t": "I MEMBER EVERYTHING",
+        "a": "ZACH BRYAN FT KACEY MUSGRAVES",
+        "lw": 14,
+        "pk": 14,
+        "wc": 21,
+        "sid": null
+      },
+      {
+        "w": "2024-01-26",
+        "t": "DNA (LOVING YOU)",
+        "a": "BILLY GILLIES FT HANNAH BOLEYN",
+        "lw": 15,
+        "pk": 9,
+        "wc": 23,
+        "sid": null
+      },
+      {
+        "w": "2024-02-02",
+        "t": "RICH BABY DADDY",
+        "a": "DRAKE FT SEXYY RED & SZA",
+        "lw": 15,
+        "pk": 10,
+        "wc": 16,
+        "sid": null
+      },
+      {
+        "w": "2024-02-09",
+        "t": "ALIBI",
+        "a": "ELLA HENDERSON FT RUDIMENTAL",
+        "lw": 24,
+        "pk": 16,
+        "wc": 4,
+        "sid": null
+      },
+      {
+        "w": "2024-02-16",
+        "t": "POPULAR",
+        "a": "WEEKND/PLAYBOI CARTI/MADONNA",
+        "lw": 13,
+        "pk": 10,
+        "wc": 30,
+        "sid": null
+      },
+      {
+        "w": "2024-02-23",
+        "t": "MURDER ON THE DANCEFLOOR",
+        "a": "SOPHIE ELLIS-BEXTOR",
+        "lw": 2,
+        "pk": 2,
+        "wc": 24,
+        "sid": null
+      },
+      {
+        "w": "2024-03-01",
+        "t": "NOTHING MATTERS",
+        "a": "LAST DINNER PARTY",
+        "lw": 27,
+        "pk": 16,
+        "wc": 8,
+        "sid": null
+      },
+      {
+        "w": "2024-03-08",
+        "t": "SCAD TO START",
+        "a": "MICHAEL MARCAGI",
+        "lw": 22,
+        "pk": 16,
+        "wc": 8,
+        "sid": null
+      },
+      {
+        "w": "2024-03-15",
+        "t": "WHAT WAS I MADE FOR",
+        "a": "BILLIE EILISH",
+        "lw": 99,
+        "pk": 1,
+        "wc": 31,
+        "sid": null
+      },
+      {
+        "w": "2024-03-22",
+        "t": "WHATEVER SHE WANTS",
+        "a": "BRYSON TILLER",
+        "lw": 17,
+        "pk": 16,
+        "wc": 5,
+        "sid": null
+      },
+      {
+        "w": "2024-03-29",
+        "t": "CARNIVAL",
+        "a": "KANYE WEST/TY DOLLA SIGN",
+        "lw": 8,
+        "pk": 5,
+        "wc": 7,
+        "sid": null
+      }
+    ],
+    "17": [
+      {
+        "w": "2024-01-05",
+        "t": "CAN'T CATCH ME NOW",
+        "a": "OLIVIA RODRIGO",
+        "lw": 83,
+        "pk": 12,
+        "wc": 9,
+        "sid": null
+      },
+      {
+        "w": "2024-01-12",
+        "t": "MY LOVE MINE ALL MINE",
+        "a": "MITSKI",
+        "lw": 12,
+        "pk": 8,
+        "wc": 16,
+        "sid": null
+      },
+      {
+        "w": "2024-01-19",
+        "t": "MY LOVE MINE ALL MINE",
+        "a": "MITSKI",
+        "lw": 17,
+        "pk": 8,
+        "wc": 17,
+        "sid": null
+      },
+      {
+        "w": "2024-01-26",
+        "t": "NEVER LOSE ME",
+        "a": "FLO MILLI",
+        "lw": 24,
+        "pk": 17,
+        "wc": 4,
+        "sid": null
+      },
+      {
+        "w": "2024-02-02",
+        "t": "DNA (LOVING YOU)",
+        "a": "BILLY GILLIES FT HANNAH BOLEYN",
+        "lw": 16,
+        "pk": 9,
+        "wc": 24,
+        "sid": null
+      },
+      {
+        "w": "2024-02-09",
+        "t": "LEAVEMEALONE",
+        "a": "FRED AGAIN & BABY KEEM",
+        "lw": 19,
+        "pk": 11,
+        "wc": 9,
+        "sid": null
+      },
+      {
+        "w": "2024-02-16",
+        "t": "BURN",
+        "a": "KANYE WEST/TY DOLLA SIGN",
+        "lw": "New",
+        "pk": 17,
+        "wc": 1,
+        "sid": null
+      },
+      {
+        "w": "2024-02-23",
+        "t": "POPULAR",
+        "a": "WEEKND/PLAYBOI CARTI/MADONNA",
+        "lw": 16,
+        "pk": 10,
+        "wc": 31,
+        "sid": null
+      },
+      {
+        "w": "2024-03-01",
+        "t": "WHATEVER",
+        "a": "KYGO & AVA MAX",
+        "lw": 20,
+        "pk": 17,
+        "wc": 6,
+        "sid": null
+      },
+      {
+        "w": "2024-03-08",
+        "t": "DRUM",
+        "a": "21 SAVAGE",
+        "lw": 21,
+        "pk": 11,
+        "wc": 8,
+        "sid": null
+      },
+      {
+        "w": "2024-03-15",
+        "t": "WHATEVER SHE WANTS",
+        "a": "BRYSON TILLER",
+        "lw": 20,
+        "pk": 17,
+        "wc": 4,
+        "sid": null
+      },
+      {
+        "w": "2024-03-22",
+        "t": "WHATEVER",
+        "a": "KYGO & AVA MAX",
+        "lw": 20,
+        "pk": 15,
+        "wc": 9,
+        "sid": null
+      },
+      {
+        "w": "2024-03-29",
+        "t": "UNWRITTEN",
+        "a": "NATASHA BEDINGFIELD",
+        "lw": 12,
+        "pk": 6,
+        "wc": 29,
+        "sid": null
+      }
+    ],
+    "18": [
+      {
+        "w": "2024-01-05",
+        "t": "EXES",
+        "a": "TATE MCRAE",
+        "lw": 86,
+        "pk": 12,
+        "wc": 7,
+        "sid": null
+      },
+      {
+        "w": "2024-01-12",
+        "t": "ASKING",
+        "a": "SONNY FODERA/MK/DOUGLAS",
+        "lw": 13,
+        "pk": 7,
+        "wc": 23,
+        "sid": null
+      },
+      {
+        "w": "2024-01-19",
+        "t": "UNWRITTEN",
+        "a": "NATASHA BEDINGFIELD",
+        "lw": 24,
+        "pk": 6,
+        "wc": 19,
+        "sid": null
+      },
+      {
+        "w": "2024-01-26",
+        "t": "BEAUTIFUL THINGS",
+        "a": "BENSON BOONE",
+        "lw": "New",
+        "pk": 18,
+        "wc": 1,
+        "sid": null
+      },
+      {
+        "w": "2024-02-02",
+        "t": "I MEMBER EVERYTHING",
+        "a": "ZACH BRYAN FT KACEY MUSGRAVES",
+        "lw": 20,
+        "pk": 14,
+        "wc": 23,
+        "sid": null
+      },
+      {
+        "w": "2024-02-09",
+        "t": "DRUM",
+        "a": "21 SAVAGE",
+        "lw": 14,
+        "pk": 11,
+        "wc": 4,
+        "sid": null
+      },
+      {
+        "w": "2024-02-16",
+        "t": "BACK TO ME",
+        "a": "KANYE WEST/TY DOLLA SIGN",
+        "lw": "New",
+        "pk": 18,
+        "wc": 1,
+        "sid": null
+      },
+      {
+        "w": "2024-02-23",
+        "t": "HOMESICK",
+        "a": "NOAH KAHAN & SAM FENDER",
+        "lw": 11,
+        "pk": 5,
+        "wc": 5,
+        "sid": null
+      },
+      {
+        "w": "2024-03-01",
+        "t": "I WILL",
+        "a": "CENTRAL CEE",
+        "lw": "New",
+        "pk": 18,
+        "wc": 1,
+        "sid": null
+      },
+      {
+        "w": "2024-03-08",
+        "t": "PRADA",
+        "a": "CASSO/RAYE/D-BLOCK EUROPE",
+        "lw": 27,
+        "pk": 2,
+        "wc": 30,
+        "sid": null
+      },
+      {
+        "w": "2024-03-15",
+        "t": "ACT II - DATE AT 8",
+        "a": "4BATZ FT DRAKE",
+        "lw": "New",
+        "pk": 18,
+        "wc": 1,
+        "sid": null
+      },
+      {
+        "w": "2024-03-22",
+        "t": "GOING HOME (THEME FROM LOCAL HERO)",
+        "a": "MARK KNOPFLER'S GUITAR HEROES",
+        "lw": "New",
+        "pk": 18,
+        "wc": 1,
+        "sid": null
+      },
+      {
+        "w": "2024-03-29",
+        "t": "TYPE S**T",
+        "a": "FUTURE/METRO BOOMIN/TRAVIS",
+        "lw": "New",
+        "pk": 18,
+        "wc": 1,
+        "sid": null
+      }
+    ],
+    "19": [
+      {
+        "w": "2024-01-05",
+        "t": "STRANGERS",
+        "a": "KENYA GRACE",
+        "lw": 89,
+        "pk": 1,
+        "wc": 18,
+        "sid": null
+      },
+      {
+        "w": "2024-01-12",
+        "t": "FEATHER",
+        "a": "SABRINA CARPENTER",
+        "lw": 24,
+        "pk": 19,
+        "wc": 6,
+        "sid": null
+      },
+      {
+        "w": "2024-01-19",
+        "t": "EAGLE",
+        "a": "D-BLOCK EUROPE & NOIZY",
+        "lw": "New",
+        "pk": 19,
+        "wc": 1,
+        "sid": null
+      },
+      {
+        "w": "2024-01-26",
+        "t": "LEAVEMEALONE",
+        "a": "FRED AGAIN & BABY KEEM",
+        "lw": 14,
+        "pk": 11,
+        "wc": 7,
+        "sid": null
+      },
+      {
+        "w": "2024-02-02",
+        "t": "LEAVEMEALONE",
+        "a": "FRED AGAIN & BABY KEEM",
+        "lw": 19,
+        "pk": 11,
+        "wc": 8,
+        "sid": null
+      },
+      {
+        "w": "2024-02-09",
+        "t": "NOTHING MATTERS",
+        "a": "LAST DINNER PARTY",
+        "lw": 22,
+        "pk": 19,
+        "wc": 5,
+        "sid": null
+      },
+      {
+        "w": "2024-02-16",
+        "t": "DRUM",
+        "a": "21 SAVAGE",
+        "lw": 18,
+        "pk": 11,
+        "wc": 5,
+        "sid": null
+      },
+      {
+        "w": "2024-02-23",
+        "t": "LOVERS IN A PAST LIFE",
+        "a": "CALVIN HARRIS & RAG'N'BONE MAN",
+        "lw": "New",
+        "pk": 19,
+        "wc": 1,
+        "sid": null
+      },
+      {
+        "w": "2024-03-01",
+        "t": "LEAVEMEALONE",
+        "a": "FRED AGAIN & BABY KEEM",
+        "lw": 21,
+        "pk": 11,
+        "wc": 12,
+        "sid": null
+      },
+      {
+        "w": "2024-03-08",
+        "t": "NOTHING MATTERS",
+        "a": "LAST DINNER PARTY",
+        "lw": 16,
+        "pk": 16,
+        "wc": 9,
+        "sid": null
+      },
+      {
+        "w": "2024-03-15",
+        "t": "LOVERS IN A PAST LIFE",
+        "a": "CALVIN HARRIS & RAG'N'BONE MAN",
+        "lw": 14,
+        "pk": 13,
+        "wc": 4,
+        "sid": null
+      },
+      {
+        "w": "2024-03-22",
+        "t": "WHAT WAS I MADE FOR",
+        "a": "BILLIE EILISH",
+        "lw": 16,
+        "pk": 1,
+        "wc": 32,
+        "sid": null
+      },
+      {
+        "w": "2024-03-29",
+        "t": "WHATEVER",
+        "a": "KYGO & AVA MAX",
+        "lw": 17,
+        "pk": 15,
+        "wc": 10,
+        "sid": null
+      }
+    ],
+    "20": [
+      {
+        "w": "2024-01-05",
+        "t": "LIL BOO THANG",
+        "a": "PAUL RUSSELL",
+        "lw": "RE",
+        "pk": 20,
+        "wc": 17,
+        "sid": null
+      },
+      {
+        "w": "2024-01-12",
+        "t": "CAN'T CATCH ME NOW",
+        "a": "OLIVIA RODRIGO",
+        "lw": 17,
+        "pk": 12,
+        "wc": 10,
+        "sid": null
+      },
+      {
+        "w": "2024-01-19",
+        "t": "FEATHER",
+        "a": "SABRINA CARPENTER",
+        "lw": 19,
+        "pk": 19,
+        "wc": 7,
+        "sid": null
+      },
+      {
+        "w": "2024-01-26",
+        "t": "I MEMBER EVERYTHING",
+        "a": "ZACH BRYAN FT KACEY MUSGRAVES",
+        "lw": 16,
+        "pk": 14,
+        "wc": 22,
+        "sid": null
+      },
+      {
+        "w": "2024-02-02",
+        "t": "PRAISE JAH IN THE MOONLIGHT",
+        "a": "YG MARLEY",
+        "lw": 51,
+        "pk": 20,
+        "wc": 3,
+        "sid": null
+      },
+      {
+        "w": "2024-02-09",
+        "t": "DNA (LOVING YOU)",
+        "a": "BILLY GILLIES FT HANNAH BOLEYN",
+        "lw": 17,
+        "pk": 9,
+        "wc": 25,
+        "sid": null
+      },
+      {
+        "w": "2024-02-16",
+        "t": "NEVER LOSE ME",
+        "a": "FLO MILLI",
+        "lw": 15,
+        "pk": 15,
+        "wc": 7,
+        "sid": null
+      },
+      {
+        "w": "2024-02-23",
+        "t": "WHATEVER",
+        "a": "KYGO & AVA MAX",
+        "lw": 24,
+        "pk": 20,
+        "wc": 5,
+        "sid": null
+      },
+      {
+        "w": "2024-03-01",
+        "t": "MURDER ON THE DANCEFLOOR",
+        "a": "SOPHIE ELLIS-BEXTOR",
+        "lw": 16,
+        "pk": 2,
+        "wc": 25,
+        "sid": null
+      },
+      {
+        "w": "2024-03-08",
+        "t": "WHATEVER SHE WANTS",
+        "a": "BRYSON TILLER",
+        "lw": 31,
+        "pk": 20,
+        "wc": 3,
+        "sid": null
+      },
+      {
+        "w": "2024-03-15",
+        "t": "WHATEVER",
+        "a": "KYGO & AVA MAX",
+        "lw": 15,
+        "pk": 15,
+        "wc": 8,
+        "sid": null
+      },
+      {
+        "w": "2024-03-22",
+        "t": "BYE",
+        "a": "ARIANA GRANDE",
+        "lw": 13,
+        "pk": 13,
+        "wc": 2,
+        "sid": null
+      },
+      {
+        "w": "2024-03-29",
+        "t": "CINDELLA",
+        "a": "FUTURE/METRO BOOMIN/TRAVIS",
+        "lw": "New",
+        "pk": 20,
+        "wc": 1,
+        "sid": null
+      }
+    ],
+    "21": [
+      {
+        "w": "2024-01-05",
+        "t": "ONE OF THE GIRLS",
+        "a": "WEEKND/JENNIE/LILY ROSE DEPP",
+        "lw": "RE",
+        "pk": 21,
+        "wc": 6,
+        "sid": null
+      },
+      {
+        "w": "2024-01-12",
+        "t": "KOOL-AID",
+        "a": "BRING ME THE HORIZON",
+        "lw": "New",
+        "pk": 21,
+        "wc": 1,
+        "sid": null
+      },
+      {
+        "w": "2024-01-19",
+        "t": "ASKING",
+        "a": "SONNY FODERA/MK/DOUGLAS",
+        "lw": 18,
+        "pk": 7,
+        "wc": 24,
+        "sid": null
+      },
+      {
+        "w": "2024-01-26",
+        "t": "MY LOVE MINE ALL MINE",
+        "a": "MITSKI",
+        "lw": 17,
+        "pk": 8,
+        "wc": 18,
+        "sid": null
+      },
+      {
+        "w": "2024-02-02",
+        "t": "ASKING",
+        "a": "SONNY FODERA/MK/DOUGLAS",
+        "lw": 22,
+        "pk": 7,
+        "wc": 26,
+        "sid": null
+      },
+      {
+        "w": "2024-02-09",
+        "t": "I MEMBER EVERYTHING",
+        "a": "ZACH BRYAN FT KACEY MUSGRAVES",
+        "lw": 18,
+        "pk": 14,
+        "wc": 24,
+        "sid": null
+      },
+      {
+        "w": "2024-02-16",
+        "t": "LEAVEMEALONE",
+        "a": "FRED AGAIN & BABY KEEM",
+        "lw": 17,
+        "pk": 11,
+        "wc": 10,
+        "sid": null
+      },
+      {
+        "w": "2024-02-23",
+        "t": "LEAVEMEALONE",
+        "a": "FRED AGAIN & BABY KEEM",
+        "lw": 21,
+        "pk": 11,
+        "wc": 11,
+        "sid": null
+      },
+      {
+        "w": "2024-03-01",
+        "t": "DRUM",
+        "a": "21 SAVAGE",
+        "lw": 25,
+        "pk": 11,
+        "wc": 7,
+        "sid": null
+      },
+      {
+        "w": "2024-03-08",
+        "t": "SATURN",
+        "a": "SZA",
+        "lw": 15,
+        "pk": 15,
+        "wc": 2,
+        "sid": null
+      },
+      {
+        "w": "2024-03-15",
+        "t": "ESCAPISM",
+        "a": "RAYE FT 070 SHAKE",
+        "lw": 13,
+        "pk": 1,
+        "wc": 59,
+        "sid": null
+      },
+      {
+        "w": "2024-03-22",
+        "t": "SATURN",
+        "a": "SZA",
+        "lw": 23,
+        "pk": 15,
+        "wc": 4,
+        "sid": null
+      },
+      {
+        "w": "2024-03-29",
+        "t": "WHATEVER SHE WANTS",
+        "a": "BRYSON TILLER",
+        "lw": 16,
+        "pk": 16,
+        "wc": 6,
+        "sid": null
+      }
+    ],
+    "22": [
+      {
+        "w": "2024-01-05",
+        "t": "VAMPI",
+        "a": "OLIVIA RODRIGO",
+        "lw": "RE",
+        "pk": 1,
+        "wc": 26,
+        "sid": null
+      },
+      {
+        "w": "2024-01-12",
+        "t": "EXES",
+        "a": "TATE MCRAE",
+        "lw": 18,
+        "pk": 12,
+        "wc": 8,
+        "sid": null
+      },
+      {
+        "w": "2024-01-19",
+        "t": "ON MY LOVE",
+        "a": "ZARA LARSSON & DAVID GUETTA",
+        "lw": 15,
+        "pk": 15,
+        "wc": 18,
+        "sid": null
+      },
+      {
+        "w": "2024-01-26",
+        "t": "ASKING",
+        "a": "SONNY FODERA/MK/DOUGLAS",
+        "lw": 21,
+        "pk": 7,
+        "wc": 25,
+        "sid": null
+      },
+      {
+        "w": "2024-02-02",
+        "t": "NOTHING MATTERS",
+        "a": "LAST DINNER PARTY",
+        "lw": 41,
+        "pk": 22,
+        "wc": 4,
+        "sid": null
+      },
+      {
+        "w": "2024-02-09",
+        "t": "RICH BABY DADDY",
+        "a": "DRAKE FT SEXYY RED & SZA",
+        "lw": 16,
+        "pk": 10,
+        "wc": 17,
+        "sid": null
+      },
+      {
+        "w": "2024-02-16",
+        "t": "DNA (LOVING YOU)",
+        "a": "BILLY GILLIES FT HANNAH BOLEYN",
+        "lw": 20,
+        "pk": 9,
+        "wc": 26,
+        "sid": null
+      },
+      {
+        "w": "2024-02-23",
+        "t": "I MEMBER EVERYTHING",
+        "a": "ZACH BRYAN FT KACEY MUSGRAVES",
+        "lw": 23,
+        "pk": 14,
+        "wc": 26,
+        "sid": null
+      },
+      {
+        "w": "2024-03-01",
+        "t": "SCAD TO START",
+        "a": "MICHAEL MARCAGI",
+        "lw": 31,
+        "pk": 22,
+        "wc": 7,
+        "sid": null
+      },
+      {
+        "w": "2024-03-08",
+        "t": "GEDY",
+        "a": "TATE MCRAE",
+        "lw": 32,
+        "pk": 3,
+        "wc": 25,
+        "sid": null
+      },
+      {
+        "w": "2024-03-15",
+        "t": "KITCHEN STOVE",
+        "a": "POZER",
+        "lw": 28,
+        "pk": 22,
+        "wc": 3,
+        "sid": null
+      },
+      {
+        "w": "2024-03-22",
+        "t": "ACT II - DATE AT 8",
+        "a": "4BATZ FT DRAKE",
+        "lw": 18,
+        "pk": 18,
+        "wc": 2,
+        "sid": null
+      },
+      {
+        "w": "2024-03-29",
+        "t": "LOVERS IN A PAST LIFE",
+        "a": "CALVIN HARRIS & RAG'N'BONE MAN",
+        "lw": 14,
+        "pk": 13,
+        "wc": 6,
+        "sid": null
+      }
+    ],
+    "23": [
+      {
+        "w": "2024-01-05",
+        "t": "RUNAWAY",
+        "a": "KANYE WEST FT PUSHA T",
+        "lw": 98,
+        "pk": 23,
+        "wc": 9,
+        "sid": null
+      },
+      {
+        "w": "2024-01-12",
+        "t": "STRANGERS",
+        "a": "KENYA GRACE",
+        "lw": 19,
+        "pk": 1,
+        "wc": 19,
+        "sid": null
+      },
+      {
+        "w": "2024-01-19",
+        "t": "NEE-NAH",
+        "a": "21 SAVAGE/TRAVIS SCOTT/METRO",
+        "lw": "New",
+        "pk": 23,
+        "wc": 1,
+        "sid": null
+      },
+      {
+        "w": "2024-01-26",
+        "t": "ON MY LOVE",
+        "a": "ZARA LARSSON & DAVID GUETTA",
+        "lw": 22,
+        "pk": 15,
+        "wc": 19,
+        "sid": null
+      },
+      {
+        "w": "2024-02-02",
+        "t": "MY LOVE MINE ALL MINE",
+        "a": "MITSKI",
+        "lw": 21,
+        "pk": 8,
+        "wc": 19,
+        "sid": null
+      },
+      {
+        "w": "2024-02-09",
+        "t": "EXES",
+        "a": "TATE MCRAE",
+        "lw": 30,
+        "pk": 12,
+        "wc": 12,
+        "sid": null
+      },
+      {
+        "w": "2024-02-16",
+        "t": "I MEMBER EVERYTHING",
+        "a": "ZACH BRYAN FT KACEY MUSGRAVES",
+        "lw": 21,
+        "pk": 14,
+        "wc": 25,
+        "sid": null
+      },
+      {
+        "w": "2024-02-23",
+        "t": "DNA (LOVING YOU)",
+        "a": "BILLY GILLIES FT HANNAH BOLEYN",
+        "lw": 22,
+        "pk": 9,
+        "wc": 27,
+        "sid": null
+      },
+      {
+        "w": "2024-03-01",
+        "t": "HOMESICK",
+        "a": "NOAH KAHAN & SAM FENDER",
+        "lw": 18,
+        "pk": 5,
+        "wc": 6,
+        "sid": null
+      },
+      {
+        "w": "2024-03-08",
+        "t": "NEVER BE ALONE",
+        "a": "BECKY HILL & SONNY FODERA",
+        "lw": 35,
+        "pk": 23,
+        "wc": 7,
+        "sid": null
+      },
+      {
+        "w": "2024-03-15",
+        "t": "SATURN",
+        "a": "SZA",
+        "lw": 21,
+        "pk": 15,
+        "wc": 3,
+        "sid": null
+      },
+      {
+        "w": "2024-03-22",
+        "t": "NEVER LOSE ME",
+        "a": "FLO MILLI",
+        "lw": 72,
+        "pk": 15,
+        "wc": 12,
+        "sid": null
+      },
+      {
+        "w": "2024-03-29",
+        "t": "BIRDS IN THE SKY",
+        "a": "NEWERA",
+        "lw": 34,
+        "pk": 23,
+        "wc": 8,
+        "sid": null
+      }
+    ],
+    "24": [
+      {
+        "w": "2024-01-05",
+        "t": "FEATHER",
+        "a": "SABRINA CARPENTER",
+        "lw": "RE",
+        "pk": 24,
+        "wc": 5,
+        "sid": null
+      },
+      {
+        "w": "2024-01-12",
+        "t": "UNWRITTEN",
+        "a": "NATASHA BEDINGFIELD",
+        "lw": "RE",
+        "pk": 6,
+        "wc": 18,
+        "sid": null
+      },
+      {
+        "w": "2024-01-19",
+        "t": "NEVER LOSE ME",
+        "a": "FLO MILLI",
+        "lw": 41,
+        "pk": 24,
+        "wc": 3,
+        "sid": null
+      },
+      {
+        "w": "2024-01-26",
+        "t": "FEATHER",
+        "a": "SABRINA CARPENTER",
+        "lw": 20,
+        "pk": 19,
+        "wc": 8,
+        "sid": null
+      },
+      {
+        "w": "2024-02-02",
+        "t": "ALIBI",
+        "a": "ELLA HENDERSON FT RUDIMENTAL",
+        "lw": 26,
+        "pk": 24,
+        "wc": 3,
+        "sid": null
+      },
+      {
+        "w": "2024-02-09",
+        "t": "ASKING",
+        "a": "SONNY FODERA/MK/DOUGLAS",
+        "lw": 21,
+        "pk": 7,
+        "wc": 27,
+        "sid": null
+      },
+      {
+        "w": "2024-02-16",
+        "t": "WHATEVER",
+        "a": "KYGO & AVA MAX",
+        "lw": 28,
+        "pk": 24,
+        "wc": 4,
+        "sid": null
+      },
+      {
+        "w": "2024-02-23",
+        "t": "NEVER LOSE ME",
+        "a": "FLO MILLI",
+        "lw": 20,
+        "pk": 15,
+        "wc": 8,
+        "sid": null
+      },
+      {
+        "w": "2024-03-01",
+        "t": "NEVER LOSE ME",
+        "a": "FLO MILLI",
+        "lw": 24,
+        "pk": 15,
+        "wc": 9,
+        "sid": null
+      },
+      {
+        "w": "2024-03-08",
+        "t": "MURDER ON THE DANCEFLOOR",
+        "a": "SOPHIE ELLIS-BEXTOR",
+        "lw": 20,
+        "pk": 2,
+        "wc": 26,
+        "sid": null
+      },
+      {
+        "w": "2024-03-15",
+        "t": "DRUM",
+        "a": "21 SAVAGE",
+        "lw": 17,
+        "pk": 11,
+        "wc": 9,
+        "sid": null
+      },
+      {
+        "w": "2024-03-22",
+        "t": "ESCAPISM",
+        "a": "RAYE FT 070 SHAKE",
+        "lw": 21,
+        "pk": 1,
+        "wc": 60,
+        "sid": null
+      },
+      {
+        "w": "2024-03-29",
+        "t": "SO AMERICAN",
+        "a": "OLIVIA RODRIGO",
+        "lw": "New",
+        "pk": 24,
+        "wc": 1,
+        "sid": null
+      }
+    ],
+    "25": [
+      {
+        "w": "2024-01-05",
+        "t": "PAINT THE TOWN D",
+        "a": "DOJA CAT",
+        "lw": "RE",
+        "pk": 1,
+        "wc": 21,
+        "sid": null
+      },
+      {
+        "w": "2024-01-12",
+        "t": "ONE OF THE GIRLS",
+        "a": "WEEKND/JENNIE/LILY ROSE DEPP",
+        "lw": 21,
+        "pk": 21,
+        "wc": 7,
+        "sid": null
+      },
+      {
+        "w": "2024-01-19",
+        "t": "EXES",
+        "a": "TATE MCRAE",
+        "lw": 22,
+        "pk": 12,
+        "wc": 9,
+        "sid": null
+      },
+      {
+        "w": "2024-01-26",
+        "t": "EXES",
+        "a": "TATE MCRAE",
+        "lw": 25,
+        "pk": 12,
+        "wc": 10,
+        "sid": null
+      },
+      {
+        "w": "2024-02-02",
+        "t": "ON MY LOVE",
+        "a": "ZARA LARSSON & DAVID GUETTA",
+        "lw": 23,
+        "pk": 15,
+        "wc": 20,
+        "sid": null
+      },
+      {
+        "w": "2024-02-09",
+        "t": "MY LOVE MINE ALL MINE",
+        "a": "MITSKI",
+        "lw": 23,
+        "pk": 8,
+        "wc": 20,
+        "sid": null
+      },
+      {
+        "w": "2024-02-16",
+        "t": "EXES",
+        "a": "TATE MCRAE",
+        "lw": 23,
+        "pk": 12,
+        "wc": 13,
+        "sid": null
+      },
+      {
+        "w": "2024-02-23",
+        "t": "DRUM",
+        "a": "21 SAVAGE",
+        "lw": 19,
+        "pk": 11,
+        "wc": 6,
+        "sid": null
+      },
+      {
+        "w": "2024-03-01",
+        "t": "EXES",
+        "a": "TATE MCRAE",
+        "lw": 26,
+        "pk": 12,
+        "wc": 15,
+        "sid": null
+      },
+      {
+        "w": "2024-03-08",
+        "t": "EXES",
+        "a": "TATE MCRAE",
+        "lw": 25,
+        "pk": 12,
+        "wc": 16,
+        "sid": null
+      },
+      {
+        "w": "2024-03-15",
+        "t": "AUSTIN",
+        "a": "DASHA",
+        "lw": 57,
+        "pk": 25,
+        "wc": 3,
+        "sid": null
+      },
+      {
+        "w": "2024-03-22",
+        "t": "PRADA",
+        "a": "CASSO/RAYE/D-BLOCK EUROPE",
+        "lw": 27,
+        "pk": 2,
+        "wc": 32,
+        "sid": null
+      },
+      {
+        "w": "2024-03-29",
+        "t": "BYE",
+        "a": "ARIANA GRANDE",
+        "lw": 20,
+        "pk": 13,
+        "wc": 3,
+        "sid": null
+      }
+    ],
+    "26": [
+      {
+        "w": "2024-01-05",
+        "t": "EVERYBODY",
+        "a": "NICKI MINAJ FT LIL UZI VERT",
+        "lw": "RE",
+        "pk": 26,
+        "wc": 3,
+        "sid": null
+      },
+      {
+        "w": "2024-01-12",
+        "t": "PERFECT (EXCEEDER)",
+        "a": "MASON/PRINCESS SUPERSTAR",
+        "lw": 40,
+        "pk": 26,
+        "wc": 2,
+        "sid": null
+      },
+      {
+        "w": "2024-01-19",
+        "t": "CAN'T CATCH ME NOW",
+        "a": "OLIVIA RODRIGO",
+        "lw": 20,
+        "pk": 12,
+        "wc": 11,
+        "sid": null
+      },
+      {
+        "w": "2024-01-26",
+        "t": "ALIBI",
+        "a": "ELLA HENDERSON FT RUDIMENTAL",
+        "lw": 46,
+        "pk": 26,
+        "wc": 2,
+        "sid": null
+      },
+      {
+        "w": "2024-02-02",
+        "t": "FEATHER",
+        "a": "SABRINA CARPENTER",
+        "lw": 24,
+        "pk": 19,
+        "wc": 9,
+        "sid": null
+      },
+      {
+        "w": "2024-02-09",
+        "t": "ON MY LOVE",
+        "a": "ZARA LARSSON & DAVID GUETTA",
+        "lw": 25,
+        "pk": 15,
+        "wc": 21,
+        "sid": null
+      },
+      {
+        "w": "2024-02-16",
+        "t": "RICH BABY DADDY",
+        "a": "DRAKE FT SEXYY RED & SZA",
+        "lw": 22,
+        "pk": 10,
+        "wc": 18,
+        "sid": null
+      },
+      {
+        "w": "2024-02-23",
+        "t": "EXES",
+        "a": "TATE MCRAE",
+        "lw": 25,
+        "pk": 12,
+        "wc": 14,
+        "sid": null
+      },
+      {
+        "w": "2024-03-01",
+        "t": "HOME",
+        "a": "GOOD NEIGHBOURS",
+        "lw": 30,
+        "pk": 26,
+        "wc": 5,
+        "sid": null
+      },
+      {
+        "w": "2024-03-08",
+        "t": "VON DUTCH",
+        "a": "CHARLI XCX",
+        "lw": "New",
+        "pk": 26,
+        "wc": 1,
+        "sid": null
+      },
+      {
+        "w": "2024-03-15",
+        "t": "GEDY",
+        "a": "TATE MCRAE",
+        "lw": 22,
+        "pk": 3,
+        "wc": 26,
+        "sid": null
+      },
+      {
+        "w": "2024-03-22",
+        "t": "HOME",
+        "a": "GOOD NEIGHBOURS",
+        "lw": 29,
+        "pk": 26,
+        "wc": 8,
+        "sid": null
+      },
+      {
+        "w": "2024-03-29",
+        "t": "HOME",
+        "a": "GOOD NEIGHBOURS",
+        "lw": 26,
+        "pk": 26,
+        "wc": 9,
+        "sid": null
+      }
+    ],
+    "27": [
+      {
+        "w": "2024-01-05",
+        "t": "SPRINTER",
+        "a": "DAVE & CENTRAL CEE",
+        "lw": "RE",
+        "pk": 1,
+        "wc": 30,
+        "sid": null
+      },
+      {
+        "w": "2024-01-12",
+        "t": "PRACTICE",
+        "a": "DRAKE",
+        "lw": "New",
+        "pk": 27,
+        "wc": 1,
+        "sid": null
+      },
+      {
+        "w": "2024-01-19",
+        "t": "N.H.I.E.",
+        "a": "21 SAVAGE/DOJA CAT",
+        "lw": "New",
+        "pk": 27,
+        "wc": 1,
+        "sid": null
+      },
+      {
+        "w": "2024-01-26",
+        "t": "ONE OF THE GIRLS",
+        "a": "WEEKND/JENNIE/LILY ROSE DEPP",
+        "lw": 28,
+        "pk": 21,
+        "wc": 9,
+        "sid": null
+      },
+      {
+        "w": "2024-02-02",
+        "t": "WHATEVER",
+        "a": "KYGO & AVA MAX",
+        "lw": 39,
+        "pk": 27,
+        "wc": 2,
+        "sid": null
+      },
+      {
+        "w": "2024-02-09",
+        "t": "ONE OF THE GIRLS",
+        "a": "WEEKND/JENNIE/LILY ROSE DEPP",
+        "lw": 28,
+        "pk": 21,
+        "wc": 11,
+        "sid": null
+      },
+      {
+        "w": "2024-02-16",
+        "t": "NOTHING MATTERS",
+        "a": "LAST DINNER PARTY",
+        "lw": 19,
+        "pk": 19,
+        "wc": 6,
+        "sid": null
+      },
+      {
+        "w": "2024-02-23",
+        "t": "NOTHING MATTERS",
+        "a": "LAST DINNER PARTY",
+        "lw": 27,
+        "pk": 19,
+        "wc": 7,
+        "sid": null
+      },
+      {
+        "w": "2024-03-01",
+        "t": "PRADA",
+        "a": "CASSO/RAYE/D-BLOCK EUROPE",
+        "lw": 8,
+        "pk": 2,
+        "wc": 29,
+        "sid": null
+      },
+      {
+        "w": "2024-03-08",
+        "t": "HOMESICK",
+        "a": "NOAH KAHAN & SAM FENDER",
+        "lw": 23,
+        "pk": 5,
+        "wc": 7,
+        "sid": null
+      },
+      {
+        "w": "2024-03-15",
+        "t": "PRADA",
+        "a": "CASSO/RAYE/D-BLOCK EUROPE",
+        "lw": 18,
+        "pk": 2,
+        "wc": 31,
+        "sid": null
+      },
+      {
+        "w": "2024-03-22",
+        "t": "EXES",
+        "a": "TATE MCRAE",
+        "lw": 28,
+        "pk": 12,
+        "wc": 18,
+        "sid": null
+      },
+      {
+        "w": "2024-03-29",
+        "t": "VON DUTCH",
+        "a": "CHARLI XCX",
+        "lw": 46,
+        "pk": 26,
+        "wc": 4,
+        "sid": null
+      }
+    ],
+    "28": [
+      {
+        "w": "2024-01-05",
+        "t": "NORTHERN ATTITUDE",
+        "a": "NOAH KAHAN",
+        "lw": "RE",
+        "pk": 16,
+        "wc": 7,
+        "sid": null
+      },
+      {
+        "w": "2024-01-12",
+        "t": "LIL BOO THANG",
+        "a": "PAUL RUSSELL",
+        "lw": 20,
+        "pk": 20,
+        "wc": 18,
+        "sid": null
+      },
+      {
+        "w": "2024-01-19",
+        "t": "ONE OF THE GIRLS",
+        "a": "WEEKND/JENNIE/LILY ROSE DEPP",
+        "lw": 25,
+        "pk": 21,
+        "wc": 8,
+        "sid": null
+      },
+      {
+        "w": "2024-01-26",
+        "t": "CAN'T CATCH ME NOW",
+        "a": "OLIVIA RODRIGO",
+        "lw": 26,
+        "pk": 12,
+        "wc": 12,
+        "sid": null
+      },
+      {
+        "w": "2024-02-02",
+        "t": "ONE OF THE GIRLS",
+        "a": "WEEKND/JENNIE/LILY ROSE DEPP",
+        "lw": 27,
+        "pk": 21,
+        "wc": 10,
+        "sid": null
+      },
+      {
+        "w": "2024-02-09",
+        "t": "WHATEVER",
+        "a": "KYGO & AVA MAX",
+        "lw": 27,
+        "pk": 27,
+        "wc": 3,
+        "sid": null
+      },
+      {
+        "w": "2024-02-16",
+        "t": "LOVIN ON ME",
+        "a": "JACK HARLOW",
+        "lw": 4,
+        "pk": 1,
+        "wc": 14,
+        "sid": null
+      },
+      {
+        "w": "2024-02-23",
+        "t": "BURN",
+        "a": "KANYE WEST/TY DOLLA SIGN",
+        "lw": 17,
+        "pk": 17,
+        "wc": 2,
+        "sid": null
+      },
+      {
+        "w": "2024-03-01",
+        "t": "ON MY LOVE",
+        "a": "ZARA LARSSON & DAVID GUETTA",
+        "lw": 34,
+        "pk": 15,
+        "wc": 24,
+        "sid": null
+      },
+      {
+        "w": "2024-03-08",
+        "t": "KITCHEN STOVE",
+        "a": "POZER",
+        "lw": 29,
+        "pk": 28,
+        "wc": 2,
+        "sid": null
+      },
+      {
+        "w": "2024-03-15",
+        "t": "EXES",
+        "a": "TATE MCRAE",
+        "lw": 25,
+        "pk": 12,
+        "wc": 17,
+        "sid": null
+      },
+      {
+        "w": "2024-03-22",
+        "t": "GEDY",
+        "a": "TATE MCRAE",
+        "lw": 26,
+        "pk": 3,
+        "wc": 27,
+        "sid": null
+      },
+      {
+        "w": "2024-03-29",
+        "t": "WHAT WAS I MADE FOR",
+        "a": "BILLIE EILISH",
+        "lw": 19,
+        "pk": 1,
+        "wc": 33,
+        "sid": null
+      }
+    ],
+    "29": [
+      {
+        "w": "2024-01-05",
+        "t": "AGORA HILLS",
+        "a": "DOJA CAT",
+        "lw": "RE",
+        "pk": 23,
+        "wc": 13,
+        "sid": null
+      },
+      {
+        "w": "2024-01-12",
+        "t": "VAMPI",
+        "a": "OLIVIA RODRIGO",
+        "lw": 22,
+        "pk": 1,
+        "wc": 27,
+        "sid": null
+      },
+      {
+        "w": "2024-01-19",
+        "t": "STRANGERS",
+        "a": "KENYA GRACE",
+        "lw": 23,
+        "pk": 1,
+        "wc": 20,
+        "sid": null
+      },
+      {
+        "w": "2024-01-26",
+        "t": "NORTHERN ATTITUDE",
+        "a": "NOAH KAHAN",
+        "lw": 32,
+        "pk": 16,
+        "wc": 10,
+        "sid": null
+      },
+      {
+        "w": "2024-02-02",
+        "t": "TOXIC",
+        "a": "SONGER",
+        "lw": 32,
+        "pk": 29,
+        "wc": 6,
+        "sid": null
+      },
+      {
+        "w": "2024-02-09",
+        "t": "SELFISH",
+        "a": "JUSTIN TIMBERLAKE",
+        "lw": 37,
+        "pk": 29,
+        "wc": 2,
+        "sid": null
+      },
+      {
+        "w": "2024-02-16",
+        "t": "ASKING",
+        "a": "SONNY FODERA/MK/DOUGLAS",
+        "lw": 24,
+        "pk": 7,
+        "wc": 28,
+        "sid": null
+      },
+      {
+        "w": "2024-02-23",
+        "t": "LOVIN ON ME",
+        "a": "JACK HARLOW",
+        "lw": 28,
+        "pk": 1,
+        "wc": 15,
+        "sid": null
+      },
+      {
+        "w": "2024-03-01",
+        "t": "KITCHEN STOVE",
+        "a": "POZER",
+        "lw": "New",
+        "pk": 29,
+        "wc": 1,
+        "sid": null
+      },
+      {
+        "w": "2024-03-08",
+        "t": "ON MY LOVE",
+        "a": "ZARA LARSSON & DAVID GUETTA",
+        "lw": 28,
+        "pk": 15,
+        "wc": 25,
+        "sid": null
+      },
+      {
+        "w": "2024-03-15",
+        "t": "HOME",
+        "a": "GOOD NEIGHBOURS",
+        "lw": 30,
+        "pk": 26,
+        "wc": 7,
+        "sid": null
+      },
+      {
+        "w": "2024-03-22",
+        "t": "DRUM",
+        "a": "21 SAVAGE",
+        "lw": 24,
+        "pk": 11,
+        "wc": 10,
+        "sid": null
+      },
+      {
+        "w": "2024-03-29",
+        "t": "PRADA",
+        "a": "CASSO/RAYE/D-BLOCK EUROPE",
+        "lw": 25,
+        "pk": 2,
+        "wc": 33,
+        "sid": null
+      }
+    ],
+    "30": [
+      {
+        "w": "2024-01-05",
+        "t": "PINK FRIDAY GIRLS",
+        "a": "NICKI MINAJ",
+        "lw": "RE",
+        "pk": 30,
+        "wc": 3,
+        "sid": null
+      },
+      {
+        "w": "2024-01-12",
+        "t": "NORTHERN ATTITUDE",
+        "a": "NOAH KAHAN",
+        "lw": 28,
+        "pk": 16,
+        "wc": 8,
+        "sid": null
+      },
+      {
+        "w": "2024-01-19",
+        "t": "PERFECT (EXCEEDER)",
+        "a": "MASON/PRINCESS SUPERSTAR",
+        "lw": 26,
+        "pk": 26,
+        "wc": 3,
+        "sid": null
+      },
+      {
+        "w": "2024-01-26",
+        "t": "STRANGERS",
+        "a": "KENYA GRACE",
+        "lw": 29,
+        "pk": 1,
+        "wc": 21,
+        "sid": null
+      },
+      {
+        "w": "2024-02-02",
+        "t": "EXES",
+        "a": "TATE MCRAE",
+        "lw": 25,
+        "pk": 12,
+        "wc": 11,
+        "sid": null
+      },
+      {
+        "w": "2024-02-09",
+        "t": "TOXIC",
+        "a": "SONGER",
+        "lw": 29,
+        "pk": 29,
+        "wc": 7,
+        "sid": null
+      },
+      {
+        "w": "2024-02-16",
+        "t": "ON MY LOVE",
+        "a": "ZARA LARSSON & DAVID GUETTA",
+        "lw": 26,
+        "pk": 15,
+        "wc": 22,
+        "sid": null
+      },
+      {
+        "w": "2024-02-23",
+        "t": "HOME",
+        "a": "GOOD NEIGHBOURS",
+        "lw": 34,
+        "pk": 30,
+        "wc": 4,
+        "sid": null
+      },
+      {
+        "w": "2024-03-01",
+        "t": "LOVIN ON ME",
+        "a": "JACK HARLOW",
+        "lw": 29,
+        "pk": 1,
+        "wc": 16,
+        "sid": null
+      },
+      {
+        "w": "2024-03-08",
+        "t": "HOME",
+        "a": "GOOD NEIGHBOURS",
+        "lw": 26,
+        "pk": 26,
+        "wc": 6,
+        "sid": null
+      },
+      {
+        "w": "2024-03-15",
+        "t": "MURDER ON THE DANCEFLOOR",
+        "a": "SOPHIE ELLIS-BEXTOR",
+        "lw": 24,
+        "pk": 2,
+        "wc": 27,
+        "sid": null
+      },
+      {
+        "w": "2024-03-22",
+        "t": "KITCHEN STOVE",
+        "a": "POZER",
+        "lw": 22,
+        "pk": 22,
+        "wc": 4,
+        "sid": null
+      },
+      {
+        "w": "2024-03-29",
+        "t": "GEN & GOLD",
+        "a": "RUDIMENTAL/SKEPSIS/PLANK/RIKO",
+        "lw": 43,
+        "pk": 30,
+        "wc": 5,
+        "sid": null
+      }
+    ],
+    "31": [
+      {
+        "w": "2024-01-05",
+        "t": "MR BRIGHTSIDE",
+        "a": "KILLERS",
+        "lw": "RE",
+        "pk": 10,
+        "wc": 391,
+        "sid": "3n3Ppam7vgaVa1iaRUc9Lp",
+        "spotifyUri": "spotify:track:3n3Ppam7vgaVa1iaRUc9Lp",
+        "spotifyUrl": "https://open.spotify.com/track/3n3Ppam7vgaVa1iaRUc9Lp",
+        "spotifyMatchScore": 88.0,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Mr. Brightside",
+        "am": "The Killers",
+        "mbid": "560062d0-e122-46be-9d89-0f3b44077fdf"
+      },
+      {
+        "w": "2024-01-12",
+        "t": "RUNAWAY",
+        "a": "KANYE WEST FT PUSHA T",
+        "lw": 23,
+        "pk": 23,
+        "wc": 10,
+        "sid": null
+      },
+      {
+        "w": "2024-01-19",
+        "t": "BLACK FRIDAY",
+        "a": "TOM ODELL",
+        "lw": 62,
+        "pk": 21,
+        "wc": 13,
+        "sid": null
+      },
+      {
+        "w": "2024-01-26",
+        "t": "ANGEL NUMBERS/TEN TOES",
+        "a": "CHRIS BROWN",
+        "lw": 35,
+        "pk": 31,
+        "wc": 10,
+        "sid": null
+      },
+      {
+        "w": "2024-02-02",
+        "t": "HISS",
+        "a": "MEGAN THEE STALLION",
+        "lw": "New",
+        "pk": 31,
+        "wc": 1,
+        "sid": null
+      },
+      {
+        "w": "2024-02-09",
+        "t": "SCAD TO START",
+        "a": "MICHAEL MARCAGI",
+        "lw": 38,
+        "pk": 31,
+        "wc": 4,
+        "sid": null
+      },
+      {
+        "w": "2024-02-16",
+        "t": "FOVER",
+        "a": "NOAH KAHAN",
+        "lw": "New",
+        "pk": 31,
+        "wc": 1,
+        "sid": null
+      },
+      {
+        "w": "2024-02-23",
+        "t": "SCAD TO START",
+        "a": "MICHAEL MARCAGI",
+        "lw": 32,
+        "pk": 31,
+        "wc": 6,
+        "sid": null
+      },
+      {
+        "w": "2024-03-01",
+        "t": "WHATEVER SHE WANTS",
+        "a": "BRYSON TILLER",
+        "lw": 53,
+        "pk": 31,
+        "wc": 2,
+        "sid": null
+      },
+      {
+        "w": "2024-03-08",
+        "t": "GY",
+        "a": "YUNG FILLY",
+        "lw": 33,
+        "pk": 31,
+        "wc": 6,
+        "sid": null
+      },
+      {
+        "w": "2024-03-15",
+        "t": "NOTHING MATTERS",
+        "a": "LAST DINNER PARTY",
+        "lw": 19,
+        "pk": 16,
+        "wc": 10,
+        "sid": null
+      },
+      {
+        "w": "2024-03-22",
+        "t": "CRUEL SUMMER",
+        "a": "TAYLOR SWIFT",
+        "lw": 10,
+        "pk": 2,
+        "wc": 40,
+        "sid": null
+      },
+      {
+        "w": "2024-03-29",
+        "t": "GEDY",
+        "a": "TATE MCRAE",
+        "lw": 28,
+        "pk": 3,
+        "wc": 28,
+        "sid": null
+      }
+    ],
+    "32": [
+      {
+        "w": "2024-01-05",
+        "t": "DANCE THE NIGHT (FROM BARBIE THE ALBUM)",
+        "a": "DUA LIPA",
+        "lw": "RE",
+        "pk": 1,
+        "wc": 28,
+        "sid": null
+      },
+      {
+        "w": "2024-01-12",
+        "t": "PINK FRIDAY GIRLS",
+        "a": "NICKI MINAJ",
+        "lw": 30,
+        "pk": 30,
+        "wc": 4,
+        "sid": null
+      },
+      {
+        "w": "2024-01-19",
+        "t": "NORTHERN ATTITUDE",
+        "a": "NOAH KAHAN",
+        "lw": 30,
+        "pk": 16,
+        "wc": 9,
+        "sid": null
+      },
+      {
+        "w": "2024-01-26",
+        "t": "TOXIC",
+        "a": "SONGER",
+        "lw": 39,
+        "pk": 32,
+        "wc": 5,
+        "sid": null
+      },
+      {
+        "w": "2024-02-02",
+        "t": "GAS ME UP (DILIGENT)",
+        "a": "SKEPTA",
+        "lw": "New",
+        "pk": 32,
+        "wc": 1,
+        "sid": null
+      },
+      {
+        "w": "2024-02-09",
+        "t": "FEATHER",
+        "a": "SABRINA CARPENTER",
+        "lw": 26,
+        "pk": 19,
+        "wc": 10,
+        "sid": null
+      },
+      {
+        "w": "2024-02-16",
+        "t": "SCAD TO START",
+        "a": "MICHAEL MARCAGI",
+        "lw": 31,
+        "pk": 31,
+        "wc": 5,
+        "sid": null
+      },
+      {
+        "w": "2024-02-23",
+        "t": "ASKING",
+        "a": "SONNY FODERA/MK/DOUGLAS",
+        "lw": 29,
+        "pk": 7,
+        "wc": 29,
+        "sid": null
+      },
+      {
+        "w": "2024-03-01",
+        "t": "GEDY",
+        "a": "TATE MCRAE",
+        "lw": 10,
+        "pk": 3,
+        "wc": 24,
+        "sid": null
+      },
+      {
+        "w": "2024-03-08",
+        "t": "LOVIN ON ME",
+        "a": "JACK HARLOW",
+        "lw": 30,
+        "pk": 1,
+        "wc": 17,
+        "sid": null
+      },
+      {
+        "w": "2024-03-15",
+        "t": "NEVER BE ALONE",
+        "a": "BECKY HILL & SONNY FODERA",
+        "lw": 23,
+        "pk": 23,
+        "wc": 8,
+        "sid": null
+      },
+      {
+        "w": "2024-03-22",
+        "t": "NEVER BE ALONE",
+        "a": "BECKY HILL & SONNY FODERA",
+        "lw": 32,
+        "pk": 23,
+        "wc": 9,
+        "sid": null
+      },
+      {
+        "w": "2024-03-29",
+        "t": "BACK ON 74",
+        "a": "JUNGLE",
+        "lw": 41,
+        "pk": 25,
+        "wc": 13,
+        "sid": null
+      }
+    ],
+    "33": [
+      {
+        "w": "2024-01-05",
+        "t": "IS IT OVER NOW (TAYLOR'S VERSION)",
+        "a": "TAYLOR SWIFT",
+        "lw": 61,
+        "pk": 1,
+        "wc": 10,
+        "sid": null
+      },
+      {
+        "w": "2024-01-12",
+        "t": "EVERYBODY",
+        "a": "NICKI MINAJ FT LIL UZI VERT",
+        "lw": 26,
+        "pk": 26,
+        "wc": 4,
+        "sid": null
+      },
+      {
+        "w": "2024-01-19",
+        "t": "LIL BOO THANG",
+        "a": "PAUL RUSSELL",
+        "lw": 28,
+        "pk": 20,
+        "wc": 19,
+        "sid": null
+      },
+      {
+        "w": "2024-01-26",
+        "t": "EAGLE",
+        "a": "D-BLOCK EUROPE & NOIZY",
+        "lw": 19,
+        "pk": 19,
+        "wc": 2,
+        "sid": null
+      },
+      {
+        "w": "2024-02-02",
+        "t": "ANGEL NUMBERS/TEN TOES",
+        "a": "CHRIS BROWN",
+        "lw": 31,
+        "pk": 31,
+        "wc": 11,
+        "sid": null
+      },
+      {
+        "w": "2024-02-09",
+        "t": "LIL BOO THANG",
+        "a": "PAUL RUSSELL",
+        "lw": 35,
+        "pk": 20,
+        "wc": 22,
+        "sid": null
+      },
+      {
+        "w": "2024-02-16",
+        "t": "TOXIC",
+        "a": "SONGER",
+        "lw": 30,
+        "pk": 29,
+        "wc": 8,
+        "sid": null
+      },
+      {
+        "w": "2024-02-23",
+        "t": "GY",
+        "a": "YUNG FILLY",
+        "lw": 52,
+        "pk": 33,
+        "wc": 4,
+        "sid": null
+      },
+      {
+        "w": "2024-03-01",
+        "t": "GY",
+        "a": "YUNG FILLY",
+        "lw": 33,
+        "pk": 33,
+        "wc": 5,
+        "sid": null
+      },
+      {
+        "w": "2024-03-08",
+        "t": "BURN",
+        "a": "KANYE WEST/TY DOLLA SIGN",
+        "lw": 34,
+        "pk": 17,
+        "wc": 4,
+        "sid": null
+      },
+      {
+        "w": "2024-03-15",
+        "t": "HOMESICK",
+        "a": "NOAH KAHAN & SAM FENDER",
+        "lw": 27,
+        "pk": 5,
+        "wc": 8,
+        "sid": null
+      },
+      {
+        "w": "2024-03-22",
+        "t": "WORTH IT",
+        "a": "RAYE",
+        "lw": 34,
+        "pk": 33,
+        "wc": 3,
+        "sid": null
+      },
+      {
+        "w": "2024-03-29",
+        "t": "NEVER BE ALONE",
+        "a": "BECKY HILL & SONNY FODERA",
+        "lw": 32,
+        "pk": 23,
+        "wc": 10,
+        "sid": null
+      }
+    ],
+    "34": [
+      {
+        "w": "2024-01-05",
+        "t": "FLOWERS",
+        "a": "MILEY CYRUS",
+        "lw": "RE",
+        "pk": 1,
+        "wc": 46,
+        "sid": null
+      },
+      {
+        "w": "2024-01-12",
+        "t": "BODY MOVING",
+        "a": "ELIZA ROSE & CALVIN HARRIS",
+        "lw": 38,
+        "pk": 34,
+        "wc": 4,
+        "sid": null
+      },
+      {
+        "w": "2024-01-19",
+        "t": "VAMPI",
+        "a": "OLIVIA RODRIGO",
+        "lw": 29,
+        "pk": 1,
+        "wc": 28,
+        "sid": null
+      },
+      {
+        "w": "2024-01-26",
+        "t": "NEVER BE ALONE",
+        "a": "BECKY HILL & SONNY FODERA",
+        "lw": "New",
+        "pk": 34,
+        "wc": 1,
+        "sid": null
+      },
+      {
+        "w": "2024-02-02",
+        "t": "STRANGERS",
+        "a": "KENYA GRACE",
+        "lw": 30,
+        "pk": 1,
+        "wc": 22,
+        "sid": null
+      },
+      {
+        "w": "2024-02-09",
+        "t": "ANGEL NUMBERS/TEN TOES",
+        "a": "CHRIS BROWN",
+        "lw": 33,
+        "pk": 31,
+        "wc": 12,
+        "sid": null
+      },
+      {
+        "w": "2024-02-16",
+        "t": "HOME",
+        "a": "GOOD NEIGHBOURS",
+        "lw": 40,
+        "pk": 34,
+        "wc": 3,
+        "sid": null
+      },
+      {
+        "w": "2024-02-23",
+        "t": "ON MY LOVE",
+        "a": "ZARA LARSSON & DAVID GUETTA",
+        "lw": 30,
+        "pk": 15,
+        "wc": 23,
+        "sid": null
+      },
+      {
+        "w": "2024-03-01",
+        "t": "BURN",
+        "a": "KANYE WEST/TY DOLLA SIGN",
+        "lw": 28,
+        "pk": 17,
+        "wc": 3,
+        "sid": null
+      },
+      {
+        "w": "2024-03-08",
+        "t": "OVERCOMPENSATE",
+        "a": "TWENTY ONE PILOTS",
+        "lw": "New",
+        "pk": 34,
+        "wc": 1,
+        "sid": null
+      },
+      {
+        "w": "2024-03-15",
+        "t": "WORTH IT",
+        "a": "RAYE",
+        "lw": 38,
+        "pk": 34,
+        "wc": 2,
+        "sid": null
+      },
+      {
+        "w": "2024-03-22",
+        "t": "BIRDS IN THE SKY",
+        "a": "NEWERA",
+        "lw": 42,
+        "pk": 34,
+        "wc": 7,
+        "sid": null
+      },
+      {
+        "w": "2024-03-29",
+        "t": "SATURN",
+        "a": "SZA",
+        "lw": 21,
+        "pk": 15,
+        "wc": 5,
+        "sid": null
+      }
+    ],
+    "35": [
+      {
+        "w": "2024-01-05",
+        "t": "SURROUND SOUND",
+        "a": "JID FT 21 SAVAGE & BABY TATE",
+        "lw": "RE",
+        "pk": 35,
+        "wc": 6,
+        "sid": null
+      },
+      {
+        "w": "2024-01-12",
+        "t": "SURROUND SOUND",
+        "a": "JID FT 21 SAVAGE & BABY TATE",
+        "lw": 35,
+        "pk": 35,
+        "wc": 7,
+        "sid": null
+      },
+      {
+        "w": "2024-01-19",
+        "t": "ANGEL NUMBERS/TEN TOES",
+        "a": "CHRIS BROWN",
+        "lw": 38,
+        "pk": 32,
+        "wc": 9,
+        "sid": null
+      },
+      {
+        "w": "2024-01-26",
+        "t": "SEVENTEEN GOING UNDER",
+        "a": "SAM FENDER",
+        "lw": "RE",
+        "pk": 3,
+        "wc": 90,
+        "sid": null
+      },
+      {
+        "w": "2024-02-02",
+        "t": "LIL BOO THANG",
+        "a": "PAUL RUSSELL",
+        "lw": 37,
+        "pk": 20,
+        "wc": 21,
+        "sid": null
+      },
+      {
+        "w": "2024-02-09",
+        "t": "RUNAWAY",
+        "a": "KANYE WEST FT PUSHA T",
+        "lw": 43,
+        "pk": 23,
+        "wc": 14,
+        "sid": null
+      },
+      {
+        "w": "2024-02-16",
+        "t": "PERFECT (EXCEEDER)",
+        "a": "MASON/PRINCESS SUPERSTAR",
+        "lw": 39,
+        "pk": 26,
+        "wc": 7,
+        "sid": null
+      },
+      {
+        "w": "2024-02-23",
+        "t": "LIL BOO THANG",
+        "a": "PAUL RUSSELL",
+        "lw": 40,
+        "pk": 20,
+        "wc": 24,
+        "sid": null
+      },
+      {
+        "w": "2024-03-01",
+        "t": "NEVER BE ALONE",
+        "a": "BECKY HILL & SONNY FODERA",
+        "lw": 45,
+        "pk": 34,
+        "wc": 6,
+        "sid": null
+      },
+      {
+        "w": "2024-03-08",
+        "t": "LIL BOO THANG",
+        "a": "PAUL RUSSELL",
+        "lw": 38,
+        "pk": 20,
+        "wc": 26,
+        "sid": null
+      },
+      {
+        "w": "2024-03-15",
+        "t": "GY",
+        "a": "YUNG FILLY",
+        "lw": 31,
+        "pk": 31,
+        "wc": 7,
+        "sid": null
+      },
+      {
+        "w": "2024-03-22",
+        "t": "NOTHING MATTERS",
+        "a": "LAST DINNER PARTY",
+        "lw": 31,
+        "pk": 16,
+        "wc": 11,
+        "sid": null
+      },
+      {
+        "w": "2024-03-29",
+        "t": "CRUEL SUMMER",
+        "a": "TAYLOR SWIFT",
+        "lw": 31,
+        "pk": 2,
+        "wc": 41,
+        "sid": null
+      }
+    ],
+    "36": [
+      {
+        "w": "2024-01-05",
+        "t": "ENTRAPNEUR",
+        "a": "CENTRAL CEE",
+        "lw": 71,
+        "pk": 36,
+        "wc": 2,
+        "sid": null
+      },
+      {
+        "w": "2024-01-12",
+        "t": "AGORA HILLS",
+        "a": "DOJA CAT",
+        "lw": 29,
+        "pk": 23,
+        "wc": 14,
+        "sid": null
+      },
+      {
+        "w": "2024-01-19",
+        "t": "PRACTICE",
+        "a": "DRAKE",
+        "lw": 27,
+        "pk": 27,
+        "wc": 2,
+        "sid": null
+      },
+      {
+        "w": "2024-01-26",
+        "t": "SKIN AND BONES",
+        "a": "DAVID KUSHNER",
+        "lw": "New",
+        "pk": 36,
+        "wc": 1,
+        "sid": null
+      },
+      {
+        "w": "2024-02-02",
+        "t": "CAN'T CATCH ME NOW",
+        "a": "OLIVIA RODRIGO",
+        "lw": 28,
+        "pk": 12,
+        "wc": 13,
+        "sid": null
+      },
+      {
+        "w": "2024-02-09",
+        "t": "STRANGERS",
+        "a": "KENYA GRACE",
+        "lw": 34,
+        "pk": 1,
+        "wc": 23,
+        "sid": null
+      },
+      {
+        "w": "2024-02-16",
+        "t": "ONE OF THE GIRLS",
+        "a": "WEEKND/JENNIE/LILY ROSE DEPP",
+        "lw": 27,
+        "pk": 21,
+        "wc": 12,
+        "sid": null
+      },
+      {
+        "w": "2024-02-23",
+        "t": "ONE OF THE GIRLS",
+        "a": "WEEKND/JENNIE/LILY ROSE DEPP",
+        "lw": 36,
+        "pk": 21,
+        "wc": 13,
+        "sid": null
+      },
+      {
+        "w": "2024-03-01",
+        "t": "ONE OF THE GIRLS",
+        "a": "WEEKND/JENNIE/LILY ROSE DEPP",
+        "lw": 36,
+        "pk": 21,
+        "wc": 14,
+        "sid": null
+      },
+      {
+        "w": "2024-03-08",
+        "t": "MADE FOR ME",
+        "a": "MUNI LONG",
+        "lw": 37,
+        "pk": 36,
+        "wc": 4,
+        "sid": null
+      },
+      {
+        "w": "2024-03-15",
+        "t": "LOVIN ON ME",
+        "a": "JACK HARLOW",
+        "lw": 32,
+        "pk": 1,
+        "wc": 18,
+        "sid": null
+      },
+      {
+        "w": "2024-03-22",
+        "t": "MURDER ON THE DANCEFLOOR",
+        "a": "SOPHIE ELLIS-BEXTOR",
+        "lw": 30,
+        "pk": 2,
+        "wc": 28,
+        "sid": null
+      },
+      {
+        "w": "2024-03-29",
+        "t": "ESCAPISM",
+        "a": "RAYE FT 070 SHAKE",
+        "lw": 24,
+        "pk": 1,
+        "wc": 61,
+        "sid": null
+      }
+    ],
+    "37": [
+      {
+        "w": "2024-01-05",
+        "t": "YOU' LOSING ME",
+        "a": "TAYLOR SWIFT",
+        "lw": "RE",
+        "pk": 20,
+        "wc": 4,
+        "sid": null
+      },
+      {
+        "w": "2024-01-12",
+        "t": "STRANGERS",
+        "a": "LEWIS CAPALDI",
+        "lw": "New",
+        "pk": 37,
+        "wc": 1,
+        "sid": null
+      },
+      {
+        "w": "2024-01-19",
+        "t": "RUNAWAY",
+        "a": "KANYE WEST FT PUSHA T",
+        "lw": 31,
+        "pk": 23,
+        "wc": 11,
+        "sid": null
+      },
+      {
+        "w": "2024-01-26",
+        "t": "LIL BOO THANG",
+        "a": "PAUL RUSSELL",
+        "lw": 33,
+        "pk": 20,
+        "wc": 20,
+        "sid": null
+      },
+      {
+        "w": "2024-02-02",
+        "t": "SELFISH",
+        "a": "JUSTIN TIMBERLAKE",
+        "lw": "New",
+        "pk": 37,
+        "wc": 1,
+        "sid": null
+      },
+      {
+        "w": "2024-02-09",
+        "t": "HISS",
+        "a": "MEGAN THEE STALLION",
+        "lw": 31,
+        "pk": 31,
+        "wc": 2,
+        "sid": null
+      },
+      {
+        "w": "2024-02-16",
+        "t": "ABRACADABRA",
+        "a": "WES NELSON FT CRAIG DAVID",
+        "lw": "New",
+        "pk": 37,
+        "wc": 1,
+        "sid": null
+      },
+      {
+        "w": "2024-02-23",
+        "t": "TOXIC",
+        "a": "SONGER",
+        "lw": 33,
+        "pk": 29,
+        "wc": 9,
+        "sid": null
+      },
+      {
+        "w": "2024-03-01",
+        "t": "MADE FOR ME",
+        "a": "MUNI LONG",
+        "lw": 48,
+        "pk": 37,
+        "wc": 3,
+        "sid": null
+      },
+      {
+        "w": "2024-03-08",
+        "t": "ONE OF THE GIRLS",
+        "a": "WEEKND/JENNIE/LILY ROSE DEPP",
+        "lw": 36,
+        "pk": 21,
+        "wc": 15,
+        "sid": null
+      },
+      {
+        "w": "2024-03-15",
+        "t": "EVERGEN",
+        "a": "RICHY MITCH & THE COAL MINERS",
+        "lw": 41,
+        "pk": 37,
+        "wc": 24,
+        "sid": null
+      },
+      {
+        "w": "2024-03-22",
+        "t": "HOMESICK",
+        "a": "NOAH KAHAN & SAM FENDER",
+        "lw": 33,
+        "pk": 5,
+        "wc": 9,
+        "sid": null
+      },
+      {
+        "w": "2024-03-29",
+        "t": "ACT II - DATE AT 8",
+        "a": "4BATZ FT DRAKE",
+        "lw": 22,
+        "pk": 18,
+        "wc": 3,
+        "sid": null
+      }
+    ],
+    "38": [
+      {
+        "w": "2024-01-05",
+        "t": "BODY MOVING",
+        "a": "ELIZA ROSE & CALVIN HARRIS",
+        "lw": "RE",
+        "pk": 38,
+        "wc": 3,
+        "sid": null
+      },
+      {
+        "w": "2024-01-12",
+        "t": "ANGEL NUMBERS/TEN TOES",
+        "a": "CHRIS BROWN",
+        "lw": 39,
+        "pk": 32,
+        "wc": 8,
+        "sid": null
+      },
+      {
+        "w": "2024-01-19",
+        "t": "BODY MOVING",
+        "a": "ELIZA ROSE & CALVIN HARRIS",
+        "lw": 34,
+        "pk": 34,
+        "wc": 5,
+        "sid": null
+      },
+      {
+        "w": "2024-01-26",
+        "t": "PERFECT (EXCEEDER)",
+        "a": "MASON/PRINCESS SUPERSTAR",
+        "lw": 30,
+        "pk": 26,
+        "wc": 4,
+        "sid": null
+      },
+      {
+        "w": "2024-02-02",
+        "t": "SCAD TO START",
+        "a": "MICHAEL MARCAGI",
+        "lw": 47,
+        "pk": 38,
+        "wc": 3,
+        "sid": null
+      },
+      {
+        "w": "2024-02-09",
+        "t": "NORTHERN ATTITUDE",
+        "a": "NOAH KAHAN",
+        "lw": 39,
+        "pk": 16,
+        "wc": 12,
+        "sid": null
+      },
+      {
+        "w": "2024-02-16",
+        "t": "FAST CAR",
+        "a": "TRACY CHAPMAN",
+        "lw": "RE",
+        "pk": 4,
+        "wc": 48,
+        "sid": null
+      },
+      {
+        "w": "2024-02-23",
+        "t": "BACK TO ME",
+        "a": "KANYE WEST/TY DOLLA SIGN",
+        "lw": 18,
+        "pk": 18,
+        "wc": 2,
+        "sid": null
+      },
+      {
+        "w": "2024-03-01",
+        "t": "LIL BOO THANG",
+        "a": "PAUL RUSSELL",
+        "lw": 35,
+        "pk": 20,
+        "wc": 25,
+        "sid": null
+      },
+      {
+        "w": "2024-03-08",
+        "t": "WORTH IT",
+        "a": "RAYE",
+        "lw": "New",
+        "pk": 38,
+        "wc": 1,
+        "sid": null
+      },
+      {
+        "w": "2024-03-15",
+        "t": "LIL BOO THANG",
+        "a": "PAUL RUSSELL",
+        "lw": 35,
+        "pk": 20,
+        "wc": 27,
+        "sid": null
+      },
+      {
+        "w": "2024-03-22",
+        "t": "EVERGEN",
+        "a": "RICHY MITCH & THE COAL MINERS",
+        "lw": 37,
+        "pk": 37,
+        "wc": 25,
+        "sid": null
+      },
+      {
+        "w": "2024-03-29",
+        "t": "NEVER LOSE ME",
+        "a": "FLO MILLI",
+        "lw": 23,
+        "pk": 15,
+        "wc": 13,
+        "sid": null
+      }
+    ],
+    "39": [
+      {
+        "w": "2024-01-05",
+        "t": "ANGEL NUMBERS/TEN TOES",
+        "a": "CHRIS BROWN",
+        "lw": "RE",
+        "pk": 32,
+        "wc": 7,
+        "sid": null
+      },
+      {
+        "w": "2024-01-12",
+        "t": "TOXIC",
+        "a": "SONGER",
+        "lw": 46,
+        "pk": 39,
+        "wc": 3,
+        "sid": null
+      },
+      {
+        "w": "2024-01-19",
+        "t": "TOXIC",
+        "a": "SONGER",
+        "lw": 39,
+        "pk": 39,
+        "wc": 4,
+        "sid": null
+      },
+      {
+        "w": "2024-01-26",
+        "t": "WHATEVER",
+        "a": "KYGO & AVA MAX",
+        "lw": "New",
+        "pk": 39,
+        "wc": 1,
+        "sid": null
+      },
+      {
+        "w": "2024-02-02",
+        "t": "NORTHERN ATTITUDE",
+        "a": "NOAH KAHAN",
+        "lw": 29,
+        "pk": 16,
+        "wc": 11,
+        "sid": null
+      },
+      {
+        "w": "2024-02-09",
+        "t": "PERFECT (EXCEEDER)",
+        "a": "MASON/PRINCESS SUPERSTAR",
+        "lw": 44,
+        "pk": 26,
+        "wc": 6,
+        "sid": null
+      },
+      {
+        "w": "2024-02-16",
+        "t": "SELFISH",
+        "a": "JUSTIN TIMBERLAKE",
+        "lw": 29,
+        "pk": 29,
+        "wc": 3,
+        "sid": null
+      },
+      {
+        "w": "2024-02-23",
+        "t": "ANGEL NUMBERS/TEN TOES",
+        "a": "CHRIS BROWN",
+        "lw": 42,
+        "pk": 31,
+        "wc": 14,
+        "sid": null
+      },
+      {
+        "w": "2024-03-01",
+        "t": "SELFISH",
+        "a": "JUSTIN TIMBERLAKE",
+        "lw": 41,
+        "pk": 29,
+        "wc": 5,
+        "sid": null
+      },
+      {
+        "w": "2024-03-08",
+        "t": "BIRDS IN THE SKY",
+        "a": "NEWERA",
+        "lw": 40,
+        "pk": 39,
+        "wc": 5,
+        "sid": null
+      },
+      {
+        "w": "2024-03-15",
+        "t": "VON DUTCH",
+        "a": "CHARLI XCX",
+        "lw": 26,
+        "pk": 26,
+        "wc": 2,
+        "sid": null
+      },
+      {
+        "w": "2024-03-22",
+        "t": "PRAISE JAH IN THE MOONLIGHT",
+        "a": "YG MARLEY",
+        "lw": 11,
+        "pk": 5,
+        "wc": 10,
+        "sid": null
+      },
+      {
+        "w": "2024-03-29",
+        "t": "EXES",
+        "a": "TATE MCRAE",
+        "lw": 27,
+        "pk": 12,
+        "wc": 19,
+        "sid": null
+      }
+    ],
+    "40": [
+      {
+        "w": "2024-01-05",
+        "t": "PERFECT (EXCEEDER)",
+        "a": "MASON/PRINCESS SUPERSTAR",
+        "lw": "New",
+        "pk": 40,
+        "wc": 1,
+        "sid": null
+      },
+      {
+        "w": "2024-01-12",
+        "t": "FTCU",
+        "a": "NICKI MINAJ",
+        "lw": 41,
+        "pk": 40,
+        "wc": 3,
+        "sid": null
+      },
+      {
+        "w": "2024-01-19",
+        "t": "SURROUND SOUND",
+        "a": "JID FT 21 SAVAGE & BABY TATE",
+        "lw": 35,
+        "pk": 35,
+        "wc": 8,
+        "sid": null
+      },
+      {
+        "w": "2024-01-26",
+        "t": "RUNAWAY",
+        "a": "KANYE WEST FT PUSHA T",
+        "lw": 37,
+        "pk": 23,
+        "wc": 12,
+        "sid": null
+      },
+      {
+        "w": "2024-02-02",
+        "t": "SEVENTEEN GOING UNDER",
+        "a": "SAM FENDER",
+        "lw": 35,
+        "pk": 3,
+        "wc": 91,
+        "sid": null
+      },
+      {
+        "w": "2024-02-09",
+        "t": "HOME",
+        "a": "GOOD NEIGHBOURS",
+        "lw": 81,
+        "pk": 40,
+        "wc": 2,
+        "sid": null
+      },
+      {
+        "w": "2024-02-16",
+        "t": "LIL BOO THANG",
+        "a": "PAUL RUSSELL",
+        "lw": 33,
+        "pk": 20,
+        "wc": 23,
+        "sid": null
+      },
+      {
+        "w": "2024-02-23",
+        "t": "FOVER",
+        "a": "NOAH KAHAN",
+        "lw": 31,
+        "pk": 31,
+        "wc": 2,
+        "sid": null
+      },
+      {
+        "w": "2024-03-01",
+        "t": "BIRDS IN THE SKY",
+        "a": "NEWERA",
+        "lw": 44,
+        "pk": 40,
+        "wc": 4,
+        "sid": null
+      },
+      {
+        "w": "2024-03-08",
+        "t": "I WILL",
+        "a": "CENTRAL CEE",
+        "lw": 18,
+        "pk": 18,
+        "wc": 2,
+        "sid": null
+      },
+      {
+        "w": "2024-03-15",
+        "t": "ONE OF THE GIRLS",
+        "a": "WEEKND/JENNIE/LILY ROSE DEPP",
+        "lw": 37,
+        "pk": 21,
+        "wc": 16,
+        "sid": null
+      },
+      {
+        "w": "2024-03-22",
+        "t": "LIL BOO THANG",
+        "a": "PAUL RUSSELL",
+        "lw": 38,
+        "pk": 20,
+        "wc": 28,
+        "sid": null
+      },
+      {
+        "w": "2024-03-29",
+        "t": "HAPPIER",
+        "a": "BLESSED MADONNA/DOUGLAS",
+        "lw": 54,
+        "pk": 40,
+        "wc": 5,
+        "sid": null
+      }
+    ]
+  }
+}
