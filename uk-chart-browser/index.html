@@ -803,6 +803,9 @@
       currentPlayableIndex: -1,
       loadYearRequestId: 0,
       marqueeResizeObserver: null,
+      currentTrackSid: null,
+      pendingRequestedTrackSid: null,
+      pendingRequestedAt: 0,
     };
 
     function qs(name) { return new URLSearchParams(window.location.search).get(name); }
@@ -963,7 +966,7 @@
     }
 
     function getCurrentTrackId() {
-      return getPlaybackStateTrackId(state.playbackState);
+      return state.currentTrackSid || getPlaybackStateTrackId(state.playbackState);
     }
 
     function getPlayableVisibleRows() {
@@ -988,6 +991,7 @@
 
     async function maybeAutoAdvanceFromTimer() {
       if (state.autoAdvanceInFlight || state.isScrubbing) return;
+      if (state.pendingRequestedTrackSid) return;
 
       const currentSid = getCurrentTrackId();
       if (!currentSid) return;
@@ -1014,20 +1018,6 @@
         }
 
         await playTrack(nextRow, { isAutoAdvance: true, forceRestart: true });
-
-        await new Promise(resolve => setTimeout(resolve, 450));
-
-        const actualSid = getCurrentTrackId();
-        const derived = getDerivedPlaybackPosition();
-        const isPausedAtStart =
-          actualSid === nextRow.sid &&
-          !!state.playbackState?.paused &&
-          derived.position < 1500;
-
-        if (isPausedAtStart) {
-          await resumePlayback();
-        }
-
         state.lastAutoAdvancedFromSid = currentSid;
       } catch (err) {
         console.error('Auto-advance failed', err);
@@ -1315,9 +1305,18 @@
 
     async function playTrack(row, options = {}) {
       if (!row.sid) return;
+
       if (!options.isAutoAdvance) {
         state.lastAutoAdvancedFromSid = null;
       }
+
+      const currentTrackId = getPlaybackStateTrackId(state.playbackState);
+      const isSwitchingTrack = currentTrackId !== row.sid;
+      const mustHardReset = isSwitchingTrack || options.forceRestart;
+
+      state.activeTrack = row;
+      state.pendingRequestedTrackSid = row.sid;
+      state.pendingRequestedAt = Date.now();
 
       const queueIndex = getPlayableQueueIndexForRow(row);
       if (queueIndex >= 0) {
@@ -1329,51 +1328,45 @@
         return;
       }
 
-      const currentTrackId = state.playbackState?.track_window?.current_track?.uri?.startsWith('spotify:track:')
-        ? state.playbackState.track_window.current_track.uri.split(':')[2]
-        : null;
-      const isSwitchingTrack = currentTrackId !== row.sid;
-      const mustHardReset = isSwitchingTrack || options.forceRestart;
-
       await state.player.activateElement();
       await transferPlaybackHere();
 
       if (mustHardReset) {
         try {
-          await spotifyApi(`https://api.spotify.com/v1/me/player/pause?device_id=${encodeURIComponent(state.deviceId)}`, {
-            method: 'PUT',
-          });
+          await spotifyApi(
+            `https://api.spotify.com/v1/me/player/pause?device_id=${encodeURIComponent(state.deviceId)}`,
+            { method: 'PUT' }
+          );
         } catch (err) {
           console.warn('Pause before track switch failed', err);
         }
       }
 
-      await spotifyApi(`https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`, {
-        method: 'PUT',
-        body: JSON.stringify({ uris: [`spotify:track:${row.sid}`], position_ms: 0 }),
-      });
+      await spotifyApi(
+        `https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`,
+        {
+          method: 'PUT',
+          body: JSON.stringify({ uris: [`spotify:track:${row.sid}`], position_ms: 0 }),
+        }
+      );
 
       if (mustHardReset) {
         try {
           await new Promise(resolve => setTimeout(resolve, 150));
-          await spotifyApi(`https://api.spotify.com/v1/me/player/seek?position_ms=0&device_id=${encodeURIComponent(state.deviceId)}`, {
-            method: 'PUT',
-          });
+          await spotifyApi(
+            `https://api.spotify.com/v1/me/player/seek?position_ms=0&device_id=${encodeURIComponent(state.deviceId)}`,
+            { method: 'PUT' }
+          );
         } catch (err) {
           console.warn('Seek reset failed', err);
         }
       }
 
-      state.activeTrack = row;
-      state.lastPlaybackSnapshot = state.lastPlaybackSnapshot
-      ? {
-          ...state.lastPlaybackSnapshot,
-          position: 0,
-          paused: false,
-        }
-      : null;
       state.lastPlaybackTimestamp = Date.now();
-      syncPlayerTitles(row.tm || row.t || row.title || 'Unknown song', row.am || row.a || row.artist || '');
+      syncPlayerTitles(
+        row.tm || row.t || row.title || 'Unknown song',
+        row.am || row.a || row.artist || ''
+      );
       playerInfo.textContent = 'Playback requested on your Web Playback SDK device.';
       setPlayerArtwork(null, (row.tm || row.t || row.title || '♪').slice(0, 1).toUpperCase());
       setProgress(0, 0);
@@ -1404,9 +1397,7 @@
       if (!state.currentYearData) return;
       const visibleRows = getVisibleRows();
       const totalRows = state.currentYearData?.positions?.[state.selectedPosition]?.length || 0;
-      const currentTrackId = state.playbackState?.track_window?.current_track?.uri?.startsWith('spotify:track:')
-        ? state.playbackState.track_window.current_track.uri.split(':')[2]
-        : null;
+      const currentTrackId = getCurrentTrackId();
       const isPaused = !state.playbackState || state.playbackState.paused;
 
       const yearLabel = state.selectedYear === 'ALL' ? 'All Years' : state.selectedYear;
@@ -1472,17 +1463,24 @@
       });
       state.player.addListener('player_state_changed', playbackState => {
         const incomingTrackId = getPlaybackStateTrackId(playbackState);
-        const requestedTrackId = state.activeTrack?.sid || null;
+        const pendingTrackId = state.pendingRequestedTrackSid;
+        const pendingAge = Date.now() - state.pendingRequestedAt;
+        const inPendingWindow = !!pendingTrackId && pendingAge < 2500;
 
         if (
-          state.autoAdvanceInFlight &&
-          playbackState &&
-          playbackState.paused &&
+          inPendingWindow &&
           incomingTrackId &&
-          requestedTrackId &&
-          incomingTrackId !== requestedTrackId
+          incomingTrackId !== pendingTrackId
         ) {
           return;
+        }
+
+        if (incomingTrackId) {
+          state.currentTrackSid = incomingTrackId;
+          if (pendingTrackId && incomingTrackId === pendingTrackId) {
+            state.pendingRequestedTrackSid = null;
+            state.pendingRequestedAt = 0;
+          }
         }
 
         state.playbackState = playbackState;
@@ -1501,10 +1499,16 @@
           syncPlayerTitles(track.name, track.artists.map(a => a.name).join(', '));
           setPlayerArtwork(track.album?.images?.[0]?.url || null, track.name.slice(0, 1).toUpperCase());
           playerInfo.textContent = '';
-          if (!state.isScrubbing) refreshProgressFromSnapshot();
+
+          if (!state.isScrubbing) {
+            refreshProgressFromSnapshot();
+          }
+
           playerShell.hidden = false;
           updatePlayerVisibility();
-          if (playbackState.paused) stopProgressTimer(); else startProgressTimer();
+
+          if (playbackState.paused) stopProgressTimer();
+          else startProgressTimer();
         }
 
         render();
@@ -1581,7 +1585,7 @@
       if (event.target === spotifyModal) closeSpotifyModal();
     });
     loginBtn.addEventListener('click', startLogin);
-    logoutBtn.addEventListener('click', async () => {
+        logoutBtn.addEventListener('click', async () => {
       clearTokens();
       if (state.player) { try { await state.player.disconnect(); } catch {} }
       state.player = null;
@@ -1590,6 +1594,9 @@
       state.playbackState = null;
       state.lastPlaybackSnapshot = null;
       state.lastPlaybackTimestamp = 0;
+      state.currentTrackSid = null;
+      state.pendingRequestedTrackSid = null;
+      state.pendingRequestedAt = 0;
       stopProgressTimer();
       updateAuthUi();
     });
