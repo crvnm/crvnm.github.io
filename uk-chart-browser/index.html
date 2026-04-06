@@ -1569,8 +1569,9 @@
         refreshProgressFromSnapshot();
       } catch (err) {
         alert(err.message);
+      } finally {
+        state.isScrubbing = false;
       }
-      state.isScrubbing = false;
     });
     openSpotifyBtn.addEventListener('click', openCurrentInSpotify);
     document.addEventListener('keydown', async (event) => {
