@@ -833,6 +833,15 @@
       progressBar.max = String(safeDuration || 1000);
       progressBar.value = String(Math.min(safePosition, safeDuration || 1000));
     }
+    function refreshMediaSessionFromState() {
+      if (!state.playbackState) {
+        clearMediaSession();
+        return;
+      }
+
+      updateMediaSessionFromPlayback(state.playbackState);
+      updateMediaSessionPosition();
+    }
     function syncPlayerTitles(song, artist) {
       playerSong.textContent = song;
       playerArtist.textContent = artist;
@@ -1054,18 +1063,36 @@
       const track = playbackState?.track_window?.current_track;
       if (!track) return;
 
-      navigator.mediaSession.metadata = new MediaMetadata({
-        title: track.name || 'Unknown song',
-        artist: (track.artists || []).map(a => a.name).join(', '),
-        album: track.album?.name || '',
-        artwork: (track.album?.images || []).map(img => ({
+      const artwork = (track.album?.images || [])
+        .filter(img => img?.url)
+        .map(img => ({
           src: img.url,
           sizes: `${img.width || 0}x${img.height || 0}`,
           type: 'image/jpeg',
-        })),
-      });
+        }));
 
-      navigator.mediaSession.playbackState = playbackState.paused ? 'paused' : 'playing';
+      try {
+        navigator.mediaSession.metadata = new MediaMetadata({
+          title: track.name || 'Unknown song',
+          artist: (track.artists || []).map(a => a.name).join(', '),
+          album: track.album?.name || '',
+          artwork,
+        });
+      } catch (err) {
+        console.warn('Could not set Media Session metadata', err);
+      }
+
+      try {
+        navigator.mediaSession.playbackState = playbackState.paused ? 'paused' : 'playing';
+      } catch (err) {
+        console.warn('Could not set Media Session playbackState', err);
+      }
+      console.log('Setting media session metadata', {
+        title: track.name,
+        artist: (track.artists || []).map(a => a.name).join(', '),
+        album: track.album?.name,
+        artworkCount: (track.album?.images || []).length,
+      });
     }
 
     function updateMediaSessionPosition() {
@@ -1349,7 +1376,6 @@
       playerInfo.textContent = 'Playback requested on your Web Playback SDK device.';
       //setPlayerArtwork(null, (row.tm || row.t || row.title || '♪').slice(0, 1).toUpperCase());
       setProgress(0, 0);
-      updateMediaSessionPosition();
       playerShell.hidden = false;
       updatePlayerVisibility();
     }
@@ -1496,9 +1522,11 @@
           syncPlayerTitles(track.name, track.artists.map(a => a.name).join(', '));
           setPlayerArtwork(track.album?.images?.[0]?.url || null, track.name.slice(0, 1).toUpperCase());
           playerInfo.textContent = playbackState.paused ? 'Paused' : 'Playing';
+
           if (!state.isScrubbing) refreshProgressFromSnapshot();
-          updateMediaSessionFromPlayback(playbackState);
-          updateMediaSessionPosition();
+
+          refreshMediaSessionFromState();
+
           playerShell.hidden = false;
           updatePlayerVisibility();
           if (playbackState.paused) stopProgressTimer(); else startProgressTimer();
@@ -1524,6 +1552,10 @@
       if (!('mediaSession' in navigator)) return;
       mediaSessionHandlersBound = true;
 
+      try { navigator.mediaSession.setActionHandler('seekbackward', null); } catch {}
+      try { navigator.mediaSession.setActionHandler('seekforward', null); } catch {}
+      try { navigator.mediaSession.setActionHandler('seekto', null); } catch {}
+
       navigator.mediaSession.setActionHandler('play', async () => {
         try { await togglePlayback(); } catch {}
       });
@@ -1536,8 +1568,8 @@
         try {
           const playableRows = getPlayableVisibleRows();
           let currentIndex = state.currentPlayableIndex;
-
           const currentSid = getCurrentTrackId();
+
           if (currentIndex < 0 || playableRows[currentIndex]?.sid !== currentSid) {
             currentIndex = playableRows.findIndex(row => row.sid === currentSid);
           }
@@ -1552,8 +1584,8 @@
         try {
           const playableRows = getPlayableVisibleRows();
           let currentIndex = state.currentPlayableIndex;
-
           const currentSid = getCurrentTrackId();
+
           if (currentIndex < 0 || playableRows[currentIndex]?.sid !== currentSid) {
             currentIndex = playableRows.findIndex(row => row.sid === currentSid);
           }
@@ -1627,6 +1659,7 @@
       state.lastPlaybackSnapshot = null;
       state.lastPlaybackTimestamp = 0;
       stopProgressTimer();
+      clearMediaSession();
       updateAuthUi();
     });
     randomCurrentBtn.addEventListener('click', jumpToRandomCurrent);
@@ -1657,14 +1690,20 @@
           state.lastPlaybackSnapshot = { ...state.lastPlaybackSnapshot, position: Number(progressBar.value) };
         }
         refreshProgressFromSnapshot();
-        if (state.playbackState) updateMediaSessionFromPlayback(state.playbackState);
-        updateMediaSessionPosition();
+        refreshMediaSessionFromState();
       } catch (err) {
         alert(err.message);
       } finally {
         state.isScrubbing = false;
       }
     });
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') {
+        refreshMediaSessionFromState();
+      }
+    });
+
     openSpotifyBtn.addEventListener('click', openCurrentInSpotify);
     document.addEventListener('keydown', async (event) => {
       if (event.code !== 'Space') return;
