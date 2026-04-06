@@ -922,8 +922,51 @@
         if (!state.lastPlaybackSnapshot || state.lastPlaybackSnapshot.paused || state.isScrubbing) return;
         refreshProgressFromSnapshot();
         updateMediaSessionPosition();
-        maybeAutoAdvanceFromTimer();
       }, 250);
+    }
+    async function maybeAutoAdvanceFromPlaybackState(previousPlaybackState, playbackState) {
+      if (state.autoAdvanceInFlight) return;
+      if (!previousPlaybackState || !playbackState) return;
+
+      const prevTrack = previousPlaybackState.track_window?.current_track;
+      const nextTrack = playbackState.track_window?.current_track;
+
+      if (!prevTrack?.uri || !nextTrack?.uri) return;
+      if (prevTrack.uri === nextTrack.uri) return;
+
+      const prevSid = prevTrack.uri.startsWith('spotify:track:') ? prevTrack.uri.split(':')[2] : null;
+      const nextSid = nextTrack.uri.startsWith('spotify:track:') ? nextTrack.uri.split(':')[2] : null;
+      if (!prevSid || !nextSid) return;
+
+      const playableRows = getPlayableVisibleRows();
+      const prevIndex = playableRows.findIndex(row => row.sid === prevSid);
+      if (prevIndex < 0) return;
+
+      let candidateIndex = prevIndex + 1;
+      while (candidateIndex < playableRows.length && playableRows[candidateIndex]?.sid === nextSid) {
+        candidateIndex += 1;
+      }
+      if (candidateIndex >= playableRows.length) return;
+
+      const expectedNextRow = playableRows[candidateIndex];
+      if (!expectedNextRow?.sid) return;
+
+      // If Spotify already moved to the wrong repeated track, immediately correct it
+      if (nextSid !== expectedNextRow.sid) {
+        state.autoAdvanceInFlight = true;
+        try {
+          state.currentPlayableIndex = candidateIndex;
+          state.lastAutoAdvancedFromSid = prevSid;
+          await playTrack(expectedNextRow, { isAutoAdvance: true });
+        } finally {
+          window.setTimeout(() => {
+            state.autoAdvanceInFlight = false;
+          }, 1200);
+        }
+        return;
+      }
+
+      state.currentPlayableIndex = candidateIndex;
     }
     function getOpenSpotifyUrl() {
       const uri = state.playbackState?.track_window?.current_track?.uri;
@@ -942,31 +985,22 @@
     function getPlayableVisibleRows() {
       const rows = getVisibleRows();
       const unique = [];
-      let lastSid = null;
+      const seenSids = new Set();
+
       for (const row of rows) {
         if (!row?.sid) continue;
-        if (row.sid === lastSid) continue;
+        if (seenSids.has(row.sid)) continue;
+        seenSids.add(row.sid);
         unique.push(row);
-        lastSid = row.sid;
       }
+
       return unique;
     }
 
     function getPlayableQueueIndexForRow(targetRow) {
-      const rows = getVisibleRows();
-      let queueIndex = -1;
-      let lastSid = null;
-      for (const row of rows) {
-        if (!row?.sid) continue;
-        if (row.sid !== lastSid) {
-          queueIndex += 1;
-          lastSid = row.sid;
-        }
-        if (rowKey(row) === rowKey(targetRow)) {
-          return queueIndex;
-        }
-      }
-      return -1;
+      if (!targetRow?.sid) return -1;
+      const playableRows = getPlayableVisibleRows();
+      return playableRows.findIndex(row => row.sid === targetRow.sid);
     }
 
     async function maybeAutoAdvanceFromTimer() {
@@ -1377,6 +1411,11 @@
         return;
       }
 
+      state.isScrubbing = false;
+      state.lastPlaybackSnapshot = null;
+      state.lastPlaybackTimestamp = 0;
+      setProgress(0, 0);
+
       await state.player.activateElement();
       await transferPlaybackHere();
 
@@ -1391,6 +1430,12 @@
         }
       );
 
+      // Hard reset in case Spotify preserves previous position during fast switches
+      await spotifyApi(
+        `https://api.spotify.com/v1/me/player/seek?position_ms=0&device_id=${encodeURIComponent(state.deviceId)}`,
+        { method: 'PUT' }
+      );
+
       if (requestId !== playRequestId) return;
 
       state.activeTrack = row;
@@ -1400,8 +1445,9 @@
         row.tm || row.t || row.title || 'Unknown song',
         row.am || row.a || row.artist || ''
       );
-      playerInfo.textContent = 'Playback requested on your Web Playback SDK device.';
-      //setPlayerArtwork(null, (row.tm || row.t || row.title || '♪').slice(0, 1).toUpperCase());
+      playerInfo.textContent = options.isAutoAdvance
+        ? 'Playing next track.'
+        : 'Playback requested on your Web Playback SDK device.';
       setProgress(0, 0);
       playerShell.hidden = false;
       updatePlayerVisibility();
@@ -1532,6 +1578,7 @@
         }, 1000);
       });
       state.player.addListener('player_state_changed', playbackState => {
+        const previousPlaybackState = state.playbackState;
         state.playbackState = playbackState;
         state.lastPlaybackSnapshot = playbackState;
         state.lastPlaybackTimestamp = Date.now();
@@ -1557,6 +1604,11 @@
           playerShell.hidden = false;
           updatePlayerVisibility();
           if (playbackState.paused) stopProgressTimer(); else startProgressTimer();
+        }
+        try {
+          await maybeAutoAdvanceFromPlaybackState(previousPlaybackState, playbackState);
+        } catch (err) {
+          console.error('Playback-state auto-advance failed', err);
         }
 
         render();
@@ -1715,12 +1767,23 @@
         state.isScrubbing = false;
         return;
       }
+
+      const expectedTrackId = getCurrentTrackId();
+
       try {
-        await spotifyApi(`https://api.spotify.com/v1/me/player/seek?position_ms=${encodeURIComponent(progressBar.value)}&device_id=${encodeURIComponent(state.deviceId)}`, { method: 'PUT' });
-        state.lastPlaybackTimestamp = Date.now();
-        if (state.lastPlaybackSnapshot) {
-          state.lastPlaybackSnapshot = { ...state.lastPlaybackSnapshot, position: Number(progressBar.value) };
+        await spotifyApi(
+          `https://api.spotify.com/v1/me/player/seek?position_ms=${encodeURIComponent(progressBar.value)}&device_id=${encodeURIComponent(state.deviceId)}`,
+          { method: 'PUT' }
+        );
+
+        if (state.lastPlaybackSnapshot && getCurrentTrackId() === expectedTrackId) {
+          state.lastPlaybackTimestamp = Date.now();
+          state.lastPlaybackSnapshot = {
+            ...state.lastPlaybackSnapshot,
+            position: Number(progressBar.value),
+          };
         }
+
         refreshProgressFromSnapshot();
         refreshMediaSessionFromState();
       } catch (err) {
