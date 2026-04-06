@@ -803,8 +803,6 @@
       currentPlayableIndex: -1,
       loadYearRequestId: 0,
       marqueeResizeObserver: null,
-      pendingTrackSid: null,
-      pendingTrackSwitchAt: 0,
     };
 
     function qs(name) { return new URLSearchParams(window.location.search).get(name); }
@@ -959,14 +957,13 @@
       return state.activeTrack?.spotifyUrl || null;
     }
 
-    function getCurrentTrackId() {
-      const uri = state.playbackState?.track_window?.current_track?.uri;
-      return uri && uri.startsWith('spotify:track:') ? uri.split(':')[2] : null;
-    }
-
     function getPlaybackStateTrackId(playbackState) {
       const uri = playbackState?.track_window?.current_track?.uri;
       return uri && uri.startsWith('spotify:track:') ? uri.split(':')[2] : null;
+    }
+
+    function getCurrentTrackId() {
+      return getPlaybackStateTrackId(state.playbackState);
     }
 
     function getPlayableVisibleRows() {
@@ -986,9 +983,7 @@
 
     function getPlayableQueueIndexForRow(targetRow) {
       if (!targetRow?.sid) return -1;
-
-      const playableRows = getPlayableVisibleRows();
-      return playableRows.findIndex(row => row.sid === targetRow.sid);
+      return getPlayableVisibleRows().findIndex(row => row.sid === targetRow.sid);
     }
 
     async function maybeAutoAdvanceFromTimer() {
@@ -1019,24 +1014,13 @@
         }
 
         await playTrack(nextRow, { isAutoAdvance: true, forceRestart: true });
-
-        await new Promise(resolve => setTimeout(resolve, 400));
-
-        const actualSid = getCurrentTrackId();
-        const stillPaused = !!state.playbackState?.paused;
-
-        if (actualSid !== nextRow.sid || stillPaused) {
-          console.warn('Auto-advance verification failed, retrying once...');
-          await playTrack(nextRow, { isAutoAdvance: true, forceRestart: true });
-        }
-
         state.lastAutoAdvancedFromSid = currentSid;
       } catch (err) {
         console.error('Auto-advance failed', err);
       } finally {
         window.setTimeout(() => {
           state.autoAdvanceInFlight = false;
-        }, 1500);
+        }, 1200);
       }
     }
     function pickRandomItem(items) {
@@ -1321,9 +1305,6 @@
         state.lastAutoAdvancedFromSid = null;
       }
 
-      state.pendingTrackSid = row.sid;
-      state.pendingTrackSwitchAt = Date.now();
-
       const queueIndex = getPlayableQueueIndexForRow(row);
       if (queueIndex >= 0) {
         state.currentPlayableIndex = queueIndex;
@@ -1477,17 +1458,17 @@
       });
       state.player.addListener('player_state_changed', playbackState => {
         const incomingTrackId = getPlaybackStateTrackId(playbackState);
+        const requestedTrackId = state.activeTrack?.sid || null;
 
-        if (state.pendingTrackSid) {
-          const isExpectedTrack = incomingTrackId === state.pendingTrackSid;
-          const isRecentSwitch = Date.now() - state.pendingTrackSwitchAt < 2500;
-
-          if (isExpectedTrack) {
-            state.pendingTrackSid = null;
-            state.pendingTrackSwitchAt = 0;
-          } else if (isRecentSwitch && playbackState?.paused) {
-            return;
-          }
+        if (
+          state.autoAdvanceInFlight &&
+          playbackState &&
+          playbackState.paused &&
+          incomingTrackId &&
+          requestedTrackId &&
+          incomingTrackId !== requestedTrackId
+        ) {
+          return;
         }
 
         state.playbackState = playbackState;
