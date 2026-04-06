@@ -1430,6 +1430,26 @@
 
     }
 
+    function clearMediaSession() {
+      if (!('mediaSession' in navigator)) return;
+
+      navigator.mediaSession.playbackState = 'none';
+
+      try {
+        navigator.mediaSession.metadata = null;
+      } catch {}
+
+      if (typeof navigator.mediaSession.setPositionState === 'function') {
+        try {
+          navigator.mediaSession.setPositionState({
+            duration: 0,
+            playbackRate: 1,
+            position: 0,
+          });
+        } catch {}
+      }
+    }
+
     async function setupSpotifyPlayer() {
       if (!state.accessToken || !window.Spotify || state.player) return;
       state.player = new window.Spotify.Player({
@@ -1526,26 +1546,6 @@
           }
         } catch {}
       });
-
-      function clearMediaSession() {
-        if (!('mediaSession' in navigator)) return;
-
-        navigator.mediaSession.playbackState = 'none';
-
-        try {
-          navigator.mediaSession.metadata = null;
-        } catch {}
-
-        if (typeof navigator.mediaSession.setPositionState === 'function') {
-          try {
-            navigator.mediaSession.setPositionState({
-              duration: 0,
-              playbackRate: 1,
-              position: 0,
-            });
-          } catch {}
-        }
-      }
 
       navigator.mediaSession.setActionHandler('previoustrack', async () => {
         try {
