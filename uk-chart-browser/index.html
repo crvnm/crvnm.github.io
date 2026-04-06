@@ -699,9 +699,6 @@
     const SPOTIFY_CLIENT_ID = '63fc4799974d4b438bc756cf66c59103';
     const REDIRECT_URI = window.location.origin + window.location.pathname;
     const SCOPES = ['streaming','user-read-email','user-read-private','user-modify-playback-state','user-read-playback-state'];
-    const TOKEN_STORAGE_KEY = 'spotify_tokens';
-    const PKCE_VERIFIER_STORAGE_KEY = 'spotify_pkce_verifier';
-    const OAUTH_STATE_STORAGE_KEY = 'spotify_oauth_state';
 
     const yearSelect = document.getElementById('yearSelect');
     const positionSelect = document.getElementById('positionSelect');
@@ -738,10 +735,6 @@
     const authStatus = document.getElementById('authStatus');
     const sdkStatus = document.getElementById('sdkStatus');
     const deviceStatus = document.getElementById('deviceStatus');
-    let loadYearRequestId = 0;
-    let playRequestId = 0;
-    let mediaSessionHandlersBound = false;
-    const trackDetailsCache = new Map();
 
     const state = {
       availableYears: [],
@@ -773,18 +766,9 @@
     function setStatus(el, text, kind = '') { el.textContent = text; el.className = 'status-pill' + (kind ? ` ${kind}` : ''); }
     function formatWeek(dateStr) {
       if (!dateStr) return '';
-      const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(dateStr));
-      if (!match) return String(dateStr);
-
-      const [, y, m, d] = match;
-      const utcDate = new Date(Date.UTC(Number(y), Number(m) - 1, Number(d)));
-
-      return new Intl.DateTimeFormat('en-GB', {
-        day: 'numeric',
-        month: 'short',
-        year: 'numeric',
-        timeZone: 'UTC',
-      }).format(utcDate);
+      const d = new Date(dateStr);
+      if (Number.isNaN(d.getTime())) return dateStr;
+      return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
     }
     function ordinal(n) {
       const num = Number(n);
@@ -802,31 +786,11 @@
         .replace(/\"/g, '&quot;')
         .replace(/'/g, '&#039;');
     }
-    function safeSpotifyUrl(raw) {
-      try {
-        const url = new URL(String(raw));
-        const isHttps = url.protocol === 'https:';
-        const isSpotifyHost =
-          url.hostname === 'open.spotify.com' ||
-          url.hostname.endsWith('.spotify.com');
-
-        return isHttps && isSpotifyHost ? url.href : null;
-      } catch {
-        return null;
-      }
-    }
     function formatMs(ms) {
       const totalSeconds = Math.max(0, Math.floor((ms || 0) / 1000));
       const mins = Math.floor(totalSeconds / 60);
       const secs = totalSeconds % 60;
       return `${mins}:${String(secs).padStart(2, '0')}`;
-    }
-    function debounce(fn, delay = 120) {
-      let timeoutId = null;
-      return (...args) => {
-        clearTimeout(timeoutId);
-        timeoutId = window.setTimeout(() => fn(...args), delay);
-      };
     }
     function setProgress(positionMs = 0, durationMs = 0) {
       const safeDuration = Math.max(0, durationMs || 0);
@@ -835,15 +799,6 @@
       durationTime.textContent = formatMs(safeDuration);
       progressBar.max = String(safeDuration || 1000);
       progressBar.value = String(Math.min(safePosition, safeDuration || 1000));
-    }
-    function refreshMediaSessionFromState() {
-      if (!state.playbackState) {
-        clearMediaSession();
-        return;
-      }
-
-      updateMediaSessionFromPlayback(state.playbackState);
-      updateMediaSessionPosition();
     }
     function syncPlayerTitles(song, artist) {
       playerSong.textContent = song;
@@ -869,22 +824,6 @@
         minibarCoverFallback.hidden = false;
         minibarCoverFallback.textContent = fallbackText;
       }
-    }
-    function resetPlayerUi() {
-      state.activeTrack = null;
-      state.isPlayerMinimized = false;
-      syncPlayerTitles('No track selected', '');
-      playerInfo.textContent = 'Waiting for Spotify playback.';
-      setPlayerArtwork(null, '♪');
-      setProgress(0, 0);
-      playerShell.hidden = true;
-      updateTogglePlayButton();
-      updatePlayerVisibility();
-    }
-    async function fetchJson(path) {
-      const res = await fetch(path);
-      if (!res.ok) throw new Error(`Could not load ${path.split('/').pop()} (${res.status})`);
-      return res.json();
     }
     function updatePlayerVisibility() {
       playerShell.classList.toggle('minimized', state.isPlayerMinimized);
@@ -921,52 +860,8 @@
       state.progressTimer = setInterval(() => {
         if (!state.lastPlaybackSnapshot || state.lastPlaybackSnapshot.paused || state.isScrubbing) return;
         refreshProgressFromSnapshot();
-        updateMediaSessionPosition();
+        maybeAutoAdvanceFromTimer();
       }, 250);
-    }
-    async function maybeAutoAdvanceFromPlaybackState(previousPlaybackState, playbackState) {
-      if (state.autoAdvanceInFlight) return;
-      if (!previousPlaybackState || !playbackState) return;
-
-      const prevTrack = previousPlaybackState.track_window?.current_track;
-      const nextTrack = playbackState.track_window?.current_track;
-
-      if (!prevTrack?.uri || !nextTrack?.uri) return;
-      if (prevTrack.uri === nextTrack.uri) return;
-
-      const prevSid = prevTrack.uri.startsWith('spotify:track:') ? prevTrack.uri.split(':')[2] : null;
-      const nextSid = nextTrack.uri.startsWith('spotify:track:') ? nextTrack.uri.split(':')[2] : null;
-      if (!prevSid || !nextSid) return;
-
-      const playableRows = getPlayableVisibleRows();
-      const prevIndex = playableRows.findIndex(row => row.sid === prevSid);
-      if (prevIndex < 0) return;
-
-      let candidateIndex = prevIndex + 1;
-      while (candidateIndex < playableRows.length && playableRows[candidateIndex]?.sid === nextSid) {
-        candidateIndex += 1;
-      }
-      if (candidateIndex >= playableRows.length) return;
-
-      const expectedNextRow = playableRows[candidateIndex];
-      if (!expectedNextRow?.sid) return;
-
-      // If Spotify already moved to the wrong repeated track, immediately correct it
-      if (nextSid !== expectedNextRow.sid) {
-        state.autoAdvanceInFlight = true;
-        try {
-          state.currentPlayableIndex = candidateIndex;
-          state.lastAutoAdvancedFromSid = prevSid;
-          await playTrack(expectedNextRow, { isAutoAdvance: true });
-        } finally {
-          window.setTimeout(() => {
-            state.autoAdvanceInFlight = false;
-          }, 1200);
-        }
-        return;
-      }
-
-      state.currentPlayableIndex = candidateIndex;
     }
     function getOpenSpotifyUrl() {
       const uri = state.playbackState?.track_window?.current_track?.uri;
@@ -974,7 +869,7 @@
         const trackId = uri.split(':')[2];
         return `https://open.spotify.com/track/${trackId}`;
       }
-      return safeSpotifyUrl(state.activeTrack?.spotifyUrl);
+      return state.activeTrack?.spotifyUrl || null;
     }
 
     function getCurrentTrackId() {
@@ -985,22 +880,31 @@
     function getPlayableVisibleRows() {
       const rows = getVisibleRows();
       const unique = [];
-      const seenSids = new Set();
-
+      let lastSid = null;
       for (const row of rows) {
         if (!row?.sid) continue;
-        if (seenSids.has(row.sid)) continue;
-        seenSids.add(row.sid);
+        if (row.sid === lastSid) continue;
         unique.push(row);
+        lastSid = row.sid;
       }
-
       return unique;
     }
 
     function getPlayableQueueIndexForRow(targetRow) {
-      if (!targetRow?.sid) return -1;
-      const playableRows = getPlayableVisibleRows();
-      return playableRows.findIndex(row => row.sid === targetRow.sid);
+      const rows = getVisibleRows();
+      let queueIndex = -1;
+      let lastSid = null;
+      for (const row of rows) {
+        if (!row?.sid) continue;
+        if (row.sid !== lastSid) {
+          queueIndex += 1;
+          lastSid = row.sid;
+        }
+        if (rowKey(row) === rowKey(targetRow)) {
+          return queueIndex;
+        }
+      }
+      return -1;
     }
 
     async function maybeAutoAdvanceFromTimer() {
@@ -1110,60 +1014,6 @@
       await jumpToRandomCurrent();
     }
 
-    function updateMediaSessionFromPlayback(playbackState) {
-      if (!('mediaSession' in navigator)) return;
-
-      const track = playbackState?.track_window?.current_track;
-      if (!track) return;
-
-      const artwork = (track.album?.images || [])
-        .filter(img => img?.url)
-        .map(img => ({
-          src: img.url,
-          sizes: `${img.width || 0}x${img.height || 0}`,
-          type: 'image/jpeg',
-        }));
-
-      try {
-        navigator.mediaSession.metadata = new MediaMetadata({
-          title: track.name || 'Unknown song',
-          artist: (track.artists || []).map(a => a.name).join(', '),
-          album: track.album?.name || '',
-          artwork,
-        });
-      } catch (err) {
-        console.warn('Could not set Media Session metadata', err);
-      }
-
-      try {
-        navigator.mediaSession.playbackState = playbackState.paused ? 'paused' : 'playing';
-      } catch (err) {
-        console.warn('Could not set Media Session playbackState', err);
-      }
-      console.log('Setting media session metadata', {
-        title: track.name,
-        artist: (track.artists || []).map(a => a.name).join(', '),
-        album: track.album?.name,
-        artworkCount: (track.album?.images || []).length,
-      });
-    }
-
-    function updateMediaSessionPosition() {
-      if (!('mediaSession' in navigator)) return;
-      if (typeof navigator.mediaSession.setPositionState !== 'function') return;
-
-      const { position, duration } = getDerivedPlaybackPosition();
-      try {
-        navigator.mediaSession.setPositionState({
-          duration: Math.max(duration / 1000, 0),
-          playbackRate: 1,
-          position: Math.max(position / 1000, 0),
-        });
-      } catch (err) {
-        console.warn('Could not set Media Session position', err);
-      }
-    }
-
     function base64UrlEncode(arrayBuffer) {
       const bytes = new Uint8Array(arrayBuffer);
       let binary = '';
@@ -1182,12 +1032,11 @@
       for (let i = 0; i < array.length; i += 1) out += chars[array[i] % chars.length];
       return out;
     }
-    function saveTokens(tokens) { localStorage.setItem(TOKEN_STORAGE_KEY, JSON.stringify(tokens)); }
-    function loadTokens() { try { return JSON.parse(localStorage.getItem(TOKEN_STORAGE_KEY) || 'null'); } catch { return null; } }
+    function saveTokens(tokens) { localStorage.setItem('spotify_tokens', JSON.stringify(tokens)); }
+    function loadTokens() { try { return JSON.parse(localStorage.getItem('spotify_tokens') || 'null'); } catch { return null; } }
     function clearTokens() {
-      localStorage.removeItem(TOKEN_STORAGE_KEY);
-      localStorage.removeItem(PKCE_VERIFIER_STORAGE_KEY);
-      localStorage.removeItem(OAUTH_STATE_STORAGE_KEY);
+      localStorage.removeItem('spotify_tokens');
+      localStorage.removeItem('spotify_pkce_verifier');
       state.accessToken = null;
       state.refreshToken = null;
       state.tokenExpiresAt = null;
@@ -1200,29 +1049,21 @@
       }
       const verifier = randomString(64);
       const challenge = base64UrlEncode(await sha256(verifier));
-      const oauthState = randomString(32);
-      localStorage.setItem(PKCE_VERIFIER_STORAGE_KEY, verifier);
-      localStorage.setItem(OAUTH_STATE_STORAGE_KEY, oauthState);
+      localStorage.setItem('spotify_pkce_verifier', verifier);
       const params = new URLSearchParams({
         client_id: SPOTIFY_CLIENT_ID,
         response_type: 'code',
         redirect_uri: REDIRECT_URI,
         code_challenge_method: 'S256',
         code_challenge: challenge,
-        state: oauthState,
         scope: SCOPES.join(' '),
       });
       window.location.href = `https://accounts.spotify.com/authorize?${params.toString()}`;
     }
 
     async function exchangeCodeForToken(code) {
-      const verifier = localStorage.getItem(PKCE_VERIFIER_STORAGE_KEY);
-      const expectedState = localStorage.getItem(OAUTH_STATE_STORAGE_KEY);
-      const returnedState = qs('state');
+      const verifier = localStorage.getItem('spotify_pkce_verifier');
       if (!verifier) throw new Error('Missing PKCE verifier in localStorage.');
-      if (!expectedState || !returnedState || expectedState !== returnedState) {
-        throw new Error('Spotify OAuth state validation failed. Please try signing in again.');
-      }
       const body = new URLSearchParams({
         client_id: SPOTIFY_CLIENT_ID,
         grant_type: 'authorization_code',
@@ -1239,8 +1080,6 @@
       const token = await res.json();
       const tokens = { access_token: token.access_token, refresh_token: token.refresh_token, expires_at: Date.now() + (token.expires_in * 1000) };
       saveTokens(tokens);
-      localStorage.removeItem(PKCE_VERIFIER_STORAGE_KEY);
-      localStorage.removeItem(OAUTH_STATE_STORAGE_KEY);
       state.accessToken = tokens.access_token;
       state.refreshToken = tokens.refresh_token;
       state.tokenExpiresAt = tokens.expires_at;
@@ -1292,7 +1131,9 @@
     }
 
     async function loadIndex() {
-      const index = await fetchJson(`${DATA_BASE}/index.json`);
+      const res = await fetch(`${DATA_BASE}/index.json?ts=${Date.now()}`, { cache: 'no-store' });
+      if (!res.ok) throw new Error(`Could not load index.json (${res.status})`);
+      const index = await res.json();
       const years = (index.years || []).map(y => String(y.year)).sort((a, b) => Number(b) - Number(a));
       state.availableYears = ['ALL', ...years];
       if (!state.availableYears.includes(state.selectedYear)) state.selectedYear = state.availableYears[0] || 'ALL';
@@ -1302,23 +1143,20 @@
     }
 
     async function loadYear(year) {
-      const requestId = ++loadYearRequestId;
-
       summaryTitle.textContent = `Loading ${year === 'ALL' ? 'all years' : year}…`;
       summarySub.textContent = 'Fetching chart data';
       resultsEl.innerHTML = `<div class="loading">Loading ${escapeHtml(year === 'ALL' ? 'all years' : year)} chart data…</div>`;
-
-      let nextYearData;
 
       if (year === 'ALL') {
         const allYears = state.availableYears.filter(y => y !== 'ALL');
         const merged = { year: 'ALL', weeks: [], minPosition: null, maxPosition: null, positions: {} };
         const weekSet = new Set();
-        const yearDataList = await Promise.all(allYears.map(y => fetchJson(`${DATA_BASE}/${y}.json`)));
 
-        if (requestId !== loadYearRequestId) return;
+        for (const y of allYears) {
+          const res = await fetch(`${DATA_BASE}/${y}.json?ts=${Date.now()}`, { cache: 'no-store' });
+          if (!res.ok) throw new Error(`Could not load ${y}.json (${res.status})`);
+          const data = await res.json();
 
-        for (const data of yearDataList) {
           for (const w of data.weeks || []) weekSet.add(w);
 
           if (merged.minPosition === null || (data.minPosition ?? 9999) < merged.minPosition) merged.minPosition = data.minPosition;
@@ -1334,14 +1172,12 @@
         for (const pos of Object.keys(merged.positions)) {
           merged.positions[pos].sort((a, b) => String(a.w || '').localeCompare(String(b.w || '')));
         }
-        nextYearData = merged;
+        state.currentYearData = merged;
       } else {
-        nextYearData = await fetchJson(`${DATA_BASE}/${year}.json`);
+        const res = await fetch(`${DATA_BASE}/${year}.json?ts=${Date.now()}`, { cache: 'no-store' });
+        if (!res.ok) throw new Error(`Could not load ${year}.json (${res.status})`);
+        state.currentYearData = await res.json();
       }
-
-      if (requestId !== loadYearRequestId) return;
-
-      state.currentYearData = nextYearData;
 
       const positions = Object.keys(state.currentYearData?.positions || {}).sort((a, b) => Number(a) - Number(b));
       positionSelect.innerHTML = positions.map(pos => `<option value="${pos}">${ordinal(pos)}</option>`).join('');
@@ -1365,89 +1201,63 @@
       setStatus(deviceStatus, `Device ready: ${state.deviceId.slice(0, 8)}…`, 'ok');
     }
 
-    async function ensureSpotifyReady() {
-      await bootstrapAuth();
-
-      if (state.player && state.deviceId) {
-        return true;
-      }
-
-      if (state.player && !state.deviceId) {
-        try {
-          await state.player.connect();
-        } catch (err) {
-          console.warn('Spotify reconnect failed', err);
-        }
-      }
-
-      if (!state.player) {
-        await setupSpotifyPlayer();
-      }
-
-      if (!state.deviceId) {
-        updateAuthUi();
-        return false;
-      }
-
-      return true;
-    }
-
     async function playTrack(row, options = {}) {
       if (!row.sid) return;
-
-      const requestId = ++playRequestId;
-
       if (!options.isAutoAdvance) {
         state.lastAutoAdvancedFromSid = null;
       }
-
       const queueIndex = getPlayableQueueIndexForRow(row);
       if (queueIndex >= 0) {
         state.currentPlayableIndex = queueIndex;
       }
-
-      if (!(await ensureSpotifyReady())) {
-        alert('Spotify player is not ready. Open the Spotify panel or refresh if it does not reconnect.');
+      if (!state.player || !state.deviceId) {
+        alert('Spotify player is not ready yet. Sign in and wait for the device to be ready.');
         return;
       }
 
-      state.isScrubbing = false;
-      state.lastPlaybackSnapshot = null;
-      state.lastPlaybackTimestamp = 0;
-      setProgress(0, 0);
+      const currentTrackId = state.playbackState?.track_window?.current_track?.uri?.startsWith('spotify:track:')
+        ? state.playbackState.track_window.current_track.uri.split(':')[2]
+        : null;
+      const isSwitchingTrack = currentTrackId !== row.sid;
+      const mustHardReset = isSwitchingTrack || options.forceRestart;
 
       await state.player.activateElement();
       await transferPlaybackHere();
 
-      await spotifyApi(
-        `https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`,
-        {
-          method: 'PUT',
-          body: JSON.stringify({
-            uris: [`spotify:track:${row.sid}`],
-            position_ms: 0,
-          }),
+      if (mustHardReset) {
+        try {
+          await spotifyApi(`https://api.spotify.com/v1/me/player/pause?device_id=${encodeURIComponent(state.deviceId)}`, {
+            method: 'PUT',
+          });
+        } catch (err) {
+          console.warn('Pause before track switch failed', err);
         }
-      );
+      }
 
-      // Hard reset in case Spotify preserves previous position during fast switches
-      await spotifyApi(
-        `https://api.spotify.com/v1/me/player/seek?position_ms=0&device_id=${encodeURIComponent(state.deviceId)}`,
-        { method: 'PUT' }
-      );
+      await spotifyApi(`https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`, {
+        method: 'PUT',
+        body: JSON.stringify({ uris: [`spotify:track:${row.sid}`], position_ms: 0 }),
+      });
 
-      if (requestId !== playRequestId) return;
+      if (mustHardReset) {
+        try {
+          await new Promise(resolve => setTimeout(resolve, 150));
+          await spotifyApi(`https://api.spotify.com/v1/me/player/seek?position_ms=0&device_id=${encodeURIComponent(state.deviceId)}`, {
+            method: 'PUT',
+          });
+        } catch (err) {
+          console.warn('Seek reset failed', err);
+        }
+      }
 
       state.activeTrack = row;
-      state.lastPlaybackSnapshot = null;
+      if (state.lastPlaybackSnapshot) {
+        state.lastPlaybackSnapshot = { ...state.lastPlaybackSnapshot, position: 0 };
+      }
       state.lastPlaybackTimestamp = Date.now();
-      syncPlayerTitles(
-        row.tm || row.t || row.title || 'Unknown song',
-        row.am || row.a || row.artist || ''
-      );
-      playerInfo.textContent = options.isAutoAdvance
-        ? 'Playing next track.'
-        : 'Playback requested on your Web Playback SDK device.';
+      syncPlayerTitles(row.tm || row.t || row.title || 'Unknown song', row.am || row.a || row.artist || '');
+      playerInfo.textContent = 'Playback requested on your Web Playback SDK device.';
+      setPlayerArtwork(null, (row.tm || row.t || row.title || '♪').slice(0, 1).toUpperCase());
       setProgress(0, 0);
       playerShell.hidden = false;
       updatePlayerVisibility();
@@ -1459,16 +1269,13 @@
       await spotifyApi(`https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`, { method: 'PUT' });
     }
     async function togglePlayback() {
-      if (!(await ensureSpotifyReady())) return;
       if (!state.playbackState || state.playbackState.paused) await resumePlayback();
       else await pausePlayback();
     }
     async function restartPlayback() {
-      if (!(await ensureSpotifyReady())) return;
       if (!state.activeTrack || !state.deviceId) return;
       await spotifyApi(`https://api.spotify.com/v1/me/player/seek?position_ms=0&device_id=${encodeURIComponent(state.deviceId)}`, { method: 'PUT' });
       await resumePlayback();
-      updateMediaSessionPosition();
     }
     function openCurrentInSpotify() {
       const url = getOpenSpotifyUrl();
@@ -1503,7 +1310,6 @@
         const peak = row.pk ?? '–';
         const weeksOnChart = row.wc ?? '–';
         const hasSpotify = !!row.sid;
-        const safeRowSpotifyUrl = safeSpotifyUrl(row.spotifyUrl);
         const isCurrent = currentTrackId && row.sid === currentTrackId;
 
         return `
@@ -1516,7 +1322,7 @@
               </div>
               <div class="row-actions-inline">
                 <button class="btn-primary icon-action" data-action="play" data-index="${index}" ${hasSpotify ? '' : 'disabled'} aria-label="Play or pause track">${isCurrent && !isPaused ? '❚❚' : '▶'}</button>
-                ${safeRowSpotifyUrl ? `<button class="spotify-icon-btn icon-action" data-action="open" data-index="${index}" aria-label="Open in Spotify"><svg class="spotify-glyph" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 1.5a10.5 10.5 0 1 0 10.5 10.5A10.512 10.512 0 0 0 12 1.5Zm4.817 15.144a.655.655 0 0 1-.9.216 10.824 10.824 0 0 0-5.983-1.573 15.44 15.44 0 0 0-3.086.323.654.654 0 1 1-.264-1.281 16.752 16.752 0 0 1 3.35-.351 12.12 12.12 0 0 1 6.69 1.776.655.655 0 0 1 .193.89Zm1.286-2.862a.818.818 0 0 1-1.126.269 13.531 13.531 0 0 0-6.878-1.776 19.092 19.092 0 0 0-3.891.404.818.818 0 0 1-.34-1.6 20.546 20.546 0 0 1 4.231-.438 15.068 15.068 0 0 1 7.703 2.015.818.818 0 0 1 .301 1.122Zm.11-2.978A16.376 16.376 0 0 0 9.74 8.653a22.583 22.583 0 0 0-4.43.455 1 1 0 1 1-.404-1.959A24.617 24.617 0 0 1 9.74 6.66a18.33 18.33 0 0 1 9.476 2.414 1 1 0 0 1-1.003 1.73Z"/></svg></button>` : ''}
+                ${row.spotifyUrl ? `<button class="spotify-icon-btn icon-action" data-action="open" data-index="${index}" aria-label="Open in Spotify"><svg class="spotify-glyph" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 1.5a10.5 10.5 0 1 0 10.5 10.5A10.512 10.512 0 0 0 12 1.5Zm4.817 15.144a.655.655 0 0 1-.9.216 10.824 10.824 0 0 0-5.983-1.573 15.44 15.44 0 0 0-3.086.323.654.654 0 1 1-.264-1.281 16.752 16.752 0 0 1 3.35-.351 12.12 12.12 0 0 1 6.69 1.776.655.655 0 0 1 .193.89Zm1.286-2.862a.818.818 0 0 1-1.126.269 13.531 13.531 0 0 0-6.878-1.776 19.092 19.092 0 0 0-3.891.404.818.818 0 0 1-.34-1.6 20.546 20.546 0 0 1 4.231-.438 15.068 15.068 0 0 1 7.703 2.015.818.818 0 0 1 .301 1.122Zm.11-2.978A16.376 16.376 0 0 0 9.74 8.653a22.583 22.583 0 0 0-4.43.455 1 1 0 1 1-.404-1.959A24.617 24.617 0 0 1 9.74 6.66a18.33 18.33 0 0 1 9.476 2.414 1 1 0 0 1-1.003 1.73Z"/></svg></button>` : ''}
               </div>
             </div>
             <div class="meta">
@@ -1528,26 +1334,31 @@
         `;
       }).join('');
 
-    }
+      Array.from(resultsEl.querySelectorAll('[data-action="play"]')).forEach(btn => {
+        btn.addEventListener('click', async () => {
+          const row = visibleRows[Number(btn.dataset.index)];
+          try {
+            const currentTrackId = state.playbackState?.track_window?.current_track?.uri?.startsWith('spotify:track:')
+              ? state.playbackState.track_window.current_track.uri.split(':')[2]
+              : null;
+            if (currentTrackId && row.sid === currentTrackId) {
+              await togglePlayback();
+            } else {
+              await playTrack(row);
+            }
+            render();
+          } catch (err) {
+            alert(err.message || 'Could not start playback.');
+          }
+        });
+      });
 
-    function clearMediaSession() {
-      if (!('mediaSession' in navigator)) return;
-
-      navigator.mediaSession.playbackState = 'none';
-
-      try {
-        navigator.mediaSession.metadata = null;
-      } catch {}
-
-      if (typeof navigator.mediaSession.setPositionState === 'function') {
-        try {
-          navigator.mediaSession.setPositionState({
-            duration: 0,
-            playbackRate: 1,
-            position: 0,
-          });
-        } catch {}
-      }
+      Array.from(resultsEl.querySelectorAll('[data-action="open"]')).forEach(btn => {
+        btn.addEventListener('click', () => {
+          const row = visibleRows[Number(btn.dataset.index)];
+          if (row.spotifyUrl) window.open(row.spotifyUrl, '_blank', 'noreferrer');
+        });
+      });
     }
 
     async function setupSpotifyPlayer() {
@@ -1566,51 +1377,27 @@
       state.player.addListener('not_ready', ({ device_id }) => {
         if (state.deviceId === device_id) state.deviceId = null;
         updateAuthUi();
-
-        window.setTimeout(async () => {
-          try {
-            if (state.player && !state.deviceId) {
-              await state.player.connect();
-            }
-          } catch (err) {
-            console.warn('Spotify reconnect after not_ready failed', err);
-          }
-        }, 1000);
       });
       state.player.addListener('player_state_changed', playbackState => {
-        const previousPlaybackState = state.playbackState;
         state.playbackState = playbackState;
         state.lastPlaybackSnapshot = playbackState;
         state.lastPlaybackTimestamp = Date.now();
         updateTogglePlayButton();
-
         if (!playbackState) {
           stopProgressTimer();
-          clearMediaSession();
           render();
           return;
         }
-
         const track = playbackState.track_window?.current_track;
         if (track) {
           syncPlayerTitles(track.name, track.artists.map(a => a.name).join(', '));
           setPlayerArtwork(track.album?.images?.[0]?.url || null, track.name.slice(0, 1).toUpperCase());
           playerInfo.textContent = playbackState.paused ? 'Paused' : 'Playing';
-
           if (!state.isScrubbing) refreshProgressFromSnapshot();
-
-          refreshMediaSessionFromState();
-
           playerShell.hidden = false;
           updatePlayerVisibility();
           if (playbackState.paused) stopProgressTimer(); else startProgressTimer();
         }
-        try {
-          await maybeAutoAdvanceFromPlaybackState(previousPlaybackState, playbackState);
-        } catch (err) {
-          console.error('Playback-state auto-advance failed', err);
-        }
-
         render();
       });
       state.player.addListener('autoplay_failed', () => {
@@ -1624,58 +1411,6 @@
       const connected = await state.player.connect();
       state.sdkReady = !!connected;
       updateAuthUi();
-    }
-
-    function setupMediaSessionHandlers() {
-      if (mediaSessionHandlersBound) return;
-      if (!('mediaSession' in navigator)) return;
-      mediaSessionHandlersBound = true;
-
-      try { navigator.mediaSession.setActionHandler('seekbackward', null); } catch {}
-      try { navigator.mediaSession.setActionHandler('seekforward', null); } catch {}
-      try { navigator.mediaSession.setActionHandler('seekto', null); } catch {}
-
-      navigator.mediaSession.setActionHandler('play', async () => {
-        try { await togglePlayback(); } catch {}
-      });
-
-      navigator.mediaSession.setActionHandler('pause', async () => {
-        try { await togglePlayback(); } catch {}
-      });
-
-      navigator.mediaSession.setActionHandler('nexttrack', async () => {
-        try {
-          const playableRows = getPlayableVisibleRows();
-          let currentIndex = state.currentPlayableIndex;
-          const currentSid = getCurrentTrackId();
-
-          if (currentIndex < 0 || playableRows[currentIndex]?.sid !== currentSid) {
-            currentIndex = playableRows.findIndex(row => row.sid === currentSid);
-          }
-
-          if (currentIndex >= 0 && currentIndex < playableRows.length - 1) {
-            await playTrack(playableRows[currentIndex + 1]);
-          }
-        } catch {}
-      });
-
-      navigator.mediaSession.setActionHandler('previoustrack', async () => {
-        try {
-          const playableRows = getPlayableVisibleRows();
-          let currentIndex = state.currentPlayableIndex;
-          const currentSid = getCurrentTrackId();
-
-          if (currentIndex < 0 || playableRows[currentIndex]?.sid !== currentSid) {
-            currentIndex = playableRows.findIndex(row => row.sid === currentSid);
-          }
-
-          if (currentIndex > 0) {
-            await playTrack(playableRows[currentIndex - 1]);
-          } else if (state.activeTrack) {
-            await restartPlayback();
-          }
-        } catch {}
-      });
     }
 
     let bootstrapAuthPromise = null;
@@ -1693,15 +1428,13 @@
         }
         if (code) await exchangeCodeForToken(code);
         updateAuthUi();
-        if (state.accessToken && window.Spotify && !state.player) {
-          await setupSpotifyPlayer();
-        }
+        await setupSpotifyPlayer();
       })();
 
       try {
         return await bootstrapAuthPromise;
       } finally {
-        bootstrapAuthPromise = null;
+        bootstrapAuthPromise = Promise.resolve();
       }
     }
 
@@ -1718,12 +1451,11 @@
       state.randomPinnedKey = null;
       render();
     });
-    const applySearchInput = debounce(() => {
+    searchInput.addEventListener('input', () => {
       state.searchTerm = searchInput.value;
       state.randomPinnedKey = null;
       render();
-    }, 120);
-    searchInput.addEventListener('input', applySearchInput);
+    });
     showSpotifyPanelBtn.addEventListener('click', openSpotifyModal);
     closeSpotifyModalBtn.addEventListener('click', closeSpotifyModal);
     spotifyModal.addEventListener('click', (event) => {
@@ -1739,11 +1471,7 @@
       state.playbackState = null;
       state.lastPlaybackSnapshot = null;
       state.lastPlaybackTimestamp = 0;
-      state.currentPlayableIndex = -1;
       stopProgressTimer();
-      clearMediaSession();
-      resetPlayerUi();
-      closeSpotifyModal();
       updateAuthUi();
     });
     randomCurrentBtn.addEventListener('click', jumpToRandomCurrent);
@@ -1763,42 +1491,19 @@
       currentTime.textContent = formatMs(Number(progressBar.value));
     });
     progressBar.addEventListener('change', async () => {
-      if (!state.deviceId) {
-        state.isScrubbing = false;
-        return;
-      }
-
-      const expectedTrackId = getCurrentTrackId();
-
+      if (!state.deviceId) return;
       try {
-        await spotifyApi(
-          `https://api.spotify.com/v1/me/player/seek?position_ms=${encodeURIComponent(progressBar.value)}&device_id=${encodeURIComponent(state.deviceId)}`,
-          { method: 'PUT' }
-        );
-
-        if (state.lastPlaybackSnapshot && getCurrentTrackId() === expectedTrackId) {
-          state.lastPlaybackTimestamp = Date.now();
-          state.lastPlaybackSnapshot = {
-            ...state.lastPlaybackSnapshot,
-            position: Number(progressBar.value),
-          };
+        await spotifyApi(`https://api.spotify.com/v1/me/player/seek?position_ms=${encodeURIComponent(progressBar.value)}&device_id=${encodeURIComponent(state.deviceId)}`, { method: 'PUT' });
+        state.lastPlaybackTimestamp = Date.now();
+        if (state.lastPlaybackSnapshot) {
+          state.lastPlaybackSnapshot = { ...state.lastPlaybackSnapshot, position: Number(progressBar.value) };
         }
-
         refreshProgressFromSnapshot();
-        refreshMediaSessionFromState();
       } catch (err) {
         alert(err.message);
-      } finally {
-        state.isScrubbing = false;
       }
+      state.isScrubbing = false;
     });
-
-    document.addEventListener('visibilitychange', () => {
-      if (document.visibilityState === 'visible') {
-        refreshMediaSessionFromState();
-      }
-    });
-
     openSpotifyBtn.addEventListener('click', openCurrentInSpotify);
     document.addEventListener('keydown', async (event) => {
       if (event.code !== 'Space') return;
@@ -1812,42 +1517,11 @@
         console.error(err);
       }
     });
-    resultsEl.addEventListener('click', async (event) => {
-      const btn = event.target.closest('[data-action]');
-      if (!btn) return;
-
-      const visibleRows = getVisibleRows();
-      const row = visibleRows[Number(btn.dataset.index)];
-      if (!row) return;
-
-      if (btn.dataset.action === 'play') {
-        try {
-          const currentTrackId = state.playbackState?.track_window?.current_track?.uri?.startsWith('spotify:track:')
-            ? state.playbackState.track_window.current_track.uri.split(':')[2]
-            : null;
-
-          if (currentTrackId && row.sid === currentTrackId) {
-            await togglePlayback();
-          } else {
-            await playTrack(row);
-          }
-          render();
-        } catch (err) {
-          alert(err.message || 'Could not start playback.');
-        }
-        return;
-      }
-
-      if (btn.dataset.action === 'open') {
-        const url = safeSpotifyUrl(row.spotifyUrl);
-        if (url) window.open(url, '_blank', 'noreferrer');
-      }
-    });
-    resetPlayerUi();
+    updateTogglePlayButton();
+    updatePlayerVisibility();
 
     (async function init() {
       try {
-        setupMediaSessionHandlers();
         await loadIndex();
         if (window.Spotify) await bootstrapAuth();
       } catch (err) {
