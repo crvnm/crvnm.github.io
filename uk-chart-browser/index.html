@@ -1242,6 +1242,33 @@
       setStatus(deviceStatus, `Device ready: ${state.deviceId.slice(0, 8)}…`, 'ok');
     }
 
+    async function ensureSpotifyReady() {
+      await bootstrapAuth();
+
+      if (state.player && state.deviceId) {
+        return true;
+      }
+
+      if (state.player && !state.deviceId) {
+        try {
+          await state.player.connect();
+        } catch (err) {
+          console.warn('Spotify reconnect failed', err);
+        }
+      }
+
+      if (!state.player) {
+        await setupSpotifyPlayer();
+      }
+
+      if (!state.deviceId) {
+        updateAuthUi();
+        return false;
+      }
+
+      return true;
+    }
+
     async function playTrack(row, options = {}) {
       if (!row.sid) return;
 
@@ -1256,8 +1283,8 @@
         state.currentPlayableIndex = queueIndex;
       }
 
-      if (!state.player || !state.deviceId) {
-        alert('Spotify player is not ready yet. Sign in and wait for the device to be ready.');
+      if (!(await ensureSpotifyReady())) {
+        alert('Spotify player is not ready. Open the Spotify panel or refresh if it does not reconnect.');
         return;
       }
 
@@ -1297,10 +1324,12 @@
       await spotifyApi(`https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`, { method: 'PUT' });
     }
     async function togglePlayback() {
+      if (!(await ensureSpotifyReady())) return;
       if (!state.playbackState || state.playbackState.paused) await resumePlayback();
       else await pausePlayback();
     }
     async function restartPlayback() {
+      if (!(await ensureSpotifyReady())) return;
       if (!state.activeTrack || !state.deviceId) return;
       await spotifyApi(`https://api.spotify.com/v1/me/player/seek?position_ms=0&device_id=${encodeURIComponent(state.deviceId)}`, { method: 'PUT' });
       await resumePlayback();
@@ -1381,6 +1410,16 @@
       state.player.addListener('not_ready', ({ device_id }) => {
         if (state.deviceId === device_id) state.deviceId = null;
         updateAuthUi();
+
+        window.setTimeout(async () => {
+          try {
+            if (state.player && !state.deviceId) {
+              await state.player.connect();
+            }
+          } catch (err) {
+            console.warn('Spotify reconnect after not_ready failed', err);
+          }
+        }, 1000);
       });
       state.player.addListener('player_state_changed', playbackState => {
         state.playbackState = playbackState;
