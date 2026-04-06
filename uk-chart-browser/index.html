@@ -1656,7 +1656,7 @@
           state.lastPlaybackSnapshot = { ...state.lastPlaybackSnapshot, position: Number(progressBar.value) };
         }
         refreshProgressFromSnapshot();
-        updateMediaSessionFromPlayback(playbackState);
+        if (state.playbackState) updateMediaSessionFromPlayback(state.playbackState);
         updateMediaSessionPosition();
       } catch (err) {
         alert(err.message);
