@@ -801,6 +801,8 @@
       autoAdvanceInFlight: false,
       lastAutoAdvancedFromSid: null,
       currentPlayableIndex: -1,
+      loadYearRequestId: 0,
+      marqueeResizeObserver: null,
     };
 
     function qs(name) { return new URLSearchParams(window.location.search).get(name); }
@@ -850,14 +852,24 @@
         el.textContent = '';
         el.appendChild(inner);
       }
+
       inner.textContent = safeText;
+      el.setAttribute('data-full-text', safeText);
       el.setAttribute('aria-label', safeText);
       el.classList.remove('is-overflowing');
       el.style.removeProperty('--marquee-distance');
       el.style.removeProperty('--marquee-duration');
 
+      const measureToken = String((Number(el.dataset.measureToken || '0') + 1));
+      el.dataset.measureToken = measureToken;
+
       requestAnimationFrame(() => {
-        const overflow = Math.ceil(inner.scrollWidth - el.clientWidth);
+        if (el.dataset.measureToken !== measureToken) return;
+
+        const currentInner = el.querySelector('.marquee-text');
+        if (!currentInner) return;
+
+        const overflow = Math.ceil(currentInner.scrollWidth - el.clientWidth);
         if (overflow > 2) {
           const distance = overflow + 40;
           const duration = Math.max(8, distance / 24);
@@ -872,6 +884,12 @@
       setMarqueeText(playerArtist, artist);
       minibarSong.textContent = song;
       minibarArtist.textContent = artist;
+    }
+    function refreshPlayerMarquee() {
+      const currentSong = playerSong.getAttribute('data-full-text') || '';
+      const currentArtist = playerArtist.getAttribute('data-full-text') || '';
+      setMarqueeText(playerSong, currentSong);
+      setMarqueeText(playerArtist, currentArtist);
     }
     function setPlayerArtwork(url, fallbackText = '♪') {
       if (url) {
@@ -976,6 +994,7 @@
 
     async function maybeAutoAdvanceFromTimer() {
       if (state.autoAdvanceInFlight || state.isScrubbing) return;
+
       const currentSid = getCurrentTrackId();
       if (!currentSid) return;
 
@@ -984,11 +1003,9 @@
       if (state.lastAutoAdvancedFromSid === currentSid) return;
 
       const playableRows = getPlayableVisibleRows();
-      let currentIndex = state.currentPlayableIndex;
+      if (!playableRows.length) return;
 
-      if (currentIndex < 0 || currentIndex >= playableRows.length || playableRows[currentIndex]?.sid !== currentSid) {
-        currentIndex = playableRows.findIndex(row => row.sid === currentSid);
-      }
+      const currentIndex = playableRows.findIndex(row => row.sid === currentSid);
       if (currentIndex < 0 || currentIndex >= playableRows.length - 1) return;
 
       const nextRow = playableRows[currentIndex + 1];
@@ -1052,6 +1069,7 @@
         return;
       }
       state.randomPinnedKey = rowKey(chosen);
+      state.currentPlayableIndex = -1;
       render();
       try {
         if (chosen.sid) {
@@ -1077,6 +1095,7 @@
       state.searchTerm = '';
       state.randomPinnedKey = null;
       searchInput.value = '';
+      state.currentPlayableIndex = -1;
       render();
       await jumpToRandomCurrent();
     }
@@ -1210,24 +1229,36 @@
     }
 
     async function loadYear(year) {
+      const requestId = ++state.loadYearRequestId;
+
       summaryTitle.textContent = `Loading ${year === 'ALL' ? 'all years' : year}…`;
       summarySub.textContent = 'Fetching chart data';
       resultsEl.innerHTML = `<div class="loading">Loading ${escapeHtml(year === 'ALL' ? 'all years' : year)} chart data…</div>`;
+
+      let nextYearData;
 
       if (year === 'ALL') {
         const allYears = state.availableYears.filter(y => y !== 'ALL');
         const merged = { year: 'ALL', weeks: [], minPosition: null, maxPosition: null, positions: {} };
         const weekSet = new Set();
 
-        for (const y of allYears) {
-          const res = await fetch(`${DATA_BASE}/${y}.json?ts=${Date.now()}`, { cache: 'no-store' });
-          if (!res.ok) throw new Error(`Could not load ${y}.json (${res.status})`);
-          const data = await res.json();
+        const yearDataList = await Promise.all(
+          allYears.map(async y => {
+            const res = await fetch(`${DATA_BASE}/${y}.json?ts=${Date.now()}`, { cache: 'no-store' });
+            if (!res.ok) throw new Error(`Could not load ${y}.json (${res.status})`);
+            return res.json();
+          })
+        );
 
+        for (const data of yearDataList) {
           for (const w of data.weeks || []) weekSet.add(w);
 
-          if (merged.minPosition === null || (data.minPosition ?? 9999) < merged.minPosition) merged.minPosition = data.minPosition;
-          if (merged.maxPosition === null || (data.maxPosition ?? 0) > merged.maxPosition) merged.maxPosition = data.maxPosition;
+          if (merged.minPosition === null || (data.minPosition ?? 9999) < merged.minPosition) {
+            merged.minPosition = data.minPosition;
+          }
+          if (merged.maxPosition === null || (data.maxPosition ?? 0) > merged.maxPosition) {
+            merged.maxPosition = data.maxPosition;
+          }
 
           for (const [pos, rows] of Object.entries(data.positions || {})) {
             if (!merged.positions[pos]) merged.positions[pos] = [];
@@ -1239,12 +1270,18 @@
         for (const pos of Object.keys(merged.positions)) {
           merged.positions[pos].sort((a, b) => String(a.w || '').localeCompare(String(b.w || '')));
         }
-        state.currentYearData = merged;
+
+        nextYearData = merged;
       } else {
         const res = await fetch(`${DATA_BASE}/${year}.json?ts=${Date.now()}`, { cache: 'no-store' });
         if (!res.ok) throw new Error(`Could not load ${year}.json (${res.status})`);
-        state.currentYearData = await res.json();
+        nextYearData = await res.json();
       }
+
+      if (requestId !== state.loadYearRequestId) return;
+
+      state.currentYearData = nextYearData;
+      state.currentPlayableIndex = -1;
 
       const positions = Object.keys(state.currentYearData?.positions || {}).sort((a, b) => Number(a) - Number(b));
       positionSelect.innerHTML = positions.map(pos => `<option value="${pos}">${ordinal(pos)}</option>`).join('');
@@ -1400,32 +1437,6 @@
           </article>
         `;
       }).join('');
-
-      Array.from(resultsEl.querySelectorAll('[data-action="play"]')).forEach(btn => {
-        btn.addEventListener('click', async () => {
-          const row = visibleRows[Number(btn.dataset.index)];
-          try {
-            const currentTrackId = state.playbackState?.track_window?.current_track?.uri?.startsWith('spotify:track:')
-              ? state.playbackState.track_window.current_track.uri.split(':')[2]
-              : null;
-            if (currentTrackId && row.sid === currentTrackId) {
-              await togglePlayback();
-            } else {
-              await playTrack(row);
-            }
-            render();
-          } catch (err) {
-            alert(err.message || 'Could not start playback.');
-          }
-        });
-      });
-
-      Array.from(resultsEl.querySelectorAll('[data-action="open"]')).forEach(btn => {
-        btn.addEventListener('click', () => {
-          const row = visibleRows[Number(btn.dataset.index)];
-          if (row.spotifyUrl) window.open(row.spotifyUrl, '_blank', 'noreferrer');
-        });
-      });
     }
 
     async function setupSpotifyPlayer() {
@@ -1449,6 +1460,18 @@
         state.playbackState = playbackState;
         state.lastPlaybackSnapshot = playbackState;
         state.lastPlaybackTimestamp = Date.now();
+        if ('ResizeObserver' in window) {
+          state.marqueeResizeObserver = new ResizeObserver(() => {
+            refreshPlayerMarquee();
+          });
+          state.marqueeResizeObserver.observe(document.querySelector('.player-title'));
+        } else {
+          let resizeTimer = null;
+          window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(refreshPlayerMarquee, 120);
+          });
+        }
         updateTogglePlayButton();
         if (!playbackState) {
           stopProgressTimer();
@@ -1489,21 +1512,26 @@
       bootstrapAuthPromise = (async () => {
         const code = qs('code');
         const saved = loadTokens();
+
         if (saved) {
           state.accessToken = saved.access_token;
           state.refreshToken = saved.refresh_token;
           state.tokenExpiresAt = saved.expires_at;
         }
+
         if (code) await exchangeCodeForToken(code);
         updateAuthUi();
         await setupSpotifyPlayer();
       })();
 
       try {
-        return await bootstrapAuthPromise;
-      } finally {
-        bootstrapAuthPromise = Promise.resolve();
+        await bootstrapAuthPromise;
+      } catch (err) {
+        bootstrapAuthPromise = null;
+        throw err;
       }
+
+      return bootstrapAuthPromise;
     }
 
     window.__ukChartBootstrapAuth = bootstrapAuth;
@@ -1511,17 +1539,22 @@
     yearSelect.addEventListener('change', async e => {
       state.selectedYear = e.target.value;
       state.randomPinnedKey = null;
+      state.currentPlayableIndex = -1;
       await loadYear(state.selectedYear);
     });
+
     positionSelect.addEventListener('change', () => {
       state.selectedPosition = positionSelect.value;
       state.selectedPositionLabel = positionSelect.options[positionSelect.selectedIndex]?.text || ordinal(state.selectedPosition);
       state.randomPinnedKey = null;
+      state.currentPlayableIndex = -1;
       render();
     });
+
     searchInput.addEventListener('input', () => {
       state.searchTerm = searchInput.value;
       state.randomPinnedKey = null;
+      state.currentPlayableIndex = -1;
       render();
     });
     showSpotifyPanelBtn.addEventListener('click', openSpotifyModal);
@@ -1544,6 +1577,33 @@
     });
     randomCurrentBtn.addEventListener('click', jumpToRandomCurrent);
     randomAllBtn.addEventListener('click', jumpToRandomAll);
+    resultsEl.addEventListener('click', async (event) => {
+      const btn = event.target.closest('[data-action]');
+      if (!btn || !resultsEl.contains(btn)) return;
+
+      const visibleRows = getVisibleRows();
+      const row = visibleRows[Number(btn.dataset.index)];
+      if (!row) return;
+
+      if (btn.dataset.action === 'open') {
+        if (row.spotifyUrl) window.open(row.spotifyUrl, '_blank', 'noreferrer');
+        return;
+      }
+
+      if (btn.dataset.action === 'play') {
+        try {
+          const currentTrackId = getCurrentTrackId();
+          if (currentTrackId && row.sid === currentTrackId) {
+            await togglePlayback();
+          } else {
+            await playTrack(row);
+          }
+          render();
+        } catch (err) {
+          alert(err.message || 'Could not start playback.');
+        }
+      }
+    });
     closePlayerBtn.addEventListener('click', () => {
       state.isPlayerMinimized = true;
       updatePlayerVisibility();
@@ -1559,12 +1619,20 @@
       currentTime.textContent = formatMs(Number(progressBar.value));
     });
     progressBar.addEventListener('change', async () => {
-      if (!state.deviceId) return;
       try {
-        await spotifyApi(`https://api.spotify.com/v1/me/player/seek?position_ms=${encodeURIComponent(progressBar.value)}&device_id=${encodeURIComponent(state.deviceId)}`, { method: 'PUT' });
+        if (!state.deviceId) return;
+
+        await spotifyApi(
+          `https://api.spotify.com/v1/me/player/seek?position_ms=${encodeURIComponent(progressBar.value)}&device_id=${encodeURIComponent(state.deviceId)}`,
+          { method: 'PUT' }
+        );
+
         state.lastPlaybackTimestamp = Date.now();
         if (state.lastPlaybackSnapshot) {
-          state.lastPlaybackSnapshot = { ...state.lastPlaybackSnapshot, position: Number(progressBar.value) };
+          state.lastPlaybackSnapshot = {
+            ...state.lastPlaybackSnapshot,
+            position: Number(progressBar.value),
+          };
         }
         refreshProgressFromSnapshot();
       } catch (err) {
@@ -1585,12 +1653,6 @@
       } catch (err) {
         console.error(err);
       }
-    });
-    window.addEventListener('resize', () => {
-      const currentSong = playerSong.getAttribute('aria-label') || playerSong.textContent || '';
-      const currentArtist = playerArtist.getAttribute('aria-label') || playerArtist.textContent || '';
-      setMarqueeText(playerSong, currentSong);
-      setMarqueeText(playerArtist, currentArtist);
     });
     updateTogglePlayButton();
     updatePlayerVisibility();
