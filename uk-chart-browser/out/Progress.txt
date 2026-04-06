@@ -1,8 +1,13 @@
 Progress:
-Spotify enrich applied to 2012, 2013, 2014, 2015, 2016
-Partial manual on 2012, 2013, 2014, 2015, 2016
+Spotify enrich applied to 2012, 2013, 2014, 2016
+Partial manual on 2012, 2013, 2014, 2016
 
 Musicbrainz and partial manual on 1997
 
 Still to spotify:
 1997 (also some low scores still for manual review before next spotify)
+
+
+
+Complete:
+2015
