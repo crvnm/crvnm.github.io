@@ -737,6 +737,7 @@
     const deviceStatus = document.getElementById('deviceStatus');
     let loadYearRequestId = 0;
     let playRequestId = 0;
+    let mediaSessionHandlersBound = false;
 
     const state = {
       availableYears: [],
@@ -891,6 +892,7 @@
       state.progressTimer = setInterval(() => {
         if (!state.lastPlaybackSnapshot || state.lastPlaybackSnapshot.paused || state.isScrubbing) return;
         refreshProgressFromSnapshot();
+        updateMediaSessionPosition();
         maybeAutoAdvanceFromTimer();
       }, 250);
     }
@@ -1043,6 +1045,38 @@
       searchInput.value = '';
       render();
       await jumpToRandomCurrent();
+    }
+
+    function updateMediaSessionFromPlayback(playbackState) {
+      if (!('mediaSession' in navigator)) return;
+
+      const track = playbackState?.track_window?.current_track;
+      if (!track) return;
+
+      navigator.mediaSession.metadata = new MediaMetadata({
+        title: track.name || 'Unknown song',
+        artist: (track.artists || []).map(a => a.name).join(', '),
+        album: track.album?.name || '',
+        artwork: (track.album?.images || []).map(img => ({
+          src: img.url,
+          sizes: `${img.width || 0}x${img.height || 0}`,
+          type: 'image/jpeg',
+        })),
+      });
+
+      navigator.mediaSession.playbackState = playbackState.paused ? 'paused' : 'playing';
+    }
+
+    function updateMediaSessionPosition() {
+      if (!('mediaSession' in navigator)) return;
+      if (typeof navigator.mediaSession.setPositionState !== 'function') return;
+
+      const { position, duration } = getDerivedPlaybackPosition();
+      navigator.mediaSession.setPositionState({
+        duration: Math.max(duration / 1000, 0),
+        playbackRate: 1,
+        position: Math.max(position / 1000, 0),
+      });
     }
 
     function base64UrlEncode(arrayBuffer) {
@@ -1314,6 +1348,7 @@
       playerInfo.textContent = 'Playback requested on your Web Playback SDK device.';
       setPlayerArtwork(null, (row.tm || row.t || row.title || '♪').slice(0, 1).toUpperCase());
       setProgress(0, 0);
+      updateMediaSessionPosition();
       playerShell.hidden = false;
       updatePlayerVisibility();
     }
@@ -1333,6 +1368,7 @@
       if (!state.activeTrack || !state.deviceId) return;
       await spotifyApi(`https://api.spotify.com/v1/me/player/seek?position_ms=0&device_id=${encodeURIComponent(state.deviceId)}`, { method: 'PUT' });
       await resumePlayback();
+      updateMediaSessionPosition();
     }
     function openCurrentInSpotify() {
       const url = getOpenSpotifyUrl();
@@ -1426,21 +1462,27 @@
         state.lastPlaybackSnapshot = playbackState;
         state.lastPlaybackTimestamp = Date.now();
         updateTogglePlayButton();
+
         if (!playbackState) {
           stopProgressTimer();
+          clearMediaSession();
           render();
           return;
         }
+
         const track = playbackState.track_window?.current_track;
         if (track) {
           syncPlayerTitles(track.name, track.artists.map(a => a.name).join(', '));
           setPlayerArtwork(track.album?.images?.[0]?.url || null, track.name.slice(0, 1).toUpperCase());
           playerInfo.textContent = playbackState.paused ? 'Paused' : 'Playing';
           if (!state.isScrubbing) refreshProgressFromSnapshot();
+          updateMediaSessionFromPlayback(playbackState);
+          updateMediaSessionPosition();
           playerShell.hidden = false;
           updatePlayerVisibility();
           if (playbackState.paused) stopProgressTimer(); else startProgressTimer();
         }
+
         render();
       });
       state.player.addListener('autoplay_failed', () => {
@@ -1454,6 +1496,74 @@
       const connected = await state.player.connect();
       state.sdkReady = !!connected;
       updateAuthUi();
+    }
+
+    function setupMediaSessionHandlers() {
+      if (mediaSessionHandlersBound) return;
+      if (!('mediaSession' in navigator)) return;
+      mediaSessionHandlersBound = true;
+
+      navigator.mediaSession.setActionHandler('play', async () => {
+        try { await togglePlayback(); } catch {}
+      });
+
+      navigator.mediaSession.setActionHandler('pause', async () => {
+        try { await togglePlayback(); } catch {}
+      });
+
+      navigator.mediaSession.setActionHandler('nexttrack', async () => {
+        try {
+          const playableRows = getPlayableVisibleRows();
+          let currentIndex = state.currentPlayableIndex;
+
+          const currentSid = getCurrentTrackId();
+          if (currentIndex < 0 || playableRows[currentIndex]?.sid !== currentSid) {
+            currentIndex = playableRows.findIndex(row => row.sid === currentSid);
+          }
+
+          if (currentIndex >= 0 && currentIndex < playableRows.length - 1) {
+            await playTrack(playableRows[currentIndex + 1]);
+          }
+        } catch {}
+      });
+
+      function clearMediaSession() {
+        if (!('mediaSession' in navigator)) return;
+
+        navigator.mediaSession.playbackState = 'none';
+
+        try {
+          navigator.mediaSession.metadata = null;
+        } catch {}
+
+        if (typeof navigator.mediaSession.setPositionState === 'function') {
+          try {
+            navigator.mediaSession.setPositionState({
+              duration: 0,
+              playbackRate: 1,
+              position: 0,
+            });
+          } catch {}
+        }
+      }
+
+      navigator.mediaSession.setActionHandler('previoustrack', async () => {
+        try {
+          const playableRows = getPlayableVisibleRows();
+          let currentIndex = state.currentPlayableIndex;
+
+          const currentSid = getCurrentTrackId();
+          if (currentIndex < 0 || playableRows[currentIndex]?.sid !== currentSid) {
+            currentIndex = playableRows.findIndex(row => row.sid === currentSid);
+          }
+
+          if (currentIndex > 0) {
+            await playTrack(playableRows[currentIndex - 1]);
+          } else if (state.activeTrack) {
+            await restartPlayback();
+          }
+        } catch {}
+      });
     }
 
     let bootstrapAuthPromise = null;
@@ -1546,6 +1656,8 @@
           state.lastPlaybackSnapshot = { ...state.lastPlaybackSnapshot, position: Number(progressBar.value) };
         }
         refreshProgressFromSnapshot();
+        updateMediaSessionFromPlayback(playbackState);
+        updateMediaSessionPosition();
       } catch (err) {
         alert(err.message);
       } finally {
@@ -1601,6 +1713,7 @@
 
     (async function init() {
       try {
+        setupMediaSessionHandlers();
         await loadIndex();
         if (window.Spotify) await bootstrapAuth();
       } catch (err) {
