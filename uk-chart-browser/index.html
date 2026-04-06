@@ -738,6 +738,7 @@
     let loadYearRequestId = 0;
     let playRequestId = 0;
     let mediaSessionHandlersBound = false;
+    const trackDetailsCache = new Map();
 
     const state = {
       availableYears: [],
@@ -1346,7 +1347,7 @@
         row.am || row.a || row.artist || ''
       );
       playerInfo.textContent = 'Playback requested on your Web Playback SDK device.';
-      setPlayerArtwork(null, (row.tm || row.t || row.title || '♪').slice(0, 1).toUpperCase());
+      //setPlayerArtwork(null, (row.tm || row.t || row.title || '♪').slice(0, 1).toUpperCase());
       setProgress(0, 0);
       updateMediaSessionPosition();
       playerShell.hidden = false;
