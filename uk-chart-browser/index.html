@@ -1014,6 +1014,20 @@
         }
 
         await playTrack(nextRow, { isAutoAdvance: true, forceRestart: true });
+
+        await new Promise(resolve => setTimeout(resolve, 450));
+
+        const actualSid = getCurrentTrackId();
+        const derived = getDerivedPlaybackPosition();
+        const isPausedAtStart =
+          actualSid === nextRow.sid &&
+          !!state.playbackState?.paused &&
+          derived.position < 1500;
+
+        if (isPausedAtStart) {
+          await resumePlayback();
+        }
+
         state.lastAutoAdvancedFromSid = currentSid;
       } catch (err) {
         console.error('Auto-advance failed', err);
@@ -1351,13 +1365,13 @@
       }
 
       state.activeTrack = row;
-      if (state.lastPlaybackSnapshot) {
-        state.lastPlaybackSnapshot = {
+      state.lastPlaybackSnapshot = state.lastPlaybackSnapshot
+      ? {
           ...state.lastPlaybackSnapshot,
           position: 0,
           paused: false,
-        };
-      }
+        }
+      : null;
       state.lastPlaybackTimestamp = Date.now();
       syncPlayerTitles(row.tm || row.t || row.title || 'Unknown song', row.am || row.a || row.artist || '');
       playerInfo.textContent = 'Playback requested on your Web Playback SDK device.';
