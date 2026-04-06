@@ -435,16 +435,17 @@
       overflow: hidden;
     }
 
-    .player-title strong,
-    .player-title span {
+    .player-title > strong,
+    .player-title > span {
       display: block;
       min-width: 0;
+      width: 100%;
       white-space: nowrap;
       overflow: hidden;
     }
 
-    .player-title strong { font-size: 15px; }
-    .player-title span {
+    .player-title > strong { font-size: 15px; }
+    .player-title > span {
       color: var(--muted);
       font-size: 13px;
       margin-top: 2px;
