@@ -736,6 +736,7 @@
     const sdkStatus = document.getElementById('sdkStatus');
     const deviceStatus = document.getElementById('deviceStatus');
     let loadYearRequestId = 0;
+    let playRequestId = 0;
 
     const state = {
       availableYears: [],
@@ -1243,59 +1244,46 @@
 
     async function playTrack(row, options = {}) {
       if (!row.sid) return;
+
+      const requestId = ++playRequestId;
+
       if (!options.isAutoAdvance) {
         state.lastAutoAdvancedFromSid = null;
       }
+
       const queueIndex = getPlayableQueueIndexForRow(row);
       if (queueIndex >= 0) {
         state.currentPlayableIndex = queueIndex;
       }
+
       if (!state.player || !state.deviceId) {
         alert('Spotify player is not ready yet. Sign in and wait for the device to be ready.');
         return;
       }
 
-      const currentTrackId = state.playbackState?.track_window?.current_track?.uri?.startsWith('spotify:track:')
-        ? state.playbackState.track_window.current_track.uri.split(':')[2]
-        : null;
-      const isSwitchingTrack = currentTrackId !== row.sid;
-      const mustHardReset = isSwitchingTrack || options.forceRestart;
-
       await state.player.activateElement();
       await transferPlaybackHere();
 
-      if (mustHardReset) {
-        try {
-          await spotifyApi(`https://api.spotify.com/v1/me/player/pause?device_id=${encodeURIComponent(state.deviceId)}`, {
-            method: 'PUT',
-          });
-        } catch (err) {
-          console.warn('Pause before track switch failed', err);
+      await spotifyApi(
+        `https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`,
+        {
+          method: 'PUT',
+          body: JSON.stringify({
+            uris: [`spotify:track:${row.sid}`],
+            position_ms: 0,
+          }),
         }
-      }
+      );
 
-      await spotifyApi(`https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`, {
-        method: 'PUT',
-        body: JSON.stringify({ uris: [`spotify:track:${row.sid}`], position_ms: 0 }),
-      });
-
-      if (mustHardReset) {
-        try {
-          await new Promise(resolve => setTimeout(resolve, 150));
-          await spotifyApi(`https://api.spotify.com/v1/me/player/seek?position_ms=0&device_id=${encodeURIComponent(state.deviceId)}`, {
-            method: 'PUT',
-          });
-        } catch (err) {
-          console.warn('Seek reset failed', err);
-        }
-      }
+      if (requestId !== playRequestId) return;
 
       state.activeTrack = row;
-      if (state.lastPlaybackSnapshot) {
-        state.lastPlaybackSnapshot = { ...state.lastPlaybackSnapshot, position: 0 };
-      }
+      state.lastPlaybackSnapshot = null;
       state.lastPlaybackTimestamp = Date.now();
-      syncPlayerTitles(row.tm || row.t || row.title || 'Unknown song', row.am || row.a || row.artist || '');
+      syncPlayerTitles(
+        row.tm || row.t || row.title || 'Unknown song',
+        row.am || row.a || row.artist || ''
+      );
       playerInfo.textContent = 'Playback requested on your Web Playback SDK device.';
       setPlayerArtwork(null, (row.tm || row.t || row.title || '♪').slice(0, 1).toUpperCase());
       setProgress(0, 0);
