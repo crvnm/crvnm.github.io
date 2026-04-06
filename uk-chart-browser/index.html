@@ -965,31 +965,23 @@
     function getPlayableVisibleRows() {
       const rows = getVisibleRows();
       const unique = [];
-      let lastSid = null;
+      const seenSids = new Set();
+
       for (const row of rows) {
         if (!row?.sid) continue;
-        if (row.sid === lastSid) continue;
+        if (seenSids.has(row.sid)) continue;
+        seenSids.add(row.sid);
         unique.push(row);
-        lastSid = row.sid;
       }
+
       return unique;
     }
 
     function getPlayableQueueIndexForRow(targetRow) {
-      const rows = getVisibleRows();
-      let queueIndex = -1;
-      let lastSid = null;
-      for (const row of rows) {
-        if (!row?.sid) continue;
-        if (row.sid !== lastSid) {
-          queueIndex += 1;
-          lastSid = row.sid;
-        }
-        if (rowKey(row) === rowKey(targetRow)) {
-          return queueIndex;
-        }
-      }
-      return -1;
+      if (!targetRow?.sid) return -1;
+
+      const playableRows = getPlayableVisibleRows();
+      return playableRows.findIndex(row => row.sid === targetRow.sid);
     }
 
     async function maybeAutoAdvanceFromTimer() {
@@ -1012,15 +1004,22 @@
       if (!nextRow?.sid) return;
 
       state.autoAdvanceInFlight = true;
-      state.lastAutoAdvancedFromSid = currentSid;
-      state.currentPlayableIndex = currentIndex + 1;
 
       try {
         if (state.randomPinnedKey) {
           state.randomPinnedKey = rowKey(nextRow);
           render();
         }
-        await playTrack(nextRow, { isAutoAdvance: true, forceRestart: true });
+
+        try {
+          await playTrack(nextRow, { isAutoAdvance: true, forceRestart: true });
+        } catch (err) {
+          console.warn('First auto-advance attempt failed, retrying once...', err);
+          await new Promise(resolve => setTimeout(resolve, 300));
+          await playTrack(nextRow, { isAutoAdvance: true, forceRestart: true });
+        }
+        
+        state.lastAutoAdvancedFromSid = currentSid;
       } catch (err) {
         console.error('Auto-advance failed', err);
       } finally {
