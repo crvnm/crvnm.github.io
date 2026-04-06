@@ -423,19 +423,24 @@
     }
 
     .player-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: start;
       gap: 12px;
+      width: 100%;
     }
 
-    .player-title { min-width: 0; }
+    .player-title {
+      min-width: 0;
+      overflow: hidden;
+    }
+
     .player-title strong,
     .player-title span {
       display: block;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      min-width: 0;
       white-space: nowrap;
+      overflow: hidden;
     }
 
     .player-title strong { font-size: 15px; }
@@ -443,6 +448,41 @@
       color: var(--muted);
       font-size: 13px;
       margin-top: 2px;
+    }
+
+    .marquee-line {
+      position: relative;
+    }
+
+    .marquee-line .marquee-text {
+      display: inline-block;
+      max-width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      vertical-align: top;
+    }
+
+    .marquee-line.is-overflowing .marquee-text {
+      padding-inline-end: 2.5rem;
+      overflow: visible;
+      text-overflow: clip;
+      animation: marquee-scroll var(--marquee-duration, 10s) linear infinite;
+      will-change: transform;
+    }
+
+    .marquee-line.is-overflowing:hover .marquee-text,
+    .marquee-line.is-overflowing:focus-within .marquee-text {
+      animation-play-state: paused;
+    }
+
+    @keyframes marquee-scroll {
+      0%, 12% {
+        transform: translateX(0);
+      }
+      88%, 100% {
+        transform: translateX(calc(-1 * var(--marquee-distance, 0px)));
+      }
     }
 
     .player-progress-wrap {
@@ -666,8 +706,8 @@
       <div class="player-main">
         <div class="player-header">
           <div class="player-title">
-            <strong id="playerSong">No track selected</strong>
-            <span id="playerArtist"></span>
+            <strong id="playerSong" class="marquee-line">No track selected</strong>
+            <span id="playerArtist" class="marquee-line"></span>
           </div>
           <button class="icon-btn" id="closePlayerBtn" aria-label="Minimize player">✕</button>
         </div>
@@ -800,9 +840,35 @@
       progressBar.max = String(safeDuration || 1000);
       progressBar.value = String(Math.min(safePosition, safeDuration || 1000));
     }
+    function setMarqueeText(el, text) {
+      const safeText = text || '';
+      let inner = el.querySelector('.marquee-text');
+      if (!inner) {
+        inner = document.createElement('span');
+        inner.className = 'marquee-text';
+        el.textContent = '';
+        el.appendChild(inner);
+      }
+      inner.textContent = safeText;
+      el.setAttribute('aria-label', safeText);
+      el.classList.remove('is-overflowing');
+      el.style.removeProperty('--marquee-distance');
+      el.style.removeProperty('--marquee-duration');
+
+      requestAnimationFrame(() => {
+        const overflow = Math.ceil(inner.scrollWidth - el.clientWidth);
+        if (overflow > 2) {
+          const distance = overflow + 40;
+          const duration = Math.max(8, distance / 24);
+          el.style.setProperty('--marquee-distance', `${distance}px`);
+          el.style.setProperty('--marquee-duration', `${duration}s`);
+          el.classList.add('is-overflowing');
+        }
+      });
+    }
     function syncPlayerTitles(song, artist) {
-      playerSong.textContent = song;
-      playerArtist.textContent = artist;
+      setMarqueeText(playerSong, song);
+      setMarqueeText(playerArtist, artist);
       minibarSong.textContent = song;
       minibarArtist.textContent = artist;
     }
@@ -1516,6 +1582,12 @@
       } catch (err) {
         console.error(err);
       }
+    });
+    window.addEventListener('resize', () => {
+      const currentSong = playerSong.getAttribute('aria-label') || playerSong.textContent || '';
+      const currentArtist = playerArtist.getAttribute('aria-label') || playerArtist.textContent || '';
+      setMarqueeText(playerSong, currentSong);
+      setMarqueeText(playerArtist, currentArtist);
     });
     updateTogglePlayButton();
     updatePlayerVisibility();
