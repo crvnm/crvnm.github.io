@@ -803,6 +803,8 @@
       currentPlayableIndex: -1,
       loadYearRequestId: 0,
       marqueeResizeObserver: null,
+      pendingTrackSid: null,
+      pendingTrackSwitchAt: 0,
     };
 
     function qs(name) { return new URLSearchParams(window.location.search).get(name); }
@@ -962,6 +964,11 @@
       return uri && uri.startsWith('spotify:track:') ? uri.split(':')[2] : null;
     }
 
+    function getPlaybackStateTrackId(playbackState) {
+      const uri = playbackState?.track_window?.current_track?.uri;
+      return uri && uri.startsWith('spotify:track:') ? uri.split(':')[2] : null;
+    }
+
     function getPlayableVisibleRows() {
       const rows = getVisibleRows();
       const unique = [];
@@ -1011,14 +1018,18 @@
           render();
         }
 
-        try {
-          await playTrack(nextRow, { isAutoAdvance: true, forceRestart: true });
-        } catch (err) {
-          console.warn('First auto-advance attempt failed, retrying once...', err);
-          await new Promise(resolve => setTimeout(resolve, 300));
+        await playTrack(nextRow, { isAutoAdvance: true, forceRestart: true });
+
+        await new Promise(resolve => setTimeout(resolve, 400));
+
+        const actualSid = getCurrentTrackId();
+        const stillPaused = !!state.playbackState?.paused;
+
+        if (actualSid !== nextRow.sid || stillPaused) {
+          console.warn('Auto-advance verification failed, retrying once...');
           await playTrack(nextRow, { isAutoAdvance: true, forceRestart: true });
         }
-        
+
         state.lastAutoAdvancedFromSid = currentSid;
       } catch (err) {
         console.error('Auto-advance failed', err);
@@ -1309,10 +1320,15 @@
       if (!options.isAutoAdvance) {
         state.lastAutoAdvancedFromSid = null;
       }
+
+      state.pendingTrackSid = row.sid;
+      state.pendingTrackSwitchAt = Date.now();
+
       const queueIndex = getPlayableQueueIndexForRow(row);
       if (queueIndex >= 0) {
         state.currentPlayableIndex = queueIndex;
       }
+
       if (!state.player || !state.deviceId) {
         alert('Spotify player is not ready yet. Sign in and wait for the device to be ready.');
         return;
@@ -1355,7 +1371,11 @@
 
       state.activeTrack = row;
       if (state.lastPlaybackSnapshot) {
-        state.lastPlaybackSnapshot = { ...state.lastPlaybackSnapshot, position: 0 };
+        state.lastPlaybackSnapshot = {
+          ...state.lastPlaybackSnapshot,
+          position: 0,
+          paused: false,
+        };
       }
       state.lastPlaybackTimestamp = Date.now();
       syncPlayerTitles(row.tm || row.t || row.title || 'Unknown song', row.am || row.a || row.artist || '');
@@ -1456,26 +1476,42 @@
         updateAuthUi();
       });
       state.player.addListener('player_state_changed', playbackState => {
+        const incomingTrackId = getPlaybackStateTrackId(playbackState);
+
+        if (state.pendingTrackSid) {
+          const isExpectedTrack = incomingTrackId === state.pendingTrackSid;
+          const isRecentSwitch = Date.now() - state.pendingTrackSwitchAt < 2500;
+
+          if (isExpectedTrack) {
+            state.pendingTrackSid = null;
+            state.pendingTrackSwitchAt = 0;
+          } else if (isRecentSwitch && playbackState?.paused) {
+            return;
+          }
+        }
+
         state.playbackState = playbackState;
         state.lastPlaybackSnapshot = playbackState;
         state.lastPlaybackTimestamp = Date.now();
         updateTogglePlayButton();
+
         if (!playbackState) {
           stopProgressTimer();
           render();
           return;
         }
+
         const track = playbackState.track_window?.current_track;
         if (track) {
           syncPlayerTitles(track.name, track.artists.map(a => a.name).join(', '));
           setPlayerArtwork(track.album?.images?.[0]?.url || null, track.name.slice(0, 1).toUpperCase());
-          //playerInfo.textContent = playbackState.paused ? 'Paused' : 'Playing';
           playerInfo.textContent = '';
           if (!state.isScrubbing) refreshProgressFromSnapshot();
           playerShell.hidden = false;
           updatePlayerVisibility();
           if (playbackState.paused) stopProgressTimer(); else startProgressTimer();
         }
+
         render();
       });
       state.player.addListener('autoplay_failed', () => {
