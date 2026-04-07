@@ -22201,7 +22201,7 @@
         "spotifyUri": "spotify:track:2cf58yOvZQAYw0uzrNd7KY",
         "spotifyUrl": "https://open.spotify.com/track/2cf58yOvZQAYw0uzrNd7KY",
         "spotifyMatchScore": 74.0,
-        "spotifyMatchedBy": "title_j=1.00, artist_j=0.00, title_core_match, same_year",
+        "spotifyMatchedBy": "accepted",
         "tm": "Ring a Ling (Tribute to Sneakbo)",
         "am": "Double Addicted",
         "mbid": "276b2e8d-59d3-441d-a989-ffefb7435d17"
@@ -33059,7 +33059,7 @@
         "spotifyUri": "spotify:track:2cf58yOvZQAYw0uzrNd7KY",
         "spotifyUrl": "https://open.spotify.com/track/2cf58yOvZQAYw0uzrNd7KY",
         "spotifyMatchScore": 74.0,
-        "spotifyMatchedBy": "title_j=1.00, artist_j=0.00, title_core_match, same_year",
+        "spotifyMatchedBy": "accepted",
         "tm": "Ring a Ling (Tribute to Sneakbo)",
         "am": "Double Addicted",
         "mbid": "276b2e8d-59d3-441d-a989-ffefb7435d17"
