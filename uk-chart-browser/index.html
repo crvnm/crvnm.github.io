@@ -127,7 +127,7 @@
     .search-wrap svg {
       position: absolute;
       left: 12px;
-      top: 50%;
+      top: calc(50% + 9px);
       transform: translateY(-50%);
       opacity: 0.7;
     }
@@ -423,67 +423,26 @@
     }
 
     .player-header {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      align-items: start;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       gap: 12px;
-      width: 100%;
     }
 
-    .player-title {
-      min-width: 0;
-      overflow: hidden;
-    }
-
-    .player-title > strong,
-    .player-title > span {
+    .player-title { min-width: 0; }
+    .player-title strong,
+    .player-title span {
       display: block;
-      min-width: 0;
-      width: 100%;
-      white-space: nowrap;
       overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
-    .player-title > strong { font-size: 15px; }
-    .player-title > span {
+    .player-title strong { font-size: 15px; }
+    .player-title span {
       color: var(--muted);
       font-size: 13px;
       margin-top: 2px;
-    }
-
-    .marquee-line {
-      position: relative;
-    }
-
-    .marquee-line .marquee-text {
-      display: inline-block;
-      max-width: 100%;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      vertical-align: top;
-    }
-
-    .marquee-line.is-overflowing .marquee-text {
-      padding-inline-end: 2.5rem;
-      overflow: visible;
-      text-overflow: clip;
-      animation: marquee-scroll var(--marquee-duration, 10s) linear infinite;
-      will-change: transform;
-    }
-
-    .marquee-line.is-overflowing:hover .marquee-text,
-    .marquee-line.is-overflowing:focus-within .marquee-text {
-      animation-play-state: paused;
-    }
-
-    @keyframes marquee-scroll {
-      0%, 12% {
-        transform: translateX(0);
-      }
-      88%, 100% {
-        transform: translateX(calc(-1 * var(--marquee-distance, 0px)));
-      }
     }
 
     .player-progress-wrap {
@@ -649,7 +608,7 @@
           <div class="control search-wrap">
             <label for="searchInput">Filter</label>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            <input id="searchInput" placeholder="Song, artist, or year range" />
+            <input id="searchInput" placeholder="Song or artist" />
           </div>
           <button class="hero-random-btn" id="randomCurrentBtn" title="Random from current filter" aria-label="Random from current filter">⤮</button>
           <button class="hero-random-btn" id="randomAllBtn" title="Random from all data" aria-label="Random from all data">✦</button>
@@ -707,8 +666,8 @@
       <div class="player-main">
         <div class="player-header">
           <div class="player-title">
-            <strong id="playerSong" class="marquee-line">No track selected</strong>
-            <span id="playerArtist" class="marquee-line"></span>
+            <strong id="playerSong">No track selected</strong>
+            <span id="playerArtist"></span>
           </div>
           <button class="icon-btn" id="closePlayerBtn" aria-label="Minimize player">✕</button>
         </div>
@@ -780,8 +739,8 @@
     const state = {
       availableYears: [],
       selectedYear: '2014',
-      selectedPosition: 'TOP_10',
-      selectedPositionLabel: 'Top 10',
+      selectedPosition: 'ALL',
+      selectedPositionLabel: 'All Positions',
       searchTerm: '',
       randomPinnedKey: null,
       currentYearData: null,
@@ -801,11 +760,6 @@
       autoAdvanceInFlight: false,
       lastAutoAdvancedFromSid: null,
       currentPlayableIndex: -1,
-      loadYearRequestId: 0,
-      marqueeResizeObserver: null,
-      currentTrackSid: null,
-      pendingRequestedTrackSid: null,
-      pendingRequestedAt: 0,
     };
 
     function qs(name) { return new URLSearchParams(window.location.search).get(name); }
@@ -846,53 +800,11 @@
       progressBar.max = String(safeDuration || 1000);
       progressBar.value = String(Math.min(safePosition, safeDuration || 1000));
     }
-    function setMarqueeText(el, text) {
-      const safeText = text || '';
-      let inner = el.querySelector('.marquee-text');
-      if (!inner) {
-        inner = document.createElement('span');
-        inner.className = 'marquee-text';
-        el.textContent = '';
-        el.appendChild(inner);
-      }
-
-      inner.textContent = safeText;
-      el.setAttribute('data-full-text', safeText);
-      el.setAttribute('aria-label', safeText);
-      el.classList.remove('is-overflowing');
-      el.style.removeProperty('--marquee-distance');
-      el.style.removeProperty('--marquee-duration');
-
-      const measureToken = String((Number(el.dataset.measureToken || '0') + 1));
-      el.dataset.measureToken = measureToken;
-
-      requestAnimationFrame(() => {
-        if (el.dataset.measureToken !== measureToken) return;
-
-        const currentInner = el.querySelector('.marquee-text');
-        if (!currentInner) return;
-
-        const overflow = Math.ceil(currentInner.scrollWidth - el.clientWidth);
-        if (overflow > 2) {
-          const distance = overflow + 40;
-          const duration = Math.max(8, distance / 24);
-          el.style.setProperty('--marquee-distance', `${distance}px`);
-          el.style.setProperty('--marquee-duration', `${duration}s`);
-          el.classList.add('is-overflowing');
-        }
-      });
-    }
     function syncPlayerTitles(song, artist) {
-      setMarqueeText(playerSong, song);
-      setMarqueeText(playerArtist, artist);
+      playerSong.textContent = song;
+      playerArtist.textContent = artist;
       minibarSong.textContent = song;
       minibarArtist.textContent = artist;
-    }
-    function refreshPlayerMarquee() {
-      const currentSong = playerSong.getAttribute('data-full-text') || '';
-      const currentArtist = playerArtist.getAttribute('data-full-text') || '';
-      setMarqueeText(playerSong, currentSong);
-      setMarqueeText(playerArtist, currentArtist);
     }
     function setPlayerArtwork(url, fallbackText = '♪') {
       if (url) {
@@ -960,39 +872,43 @@
       return state.activeTrack?.spotifyUrl || null;
     }
 
-    function getPlaybackStateTrackId(playbackState) {
-      const uri = playbackState?.track_window?.current_track?.uri;
-      return uri && uri.startsWith('spotify:track:') ? uri.split(':')[2] : null;
-    }
-
     function getCurrentTrackId() {
-      return state.currentTrackSid || getPlaybackStateTrackId(state.playbackState);
+      const uri = state.playbackState?.track_window?.current_track?.uri;
+      return uri && uri.startsWith('spotify:track:') ? uri.split(':')[2] : null;
     }
 
     function getPlayableVisibleRows() {
       const rows = getVisibleRows();
       const unique = [];
-      const seenSids = new Set();
-
+      let lastSid = null;
       for (const row of rows) {
         if (!row?.sid) continue;
-        if (seenSids.has(row.sid)) continue;
-        seenSids.add(row.sid);
+        if (row.sid === lastSid) continue;
         unique.push(row);
+        lastSid = row.sid;
       }
-
       return unique;
     }
 
     function getPlayableQueueIndexForRow(targetRow) {
-      if (!targetRow?.sid) return -1;
-      return getPlayableVisibleRows().findIndex(row => row.sid === targetRow.sid);
+      const rows = getVisibleRows();
+      let queueIndex = -1;
+      let lastSid = null;
+      for (const row of rows) {
+        if (!row?.sid) continue;
+        if (row.sid !== lastSid) {
+          queueIndex += 1;
+          lastSid = row.sid;
+        }
+        if (rowKey(row) === rowKey(targetRow)) {
+          return queueIndex;
+        }
+      }
+      return -1;
     }
 
     async function maybeAutoAdvanceFromTimer() {
       if (state.autoAdvanceInFlight || state.isScrubbing) return;
-      if (state.pendingRequestedTrackSid) return;
-
       const currentSid = getCurrentTrackId();
       if (!currentSid) return;
 
@@ -1001,34 +917,32 @@
       if (state.lastAutoAdvancedFromSid === currentSid) return;
 
       const playableRows = getPlayableVisibleRows();
-      if (!playableRows.length) return;
+      let currentIndex = state.currentPlayableIndex;
 
-      const currentIndex = playableRows.findIndex(row => row.sid === currentSid);
+      if (currentIndex < 0 || currentIndex >= playableRows.length || playableRows[currentIndex]?.sid !== currentSid) {
+        currentIndex = playableRows.findIndex(row => row.sid === currentSid);
+      }
       if (currentIndex < 0 || currentIndex >= playableRows.length - 1) return;
 
       const nextRow = playableRows[currentIndex + 1];
       if (!nextRow?.sid) return;
 
       state.autoAdvanceInFlight = true;
+      state.lastAutoAdvancedFromSid = currentSid;
+      state.currentPlayableIndex = currentIndex + 1;
 
       try {
         if (state.randomPinnedKey) {
           state.randomPinnedKey = rowKey(nextRow);
           render();
         }
-
         await playTrack(nextRow, { isAutoAdvance: true, forceRestart: true });
-
-        await new Promise(resolve => setTimeout(resolve, 500));
-        await ensurePendingTrackIsActuallyPlaying();
-
-        state.lastAutoAdvancedFromSid = currentSid;
       } catch (err) {
         console.error('Auto-advance failed', err);
       } finally {
         window.setTimeout(() => {
           state.autoAdvanceInFlight = false;
-        }, 1200);
+        }, 1500);
       }
     }
     function pickRandomItem(items) {
@@ -1036,14 +950,12 @@
       return items[Math.floor(Math.random() * items.length)];
     }
     function rowKey(row) {
-      return [row.w || row.weekEnding || '', row.sid || '', row.tm || row.t || row.title || '', row.am || row.a || row.artist || ''].join('|');
+      return [row.w || row.weekEnding || '', row.sid || '', row.tm || row.t || row.title || '', row.am || row.a || row.artist || '', row.__position || ''].join('|');
     }
 
     function parseSearchFilters(rawTerm) {
       const source = String(rawTerm || '').trim();
-      if (!source) {
-        return { textTerm: '', yearStart: null, yearEnd: null };
-      }
+      if (!source) return { textTerm: '', yearStart: null, yearEnd: null };
 
       const yearRangeMatch = source.match(/\b((?:19|20)\d{2})\s*(?:-|to)\s*((?:19|20)\d{2})\b/i);
       if (!yearRangeMatch) {
@@ -1054,12 +966,7 @@
       const b = Number(yearRangeMatch[2]);
       const yearStart = Math.min(a, b);
       const yearEnd = Math.max(a, b);
-      const textTerm = source
-        .replace(yearRangeMatch[0], ' ')
-        .replace(/\s+/g, ' ')
-        .trim()
-        .toLowerCase();
-
+      const textTerm = source.replace(yearRangeMatch[0], ' ').replace(/\s+/g, ' ').trim().toLowerCase();
       return { textTerm, yearStart, yearEnd };
     }
 
@@ -1068,36 +975,27 @@
       if (raw) {
         const parsed = new Date(raw);
         if (!Number.isNaN(parsed.getTime())) return parsed.getFullYear();
-
         const match = String(raw).match(/\b((?:19|20)\d{2})\b/);
         if (match) return Number(match[1]);
       }
-
-      if (state.currentYearData?.year && state.currentYearData.year !== 'ALL') {
-        return Number(state.currentYearData.year);
-      }
-
+      if (row?.__year) return Number(row.__year);
+      if (state.currentYearData?.year && state.currentYearData.year !== 'ALL') return Number(state.currentYearData.year);
       return null;
     }
 
     function rowMatchesSearchFilters(row, filters) {
       const song = String(row.tm || row.t || row.title || '').toLowerCase();
       const artist = String(row.am || row.a || row.artist || '').toLowerCase();
-
       if (filters.yearStart !== null && filters.yearEnd !== null) {
         const rowYear = getRowYear(row);
-        if (rowYear === null || rowYear < filters.yearStart || rowYear > filters.yearEnd) {
-          return false;
-        }
+        if (rowYear === null || rowYear < filters.yearStart || rowYear > filters.yearEnd) return false;
       }
-
       if (!filters.textTerm) return true;
       return song.includes(filters.textTerm) || artist.includes(filters.textTerm);
     }
 
     function getRowsForSelectedPosition() {
       const positionsMap = state.currentYearData?.positions || {};
-
       if (state.selectedPosition === 'ALL' || state.selectedPosition === 'TOP_10' || state.selectedPosition === 'TOP_5') {
         const merged = [];
         const entries = Object.entries(positionsMap)
@@ -1107,22 +1005,17 @@
             if (state.selectedPosition === 'TOP_10') return Number(pos) <= 10;
             return true;
           });
-
         for (const [pos, rows] of entries) {
           for (const row of rows || []) {
-            merged.push({
-              ...row,
-              __position: pos,
-            });
+            merged.push({ ...row, __position: pos, __year: state.currentYearData?.year && state.currentYearData.year !== 'ALL' ? state.currentYearData.year : undefined });
           }
         }
-
         return merged;
       }
-
       return (positionsMap[state.selectedPosition] || []).map(row => ({
         ...row,
         __position: state.selectedPosition,
+        __year: state.currentYearData?.year && state.currentYearData.year !== 'ALL' ? state.currentYearData.year : undefined,
       }));
     }
 
@@ -1131,20 +1024,24 @@
       if (state.randomPinnedKey) {
         return rows.filter(row => rowKey(row) === state.randomPinnedKey);
       }
-
       const filters = parseSearchFilters(state.searchTerm);
       if (!filters.textTerm && filters.yearStart === null) return rows;
-
       return rows.filter(row => rowMatchesSearchFilters(row, filters));
     }
 
     function getRowsForCurrentFilter() {
       const rows = getRowsForSelectedPosition();
       const filters = parseSearchFilters(state.searchTerm);
-
       if (!filters.textTerm && filters.yearStart === null) return rows;
-
       return rows.filter(row => rowMatchesSearchFilters(row, filters));
+    }
+
+    function formatFilterSummary() {
+      const filters = parseSearchFilters(state.searchTerm);
+      const parts = [];
+      if (filters.textTerm) parts.push(`matching “${filters.textTerm}”`);
+      if (filters.yearStart !== null && filters.yearEnd !== null) parts.push(`from ${filters.yearStart}–${filters.yearEnd}`);
+      return parts.join(' ');
     }
 
     async function jumpToRandomCurrent() {
@@ -1155,7 +1052,6 @@
         return;
       }
       state.randomPinnedKey = rowKey(chosen);
-      state.currentPlayableIndex = -1;
       render();
       try {
         if (chosen.sid) {
@@ -1177,19 +1073,10 @@
       const position = pickRandomItem(positions);
       state.selectedPosition = position || state.selectedPosition;
       positionSelect.value = state.selectedPosition;
-      state.selectedPositionLabel =
-        positionSelect.options[positionSelect.selectedIndex]?.text ||
-        (state.selectedPosition === 'ALL'
-          ? 'All Positions'
-          : state.selectedPosition === 'TOP_10'
-            ? 'Top 10'
-            : state.selectedPosition === 'TOP_5'
-              ? 'Top 5'
-              : ordinal(state.selectedPosition));
+      state.selectedPositionLabel = positionSelect.options[positionSelect.selectedIndex]?.text || 'All Positions';
       state.searchTerm = '';
       state.randomPinnedKey = null;
       searchInput.value = '';
-      state.currentPlayableIndex = -1;
       render();
       await jumpToRandomCurrent();
     }
@@ -1323,36 +1210,24 @@
     }
 
     async function loadYear(year) {
-      const requestId = ++state.loadYearRequestId;
-
       summaryTitle.textContent = `Loading ${year === 'ALL' ? 'all years' : year}…`;
       summarySub.textContent = 'Fetching chart data';
       resultsEl.innerHTML = `<div class="loading">Loading ${escapeHtml(year === 'ALL' ? 'all years' : year)} chart data…</div>`;
-
-      let nextYearData;
 
       if (year === 'ALL') {
         const allYears = state.availableYears.filter(y => y !== 'ALL');
         const merged = { year: 'ALL', weeks: [], minPosition: null, maxPosition: null, positions: {} };
         const weekSet = new Set();
 
-        const yearDataList = await Promise.all(
-          allYears.map(async y => {
-            const res = await fetch(`${DATA_BASE}/${y}.json?ts=${Date.now()}`, { cache: 'no-store' });
-            if (!res.ok) throw new Error(`Could not load ${y}.json (${res.status})`);
-            return res.json();
-          })
-        );
+        for (const y of allYears) {
+          const res = await fetch(`${DATA_BASE}/${y}.json?ts=${Date.now()}`, { cache: 'no-store' });
+          if (!res.ok) throw new Error(`Could not load ${y}.json (${res.status})`);
+          const data = await res.json();
 
-        for (const data of yearDataList) {
           for (const w of data.weeks || []) weekSet.add(w);
 
-          if (merged.minPosition === null || (data.minPosition ?? 9999) < merged.minPosition) {
-            merged.minPosition = data.minPosition;
-          }
-          if (merged.maxPosition === null || (data.maxPosition ?? 0) > merged.maxPosition) {
-            merged.maxPosition = data.maxPosition;
-          }
+          if (merged.minPosition === null || (data.minPosition ?? 9999) < merged.minPosition) merged.minPosition = data.minPosition;
+          if (merged.maxPosition === null || (data.maxPosition ?? 0) > merged.maxPosition) merged.maxPosition = data.maxPosition;
 
           for (const [pos, rows] of Object.entries(data.positions || {})) {
             if (!merged.positions[pos]) merged.positions[pos] = [];
@@ -1364,40 +1239,23 @@
         for (const pos of Object.keys(merged.positions)) {
           merged.positions[pos].sort((a, b) => String(a.w || '').localeCompare(String(b.w || '')));
         }
-
-        nextYearData = merged;
+        state.currentYearData = merged;
       } else {
         const res = await fetch(`${DATA_BASE}/${year}.json?ts=${Date.now()}`, { cache: 'no-store' });
         if (!res.ok) throw new Error(`Could not load ${year}.json (${res.status})`);
-        nextYearData = await res.json();
+        state.currentYearData = await res.json();
       }
-
-      if (requestId !== state.loadYearRequestId) return;
-
-      state.currentYearData = nextYearData;
-      state.currentPlayableIndex = -1;
 
       const positions = Object.keys(state.currentYearData?.positions || {}).sort((a, b) => Number(a) - Number(b));
       positionSelect.innerHTML = [
-        `<option value="TOP_5">Top 5</option>`,
-        `<option value="TOP_10">Top 10</option>`,
         `<option value="ALL">All Positions</option>`,
+        `<option value="TOP_10">Top 10</option>`,
+        `<option value="TOP_5">Top 5</option>`,
         ...positions.map(pos => `<option value="${pos}">${ordinal(pos)}</option>`)
       ].join('');
-
-      if (!['TOP_5', 'TOP_10', 'ALL'].includes(state.selectedPosition) && !positions.includes(state.selectedPosition)) {
-        state.selectedPosition = 'TOP_10';
-      }
-
+      if (!["ALL", "TOP_10", "TOP_5", ...positions].includes(state.selectedPosition)) state.selectedPosition = 'ALL';
       positionSelect.value = state.selectedPosition;
-      state.selectedPositionLabel =
-        state.selectedPosition === 'ALL'
-          ? 'All Positions'
-          : state.selectedPosition === 'TOP_10'
-            ? 'Top 10'
-            : state.selectedPosition === 'TOP_5'
-              ? 'Top 5'
-              : ordinal(state.selectedPosition);
+      state.selectedPositionLabel = positionSelect.options[positionSelect.selectedIndex]?.text || 'All Positions';
       render();
     }
 
@@ -1417,103 +1275,64 @@
 
     async function playTrack(row, options = {}) {
       if (!row.sid) return;
-
       if (!options.isAutoAdvance) {
         state.lastAutoAdvancedFromSid = null;
       }
-
-      const currentTrackId = getPlaybackStateTrackId(state.playbackState);
-      const isSwitchingTrack = currentTrackId !== row.sid;
-      const mustHardReset = isSwitchingTrack || options.forceRestart;
-
-      state.activeTrack = row;
-
       const queueIndex = getPlayableQueueIndexForRow(row);
       if (queueIndex >= 0) {
         state.currentPlayableIndex = queueIndex;
       }
-
       if (!state.player || !state.deviceId) {
         alert('Spotify player is not ready yet. Sign in and wait for the device to be ready.');
         return;
       }
 
-      state.pendingRequestedTrackSid = row.sid;
-      state.pendingRequestedAt = Date.now();
+      const currentTrackId = state.playbackState?.track_window?.current_track?.uri?.startsWith('spotify:track:')
+        ? state.playbackState.track_window.current_track.uri.split(':')[2]
+        : null;
+      const isSwitchingTrack = currentTrackId !== row.sid;
+      const mustHardReset = isSwitchingTrack || options.forceRestart;
 
       await state.player.activateElement();
       await transferPlaybackHere();
 
       if (mustHardReset) {
         try {
-          await spotifyApi(
-            `https://api.spotify.com/v1/me/player/pause?device_id=${encodeURIComponent(state.deviceId)}`,
-            { method: 'PUT' }
-          );
+          await spotifyApi(`https://api.spotify.com/v1/me/player/pause?device_id=${encodeURIComponent(state.deviceId)}`, {
+            method: 'PUT',
+          });
         } catch (err) {
           console.warn('Pause before track switch failed', err);
         }
       }
 
-      await spotifyApi(
-        `https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`,
-        {
-          method: 'PUT',
-          body: JSON.stringify({ uris: [`spotify:track:${row.sid}`], position_ms: 0 }),
-        }
-      );
+      await spotifyApi(`https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`, {
+        method: 'PUT',
+        body: JSON.stringify({ uris: [`spotify:track:${row.sid}`], position_ms: 0 }),
+      });
 
       if (mustHardReset) {
         try {
           await new Promise(resolve => setTimeout(resolve, 150));
-          await spotifyApi(
-            `https://api.spotify.com/v1/me/player/seek?position_ms=0&device_id=${encodeURIComponent(state.deviceId)}`,
-            { method: 'PUT' }
-          );
+          await spotifyApi(`https://api.spotify.com/v1/me/player/seek?position_ms=0&device_id=${encodeURIComponent(state.deviceId)}`, {
+            method: 'PUT',
+          });
         } catch (err) {
           console.warn('Seek reset failed', err);
         }
       }
 
+      state.activeTrack = row;
+      if (state.lastPlaybackSnapshot) {
+        state.lastPlaybackSnapshot = { ...state.lastPlaybackSnapshot, position: 0 };
+      }
       state.lastPlaybackTimestamp = Date.now();
-      syncPlayerTitles(
-        row.tm || row.t || row.title || 'Unknown song',
-        row.am || row.a || row.artist || ''
-      );
+      syncPlayerTitles(row.tm || row.t || row.title || 'Unknown song', row.am || row.a || row.artist || '');
       playerInfo.textContent = 'Playback requested on your Web Playback SDK device.';
       setPlayerArtwork(null, (row.tm || row.t || row.title || '♪').slice(0, 1).toUpperCase());
       setProgress(0, 0);
       playerShell.hidden = false;
       updatePlayerVisibility();
-    }
-
-    async function ensurePendingTrackIsActuallyPlaying() {
-      const expectedSid = state.pendingRequestedTrackSid;
-      const actualSid = getCurrentTrackId();
-      const { position } = getDerivedPlaybackPosition();
-
-      if (
-        expectedSid &&
-        actualSid === expectedSid &&
-        state.playbackState?.paused &&
-        position < 1500 &&
-        state.deviceId
-      ) {
-        try {
-          await spotifyApi(
-            `https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`,
-            {
-              method: 'PUT',
-              body: JSON.stringify({
-                uris: [`spotify:track:${expectedSid}`],
-                position_ms: 0,
-              }),
-            }
-          );
-        } catch (err) {
-          console.warn('Pending-track start kick failed', err);
-        }
-      }
     }
 
     async function pausePlayback() { await spotifyApi('https://api.spotify.com/v1/me/player/pause', { method: 'PUT' }); }
@@ -1539,24 +1358,18 @@
       if (!state.currentYearData) return;
       const visibleRows = getVisibleRows();
       const totalRows = getRowsForSelectedPosition().length;
-      const currentTrackId = getCurrentTrackId();
+      const currentTrackId = state.playbackState?.track_window?.current_track?.uri?.startsWith('spotify:track:')
+        ? state.playbackState.track_window.current_track.uri.split(':')[2]
+        : null;
       const isPaused = !state.playbackState || state.playbackState.paused;
 
       const yearLabel = state.selectedYear === 'ALL' ? 'All Years' : state.selectedYear;
-      const positionLabel = state.selectedPositionLabel || (
-        state.selectedPosition === 'ALL'
-          ? 'All Positions'
-          : state.selectedPosition === 'TOP_10'
-            ? 'Top 10'
-            : state.selectedPosition === 'TOP_5'
-              ? 'Top 5'
-              : ordinal(state.selectedPosition)
-      );
-      summaryTitle.textContent =
-        ['ALL', 'TOP_10', 'TOP_5'].includes(state.selectedPosition)
-          ? `${yearLabel} · ${positionLabel}`
-          : `${yearLabel} · ${positionLabel} position`;
-      summarySub.textContent = `${visibleRows.length} of ${totalRows} weekly entries shown`;
+      const positionLabel = state.selectedPositionLabel || positionSelect.options[positionSelect.selectedIndex]?.text || 'All Positions';
+      summaryTitle.textContent = `${yearLabel} · ${positionLabel}`;
+      const filterSummary = formatFilterSummary();
+      summarySub.textContent = filterSummary
+        ? `${visibleRows.length} of ${totalRows} weekly entries shown, ${filterSummary}`
+        : `${visibleRows.length} of ${totalRows} weekly entries shown`;
       resultCount.textContent = `${visibleRows.length} result${visibleRows.length === 1 ? '' : 's'}`;
 
       if (!visibleRows.length) {
@@ -1589,7 +1402,7 @@
               </div>
             </div>
             <div class="meta">
-              ${['ALL', 'TOP_10', 'TOP_5'].includes(state.selectedPosition) ? positionPill : ''}
+              ${(state.selectedPosition === 'ALL' || state.selectedPosition === 'TOP_10' || state.selectedPosition === 'TOP_5') ? positionPill : ''}
               <div class="pill">Last week: ${escapeHtml(lastWeek)}</div>
               <div class="pill">Peak: ${escapeHtml(peak)}</div>
               <div class="pill">Weeks on chart: ${escapeHtml(weeksOnChart)}</div>
@@ -1597,6 +1410,32 @@
           </article>
         `;
       }).join('');
+
+      Array.from(resultsEl.querySelectorAll('[data-action="play"]')).forEach(btn => {
+        btn.addEventListener('click', async () => {
+          const row = visibleRows[Number(btn.dataset.index)];
+          try {
+            const currentTrackId = state.playbackState?.track_window?.current_track?.uri?.startsWith('spotify:track:')
+              ? state.playbackState.track_window.current_track.uri.split(':')[2]
+              : null;
+            if (currentTrackId && row.sid === currentTrackId) {
+              await togglePlayback();
+            } else {
+              await playTrack(row);
+            }
+            render();
+          } catch (err) {
+            alert(err.message || 'Could not start playback.');
+          }
+        });
+      });
+
+      Array.from(resultsEl.querySelectorAll('[data-action="open"]')).forEach(btn => {
+        btn.addEventListener('click', () => {
+          const row = visibleRows[Number(btn.dataset.index)];
+          if (row.spotifyUrl) window.open(row.spotifyUrl, '_blank', 'noreferrer');
+        });
+      });
     }
 
     async function setupSpotifyPlayer() {
@@ -1617,60 +1456,25 @@
         updateAuthUi();
       });
       state.player.addListener('player_state_changed', playbackState => {
-        const incomingTrackId = getPlaybackStateTrackId(playbackState);
-        const pendingTrackId = state.pendingRequestedTrackSid;
-        const pendingAge = Date.now() - state.pendingRequestedAt;
-        const inPendingWindow = !!pendingTrackId && pendingAge < 8000;
-
-        if (
-          inPendingWindow &&
-          incomingTrackId &&
-          incomingTrackId !== pendingTrackId
-        ) {
-          return;
-        }
-
-        if (incomingTrackId) {
-          state.currentTrackSid = incomingTrackId;
-        }
-
         state.playbackState = playbackState;
         state.lastPlaybackSnapshot = playbackState;
         state.lastPlaybackTimestamp = Date.now();
         updateTogglePlayButton();
-
         if (!playbackState) {
           stopProgressTimer();
           render();
           return;
         }
-
         const track = playbackState.track_window?.current_track;
         if (track) {
           syncPlayerTitles(track.name, track.artists.map(a => a.name).join(', '));
           setPlayerArtwork(track.album?.images?.[0]?.url || null, track.name.slice(0, 1).toUpperCase());
-          playerInfo.textContent = '';
-
-          if (!state.isScrubbing) {
-            refreshProgressFromSnapshot();
-          }
-
+          playerInfo.textContent = playbackState.paused ? 'Paused' : 'Playing';
+          if (!state.isScrubbing) refreshProgressFromSnapshot();
           playerShell.hidden = false;
           updatePlayerVisibility();
-
-          if (
-            inPendingWindow &&
-            pendingTrackId &&
-            incomingTrackId === pendingTrackId
-          ) {
-            state.pendingRequestedTrackSid = null;
-            state.pendingRequestedAt = 0;
-          }
-
-          if (playbackState.paused) stopProgressTimer();
-          else startProgressTimer();
+          if (playbackState.paused) stopProgressTimer(); else startProgressTimer();
         }
-
         render();
       });
       state.player.addListener('autoplay_failed', () => {
@@ -1694,26 +1498,21 @@
       bootstrapAuthPromise = (async () => {
         const code = qs('code');
         const saved = loadTokens();
-
         if (saved) {
           state.accessToken = saved.access_token;
           state.refreshToken = saved.refresh_token;
           state.tokenExpiresAt = saved.expires_at;
         }
-
         if (code) await exchangeCodeForToken(code);
         updateAuthUi();
         await setupSpotifyPlayer();
       })();
 
       try {
-        await bootstrapAuthPromise;
-      } catch (err) {
-        bootstrapAuthPromise = null;
-        throw err;
+        return await bootstrapAuthPromise;
+      } finally {
+        bootstrapAuthPromise = Promise.resolve();
       }
-
-      return bootstrapAuthPromise;
     }
 
     window.__ukChartBootstrapAuth = bootstrapAuth;
@@ -1721,30 +1520,29 @@
     yearSelect.addEventListener('change', async e => {
       state.selectedYear = e.target.value;
       state.randomPinnedKey = null;
-      state.currentPlayableIndex = -1;
       await loadYear(state.selectedYear);
     });
-
     positionSelect.addEventListener('change', () => {
       state.selectedPosition = positionSelect.value;
-      state.selectedPositionLabel =
-        positionSelect.options[positionSelect.selectedIndex]?.text ||
-        (state.selectedPosition === 'ALL'
-          ? 'All Positions'
-          : state.selectedPosition === 'TOP_10'
-            ? 'Top 10'
-            : state.selectedPosition === 'TOP_5'
-              ? 'Top 5'
-              : ordinal(state.selectedPosition));
+      state.selectedPositionLabel = positionSelect.options[positionSelect.selectedIndex]?.text || 'All Positions';
       state.randomPinnedKey = null;
       state.currentPlayableIndex = -1;
       render();
     });
 
-    searchInput.addEventListener('input', () => {
+    searchInput.addEventListener('input', async () => {
       state.searchTerm = searchInput.value;
       state.randomPinnedKey = null;
       state.currentPlayableIndex = -1;
+
+      const filters = parseSearchFilters(state.searchTerm);
+      if (filters.yearStart !== null && filters.yearEnd !== null && state.selectedYear !== 'ALL') {
+        state.selectedYear = 'ALL';
+        yearSelect.value = 'ALL';
+        await loadYear('ALL');
+        return;
+      }
+
       render();
     });
     showSpotifyPanelBtn.addEventListener('click', openSpotifyModal);
@@ -1762,41 +1560,11 @@
       state.playbackState = null;
       state.lastPlaybackSnapshot = null;
       state.lastPlaybackTimestamp = 0;
-      state.currentTrackSid = null;
-      state.pendingRequestedTrackSid = null;
-      state.pendingRequestedAt = 0;
       stopProgressTimer();
       updateAuthUi();
     });
     randomCurrentBtn.addEventListener('click', jumpToRandomCurrent);
     randomAllBtn.addEventListener('click', jumpToRandomAll);
-    resultsEl.addEventListener('click', async (event) => {
-      const btn = event.target.closest('[data-action]');
-      if (!btn || !resultsEl.contains(btn)) return;
-
-      const visibleRows = getVisibleRows();
-      const row = visibleRows[Number(btn.dataset.index)];
-      if (!row) return;
-
-      if (btn.dataset.action === 'open') {
-        if (row.spotifyUrl) window.open(row.spotifyUrl, '_blank', 'noreferrer');
-        return;
-      }
-
-      if (btn.dataset.action === 'play') {
-        try {
-          const currentTrackId = getCurrentTrackId();
-          if (currentTrackId && row.sid === currentTrackId) {
-            await togglePlayback();
-          } else {
-            await playTrack(row);
-          }
-          render();
-        } catch (err) {
-          alert(err.message || 'Could not start playback.');
-        }
-      }
-    });
     closePlayerBtn.addEventListener('click', () => {
       state.isPlayerMinimized = true;
       updatePlayerVisibility();
@@ -1812,27 +1580,18 @@
       currentTime.textContent = formatMs(Number(progressBar.value));
     });
     progressBar.addEventListener('change', async () => {
+      if (!state.deviceId) return;
       try {
-        if (!state.deviceId) return;
-
-        await spotifyApi(
-          `https://api.spotify.com/v1/me/player/seek?position_ms=${encodeURIComponent(progressBar.value)}&device_id=${encodeURIComponent(state.deviceId)}`,
-          { method: 'PUT' }
-        );
-
+        await spotifyApi(`https://api.spotify.com/v1/me/player/seek?position_ms=${encodeURIComponent(progressBar.value)}&device_id=${encodeURIComponent(state.deviceId)}`, { method: 'PUT' });
         state.lastPlaybackTimestamp = Date.now();
         if (state.lastPlaybackSnapshot) {
-          state.lastPlaybackSnapshot = {
-            ...state.lastPlaybackSnapshot,
-            position: Number(progressBar.value),
-          };
+          state.lastPlaybackSnapshot = { ...state.lastPlaybackSnapshot, position: Number(progressBar.value) };
         }
         refreshProgressFromSnapshot();
       } catch (err) {
         alert(err.message);
-      } finally {
-        state.isScrubbing = false;
       }
+      state.isScrubbing = false;
     });
     openSpotifyBtn.addEventListener('click', openCurrentInSpotify);
     document.addEventListener('keydown', async (event) => {
@@ -1847,18 +1606,6 @@
         console.error(err);
       }
     });
-    if ('ResizeObserver' in window) {
-      state.marqueeResizeObserver = new ResizeObserver(() => {
-        refreshPlayerMarquee();
-      });
-      state.marqueeResizeObserver.observe(document.querySelector('.player-title'));
-    } else {
-      let resizeTimer = null;
-      window.addEventListener('resize', () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(refreshPlayerMarquee, 120);
-      });
-    }
     updateTogglePlayButton();
     updatePlayerVisibility();
 
