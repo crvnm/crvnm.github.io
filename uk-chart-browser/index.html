@@ -649,7 +649,7 @@
           <div class="control search-wrap">
             <label for="searchInput">Filter</label>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            <input id="searchInput" placeholder="Song or artist" />
+            <input id="searchInput" placeholder="Song, artist, or year range" />
           </div>
           <button class="hero-random-btn" id="randomCurrentBtn" title="Random from current filter" aria-label="Random from current filter">⤮</button>
           <button class="hero-random-btn" id="randomAllBtn" title="Random from all data" aria-label="Random from all data">✦</button>
@@ -1038,6 +1038,63 @@
     function rowKey(row) {
       return [row.w || row.weekEnding || '', row.sid || '', row.tm || row.t || row.title || '', row.am || row.a || row.artist || ''].join('|');
     }
+
+    function parseSearchFilters(rawTerm) {
+      const source = String(rawTerm || '').trim();
+      if (!source) {
+        return { textTerm: '', yearStart: null, yearEnd: null };
+      }
+
+      const yearRangeMatch = source.match(/\b((?:19|20)\d{2})\s*(?:-|to)\s*((?:19|20)\d{2})\b/i);
+      if (!yearRangeMatch) {
+        return { textTerm: source.toLowerCase(), yearStart: null, yearEnd: null };
+      }
+
+      const a = Number(yearRangeMatch[1]);
+      const b = Number(yearRangeMatch[2]);
+      const yearStart = Math.min(a, b);
+      const yearEnd = Math.max(a, b);
+      const textTerm = source
+        .replace(yearRangeMatch[0], ' ')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .toLowerCase();
+
+      return { textTerm, yearStart, yearEnd };
+    }
+
+    function getRowYear(row) {
+      const raw = row?.w || row?.weekEnding || '';
+      if (raw) {
+        const parsed = new Date(raw);
+        if (!Number.isNaN(parsed.getTime())) return parsed.getFullYear();
+
+        const match = String(raw).match(/\b((?:19|20)\d{2})\b/);
+        if (match) return Number(match[1]);
+      }
+
+      if (state.currentYearData?.year && state.currentYearData.year !== 'ALL') {
+        return Number(state.currentYearData.year);
+      }
+
+      return null;
+    }
+
+    function rowMatchesSearchFilters(row, filters) {
+      const song = String(row.tm || row.t || row.title || '').toLowerCase();
+      const artist = String(row.am || row.a || row.artist || '').toLowerCase();
+
+      if (filters.yearStart !== null && filters.yearEnd !== null) {
+        const rowYear = getRowYear(row);
+        if (rowYear === null || rowYear < filters.yearStart || rowYear > filters.yearEnd) {
+          return false;
+        }
+      }
+
+      if (!filters.textTerm) return true;
+      return song.includes(filters.textTerm) || artist.includes(filters.textTerm);
+    }
+
     function getRowsForSelectedPosition() {
       const positionsMap = state.currentYearData?.positions || {};
 
@@ -1074,24 +1131,20 @@
       if (state.randomPinnedKey) {
         return rows.filter(row => rowKey(row) === state.randomPinnedKey);
       }
-      const term = state.searchTerm.trim().toLowerCase();
-      if (!term) return rows;
-      return rows.filter(row => {
-        const song = String(row.tm || row.t || row.title || '').toLowerCase();
-        const artist = String(row.am || row.a || row.artist || '').toLowerCase();
-        return song.includes(term) || artist.includes(term);
-      });
+
+      const filters = parseSearchFilters(state.searchTerm);
+      if (!filters.textTerm && filters.yearStart === null) return rows;
+
+      return rows.filter(row => rowMatchesSearchFilters(row, filters));
     }
 
     function getRowsForCurrentFilter() {
       const rows = getRowsForSelectedPosition();
-      const term = state.searchTerm.trim().toLowerCase();
-      if (!term) return rows;
-      return rows.filter(row => {
-        const song = String(row.tm || row.t || row.title || '').toLowerCase();
-        const artist = String(row.am || row.a || row.artist || '').toLowerCase();
-        return song.includes(term) || artist.includes(term);
-      });
+      const filters = parseSearchFilters(state.searchTerm);
+
+      if (!filters.textTerm && filters.yearStart === null) return rows;
+
+      return rows.filter(row => rowMatchesSearchFilters(row, filters));
     }
 
     async function jumpToRandomCurrent() {
