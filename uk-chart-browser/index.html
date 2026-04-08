@@ -780,8 +780,8 @@
     const state = {
       availableYears: [],
       selectedYear: '2014',
-      selectedPosition: '1',
-      selectedPositionLabel: '1st',
+      selectedPosition: 'ALL',
+      selectedPositionLabel: 'All Positions',
       searchTerm: '',
       randomPinnedKey: null,
       currentYearData: null,
@@ -1038,8 +1038,33 @@
     function rowKey(row) {
       return [row.w || row.weekEnding || '', row.sid || '', row.tm || row.t || row.title || '', row.am || row.a || row.artist || ''].join('|');
     }
+    function getRowsForSelectedPosition() {
+      const positionsMap = state.currentYearData?.positions || {};
+
+      if (state.selectedPosition === 'ALL') {
+        const merged = [];
+        const entries = Object.entries(positionsMap).sort((a, b) => Number(a[0]) - Number(b[0]));
+
+        for (const [pos, rows] of entries) {
+          for (const row of rows || []) {
+            merged.push({
+              ...row,
+              __position: pos,
+            });
+          }
+        }
+
+        return merged;
+      }
+
+      return (positionsMap[state.selectedPosition] || []).map(row => ({
+        ...row,
+        __position: state.selectedPosition,
+      }));
+    }
+
     function getVisibleRows() {
-      const rows = state.currentYearData?.positions?.[state.selectedPosition] || [];
+      const rows = getRowsForSelectedPosition();
       if (state.randomPinnedKey) {
         return rows.filter(row => rowKey(row) === state.randomPinnedKey);
       }
@@ -1053,7 +1078,7 @@
     }
 
     function getRowsForCurrentFilter() {
-      const rows = state.currentYearData?.positions?.[state.selectedPosition] || [];
+      const rows = getRowsForSelectedPosition();
       const term = state.searchTerm.trim().toLowerCase();
       if (!term) return rows;
       return rows.filter(row => {
@@ -1286,10 +1311,20 @@
       state.currentPlayableIndex = -1;
 
       const positions = Object.keys(state.currentYearData?.positions || {}).sort((a, b) => Number(a) - Number(b));
-      positionSelect.innerHTML = positions.map(pos => `<option value="${pos}">${ordinal(pos)}</option>`).join('');
-      if (!positions.includes(state.selectedPosition)) state.selectedPosition = positions[0] || '1';
+      positionSelect.innerHTML = [
+        `<option value="ALL">All Positions</option>`,
+        ...positions.map(pos => `<option value="${pos}">${ordinal(pos)}</option>`)
+      ].join('');
+
+      if (state.selectedPosition !== 'ALL' && !positions.includes(state.selectedPosition)) {
+        state.selectedPosition = 'ALL';
+      }
+
       positionSelect.value = state.selectedPosition;
-      state.selectedPositionLabel = ordinal(state.selectedPosition);
+      state.selectedPositionLabel =
+        state.selectedPosition === 'ALL'
+          ? 'All Positions'
+          : ordinal(state.selectedPosition);
       render();
     }
 
@@ -1430,13 +1465,16 @@
     function render() {
       if (!state.currentYearData) return;
       const visibleRows = getVisibleRows();
-      const totalRows = state.currentYearData?.positions?.[state.selectedPosition]?.length || 0;
+      const totalRows = getRowsForSelectedPosition().length;
       const currentTrackId = getCurrentTrackId();
       const isPaused = !state.playbackState || state.playbackState.paused;
 
       const yearLabel = state.selectedYear === 'ALL' ? 'All Years' : state.selectedYear;
-      const positionLabel = state.selectedPositionLabel || ordinal(state.selectedPosition);
-      summaryTitle.textContent = `${yearLabel} · ${positionLabel} position`;
+      const positionLabel = state.selectedPositionLabel || (state.selectedPosition === 'ALL' ? 'All Positions' : ordinal(state.selectedPosition));
+      summaryTitle.textContent =
+        state.selectedPosition === 'ALL'
+          ? `${yearLabel} · All Positions`
+          : `${yearLabel} · ${positionLabel} position`;
       summarySub.textContent = `${visibleRows.length} of ${totalRows} weekly entries shown`;
       resultCount.textContent = `${visibleRows.length} result${visibleRows.length === 1 ? '' : 's'}`;
 
@@ -1452,6 +1490,7 @@
         const lastWeek = row.lw ?? '–';
         const peak = row.pk ?? '–';
         const weeksOnChart = row.wc ?? '–';
+        const positionPill = row.__position ? `<div class="pill">Position: ${escapeHtml(ordinal(row.__position))}</div>` : '';
         const hasSpotify = !!row.sid;
         const isCurrent = currentTrackId && row.sid === currentTrackId;
 
@@ -1469,6 +1508,7 @@
               </div>
             </div>
             <div class="meta">
+              ${state.selectedPosition === 'ALL' ? positionPill : ''}
               <div class="pill">Last week: ${escapeHtml(lastWeek)}</div>
               <div class="pill">Peak: ${escapeHtml(peak)}</div>
               <div class="pill">Weeks on chart: ${escapeHtml(weeksOnChart)}</div>
@@ -1606,7 +1646,9 @@
 
     positionSelect.addEventListener('change', () => {
       state.selectedPosition = positionSelect.value;
-      state.selectedPositionLabel = positionSelect.options[positionSelect.selectedIndex]?.text || ordinal(state.selectedPosition);
+      state.selectedPositionLabel =
+        positionSelect.options[positionSelect.selectedIndex]?.text ||
+        (state.selectedPosition === 'ALL' ? 'All Positions' : ordinal(state.selectedPosition));
       state.randomPinnedKey = null;
       state.currentPlayableIndex = -1;
       render();
