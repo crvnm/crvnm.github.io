@@ -5,11 +5,26 @@ Partial manual on 2012, 2013, 2016
 Musicbrainz and partial manual on 1997
 
 Still to spotify:
-2016
 1997 (also some low scores still for manual review before next spotify)
 
+Spotify done, still to manual:
 
 
 Complete:
+2011
+2012
+2013
 2014
 2015
+2016
+
+https://open.spotify.com/track/7aBxcRw77817BrkdPChAGY?si=4d7b3886b3104a7f
+
+"sid": null,
+        "spotifyUri": null,
+        "spotifyUrl": null,
+        "spotifyMatchScore": null,
+        "spotifyMatchedBy": null,
+        "tm": null,
+        "am": null,
+        "mbid": null
