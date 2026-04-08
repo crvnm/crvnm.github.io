@@ -75,7 +75,7 @@
       display: grid;
       grid-template-columns: minmax(132px, 1fr) minmax(132px, 1fr);
       gap: 10px;
-      margin-top: 6px;
+      margin-top: 4px;
       align-items: end;
     }
 
@@ -573,6 +573,66 @@
       gap: 8px;
     }
 
+    .position-quick-picks {
+      grid-column: 1 / -1;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: -2px;
+    }
+
+    .quick-pill {
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.08);
+      color: var(--text);
+      font-size: 12px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .quick-pill.active {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: white;
+      border-color: transparent;
+    }
+
+    .summary-copy {
+      min-width: 0;
+    }
+
+    .summary-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .filter-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      color: #dde3ff;
+      font-size: 12px;
+      line-height: 1;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .filter-chip button {
+      padding: 0;
+      margin: 0;
+      border: 0;
+      background: transparent;
+      color: inherit;
+      font-size: 14px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
     @media (min-width: 720px) {
       body { padding: 24px; }
       .controls {
@@ -608,21 +668,26 @@
           <div class="control search-wrap">
             <label for="searchInput">Filter</label>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            <input id="searchInput" placeholder="Song or artist" />
+            <input id="searchInput" placeholder="Song, artist, or 2010-2015" />
           </div>
-          <button class="hero-random-btn" id="randomCurrentBtn" title="Random from current filter" aria-label="Random from current filter">⤮</button>
-          <button class="hero-random-btn" id="randomAllBtn" title="Random from all data" aria-label="Random from all data">✦</button>
+          <button class="hero-random-btn" id="randomCurrentBtn" title="Play a random track from the current filters" aria-label="Play a random track from the current filters">⤮</button>
+          <button class="hero-random-btn" id="randomAllBtn" title="Jump to a random year, position and track" aria-label="Jump to a random year, position and track">✦</button>
+        </div>
+        <div class="position-quick-picks" id="positionQuickPicks">
+          <button class="quick-pill" type="button" data-position-quick="ALL">All Positions</button>
+          <button class="quick-pill" type="button" data-position-quick="TOP_10">Top 10</button>
+          <button class="quick-pill" type="button" data-position-quick="TOP_5">Top 5</button>
         </div>
       </div>
     </section>
 
     <section class="panel summary">
-      <div>
+      <div class="summary-copy">
         <strong id="summaryTitle">Loading…</strong>
         <span id="summarySub">Choose a year and chart position.</span>
+        <div class="summary-filters" id="summaryFilters" hidden></div>
       </div>
       <div class="toolbar">
-        <div class="badge" id="resultCount">0 results</div>
         <button class="btn-secondary" id="showSpotifyPanelBtn">Login to Spotify</button>
       </div>
     </section>
@@ -706,7 +771,6 @@
     const resultsEl = document.getElementById('results');
     const summaryTitle = document.getElementById('summaryTitle');
     const summarySub = document.getElementById('summarySub');
-    const resultCount = document.getElementById('resultCount');
     const playerShell = document.getElementById('playerShell');
     const playerMinibar = document.getElementById('playerMinibar');
     const playerSong = document.getElementById('playerSong');
@@ -732,6 +796,8 @@
     const closeSpotifyModalBtn = document.getElementById('closeSpotifyModalBtn');
     const randomCurrentBtn = document.getElementById('randomCurrentBtn');
     const randomAllBtn = document.getElementById('randomAllBtn');
+    const positionQuickPicks = document.getElementById('positionQuickPicks');
+    const summaryFilters = document.getElementById('summaryFilters');
     const authStatus = document.getElementById('authStatus');
     const sdkStatus = document.getElementById('sdkStatus');
     const deviceStatus = document.getElementById('deviceStatus');
@@ -994,6 +1060,52 @@
       return song.includes(filters.textTerm) || artist.includes(filters.textTerm);
     }
 
+
+    function getPositionLabel(value) {
+      if (value === 'ALL') return 'All Positions';
+      if (value === 'TOP_10') return 'Top 10';
+      if (value === 'TOP_5') return 'Top 5';
+      return ordinal(value);
+    }
+
+    function updatePositionQuickPicks() {
+      if (!positionQuickPicks) return;
+      Array.from(positionQuickPicks.querySelectorAll('[data-position-quick]')).forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.positionQuick === state.selectedPosition);
+      });
+    }
+
+    function renderSummaryFilterChips() {
+      if (!summaryFilters) return;
+
+      const filters = parseSearchFilters(state.searchTerm);
+      const chips = [];
+
+      if (state.selectedYear === 'ALL' && (filters.yearStart === null || filters.yearEnd === null)) {
+        chips.push({ label: 'All Years', action: 'year' });
+      }
+
+      if (state.selectedPosition !== 'ALL') {
+        chips.push({ label: getPositionLabel(state.selectedPosition), action: 'position' });
+      }
+
+      if (filters.textTerm) {
+        chips.push({ label: `Text: “${filters.textTerm}”`, action: 'text' });
+      }
+
+      if (filters.yearStart !== null && filters.yearEnd !== null) {
+        chips.push({ label: `Years: ${filters.yearStart}–${filters.yearEnd}`, action: 'range' });
+      }
+
+      summaryFilters.hidden = chips.length === 0;
+      summaryFilters.innerHTML = chips.map(chip => {
+        const dismissible = chip.action === 'text' || chip.action === 'range';
+        return `<span class="filter-chip">${escapeHtml(chip.label)}${
+          dismissible ? `<button type="button" data-clear-filter="${chip.action}" aria-label="Clear ${escapeHtml(chip.label)}">×</button>` : ''
+        }</span>`;
+      }).join('');
+    }
+
     function getRowsForSelectedPosition() {
       const positionsMap = state.currentYearData?.positions || {};
       if (state.selectedPosition === 'ALL' || state.selectedPosition === 'TOP_10' || state.selectedPosition === 'TOP_5') {
@@ -1039,8 +1151,8 @@
     function formatFilterSummary() {
       const filters = parseSearchFilters(state.searchTerm);
       const parts = [];
-      if (filters.textTerm) parts.push(`matching “${filters.textTerm}”`);
-      if (filters.yearStart !== null && filters.yearEnd !== null) parts.push(`from ${filters.yearStart}–${filters.yearEnd}`);
+      if (filters.textTerm) parts.push(`for “${filters.textTerm}”`);
+      if (filters.yearStart !== null && filters.yearEnd !== null) parts.push(`in ${filters.yearStart}–${filters.yearEnd}`);
       return parts.join(' ');
     }
 
@@ -1370,10 +1482,12 @@
       summarySub.textContent = filterSummary
         ? `${visibleRows.length} of ${totalRows} weekly entries shown, ${filterSummary}`
         : `${visibleRows.length} of ${totalRows} weekly entries shown`;
-      resultCount.textContent = `${visibleRows.length} result${visibleRows.length === 1 ? '' : 's'}`;
+      renderSummaryFilterChips();
+      updatePositionQuickPicks();
 
       if (!visibleRows.length) {
-        resultsEl.innerHTML = '<div class="empty">No entries match your current filter.</div>';
+        const emptyDetail = formatFilterSummary();
+        resultsEl.innerHTML = `<div class="empty">${emptyDetail ? `No entries found ${escapeHtml(emptyDetail)}.` : 'No entries match your current filter.'}</div>`;
         return;
       }
 
@@ -1525,6 +1639,36 @@
     positionSelect.addEventListener('change', () => {
       state.selectedPosition = positionSelect.value;
       state.selectedPositionLabel = positionSelect.options[positionSelect.selectedIndex]?.text || 'All Positions';
+      state.randomPinnedKey = null;
+      state.currentPlayableIndex = -1;
+      render();
+    });
+
+    positionQuickPicks?.addEventListener('click', event => {
+      const btn = event.target.closest('[data-position-quick]');
+      if (!btn) return;
+      state.selectedPosition = btn.dataset.positionQuick;
+      positionSelect.value = state.selectedPosition;
+      state.selectedPositionLabel = getPositionLabel(state.selectedPosition);
+      state.randomPinnedKey = null;
+      state.currentPlayableIndex = -1;
+      render();
+    });
+
+    summaryFilters?.addEventListener('click', event => {
+      const btn = event.target.closest('[data-clear-filter]');
+      if (!btn) return;
+
+      const filters = parseSearchFilters(state.searchTerm);
+      if (btn.dataset.clearFilter === 'text') {
+        state.searchTerm = filters.yearStart !== null && filters.yearEnd !== null
+          ? `${filters.yearStart}-${filters.yearEnd}`
+          : '';
+      } else if (btn.dataset.clearFilter === 'range') {
+        state.searchTerm = filters.textTerm || '';
+      }
+
+      searchInput.value = state.searchTerm;
       state.randomPinnedKey = null;
       state.currentPlayableIndex = -1;
       render();
