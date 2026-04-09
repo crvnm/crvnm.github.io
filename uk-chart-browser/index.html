@@ -1450,6 +1450,8 @@
           render();
           if (chosen.sid) {
             await playTrack(chosen);
+            await new Promise(resolve => setTimeout(resolve, 500));
+            await ensurePendingTrackIsActuallyPlaying();
           }
         });
       } catch (err) {
@@ -1492,6 +1494,8 @@
           render();
           if (chosen.sid) {
             await playTrack(chosen);
+            await new Promise(resolve => setTimeout(resolve, 500));
+            await ensurePendingTrackIsActuallyPlaying();
           }
         });
       } catch (err) {
