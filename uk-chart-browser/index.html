@@ -1435,6 +1435,21 @@
       return rows.slice(0, state.visibleRowLimit);
     }
 
+    async function normalizePendingTrackStart(expectedSid) {
+      await new Promise(resolve => setTimeout(resolve, 500));
+      await ensurePendingTrackIsActuallyPlaying();
+
+      const currentSid = getCurrentTrackId();
+      const { position } = getDerivedPlaybackPosition();
+
+      if (expectedSid && currentSid === expectedSid && position > 1500 && state.deviceId) {
+        await spotifyApi(
+          `https://api.spotify.com/v1/me/player/seek?position_ms=0&device_id=${encodeURIComponent(state.deviceId)}`,
+          { method: 'PUT' }
+        );
+      }
+    }
+
     async function jumpToRandomCurrent() {
       if (state.randomActionInFlight) return;
 
@@ -1452,6 +1467,7 @@
             await playTrack(chosen);
             await new Promise(resolve => setTimeout(resolve, 500));
             await ensurePendingTrackIsActuallyPlaying();
+            await normalizePendingTrackStart(chosen.sid);
           }
         });
       } catch (err) {
@@ -1496,6 +1512,7 @@
             await playTrack(chosen);
             await new Promise(resolve => setTimeout(resolve, 500));
             await ensurePendingTrackIsActuallyPlaying();
+            await normalizePendingTrackStart(chosen.sid);
           }
         });
       } catch (err) {
