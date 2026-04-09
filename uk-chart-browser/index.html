@@ -71,6 +71,35 @@
       margin-bottom: 8px;
     }
 
+    .hero-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 2px;
+    }
+
+    .hero-topbar .eyebrow {
+      margin-bottom: 0;
+    }
+
+    .spotify-status-pill {
+      flex: 0 0 auto;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(239,68,68,0.14);
+      color: #fecaca;
+      font-size: 11px;
+      line-height: 1;
+      letter-spacing: 0.02em;
+    }
+
+    .spotify-status-pill.connected {
+      background: rgba(34,197,94,0.16);
+      color: #cff9db;
+    }
+
     .controls {
       display: grid;
       grid-template-columns: minmax(132px, 1fr) minmax(132px, 1fr);
@@ -692,7 +721,10 @@
 <body>
   <div class="app">
     <section class="hero">
-      <div class="eyebrow">UK chart browser</div>
+      <div class="hero-topbar">
+        <div class="eyebrow">UK chart browser</div>
+        <button class="spotify-status-pill" id="spotifyStatusPill" type="button" aria-label="Open Spotify playback settings">Spotify: Login</button>
+      </div>
       <div class="controls">
         <div class="control">
           <label for="yearSelect">Year</label>
@@ -725,9 +757,7 @@
         <span id="summarySub">Choose a year and chart position.</span>
         <div class="summary-filters" id="summaryFilters" hidden></div>
       </div>
-      <div class="toolbar">
-        <button class="btn-secondary" id="showSpotifyPanelBtn">Login to Spotify</button>
-      </div>
+      <div class="toolbar"></div>
     </section>
 
     <section class="results" id="results"></section>
@@ -829,7 +859,7 @@
     const minibarArtist = document.getElementById('minibarArtist');
     const loginBtn = document.getElementById('loginBtn');
     const logoutBtn = document.getElementById('logoutBtn');
-    const showSpotifyPanelBtn = document.getElementById('showSpotifyPanelBtn');
+    const spotifyStatusPill = document.getElementById('spotifyStatusPill');
     const spotifyModal = document.getElementById('spotifyModal');
     const closeSpotifyModalBtn = document.getElementById('closeSpotifyModalBtn');
     const randomCurrentBtn = document.getElementById('randomCurrentBtn');
@@ -1380,7 +1410,12 @@
       setStatus(authStatus, state.accessToken ? 'Signed in' : 'Not signed in', state.accessToken ? 'ok' : 'warn');
       setStatus(sdkStatus, state.sdkReady ? 'SDK ready' : 'SDK not ready', state.sdkReady ? 'ok' : 'warn');
       setStatus(deviceStatus, state.deviceId ? 'Device ready' : 'No active device', state.deviceId ? 'ok' : 'warn');
-      showSpotifyPanelBtn.textContent = state.accessToken ? 'Spotify connected' : 'Login to Spotify';
+
+      if (spotifyStatusPill) {
+        spotifyStatusPill.textContent = state.accessToken ? 'Spotify: Connected' : 'Spotify: Login';
+        spotifyStatusPill.classList.toggle('connected', !!state.accessToken);
+        spotifyStatusPill.setAttribute('aria-label', state.accessToken ? 'Spotify connected. Open playback settings' : 'Spotify login. Open playback settings');
+      }
     }
 
     function openSpotifyModal() {
@@ -1851,7 +1886,7 @@
         }
       }
     });
-    showSpotifyPanelBtn.addEventListener('click', openSpotifyModal);
+    spotifyStatusPill.addEventListener('click', openSpotifyModal);
     closeSpotifyModalBtn.addEventListener('click', closeSpotifyModal);
     spotifyModal.addEventListener('click', (event) => {
       if (event.target === spotifyModal) closeSpotifyModal();
