@@ -95,9 +95,23 @@
       letter-spacing: 0.02em;
     }
 
+    .spotify-status-pill:hover,
+    .spotify-status-pill:focus-visible {
+      transform: none;
+      outline: none;
+      border-color: rgba(239,68,68,0.35);
+      background: rgba(239,68,68,0.2);
+    }
+
     .spotify-status-pill.connected {
       background: rgba(34,197,94,0.16);
       color: #cff9db;
+    }
+
+    .spotify-status-pill.connected:hover,
+    .spotify-status-pill.connected:focus-visible {
+      border-color: rgba(34,197,94,0.35);
+      background: rgba(34,197,94,0.22);
     }
 
     .controls {
@@ -659,7 +673,15 @@
       cursor: pointer;
     }
 
-    .quick-pill.active {
+    .quick-pill:hover,
+    .quick-pill:focus-visible {
+      border-color: rgba(124,156,255,0.45);
+      background: rgba(124,156,255,0.14);
+      outline: none;
+    }
+
+    .quick-pill.active,
+    .quick-pill[aria-pressed="true"] {
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
       color: white;
       border-color: transparent;
@@ -744,7 +766,7 @@
           <button class="hero-random-btn" id="randomAllBtn" title="Jump to a random year, position and track" aria-label="Jump to a random year, position and track">✦</button>
         </div>
         <div class="position-quick-picks" id="positionQuickPicks">
-          <button class="quick-pill" type="button" data-position-quick="ALL">All Positions</button>
+          <button class="quick-pill active" type="button" data-position-quick="ALL">All Positions</button>
           <button class="quick-pill" type="button" data-position-quick="TOP_10">Top 10</button>
           <button class="quick-pill" type="button" data-position-quick="TOP_5">Top 5</button>
         </div>
@@ -1185,7 +1207,9 @@
     function updatePositionQuickPicks() {
       if (!positionQuickPicks) return;
       Array.from(positionQuickPicks.querySelectorAll('[data-position-quick]')).forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.positionQuick === state.selectedPosition);
+        const isActive = btn.dataset.positionQuick === state.selectedPosition;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
       });
     }
 
@@ -1499,6 +1523,7 @@
       positionSelect.value = state.selectedPosition;
       state.selectedPositionLabel = positionSelect.options[positionSelect.selectedIndex]?.text || 'All Positions';
       state.currentPlayableIndex = -1;
+      updatePositionQuickPicks();
       render();
     }
 
