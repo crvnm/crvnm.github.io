@@ -769,6 +769,7 @@
           <button class="quick-pill active" type="button" data-position-quick="ALL" aria-pressed="true">All Positions</button>
           <button class="quick-pill" type="button" data-position-quick="TOP_10" aria-pressed="false">Top 10</button>
           <button class="quick-pill" type="button" data-position-quick="TOP_5" aria-pressed="false">Top 5</button>
+          <button class="quick-pill" type="button" data-peak-week-toggle="true" aria-pressed="false">Peak Week</button>
         </div>
       </div>
     </section>
@@ -922,6 +923,7 @@
       pendingRequestedTrackSid: null,
       pendingRequestedAt: 0,
       visibleRowLimit: 150,
+      peakWeekOnly: false,
     };
 
     function qs(name) { return new URLSearchParams(window.location.search).get(name); }
@@ -1205,14 +1207,74 @@
       return ordinal(value);
     }
 
+    function getTrackGroupKey(row) {
+      if (row?.sid) return `sid:${row.sid}`;
+
+      const tm = row?.tm;
+      const am = row?.am;
+      if (tm != null && am != null && String(tm) !== '' && String(am) !== '') {
+        return `tm_am:${String(tm)}||${String(am)}`;
+      }
+
+      const t = row?.t;
+      const a = row?.a;
+      if (t != null && a != null && String(t) !== '' && String(a) !== '') {
+        return `t_a:${String(t)}||${String(a)}`;
+      }
+
+      return null;
+    }
+
+    function comparePeakWeekRows(a, b) {
+      const posA = Number(a?.__position ?? Number.POSITIVE_INFINITY);
+      const posB = Number(b?.__position ?? Number.POSITIVE_INFINITY);
+      if (posA !== posB) return posA - posB;
+
+      const dateA = new Date(a?.w || a?.weekEnding || '').getTime();
+      const dateB = new Date(b?.w || b?.weekEnding || '').getTime();
+      const safeA = Number.isNaN(dateA) ? Number.POSITIVE_INFINITY : dateA;
+      const safeB = Number.isNaN(dateB) ? Number.POSITIVE_INFINITY : dateB;
+      return safeA - safeB;
+    }
+
+    function reduceRowsToPeakWeek(rows) {
+      const grouped = new Map();
+      const fallbackRows = [];
+
+      for (const row of rows) {
+        const key = getTrackGroupKey(row);
+        if (!key) {
+          fallbackRows.push(row);
+          continue;
+        }
+
+        const current = grouped.get(key);
+        if (!current || comparePeakWeekRows(row, current) < 0) {
+          grouped.set(key, row);
+        }
+      }
+
+      const reduced = [...grouped.values(), ...fallbackRows];
+      reduced.sort(comparePeakWeekRows);
+      return reduced;
+    }
+
     function updatePositionQuickPicks() {
       if (!positionQuickPicks) return;
+
       Array.from(positionQuickPicks.querySelectorAll('[data-position-quick]')).forEach(btn => {
         const isActive = btn.dataset.positionQuick === state.selectedPosition;
         if (isActive) btn.classList.add('active');
         else btn.classList.remove('active');
         btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
       });
+
+      const peakWeekBtn = positionQuickPicks.querySelector('[data-peak-week-toggle]');
+      if (peakWeekBtn) {
+        if (state.peakWeekOnly) peakWeekBtn.classList.add('active');
+        else peakWeekBtn.classList.remove('active');
+        peakWeekBtn.setAttribute('aria-pressed', state.peakWeekOnly ? 'true' : 'false');
+      }
     }
 
     function renderSummaryFilterChips() {
@@ -1227,6 +1289,10 @@
 
       if (state.selectedPosition !== 'ALL') {
         chips.push({ label: getPositionLabel(state.selectedPosition), action: 'position' });
+      }
+
+      if (state.peakWeekOnly) {
+        chips.push({ label: 'Peak Week', action: 'peakweek' });
       }
 
       if (filters.textTerm) {
@@ -1278,15 +1344,21 @@
         return rows.filter(row => rowKey(row) === state.randomPinnedKey);
       }
       const filters = parseSearchFilters(state.searchTerm);
-      if (!filters.textTerm && filters.yearStart === null) return rows;
-      return rows.filter(row => rowMatchesSearchFilters(row, filters));
+      const filteredRows = (!filters.textTerm && filters.yearStart === null)
+        ? rows
+        : rows.filter(row => rowMatchesSearchFilters(row, filters));
+
+      return state.peakWeekOnly ? reduceRowsToPeakWeek(filteredRows) : filteredRows;
     }
 
     function getRowsForCurrentFilter() {
       const rows = getRowsForSelectedPosition();
       const filters = parseSearchFilters(state.searchTerm);
-      if (!filters.textTerm && filters.yearStart === null) return rows;
-      return rows.filter(row => rowMatchesSearchFilters(row, filters));
+      const filteredRows = (!filters.textTerm && filters.yearStart === null)
+        ? rows
+        : rows.filter(row => rowMatchesSearchFilters(row, filters));
+
+      return state.peakWeekOnly ? reduceRowsToPeakWeek(filteredRows) : filteredRows;
     }
 
     function formatFilterSummary() {
@@ -1297,12 +1369,12 @@
       return parts.join(' ');
     }
 
-    function shouldUseRenderLimit(rows) {
-      return !state.randomPinnedKey && rows.length > 150;
+    function shouldUseRenderLimit() {
+      return state.selectedYear === 'ALL' && state.selectedPosition === 'ALL' && !state.randomPinnedKey;
     }
 
     function getRenderRows(rows) {
-      if (!shouldUseRenderLimit(rows)) return rows;
+      if (!shouldUseRenderLimit()) return rows;
       return rows.slice(0, state.visibleRowLimit);
     }
 
@@ -1668,7 +1740,9 @@
       if (!state.currentYearData) return;
       const visibleRows = getVisibleRows();
       const renderRows = getRenderRows(visibleRows);
-      const totalRows = getRowsForSelectedPosition().length;
+      const totalRows = state.peakWeekOnly
+        ? reduceRowsToPeakWeek(getRowsForSelectedPosition()).length
+        : getRowsForSelectedPosition().length;
       const currentTrackId = getCurrentTrackId();
       const isPaused = !state.playbackState || state.playbackState.paused;
 
@@ -1866,6 +1940,16 @@
     });
 
     positionQuickPicks?.addEventListener('click', event => {
+      const peakWeekBtn = event.target.closest('[data-peak-week-toggle]');
+      if (peakWeekBtn) {
+        state.peakWeekOnly = !state.peakWeekOnly;
+        state.randomPinnedKey = null;
+        state.currentPlayableIndex = -1;
+        state.visibleRowLimit = 150;
+        render();
+        return;
+      }
+
       const btn = event.target.closest('[data-position-quick]');
       if (!btn) return;
       state.selectedPosition = btn.dataset.positionQuick;
@@ -1888,6 +1972,8 @@
           : '';
       } else if (btn.dataset.clearFilter === 'range') {
         state.searchTerm = filters.textTerm || '';
+      } else if (btn.dataset.clearFilter === 'peakweek') {
+        state.peakWeekOnly = false;
       }
 
       searchInput.value = state.searchTerm;
