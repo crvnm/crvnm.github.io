@@ -493,12 +493,17 @@
 
     .player-header {
       display: flex;
-      justify-content: space-between;
       align-items: center;
       gap: 12px;
+      min-width: 0;
     }
 
-    .player-title { min-width: 0; }
+    .player-title {
+      min-width: 0;
+      flex: 1 1 auto;
+      overflow: hidden;
+    }
+
     .player-title > strong,
     .player-title > span {
       display: block;
@@ -506,6 +511,10 @@
       width: 100%;
       white-space: nowrap;
       overflow: hidden;
+    }
+
+    #closePlayerBtn {
+      flex: 0 0 auto;
     }
 
     .player-title > strong { font-size: 15px; }
@@ -554,9 +563,10 @@
 
     .player-progress-wrap {
       display: grid;
-      grid-template-columns: 42px 1fr 42px;
+      grid-template-columns: 42px minmax(0, 1fr) 42px;
       gap: 8px;
       align-items: center;
+      min-width: 0;
     }
 
     .time {
