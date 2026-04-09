@@ -1297,12 +1297,12 @@
       return parts.join(' ');
     }
 
-    function shouldUseRenderLimit() {
-      return state.selectedYear === 'ALL' && state.selectedPosition === 'ALL' && !state.randomPinnedKey;
+    function shouldUseRenderLimit(rows) {
+      return !state.randomPinnedKey && rows.length > 150;
     }
 
     function getRenderRows(rows) {
-      if (!shouldUseRenderLimit()) return rows;
+      if (!shouldUseRenderLimit(rows)) return rows;
       return rows.slice(0, state.visibleRowLimit);
     }
 
