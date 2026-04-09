@@ -1457,6 +1457,15 @@
           `https://api.spotify.com/v1/me/player/seek?position_ms=0&device_id=${encodeURIComponent(state.deviceId)}`,
           { method: 'PUT' }
         );
+
+        state.lastPlaybackTimestamp = Date.now();
+        if (state.lastPlaybackSnapshot) {
+          state.lastPlaybackSnapshot = {
+            ...state.lastPlaybackSnapshot,
+            position: 0,
+          };
+        }
+        refreshProgressFromSnapshot();
       }
     }
 
