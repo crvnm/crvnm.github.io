@@ -682,9 +682,9 @@
 
     .quick-pill.active,
     .quick-pill[aria-pressed="true"] {
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: white;
-      border-color: transparent;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2)) !important;
+      color: white !important;
+      border-color: transparent !important;
     }
 
     .summary-copy {
@@ -766,9 +766,9 @@
           <button class="hero-random-btn" id="randomAllBtn" title="Jump to a random year, position and track" aria-label="Jump to a random year, position and track">✦</button>
         </div>
         <div class="position-quick-picks" id="positionQuickPicks">
-          <button class="quick-pill active" type="button" data-position-quick="ALL">All Positions</button>
-          <button class="quick-pill" type="button" data-position-quick="TOP_10">Top 10</button>
-          <button class="quick-pill" type="button" data-position-quick="TOP_5">Top 5</button>
+          <button class="quick-pill active" type="button" data-position-quick="ALL" aria-pressed="true">All Positions</button>
+          <button class="quick-pill" type="button" data-position-quick="TOP_10" aria-pressed="false">Top 10</button>
+          <button class="quick-pill" type="button" data-position-quick="TOP_5" aria-pressed="false">Top 5</button>
         </div>
       </div>
     </section>
@@ -921,6 +921,7 @@
       currentTrackSid: null,
       pendingRequestedTrackSid: null,
       pendingRequestedAt: 0,
+      visibleRowLimit: 150,
     };
 
     function qs(name) { return new URLSearchParams(window.location.search).get(name); }
@@ -1208,7 +1209,8 @@
       if (!positionQuickPicks) return;
       Array.from(positionQuickPicks.querySelectorAll('[data-position-quick]')).forEach(btn => {
         const isActive = btn.dataset.positionQuick === state.selectedPosition;
-        btn.classList.toggle('active', isActive);
+        if (isActive) btn.classList.add('active');
+        else btn.classList.remove('active');
         btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
       });
     }
@@ -1242,6 +1244,7 @@
           dismissible ? `<button type="button" data-clear-filter="${chip.action}" aria-label="Clear ${escapeHtml(chip.label)}">×</button>` : ''
         }</span>`;
       }).join('');
+
     }
 
     function getRowsForSelectedPosition() {
@@ -1292,6 +1295,15 @@
       if (filters.textTerm) parts.push(`for “${filters.textTerm}”`);
       if (filters.yearStart !== null && filters.yearEnd !== null) parts.push(`in ${filters.yearStart}–${filters.yearEnd}`);
       return parts.join(' ');
+    }
+
+    function shouldUseRenderLimit() {
+      return state.selectedYear === 'ALL' && state.selectedPosition === 'ALL' && !state.randomPinnedKey;
+    }
+
+    function getRenderRows(rows) {
+      if (!shouldUseRenderLimit()) return rows;
+      return rows.slice(0, state.visibleRowLimit);
     }
 
     async function jumpToRandomCurrent() {
@@ -1523,6 +1535,7 @@
       positionSelect.value = state.selectedPosition;
       state.selectedPositionLabel = positionSelect.options[positionSelect.selectedIndex]?.text || 'All Positions';
       state.currentPlayableIndex = -1;
+      state.visibleRowLimit = 150;
       updatePositionQuickPicks();
       render();
     }
@@ -1654,6 +1667,7 @@
     function render() {
       if (!state.currentYearData) return;
       const visibleRows = getVisibleRows();
+      const renderRows = getRenderRows(visibleRows);
       const totalRows = getRowsForSelectedPosition().length;
       const currentTrackId = getCurrentTrackId();
       const isPaused = !state.playbackState || state.playbackState.paused;
@@ -1663,8 +1677,8 @@
       summaryTitle.textContent = `${yearLabel} · ${positionLabel}`;
       const filterSummary = formatFilterSummary();
       summarySub.textContent = filterSummary
-        ? `${visibleRows.length} of ${totalRows} weekly entries shown, ${filterSummary}`
-        : `${visibleRows.length} of ${totalRows} weekly entries shown`;
+        ? `${renderRows.length} of ${visibleRows.length} shown (${totalRows} total), ${filterSummary}`
+        : `${renderRows.length} of ${visibleRows.length} shown (${totalRows} total)`;
       renderSummaryFilterChips();
       updatePositionQuickPicks();
 
@@ -1674,7 +1688,7 @@
         return;
       }
 
-      resultsEl.innerHTML = visibleRows.map((row, index) => {
+      resultsEl.innerHTML = renderRows.map((row, index) => {
         const song = escapeHtml(row.tm || row.t || row.title || 'Unknown song');
         const artist = escapeHtml(row.am || row.a || row.artist || 'Unknown artist');
         const week = escapeHtml(formatWeek(row.w || row.weekEnding));
@@ -1707,6 +1721,16 @@
           </article>
         `;
       }).join('');
+
+      if (renderRows.length < visibleRows.length) {
+        resultsEl.innerHTML += `
+          <div class="panel" style="text-align:center;">
+            <button class="btn-secondary" id="loadMoreBtn">
+              Load more (${visibleRows.length - renderRows.length} remaining)
+            </button>
+          </div>
+        `;
+      }
     }
 
     async function setupSpotifyPlayer() {
@@ -1829,6 +1853,7 @@
     yearSelect.addEventListener('change', async e => {
       state.selectedYear = e.target.value;
       state.randomPinnedKey = null;
+      state.visibleRowLimit = 150;
       await loadYear(state.selectedYear);
     });
     positionSelect.addEventListener('change', () => {
@@ -1836,6 +1861,7 @@
       state.selectedPositionLabel = positionSelect.options[positionSelect.selectedIndex]?.text || 'All Positions';
       state.randomPinnedKey = null;
       state.currentPlayableIndex = -1;
+      state.visibleRowLimit = 150;
       render();
     });
 
@@ -1847,6 +1873,7 @@
       state.selectedPositionLabel = getPositionLabel(state.selectedPosition);
       state.randomPinnedKey = null;
       state.currentPlayableIndex = -1;
+      state.visibleRowLimit = 150;
       render();
     });
 
@@ -1866,6 +1893,7 @@
       searchInput.value = state.searchTerm;
       state.randomPinnedKey = null;
       state.currentPlayableIndex = -1;
+      state.visibleRowLimit = 150;
       render();
     });
 
@@ -1873,6 +1901,7 @@
       state.searchTerm = searchInput.value;
       state.randomPinnedKey = null;
       state.currentPlayableIndex = -1;
+      state.visibleRowLimit = 150;
 
       const filters = parseSearchFilters(state.searchTerm);
       if (filters.yearStart !== null && filters.yearEnd !== null && state.selectedYear !== 'ALL') {
@@ -1885,6 +1914,13 @@
       render();
     });
     resultsEl.addEventListener('click', async event => {
+      const loadMoreBtn = event.target.closest('#loadMoreBtn');
+      if (loadMoreBtn) {
+        state.visibleRowLimit += 150;
+        render();
+        return;
+      }
+
       const btn = event.target.closest('[data-action]');
       if (!btn || !resultsEl.contains(btn)) return;
 
