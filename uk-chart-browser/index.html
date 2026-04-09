@@ -709,7 +709,7 @@
     .quick-pill.active,
     .quick-pill[aria-pressed="true"] {
       background: linear-gradient(135deg, var(--accent), var(--accent-2)) !important;
-      /*color: white !important;*/
+      color: white !important;
       border-color: transparent !important;
     }
 
@@ -1426,12 +1426,12 @@
       return parts.join(' ');
     }
 
-    function shouldUseRenderLimit() {
-      return state.selectedYear === 'ALL' && state.selectedPosition === 'ALL' && !state.randomPinnedKey;
+    function shouldUseRenderLimit(rows) {
+      return !state.randomPinnedKey && rows.length > 150;
     }
 
     function getRenderRows(rows) {
-      if (!shouldUseRenderLimit()) return rows;
+      if (!shouldUseRenderLimit(rows)) return rows;
       return rows.slice(0, state.visibleRowLimit);
     }
 
@@ -2201,6 +2201,7 @@
       });
     }
 
+    updatePositionQuickPicks();
     updateTogglePlayButton();
     updatePlayerVisibility();
 
