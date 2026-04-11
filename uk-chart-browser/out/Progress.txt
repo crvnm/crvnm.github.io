@@ -1,11 +1,10 @@
 Progress:
 
 Still to spotify:
-1997 (also some low scores still for manual review before next spotify)
 
 
 Spotify done, still to manual:
-2019
+1997
 
 
 Complete:
@@ -18,6 +17,7 @@ Complete:
 2016
 2017
 2018
+2019
 
 https://open.spotify.com/track/6dbSBQXCctYSVryynHXaZ4?si=23f79c4a6ecf4b40
 

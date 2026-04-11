@@ -1370,6 +1370,26 @@
       return reduced;
     }
 
+    function buildOverallPeakMap() {
+      const peakMap = new Map();
+      const allRows = getRowsForSelectedPosition();
+
+      for (const row of allRows) {
+        const key = getTrackGroupKey(row);
+        if (!key) continue;
+
+        const pos = Number(row.__position);
+        if (!Number.isFinite(pos)) continue;
+
+        const currentBest = peakMap.get(key);
+        if (currentBest == null || pos < currentBest) {
+          peakMap.set(key, pos);
+        }
+      }
+
+      return peakMap;
+    }
+
     function updatePositionQuickPicks() {
       if (!positionQuickPicks) return;
 
@@ -1943,6 +1963,7 @@
       if (!state.currentYearData) return;
       const visibleRows = getVisibleRows();
       const renderRows = getRenderRows(visibleRows);
+      const overallPeakMap = buildOverallPeakMap();
       const totalRows = state.peakWeekOnly
         ? reduceRowsToPeakWeek(getRowsForSelectedPosition()).length
         : getRowsForSelectedPosition().length;
@@ -1973,7 +1994,9 @@
         const artist = escapeHtml(row.am || row.a || row.artist || 'Unknown artist');
         const week = escapeHtml(formatWeek(row.w || row.weekEnding));
         const lastWeek = row.lw ?? '–';
-        const peak = row.pk ?? '–';
+        const trackKey = getTrackGroupKey(row);
+        const overallPeak = trackKey ? overallPeakMap.get(trackKey) : null;
+        const peak = overallPeak != null ? ordinal(overallPeak) : (row.pk ?? '–');
         const weeksOnChart = row.wc ?? '–';
         const positionPill = row.__position ? `<div class="pill">Position: ${escapeHtml(ordinal(row.__position))}</div>` : '';
         const hasSpotify = !!row.sid;
