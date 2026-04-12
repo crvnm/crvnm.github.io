@@ -1673,13 +1673,30 @@
       }
     }
 
-    async function waitForDeviceReady(timeoutMs = 2500) {
+    async function waitForDeviceReady(timeoutMs = 3000) {
       const start = Date.now();
       while (Date.now() - start < timeoutMs) {
         if (state.deviceId) return true;
         await new Promise(resolve => setTimeout(resolve, 100));
       }
       return false;
+    }
+
+    async function rebuildSpotifyPlayer() {
+      try {
+        if (state.player) {
+          try { await state.player.disconnect(); } catch {}
+        }
+      } finally {
+        state.player = null;
+        state.deviceId = null;
+        state.sdkReady = false;
+        updateAuthUi();
+      }
+
+      await setupSpotifyPlayer();
+      const ready = await waitForDeviceReady(3000);
+      return ready;
     }
 
     async function recoverDeviceAndRetry(action) {
@@ -1691,17 +1708,9 @@
           throw err;
         }
 
-        if (state.player) {
-          try {
-            await state.player.connect();
-          } catch (connectErr) {
-            console.warn('Spotify reconnect failed', connectErr);
-          }
-        }
-
-        const ready = await waitForDeviceReady(2500);
-        if (!ready) {
-          throw new Error('Spotify device not ready. Tap Spotify Login if needed.');
+        const rebuilt = await rebuildSpotifyPlayer();
+        if (!rebuilt) {
+          throw new Error('Spotify device could not be restored. Tap Spotify Login if needed.');
         }
 
         return await action();
