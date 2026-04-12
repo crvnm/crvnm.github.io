@@ -1715,6 +1715,32 @@
         spotifyStatusPill.classList.toggle('connected', !!state.accessToken);
         spotifyStatusPill.setAttribute('aria-label', state.accessToken ? 'Spotify connected. Open playback settings' : 'Spotify login. Open playback settings');
       }
+
+      if (state.accessToken && state.sdkReady && !state.deviceId) {
+        setTimeout(() => {
+          ensureDeviceReadySoon();
+        }, 150);
+      }
+    }
+
+    function shouldAttemptDeviceRecovery() {
+      return !!state.accessToken && !!state.sdkReady && !state.deviceId && !!state.player;
+    }
+
+    let deviceRecoveryInFlight = false;
+
+    async function ensureDeviceReadySoon() {
+      if (deviceRecoveryInFlight) return;
+      if (!shouldAttemptDeviceRecovery()) return;
+
+      deviceRecoveryInFlight = true;
+      try {
+        await reconnectPlaybackDevice(3000);
+      } catch (err) {
+        console.warn('Device recovery failed', err);
+      } finally {
+        deviceRecoveryInFlight = false;
+      }
     }
 
     function openSpotifyModal() {
@@ -2139,6 +2165,7 @@
         if (code) await exchangeCodeForToken(code);
         updateAuthUi();
         await setupSpotifyPlayer();
+        await ensureDeviceReadySoon();
       })();
 
       try {
