@@ -1673,6 +1673,35 @@
       }
     }
 
+    async function recoverDeviceAndRetry(action) {
+      try {
+        return await action();
+      } catch (err) {
+        const message = String(err?.message || err || '');
+        const isDeviceNotFound = /device not found/i.test(message);
+
+        if (!isDeviceNotFound) {
+          throw err;
+        }
+
+        try {
+          if (state.player) {
+            await state.player.connect();
+            await new Promise(resolve => setTimeout(resolve, 400));
+          }
+
+          return await action();
+        } catch (retryErr) {
+          const retryMessage = String(retryErr?.message || retryErr || '');
+          if (/device not found/i.test(retryMessage)) {
+            startLogin();
+            return;
+          }
+          throw retryErr;
+        }
+      }
+    }
+
     function openSpotifyModal() {
       spotifyModal.hidden = false;
       spotifyModal.classList.add('show');
@@ -2177,12 +2206,14 @@
 
       if (btn.dataset.action === 'play') {
         try {
-          const currentTrackId = getCurrentTrackId();
-          if (currentTrackId && row.sid === currentTrackId) {
-            await togglePlayback();
-          } else {
-            await playTrack(row);
-          }
+          await recoverDeviceAndRetry(async () => {
+            const currentTrackId = getCurrentTrackId();
+            if (currentTrackId && row.sid === currentTrackId) {
+              await togglePlayback();
+            } else {
+              await playTrack(row);
+            }
+          });
           render();
         } catch (err) {
           alert(err.message || 'Could not start playback.');
