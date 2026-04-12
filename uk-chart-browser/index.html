@@ -995,50 +995,6 @@
       }
     }
 
-    function isDeviceLostError(err) {
-      const message = String(err?.message || err || '');
-      return message.includes('SPOTIFY_DEVICE_LOST') || /device not found/i.test(message);
-    }
-
-    async function reconnectPlaybackDevice(timeoutMs = 4000) {
-      if (!state.player || !state.accessToken) return false;
-
-      state.deviceId = null;
-      updateAuthUi();
-
-      try {
-        await state.player.connect();
-      } catch (err) {
-        console.warn('Spotify player reconnect failed', err);
-      }
-
-      const start = Date.now();
-      while (Date.now() - start < timeoutMs) {
-        if (state.deviceId) {
-          updateAuthUi();
-          return true;
-        }
-        await new Promise(resolve => setTimeout(resolve, 150));
-      }
-
-      updateAuthUi();
-      return false;
-    }
-
-    async function handleAppResume() {
-      if (document.visibilityState && document.visibilityState !== 'visible') return;
-      if (!state.accessToken || !state.player) return;
-
-      try {
-        const recovered = await reconnectPlaybackDevice(3000);
-        if (recovered) {
-          showTransientSummaryNotice('Spotify reconnected.', 1200);
-        }
-      } catch (err) {
-        console.warn('Spotify resume reconnect failed', err);
-      }
-    }
-
     function formatWeek(dateStr) {
       if (!dateStr) return '';
       const d = new Date(dateStr);
@@ -1715,32 +1671,6 @@
         spotifyStatusPill.classList.toggle('connected', !!state.accessToken);
         spotifyStatusPill.setAttribute('aria-label', state.accessToken ? 'Spotify connected. Open playback settings' : 'Spotify login. Open playback settings');
       }
-
-      if (state.accessToken && state.sdkReady && !state.deviceId) {
-        setTimeout(() => {
-          ensureDeviceReadySoon();
-        }, 150);
-      }
-    }
-
-    function shouldAttemptDeviceRecovery() {
-      return !!state.accessToken && !!state.sdkReady && !state.deviceId && !!state.player;
-    }
-
-    let deviceRecoveryInFlight = false;
-
-    async function ensureDeviceReadySoon() {
-      if (deviceRecoveryInFlight) return;
-      if (!shouldAttemptDeviceRecovery()) return;
-
-      deviceRecoveryInFlight = true;
-      try {
-        await reconnectPlaybackDevice(3000);
-      } catch (err) {
-        console.warn('Device recovery failed', err);
-      } finally {
-        deviceRecoveryInFlight = false;
-      }
     }
 
     function openSpotifyModal() {
@@ -1833,46 +1763,17 @@
       const token = await getValidAccessToken();
       const headers = { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...(options.headers || {}) };
       const res = await fetch(url, { ...options, headers });
-
-      if (!res.ok && res.status !== 204) {
-        const bodyText = await res.text();
-
-        if (res.status === 404 && /device not found/i.test(bodyText)) {
-          state.deviceId = null;
-          updateAuthUi();
-          throw new Error('SPOTIFY_DEVICE_LOST');
-        }
-
-        throw new Error(bodyText || `Spotify API error ${res.status}`);
-      }
-
+      if (!res.ok && res.status !== 204) throw new Error(await res.text() || `Spotify API error ${res.status}`);
       return res;
     }
 
-    async function transferPlaybackHere(retry = true) {
-      if (!state.deviceId) {
-        const recovered = await reconnectPlaybackDevice();
-        if (!recovered || !state.deviceId) {
-          throw new Error('Spotify playback device is not ready. Please try again in a moment.');
-        }
-      }
-
-      try {
-        await spotifyApi('https://api.spotify.com/v1/me/player', {
-          method: 'PUT',
-          body: JSON.stringify({ device_ids: [state.deviceId], play: false })
-        });
-        setStatus(deviceStatus, `Device ready: ${state.deviceId.slice(0, 8)}…`, 'ok');
-      } catch (err) {
-        if (retry && isDeviceLostError(err)) {
-          const recovered = await reconnectPlaybackDevice();
-          if (recovered && state.deviceId) {
-            return transferPlaybackHere(false);
-          }
-          throw new Error('Spotify playback device was lost. Please unlock Spotify and try again.');
-        }
-        throw err;
-      }
+    async function transferPlaybackHere() {
+      if (!state.deviceId) throw new Error('No Spotify Web Playback device available yet.');
+      await spotifyApi('https://api.spotify.com/v1/me/player', {
+        method: 'PUT',
+        body: JSON.stringify({ device_ids: [state.deviceId], play: false })
+      });
+      setStatus(deviceStatus, `Device ready: ${state.deviceId.slice(0, 8)}…`, 'ok');
     }
 
     async function playTrack(row, options = {}) {
@@ -2165,7 +2066,6 @@
         if (code) await exchangeCodeForToken(code);
         updateAuthUi();
         await setupSpotifyPlayer();
-        await ensureDeviceReadySoon();
       })();
 
       try {
@@ -2366,18 +2266,6 @@
         resizeTimer = setTimeout(refreshPlayerMarquee, 120);
       });
     }
-
-    document.addEventListener('visibilitychange', () => {
-      if (document.visibilityState === 'visible') {
-        handleAppResume();
-      }
-    });
-    window.addEventListener('pageshow', () => {
-      handleAppResume();
-    });
-    window.addEventListener('focus', () => {
-      handleAppResume();
-    });
 
     updatePositionQuickPicks();
     updateTogglePlayButton();
