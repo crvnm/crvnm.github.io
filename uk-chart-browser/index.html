@@ -1503,7 +1503,7 @@
           state.randomPinnedKey = rowKey(chosen);
           render();
           if (chosen.sid) {
-            await playTrack(chosen);
+            await recoverDeviceAndRetry(() => playTrack(chosen));
             await new Promise(resolve => setTimeout(resolve, 500));
             await ensurePendingTrackIsActuallyPlaying();
             await normalizePendingTrackStart(chosen.sid);
@@ -1548,7 +1548,7 @@
           state.randomPinnedKey = rowKey(chosen);
           render();
           if (chosen.sid) {
-            await playTrack(chosen);
+            await recoverDeviceAndRetry(() => playTrack(chosen));
             await new Promise(resolve => setTimeout(resolve, 500));
             await ensurePendingTrackIsActuallyPlaying();
             await normalizePendingTrackStart(chosen.sid);
@@ -1673,32 +1673,38 @@
       }
     }
 
+    async function waitForDeviceReady(timeoutMs = 2500) {
+      const start = Date.now();
+      while (Date.now() - start < timeoutMs) {
+        if (state.deviceId) return true;
+        await new Promise(resolve => setTimeout(resolve, 100));
+      }
+      return false;
+    }
+
     async function recoverDeviceAndRetry(action) {
       try {
         return await action();
       } catch (err) {
         const message = String(err?.message || err || '');
-        const isDeviceNotFound = /device not found/i.test(message);
-
-        if (!isDeviceNotFound) {
+        if (!/device not found/i.test(message)) {
           throw err;
         }
 
-        try {
-          if (state.player) {
+        if (state.player) {
+          try {
             await state.player.connect();
-            await new Promise(resolve => setTimeout(resolve, 400));
+          } catch (connectErr) {
+            console.warn('Spotify reconnect failed', connectErr);
           }
-
-          return await action();
-        } catch (retryErr) {
-          const retryMessage = String(retryErr?.message || retryErr || '');
-          if (/device not found/i.test(retryMessage)) {
-            startLogin();
-            return;
-          }
-          throw retryErr;
         }
+
+        const ready = await waitForDeviceReady(2500);
+        if (!ready) {
+          throw new Error('Spotify device not ready. Tap Spotify Login if needed.');
+        }
+
+        return await action();
       }
     }
 
@@ -2251,8 +2257,20 @@
       state.isPlayerMinimized = false;
       updatePlayerVisibility();
     });
-    togglePlayBtn.addEventListener('click', async () => { try { await togglePlayback(); } catch (err) { alert(err.message); } });
-    restartBtn.addEventListener('click', async () => { try { await restartPlayback(); } catch (err) { alert(err.message); } });
+    togglePlayBtn.addEventListener('click', async () => {
+      try {
+        await recoverDeviceAndRetry(() => togglePlayback());
+      } catch (err) {
+        alert(err.message || 'Could not control playback.');
+      }
+    });
+    restartBtn.addEventListener('click', async () => {
+      try {
+        await recoverDeviceAndRetry(() => restartPlayback());
+      } catch (err) {
+        alert(err.message || 'Could not restart playback.');
+      }
+    });
     progressBar.addEventListener('input', () => {
       state.isScrubbing = true;
       currentTime.textContent = formatMs(Number(progressBar.value));
