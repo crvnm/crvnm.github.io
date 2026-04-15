@@ -1828,12 +1828,16 @@
       return ready;
     }
 
+    function isRecoverableDeviceError(err) {
+      const message = String(err?.message || err || '');
+      return /device not found|no active device|NO_ACTIVE_DEVICE/i.test(message);
+    }
+
     async function recoverDeviceAndRetry(action) {
       try {
         return await action();
       } catch (err) {
-        const message = String(err?.message || err || '');
-        if (!/device not found/i.test(message)) {
+        if (!isRecoverableDeviceError(err)) {
           throw err;
         }
 
@@ -1847,8 +1851,7 @@
         try {
           return await action();
         } catch (retryErr) {
-          const retryMessage = String(retryErr?.message || retryErr || '');
-          if (/device not found/i.test(retryMessage)) {
+          if (isRecoverableDeviceError(retryErr)) {
             saveAppUiStateForRestore();
             await startLogin();
             return;
@@ -2417,6 +2420,7 @@
         alert(err.message || 'Could not control playback.');
       }
     });
+
     restartBtn.addEventListener('click', async () => {
       try {
         await recoverDeviceAndRetry(() => restartPlayback());
