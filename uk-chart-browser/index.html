@@ -828,7 +828,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.15</div>
+          <div class="tiny" id="version-code">Version: 1.16</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -958,6 +958,9 @@
       marqueeResizeObserver: null,
       currentTrackSid: null,
       restoredPlayerStateOnly: false,
+      restoreSeekTrackSid: null,
+      restoreSeekTargetMs: 0,
+      restoreSeekUntil: 0,
       pendingRequestedTrackSid: null,
       pendingRequestedAt: 0,
       visibleRowLimit: 150,
@@ -2121,6 +2124,9 @@
       if (!state.activeTrack) return;
 
       const restorePosition = state.lastPlaybackSnapshot?.position || 0;
+      state.restoreSeekTrackSid = state.activeTrack?.sid || null;
+      state.restoreSeekTargetMs = restorePosition;
+      state.restoreSeekUntil = Date.now() + 2500;
 
       await recoverDeviceAndRetry(() => playTrack(state.activeTrack, { forceRestart: true }));
 
@@ -2146,6 +2152,12 @@
       }
 
       state.restoredPlayerStateOnly = false;
+      setTimeout(() => {
+        state.restoreSeekTrackSid = null;
+        state.restoreSeekTargetMs = 0;
+        state.restoreSeekUntil = 0;
+      }, 2500);
+
     }
 
     async function restartPlayback() {
@@ -2257,6 +2269,19 @@
         const pendingTrackId = state.pendingRequestedTrackSid;
         const pendingAge = Date.now() - state.pendingRequestedAt;
         const inPendingWindow = !!pendingTrackId && pendingAge < 8000;
+
+        const inRestoreSeekWindow =
+          state.restoreSeekTrackSid &&
+          incomingTrackId === state.restoreSeekTrackSid &&
+          Date.now() < state.restoreSeekUntil;
+
+        if (
+          inRestoreSeekWindow &&
+          state.restoreSeekTargetMs > 2000 &&
+          (playbackState?.position || 0) < 1000
+        ) {
+          return;
+        }
 
         if (
           inPendingWindow &&
