@@ -828,7 +828,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.31-debug</div>
+          <div class="tiny" id="version-code">Version: 1.32-debug</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -2331,10 +2331,6 @@
         state.restoredPlayerStateOnly = false;
         refreshProgressFromSnapshot();
         updateTogglePlayButton();
-      } finally {
-        setTimeout(() => {
-          state.restoreResumeInFlight = false;
-        }, 1200);
       }
     }
 
@@ -2447,6 +2443,7 @@
         const incomingPosition = playbackState?.position || 0;
         const incomingPaused = !!playbackState?.paused;
         const ignoredAsStaleRestore = shouldIgnoreStaleRestoreState(playbackState);
+
         debugRestore('player_state_changed', {
           incomingTrackId,
           incomingPosition,
@@ -2455,14 +2452,60 @@
           restoreSeekTrackSid: state.restoreSeekTrackSid,
           restoreSeekTargetMs: state.restoreSeekTargetMs,
           restoreSeekUntil: state.restoreSeekUntil,
+          restoreResumeInFlight: state.restoreResumeInFlight,
         });
+
+        const pendingTrackId = state.pendingRequestedTrackSid;
+        const pendingAge = Date.now() - state.pendingRequestedAt;
+        const inPendingWindow = !!pendingTrackId && pendingAge < 8000;
 
         const sameRestoreTrack =
           state.restoreSeekTrackSid &&
           incomingTrackId === state.restoreSeekTrackSid;
 
-        if (state.restoreResumeInFlight && sameRestoreTrack) {
+        const restoreTargetReached =
+          sameRestoreTrack &&
+          incomingPosition >= Math.max(0, (state.restoreSeekTargetMs || 0) - 1200);
+
+        if (state.restoreResumeInFlight && sameRestoreTrack && !restoreTargetReached) {
           debugRestore('player_state_changed:ignored-during-restore-resume-in-flight', {
+            incomingTrackId,
+            incomingPosition,
+            incomingPaused,
+            restoreSeekTrackSid: state.restoreSeekTrackSid,
+            restoreSeekTargetMs: state.restoreSeekTargetMs,
+            restoreResumeInFlight: state.restoreResumeInFlight,
+          });
+          return;
+        }
+
+        if (restoreTargetReached) {
+          debugRestore('player_state_changed:restore-target-reached', {
+            incomingTrackId,
+            incomingPosition,
+            incomingPaused,
+            restoreSeekTrackSid: state.restoreSeekTrackSid,
+            restoreSeekTargetMs: state.restoreSeekTargetMs,
+            restoreResumeInFlight: state.restoreResumeInFlight,
+          });
+
+          state.restoreResumeInFlight = false;
+          state.restoreSeekTrackSid = null;
+          state.restoreSeekTargetMs = 0;
+          state.restoreSeekUntil = 0;
+        }
+
+        const inRestoreSeekWindow =
+          state.restoreSeekTrackSid &&
+          incomingTrackId === state.restoreSeekTrackSid &&
+          Date.now() < state.restoreSeekUntil;
+
+        if (
+          inRestoreSeekWindow &&
+          state.restoreSeekTargetMs > 0 &&
+          incomingPosition < Math.max(1000, state.restoreSeekTargetMs - 1500)
+        ) {
+          debugRestore('player_state_changed:ignored-pre-target-restore-window', {
             incomingTrackId,
             incomingPosition,
             incomingPaused,
@@ -2473,41 +2516,21 @@
         }
 
         if (
-          state.restoreSeekTrackSid &&
-          incomingTrackId === state.restoreSeekTrackSid &&
-          incomingPosition >= Math.max(0, (state.restoreSeekTargetMs || 0) - 1200)
-        ) {
-          state.restoreSeekTrackSid = null;
-          state.restoreSeekTargetMs = 0;
-          state.restoreSeekUntil = 0;
-        }
-
-        const pendingTrackId = state.pendingRequestedTrackSid;
-        const pendingAge = Date.now() - state.pendingRequestedAt;
-        const inPendingWindow = !!pendingTrackId && pendingAge < 8000;
-
-        const inRestoreSeekWindow =
-          state.restoreSeekTrackSid &&
-          incomingTrackId === state.restoreSeekTrackSid &&
-          Date.now() < state.restoreSeekUntil;
-
-        if (
-          inRestoreSeekWindow &&
-          state.restoreSeekTargetMs > 0 &&
-          (playbackState?.position || 0) < Math.max(1000, state.restoreSeekTargetMs - 1500)
-        ) {
-          return;
-        }
-
-        if (
           inPendingWindow &&
           incomingTrackId &&
           incomingTrackId !== pendingTrackId
         ) {
+          debugRestore('player_state_changed:ignored-wrong-pending-track', {
+            incomingTrackId,
+            incomingPosition,
+            incomingPaused,
+            pendingTrackId,
+            pendingAge,
+          });
           return;
         }
 
-        if (shouldIgnoreStaleRestoreState(playbackState)) {
+        if (ignoredAsStaleRestore) {
           debugRestore('player_state_changed:ignored-stale-restore', {
             incomingTrackId,
             incomingPosition,
@@ -2528,7 +2551,9 @@
           incomingPaused,
           restoreSeekTrackSid: state.restoreSeekTrackSid,
           restoreSeekTargetMs: state.restoreSeekTargetMs,
+          restoreResumeInFlight: state.restoreResumeInFlight,
         });
+
         state.playbackState = playbackState;
         state.lastPlaybackSnapshot = playbackState;
         state.lastPlaybackTimestamp = Date.now();
