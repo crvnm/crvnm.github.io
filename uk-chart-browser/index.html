@@ -828,7 +828,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.30-debug</div>
+          <div class="tiny" id="version-code">Version: 1.31-debug</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -961,6 +961,7 @@
       restoreSeekTrackSid: null,
       restoreSeekTargetMs: 0,
       restoreSeekUntil: 0,
+      restoreResumeInFlight: false,
       pendingRequestedTrackSid: null,
       pendingRequestedAt: 0,
       visibleRowLimit: 150,
@@ -2262,94 +2263,79 @@
     async function resumeRestoredTrack() {
       debugRestore('resumeRestoredTrack:start');
 
-      if (!state.activeTrack?.sid || !state.deviceId) return;
+      if (!state.activeTrack?.sid || !state.deviceId) {
+        debugRestore('resumeRestoredTrack:missing-track-or-device');
+        return;
+      }
 
       const restorePosition = Math.max(0, state.lastPlaybackSnapshot?.position || 0);
       const trackSid = state.activeTrack.sid;
 
-      state.restoreSeekTrackSid = trackSid;
-      state.restoreSeekTargetMs = restorePosition;
-      state.restoreSeekUntil = Date.now() + 5000;
-      state.pendingRequestedTrackSid = trackSid;
-      state.pendingRequestedAt = Date.now();
+      state.restoreResumeInFlight = true;
 
-      await recoverDeviceAndRetry(async () => {
-        debugRestore('resumeRestoredTrack:before-activateElement', {
-          restorePosition,
-          trackSid,
+      try {
+        state.restoreSeekTrackSid = trackSid;
+        state.restoreSeekTargetMs = restorePosition;
+        state.restoreSeekUntil = Date.now() + 5000;
+        state.pendingRequestedTrackSid = trackSid;
+        state.pendingRequestedAt = Date.now();
+
+        await recoverDeviceAndRetry(async () => {
+          debugRestore('resumeRestoredTrack:before-activateElement', { restorePosition, trackSid });
+          await state.player.activateElement();
+
+          debugRestore('resumeRestoredTrack:before-transferPlaybackHere', { restorePosition, trackSid });
+          await transferPlaybackHere();
+
+          debugRestore('resumeRestoredTrack:before-play-request', { restorePosition, trackSid });
+          await spotifyApi(
+            `https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`,
+            {
+              method: 'PUT',
+              body: JSON.stringify({
+                uris: [`spotify:track:${trackSid}`],
+                position_ms: restorePosition,
+              }),
+            }
+          );
+          debugRestore('resumeRestoredTrack:after-play-request', { restorePosition, trackSid });
         });
 
-        await state.player.activateElement();
+        state.lastPlaybackTimestamp = Date.now();
 
-        debugRestore('resumeRestoredTrack:before-transferPlaybackHere', {
+        if (state.lastPlaybackSnapshot) {
+          state.lastPlaybackSnapshot = {
+            ...state.lastPlaybackSnapshot,
+            position: restorePosition,
+            paused: false,
+          };
+        }
+
+        if (state.playbackState) {
+          state.playbackState = {
+            ...state.playbackState,
+            position: restorePosition,
+            paused: false,
+          };
+        }
+
+        debugRestore('resumeRestoredTrack:local-state-updated', {
           restorePosition,
-          trackSid,
+          playbackStatePosition: state.playbackState?.position || 0,
+          snapshotPosition: state.lastPlaybackSnapshot?.position || 0,
+          playbackPaused: !!state.playbackState?.paused,
+          snapshotPaused: !!state.lastPlaybackSnapshot?.paused,
         });
 
-        await transferPlaybackHere();
-
-        debugRestore('resumeRestoredTrack:before-play-request', {
-          restorePosition,
-          trackSid,
-        });
-
-        await spotifyApi(
-          `https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`,
-          {
-            method: 'PUT',
-            body: JSON.stringify({
-              uris: [`spotify:track:${trackSid}`],
-              position_ms: restorePosition,
-            }),
-          }
-        );
-        debugRestore('resumeRestoredTrack:after-play-request', {
-          restorePosition,
-          trackSid,
-        });
-      });
-
-      debugRestore('resumeRestoredTrack:after-recoverDeviceAndRetry', {
-        restorePosition,
-        trackSid,
-      });
-
-      state.lastPlaybackTimestamp = Date.now();
-
-      if (state.lastPlaybackSnapshot) {
-        state.lastPlaybackSnapshot = {
-          ...state.lastPlaybackSnapshot,
-          position: restorePosition,
-          paused: false,
-        };
+        clearPendingRequestedTrack();
+        state.restoredPlayerStateOnly = false;
+        refreshProgressFromSnapshot();
+        updateTogglePlayButton();
+      } finally {
+        setTimeout(() => {
+          state.restoreResumeInFlight = false;
+        }, 1200);
       }
-
-      if (state.playbackState) {
-        state.playbackState = {
-          ...state.playbackState,
-          position: restorePosition,
-          paused: false,
-        };
-      }
-
-      debugRestore('resumeRestoredTrack:local-state-updated', {
-        restorePosition,
-        playbackStatePosition: state.playbackState?.position || 0,
-        snapshotPosition: state.lastPlaybackSnapshot?.position || 0,
-        playbackPaused: !!state.playbackState?.paused,
-        snapshotPaused: !!state.lastPlaybackSnapshot?.paused,
-      });
-
-      clearPendingRequestedTrack();
-      state.restoredPlayerStateOnly = false;
-      refreshProgressFromSnapshot();
-      updateTogglePlayButton();
-
-      setTimeout(() => {
-        state.restoreSeekTrackSid = null;
-        state.restoreSeekTargetMs = 0;
-        state.restoreSeekUntil = 0;
-      }, 5000);
     }
 
     async function restartPlayback() {
@@ -2471,6 +2457,21 @@
           restoreSeekUntil: state.restoreSeekUntil,
         });
 
+        const sameRestoreTrack =
+          state.restoreSeekTrackSid &&
+          incomingTrackId === state.restoreSeekTrackSid;
+
+        if (state.restoreResumeInFlight && sameRestoreTrack) {
+          debugRestore('player_state_changed:ignored-during-restore-resume-in-flight', {
+            incomingTrackId,
+            incomingPosition,
+            incomingPaused,
+            restoreSeekTrackSid: state.restoreSeekTrackSid,
+            restoreSeekTargetMs: state.restoreSeekTargetMs,
+          });
+          return;
+        }
+
         if (
           state.restoreSeekTrackSid &&
           incomingTrackId === state.restoreSeekTrackSid &&
@@ -2506,10 +2507,6 @@
           return;
         }
 
-        if (incomingTrackId) {
-          state.currentTrackSid = incomingTrackId;
-        }
-
         if (shouldIgnoreStaleRestoreState(playbackState)) {
           debugRestore('player_state_changed:ignored-stale-restore', {
             incomingTrackId,
@@ -2521,6 +2518,9 @@
           return;
         }
 
+        if (incomingTrackId) {
+          state.currentTrackSid = incomingTrackId;
+        }
 
         debugRestore('player_state_changed:accepted', {
           incomingTrackId,
