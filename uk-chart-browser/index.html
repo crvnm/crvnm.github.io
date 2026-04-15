@@ -1448,6 +1448,22 @@
       return state.peakWeekOnly ? reduceRowsToPeakWeek(filteredRows) : filteredRows;
     }
 
+    function findRowBySavedState(saved) {
+      const rows = getRowsForSelectedPosition();
+
+      if (saved.activeTrackRowKey) {
+        const byRowKey = rows.find(row => rowKey(row) === saved.activeTrackRowKey);
+        if (byRowKey) return byRowKey;
+      }
+
+      if (saved.activeTrackSid) {
+        const bySid = rows.find(row => row.sid === saved.activeTrackSid);
+        if (bySid) return bySid;
+      }
+
+      return null;
+    }
+
     function formatFilterSummary() {
       const filters = parseSearchFilters(state.searchTerm);
       const parts = [];
@@ -1667,6 +1683,7 @@
     const APP_STATE_KEY = 'uk_chart_browser_restore_state';
 
     function saveAppUiStateForRestore() {
+      const derived = getDerivedPlaybackPosition();
       const payload = {
         selectedYear: state.selectedYear,
         selectedPosition: state.selectedPosition,
@@ -1677,6 +1694,14 @@
         peakWeekOnly: state.peakWeekOnly,
         spotifyModalOpen: !spotifyModal.hidden,
         activeTrackSid: state.activeTrack?.sid || null,
+        activeTrackRowKey: state.activeTrack ? rowKey(state.activeTrack) : null,
+        activeTrackTitle: state.activeTrack?.tm || state.activeTrack?.t || state.activeTrack?.title || '',
+        activeTrackArtist: state.activeTrack?.am || state.activeTrack?.a || state.activeTrack?.artist || '',
+        playerVisible: !playerShell.hidden,
+        playerMinimized: !!state.isPlayerMinimized,
+        playbackPaused: !!state.playbackState?.paused,
+        playbackPositionMs: derived.position || 0,
+        playbackDurationMs: derived.duration || 0,
         savedAt: Date.now(),
       };
       sessionStorage.setItem(APP_STATE_KEY, JSON.stringify(payload));
@@ -1724,6 +1749,41 @@
 
       updatePositionQuickPicks();
       render();
+
+      const restoredTrack = findRowBySavedState(saved);
+      if (restoredTrack && saved.playerVisible) {
+        state.activeTrack = restoredTrack;
+        state.isPlayerMinimized = !!saved.playerMinimized;
+        state.currentTrackSid = restoredTrack.sid || null;
+
+        syncPlayerTitles(
+          restoredTrack.tm || restoredTrack.t || restoredTrack.title || saved.activeTrackTitle || 'Unknown song',
+          restoredTrack.am || restoredTrack.a || restoredTrack.artist || saved.activeTrackArtist || ''
+        );
+
+        setPlayerArtwork(null, (restoredTrack.tm || restoredTrack.t || restoredTrack.title || '♪').slice(0, 1).toUpperCase());
+
+        const restoredPosition = Number(saved.playbackPositionMs) || 0;
+        const restoredDuration = Number(saved.playbackDurationMs) || 0;
+
+        state.playbackState = {
+          ...(state.playbackState || {}),
+          paused: saved.playbackPaused !== false,
+        };
+
+        state.lastPlaybackSnapshot = {
+          ...(state.lastPlaybackSnapshot || {}),
+          paused: saved.playbackPaused !== false,
+          position: restoredPosition,
+        };
+        state.lastPlaybackTimestamp = Date.now();
+
+        setProgress(restoredPosition, restoredDuration);
+        updateTogglePlayButton();
+        playerInfo.textContent = saved.playbackPaused !== false ? 'Paused' : 'Ready';
+        playerShell.hidden = false;
+        updatePlayerVisibility();
+      }
 
       if (saved.spotifyModalOpen) {
         openSpotifyModal();
