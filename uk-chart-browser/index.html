@@ -828,7 +828,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.11</div>
+          <div class="tiny" id="version-code">Version: 1.12</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -1992,7 +1992,6 @@
       const mustHardReset = isSwitchingTrack || options.forceRestart;
 
       state.activeTrack = row;
-      state.restoredPlayerStateOnly = false;
       state.pendingRequestedTrackSid = row.sid;
       state.pendingRequestedAt = Date.now();
 
@@ -2004,6 +2003,7 @@
           await spotifyApi(`https://api.spotify.com/v1/me/player/pause?device_id=${encodeURIComponent(state.deviceId)}`, {
             method: 'PUT',
           });
+          state.restoredPlayerStateOnly = false;
         } catch (err) {
           console.warn('Pause before track switch failed', err);
         }
