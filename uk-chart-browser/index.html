@@ -1486,6 +1486,11 @@
       return rows.slice(0, state.visibleRowLimit);
     }
 
+    function clearPendingRequestedTrack() {
+      state.pendingRequestedTrackSid = null;
+      state.pendingRequestedAt = 0;
+    }
+
     async function normalizePendingTrackStart(expectedSid) {
       if (state.restoredPlayerStateOnly) return;
 
@@ -2100,6 +2105,12 @@
       const actualSid = getCurrentTrackId();
       const { position } = getDerivedPlaybackPosition();
 
+      if (!expectedSid) return;
+      if (actualSid === expectedSid && position > 1500) {
+        clearPendingRequestedTrack();
+        return;
+      }
+
       const inRestoreSeekWindow =
         state.restoreSeekTrackSid &&
         expectedSid === state.restoreSeekTrackSid &&
@@ -2136,7 +2147,10 @@
       }
     }
 
-    async function pausePlayback() { await spotifyApi('https://api.spotify.com/v1/me/player/pause', { method: 'PUT' }); }
+    async function pausePlayback() {
+      clearPendingRequestedTrack();
+      await spotifyApi('https://api.spotify.com/v1/me/player/pause', { method: 'PUT' });
+    }
     async function resumePlayback() {
       if (!state.deviceId) return;
       await spotifyApi(`https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`, { method: 'PUT' });
@@ -2206,6 +2220,7 @@
         };
       }
 
+      clearPendingRequestedTrack();
       refreshProgressFromSnapshot();
       updateTogglePlayButton();
 
