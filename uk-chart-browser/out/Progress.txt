@@ -7,6 +7,7 @@ Partial Spotify:
 
 Spotify done, still to manual:
 1997
+2023
 
 
 Complete:
@@ -22,6 +23,7 @@ Complete:
 2019
 2020
 2021
+2022
 
 https://open.spotify.com/track/6dbSBQXCctYSVryynHXaZ4?si=23f79c4a6ecf4b40
 
