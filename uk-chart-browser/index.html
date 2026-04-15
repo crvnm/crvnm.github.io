@@ -1849,6 +1849,7 @@
     function shouldIgnoreStaleRestoreState(playbackState) {
       const incomingTrackId = getPlaybackStateTrackId(playbackState);
       const incomingPosition = playbackState?.position || 0;
+      const target = state.restoreSeekTargetMs || 0;
 
       const inRestoreSeekWindow =
         state.restoreSeekTrackSid &&
@@ -1856,9 +1857,9 @@
         Date.now() < state.restoreSeekUntil;
 
       if (!inRestoreSeekWindow) return false;
-      if ((state.restoreSeekTargetMs || 0) < 2000) return false;
+      if (target < 2000) return false;
 
-      return incomingPosition < 1000;
+      return incomingPosition < Math.max(1000, target - 1500);
     }
 
     function updateAuthUi() {
@@ -2343,6 +2344,18 @@
       });
       state.player.addListener('player_state_changed', playbackState => {
         const incomingTrackId = getPlaybackStateTrackId(playbackState);
+        const incomingPosition = playbackState?.position || 0;
+
+        if (
+          state.restoreSeekTrackSid &&
+          incomingTrackId === state.restoreSeekTrackSid &&
+          incomingPosition >= Math.max(0, (state.restoreSeekTargetMs || 0) - 1200)
+        ) {
+          state.restoreSeekTrackSid = null;
+          state.restoreSeekTargetMs = 0;
+          state.restoreSeekUntil = 0;
+        }
+        
         const pendingTrackId = state.pendingRequestedTrackSid;
         const pendingAge = Date.now() - state.pendingRequestedAt;
         const inPendingWindow = !!pendingTrackId && pendingAge < 8000;
@@ -2368,12 +2381,12 @@
           return;
         }
 
-        if (shouldIgnoreStaleRestoreState(playbackState)) {
-          return;
-        }
-
         if (incomingTrackId) {
           state.currentTrackSid = incomingTrackId;
+        }
+
+        if (shouldIgnoreStaleRestoreState(playbackState)) {
+          return;
         }
 
         state.playbackState = playbackState;
