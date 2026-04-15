@@ -828,7 +828,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.29-debug</div>
+          <div class="tiny" id="version-code">Version: 1.30-debug</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -2470,8 +2470,6 @@
           restoreSeekTargetMs: state.restoreSeekTargetMs,
           restoreSeekUntil: state.restoreSeekUntil,
         });
-        const incomingTrackId = getPlaybackStateTrackId(playbackState);
-        const incomingPosition = playbackState?.position || 0;
 
         if (
           state.restoreSeekTrackSid &&
