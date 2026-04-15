@@ -828,7 +828,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.16</div>
+          <div class="tiny" id="version-code">Version: 1.17</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -2072,6 +2072,11 @@
       const actualSid = getCurrentTrackId();
       const { position } = getDerivedPlaybackPosition();
 
+      const inRestoreSeekWindow =
+        state.restoreSeekTrackSid &&
+        expectedSid === state.restoreSeekTrackSid &&
+        Date.now() < state.restoreSeekUntil;
+
       if (
         expectedSid &&
         actualSid === expectedSid &&
@@ -2080,16 +2085,23 @@
         state.deviceId
       ) {
         try {
-          await spotifyApi(
-            `https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`,
-            {
-              method: 'PUT',
-              body: JSON.stringify({
-                uris: [`spotify:track:${expectedSid}`],
-                position_ms: 0,
-              }),
-            }
-          );
+          if (inRestoreSeekWindow && state.restoreSeekTargetMs > 0) {
+            await spotifyApi(
+              `https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`,
+              { method: 'PUT' }
+            );
+          } else {
+            await spotifyApi(
+              `https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`,
+              {
+                method: 'PUT',
+                body: JSON.stringify({
+                  uris: [`spotify:track:${expectedSid}`],
+                  position_ms: 0,
+                }),
+              }
+            );
+          }
         } catch (err) {
           console.warn('Pending-track start kick failed', err);
         }
