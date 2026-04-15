@@ -2334,8 +2334,8 @@
 
         if (
           inRestoreSeekWindow &&
-          state.restoreSeekTargetMs > 2000 &&
-          (playbackState?.position || 0) < 1000
+          state.restoreSeekTargetMs > 0 &&
+          (playbackState?.position || 0) < Math.max(1000, state.restoreSeekTargetMs - 1500)
         ) {
           return;
         }
