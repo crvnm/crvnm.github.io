@@ -828,7 +828,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.13</div>
+          <div class="tiny" id="version-code">Version: 1.14</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -1699,6 +1699,7 @@
         activeTrackRowKey: state.activeTrack ? rowKey(state.activeTrack) : null,
         activeTrackTitle: state.activeTrack?.tm || state.activeTrack?.t || state.activeTrack?.title || '',
         activeTrackArtist: state.activeTrack?.am || state.activeTrack?.a || state.activeTrack?.artist || '',
+        activeTrackArtworkUrl: state.playbackState?.track_window?.current_track?.album?.images?.[0]?.url || null,
         playerVisible: !playerShell.hidden,
         playerMinimized: !!state.isPlayerMinimized,
         playbackPaused: !!state.playbackState?.paused,
@@ -1765,7 +1766,7 @@
         );
 
         setPlayerArtwork(
-          null,
+          saved.activeTrackArtworkUrl || null,
           (restoredTrack.tm || restoredTrack.t || restoredTrack.title || '♪').slice(0, 1).toUpperCase()
         );
 
@@ -1774,20 +1775,20 @@
 
         state.playbackState = {
           ...(state.playbackState || {}),
-          paused: saved.playbackPaused !== false,
+          paused: true,
         };
 
         state.lastPlaybackSnapshot = {
           ...(state.lastPlaybackSnapshot || {}),
-          paused: saved.playbackPaused !== false,
+          paused: true,
           position: restoredPosition,
         };
 
-        state.lastPlaybackTimestamp = Date.now();
+        state.lastPlaybackTimestamp = 0;
 
         setProgress(restoredPosition, restoredDuration);
         updateTogglePlayButton();
-        playerInfo.textContent = saved.playbackPaused !== false ? 'Paused' : 'Ready';
+        playerInfo.textContent = 'Paused';
         playerShell.hidden = false;
         updatePlayerVisibility();
       }
