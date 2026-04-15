@@ -828,7 +828,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.17</div>
+          <div class="tiny" id="version-code">Version: 1.18</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -2031,14 +2031,14 @@
       await state.player.activateElement();
       await transferPlaybackHere();
 
-      if (mustHardReset) {
+      if (mustHardReset && !options.skipInitialSeekReset) {
         try {
-          await spotifyApi(`https://api.spotify.com/v1/me/player/pause?device_id=${encodeURIComponent(state.deviceId)}`, {
+          await new Promise(resolve => setTimeout(resolve, 150));
+          await spotifyApi(`https://api.spotify.com/v1/me/player/seek?position_ms=0&device_id=${encodeURIComponent(state.deviceId)}`, {
             method: 'PUT',
           });
-          state.restoredPlayerStateOnly = false;
         } catch (err) {
-          console.warn('Pause before track switch failed', err);
+          console.warn('Seek reset failed', err);
         }
       }
 
@@ -2062,7 +2062,9 @@
       syncPlayerTitles(row.tm || row.t || row.title || 'Unknown song', row.am || row.a || row.artist || '');
       playerInfo.textContent = 'Playback requested on your Web Playback SDK device.';
       setPlayerArtwork(null, (row.tm || row.t || row.title || '♪').slice(0, 1).toUpperCase());
-      setProgress(0, 0);
+      if (!options.skipInitialSeekReset) {
+        setProgress(0, 0);
+      }
       playerShell.hidden = false;
       updatePlayerVisibility();
     }
@@ -2140,7 +2142,9 @@
       state.restoreSeekTargetMs = restorePosition;
       state.restoreSeekUntil = Date.now() + 2500;
 
-      await recoverDeviceAndRetry(() => playTrack(state.activeTrack, { forceRestart: true }));
+      await recoverDeviceAndRetry(() =>
+        playTrack(state.activeTrack, { forceRestart: true, skipInitialSeekReset: true })
+      );
 
       if (restorePosition > 0 && state.deviceId) {
         try {
