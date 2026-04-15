@@ -3,11 +3,10 @@ Progress:
 Still to spotify:
 
 Partial Spotify:
-
+2009
 
 Spotify done, still to manual:
 1997
-2023
 
 
 Complete:
@@ -24,6 +23,8 @@ Complete:
 2020
 2021
 2022
+2023
+2024
 
 https://open.spotify.com/track/6dbSBQXCctYSVryynHXaZ4?si=23f79c4a6ecf4b40
 
