@@ -828,7 +828,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.14</div>
+          <div class="tiny" id="version-code">Version: 1.15</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -1699,7 +1699,11 @@
         activeTrackRowKey: state.activeTrack ? rowKey(state.activeTrack) : null,
         activeTrackTitle: state.activeTrack?.tm || state.activeTrack?.t || state.activeTrack?.title || '',
         activeTrackArtist: state.activeTrack?.am || state.activeTrack?.a || state.activeTrack?.artist || '',
-        activeTrackArtworkUrl: state.playbackState?.track_window?.current_track?.album?.images?.[0]?.url || null,
+        activeTrackArtworkUrl:
+          state.playbackState?.track_window?.current_track?.album?.images?.[0]?.url ||
+          playerCoverImg.getAttribute('src') ||
+          minibarCoverImg.getAttribute('src') ||
+          null,
         playerVisible: !playerShell.hidden,
         playerMinimized: !!state.isPlayerMinimized,
         playbackPaused: !!state.playbackState?.paused,
@@ -1773,15 +1777,40 @@
         const restoredPosition = Number(saved.playbackPositionMs) || 0;
         const restoredDuration = Number(saved.playbackDurationMs) || 0;
 
+        const restoredTitle =
+          restoredTrack.tm || restoredTrack.t || restoredTrack.title || saved.activeTrackTitle || 'Unknown song';
+
+        const restoredArtist =
+          restoredTrack.am || restoredTrack.a || restoredTrack.artist || saved.activeTrackArtist || '';
+
+        const restoredArtworkUrl = saved.activeTrackArtworkUrl || null;
+
+        const syntheticCurrentTrack = {
+          uri: restoredTrack.sid ? `spotify:track:${restoredTrack.sid}` : undefined,
+          name: restoredTitle,
+          duration_ms: restoredDuration,
+          artists: restoredArtist ? restoredArtist.split(',').map(name => ({ name: name.trim() })) : [],
+          album: {
+            images: restoredArtworkUrl ? [{ url: restoredArtworkUrl }] : [],
+          },
+        };
+
         state.playbackState = {
           ...(state.playbackState || {}),
           paused: true,
+          position: restoredPosition,
+          track_window: {
+            current_track: syntheticCurrentTrack,
+          },
         };
 
         state.lastPlaybackSnapshot = {
           ...(state.lastPlaybackSnapshot || {}),
           paused: true,
           position: restoredPosition,
+          track_window: {
+            current_track: syntheticCurrentTrack,
+          },
         };
 
         state.lastPlaybackTimestamp = 0;
