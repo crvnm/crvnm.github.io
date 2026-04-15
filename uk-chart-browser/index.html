@@ -828,7 +828,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.12</div>
+          <div class="tiny" id="version-code">Version: 1.13</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -2076,32 +2076,7 @@
         (!state.playbackState || state.playbackState.paused);
 
       if (shouldRehydrateRestoredTrack) {
-        const restorePosition = state.lastPlaybackSnapshot?.position || 0;
-
-        await playTrack(state.activeTrack, { forceRestart: true });
-
-        if (restorePosition > 0 && state.deviceId) {
-          try {
-            await spotifyApi(
-              `https://api.spotify.com/v1/me/player/seek?position_ms=${encodeURIComponent(restorePosition)}&device_id=${encodeURIComponent(state.deviceId)}`,
-              { method: 'PUT' }
-            );
-
-            state.lastPlaybackTimestamp = Date.now();
-            if (state.lastPlaybackSnapshot) {
-              state.lastPlaybackSnapshot = {
-                ...state.lastPlaybackSnapshot,
-                position: restorePosition,
-                paused: false,
-              };
-            }
-            refreshProgressFromSnapshot();
-          } catch (err) {
-            console.warn('Restore seek failed', err);
-          }
-        }
-
-        state.restoredPlayerStateOnly = false;
+        await resumeRestoredTrack();
         return;
       }
 
@@ -2110,6 +2085,37 @@
       } else {
         await pausePlayback();
       }
+    }
+
+    async function resumeRestoredTrack() {
+      if (!state.activeTrack) return;
+
+      const restorePosition = state.lastPlaybackSnapshot?.position || 0;
+
+      await recoverDeviceAndRetry(() => playTrack(state.activeTrack, { forceRestart: true }));
+
+      if (restorePosition > 0 && state.deviceId) {
+        try {
+          await spotifyApi(
+            `https://api.spotify.com/v1/me/player/seek?position_ms=${encodeURIComponent(restorePosition)}&device_id=${encodeURIComponent(state.deviceId)}`,
+            { method: 'PUT' }
+          );
+
+          state.lastPlaybackTimestamp = Date.now();
+          if (state.lastPlaybackSnapshot) {
+            state.lastPlaybackSnapshot = {
+              ...state.lastPlaybackSnapshot,
+              position: restorePosition,
+              paused: false,
+            };
+          }
+          refreshProgressFromSnapshot();
+        } catch (err) {
+          console.warn('Restore seek failed', err);
+        }
+      }
+
+      state.restoredPlayerStateOnly = false;
     }
 
     async function restartPlayback() {
@@ -2416,19 +2422,23 @@
 
       if (btn.dataset.action === 'play') {
         try {
-          await recoverDeviceAndRetry(async () => {
-            const currentTrackId = getCurrentTrackId();
-            const isOnlyUiRestoredCurrent =
-              state.restoredPlayerStateOnly &&
-              state.activeTrack &&
-              row.sid === state.activeTrack.sid;
+          const isOnlyUiRestoredCurrent =
+            state.restoredPlayerStateOnly &&
+            state.activeTrack &&
+            row.sid === state.activeTrack.sid;
 
-            if (!isOnlyUiRestoredCurrent && currentTrackId && row.sid === currentTrackId) {
-              await togglePlayback();
-            } else {
-              await playTrack(row);
-            }
-          });
+          if (isOnlyUiRestoredCurrent) {
+            await resumeRestoredTrack();
+          } else {
+            await recoverDeviceAndRetry(async () => {
+              const currentTrackId = getCurrentTrackId();
+              if (currentTrackId && row.sid === currentTrackId) {
+                await togglePlayback();
+              } else {
+                await playTrack(row);
+              }
+            });
+          }
           render();
         } catch (err) {
           alert(err.message || 'Could not start playback.');
@@ -2469,7 +2479,11 @@
     });
     togglePlayBtn.addEventListener('click', async () => {
       try {
-        await recoverDeviceAndRetry(() => togglePlayback());
+        if (state.restoredPlayerStateOnly && state.activeTrack) {
+          await resumeRestoredTrack();
+        } else {
+          await recoverDeviceAndRetry(() => togglePlayback());
+        }
       } catch (err) {
         alert(err.message || 'Could not control playback.');
       }
