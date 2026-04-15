@@ -828,7 +828,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.28-debug</div>
+          <div class="tiny" id="version-code">Version: 1.29-debug</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -2332,6 +2332,14 @@
         };
       }
 
+      debugRestore('resumeRestoredTrack:local-state-updated', {
+        restorePosition,
+        playbackStatePosition: state.playbackState?.position || 0,
+        snapshotPosition: state.lastPlaybackSnapshot?.position || 0,
+        playbackPaused: !!state.playbackState?.paused,
+        snapshotPaused: !!state.lastPlaybackSnapshot?.paused,
+      });
+
       clearPendingRequestedTrack();
       state.restoredPlayerStateOnly = false;
       refreshProgressFromSnapshot();
@@ -2449,11 +2457,18 @@
         updateAuthUi();
       });
       state.player.addListener('player_state_changed', playbackState => {
+        const incomingTrackId = getPlaybackStateTrackId(playbackState);
+        const incomingPosition = playbackState?.position || 0;
+        const incomingPaused = !!playbackState?.paused;
+        const ignoredAsStaleRestore = shouldIgnoreStaleRestoreState(playbackState);
         debugRestore('player_state_changed', {
-          incomingTrackSid: getPlaybackStateTrackId(playbackState),
-          incomingPosition: playbackState?.position || 0,
-          incomingPaused: !!playbackState?.paused,
-          ignoredAsStaleRestore: shouldIgnoreStaleRestoreState(playbackState),
+          incomingTrackId,
+          incomingPosition,
+          incomingPaused,
+          ignoredAsStaleRestore,
+          restoreSeekTrackSid: state.restoreSeekTrackSid,
+          restoreSeekTargetMs: state.restoreSeekTargetMs,
+          restoreSeekUntil: state.restoreSeekUntil,
         });
         const incomingTrackId = getPlaybackStateTrackId(playbackState);
         const incomingPosition = playbackState?.position || 0;
@@ -2499,13 +2514,23 @@
 
         if (shouldIgnoreStaleRestoreState(playbackState)) {
           debugRestore('player_state_changed:ignored-stale-restore', {
-            incomingTrackSid: getPlaybackStateTrackId(playbackState),
-            incomingPosition: playbackState?.position || 0,
-            incomingPaused: !!playbackState?.paused,
+            incomingTrackId,
+            incomingPosition,
+            incomingPaused,
+            restoreSeekTrackSid: state.restoreSeekTrackSid,
+            restoreSeekTargetMs: state.restoreSeekTargetMs,
           });
           return;
         }
 
+
+        debugRestore('player_state_changed:accepted', {
+          incomingTrackId,
+          incomingPosition,
+          incomingPaused,
+          restoreSeekTrackSid: state.restoreSeekTrackSid,
+          restoreSeekTargetMs: state.restoreSeekTargetMs,
+        });
         state.playbackState = playbackState;
         state.lastPlaybackSnapshot = playbackState;
         state.lastPlaybackTimestamp = Date.now();
