@@ -1595,6 +1595,9 @@
         alert('Set SPOTIFY_CLIENT_ID in the HTML first.');
         return;
       }
+
+      saveAppUiStateForRestore();
+
       const verifier = randomString(64);
       const challenge = base64UrlEncode(await sha256(verifier));
       localStorage.setItem('spotify_pkce_verifier', verifier);
@@ -1661,6 +1664,72 @@
       return state.accessToken;
     }
 
+    const APP_STATE_KEY = 'uk_chart_browser_restore_state';
+
+    function saveAppUiStateForRestore() {
+      const payload = {
+        selectedYear: state.selectedYear,
+        selectedPosition: state.selectedPosition,
+        selectedPositionLabel: state.selectedPositionLabel,
+        searchTerm: state.searchTerm,
+        randomPinnedKey: state.randomPinnedKey,
+        visibleRowLimit: state.visibleRowLimit,
+        peakWeekOnly: state.peakWeekOnly,
+        spotifyModalOpen: !spotifyModal.hidden,
+        activeTrackSid: state.activeTrack?.sid || null,
+        savedAt: Date.now(),
+      };
+      sessionStorage.setItem(APP_STATE_KEY, JSON.stringify(payload));
+    }
+
+    function loadAppUiStateForRestore() {
+      try {
+        return JSON.parse(sessionStorage.getItem(APP_STATE_KEY) || 'null');
+      } catch {
+        return null;
+      }
+    }
+
+    function clearAppUiStateRestore() {
+      sessionStorage.removeItem(APP_STATE_KEY);
+    }
+
+    async function restoreAppUiStateAfterLogin() {
+      const saved = loadAppUiStateForRestore();
+      if (!saved) return;
+
+      clearAppUiStateRestore();
+
+      if (saved.selectedYear && state.availableYears.includes(saved.selectedYear)) {
+        state.selectedYear = saved.selectedYear;
+        yearSelect.value = saved.selectedYear;
+        await loadYear(saved.selectedYear);
+      }
+
+      if (saved.selectedPosition) {
+        state.selectedPosition = saved.selectedPosition;
+        positionSelect.value = saved.selectedPosition;
+        state.selectedPositionLabel =
+          saved.selectedPositionLabel ||
+          positionSelect.options[positionSelect.selectedIndex]?.text ||
+          'All Positions';
+      }
+
+      state.searchTerm = saved.searchTerm || '';
+      searchInput.value = state.searchTerm;
+
+      state.randomPinnedKey = saved.randomPinnedKey || null;
+      state.visibleRowLimit = Number(saved.visibleRowLimit) || 150;
+      state.peakWeekOnly = !!saved.peakWeekOnly;
+
+      updatePositionQuickPicks();
+      render();
+
+      if (saved.spotifyModalOpen) {
+        openSpotifyModal();
+      }
+    }
+
     function updateAuthUi() {
       setStatus(authStatus, state.accessToken ? 'Signed in' : 'Not signed in', state.accessToken ? 'ok' : 'warn');
       setStatus(sdkStatus, state.sdkReady ? 'SDK ready' : 'SDK not ready', state.sdkReady ? 'ok' : 'warn');
@@ -1710,7 +1779,9 @@
 
         const rebuilt = await rebuildSpotifyPlayer();
         if (!rebuilt) {
-          throw new Error('Spotify device could not be restored. Tap Spotify Login if needed.');
+          saveAppUiStateForRestore();
+          await startLogin();
+          return;
         }
 
         try {
@@ -1718,7 +1789,9 @@
         } catch (retryErr) {
           const retryMessage = String(retryErr?.message || retryErr || '');
           if (/device not found/i.test(retryMessage)) {
-            throw new Error('Spotify device was lost after unlock. Tap Spotify Login once, then try again.');
+            saveAppUiStateForRestore();
+            await startLogin();
+            return;
           }
           throw retryErr;
         }
@@ -2120,6 +2193,7 @@
         if (code) await exchangeCodeForToken(code);
         updateAuthUi();
         await setupSpotifyPlayer();
+        await restoreAppUiStateAfterLogin();
       })();
 
       try {
