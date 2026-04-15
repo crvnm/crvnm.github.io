@@ -828,7 +828,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.20</div>
+          <div class="tiny" id="version-code">Version: 1.21</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -2161,46 +2161,57 @@
     }
 
     async function resumeRestoredTrack() {
-      if (!state.activeTrack) return;
+      if (!state.activeTrack?.sid || !state.deviceId) return;
 
-      const restorePosition = state.lastPlaybackSnapshot?.position || 0;
-      state.restoreSeekTrackSid = state.activeTrack?.sid || null;
+      const restorePosition = Math.max(0, state.lastPlaybackSnapshot?.position || 0);
+      const trackSid = state.activeTrack.sid;
+
+      state.restoreSeekTrackSid = trackSid;
       state.restoreSeekTargetMs = restorePosition;
-      state.restoreSeekUntil = Date.now() + 2500;
+      state.restoreSeekUntil = Date.now() + 5000;
+      state.pendingRequestedTrackSid = trackSid;
+      state.pendingRequestedAt = Date.now();
 
-      await recoverDeviceAndRetry(() =>
-        playTrack(state.activeTrack, { forceRestart: true, skipInitialSeekReset: true })
-      );
+      await recoverDeviceAndRetry(async () => {
+        await state.player.activateElement();
+        await transferPlaybackHere();
 
-      if (restorePosition > 0 && state.deviceId) {
-        try {
-          await spotifyApi(
-            `https://api.spotify.com/v1/me/player/seek?position_ms=${encodeURIComponent(restorePosition)}&device_id=${encodeURIComponent(state.deviceId)}`,
-            { method: 'PUT' }
-          );
-
-          state.lastPlaybackTimestamp = Date.now();
-          if (state.lastPlaybackSnapshot) {
-            state.lastPlaybackSnapshot = {
-              ...state.lastPlaybackSnapshot,
-              position: restorePosition,
-              paused: false,
-            };
+        await spotifyApi(
+          `https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`,
+          {
+            method: 'PUT',
+            body: JSON.stringify({
+              uris: [`spotify:track:${trackSid}`],
+              position_ms: restorePosition,
+            }),
           }
-          refreshProgressFromSnapshot();
-        } catch (err) {
-          console.warn('Restore seek failed', err);
-        }
+        );
+      });
+
+      state.lastPlaybackTimestamp = Date.now();
+      if (state.lastPlaybackSnapshot) {
+        state.lastPlaybackSnapshot = {
+          ...state.lastPlaybackSnapshot,
+          position: restorePosition,
+          paused: false,
+        };
+      }
+      if (state.playbackState) {
+        state.playbackState = {
+          ...state.playbackState,
+          position: restorePosition,
+          paused: false,
+        };
       }
 
-      
+      refreshProgressFromSnapshot();
+
       setTimeout(() => {
         state.restoreSeekTrackSid = null;
         state.restoreSeekTargetMs = 0;
         state.restoreSeekUntil = 0;
-      }, 2500);
-      state.restoredPlayerStateOnly = false;
-
+        state.restoredPlayerStateOnly = false;
+      }, 5000);
     }
 
     async function restartPlayback() {
