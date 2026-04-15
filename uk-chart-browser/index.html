@@ -828,7 +828,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.19</div>
+          <div class="tiny" id="version-code">Version: 1.20</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -1841,6 +1841,21 @@
       }
     }
 
+    function shouldIgnoreStaleRestoreState(playbackState) {
+      const incomingTrackId = getPlaybackStateTrackId(playbackState);
+      const incomingPosition = playbackState?.position || 0;
+
+      const inRestoreSeekWindow =
+        state.restoreSeekTrackSid &&
+        incomingTrackId === state.restoreSeekTrackSid &&
+        Date.now() < state.restoreSeekUntil;
+
+      if (!inRestoreSeekWindow) return false;
+      if ((state.restoreSeekTargetMs || 0) < 2000) return false;
+
+      return incomingPosition < 1000;
+    }
+
     function updateAuthUi() {
       setStatus(authStatus, state.accessToken ? 'Signed in' : 'Not signed in', state.accessToken ? 'ok' : 'warn');
       setStatus(sdkStatus, state.sdkReady ? 'SDK ready' : 'SDK not ready', state.sdkReady ? 'ok' : 'warn');
@@ -2178,12 +2193,13 @@
         }
       }
 
-      state.restoredPlayerStateOnly = false;
+      
       setTimeout(() => {
         state.restoreSeekTrackSid = null;
         state.restoreSeekTargetMs = 0;
         state.restoreSeekUntil = 0;
       }, 2500);
+      state.restoredPlayerStateOnly = false;
 
     }
 
@@ -2315,6 +2331,10 @@
           incomingTrackId &&
           incomingTrackId !== pendingTrackId
         ) {
+          return;
+        }
+
+        if (shouldIgnoreStaleRestoreState(playbackState)) {
           return;
         }
 
