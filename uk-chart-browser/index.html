@@ -828,7 +828,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.24</div>
+          <div class="tiny" id="version-code">Version: 1.26</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -1492,7 +1492,7 @@
     }
 
     async function normalizePendingTrackStart(expectedSid) {
-      if (state.restoredPlayerStateOnly) return;
+      if (state.restoredPlayerStateOnly || state.restoreSeekTrackSid) return;
 
       await new Promise(resolve => setTimeout(resolve, 500));
       await ensurePendingTrackIsActuallyPlaying();
@@ -2101,6 +2101,7 @@
     }
 
     async function ensurePendingTrackIsActuallyPlaying() {
+      if (state.restoreSeekTrackSid || state.restoredPlayerStateOnly) return;
       const expectedSid = state.pendingRequestedTrackSid;
       const actualSid = getCurrentTrackId();
       const { position } = getDerivedPlaybackPosition();
@@ -2149,6 +2150,10 @@
 
     async function pausePlayback() {
       clearPendingRequestedTrack();
+      state.restoreSeekTrackSid = null;
+      state.restoreSeekTargetMs = 0;
+      state.restoreSeekUntil = 0;
+      state.restoredPlayerStateOnly = false;
       await spotifyApi('https://api.spotify.com/v1/me/player/pause', { method: 'PUT' });
     }
     async function resumePlayback() {
@@ -2221,6 +2226,7 @@
       }
 
       clearPendingRequestedTrack();
+      state.restoredPlayerStateOnly = false;
       refreshProgressFromSnapshot();
       updateTogglePlayButton();
 
@@ -2228,7 +2234,6 @@
         state.restoreSeekTrackSid = null;
         state.restoreSeekTargetMs = 0;
         state.restoreSeekUntil = 0;
-        state.restoredPlayerStateOnly = false;
       }, 5000);
     }
 
