@@ -956,12 +956,13 @@
       loadYearRequestId: 0,
       marqueeResizeObserver: null,
       currentTrackSid: null,
+      restoredPlayerStateOnly: false,
       pendingRequestedTrackSid: null,
       pendingRequestedAt: 0,
       visibleRowLimit: 150,
       peakWeekOnly: false,
       randomActionInFlight: false,
-      transientNoticeTimer: null,
+      transientNoticeTimer: null
     };
 
     function qs(name) { return new URLSearchParams(window.location.search).get(name); }
@@ -1225,6 +1226,22 @@
       return [row.w || row.weekEnding || '', row.sid || '', row.tm || row.t || row.title || '', row.am || row.a || row.artist || '', row.__position || ''].join('|');
     }
 
+    function findRowBySavedState(saved) {
+      const rows = getRowsForSelectedPosition();
+
+      if (saved.activeTrackRowKey) {
+        const byRowKey = rows.find(row => rowKey(row) === saved.activeTrackRowKey);
+        if (byRowKey) return byRowKey;
+      }
+
+      if (saved.activeTrackSid) {
+        const bySid = rows.find(row => row.sid === saved.activeTrackSid);
+        if (bySid) return bySid;
+      }
+
+      return null;
+    }
+
     function parseSearchFilters(rawTerm) {
       const source = String(rawTerm || '').trim();
       if (!source) return { textTerm: '', yearStart: null, yearEnd: null };
@@ -1446,22 +1463,6 @@
         : rows.filter(row => rowMatchesSearchFilters(row, filters));
 
       return state.peakWeekOnly ? reduceRowsToPeakWeek(filteredRows) : filteredRows;
-    }
-
-    function findRowBySavedState(saved) {
-      const rows = getRowsForSelectedPosition();
-
-      if (saved.activeTrackRowKey) {
-        const byRowKey = rows.find(row => rowKey(row) === saved.activeTrackRowKey);
-        if (byRowKey) return byRowKey;
-      }
-
-      if (saved.activeTrackSid) {
-        const bySid = rows.find(row => row.sid === saved.activeTrackSid);
-        if (bySid) return bySid;
-      }
-
-      return null;
     }
 
     function formatFilterSummary() {
@@ -1755,13 +1756,17 @@
         state.activeTrack = restoredTrack;
         state.isPlayerMinimized = !!saved.playerMinimized;
         state.currentTrackSid = restoredTrack.sid || null;
+        state.restoredPlayerStateOnly = true;
 
         syncPlayerTitles(
           restoredTrack.tm || restoredTrack.t || restoredTrack.title || saved.activeTrackTitle || 'Unknown song',
           restoredTrack.am || restoredTrack.a || restoredTrack.artist || saved.activeTrackArtist || ''
         );
 
-        setPlayerArtwork(null, (restoredTrack.tm || restoredTrack.t || restoredTrack.title || '♪').slice(0, 1).toUpperCase());
+        setPlayerArtwork(
+          null,
+          (restoredTrack.tm || restoredTrack.t || restoredTrack.title || '♪').slice(0, 1).toUpperCase()
+        );
 
         const restoredPosition = Number(saved.playbackPositionMs) || 0;
         const restoredDuration = Number(saved.playbackDurationMs) || 0;
@@ -1776,6 +1781,7 @@
           paused: saved.playbackPaused !== false,
           position: restoredPosition,
         };
+
         state.lastPlaybackTimestamp = Date.now();
 
         setProgress(restoredPosition, restoredDuration);
@@ -1985,6 +1991,7 @@
       const mustHardReset = isSwitchingTrack || options.forceRestart;
 
       state.activeTrack = row;
+      state.restoredPlayerStateOnly = false;
       state.pendingRequestedTrackSid = row.sid;
       state.pendingRequestedAt = Date.now();
 
@@ -2060,10 +2067,50 @@
       if (!state.deviceId) return;
       await spotifyApi(`https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`, { method: 'PUT' });
     }
+
     async function togglePlayback() {
-      if (!state.playbackState || state.playbackState.paused) await resumePlayback();
-      else await pausePlayback();
+      const shouldRehydrateRestoredTrack =
+        state.restoredPlayerStateOnly &&
+        state.activeTrack &&
+        (!state.playbackState || state.playbackState.paused);
+
+      if (shouldRehydrateRestoredTrack) {
+        const restorePosition = state.lastPlaybackSnapshot?.position || 0;
+
+        await playTrack(state.activeTrack, { forceRestart: true });
+
+        if (restorePosition > 0 && state.deviceId) {
+          try {
+            await spotifyApi(
+              `https://api.spotify.com/v1/me/player/seek?position_ms=${encodeURIComponent(restorePosition)}&device_id=${encodeURIComponent(state.deviceId)}`,
+              { method: 'PUT' }
+            );
+
+            state.lastPlaybackTimestamp = Date.now();
+            if (state.lastPlaybackSnapshot) {
+              state.lastPlaybackSnapshot = {
+                ...state.lastPlaybackSnapshot,
+                position: restorePosition,
+                paused: false,
+              };
+            }
+            refreshProgressFromSnapshot();
+          } catch (err) {
+            console.warn('Restore seek failed', err);
+          }
+        }
+
+        state.restoredPlayerStateOnly = false;
+        return;
+      }
+
+      if (!state.playbackState || state.playbackState.paused) {
+        await resumePlayback();
+      } else {
+        await pausePlayback();
+      }
     }
+
     async function restartPlayback() {
       if (!state.activeTrack || !state.deviceId) return;
       await spotifyApi(`https://api.spotify.com/v1/me/player/seek?position_ms=0&device_id=${encodeURIComponent(state.deviceId)}`, { method: 'PUT' });
@@ -2398,6 +2445,7 @@
       state.lastPlaybackSnapshot = null;
       state.lastPlaybackTimestamp = 0;
       state.currentTrackSid = null;
+      state.restoredPlayerStateOnly = false;
       state.pendingRequestedTrackSid = null;
       state.pendingRequestedAt = 0;
       stopProgressTimer();
@@ -2455,7 +2503,7 @@
       if (!state.deviceId) return;
       event.preventDefault();
       try {
-        await togglePlayback();
+        await recoverDeviceAndRetry(() => togglePlayback());
       } catch (err) {
         console.error(err);
       }
