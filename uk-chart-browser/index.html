@@ -1713,7 +1713,15 @@
           throw new Error('Spotify device could not be restored. Tap Spotify Login if needed.');
         }
 
-        return await action();
+        try {
+          return await action();
+        } catch (retryErr) {
+          const retryMessage = String(retryErr?.message || retryErr || '');
+          if (/device not found/i.test(retryMessage)) {
+            throw new Error('Spotify device was lost after unlock. Tap Spotify Login once, then try again.');
+          }
+          throw retryErr;
+        }
       }
     }
 
@@ -1817,7 +1825,7 @@
         method: 'PUT',
         body: JSON.stringify({ device_ids: [state.deviceId], play: false })
       });
-      setStatus(deviceStatus, `Device ready: ${state.deviceId.slice(0, 8)}…`, 'ok');
+      setStatus(deviceStatus, `Device ready`, 'ok');
     }
 
     async function playTrack(row, options = {}) {
@@ -2087,7 +2095,9 @@
       state.player.addListener('initialization_error', ({ message }) => { alert(`Spotify init error: ${message}`); });
       state.player.addListener('authentication_error', ({ message }) => { alert(`Spotify auth error: ${message}`); });
       state.player.addListener('account_error', ({ message }) => { alert(`Spotify account error: ${message}`); });
-      state.player.addListener('playback_error', ({ message }) => { alert(`Spotify playback error: ${message}`); });
+      state.player.addListener('playback_error', ({ message }) => {
+        showTransientSummaryNotice(`Spotify playback error: ${message}`, 3000);
+      });
 
       const connected = await state.player.connect();
       state.sdkReady = !!connected;
