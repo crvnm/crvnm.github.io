@@ -828,7 +828,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.45</div>
+          <div class="tiny" id="version-code">Version: 1.46</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -2624,7 +2624,7 @@
         state.playbackState = playbackState;
         state.lastPlaybackSnapshot = playbackState;
         state.lastPlaybackTimestamp = Date.now();
-        updateTogglePlayButton();
+        if (!inPendingWindow || !incomingPaused) updateTogglePlayButton();
 
         if (!playbackState) {
           stopProgressTimer();
@@ -2654,8 +2654,8 @@
             state.pendingRequestedAt = 0;
           }
 
-          if (playbackState.paused) stopProgressTimer();
-          else startProgressTimer();
+          if (playbackState.paused && !inPendingWindow) stopProgressTimer();
+          else if (!playbackState.paused) startProgressTimer();
         }
 
         render();
