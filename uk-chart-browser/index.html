@@ -828,7 +828,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.37-debug</div>
+          <div class="tiny" id="version-code">Version: 1.38-debug</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -970,6 +970,7 @@
       transientNoticeTimer: null,
       pageHiddenAt: 0,
       positionAtPageHide: 0,
+      durationAtPageHide: 0,
       trackSidAtPageHide: null,
     };
 
@@ -1780,6 +1781,7 @@
           state.lastPlaybackSnapshot?.track_window?.current_track?.duration_ms ||
           0,
         positionAtPageHide: state.positionAtPageHide || 0,
+        durationAtPageHide: state.durationAtPageHide || 0,
         savedAt: Date.now(),
       };
       debugRestore('saveAppUiStateForRestore', payload);
@@ -1848,7 +1850,7 @@
         );
 
         const restoredPosition = Number(saved.playbackPositionMs) || Number(saved.positionAtPageHide) || 0;
-        const restoredDuration = Number(saved.playbackDurationMs) || 0;
+        const restoredDuration = Number(saved.playbackDurationMs) || Number(saved.durationAtPageHide) || 0;
 
         const restoredTitle =
           restoredTrack.tm || restoredTrack.t || restoredTrack.title || saved.activeTrackTitle || 'Unknown song';
@@ -2895,16 +2897,18 @@
       if (document.visibilityState === 'hidden') {
         // Snapshot the current position and track so we can detect and repair
         // the SDK's position=0 reconnect event when the page becomes visible again.
-        const { position } = getDerivedPlaybackPosition();
+        const { position, duration } = getDerivedPlaybackPosition();
         const trackSid = getCurrentTrackId();
         state.pageHiddenAt = Date.now();
         state.positionAtPageHide = position;
+        state.durationAtPageHide = duration;
         state.trackSidAtPageHide = trackSid || null;
-        debugRestore('visibilitychange:hidden', { position, trackSid });
+        debugRestore('visibilitychange:hidden', { position, duration, trackSid });
       } else {
         debugRestore('visibilitychange:visible', {
           pageHiddenAt: state.pageHiddenAt,
           positionAtPageHide: state.positionAtPageHide,
+          durationAtPageHide: state.durationAtPageHide,
           trackSidAtPageHide: state.trackSidAtPageHide,
         });
       }
