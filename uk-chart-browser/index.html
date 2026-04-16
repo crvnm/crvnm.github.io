@@ -828,7 +828,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.47</div>
+          <div class="tiny" id="version-code">Version: 1.48</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -1400,9 +1400,9 @@
         const pos = Number(row.__position);
         if (!Number.isFinite(pos)) continue;
 
-        const currentBest = peakMap.get(key);
-        if (currentBest == null || pos < currentBest) {
-          peakMap.set(key, pos);
+        const current = peakMap.get(key);
+        if (current == null || pos < current.pos) {
+          peakMap.set(key, { pos, week: row.w || row.weekEnding || null });
         }
       }
 
@@ -2410,12 +2410,16 @@
         const song = escapeHtml(row.tm || row.t || row.title || 'Unknown song');
         const artist = escapeHtml(row.am || row.a || row.artist || 'Unknown artist');
         const week = escapeHtml(formatWeek(row.w || row.weekEnding));
-        const lastWeek = row.lw ?? '–';
+        const lastWeek = row.lw != null && row.lw !== '' ? escapeHtml(ordinal(row.lw)) : '–';
         const trackKey = getTrackGroupKey(row);
         const overallPeak = trackKey ? overallPeakMap.get(trackKey) : null;
-        const peak = overallPeak != null ? ordinal(overallPeak) : (row.pk ?? '–');
+        const peakPos = overallPeak != null ? overallPeak.pos : (row.pk ?? null);
+        const peakWeekDate = overallPeak?.week || null;
+        const peakLabel = peakPos != null
+          ? (peakWeekDate ? `${escapeHtml(ordinal(peakPos))} (${escapeHtml(formatWeek(peakWeekDate))})` : escapeHtml(ordinal(peakPos)))
+          : '–';
         const weeksOnChart = row.wc ?? '–';
-        const positionPill = row.__position ? `<div class="pill">Position: ${escapeHtml(ordinal(row.__position))}</div>` : '';
+        const positionPill = row.__position ? `<div class="pill">This week: ${escapeHtml(ordinal(row.__position))}</div>` : '';
         const hasSpotify = !!row.sid;
         const isCurrent = currentTrackId && row.sid === currentTrackId;
 
@@ -2434,8 +2438,8 @@
             </div>
             <div class="meta">
               ${(state.selectedPosition === 'ALL' || state.selectedPosition === 'TOP_10' || state.selectedPosition === 'TOP_5') ? positionPill : ''}
-              <div class="pill">Last week: ${escapeHtml(lastWeek)}</div>
-              <div class="pill">Peak: ${escapeHtml(peak)}</div>
+              <div class="pill">Last week: ${lastWeek}</div>
+              <div class="pill">Peak: ${peakLabel}</div>
               <div class="pill">Weeks on chart: ${escapeHtml(weeksOnChart)}</div>
             </div>
           </article>
