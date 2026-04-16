@@ -828,7 +828,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.46</div>
+          <div class="tiny" id="version-code">Version: 1.47</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -2648,7 +2648,8 @@
           if (
             inPendingWindow &&
             pendingTrackId &&
-            incomingTrackId === pendingTrackId
+            incomingTrackId === pendingTrackId &&
+            !incomingPaused
           ) {
             state.pendingRequestedTrackSid = null;
             state.pendingRequestedAt = 0;
