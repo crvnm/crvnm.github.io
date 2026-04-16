@@ -935,7 +935,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.57</div>
+          <div class="tiny" id="version-code">Version: 1.58</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -2227,6 +2227,16 @@
       state.activeTrack = row;
       state.pendingRequestedTrackSid = row.sid;
       state.pendingRequestedAt = Date.now();
+
+      // Reset local position estimate immediately on track switch so the
+      // progress timer doesn't drift from the previous track's position
+      // while waiting for the first SDK event on the new track.
+      if (mustHardReset) {
+        if (state.lastPlaybackSnapshot) {
+          state.lastPlaybackSnapshot = { ...state.lastPlaybackSnapshot, position: 0, paused: false };
+        }
+        state.lastPlaybackTimestamp = Date.now();
+      }
 
       await state.player.activateElement();
       await transferPlaybackHere();
