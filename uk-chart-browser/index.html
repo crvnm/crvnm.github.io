@@ -828,7 +828,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.41</div>
+          <div class="tiny" id="version-code">Version: 1.42</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -1899,7 +1899,7 @@
           restoredDuration,
         });
         updateTogglePlayButton();
-        playerInfo.textContent = 'Paused';
+        playerInfo.textContent = saved.intentToPlay ? 'Tap play to resume.' : 'Paused';
         playerShell.hidden = false;
         updatePlayerVisibility();
       }
@@ -1909,12 +1909,14 @@
       }
 
       if (saved.intentToPlay && state.activeTrack && state.restoredPlayerStateOnly) {
-        debugRestore('restoreAppUiStateAfterLogin:autoplay');
-        // User pressed play before the OAuth redirect — carry that intent through.
-        // Wait for the device to be ready first (it may still be registering).
+        debugRestore('restoreAppUiStateAfterLogin:autoplay-pending');
         waitForDeviceReady(8000).then(ready => {
           if (ready && state.restoredPlayerStateOnly && state.activeTrack) {
-            resumeRestoredTrack().catch(err => console.warn('Autoplay after restore failed', err));
+            // Skip activateElement — on a fresh page load after OAuth redirect the
+            // Spotify REST API call works fine without it, and activateElement
+            // requires a user gesture which we don't have here.
+            resumeRestoredTrack({ skipActivateElement: true })
+              .catch(err => console.warn('Autoplay after restore failed', err));
           }
         });
       }
@@ -2284,7 +2286,7 @@
       }
     }
 
-    async function resumeRestoredTrack() {
+    async function resumeRestoredTrack(options = {}) {
       debugRestore('resumeRestoredTrack:start');
 
       if (!state.activeTrack?.sid || !state.deviceId) {
@@ -2310,7 +2312,9 @@
 
         await recoverDeviceAndRetry(async () => {
           debugRestore('resumeRestoredTrack:before-activateElement', { restorePosition, trackSid });
-          await state.player.activateElement();
+          if (!options.skipActivateElement) {
+            await state.player.activateElement();
+          }
 
           debugRestore('resumeRestoredTrack:before-transferPlaybackHere', { restorePosition, trackSid });
           await transferPlaybackHere();
@@ -2659,7 +2663,13 @@
         render();
       });
       state.player.addListener('autoplay_failed', () => {
-        alert('Spotify playback was blocked by the browser. Tap Play again.');
+        // The SDK fires this when its internal audio context is blocked on a fresh
+        // page load (e.g. after an OAuth redirect). It doesn't mean playback is
+        // broken — the user tapping play will work fine. Only show a notice if
+        // we're not already expecting the user to tap play themselves.
+        if (!state.restoredPlayerStateOnly) {
+          showTransientSummaryNotice('Tap play to resume.', 4000);
+        }
       });
       state.player.addListener('initialization_error', ({ message }) => { alert(`Spotify init error: ${message}`); });
       state.player.addListener('authentication_error', ({ message }) => { alert(`Spotify auth error: ${message}`); });
