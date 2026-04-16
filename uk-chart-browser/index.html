@@ -935,7 +935,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.33-debug</div>
+          <div class="tiny" id="version-code">Version: 1.56</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -2291,17 +2291,6 @@
 
       await state.player.activateElement();
       await transferPlaybackHere();
-
-      if (mustHardReset && !options.skipInitialSeekReset) {
-        try {
-          await new Promise(resolve => setTimeout(resolve, 150));
-          await spotifyApi(`https://api.spotify.com/v1/me/player/seek?position_ms=0&device_id=${encodeURIComponent(state.deviceId)}`, {
-            method: 'PUT',
-          });
-        } catch (err) {
-          console.warn('Seek reset failed', err);
-        }
-      }
 
       await spotifyApi(`https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`, {
         method: 'PUT',
