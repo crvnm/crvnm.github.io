@@ -322,6 +322,7 @@
       flex-wrap: nowrap;
       gap: 6px;
       overflow: hidden;
+      align-items: stretch;
     }
 
     .pill {
@@ -334,8 +335,10 @@
       font-size: 12px;
       display: flex;
       flex-direction: column;
+      align-items: center;
       gap: 2px;
       overflow: hidden;
+      text-align: center;
     }
 
     .pill-label {
@@ -353,6 +356,16 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      max-width: 100%;
+    }
+
+    .pill-date {
+      font-size: 10px;
+      color: var(--muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
     }
 
     button {
@@ -902,7 +915,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.52</div>
+          <div class="tiny" id="version-code">Version: 1.53</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -2492,9 +2505,9 @@
         const overallPeak = trackKey ? overallPeakMap.get(trackKey) : null;
         const peakPos = overallPeak != null ? overallPeak.pos : (row.pk ?? null);
         const peakWeekDate = overallPeak?.week || null;
-        const peakLabel = peakPos != null
-          ? (peakWeekDate ? `${escapeHtml(ordinal(peakPos))} (${escapeHtml(formatWeek(peakWeekDate))})` : escapeHtml(ordinal(peakPos)))
-          : '–';
+        const peakWeekFormatted = peakWeekDate ? escapeHtml(formatWeek(peakWeekDate)) : null;
+        const peakPosLabel = peakPos != null ? escapeHtml(ordinal(peakPos)) : '–';
+        const peakPill = `<div class="pill pill-peak"><span class="pill-label">Peak</span><span class="pill-value">${peakPosLabel}</span>${peakWeekFormatted ? `<span class="pill-date">${peakWeekFormatted}</span>` : ''}</div>`;
         const positionPill = row.__position ? `<div class="pill"><span class="pill-label">This week</span><span class="pill-value">${escapeHtml(ordinal(row.__position))}</span></div>` : '';
         const hasSpotify = !!row.sid;
         const isCurrent = currentTrackId && row.sid === currentTrackId;
@@ -2514,8 +2527,8 @@
             </div>
             <div class="meta">
               ${(state.selectedPosition === 'ALL' || state.selectedPosition === 'TOP_10' || state.selectedPosition === 'TOP_5') ? positionPill : ''}
+              ${peakPill}
               <div class="pill"><span class="pill-label">Last week</span><span class="pill-value">${lastWeek}</span></div>
-              <div class="pill"><span class="pill-label">Peak</span><span class="pill-value">${peakLabel}</span></div>
             </div>
           </article>
         `;
