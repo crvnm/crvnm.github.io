@@ -828,7 +828,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.43</div>
+          <div class="tiny" id="version-code">Version: 1.44</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -1579,21 +1579,21 @@
 
       setRandomButtonsBusy(true);
       try {
-        await withSingleRetry(async () => {
-          const candidateRows = getRowsForCurrentFilter();
-          const chosen = pickRandomItem(candidateRows);
-          if (!chosen) {
-            throw new Error('No songs available for the current filters.');
-          }
-          state.randomPinnedKey = rowKey(chosen);
-          render();
-          if (chosen.sid) {
+        const candidateRows = getRowsForCurrentFilter();
+        const chosen = pickRandomItem(candidateRows);
+        if (!chosen) {
+          throw new Error('No songs available for the current filters.');
+        }
+        state.randomPinnedKey = rowKey(chosen);
+        render();
+        if (chosen.sid) {
+          await withSingleRetry(async () => {
             await recoverDeviceAndRetry(() => playTrack(chosen));
             await new Promise(resolve => setTimeout(resolve, 500));
             await ensurePendingTrackIsActuallyPlaying();
             await normalizePendingTrackStart(chosen.sid);
-          }
-        });
+          });
+        }
       } catch (err) {
         console.error('Random current failed', err);
         showTransientSummaryNotice(err.message || 'Could not load a random chart entry. Please try again.');
@@ -1607,38 +1607,38 @@
 
       setRandomButtonsBusy(true);
       try {
-        await withSingleRetry(async () => {
-          const candidateYears = state.availableYears.filter(y => y !== 'ALL');
-          if (!candidateYears.length) throw new Error('No years available.');
+        const candidateYears = state.availableYears.filter(y => y !== 'ALL');
+        if (!candidateYears.length) throw new Error('No years available.');
 
-          const year = pickRandomItem(candidateYears);
-          state.selectedYear = year;
-          yearSelect.value = year;
-          await loadYear(year);
+        const year = pickRandomItem(candidateYears);
+        state.selectedYear = year;
+        yearSelect.value = year;
+        await loadYear(year);
 
-          const positions = Object.keys(state.currentYearData?.positions || {});
-          const position = pickRandomItem(positions);
-          state.selectedPosition = position || state.selectedPosition;
-          positionSelect.value = state.selectedPosition;
-          state.selectedPositionLabel = positionSelect.options[positionSelect.selectedIndex]?.text || 'All Positions';
-          state.searchTerm = '';
-          state.randomPinnedKey = null;
-          searchInput.value = '';
-          render();
+        const positions = Object.keys(state.currentYearData?.positions || {});
+        const position = pickRandomItem(positions);
+        state.selectedPosition = position || state.selectedPosition;
+        positionSelect.value = state.selectedPosition;
+        state.selectedPositionLabel = positionSelect.options[positionSelect.selectedIndex]?.text || 'All Positions';
+        state.searchTerm = '';
+        state.randomPinnedKey = null;
+        searchInput.value = '';
+        render();
 
-          const candidateRows = getRowsForCurrentFilter();
-          const chosen = pickRandomItem(candidateRows);
-          if (!chosen) throw new Error('Could not load a random chart entry. Please try again.');
+        const candidateRows = getRowsForCurrentFilter();
+        const chosen = pickRandomItem(candidateRows);
+        if (!chosen) throw new Error('Could not load a random chart entry. Please try again.');
 
-          state.randomPinnedKey = rowKey(chosen);
-          render();
-          if (chosen.sid) {
+        state.randomPinnedKey = rowKey(chosen);
+        render();
+        if (chosen.sid) {
+          await withSingleRetry(async () => {
             await recoverDeviceAndRetry(() => playTrack(chosen));
             await new Promise(resolve => setTimeout(resolve, 500));
             await ensurePendingTrackIsActuallyPlaying();
             await normalizePendingTrackStart(chosen.sid);
-          }
-        });
+          });
+        }
       } catch (err) {
         console.error('Random all failed', err);
         showTransientSummaryNotice(err.message || 'Could not load a random chart entry. Please try again.');
