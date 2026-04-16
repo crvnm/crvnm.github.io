@@ -332,6 +332,11 @@
       outline: none;
     }
 
+    .artist-sep {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
     .meta {
       display: flex;
       flex-wrap: nowrap;
@@ -930,7 +935,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.54</div>
+          <div class="tiny" id="version-code">Version: 1.55</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -1366,7 +1371,40 @@
       }
     }
 
-    function pickRandomItem(items) {
+    function splitArtists(artistStr) {
+      if (!artistStr) return [];
+      // Split on common separators, capturing the separator so we can render it
+      const parts = artistStr.split(/(\s*,\s*|\s+ft\.\s+|\s+feat\.\s+|\s+featuring\s+|\s*\/\s*)/i);
+      const result = [];
+      for (let i = 0; i < parts.length; i++) {
+        const part = parts[i].trim();
+        if (!part) continue;
+        // Odd indices are separators — check if it's a named separator or just punctuation
+        if (i % 2 === 1) {
+          // Normalise the separator for display
+          const sep = parts[i];
+          if (/ft\.|feat\.|featuring/i.test(sep)) {
+            result.push({ type: 'sep', text: ' ft. ' });
+          } else if (/\//.test(sep)) {
+            result.push({ type: 'sep', text: ' / ' });
+          } else {
+            result.push({ type: 'sep', text: ', ' });
+          }
+        } else {
+          result.push({ type: 'artist', name: part });
+        }
+      }
+      return result;
+    }
+
+    function renderArtistLine(artistStr, index) {
+      const parts = splitArtists(artistStr);
+      if (!parts.length) return '';
+      return parts.map(part => {
+        if (part.type === 'sep') return `<span class="artist-sep">${escapeHtml(part.text)}</span>`;
+        return `<button class="artist-btn" data-action="artist" data-index="${index}" data-artist="${escapeHtml(part.name)}">${escapeHtml(part.name)}</button>`;
+      }).join('');
+    }
       if (!items.length) return null;
       return items[Math.floor(Math.random() * items.length)];
     }
@@ -2533,7 +2571,7 @@
               <div class="topline-main">
                 <div class="week">📅 ${week}</div>
                 <div class="song">${song}</div>
-                <p class="artist"><button class="artist-btn" data-action="artist" data-index="${index}">${artist}</button></p>
+                <p class="artist">${renderArtistLine(row.am || row.a || row.artist || '', index)}</p>
               </div>
               <div class="row-actions-inline">
                 <button class="btn-primary icon-action" data-action="play" data-index="${index}" ${hasSpotify ? '' : 'disabled'} aria-label="Play or pause track">${isCurrent && !isPaused ? '❚❚' : '▶'}</button>
@@ -2921,7 +2959,7 @@
       if (!row) return;
 
       if (btn.dataset.action === 'artist') {
-        const artistName = row.am || row.a || row.artist || '';
+        const artistName = btn.dataset.artist || row.am || row.a || row.artist || '';
         if (!artistName) return;
         state.searchTerm = artistName;
         searchInput.value = artistName;
