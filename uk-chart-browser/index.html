@@ -935,7 +935,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.55</div>
+          <div class="tiny" id="version-code">Version: 1.33-debug</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -1405,6 +1405,8 @@
         return `<button class="artist-btn" data-action="artist" data-index="${index}" data-artist="${escapeHtml(part.name)}">${escapeHtml(part.name)}</button>`;
       }).join('');
     }
+
+    function pickRandomItem(items) {
       if (!items.length) return null;
       return items[Math.floor(Math.random() * items.length)];
     }
