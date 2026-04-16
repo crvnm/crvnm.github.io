@@ -828,7 +828,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.40</div>
+          <div class="tiny" id="version-code">Version: 1.41</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -972,7 +972,44 @@
       positionAtPageHide: 0,
       durationAtPageHide: 0,
       trackSidAtPageHide: null,
+      intentToPlay: false,
     };
+
+    const DEBUG_RESTORE = true;
+    window.__ukRestoreDebugLog = window.__ukRestoreDebugLog || [];
+
+    function getDebugStateSnapshot(extra = {}) {
+      const derived = getDerivedPlaybackPosition ? getDerivedPlaybackPosition() : { position: 0, duration: 0 };
+      return {
+        ts: new Date().toISOString(),
+        activeTrackSid: state.activeTrack?.sid || null,
+        currentTrackSid: state.currentTrackSid || null,
+        playbackStateTrackSid: getPlaybackStateTrackId ? getPlaybackStateTrackId(state.playbackState) : null,
+        restoredPlayerStateOnly: !!state.restoredPlayerStateOnly,
+        restoreSeekTrackSid: state.restoreSeekTrackSid || null,
+        restoreSeekTargetMs: state.restoreSeekTargetMs || 0,
+        restoreSeekUntil: state.restoreSeekUntil || 0,
+        pendingRequestedTrackSid: state.pendingRequestedTrackSid || null,
+        pendingRequestedAt: state.pendingRequestedAt || 0,
+        playbackPaused: !!state.playbackState?.paused,
+        snapshotPaused: !!state.lastPlaybackSnapshot?.paused,
+        derivedPosition: derived.position || 0,
+        derivedDuration: derived.duration || 0,
+        sdkReady: !!state.sdkReady,
+        deviceId: state.deviceId || null,
+        ...extra,
+      };
+    }
+
+    function debugRestore(label, extra = {}) {
+      if (!DEBUG_RESTORE) return;
+      const entry = {
+        label,
+        ...getDebugStateSnapshot(extra),
+      };
+      window.__ukRestoreDebugLog.push(entry);
+      console.log('[restore-debug]', entry);
+    }
 
     function qs(name) { return new URLSearchParams(window.location.search).get(name); }
     function setStatus(el, text, kind = '') { el.textContent = text; el.className = 'status-pill' + (kind ? ` ${kind}` : ''); }
@@ -1497,6 +1534,7 @@
     }
 
     async function normalizePendingTrackStart(expectedSid) {
+      debugRestore('normalizePendingTrackStart:start', { expectedSid });
       if (state.restoredPlayerStateOnly || state.restoreSeekTrackSid) return;
 
       await new Promise(resolve => setTimeout(resolve, 500));
@@ -1515,6 +1553,11 @@
       const { position } = getDerivedPlaybackPosition();
 
       if (expectedSid && currentSid === expectedSid && position > 1500 && state.deviceId) {
+        debugRestore('normalizePendingTrackStart:seek-zero', {
+          expectedSid,
+          currentSid,
+          position,
+        });
         await spotifyApi(
           `https://api.spotify.com/v1/me/player/seek?position_ms=0&device_id=${encodeURIComponent(state.deviceId)}`,
           { method: 'PUT' }
@@ -1740,8 +1783,10 @@
           0,
         positionAtPageHide: state.positionAtPageHide || 0,
         durationAtPageHide: state.durationAtPageHide || 0,
+        intentToPlay: !!state.intentToPlay,
         savedAt: Date.now(),
       };
+      debugRestore('saveAppUiStateForRestore', payload);
       sessionStorage.setItem(APP_STATE_KEY, JSON.stringify(payload));
     }
 
@@ -1759,6 +1804,7 @@
 
     async function restoreAppUiStateAfterLogin() {
       const saved = loadAppUiStateForRestore();
+      debugRestore('restoreAppUiStateAfterLogin:start', { saved });
       if (!saved) return;
 
       clearAppUiStateRestore();
@@ -1847,6 +1893,11 @@
         state.lastPlaybackTimestamp = 0;
 
         setProgress(restoredPosition, restoredDuration);
+        debugRestore('restoreAppUiStateAfterLogin:restored-ui', {
+          restoredTrackSid: restoredTrack.sid || null,
+          restoredPosition,
+          restoredDuration,
+        });
         updateTogglePlayButton();
         playerInfo.textContent = 'Paused';
         playerShell.hidden = false;
@@ -1855,6 +1906,17 @@
 
       if (saved.spotifyModalOpen) {
         openSpotifyModal();
+      }
+
+      if (saved.intentToPlay && state.activeTrack && state.restoredPlayerStateOnly) {
+        debugRestore('restoreAppUiStateAfterLogin:autoplay');
+        // User pressed play before the OAuth redirect — carry that intent through.
+        // Wait for the device to be ready first (it may still be registering).
+        waitForDeviceReady(8000).then(ready => {
+          if (ready && state.restoredPlayerStateOnly && state.activeTrack) {
+            resumeRestoredTrack().catch(err => console.warn('Autoplay after restore failed', err));
+          }
+        });
       }
     }
 
@@ -2034,7 +2096,18 @@
     async function spotifyApi(url, options = {}) {
       const token = await getValidAccessToken();
       const headers = { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...(options.headers || {}) };
+      debugRestore('spotifyApi:request', {
+        url,
+        method: options?.method || 'GET',
+        body: options?.body || null,
+      });
       const res = await fetch(url, { ...options, headers });
+      debugRestore('spotifyApi:response', {
+        url,
+        method: options?.method || 'GET',
+        status: res.status,
+        ok: res.ok,
+      });
       if (!res.ok && res.status !== 204) throw new Error(await res.text() || `Spotify API error ${res.status}`);
       return res;
     }
@@ -2114,6 +2187,11 @@
     }
 
     async function ensurePendingTrackIsActuallyPlaying() {
+      debugRestore('ensurePendingTrackIsActuallyPlaying:start', {
+        expectedSid,
+        actualSid,
+        position,
+      });
       if (state.restoreSeekTrackSid || state.restoredPlayerStateOnly) return;
       const expectedSid = state.pendingRequestedTrackSid;
       const actualSid = getCurrentTrackId();
@@ -2139,11 +2217,21 @@
       ) {
         try {
           if (inRestoreSeekWindow && state.restoreSeekTargetMs > 0) {
+            debugRestore('ensurePendingTrackIsActuallyPlaying:plain-play', {
+              expectedSid,
+              actualSid,
+              position,
+            });
             await spotifyApi(
               `https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`,
               { method: 'PUT' }
             );
           } else {
+            debugRestore('ensurePendingTrackIsActuallyPlaying:play-with-position-0', {
+              expectedSid,
+              actualSid,
+              position,
+            });
             await spotifyApi(
               `https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`,
               {
@@ -2175,25 +2263,32 @@
     }
 
     async function togglePlayback() {
+      debugRestore('togglePlayback:start');
       const shouldRehydrateRestoredTrack =
         state.restoredPlayerStateOnly &&
         state.activeTrack &&
         (!state.playbackState || state.playbackState.paused);
 
       if (shouldRehydrateRestoredTrack) {
+        debugRestore('togglePlayback:resumeRestoredTrack');
         await resumeRestoredTrack();
         return;
       }
 
       if (!state.playbackState || state.playbackState.paused) {
+        debugRestore('togglePlayback:resumePlayback');
         await resumePlayback();
       } else {
+        debugRestore('togglePlayback:pausePlayback');
         await pausePlayback();
       }
     }
 
     async function resumeRestoredTrack() {
+      debugRestore('resumeRestoredTrack:start');
+
       if (!state.activeTrack?.sid || !state.deviceId) {
+        debugRestore('resumeRestoredTrack:missing-track-or-device');
         return;
       }
 
@@ -2214,8 +2309,13 @@
         state.pendingRequestedAt = Date.now();
 
         await recoverDeviceAndRetry(async () => {
+          debugRestore('resumeRestoredTrack:before-activateElement', { restorePosition, trackSid });
           await state.player.activateElement();
+
+          debugRestore('resumeRestoredTrack:before-transferPlaybackHere', { restorePosition, trackSid });
           await transferPlaybackHere();
+
+          debugRestore('resumeRestoredTrack:before-play-request', { restorePosition, trackSid });
           await spotifyApi(
             `https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`,
             {
@@ -2226,6 +2326,7 @@
               }),
             }
           );
+          debugRestore('resumeRestoredTrack:after-play-request', { restorePosition, trackSid });
         });
 
         state.lastPlaybackTimestamp = Date.now();
@@ -2245,6 +2346,14 @@
             paused: false,
           };
         }
+
+        debugRestore('resumeRestoredTrack:local-state-updated', {
+          restorePosition,
+          playbackStatePosition: state.playbackState?.position || 0,
+          snapshotPosition: state.lastPlaybackSnapshot?.position || 0,
+          playbackPaused: !!state.playbackState?.paused,
+          snapshotPaused: !!state.lastPlaybackSnapshot?.paused,
+        });
 
         clearPendingRequestedTrack();
         state.restoredPlayerStateOnly = false;
@@ -2365,6 +2474,17 @@
         const incomingPaused = !!playbackState?.paused;
         const ignoredAsStaleRestore = shouldIgnoreStaleRestoreState(playbackState);
 
+        debugRestore('player_state_changed', {
+          incomingTrackId,
+          incomingPosition,
+          incomingPaused,
+          ignoredAsStaleRestore,
+          restoreSeekTrackSid: state.restoreSeekTrackSid,
+          restoreSeekTargetMs: state.restoreSeekTargetMs,
+          restoreSeekUntil: state.restoreSeekUntil,
+          restoreResumeInFlight: state.restoreResumeInFlight,
+        });
+
         const pendingTrackId = state.pendingRequestedTrackSid;
         const pendingAge = Date.now() - state.pendingRequestedAt;
         const inPendingWindow = !!pendingTrackId && pendingAge < 8000;
@@ -2378,10 +2498,27 @@
           incomingPosition >= Math.max(0, (state.restoreSeekTargetMs || 0) - 1200);
 
         if (state.restoreResumeInFlight && sameRestoreTrack && !restoreTargetReached) {
+          debugRestore('player_state_changed:ignored-during-restore-resume-in-flight', {
+            incomingTrackId,
+            incomingPosition,
+            incomingPaused,
+            restoreSeekTrackSid: state.restoreSeekTrackSid,
+            restoreSeekTargetMs: state.restoreSeekTargetMs,
+            restoreResumeInFlight: state.restoreResumeInFlight,
+          });
           return;
         }
 
         if (restoreTargetReached) {
+          debugRestore('player_state_changed:restore-target-reached', {
+            incomingTrackId,
+            incomingPosition,
+            incomingPaused,
+            restoreSeekTrackSid: state.restoreSeekTrackSid,
+            restoreSeekTargetMs: state.restoreSeekTargetMs,
+            restoreResumeInFlight: state.restoreResumeInFlight,
+          });
+
           state.restoreResumeInFlight = false;
           state.restoreSeekTrackSid = null;
           state.restoreSeekTargetMs = 0;
@@ -2398,6 +2535,13 @@
           state.restoreSeekTargetMs > 0 &&
           incomingPosition < Math.max(1000, state.restoreSeekTargetMs - 1500)
         ) {
+          debugRestore('player_state_changed:ignored-pre-target-restore-window', {
+            incomingTrackId,
+            incomingPosition,
+            incomingPaused,
+            restoreSeekTrackSid: state.restoreSeekTrackSid,
+            restoreSeekTargetMs: state.restoreSeekTargetMs,
+          });
           return;
         }
 
@@ -2406,10 +2550,24 @@
           incomingTrackId &&
           incomingTrackId !== pendingTrackId
         ) {
+          debugRestore('player_state_changed:ignored-wrong-pending-track', {
+            incomingTrackId,
+            incomingPosition,
+            incomingPaused,
+            pendingTrackId,
+            pendingAge,
+          });
           return;
         }
 
         if (ignoredAsStaleRestore) {
+          debugRestore('player_state_changed:ignored-stale-restore', {
+            incomingTrackId,
+            incomingPosition,
+            incomingPaused,
+            restoreSeekTrackSid: state.restoreSeekTrackSid,
+            restoreSeekTargetMs: state.restoreSeekTargetMs,
+          });
           return;
         }
 
@@ -2431,6 +2589,11 @@
           !state.pendingRequestedTrackSid;
 
         if (isSdkReconnectReset) {
+          debugRestore('player_state_changed:sdk-reconnect-position-preserved', {
+            incomingTrackId,
+            incomingPosition,
+            savedHidePosition,
+          });
           state.currentTrackSid = incomingTrackId;
           state.restoredPlayerStateOnly = true;
           const repairedState = { ...playbackState, position: savedHidePosition };
@@ -2444,6 +2607,17 @@
           render();
           return;
         }
+
+
+
+        debugRestore('player_state_changed:accepted', {
+          incomingTrackId,
+          incomingPosition,
+          incomingPaused,
+          restoreSeekTrackSid: state.restoreSeekTrackSid,
+          restoreSeekTargetMs: state.restoreSeekTargetMs,
+          restoreResumeInFlight: state.restoreResumeInFlight,
+        });
 
         state.playbackState = playbackState;
         state.lastPlaybackSnapshot = playbackState;
@@ -2636,6 +2810,7 @@
       }
 
       if (btn.dataset.action === 'play') {
+        state.intentToPlay = true;
         try {
           const isOnlyUiRestoredCurrent =
             state.restoredPlayerStateOnly &&
@@ -2655,7 +2830,9 @@
             });
           }
           render();
+          state.intentToPlay = false;
         } catch (err) {
+          state.intentToPlay = false;
           alert(err.message || 'Could not start playback.');
         }
       }
@@ -2693,13 +2870,17 @@
       updatePlayerVisibility();
     });
     togglePlayBtn.addEventListener('click', async () => {
+      debugRestore('togglePlayBtn:click');
+      state.intentToPlay = true;
       try {
         if (state.restoredPlayerStateOnly && state.activeTrack) {
           await resumeRestoredTrack();
         } else {
           await recoverDeviceAndRetry(() => togglePlayback());
         }
+        state.intentToPlay = false;
       } catch (err) {
+        state.intentToPlay = false;
         alert(err.message || 'Could not control playback.');
       }
     });
@@ -2741,6 +2922,14 @@
         state.positionAtPageHide = position;
         state.durationAtPageHide = duration;
         state.trackSidAtPageHide = trackSid || null;
+        debugRestore('visibilitychange:hidden', { position, duration, trackSid });
+      } else {
+        debugRestore('visibilitychange:visible', {
+          pageHiddenAt: state.pageHiddenAt,
+          positionAtPageHide: state.positionAtPageHide,
+          durationAtPageHide: state.durationAtPageHide,
+          trackSidAtPageHide: state.trackSidAtPageHide,
+        });
       }
     });
 
