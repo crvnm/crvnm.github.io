@@ -935,7 +935,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.58</div>
+          <div class="tiny" id="version-code">Version: 1.59</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -2236,6 +2236,17 @@
           state.lastPlaybackSnapshot = { ...state.lastPlaybackSnapshot, position: 0, paused: false };
         }
         state.lastPlaybackTimestamp = Date.now();
+        // Pause the current track before switching so Spotify doesn't drift
+        // position during the gap between transferPlaybackHere and the play
+        // command — a playing track can send SDK events mid-switch that
+        // overwrite the snapshot with a non-zero position.
+        if (state.playbackState && !state.playbackState.paused) {
+          try {
+            await spotifyApi('https://api.spotify.com/v1/me/player/pause', { method: 'PUT' });
+          } catch (err) {
+            console.warn('Pre-switch pause failed', err);
+          }
+        }
       }
 
       await state.player.activateElement();
