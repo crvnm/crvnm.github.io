@@ -828,7 +828,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.33-debug</div>
+          <div class="tiny" id="version-code">Version: 1.34-debug</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -2540,6 +2540,43 @@
             restoreSeekTrackSid: state.restoreSeekTrackSid,
             restoreSeekTargetMs: state.restoreSeekTargetMs,
           });
+          return;
+        }
+
+        // Guard: when the SDK reconnects after the page was backgrounded/locked it
+        // fires a player_state_changed with position=0 and paused=true for the same
+        // track that was already paused at a non-zero position. Accept the event for
+        // track-id / paused-state purposes but preserve the last known position so
+        // the UI doesn't snap back to 0:00. Set restoredPlayerStateOnly so the play
+        // button uses resumeRestoredTrack (which seeks to the saved position) rather
+        // than a bare resumePlayback from position 0.
+        const existingPosition = state.lastPlaybackSnapshot?.position || 0;
+        const existingTrackId = getPlaybackStateTrackId(state.lastPlaybackSnapshot);
+        const isSdkReconnectReset =
+          incomingPaused &&
+          incomingPosition === 0 &&
+          existingPosition > 2000 &&
+          incomingTrackId &&
+          incomingTrackId === existingTrackId &&
+          !state.pendingRequestedTrackSid;
+
+        if (isSdkReconnectReset) {
+          debugRestore('player_state_changed:sdk-reconnect-position-preserved', {
+            incomingTrackId,
+            incomingPosition,
+            existingPosition,
+          });
+          state.restoredPlayerStateOnly = true;
+          state.currentTrackSid = incomingTrackId;
+          if (state.playbackState) {
+            state.playbackState = { ...state.playbackState, paused: true };
+          }
+          if (state.lastPlaybackSnapshot) {
+            state.lastPlaybackSnapshot = { ...state.lastPlaybackSnapshot, paused: true };
+          }
+          updateTogglePlayButton();
+          stopProgressTimer();
+          render();
           return;
         }
 
