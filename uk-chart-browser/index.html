@@ -311,10 +311,25 @@
       padding-right: 4px;
     }
 
-    .artist {
+    .artist-btn {
+      background: none;
+      border: 0;
+      padding: 0;
+      margin: 0;
       color: var(--muted);
       font-size: 14px;
-      margin: 0;
+      font-family: inherit;
+      cursor: pointer;
+      text-align: left;
+      border-radius: 4px;
+      transition: color 0.15s ease;
+    }
+
+    .artist-btn:hover,
+    .artist-btn:focus-visible {
+      color: var(--accent);
+      transform: none;
+      outline: none;
     }
 
     .meta {
@@ -915,7 +930,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.53</div>
+          <div class="tiny" id="version-code">Version: 1.54</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -2518,7 +2533,7 @@
               <div class="topline-main">
                 <div class="week">📅 ${week}</div>
                 <div class="song">${song}</div>
-                <p class="artist">${artist}</p>
+                <p class="artist"><button class="artist-btn" data-action="artist" data-index="${index}">${artist}</button></p>
               </div>
               <div class="row-actions-inline">
                 <button class="btn-primary icon-action" data-action="play" data-index="${index}" ${hasSpotify ? '' : 'disabled'} aria-label="Play or pause track">${isCurrent && !isPaused ? '❚❚' : '▶'}</button>
@@ -2904,6 +2919,24 @@
       const visibleRows = getVisibleRows();
       const row = visibleRows[Number(btn.dataset.index)];
       if (!row) return;
+
+      if (btn.dataset.action === 'artist') {
+        const artistName = row.am || row.a || row.artist || '';
+        if (!artistName) return;
+        state.searchTerm = artistName;
+        searchInput.value = artistName;
+        state.randomPinnedKey = null;
+        state.currentPlayableIndex = -1;
+        state.visibleRowLimit = 150;
+        if (state.selectedYear !== 'ALL') {
+          state.selectedYear = 'ALL';
+          yearSelect.value = 'ALL';
+          await loadYear('ALL');
+        } else {
+          render();
+        }
+        return;
+      }
 
       if (btn.dataset.action === 'open') {
         if (row.spotifyUrl) window.open(row.spotifyUrl, '_blank', 'noreferrer');
