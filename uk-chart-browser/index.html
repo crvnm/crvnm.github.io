@@ -828,7 +828,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.36-debug</div>
+          <div class="tiny" id="version-code">Version: 1.37-debug</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -1775,7 +1775,10 @@
         // If the SDK reconnect zeroed out the snapshot position before we got
         // here, fall back to the position we captured at visibilitychange:hidden.
         playbackPositionMs: derived.position || state.positionAtPageHide || 0,
-        playbackDurationMs: derived.duration || 0,
+        playbackDurationMs: derived.duration ||
+          state.playbackState?.track_window?.current_track?.duration_ms ||
+          state.lastPlaybackSnapshot?.track_window?.current_track?.duration_ms ||
+          0,
         positionAtPageHide: state.positionAtPageHide || 0,
         savedAt: Date.now(),
       };
