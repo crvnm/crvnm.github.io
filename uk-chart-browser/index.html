@@ -828,7 +828,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.35-debug</div>
+          <div class="tiny" id="version-code">Version: 1.36-debug</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -1772,8 +1772,11 @@
         playerVisible: !playerShell.hidden,
         playerMinimized: !!state.isPlayerMinimized,
         playbackPaused: !!state.playbackState?.paused,
-        playbackPositionMs: derived.position || 0,
+        // If the SDK reconnect zeroed out the snapshot position before we got
+        // here, fall back to the position we captured at visibilitychange:hidden.
+        playbackPositionMs: derived.position || state.positionAtPageHide || 0,
         playbackDurationMs: derived.duration || 0,
+        positionAtPageHide: state.positionAtPageHide || 0,
         savedAt: Date.now(),
       };
       debugRestore('saveAppUiStateForRestore', payload);
@@ -1841,7 +1844,7 @@
           (restoredTrack.tm || restoredTrack.t || restoredTrack.title || '♪').slice(0, 1).toUpperCase()
         );
 
-        const restoredPosition = Number(saved.playbackPositionMs) || 0;
+        const restoredPosition = Number(saved.playbackPositionMs) || Number(saved.positionAtPageHide) || 0;
         const restoredDuration = Number(saved.playbackDurationMs) || 0;
 
         const restoredTitle =
@@ -1949,7 +1952,7 @@
       }
 
       await setupSpotifyPlayer();
-      const ready = await waitForDeviceReady(3000);
+      const ready = await waitForDeviceReady(8000);
       return ready;
     }
 
@@ -2271,7 +2274,11 @@
         return;
       }
 
-      const restorePosition = Math.max(0, state.lastPlaybackSnapshot?.position || 0);
+      const restorePosition = Math.max(0,
+        state.lastPlaybackSnapshot?.position ||
+        state.positionAtPageHide ||
+        0
+      );
       const trackSid = state.activeTrack.sid;
 
       state.restoreResumeInFlight = true;
