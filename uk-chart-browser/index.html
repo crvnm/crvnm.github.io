@@ -935,7 +935,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.59</div>
+          <div class="tiny" id="version-code">Version: 1.60</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -2579,14 +2579,6 @@
           return;
         }
 
-        if (
-          inPendingWindow &&
-          incomingTrackId &&
-          incomingTrackId !== pendingTrackId
-        ) {
-          return;
-        }
-
         if (ignoredAsStaleRestore) {
           return;
         }
@@ -2625,6 +2617,13 @@
 
 
 
+
+        // During a pending track switch, drop any event that belongs to the
+        // old track — including null-track device-transfer events — so they
+        // can't overwrite the snapshot we just reset to position 0.
+        if (inPendingWindow && incomingTrackId !== pendingTrackId) {
+          return;
+        }
 
         state.playbackState = playbackState;
         state.lastPlaybackSnapshot = playbackState;
