@@ -935,7 +935,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.60</div>
+          <div class="tiny" id="version-code">Version: 1.61</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -1080,6 +1080,7 @@
       durationAtPageHide: 0,
       trackSidAtPageHide: null,
       intentToPlay: false,
+      confirmedTrackSid: null,
     };
 
     function qs(name) { return new URLSearchParams(window.location.search).get(name); }
@@ -2227,6 +2228,7 @@
       state.activeTrack = row;
       state.pendingRequestedTrackSid = row.sid;
       state.pendingRequestedAt = Date.now();
+      state.confirmedTrackSid = null; // will be set once new track is confirmed playing
 
       // Reset local position estimate immediately on track switch so the
       // progress timer doesn't drift from the previous track's position
@@ -2625,6 +2627,19 @@
           return;
         }
 
+        // After the pending window closes, still reject events for tracks
+        // other than the confirmed track for a short window to catch delayed
+        // old-track events that arrive after the new track is confirmed.
+        if (
+          !inPendingWindow &&
+          state.confirmedTrackSid &&
+          incomingTrackId &&
+          incomingTrackId !== state.confirmedTrackSid &&
+          !state.restoreSeekTrackSid
+        ) {
+          return;
+        }
+
         state.playbackState = playbackState;
         state.lastPlaybackSnapshot = playbackState;
         state.lastPlaybackTimestamp = Date.now();
@@ -2657,6 +2672,7 @@
           ) {
             state.pendingRequestedTrackSid = null;
             state.pendingRequestedAt = 0;
+            state.confirmedTrackSid = incomingTrackId;
           }
 
           if (playbackState.paused && !inPendingWindow) stopProgressTimer();
@@ -2877,6 +2893,7 @@
       state.restoredPlayerStateOnly = false;
       state.pendingRequestedTrackSid = null;
       state.pendingRequestedAt = 0;
+      state.confirmedTrackSid = null;
       stopProgressTimer();
       updateAuthUi();
     });
