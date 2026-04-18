@@ -934,7 +934,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.78</div>
+          <div class="tiny" id="version-code">Version: 1.79</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -1515,7 +1515,7 @@
           peakMap.set(key, { pos, week: rowDate });
         }
 
-        // First week: earliest date
+        // First week from full unfiltered data (not affected by Peak Week filter)
         const currentFirst = firstWeekMap.get(key);
         if (rowTime && !Number.isNaN(rowTime)) {
           if (currentFirst == null || rowTime < currentFirst.time) {
@@ -1524,7 +1524,37 @@
         }
       }
 
+      // If Peak Week filter is active, getRowsForSelectedPosition only returns
+      // one row per track — rebuild firstWeekMap from all positions data instead
+      if (state.peakWeekOnly) {
+        const positionsMap = state.currentYearData?.positions || {};
+        for (const rows of Object.values(positionsMap)) {
+          for (const row of rows) {
+            const key = getTrackGroupKey(row);
+            if (!key) continue;
+            const rowDate = row.w || row.weekEnding || null;
+            const rowTime = rowDate ? new Date(rowDate).getTime() : null;
+            if (!rowTime || Number.isNaN(rowTime)) continue;
+            const currentFirst = firstWeekMap.get(key);
+            if (currentFirst == null || rowTime < currentFirst.time) {
+              firstWeekMap.set(key, { time: rowTime, week: rowDate });
+            }
+          }
+        }
+      }
+
       return { peakMap, firstWeekMap };
+    }
+
+    let _mapsCache = null;
+    let _mapsCacheKey = null;
+
+    function getOverallMaps() {
+      const key = `${state.selectedYear}|${state.selectedPosition}|${state.peakWeekOnly}|${state.currentYearData?.year ?? ''}`;
+      if (_mapsCache && _mapsCacheKey === key) return _mapsCache;
+      _mapsCache = buildOverallPeakMap();
+      _mapsCacheKey = key;
+      return _mapsCache;
     }
 
     function updatePositionQuickPicks() {
@@ -2369,7 +2399,7 @@
       if (!state.currentYearData) return;
       const visibleRows = getVisibleRows();
       const renderRows = getRenderRows(visibleRows);
-      const { peakMap, firstWeekMap } = buildOverallPeakMap();
+      const { peakMap, firstWeekMap } = getOverallMaps();
       const totalRows = state.peakWeekOnly
         ? reduceRowsToPeakWeek(getRowsForSelectedPosition()).length
         : getRowsForSelectedPosition().length;
