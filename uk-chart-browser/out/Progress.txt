@@ -1,13 +1,12 @@
 Progress:
 
 Still to spotify:
-2007
 
 Partial Spotify:
 
 Spotify done, still to manual:
 1997
-
+2007
 
 Complete:
 2008
@@ -31,6 +30,17 @@ Complete:
 clearSwitchLog()
 
 dumpSwitchLog().map(e => `${e.t} ${e.label} pos=${e.snapshotPos} forceZero=${e.forcePositionZero} seekFlight=${e.seekResetInFlight} incoming=${e.incomingPosition} paused=${e.incomingPaused}`).join('\n')
+
+https://open.spotify.com/track/6RflpQsF0ZgrOJ64pwKdm3?si=e1463b2de9e64a45
+
+"sid": "6RflpQsF0ZgrOJ64pwKdm3",
+        "spotifyUri": "spotify:track: 6RflpQsF0ZgrOJ64pwKdm3",
+        "spotifyUrl": "https://open.spotify.com/track/6RflpQsF0ZgrOJ64pwKdm3",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
+        "tm": "Arnold Layne",
+        "am": "David Gilmour, David Bowie",
+        "mbid": "e65befaf-82aa-4c6a-9ccc-90f6b1a60dbe"
 
 "sid": null,
         "spotifyUri": null,
