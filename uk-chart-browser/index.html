@@ -906,7 +906,6 @@
             <input id="searchInput" placeholder="Song, artist, or 2010-2015" />
           </div>
           <button class="hero-random-btn" id="randomCurrentBtn" title="Play a random track from the current filters" aria-label="Play a random track from the current filters"><span class="btn-label">⤮</span><span class="btn-spinner" aria-hidden="true"></span></button>
-          <button class="hero-random-btn" id="randomAllBtn" title="Jump to a random year, position and track" aria-label="Jump to a random year, position and track"><span class="btn-label">✦</span><span class="btn-spinner" aria-hidden="true"></span></button>
         </div>
         <div class="position-quick-picks" id="positionQuickPicks">
           <button class="quick-pill active" type="button" data-position-quick="ALL" aria-pressed="true">All Positions</button>
@@ -935,7 +934,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.76</div>
+          <div class="tiny" id="version-code">Version: 1.33-debug</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -1030,7 +1029,6 @@
     const spotifyModal = document.getElementById('spotifyModal');
     const closeSpotifyModalBtn = document.getElementById('closeSpotifyModalBtn');
     const randomCurrentBtn = document.getElementById('randomCurrentBtn');
-    const randomAllBtn = document.getElementById('randomAllBtn');
     const positionQuickPicks = document.getElementById('positionQuickPicks');
     const summaryFilters = document.getElementById('summaryFilters');
     const authStatus = document.getElementById('authStatus');
@@ -1088,7 +1086,7 @@
 
     function setRandomButtonsBusy(isBusy) {
       state.randomActionInFlight = isBusy;
-      [randomCurrentBtn, randomAllBtn].forEach(btn => {
+      [randomCurrentBtn].forEach(btn => {
         if (!btn) return;
         btn.disabled = isBusy;
         btn.classList.toggle('is-busy', isBusy);
@@ -1696,50 +1694,6 @@
         }
       } catch (err) {
         console.error('Random current failed', err);
-        showTransientSummaryNotice(err.message || 'Could not load a random chart entry. Please try again.');
-      } finally {
-        setRandomButtonsBusy(false);
-      }
-    }
-
-    async function jumpToRandomAll() {
-      if (state.randomActionInFlight) return;
-
-      setRandomButtonsBusy(true);
-      try {
-        const candidateYears = state.availableYears.filter(y => y !== 'ALL');
-        if (!candidateYears.length) throw new Error('No years available.');
-
-        const year = pickRandomItem(candidateYears);
-        state.selectedYear = year;
-        yearSelect.value = year;
-        await loadYear(year);
-
-        const positions = Object.keys(state.currentYearData?.positions || {});
-        const position = pickRandomItem(positions);
-        state.selectedPosition = position || state.selectedPosition;
-        positionSelect.value = state.selectedPosition;
-        state.selectedPositionLabel = positionSelect.options[positionSelect.selectedIndex]?.text || 'All Positions';
-        state.searchTerm = '';
-        state.randomPinnedKey = null;
-        searchInput.value = '';
-        render();
-
-        const candidateRows = getRowsForCurrentFilter();
-        const chosen = pickRandomItem(candidateRows);
-        if (!chosen) throw new Error('Could not load a random chart entry. Please try again.');
-
-        state.randomPinnedKey = rowKey(chosen);
-        render();
-        if (chosen.sid) {
-          await withSingleRetry(async () => {
-            await recoverDeviceAndRetry(() => playTrack(chosen));
-            await new Promise(resolve => setTimeout(resolve, 500));
-            await ensurePendingTrackIsActuallyPlaying();
-          });
-        }
-      } catch (err) {
-        console.error('Random all failed', err);
         showTransientSummaryNotice(err.message || 'Could not load a random chart entry. Please try again.');
       } finally {
         setRandomButtonsBusy(false);
@@ -2872,7 +2826,6 @@
       updateAuthUi();
     });
     randomCurrentBtn.addEventListener('click', jumpToRandomCurrent);
-    randomAllBtn.addEventListener('click', jumpToRandomAll);
     closePlayerBtn.addEventListener('click', () => {
       state.isPlayerMinimized = true;
       updatePlayerVisibility();
