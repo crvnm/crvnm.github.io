@@ -935,7 +935,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.63</div>
+          <div class="tiny" id="version-code">Version: 1.64</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -2626,8 +2626,23 @@
           return;
         }
 
-        state.playbackState = playbackState;
-        state.lastPlaybackSnapshot = playbackState;
+        // Detect if this is the first playing confirmation for the pending track.
+        // Must be done before writing the snapshot so we can force position to 0.
+        const isNewTrackConfirmation =
+          inPendingWindow &&
+          pendingTrackId &&
+          incomingTrackId === pendingTrackId &&
+          !incomingPaused;
+
+        // Write snapshot — force position to 0 on first confirmation since the
+        // post-play seek has fired but Spotify may report a non-zero position
+        // due to network latency between the seek and this event.
+        const snapshotToWrite = isNewTrackConfirmation
+          ? { ...playbackState, position: 0 }
+          : playbackState;
+
+        state.playbackState = snapshotToWrite;
+        state.lastPlaybackSnapshot = snapshotToWrite;
         state.lastPlaybackTimestamp = Date.now();
         if (!inPendingWindow || !incomingPaused) updateTogglePlayButton();
 
@@ -2650,21 +2665,10 @@
           playerShell.hidden = false;
           updatePlayerVisibility();
 
-          if (
-            inPendingWindow &&
-            pendingTrackId &&
-            incomingTrackId === pendingTrackId &&
-            !incomingPaused
-          ) {
+          if (isNewTrackConfirmation) {
             state.pendingRequestedTrackSid = null;
             state.pendingRequestedAt = 0;
             state.confirmedTrackSid = incomingTrackId;
-            // Reset position to 0 at confirmation time — by now the post-play
-            // seek has fired so Spotify is at 0, but the snapshot may show
-            // elapsed time accumulated since the play command. Anchor the
-            // local clock to now so the progress display starts cleanly.
-            state.lastPlaybackSnapshot = { ...playbackState, position: 0 };
-            state.lastPlaybackTimestamp = Date.now();
           }
 
           if (playbackState.paused && !inPendingWindow) stopProgressTimer();
