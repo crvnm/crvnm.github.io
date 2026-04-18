@@ -934,7 +934,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.84</div>
+          <div class="tiny" id="version-code">Version: 1.85</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -2646,6 +2646,7 @@
           return;
         }
 
+        let justConfirmed = false;
         const track = playbackState.track_window?.current_track;
         if (track) {
           syncPlayerTitles(track.name, track.artists.map(a => a.name).join(', '));
@@ -2654,7 +2655,6 @@
             setPlayerArtwork(artworkUrl, track.name.slice(0, 1).toUpperCase());
             playerInfo.textContent = '';
           } else if (!inPendingWindow) {
-            // Only clear artwork and message if we're not mid-switch
             setPlayerArtwork(null, track.name.slice(0, 1).toUpperCase());
             playerInfo.textContent = '';
           }
@@ -2666,16 +2666,30 @@
           playerShell.hidden = false;
           updatePlayerVisibility();
 
-          if (isNewTrackConfirmation) {
+          // Primary confirmation: first playing event within the pending window
+          // Late confirmation: active track started playing but pending was already
+          // cleared (e.g. ensurePendingTrackIsActuallyPlaying ran first)
+          const isLateConfirmation =
+            !isNewTrackConfirmation &&
+            !incomingPaused &&
+            incomingTrackId &&
+            incomingTrackId === state.activeTrack?.sid &&
+            incomingTrackId !== state.confirmedTrackSid;
+
+          if (isNewTrackConfirmation || isLateConfirmation) {
             state.pendingRequestedTrackSid = null;
             state.pendingRequestedAt = 0;
             state.confirmedTrackSid = incomingTrackId;
+            justConfirmed = true;
+            if (isLateConfirmation) {
+              state.lastPlaybackSnapshot = { ...snapshotToWrite, position: 0 };
+              state.lastPlaybackTimestamp = Date.now();
+              playerInfo.textContent = '';
+            }
           }
 
           if (playbackState.paused && !inPendingWindow) {
             stopProgressTimer();
-            // If in random mode and track ended (paused at the very end),
-            // trigger auto-advance — catches end-of-track when timer is throttled
             if (state.randomPinnedKey && !state.autoAdvanceInFlight) {
               const { position, duration } = getDerivedPlaybackPosition();
               if (duration > 0 && position >= Math.max(0, duration - 2000)) {
@@ -2688,7 +2702,7 @@
         render();
 
         // Scroll the active track card into view when a new track starts
-        if (isNewTrackConfirmation) {
+        if (justConfirmed) {
           requestAnimationFrame(() => {
             const activeCard = resultsEl.querySelector('.track-card.is-playing');
             if (!activeCard) return;
