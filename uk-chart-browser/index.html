@@ -2189,6 +2189,30 @@
       });
     }
 
+    async function recoverOrScheduleRetry(action, advanceLogLabel) {
+      // If the page is visible, do a full login redirect
+      if (document.visibilityState === 'visible') {
+        advLog(advanceLogLabel || 'recover:login');
+        saveAppUiStateForRestore();
+        await startLogin();
+        return;
+      }
+      // Page is hidden (locked phone) — wait for it to become visible then retry
+      advLog('recover:waiting-for-visible');
+      await new Promise(resolve => {
+        function onVisible() {
+          if (document.visibilityState === 'visible') {
+            document.removeEventListener('visibilitychange', onVisible);
+            resolve();
+          }
+        }
+        document.addEventListener('visibilitychange', onVisible);
+      });
+      advLog('recover:page-visible-retrying');
+      saveAppUiStateForRestore();
+      await startLogin();
+    }
+
     async function recoverDeviceAndRetry(action) {
       try {
         return await action();
@@ -2203,9 +2227,7 @@
           advLog('recover:network-error-waiting');
           const online = navigator.onLine || await waitForConnectivity(10000);
           if (!online) {
-            advLog('recover:network-timeout');
-            saveAppUiStateForRestore();
-            await startLogin();
+            await recoverOrScheduleRetry(action, 'recover:network-timeout');
             return;
           }
           advLog('recover:network-restored');
@@ -2214,18 +2236,14 @@
         // Try to rebuild the SDK player
         const rebuilt = await rebuildSpotifyPlayer();
         if (!rebuilt) {
-          advLog('recover:rebuild-failed-login');
-          saveAppUiStateForRestore();
-          await startLogin();
+          await recoverOrScheduleRetry(action, 'recover:rebuild-failed');
           return;
         }
 
         const ready = await waitForDeviceReady(8000);
         advLog('recover:device-ready', { ready });
         if (!ready) {
-          advLog('recover:device-timeout-login');
-          saveAppUiStateForRestore();
-          await startLogin();
+          await recoverOrScheduleRetry(action, 'recover:device-timeout');
           return;
         }
 
@@ -2236,9 +2254,7 @@
           return await action();
         } catch (retryErr) {
           if (isRecoverableDeviceError(retryErr) || isNetworkError(retryErr)) {
-            advLog('recover:retry-failed-login');
-            saveAppUiStateForRestore();
-            await startLogin();
+            await recoverOrScheduleRetry(action, 'recover:retry-failed');
             return;
           }
           throw retryErr;
