@@ -934,7 +934,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.33-debug</div>
+          <div class="tiny" id="version-code">Version: 1.95-debug</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -2193,33 +2193,50 @@
       try {
         return await action();
       } catch (err) {
-        if (isNetworkError(err)) {
+        const isNetwork = isNetworkError(err);
+        const isDevice = isRecoverableDeviceError(err);
+
+        if (!isNetwork && !isDevice) throw err;
+
+        // For network errors, wait for connectivity first
+        if (isNetwork) {
           advLog('recover:network-error-waiting');
           const online = navigator.onLine || await waitForConnectivity(10000);
-          if (!online) throw err;
+          if (!online) {
+            advLog('recover:network-timeout');
+            saveAppUiStateForRestore();
+            await startLogin();
+            return;
+          }
           advLog('recover:network-restored');
-          await rebuildSpotifyPlayer();
-          const ready = await waitForDeviceReady(8000);
-          advLog('recover:device-ready', { ready });
-          if (!ready) throw new Error('Device not ready after network recovery');
-          return await action();
         }
 
-        if (!isRecoverableDeviceError(err)) {
-          throw err;
-        }
-
+        // Try to rebuild the SDK player
         const rebuilt = await rebuildSpotifyPlayer();
         if (!rebuilt) {
+          advLog('recover:rebuild-failed-login');
           saveAppUiStateForRestore();
           await startLogin();
           return;
         }
 
+        const ready = await waitForDeviceReady(8000);
+        advLog('recover:device-ready', { ready });
+        if (!ready) {
+          advLog('recover:device-timeout-login');
+          saveAppUiStateForRestore();
+          await startLogin();
+          return;
+        }
+
+        // Brief delay for Spotify API to accept the new device
+        if (isNetwork) await new Promise(resolve => setTimeout(resolve, 1000));
+
         try {
           return await action();
         } catch (retryErr) {
-          if (isRecoverableDeviceError(retryErr)) {
+          if (isRecoverableDeviceError(retryErr) || isNetworkError(retryErr)) {
+            advLog('recover:retry-failed-login');
             saveAppUiStateForRestore();
             await startLogin();
             return;
@@ -2836,8 +2853,9 @@
             if (state.randomPinnedKey && !state.autoAdvanceInFlight) {
               const dur = playbackState?.track_window?.current_track?.duration_ms || 0;
               advLog('psc:paused-check', { prevPos: Math.round(prevSnapshotPosition), dur: Math.round(dur), incomingPos: incomingPosition, random: !!state.randomPinnedKey });
-              if (dur > 0 && (prevSnapshotPosition >= Math.max(0, dur - 2000) || incomingPosition === 0)) {
+              if (dur > 0 && (prevSnapshotPosition >= Math.max(0, dur - 2000) || (incomingPosition === 0 && prevSnapshotPosition >= Math.max(0, dur - 10000)))) {
                 advLog('psc:advance-triggered');
+                state.autoAdvanceInFlight = true;
                 maybeAutoAdvanceFromTimer();
               }
             }
@@ -3142,12 +3160,19 @@
     progressBar.addEventListener('change', async () => {
       try {
         if (!state.deviceId) return;
-        await spotifyApi(`https://api.spotify.com/v1/me/player/seek?position_ms=${encodeURIComponent(progressBar.value)}&device_id=${encodeURIComponent(state.deviceId)}`, { method: 'PUT' });
+        const seekMs = Number(progressBar.value);
+        await spotifyApi(`https://api.spotify.com/v1/me/player/seek?position_ms=${encodeURIComponent(seekMs)}&device_id=${encodeURIComponent(state.deviceId)}`, { method: 'PUT' });
         state.lastPlaybackTimestamp = Date.now();
         if (state.lastPlaybackSnapshot) {
-          state.lastPlaybackSnapshot = { ...state.lastPlaybackSnapshot, position: Number(progressBar.value) };
+          state.lastPlaybackSnapshot = { ...state.lastPlaybackSnapshot, position: seekMs };
         }
         refreshProgressFromSnapshot();
+        // If scraped to within 10s of the end, clear the advance guard so
+        // the timer can advance to the next track immediately
+        const duration = state.lastPlaybackSnapshot?.track_window?.current_track?.duration_ms || 0;
+        if (duration > 0 && seekMs >= duration - 10000) {
+          state.lastAutoAdvancedFromSid = null;
+        }
       } catch (err) {
         alert(err.message);
       } finally {
