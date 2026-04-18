@@ -935,7 +935,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.72</div>
+          <div class="tiny" id="version-code">Version: 1.73</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -2644,8 +2644,15 @@
         const track = playbackState.track_window?.current_track;
         if (track) {
           syncPlayerTitles(track.name, track.artists.map(a => a.name).join(', '));
-          setPlayerArtwork(track.album?.images?.[0]?.url || null, track.name.slice(0, 1).toUpperCase());
-          playerInfo.textContent = '';
+          const artworkUrl = track.album?.images?.[0]?.url || null;
+          if (artworkUrl) {
+            setPlayerArtwork(artworkUrl, track.name.slice(0, 1).toUpperCase());
+            playerInfo.textContent = '';
+          } else if (!inPendingWindow) {
+            // Only clear artwork and message if we're not mid-switch
+            setPlayerArtwork(null, track.name.slice(0, 1).toUpperCase());
+            playerInfo.textContent = '';
+          }
 
           if (!state.isScrubbing) {
             refreshProgressFromSnapshot();
