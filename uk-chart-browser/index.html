@@ -934,7 +934,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.83</div>
+          <div class="tiny" id="version-code">Version: 1.84</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -2686,6 +2686,24 @@
         }
 
         render();
+
+        // Scroll the active track card into view when a new track starts
+        if (isNewTrackConfirmation) {
+          requestAnimationFrame(() => {
+            const activeCard = resultsEl.querySelector('.track-card.is-playing');
+            if (!activeCard) return;
+            const heroBottom = document.querySelector('.hero')?.getBoundingClientRect().bottom ?? 0;
+            const playerHeight = playerShell.hidden ? 0 : playerShell.getBoundingClientRect().height + 16;
+            const cardRect = activeCard.getBoundingClientRect();
+            const viewportHeight = window.innerHeight;
+            const visibleTop = heroBottom + 8;
+            const visibleBottom = viewportHeight - playerHeight - 8;
+            if (cardRect.top < visibleTop || cardRect.bottom > visibleBottom) {
+              const scrollTarget = window.scrollY + cardRect.top - visibleTop - 8;
+              window.scrollTo({ top: scrollTarget, behavior: 'smooth' });
+            }
+          });
+        }
       });
       state.player.addListener('autoplay_failed', () => {
         // The SDK fires this when its internal audio context is blocked on a fresh
