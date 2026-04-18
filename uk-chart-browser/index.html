@@ -934,7 +934,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.86</div>
+          <div class="tiny" id="version-code">Version: 1.87</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -1536,10 +1536,13 @@
       const firstWeekMap = new Map();
       const allRows = getRowsForSelectedPosition();
 
-      // Peak map from the current position-filtered rows
+      // Collect the set of track group keys we need to look up
+      const keysNeeded = new Set();
       for (const row of allRows) {
         const key = getTrackGroupKey(row);
         if (!key) continue;
+        keysNeeded.add(key);
+
         const pos = Number(row.__position);
         if (!Number.isFinite(pos)) continue;
         const rowDate = row.w || row.weekEnding || null;
@@ -1549,13 +1552,14 @@
         }
       }
 
-      // First week map from the full all-years dataset when available, otherwise
-      // falls back to the current year — gives true chart debut across all years
+      // Build firstWeekMap from the most complete data available.
+      // Use allYearsPositions if loaded (accurate cross-year debut),
+      // otherwise fall back to the full current year positions.
       const positionsMap = state.allYearsPositions || state.currentYearData?.positions || {};
       for (const rows of Object.values(positionsMap)) {
         for (const row of rows) {
           const key = getTrackGroupKey(row);
-          if (!key) continue;
+          if (!key || !keysNeeded.has(key)) continue;
           const rowDate = row.w || row.weekEnding || null;
           if (!rowDate) continue;
           const rowTime = new Date(rowDate).getTime();
@@ -1564,6 +1568,19 @@
           if (currentFirst == null || rowTime < currentFirst.time) {
             firstWeekMap.set(key, { time: rowTime, week: rowDate });
           }
+        }
+      }
+
+      // For any keys still missing from firstWeekMap (key format mismatch between
+      // the position data and the visible rows), fall back to the row's own date
+      for (const row of allRows) {
+        const key = getTrackGroupKey(row);
+        if (!key || firstWeekMap.has(key)) continue;
+        const rowDate = row.w || row.weekEnding || null;
+        if (!rowDate) continue;
+        const rowTime = new Date(rowDate).getTime();
+        if (!Number.isNaN(rowTime)) {
+          firstWeekMap.set(key, { time: rowTime, week: rowDate });
         }
       }
 
