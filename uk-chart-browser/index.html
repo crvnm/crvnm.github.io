@@ -934,7 +934,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.92-debug</div>
+          <div class="tiny" id="version-code">Version: 1.93-debug</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -1349,7 +1349,7 @@
         if (state.randomPinnedKey) {
           const candidateRows = getRowsForCurrentFilter().filter(r => r.sid && r.sid !== currentSid);
           const nextRow = pickRandomItem(candidateRows);
-          if (!nextRow?.sid) { advLog('advance:no-candidate'); return; }
+          if (!nextRow?.sid) { advLog('advance:no-candidate', { candidates: candidateRows.length, currentSid: currentSid?.slice(-6) }); return; }
 
           advLog('advance:random-play', { nextSid: nextRow.sid });
           state.randomPinnedKey = rowKey(nextRow);
@@ -1360,7 +1360,14 @@
           await new Promise(resolve => setTimeout(resolve, 500));
           await ensurePendingTrackIsActuallyPlaying();
           state.intentToPlay = false;
-          advLog('advance:random-done');
+
+          // Only mark as advanced if Spotify actually switched to the new track
+          if (getCurrentTrackId() === nextRow.sid) {
+            state.lastAutoAdvancedFromSid = currentSid;
+            advLog('advance:random-done');
+          } else {
+            advLog('advance:random-spotify-ignored', { expected: nextRow.sid?.slice(-6), actual: getCurrentTrackId()?.slice(-6) });
+          }
         } else {
           const playableRows = getPlayableVisibleRows();
           if (!playableRows.length) return;
@@ -1375,10 +1382,14 @@
           await playTrack(nextRow, { isAutoAdvance: true, forceRestart: true });
           await new Promise(resolve => setTimeout(resolve, 500));
           await ensurePendingTrackIsActuallyPlaying();
-          advLog('advance:sequential-done');
+          if (getCurrentTrackId() === nextRow.sid) {
+            state.lastAutoAdvancedFromSid = currentSid;
+            advLog('advance:sequential-done');
+          } else {
+            advLog('advance:sequential-spotify-ignored', { expected: nextRow.sid?.slice(-6), actual: getCurrentTrackId()?.slice(-6) });
+          }
         }
 
-        state.lastAutoAdvancedFromSid = currentSid;
       } catch (err) {
         advLog('advance:error', { msg: String(err?.message || err).slice(0, 80) });
         console.error('Auto-advance failed', err);
@@ -2725,6 +2736,7 @@
           ? { ...playbackState, position: 0 }
           : playbackState;
 
+        const prevSnapshotPosition = state.lastPlaybackSnapshot?.position || 0;
         state.playbackState = snapshotToWrite;
         state.lastPlaybackSnapshot = snapshotToWrite;
         state.lastPlaybackTimestamp = Date.now();
@@ -2783,9 +2795,9 @@
           if (playbackState.paused && !inPendingWindow) {
             stopProgressTimer();
             if (state.randomPinnedKey && !state.autoAdvanceInFlight) {
-              const { position, duration } = getDerivedPlaybackPosition();
-              advLog('psc:paused-check', { pos: Math.round(position), dur: Math.round(duration), random: !!state.randomPinnedKey });
-              if (duration > 0 && position >= Math.max(0, duration - 2000)) {
+              const dur = playbackState?.track_window?.current_track?.duration_ms || 0;
+              advLog('psc:paused-check', { prevPos: Math.round(prevSnapshotPosition), dur: Math.round(dur), incomingPos: incomingPosition, random: !!state.randomPinnedKey });
+              if (dur > 0 && (prevSnapshotPosition >= Math.max(0, dur - 2000) || incomingPosition === 0)) {
                 advLog('psc:advance-triggered');
                 maybeAutoAdvanceFromTimer();
               }
