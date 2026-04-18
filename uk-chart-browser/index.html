@@ -935,7 +935,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.69-debug</div>
+          <div class="tiny" id="version-code">Version: 1.70-debug</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -2276,22 +2276,12 @@
       });
       switchLog('playTrack:after-play');
 
+      // Set seekResetInFlight so player_state_changed suppresses non-zero
+      // position reports in the UI while Spotify processes the play command.
+      // The delayed re-seek in player_state_changed will handle any revert.
       if (mustHardReset) {
-        try {
-          state.seekResetInFlight = true;
-          // Safety: clear the flag after 3s even if position 0 is never confirmed
-          setTimeout(() => { state.seekResetInFlight = false; }, 3000);
-          await new Promise(resolve => setTimeout(resolve, 150));
-          await spotifyApi(`https://api.spotify.com/v1/me/player/seek?position_ms=0&device_id=${encodeURIComponent(state.deviceId)}`, {
-            method: 'PUT',
-          });
-          switchLog('playTrack:after-seek');
-        } catch (err) {
-          console.warn('Seek reset failed', err);
-          state.seekResetInFlight = false;
-        }
-        // Do NOT clear seekResetInFlight here — player_state_changed clears it
-        // once it sees position=0 confirmed, ensuring any Spotify revert is caught
+        state.seekResetInFlight = true;
+        setTimeout(() => { state.seekResetInFlight = false; }, 3000);
       }
 
       state.lastPlaybackTimestamp = Date.now();
@@ -2687,15 +2677,13 @@
           state.seekResetInFlight ||
           recentlySeekConfirmed;
 
-        // Once we see position 0 confirmed while seekResetInFlight, record the
-        // time and clear the flag — keep forcePositionZero active for 2s after.
-        // Schedule a single delayed re-seek after Spotify's known revert window
-        // (~700ms) to catch the backend position restore without interrupting buffering.
+        // Once we see position 0 while seekResetInFlight, the play command's
+        // position_ms:0 has taken effect. Schedule a single seek at 1s to
+        // catch Spotify's backend revert without interrupting initial buffering.
         if (state.seekResetInFlight && incomingPosition === 0 && !incomingPaused) {
           state.seekResetInFlight = false;
           state.seekConfirmedAt = Date.now();
           switchLog('psc:seek-confirmed-at-zero');
-          // One delayed re-seek after Spotify's revert window
           if (state.deviceId) {
             setTimeout(() => {
               if (state.seekConfirmedAt > 0 && state.deviceId) {
@@ -2705,7 +2693,7 @@
                   { method: 'PUT' }
                 ).catch(err => console.warn('Delayed re-seek failed', err));
               }
-            }, 900);
+            }, 1000);
           }
         }
 
