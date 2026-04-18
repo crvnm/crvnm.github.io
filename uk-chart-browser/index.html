@@ -935,7 +935,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.66-debug</div>
+          <div class="tiny" id="version-code">Version: 1.67-debug</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -2266,7 +2266,11 @@
 
       await spotifyApi(`https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`, {
         method: 'PUT',
-        body: JSON.stringify({ uris: [`spotify:track:${row.sid}`], position_ms: 0 }),
+        body: JSON.stringify({
+          uris: [`spotify:track:${row.sid}`],
+          offset: { position: 0 },
+          position_ms: 0,
+        }),
       });
       switchLog('playTrack:after-play');
 
