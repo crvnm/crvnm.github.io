@@ -27,6 +27,8 @@ Complete:
 2023
 2024
 
+clearSwitchLog()
+
 dumpSwitchLog().map(e => `${e.t} ${e.label} pos=${e.snapshotPos} forceZero=${e.forcePositionZero} seekFlight=${e.seekResetInFlight} incoming=${e.incomingPosition} paused=${e.incomingPaused}`).join('\n')
 
 "sid": null,

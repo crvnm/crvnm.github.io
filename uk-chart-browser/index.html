@@ -935,7 +935,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.67-debug</div>
+          <div class="tiny" id="version-code">Version: 1.68-debug</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -1082,6 +1082,7 @@
       intentToPlay: false,
       confirmedTrackSid: null,
       seekResetInFlight: false,
+      seekConfirmedAt: 0,
     };
 
     function qs(name) { return new URLSearchParams(window.location.search).get(name); }
@@ -2248,6 +2249,7 @@
       state.pendingRequestedTrackSid = row.sid;
       state.pendingRequestedAt = Date.now();
       state.confirmedTrackSid = null;
+      state.seekConfirmedAt = 0;
 
       switchLog('playTrack:start', { newSid: row.sid, mustHardReset, isSwitchingTrack });
 
@@ -2675,28 +2677,32 @@
           !incomingPaused;
 
         // Force position to 0 while the post-play seek is in flight, or on
-        // first confirmation — events arriving before the seek completes will
-        // report a non-zero position which we must suppress.
-        // If Spotify reports a non-zero position while seekResetInFlight is
-        // true, it has reverted the seek — issue another seek immediately.
-        const forcePositionZero = isNewTrackConfirmation || state.seekResetInFlight;
+        // first confirmation, or within 2 seconds of seek confirmation —
+        // Spotify's backend can revert position up to ~1s after the seek confirms.
+        const recentlySeekConfirmed = state.seekConfirmedAt > 0 &&
+          (Date.now() - state.seekConfirmedAt) < 2000;
+        const forcePositionZero = isNewTrackConfirmation ||
+          state.seekResetInFlight ||
+          recentlySeekConfirmed;
 
-        if (state.seekResetInFlight && incomingPosition > 500 && state.deviceId) {
+        if ((state.seekResetInFlight || recentlySeekConfirmed) && incomingPosition > 500 && state.deviceId) {
           // Spotify reverted the seek — fire another one without waiting
-          switchLog('psc:re-seeking', { incomingPosition });
+          switchLog('psc:re-seeking', { incomingPosition, recentlySeekConfirmed });
           spotifyApi(
             `https://api.spotify.com/v1/me/player/seek?position_ms=0&device_id=${encodeURIComponent(state.deviceId)}`,
             { method: 'PUT' }
           ).catch(err => console.warn('Re-seek failed', err));
         }
 
-        // Once we see position 0 confirmed while seekResetInFlight, clear the flag
+        // Once we see position 0 confirmed while seekResetInFlight, record the
+        // time and clear the flag — but keep forcePositionZero active for 2s
         if (state.seekResetInFlight && incomingPosition === 0 && !incomingPaused) {
           state.seekResetInFlight = false;
+          state.seekConfirmedAt = Date.now();
           switchLog('psc:seek-confirmed-at-zero');
         }
 
-        switchLog('psc:accepted', { incomingTrackId, incomingPosition, incomingPaused, inPendingWindow, pendingTrackId, isNewTrackConfirmation, forcePositionZero, seekResetInFlight: state.seekResetInFlight });
+        switchLog('psc:accepted', { incomingTrackId, incomingPosition, incomingPaused, inPendingWindow, pendingTrackId, isNewTrackConfirmation, forcePositionZero, seekResetInFlight: state.seekResetInFlight, recentlySeekConfirmed });
 
         const snapshotToWrite = forcePositionZero
           ? { ...playbackState, position: 0 }
