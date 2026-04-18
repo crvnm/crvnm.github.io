@@ -934,7 +934,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.80</div>
+          <div class="tiny" id="version-code">Version: 1.81</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -1716,11 +1716,16 @@
         state.randomPinnedKey = rowKey(chosen);
         render();
         if (chosen.sid) {
-          await withSingleRetry(async () => {
-            await recoverDeviceAndRetry(() => playTrack(chosen));
-            await new Promise(resolve => setTimeout(resolve, 500));
-            await ensurePendingTrackIsActuallyPlaying();
-          });
+          state.intentToPlay = true;
+          try {
+            await withSingleRetry(async () => {
+              await recoverDeviceAndRetry(() => playTrack(chosen));
+              await new Promise(resolve => setTimeout(resolve, 500));
+              await ensurePendingTrackIsActuallyPlaying();
+            });
+          } finally {
+            state.intentToPlay = false;
+          }
         }
       } catch (err) {
         console.error('Random current failed', err);
