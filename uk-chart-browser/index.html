@@ -934,7 +934,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.91-debug</div>
+          <div class="tiny" id="version-code">Version: 1.92-debug</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -1261,6 +1261,7 @@
       if (state.progressTimer) {
         clearInterval(state.progressTimer);
         state.progressTimer = null;
+        advLog('timer:stopped');
       }
     }
     function getDerivedPlaybackPosition() {
@@ -1281,6 +1282,7 @@
     }
     function startProgressTimer() {
       stopProgressTimer();
+      advLog('timer:started');
       state.progressTimer = setInterval(() => {
         if (!state.lastPlaybackSnapshot || state.lastPlaybackSnapshot.paused || state.isScrubbing) return;
         refreshProgressFromSnapshot();
@@ -2691,6 +2693,7 @@
         // old track — including null-track device-transfer events — so they
         // can't overwrite the snapshot we just reset to position 0.
         if (inPendingWindow && incomingTrackId !== pendingTrackId) {
+          advLog('psc:drop-wrong-pending', { inc: incomingTrackId?.slice(-6), pending: pendingTrackId?.slice(-6), pos: incomingPosition });
           return;
         }
 
@@ -2704,6 +2707,7 @@
           incomingTrackId !== state.confirmedTrackSid &&
           !state.restoreSeekTrackSid
         ) {
+          advLog('psc:drop-post-confirm', { inc: incomingTrackId?.slice(-6), confirmed: state.confirmedTrackSid?.slice(-6), pos: incomingPosition });
           return;
         }
 
@@ -2714,6 +2718,8 @@
           pendingTrackId &&
           incomingTrackId === pendingTrackId &&
           !incomingPaused;
+
+        advLog('psc:accepted', { sid: incomingTrackId?.slice(-6), pos: incomingPosition, paused: incomingPaused, pending: !!inPendingWindow, newConf: isNewTrackConfirmation });
 
         const snapshotToWrite = isNewTrackConfirmation
           ? { ...playbackState, position: 0 }
