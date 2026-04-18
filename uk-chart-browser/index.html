@@ -934,7 +934,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.33-debug</div>
+          <div class="tiny" id="version-code">Version: 1.78</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -1496,6 +1496,7 @@
 
     function buildOverallPeakMap() {
       const peakMap = new Map();
+      const firstWeekMap = new Map();
       const allRows = getRowsForSelectedPosition();
 
       for (const row of allRows) {
@@ -1505,13 +1506,25 @@
         const pos = Number(row.__position);
         if (!Number.isFinite(pos)) continue;
 
+        const rowDate = row.w || row.weekEnding || null;
+        const rowTime = rowDate ? new Date(rowDate).getTime() : null;
+
+        // Peak: lowest position
         const current = peakMap.get(key);
         if (current == null || pos < current.pos) {
-          peakMap.set(key, { pos, week: row.w || row.weekEnding || null });
+          peakMap.set(key, { pos, week: rowDate });
+        }
+
+        // First week: earliest date
+        const currentFirst = firstWeekMap.get(key);
+        if (rowTime && !Number.isNaN(rowTime)) {
+          if (currentFirst == null || rowTime < currentFirst.time) {
+            firstWeekMap.set(key, { time: rowTime, week: rowDate });
+          }
         }
       }
 
-      return peakMap;
+      return { peakMap, firstWeekMap };
     }
 
     function updatePositionQuickPicks() {
@@ -2356,7 +2369,7 @@
       if (!state.currentYearData) return;
       const visibleRows = getVisibleRows();
       const renderRows = getRenderRows(visibleRows);
-      const overallPeakMap = buildOverallPeakMap();
+      const { peakMap, firstWeekMap } = buildOverallPeakMap();
       const totalRows = state.peakWeekOnly
         ? reduceRowsToPeakWeek(getRowsForSelectedPosition()).length
         : getRowsForSelectedPosition().length;
@@ -2386,17 +2399,15 @@
         const song = escapeHtml(row.tm || row.t || row.title || 'Unknown song');
         const artist = escapeHtml(row.am || row.a || row.artist || 'Unknown artist');
         const week = escapeHtml(formatWeek(row.w || row.weekEnding));
-        const lastWeekRaw = row.lw;
-        const lastWeek = lastWeekRaw != null && lastWeekRaw !== '' && lastWeekRaw !== '-' && !Number.isNaN(Number(lastWeekRaw))
-          ? escapeHtml(ordinal(lastWeekRaw))
-          : '–';
         const trackKey = getTrackGroupKey(row);
-        const overallPeak = trackKey ? overallPeakMap.get(trackKey) : null;
+        const overallPeak = trackKey ? peakMap.get(trackKey) : null;
         const peakPos = overallPeak != null ? overallPeak.pos : (row.pk ?? null);
         const peakWeekDate = overallPeak?.week || null;
         const peakWeekFormatted = peakWeekDate ? escapeHtml(formatWeek(peakWeekDate)) : null;
         const peakPosLabel = peakPos != null ? escapeHtml(ordinal(peakPos)) : '–';
         const peakPill = `<div class="pill pill-peak"><span class="pill-label">Peak</span><span class="pill-value">${peakPosLabel}</span>${peakWeekFormatted ? `<span class="pill-date">${peakWeekFormatted}</span>` : ''}</div>`;
+        const firstWeek = trackKey ? firstWeekMap.get(trackKey) : null;
+        const firstWeekFormatted = firstWeek?.week ? escapeHtml(formatWeek(firstWeek.week)) : '–';
         const positionPill = row.__position ? `<div class="pill"><span class="pill-label">This week</span><span class="pill-value">${escapeHtml(ordinal(row.__position))}</span></div>` : '';
         const hasSpotify = !!row.sid;
         const isCurrent = currentTrackId && row.sid === currentTrackId;
@@ -2417,7 +2428,7 @@
             <div class="meta">
               ${(state.selectedPosition === 'ALL' || state.selectedPosition === 'TOP_10' || state.selectedPosition === 'TOP_5') ? positionPill : ''}
               ${peakPill}
-              <div class="pill"><span class="pill-label">Last week</span><span class="pill-value">${lastWeek}</span></div>
+              <div class="pill"><span class="pill-label">First week</span><span class="pill-value">${firstWeekFormatted}</span></div>
             </div>
           </article>
         `;
