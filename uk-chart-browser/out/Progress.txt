@@ -27,7 +27,7 @@ Complete:
 2023
 2024
 
-https://open.spotify.com/track/6dbSBQXCctYSVryynHXaZ4?si=23f79c4a6ecf4b40
+dumpSwitchLog().map(e => `${e.t} ${e.label} pos=${e.snapshotPos} forceZero=${e.forcePositionZero} seekFlight=${e.seekResetInFlight} incoming=${e.incomingPosition} paused=${e.incomingPaused}`).join('\n')
 
 "sid": null,
         "spotifyUri": null,
