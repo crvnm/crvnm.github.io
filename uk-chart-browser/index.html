@@ -935,7 +935,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.71-debug</div>
+          <div class="tiny" id="version-code">Version: 1.72</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -1081,8 +1081,6 @@
       trackSidAtPageHide: null,
       intentToPlay: false,
       confirmedTrackSid: null,
-      seekResetInFlight: false,
-      seekConfirmedAt: 0,
     };
 
     function qs(name) { return new URLSearchParams(window.location.search).get(name); }
@@ -1371,24 +1369,6 @@
         if (part.type === 'sep') return `<span class="artist-sep">${escapeHtml(part.text)}</span>`;
         return `<button class="artist-btn" data-action="artist" data-index="${index}" data-artist="${escapeHtml(part.name)}">${escapeHtml(part.name)}</button>`;
       }).join('');
-    }
-
-    const _switchLog = [];
-    window.dumpSwitchLog = () => { console.table(_switchLog); return _switchLog; };
-    window.clearSwitchLog = () => { _switchLog.length = 0; console.log('cleared'); };
-    function switchLog(label, extra = {}) {
-      const entry = {
-        t: Date.now(),
-        label,
-        pendingSid: state.pendingRequestedTrackSid,
-        pendingAge: state.pendingRequestedAt ? Date.now() - state.pendingRequestedAt : null,
-        confirmedSid: state.confirmedTrackSid,
-        snapshotPos: state.lastPlaybackSnapshot?.position ?? null,
-        snapshotPaused: state.lastPlaybackSnapshot?.paused ?? null,
-        ...extra,
-      };
-      _switchLog.push(entry);
-      console.log('[switch]', entry);
     }
 
     function pickRandomItem(items) {
@@ -2249,38 +2229,24 @@
       state.pendingRequestedTrackSid = row.sid;
       state.pendingRequestedAt = Date.now();
       state.confirmedTrackSid = null;
-      state.seekConfirmedAt = 0;
 
-      switchLog('playTrack:start', { newSid: row.sid, mustHardReset, isSwitchingTrack });
 
       // Reset local position to 0 immediately so the progress timer doesn't
       // show the old track's position while the new track loads.
       if (mustHardReset && state.lastPlaybackSnapshot) {
         state.lastPlaybackSnapshot = { ...state.lastPlaybackSnapshot, position: 0, paused: false };
         state.lastPlaybackTimestamp = Date.now();
-        switchLog('playTrack:snapshot-reset');
       }
 
       await state.player.activateElement();
-      switchLog('playTrack:after-activateElement');
 
       await spotifyApi(`https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`, {
         method: 'PUT',
         body: JSON.stringify({
           uris: [`spotify:track:${row.sid}`],
-          offset: { position: 0 },
           position_ms: 0,
         }),
       });
-      switchLog('playTrack:after-play');
-
-      // Set seekResetInFlight so player_state_changed suppresses non-zero
-      // position reports in the UI while Spotify processes the play command.
-      // The delayed re-seek in player_state_changed will handle any revert.
-      if (mustHardReset) {
-        state.seekResetInFlight = true;
-        setTimeout(() => { state.seekResetInFlight = false; }, 3000);
-      }
 
       state.lastPlaybackTimestamp = Date.now();
       syncPlayerTitles(row.tm || row.t || row.title || 'Unknown song', row.am || row.a || row.artist || '');
@@ -2299,11 +2265,9 @@
       const actualSid = getCurrentTrackId();
       const { position } = getDerivedPlaybackPosition();
 
-      switchLog('ensurePending:check', { expectedSid, actualSid, position });
 
       if (!expectedSid) return;
       if (actualSid === expectedSid && position > 1500) {
-        switchLog('ensurePending:clearing-already-playing', { position });
         clearPendingRequestedTrack();
         return;
       }
@@ -2638,7 +2602,6 @@
         // old track — including null-track device-transfer events — so they
         // can't overwrite the snapshot we just reset to position 0.
         if (inPendingWindow && incomingTrackId !== pendingTrackId) {
-          switchLog('psc:dropped-wrong-track-in-pending', { incomingTrackId, pendingTrackId, incomingPosition, incomingPaused });
           return;
         }
 
@@ -2652,52 +2615,18 @@
           incomingTrackId !== state.confirmedTrackSid &&
           !state.restoreSeekTrackSid
         ) {
-          switchLog('psc:dropped-post-confirm-stale', { incomingTrackId, confirmedSid: state.confirmedTrackSid, incomingPosition });
           return;
         }
 
-        // Detect if this is the first playing confirmation for the pending track.
-        // Must be done before writing the snapshot so we can force position to 0.
+        // On first confirmed playing event for the pending track, force position
+        // to 0 since Spotify may report a small non-zero value during buffering.
         const isNewTrackConfirmation =
           inPendingWindow &&
           pendingTrackId &&
           incomingTrackId === pendingTrackId &&
           !incomingPaused;
 
-        // Force position to 0 while the post-play seek is in flight, or within
-        // 2 seconds of seek confirmation — Spotify's backend can revert position
-        // up to ~1s after the seek confirms. We suppress it in the UI only;
-        // we do NOT re-seek as that interrupts Spotify's buffering and causes
-        // multi-second playback delays.
-        const recentlySeekConfirmed = state.seekConfirmedAt > 0 &&
-          (Date.now() - state.seekConfirmedAt) < 2000;
-        const forcePositionZero = isNewTrackConfirmation ||
-          state.seekResetInFlight ||
-          recentlySeekConfirmed;
-
-        // Once we see position 0 while seekResetInFlight, the play command's
-        // position_ms:0 has taken effect. Schedule a single seek at 1s to
-        // catch Spotify's backend revert without interrupting initial buffering.
-        if (state.seekResetInFlight && incomingPosition === 0 && !incomingPaused) {
-          state.seekResetInFlight = false;
-          state.seekConfirmedAt = Date.now();
-          switchLog('psc:seek-confirmed-at-zero');
-          if (state.deviceId) {
-            setTimeout(() => {
-              if (state.seekConfirmedAt > 0 && state.deviceId) {
-                switchLog('psc:delayed-re-seek');
-                spotifyApi(
-                  `https://api.spotify.com/v1/me/player/seek?position_ms=0&device_id=${encodeURIComponent(state.deviceId)}`,
-                  { method: 'PUT' }
-                ).catch(err => console.warn('Delayed re-seek failed', err));
-              }
-            }, 1000);
-          }
-        }
-
-        switchLog('psc:accepted', { incomingTrackId, incomingPosition, incomingPaused, inPendingWindow, pendingTrackId, isNewTrackConfirmation, forcePositionZero, seekResetInFlight: state.seekResetInFlight, recentlySeekConfirmed });
-
-        const snapshotToWrite = forcePositionZero
+        const snapshotToWrite = isNewTrackConfirmation
           ? { ...playbackState, position: 0 }
           : playbackState;
 
