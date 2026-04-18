@@ -934,7 +934,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.87</div>
+          <div class="tiny" id="version-code">Version: 1.88</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -2158,6 +2158,31 @@
       yearSelect.innerHTML = state.availableYears.map(y => `<option value="${y}">${y === 'ALL' ? 'All Years' : y}</option>`).join('');
       yearSelect.value = state.selectedYear;
       await loadYear(state.selectedYear);
+
+      // If a single year was loaded, silently fetch all years in the background
+      // so firstWeekMap always has accurate cross-year debut dates
+      if (state.selectedYear !== 'ALL' && !state.allYearsPositions) {
+        const allYears = state.availableYears.filter(y => y !== 'ALL');
+        Promise.all(
+          allYears.map(y =>
+            fetch(`${DATA_BASE}/${y}.json?ts=${Date.now()}`, { cache: 'no-store' })
+              .then(r => r.ok ? r.json() : null)
+              .catch(() => null)
+          )
+        ).then(dataList => {
+          const positions = {};
+          for (const data of dataList) {
+            if (!data) continue;
+            for (const [pos, rows] of Object.entries(data.positions || {})) {
+              if (!positions[pos]) positions[pos] = [];
+              positions[pos].push(...rows);
+            }
+          }
+          state.allYearsPositions = positions;
+          _mapsCache = null; // invalidate cache so next render uses the new data
+          render();
+        }).catch(() => {});
+      }
     }
 
     async function loadYear(year) {
