@@ -881,16 +881,226 @@
         right: max(24px, calc((100vw - 760px) / 2 + 24px));
       }
     }
-  </style>
+    /* ── Quiz Mode ─────────────────────────────────────────────────────── */
+    .eyebrow { cursor: pointer; user-select: none; transition: color 0.2s; }
+    .eyebrow:hover { color: var(--accent); }
+
+    .quiz-section {
+      display: none;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .quiz-section.quiz-active { display: flex; }
+
+    .browser-section.quiz-active { display: none; }
+
+    .quiz-settings-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 12px 16px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 12px;
+      border: 1px solid var(--card-border);
+    }
+    .quiz-settings-row label {
+      font-size: 12px;
+      color: var(--muted);
+      margin-right: 4px;
+    }
+    .quiz-settings-row select {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--text);
+      border-radius: 8px;
+      padding: 4px 8px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    .quiz-settings-sep {
+      width: 1px;
+      height: 20px;
+      background: var(--card-border);
+      margin: 0 4px;
+    }
+
+    .quiz-card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      text-align: center;
+    }
+
+    .quiz-countdown-ring {
+      position: relative;
+      width: 80px;
+      height: 80px;
+      flex: 0 0 auto;
+    }
+    .quiz-countdown-ring svg {
+      transform: rotate(-90deg);
+      width: 80px;
+      height: 80px;
+    }
+    .quiz-countdown-ring circle {
+      fill: none;
+      stroke-width: 5;
+    }
+    .quiz-countdown-ring .ring-bg { stroke: rgba(255,255,255,0.1); }
+    .quiz-countdown-ring .ring-fg {
+      stroke: var(--accent);
+      stroke-linecap: round;
+      transition: stroke-dashoffset 0.25s linear;
+    }
+    .quiz-countdown-label {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .quiz-status {
+      font-size: 14px;
+      color: var(--muted);
+      min-height: 20px;
+    }
+
+    .quiz-inputs {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .quiz-input-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      text-align: left;
+    }
+    .quiz-input-wrap label {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .quiz-input-wrap input {
+      width: 100%;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      color: var(--text);
+      padding: 10px 12px;
+      font-size: 15px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .quiz-input-wrap input:focus { border-color: var(--accent); }
+    .quiz-input-wrap input.input-correct { border-color: var(--spotify); background: rgba(29,185,84,0.08); }
+    .quiz-input-wrap input.input-partial { border-color: #f59e0b; background: rgba(245,158,11,0.08); }
+    .quiz-input-wrap input.input-wrong { border-color: #ef4444; background: rgba(239,68,68,0.08); }
+    .quiz-input-wrap input:disabled { opacity: 1; }
+
+    .quiz-actions {
+      display: flex;
+      gap: 10px;
+      width: 100%;
+    }
+    .quiz-actions button { flex: 1; }
+
+    .quiz-reveal {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border-radius: 12px;
+      border: 1px solid var(--card-border);
+      padding: 14px 16px;
+      display: none;
+      flex-direction: column;
+      gap: 8px;
+      text-align: left;
+    }
+    .quiz-reveal.visible { display: flex; }
+    .quiz-reveal-cover {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+    .quiz-reveal-art {
+      width: 56px;
+      height: 56px;
+      border-radius: 10px;
+      overflow: hidden;
+      flex: 0 0 auto;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      display: grid;
+      place-items: center;
+      font-size: 20px;
+      font-weight: 700;
+    }
+    .quiz-reveal-art img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .quiz-reveal-text strong { display: block; font-size: 15px; }
+    .quiz-reveal-text span { font-size: 13px; color: var(--muted); }
+
+    .quiz-score-row {
+      display: flex;
+      gap: 10px;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+    .quiz-score-pill {
+      flex: 1;
+      min-width: 80px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 10px 12px;
+      text-align: center;
+    }
+    .quiz-score-pill .score-val {
+      display: block;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .quiz-score-pill .score-lbl {
+      display: block;
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .quiz-result-banner {
+      width: 100%;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 14px;
+      font-weight: 600;
+      text-align: center;
+      display: none;
+    }
+    .quiz-result-banner.visible { display: block; }
+    .quiz-result-banner.res-full { background: rgba(29,185,84,0.15); color: #4ade80; border: 1px solid rgba(29,185,84,0.3); }
+    .quiz-result-banner.res-partial { background: rgba(245,158,11,0.15); color: #fbbf24; border: 1px solid rgba(245,158,11,0.3); }
+    .quiz-result-banner.res-wrong { background: rgba(239,68,68,0.12); color: #f87171; border: 1px solid rgba(239,68,68,0.25); }
+  
 </head>
 <body>
   <div class="app">
     <section class="hero">
       <div class="hero-topbar">
-        <div class="eyebrow">UK chart browser</div>
+        <div class="eyebrow" id="eyebrow" role="button" tabindex="0" title="Switch to quiz mode">UK chart browser</div>
         <button class="spotify-status-pill" id="spotifyStatusPill" type="button" aria-label="Open Spotify playback settings">Spotify: Login</button>
       </div>
-      <div class="controls">
+      <div class="controls browser-section">
         <div class="control">
           <label for="yearSelect">Year</label>
           <select id="yearSelect"></select>
@@ -907,16 +1117,40 @@
           </div>
           <button class="hero-random-btn" id="randomCurrentBtn" title="Play a random track from the current filters" aria-label="Play a random track from the current filters"><span class="btn-label">⤮</span><span class="btn-spinner" aria-hidden="true"></span></button>
         </div>
-        <div class="position-quick-picks" id="positionQuickPicks">
+        <div class="position-quick-picks browser-section" id="positionQuickPicks">
           <button class="quick-pill active" type="button" data-position-quick="ALL" aria-pressed="true">All Positions</button>
           <button class="quick-pill" type="button" data-position-quick="TOP_10" aria-pressed="false">Top 10</button>
           <button class="quick-pill" type="button" data-position-quick="TOP_5" aria-pressed="false">Top 5</button>
           <button class="quick-pill" type="button" data-peak-week-toggle="true" aria-pressed="false">Peak Week</button>
         </div>
       </div>
+
+      <!-- Quiz settings (only visible in quiz mode) -->
+      <div class="quiz-settings-row quiz-section" id="quizSettingsRow">
+        <label>Clip</label>
+        <select id="quizClipLen">
+          <option value="5">5 sec</option>
+          <option value="10" selected>10 sec</option>
+          <option value="15">15 sec</option>
+        </select>
+        <div class="quiz-settings-sep"></div>
+        <label>From</label>
+        <select id="quizClipPos">
+          <option value="start">Start</option>
+          <option value="middle" selected>Middle</option>
+          <option value="end">End</option>
+          <option value="random">Random</option>
+        </select>
+        <div class="quiz-settings-sep"></div>
+        <label>Pool</label>
+        <select id="quizPool">
+          <option value="all" selected>All years</option>
+          <option value="current">Current filters</option>
+        </select>
+      </div>
     </section>
 
-    <section class="panel summary">
+    <section class="panel summary browser-section">
       <div class="summary-copy">
         <strong id="summaryTitle">Loading…</strong>
         <span id="summarySub">Choose a year and chart position.</span>
@@ -925,7 +1159,57 @@
       <div class="toolbar"></div>
     </section>
 
-    <section class="results" id="results"></section>
+    <section class="results browser-section" id="results"></section>
+
+    <!-- Quiz panel -->
+    <section class="panel quiz-section" id="quizPanel">
+      <div class="quiz-card">
+        <div class="quiz-score-row" id="quizScoreRow">
+          <div class="quiz-score-pill"><span class="score-val" id="quizScoreVal">0</span><span class="score-lbl">Score</span></div>
+          <div class="quiz-score-pill"><span class="score-val" id="quizPlayedVal">0</span><span class="score-lbl">Played</span></div>
+          <div class="quiz-score-pill"><span class="score-val" id="quizStreakVal">0</span><span class="score-lbl">Streak</span></div>
+        </div>
+
+        <div class="quiz-countdown-ring" id="quizRing">
+          <svg viewBox="0 0 80 80">
+            <circle class="ring-bg" cx="40" cy="40" r="35"/>
+            <circle class="ring-fg" id="quizRingFg" cx="40" cy="40" r="35"/>
+          </svg>
+          <div class="quiz-countdown-label" id="quizCountdownLabel">—</div>
+        </div>
+
+        <div class="quiz-status" id="quizStatus">Press Play to start</div>
+
+        <div class="quiz-inputs" id="quizInputs">
+          <div class="quiz-input-wrap">
+            <label for="quizTitleInput">Song title</label>
+            <input type="text" id="quizTitleInput" placeholder="Enter song title…" autocomplete="off" autocorrect="off" spellcheck="false" />
+          </div>
+          <div class="quiz-input-wrap">
+            <label for="quizArtistInput">Artist</label>
+            <input type="text" id="quizArtistInput" placeholder="Enter artist name…" autocomplete="off" autocorrect="off" spellcheck="false" />
+          </div>
+        </div>
+
+        <div class="quiz-result-banner" id="quizResultBanner"></div>
+
+        <div class="quiz-reveal" id="quizReveal">
+          <div class="quiz-reveal-cover">
+            <div class="quiz-reveal-art" id="quizRevealArt"><span id="quizRevealFallback">♪</span><img id="quizRevealImg" alt="Album art" hidden /></div>
+            <div class="quiz-reveal-text">
+              <strong id="quizRevealTitle"></strong>
+              <span id="quizRevealArtist"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="quiz-actions">
+          <button class="btn-secondary" id="quizPlayBtn">▶ Play clip</button>
+          <button class="btn-primary" id="quizSubmitBtn" disabled>Submit</button>
+          <button class="btn-secondary" id="quizSkipBtn" style="display:none">Next →</button>
+        </div>
+      </div>
+    </section>
   </div>
 
   <div class="modal-backdrop" id="spotifyModal" hidden>
@@ -934,7 +1218,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.95-debug</div>
+          <div class="tiny" id="version-code">Version: 2.00-debug</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -3247,6 +3531,476 @@
         resultsEl.innerHTML = `<div class="error">${escapeHtml(err.message || 'Could not load app.')}</div>`;
       }
     })();
+  </script>
+
+  <script>
+  // ── UK CHART QUIZ ──────────────────────────────────────────────────────────
+  // Self-contained. Reads state/functions from the browser script above but
+  // does not modify any of their logic — only adds event listeners and its own
+  // state object.
+
+  const quizState = {
+    active: false,           // quiz mode on/off
+    track: null,             // the row object for the current question
+    clipStartMs: 0,          // where in the track the clip starts
+    clipLenMs: 10000,        // clip duration in ms
+    confirmed: false,        // has this question been answered
+    countdownTimer: null,    // interval for the clip countdown ring
+    pauseTimer: null,        // timeout to pause after clip ends
+    score: 0,
+    played: 0,
+    streak: 0,
+    waitingForConfirm: false, // waiting for player_state_changed to confirm the track
+  };
+
+  // DOM refs
+  const eyebrow         = document.getElementById('eyebrow');
+  const quizSettingsRow = document.getElementById('quizSettingsRow');
+  const quizPanel       = document.getElementById('quizPanel');
+  const quizClipLen     = document.getElementById('quizClipLen');
+  const quizClipPos     = document.getElementById('quizClipPos');
+  const quizPool        = document.getElementById('quizPool');
+  const quizStatus      = document.getElementById('quizStatus');
+  const quizTitleInput  = document.getElementById('quizTitleInput');
+  const quizArtistInput = document.getElementById('quizArtistInput');
+  const quizPlayBtn     = document.getElementById('quizPlayBtn');
+  const quizSubmitBtn   = document.getElementById('quizSubmitBtn');
+  const quizSkipBtn     = document.getElementById('quizSkipBtn');
+  const quizReveal      = document.getElementById('quizReveal');
+  const quizRevealTitle = document.getElementById('quizRevealTitle');
+  const quizRevealArtist= document.getElementById('quizRevealArtist');
+  const quizRevealImg   = document.getElementById('quizRevealImg');
+  const quizRevealFallback = document.getElementById('quizRevealFallback');
+  const quizRevealArt   = document.getElementById('quizRevealArt');
+  const quizResultBanner= document.getElementById('quizResultBanner');
+  const quizScoreVal    = document.getElementById('quizScoreVal');
+  const quizPlayedVal   = document.getElementById('quizPlayedVal');
+  const quizStreakVal   = document.getElementById('quizStreakVal');
+  const quizCountdownLabel = document.getElementById('quizCountdownLabel');
+  const quizRingFg      = document.getElementById('quizRingFg');
+
+  const RING_R = 35;
+  const RING_CIRC = 2 * Math.PI * RING_R;
+
+  function quizSetRing(fraction) {
+    quizRingFg.style.strokeDasharray = `${RING_CIRC}`;
+    quizRingFg.style.strokeDashoffset = `${RING_CIRC * (1 - Math.max(0, Math.min(1, fraction)))}`;
+  }
+
+  function quizResetRing() {
+    quizRingFg.style.strokeDasharray = `${RING_CIRC}`;
+    quizRingFg.style.strokeDashoffset = `${RING_CIRC}`;
+    quizCountdownLabel.textContent = '—';
+  }
+
+  function quizUpdateScoreboard() {
+    quizScoreVal.textContent = quizState.score.toFixed(1).replace(/\.0$/, '');
+    quizPlayedVal.textContent = quizState.played;
+    quizStreakVal.textContent = quizState.streak;
+  }
+
+  // ── String matching helpers ───────────────────────────────────────────────
+
+  function quizNormalise(str) {
+    return String(str || '')
+      .toLowerCase()
+      .replace(/\([^)]*\)/g, '')          // strip (Radio Edit) etc
+      .replace(/\[[^\]]*\]/g, '')          // strip [Remaster] etc
+      .replace(/\bfeat?\.?\s+\S+/gi, '')  // strip feat. xxx
+      .replace(/\bft\.?\s+\S+/gi, '')     // strip ft. xxx
+      .replace(/[^a-z0-9 ]/g, ' ')        // keep only alphanum + space
+      .replace(/\b(the|a|an)\b/g, ' ')    // strip articles
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  function levenshtein(a, b) {
+    if (!a.length) return b.length;
+    if (!b.length) return a.length;
+    const dp = Array.from({ length: a.length + 1 }, (_, i) => [i]);
+    dp[0] = Array.from({ length: b.length + 1 }, (_, j) => j);
+    for (let i = 1; i <= a.length; i++) {
+      for (let j = 1; j <= b.length; j++) {
+        dp[i][j] = a[i-1] === b[j-1]
+          ? dp[i-1][j-1]
+          : 1 + Math.min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1]);
+      }
+    }
+    return dp[a.length][b.length];
+  }
+
+  function quizStringMatch(guess, correct) {
+    const g = quizNormalise(guess);
+    const c = quizNormalise(correct);
+    if (!g) return false;
+    if (g === c) return true;
+    // Allow up to 2 edits for longer strings, 1 for short
+    const allowedDist = c.length > 6 ? 2 : 1;
+    if (levenshtein(g, c) <= allowedDist) return true;
+    // Check if guess contains or is contained in correct (for long answers)
+    if (c.length > 8 && (c.includes(g) || g.includes(c))) return true;
+    return false;
+  }
+
+  // Split artist string into individual artists
+  function quizSplitArtists(artistStr) {
+    return String(artistStr || '')
+      .split(/,|\/|\bft\.?\b|\bfeat\.?\b|\bfeaturing\b/i)
+      .map(a => a.trim())
+      .filter(Boolean);
+  }
+
+  // Score a single question. Returns { points, titleOk, artistOk, artistPartial }
+  function quizScoreAnswer(titleGuess, artistGuess, row) {
+    const correctTitle  = row.tm || row.t || row.title || '';
+    const correctArtist = row.am || row.a || row.artist || '';
+    const artists = quizSplitArtists(correctArtist);
+
+    const titleOk = quizStringMatch(titleGuess, correctTitle);
+
+    // Artist: full match on full string, or match on any individual artist
+    const artistFullOk = quizStringMatch(artistGuess, correctArtist);
+    const artistPartialOk = !artistFullOk && artists.some(a => quizStringMatch(artistGuess, a));
+    const artistOk = artistFullOk;
+
+    let points = 0;
+    if (titleOk && artistOk)      points = 2;
+    else if (titleOk && artistPartialOk) points = 1.5;
+    else if (titleOk)             points = 1;
+    else if (artistOk)            points = 0.5;
+    else if (artistPartialOk)     points = 0.25;
+
+    return { points, titleOk, artistOk: artistOk || artistPartialOk, artistPartial: artistPartialOk && !artistFullOk };
+  }
+
+  // ── Clip position calculation ─────────────────────────────────────────────
+
+  function quizCalcClipStart(durationMs, posMode, clipLenMs) {
+    const safe = Math.max(0, durationMs - clipLenMs);
+    switch (posMode) {
+      case 'start':  return 0;
+      case 'end':    return safe;
+      case 'middle': return Math.floor(safe / 2);
+      case 'random': return Math.floor(Math.random() * (safe + 1));
+      default:       return 0;
+    }
+  }
+
+  // ── Mode toggling ─────────────────────────────────────────────────────────
+
+  function quizSetMode(active) {
+    quizState.active = active;
+    eyebrow.textContent = active ? 'UK chart quiz' : 'UK chart browser';
+
+    document.querySelectorAll('.browser-section').forEach(el => {
+      el.classList.toggle('quiz-active', active);
+    });
+    document.querySelectorAll('.quiz-section').forEach(el => {
+      el.classList.toggle('quiz-active', active);
+    });
+
+    if (!active) {
+      quizStopClip();
+      quizState.track = null;
+      quizState.waitingForConfirm = false;
+    }
+  }
+
+  eyebrow.addEventListener('click', () => quizSetMode(!quizState.active));
+  eyebrow.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); quizSetMode(!quizState.active); } });
+
+  // ── Clip playback ─────────────────────────────────────────────────────────
+
+  function quizStopClip() {
+    clearInterval(quizState.countdownTimer);
+    clearTimeout(quizState.pauseTimer);
+    quizState.countdownTimer = null;
+    quizState.pauseTimer = null;
+  }
+
+  function quizStartCountdown(durationMs) {
+    quizStopClip();
+    const endTime = Date.now() + durationMs;
+    quizSetRing(1);
+    quizCountdownLabel.textContent = Math.ceil(durationMs / 1000);
+
+    quizState.countdownTimer = setInterval(() => {
+      const remaining = endTime - Date.now();
+      if (remaining <= 0) {
+        quizStopClip();
+        quizSetRing(0);
+        quizCountdownLabel.textContent = '0';
+        quizSetStatus('Time\'s up — submit your answer or skip');
+        quizSubmitBtn.disabled = false;
+        return;
+      }
+      quizSetRing(remaining / durationMs);
+      quizCountdownLabel.textContent = Math.ceil(remaining / 1000);
+    }, 100);
+
+    // Pause via API when clip ends
+    quizState.pauseTimer = setTimeout(async () => {
+      try {
+        await spotifyApi('https://api.spotify.com/v1/me/player/pause', { method: 'PUT' });
+      } catch {}
+    }, durationMs);
+  }
+
+  function quizSetStatus(msg) {
+    quizStatus.textContent = msg;
+  }
+
+  // ── Pick a random track for the quiz ─────────────────────────────────────
+
+  function quizPickTrack() {
+    const useCurrentFilter = quizPool.value === 'current';
+    let candidates;
+
+    if (useCurrentFilter) {
+      candidates = (getRowsForCurrentFilter ? getRowsForCurrentFilter() : [])
+        .filter(r => r.sid);
+    } else {
+      // Use all years positions if available, otherwise current
+      const posMap = state.allYearsPositions || state.currentYearData?.positions || {};
+      candidates = Object.values(posMap).flat().filter(r => r.sid);
+      // Deduplicate by sid
+      const seen = new Set();
+      candidates = candidates.filter(r => { if (seen.has(r.sid)) return false; seen.add(r.sid); return true; });
+    }
+
+    if (!candidates.length) return null;
+    return candidates[Math.floor(Math.random() * candidates.length)];
+  }
+
+  // ── Reset question UI ─────────────────────────────────────────────────────
+
+  function quizResetQuestion() {
+    quizStopClip();
+    quizResetRing();
+    quizTitleInput.value = '';
+    quizArtistInput.value = '';
+    quizTitleInput.disabled = false;
+    quizArtistInput.disabled = false;
+    quizTitleInput.className = '';
+    quizArtistInput.className = '';
+    quizSubmitBtn.disabled = true;
+    quizPlayBtn.disabled = false;
+    quizPlayBtn.textContent = '▶ Play clip';
+    quizSkipBtn.style.display = 'none';
+    quizReveal.classList.remove('visible');
+    quizResultBanner.classList.remove('visible', 'res-full', 'res-partial', 'res-wrong');
+    quizResultBanner.textContent = '';
+    quizState.confirmed = false;
+    quizState.waitingForConfirm = false;
+  }
+
+  // ── Play a quiz clip ──────────────────────────────────────────────────────
+
+  async function quizPlayClip() {
+    if (!state.accessToken) {
+      quizSetStatus('Please sign in to Spotify first');
+      return;
+    }
+
+    const row = quizPickTrack();
+    if (!row) {
+      quizSetStatus('No tracks available — load data first');
+      return;
+    }
+
+    quizResetQuestion();
+    quizState.track = row;
+    quizState.clipLenMs = Number(quizClipLen.value) * 1000;
+    quizState.waitingForConfirm = true;
+    quizPlayBtn.disabled = true;
+    quizPlayBtn.textContent = '⏳ Loading…';
+    quizSetStatus('Loading track…');
+
+    try {
+      // playTrack will trigger player_state_changed which we intercept below
+      await recoverDeviceAndRetry(() => playTrack(row, { isAutoAdvance: false }));
+    } catch (err) {
+      quizSetStatus('Playback error — try again');
+      quizPlayBtn.disabled = false;
+      quizPlayBtn.textContent = '▶ Play clip';
+      quizState.waitingForConfirm = false;
+      quizState.track = null;
+    }
+  }
+
+  // Called by our player_state_changed hook when the quiz track is confirmed
+  function quizOnTrackConfirmed(trackSid, durationMs) {
+    if (!quizState.active || !quizState.waitingForConfirm) return;
+    if (trackSid !== quizState.track?.sid) {
+      // Spotify played the wrong track — abort and show error
+      quizSetStatus('Spotify played wrong track — try again');
+      quizPlayBtn.disabled = false;
+      quizPlayBtn.textContent = '▶ Play clip';
+      quizState.waitingForConfirm = false;
+      return;
+    }
+
+    quizState.waitingForConfirm = false;
+
+    const posMode = quizClipPos.value;
+    const clipStart = quizCalcClipStart(durationMs, posMode, quizState.clipLenMs);
+    quizState.clipStartMs = clipStart;
+
+    quizSetStatus('Seek to clip…');
+
+    // Seek to clip start then start countdown
+    spotifyApi(
+      `https://api.spotify.com/v1/me/player/seek?position_ms=${clipStart}&device_id=${encodeURIComponent(state.deviceId)}`,
+      { method: 'PUT' }
+    ).then(() => {
+      quizPlayBtn.textContent = '▶ Replay clip';
+      quizPlayBtn.disabled = false;
+      quizSubmitBtn.disabled = false;
+      quizSetStatus('Listen carefully…');
+      quizStartCountdown(quizState.clipLenMs);
+    }).catch(() => {
+      quizSetStatus('Seek failed — try again');
+      quizPlayBtn.disabled = false;
+      quizPlayBtn.textContent = '▶ Play clip';
+    });
+  }
+
+  // Replay the current clip from the stored start position
+  async function quizReplayClip() {
+    if (!quizState.track || quizState.confirmed) return;
+    quizStopClip();
+    quizSetStatus('Replaying…');
+    try {
+      await spotifyApi(
+        `https://api.spotify.com/v1/me/player/seek?position_ms=${quizState.clipStartMs}&device_id=${encodeURIComponent(state.deviceId)}`,
+        { method: 'PUT' }
+      );
+      await spotifyApi(`https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`, { method: 'PUT' });
+      quizSetStatus('Listen carefully…');
+      quizStartCountdown(quizState.clipLenMs);
+    } catch {
+      quizSetStatus('Replay failed — try again');
+    }
+  }
+
+  // ── Submit answer ─────────────────────────────────────────────────────────
+
+  function quizSubmitAnswer() {
+    if (!quizState.track || quizState.confirmed) return;
+    quizStopClip();
+    quizState.confirmed = true;
+    quizState.played++;
+
+    const row = quizState.track;
+    const { points, titleOk, artistOk, artistPartial } = quizScoreAnswer(
+      quizTitleInput.value, quizArtistInput.value, row
+    );
+
+    quizState.score += points;
+    if (points >= 2) quizState.streak++;
+    else quizState.streak = 0;
+    quizUpdateScoreboard();
+
+    // Colour the inputs
+    quizTitleInput.disabled = true;
+    quizArtistInput.disabled = true;
+    quizTitleInput.className = titleOk ? 'input-correct' : 'input-wrong';
+    quizArtistInput.className = artistOk ? (artistPartial ? 'input-partial' : 'input-correct') : 'input-wrong';
+
+    // Result banner
+    quizResultBanner.classList.add('visible');
+    if (points >= 2) {
+      quizResultBanner.className = 'quiz-result-banner visible res-full';
+      quizResultBanner.textContent = '🎉 Full marks! Both title and artist correct.';
+    } else if (points >= 1.5) {
+      quizResultBanner.className = 'quiz-result-banner visible res-partial';
+      quizResultBanner.textContent = '✓ Title correct + partial artist match.';
+    } else if (points >= 1) {
+      quizResultBanner.className = 'quiz-result-banner visible res-partial';
+      quizResultBanner.textContent = '✓ Title correct, artist missed.';
+    } else if (points >= 0.5) {
+      quizResultBanner.className = 'quiz-result-banner visible res-partial';
+      quizResultBanner.textContent = '~ Artist only — title missed.';
+    } else {
+      quizResultBanner.className = 'quiz-result-banner visible res-wrong';
+      quizResultBanner.textContent = '✗ Incorrect — better luck next time!';
+    }
+
+    // Reveal the answer
+    const correctTitle  = row.tm || row.t || row.title || 'Unknown';
+    const correctArtist = row.am || row.a || row.artist || '';
+    quizRevealTitle.textContent  = correctTitle;
+    quizRevealArtist.textContent = correctArtist;
+
+    // Artwork from current playback state (already loaded by playTrack)
+    const artUrl = state.playbackState?.track_window?.current_track?.album?.images?.[0]?.url || null;
+    if (artUrl) {
+      quizRevealImg.src = artUrl;
+      quizRevealImg.hidden = false;
+      quizRevealFallback.hidden = true;
+    } else {
+      quizRevealImg.hidden = true;
+      quizRevealFallback.hidden = false;
+      quizRevealFallback.textContent = correctTitle.slice(0, 1).toUpperCase();
+    }
+
+    quizReveal.classList.add('visible');
+    quizSetRing(0);
+    quizCountdownLabel.textContent = '✓';
+    quizPlayBtn.textContent = '▶ Replay';
+    quizSubmitBtn.disabled = true;
+    quizSkipBtn.style.display = '';
+    quizSkipBtn.textContent = 'Next →';
+    quizSetStatus('');
+  }
+
+  // ── Hook into player_state_changed ───────────────────────────────────────
+  // We patch the confirmed-track event without touching existing logic by
+  // observing state.confirmedTrackSid changes via a setter on a shadow prop.
+
+  let _lastConfirmedSid = null;
+  function quizCheckConfirmation() {
+    const sid = state.confirmedTrackSid;
+    if (sid && sid !== _lastConfirmedSid) {
+      _lastConfirmedSid = sid;
+      if (quizState.active && quizState.waitingForConfirm && quizState.track?.sid === sid) {
+        const dur = state.playbackState?.track_window?.current_track?.duration_ms || 0;
+        quizOnTrackConfirmed(sid, dur);
+      }
+    }
+  }
+
+  // Poll for confirmedTrackSid changes — lightweight, no modification to existing code
+  setInterval(quizCheckConfirmation, 100);
+
+  // ── Button event listeners ────────────────────────────────────────────────
+
+  quizPlayBtn.addEventListener('click', () => {
+    if (quizState.track && !quizState.confirmed) {
+      quizReplayClip();
+    } else {
+      quizPlayClip();
+    }
+  });
+
+  quizSubmitBtn.addEventListener('click', quizSubmitAnswer);
+
+  quizSkipBtn.addEventListener('click', () => {
+    quizResetQuestion();
+    quizState.track = null;
+    quizSetStatus('Press Play to start');
+    quizResetRing();
+  });
+
+  // Submit on Enter in either input
+  [quizTitleInput, quizArtistInput].forEach(inp => {
+    inp.addEventListener('keydown', e => {
+      if (e.key === 'Enter' && !quizSubmitBtn.disabled) quizSubmitAnswer();
+    });
+  });
+
+  quizResetRing();
+  quizUpdateScoreboard();
   </script>
 </body>
 </html>
