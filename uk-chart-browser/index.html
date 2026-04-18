@@ -935,7 +935,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.73</div>
+          <div class="tiny" id="version-code">Version: 1.74</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -2005,13 +2005,6 @@
         // gesture to unlock the audio context. Pre-warm the device in the
         // background so the tap is instant, and show a clear prompt.
         playerInfo.textContent = 'Tap play to resume.';
-        waitForDeviceReady(8000).then(ready => {
-          if (ready && state.restoredPlayerStateOnly && state.activeTrack) {
-            // Transfer playback here silently so the device is ready and the
-            // next tap goes straight to playing without any device negotiation.
-            transferPlaybackHere().catch(() => {});
-          }
-        });
       }
     }
 
@@ -2196,15 +2189,6 @@
       return res;
     }
 
-    async function transferPlaybackHere() {
-      if (!state.deviceId) throw new Error('No Spotify Web Playback device available yet.');
-      await spotifyApi('https://api.spotify.com/v1/me/player', {
-        method: 'PUT',
-        body: JSON.stringify({ device_ids: [state.deviceId], play: false })
-      });
-      setStatus(deviceStatus, `Device ready`, 'ok');
-    }
-
     async function playTrack(row, options = {}) {
       if (!row.sid) return;
       if (!options.isAutoAdvance) {
@@ -2363,8 +2347,6 @@
 
         await recoverDeviceAndRetry(async () => {
           await state.player.activateElement();
-
-          await transferPlaybackHere();
 
           await spotifyApi(
             `https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`,
