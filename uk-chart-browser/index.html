@@ -934,7 +934,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.90</div>
+          <div class="tiny" id="version-code">Version: 1.91-debug</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -1237,6 +1237,26 @@
         navigator.mediaSession.playbackState = paused ? 'paused' : 'playing';
       }
     }
+    // Persistent auto-advance debug log — survives lock screen, readable via advanceLog()
+    function advLog(label, data = {}) {
+      try {
+        const entries = JSON.parse(sessionStorage.getItem('_advLog') || '[]');
+        entries.push({ t: Date.now(), label, ...data });
+        if (entries.length > 200) entries.splice(0, entries.length - 200);
+        sessionStorage.setItem('_advLog', JSON.stringify(entries));
+      } catch {}
+    }
+    window.advanceLog = () => {
+      const entries = JSON.parse(sessionStorage.getItem('_advLog') || '[]');
+      return entries.map(e => {
+        const d = new Date(e.t);
+        const ts = `${d.getHours()}:${String(d.getMinutes()).padStart(2,'0')}:${String(d.getSeconds()).padStart(2,'0')}.${String(d.getMilliseconds()).padStart(3,'0')}`;
+        const rest = Object.entries(e).filter(([k]) => k !== 't' && k !== 'label').map(([k,v]) => `${k}=${v}`).join(' ');
+        return `${ts} ${e.label}${rest ? ' ' + rest : ''}`;
+      }).join('\n');
+    };
+    window.clearAdvanceLog = () => sessionStorage.removeItem('_advLog');
+
     function stopProgressTimer() {
       if (state.progressTimer) {
         clearInterval(state.progressTimer);
@@ -1264,6 +1284,10 @@
       state.progressTimer = setInterval(() => {
         if (!state.lastPlaybackSnapshot || state.lastPlaybackSnapshot.paused || state.isScrubbing) return;
         refreshProgressFromSnapshot();
+        const { position, duration } = getDerivedPlaybackPosition();
+        if (duration > 0 && position >= Math.max(0, duration - 5000)) {
+          advLog('timer:near-end', { pos: Math.round(position), dur: Math.round(duration), inFlight: state.autoAdvanceInFlight });
+        }
         maybeAutoAdvanceFromTimer();
       }, 250);
     }
@@ -1316,15 +1340,16 @@
       if (!(duration > 0 && position >= Math.max(0, duration - 1200))) return;
       if (state.lastAutoAdvancedFromSid === currentSid) return;
 
+      advLog('advance:triggered', { pos: Math.round(position), dur: Math.round(duration), random: !!state.randomPinnedKey });
       state.autoAdvanceInFlight = true;
 
       try {
         if (state.randomPinnedKey) {
-          // In random mode — pick a new random track from the current filter
           const candidateRows = getRowsForCurrentFilter().filter(r => r.sid && r.sid !== currentSid);
           const nextRow = pickRandomItem(candidateRows);
-          if (!nextRow?.sid) return;
+          if (!nextRow?.sid) { advLog('advance:no-candidate'); return; }
 
+          advLog('advance:random-play', { nextSid: nextRow.sid });
           state.randomPinnedKey = rowKey(nextRow);
           state.intentToPlay = true;
           render();
@@ -1333,24 +1358,27 @@
           await new Promise(resolve => setTimeout(resolve, 500));
           await ensurePendingTrackIsActuallyPlaying();
           state.intentToPlay = false;
+          advLog('advance:random-done');
         } else {
-          // Sequential advance — next track in the visible list
           const playableRows = getPlayableVisibleRows();
           if (!playableRows.length) return;
 
           const currentIndex = playableRows.findIndex(row => row.sid === currentSid);
-          if (currentIndex < 0 || currentIndex >= playableRows.length - 1) return;
+          if (currentIndex < 0 || currentIndex >= playableRows.length - 1) { advLog('advance:no-next-row', { currentIndex, total: playableRows.length }); return; }
 
           const nextRow = playableRows[currentIndex + 1];
           if (!nextRow?.sid) return;
 
+          advLog('advance:sequential-play', { nextSid: nextRow.sid });
           await playTrack(nextRow, { isAutoAdvance: true, forceRestart: true });
           await new Promise(resolve => setTimeout(resolve, 500));
           await ensurePendingTrackIsActuallyPlaying();
+          advLog('advance:sequential-done');
         }
 
         state.lastAutoAdvancedFromSid = currentSid;
       } catch (err) {
+        advLog('advance:error', { msg: String(err?.message || err).slice(0, 80) });
         console.error('Auto-advance failed', err);
         state.intentToPlay = false;
       } finally {
@@ -2750,7 +2778,9 @@
             stopProgressTimer();
             if (state.randomPinnedKey && !state.autoAdvanceInFlight) {
               const { position, duration } = getDerivedPlaybackPosition();
+              advLog('psc:paused-check', { pos: Math.round(position), dur: Math.round(duration), random: !!state.randomPinnedKey });
               if (duration > 0 && position >= Math.max(0, duration - 2000)) {
+                advLog('psc:advance-triggered');
                 maybeAutoAdvanceFromTimer();
               }
             }
