@@ -934,7 +934,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.94-debug</div>
+          <div class="tiny" id="version-code">Version: 1.95-debug</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -1340,7 +1340,17 @@
 
       const { position, duration } = getDerivedPlaybackPosition();
       if (!(duration > 0 && position >= Math.max(0, duration - 1200))) return;
-      if (state.lastAutoAdvancedFromSid === currentSid) return;
+
+      // If position has been clamped at duration (track ended but SDK didn't fire
+      // a paused event, e.g. during a network drop), clear the advance guard so
+      // we can re-trigger even if lastAutoAdvancedFromSid matches currentSid
+      if (state.lastAutoAdvancedFromSid === currentSid) {
+        if (position >= duration) {
+          state.lastAutoAdvancedFromSid = null;
+        } else {
+          return;
+        }
+      }
 
       advLog('advance:triggered', { pos: Math.round(position), dur: Math.round(duration), random: !!state.randomPinnedKey });
       state.autoAdvanceInFlight = true;
@@ -2185,11 +2195,13 @@
       } catch (err) {
         if (isNetworkError(err)) {
           advLog('recover:network-error-waiting');
-          const online = await waitForConnectivity(10000);
+          const online = navigator.onLine || await waitForConnectivity(10000);
           if (!online) throw err;
           advLog('recover:network-restored');
-          // Rebuild the SDK player which will have lost its WebSocket connection
           await rebuildSpotifyPlayer();
+          const ready = await waitForDeviceReady(8000);
+          advLog('recover:device-ready', { ready });
+          if (!ready) throw new Error('Device not ready after network recovery');
           return await action();
         }
 
@@ -2810,6 +2822,7 @@
             state.pendingRequestedTrackSid = null;
             state.pendingRequestedAt = 0;
             state.confirmedTrackSid = incomingTrackId;
+            state.lastAutoAdvancedFromSid = null; // reset so new track can advance when it ends
             justConfirmed = true;
             if (isLateConfirmation) {
               state.lastPlaybackSnapshot = { ...snapshotToWrite, position: 0 };
