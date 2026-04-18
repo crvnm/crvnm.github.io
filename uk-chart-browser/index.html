@@ -934,7 +934,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.85</div>
+          <div class="tiny" id="version-code">Version: 1.86</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -1060,6 +1060,7 @@
       lastAutoAdvancedFromSid: null,
       currentPlayableIndex: -1,
       loadYearRequestId: 0,
+      allYearsPositions: null,
       marqueeResizeObserver: null,
       currentTrackSid: null,
       restoredPlayerStateOnly: false,
@@ -1548,9 +1549,9 @@
         }
       }
 
-      // First week map always from complete unfiltered data — so it always
-      // shows the true chart debut regardless of position/top-N/text/peak filters
-      const positionsMap = state.currentYearData?.positions || {};
+      // First week map from the full all-years dataset when available, otherwise
+      // falls back to the current year — gives true chart debut across all years
+      const positionsMap = state.allYearsPositions || state.currentYearData?.positions || {};
       for (const rows of Object.values(positionsMap)) {
         for (const row of rows) {
           const key = getTrackGroupKey(row);
@@ -1573,7 +1574,7 @@
     let _mapsCacheKey = null;
 
     function getOverallMaps() {
-      const key = `${state.selectedYear}|${state.selectedPosition}|${state.peakWeekOnly}|${state.currentYearData?.year ?? ''}`;
+      const key = `${state.selectedYear}|${state.selectedPosition}|${state.peakWeekOnly}|${state.currentYearData?.year ?? ''}|${state.allYearsPositions ? '1' : '0'}`;
       if (_mapsCache && _mapsCacheKey === key) return _mapsCache;
       _mapsCache = buildOverallPeakMap();
       _mapsCacheKey = key;
@@ -2179,6 +2180,7 @@
         for (const pos of Object.keys(merged.positions)) {
           merged.positions[pos].sort((a, b) => String(a.w || '').localeCompare(String(b.w || '')));
         }
+        state.allYearsPositions = merged.positions;
         nextYearData = merged;
       } else {
         const res = await fetch(`${DATA_BASE}/${year}.json?ts=${Date.now()}`, { cache: 'no-store' });
