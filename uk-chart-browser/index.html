@@ -935,7 +935,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.64-debug</div>
+          <div class="tiny" id="version-code">Version: 1.65-debug</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -1081,6 +1081,7 @@
       trackSidAtPageHide: null,
       intentToPlay: false,
       confirmedTrackSid: null,
+      seekResetInFlight: false,
     };
 
     function qs(name) { return new URLSearchParams(window.location.search).get(name); }
@@ -2271,6 +2272,7 @@
 
       if (mustHardReset) {
         try {
+          state.seekResetInFlight = true;
           await new Promise(resolve => setTimeout(resolve, 150));
           await spotifyApi(`https://api.spotify.com/v1/me/player/seek?position_ms=0&device_id=${encodeURIComponent(state.deviceId)}`, {
             method: 'PUT',
@@ -2278,6 +2280,8 @@
           switchLog('playTrack:after-seek');
         } catch (err) {
           console.warn('Seek reset failed', err);
+        } finally {
+          state.seekResetInFlight = false;
         }
       }
 
@@ -2663,12 +2667,14 @@
           incomingTrackId === pendingTrackId &&
           !incomingPaused;
 
-        switchLog('psc:accepted', { incomingTrackId, incomingPosition, incomingPaused, inPendingWindow, pendingTrackId, isNewTrackConfirmation });
+        // Force position to 0 while the post-play seek is in flight, or on
+        // first confirmation — events arriving before the seek completes will
+        // report a non-zero position which we must suppress.
+        const forcePositionZero = isNewTrackConfirmation || state.seekResetInFlight;
 
-        // Write snapshot — force position to 0 on first confirmation since the
-        // post-play seek has fired but Spotify may report a non-zero position
-        // due to network latency between the seek and this event.
-        const snapshotToWrite = isNewTrackConfirmation
+        switchLog('psc:accepted', { incomingTrackId, incomingPosition, incomingPaused, inPendingWindow, pendingTrackId, isNewTrackConfirmation, forcePositionZero, seekResetInFlight: state.seekResetInFlight });
+
+        const snapshotToWrite = forcePositionZero
           ? { ...playbackState, position: 0 }
           : playbackState;
 
