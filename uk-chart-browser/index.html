@@ -934,7 +934,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.89</div>
+          <div class="tiny" id="version-code">Version: 1.90</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -2812,9 +2812,13 @@
         navigator.mediaSession.setActionHandler('nexttrack', () => {
           if (state.randomPinnedKey) {
             jumpToRandomCurrent().catch(console.error);
+          } else {
+            maybeAutoAdvanceFromTimer();
           }
         });
         navigator.mediaSession.setActionHandler('previoustrack', null);
+        navigator.mediaSession.setActionHandler('seekforward', null);
+        navigator.mediaSession.setActionHandler('seekbackward', null);
       }
     }
 
