@@ -935,7 +935,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.61</div>
+          <div class="tiny" id="version-code">Version: 1.62</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -2228,27 +2228,13 @@
       state.activeTrack = row;
       state.pendingRequestedTrackSid = row.sid;
       state.pendingRequestedAt = Date.now();
-      state.confirmedTrackSid = null; // will be set once new track is confirmed playing
+      state.confirmedTrackSid = null;
 
-      // Reset local position estimate immediately on track switch so the
-      // progress timer doesn't drift from the previous track's position
-      // while waiting for the first SDK event on the new track.
-      if (mustHardReset) {
-        if (state.lastPlaybackSnapshot) {
-          state.lastPlaybackSnapshot = { ...state.lastPlaybackSnapshot, position: 0, paused: false };
-        }
+      // Reset local position to 0 immediately so the progress timer doesn't
+      // show the old track's position while the new track loads.
+      if (mustHardReset && state.lastPlaybackSnapshot) {
+        state.lastPlaybackSnapshot = { ...state.lastPlaybackSnapshot, position: 0, paused: false };
         state.lastPlaybackTimestamp = Date.now();
-        // Pause the current track before switching so Spotify doesn't drift
-        // position during the gap between transferPlaybackHere and the play
-        // command — a playing track can send SDK events mid-switch that
-        // overwrite the snapshot with a non-zero position.
-        if (state.playbackState && !state.playbackState.paused) {
-          try {
-            await spotifyApi('https://api.spotify.com/v1/me/player/pause', { method: 'PUT' });
-          } catch (err) {
-            console.warn('Pre-switch pause failed', err);
-          }
-        }
       }
 
       await state.player.activateElement();
