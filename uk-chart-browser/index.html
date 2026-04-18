@@ -934,7 +934,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.79</div>
+          <div class="tiny" id="version-code">Version: 1.80</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -1499,46 +1499,33 @@
       const firstWeekMap = new Map();
       const allRows = getRowsForSelectedPosition();
 
+      // Peak map from the current position-filtered rows
       for (const row of allRows) {
         const key = getTrackGroupKey(row);
         if (!key) continue;
-
         const pos = Number(row.__position);
         if (!Number.isFinite(pos)) continue;
-
         const rowDate = row.w || row.weekEnding || null;
-        const rowTime = rowDate ? new Date(rowDate).getTime() : null;
-
-        // Peak: lowest position
         const current = peakMap.get(key);
         if (current == null || pos < current.pos) {
           peakMap.set(key, { pos, week: rowDate });
         }
-
-        // First week from full unfiltered data (not affected by Peak Week filter)
-        const currentFirst = firstWeekMap.get(key);
-        if (rowTime && !Number.isNaN(rowTime)) {
-          if (currentFirst == null || rowTime < currentFirst.time) {
-            firstWeekMap.set(key, { time: rowTime, week: rowDate });
-          }
-        }
       }
 
-      // If Peak Week filter is active, getRowsForSelectedPosition only returns
-      // one row per track — rebuild firstWeekMap from all positions data instead
-      if (state.peakWeekOnly) {
-        const positionsMap = state.currentYearData?.positions || {};
-        for (const rows of Object.values(positionsMap)) {
-          for (const row of rows) {
-            const key = getTrackGroupKey(row);
-            if (!key) continue;
-            const rowDate = row.w || row.weekEnding || null;
-            const rowTime = rowDate ? new Date(rowDate).getTime() : null;
-            if (!rowTime || Number.isNaN(rowTime)) continue;
-            const currentFirst = firstWeekMap.get(key);
-            if (currentFirst == null || rowTime < currentFirst.time) {
-              firstWeekMap.set(key, { time: rowTime, week: rowDate });
-            }
+      // First week map always from complete unfiltered data — so it always
+      // shows the true chart debut regardless of position/top-N/text/peak filters
+      const positionsMap = state.currentYearData?.positions || {};
+      for (const rows of Object.values(positionsMap)) {
+        for (const row of rows) {
+          const key = getTrackGroupKey(row);
+          if (!key) continue;
+          const rowDate = row.w || row.weekEnding || null;
+          if (!rowDate) continue;
+          const rowTime = new Date(rowDate).getTime();
+          if (Number.isNaN(rowTime)) continue;
+          const currentFirst = firstWeekMap.get(key);
+          if (currentFirst == null || rowTime < currentFirst.time) {
+            firstWeekMap.set(key, { time: rowTime, week: rowDate });
           }
         }
       }
