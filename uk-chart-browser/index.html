@@ -935,7 +935,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.64</div>
+          <div class="tiny" id="version-code">Version: 1.64-debug</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -1369,6 +1369,24 @@
         if (part.type === 'sep') return `<span class="artist-sep">${escapeHtml(part.text)}</span>`;
         return `<button class="artist-btn" data-action="artist" data-index="${index}" data-artist="${escapeHtml(part.name)}">${escapeHtml(part.name)}</button>`;
       }).join('');
+    }
+
+    const _switchLog = [];
+    window.dumpSwitchLog = () => { console.table(_switchLog); return _switchLog; };
+    window.clearSwitchLog = () => { _switchLog.length = 0; console.log('cleared'); };
+    function switchLog(label, extra = {}) {
+      const entry = {
+        t: Date.now(),
+        label,
+        pendingSid: state.pendingRequestedTrackSid,
+        pendingAge: state.pendingRequestedAt ? Date.now() - state.pendingRequestedAt : null,
+        confirmedSid: state.confirmedTrackSid,
+        snapshotPos: state.lastPlaybackSnapshot?.position ?? null,
+        snapshotPaused: state.lastPlaybackSnapshot?.paused ?? null,
+        ...extra,
+      };
+      _switchLog.push(entry);
+      console.log('[switch]', entry);
     }
 
     function pickRandomItem(items) {
@@ -2230,20 +2248,26 @@
       state.pendingRequestedAt = Date.now();
       state.confirmedTrackSid = null;
 
+      switchLog('playTrack:start', { newSid: row.sid, mustHardReset, isSwitchingTrack });
+
       // Reset local position to 0 immediately so the progress timer doesn't
       // show the old track's position while the new track loads.
       if (mustHardReset && state.lastPlaybackSnapshot) {
         state.lastPlaybackSnapshot = { ...state.lastPlaybackSnapshot, position: 0, paused: false };
         state.lastPlaybackTimestamp = Date.now();
+        switchLog('playTrack:snapshot-reset');
       }
 
       await state.player.activateElement();
+      switchLog('playTrack:after-activateElement');
       await transferPlaybackHere();
+      switchLog('playTrack:after-transfer');
 
       await spotifyApi(`https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`, {
         method: 'PUT',
         body: JSON.stringify({ uris: [`spotify:track:${row.sid}`], position_ms: 0 }),
       });
+      switchLog('playTrack:after-play');
 
       if (mustHardReset) {
         try {
@@ -2251,6 +2275,7 @@
           await spotifyApi(`https://api.spotify.com/v1/me/player/seek?position_ms=0&device_id=${encodeURIComponent(state.deviceId)}`, {
             method: 'PUT',
           });
+          switchLog('playTrack:after-seek');
         } catch (err) {
           console.warn('Seek reset failed', err);
         }
@@ -2273,9 +2298,11 @@
       const actualSid = getCurrentTrackId();
       const { position } = getDerivedPlaybackPosition();
 
+      switchLog('ensurePending:check', { expectedSid, actualSid, position });
 
       if (!expectedSid) return;
       if (actualSid === expectedSid && position > 1500) {
+        switchLog('ensurePending:clearing-already-playing', { position });
         clearPendingRequestedTrack();
         return;
       }
@@ -2610,6 +2637,7 @@
         // old track — including null-track device-transfer events — so they
         // can't overwrite the snapshot we just reset to position 0.
         if (inPendingWindow && incomingTrackId !== pendingTrackId) {
+          switchLog('psc:dropped-wrong-track-in-pending', { incomingTrackId, pendingTrackId, incomingPosition, incomingPaused });
           return;
         }
 
@@ -2623,6 +2651,7 @@
           incomingTrackId !== state.confirmedTrackSid &&
           !state.restoreSeekTrackSid
         ) {
+          switchLog('psc:dropped-post-confirm-stale', { incomingTrackId, confirmedSid: state.confirmedTrackSid, incomingPosition });
           return;
         }
 
@@ -2633,6 +2662,8 @@
           pendingTrackId &&
           incomingTrackId === pendingTrackId &&
           !incomingPaused;
+
+        switchLog('psc:accepted', { incomingTrackId, incomingPosition, incomingPaused, inPendingWindow, pendingTrackId, isNewTrackConfirmation });
 
         // Write snapshot — force position to 0 on first confirmation since the
         // post-play seek has fired but Spotify may report a non-zero position
