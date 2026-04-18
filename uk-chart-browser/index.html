@@ -934,7 +934,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.88</div>
+          <div class="tiny" id="version-code">Version: 1.89</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -1192,6 +1192,15 @@
       minibarArtist.textContent = artist;
     }
 
+    function updateMediaSession(song, artist, artworkUrl) {
+      if (!('mediaSession' in navigator)) return;
+      navigator.mediaSession.metadata = new MediaMetadata({
+        title: song || '',
+        artist: artist || '',
+        artwork: artworkUrl ? [{ src: artworkUrl }] : [],
+      });
+    }
+
     function refreshPlayerMarquee() {
       const currentSong = playerSong.getAttribute('data-full-text') || '';
       const currentArtist = playerArtist.getAttribute('data-full-text') || '';
@@ -1224,6 +1233,9 @@
       const paused = !state.playbackState || state.playbackState.paused;
       togglePlayBtn.textContent = paused ? '▶' : '❚❚';
       togglePlayBtn.setAttribute('aria-label', paused ? 'Play' : 'Pause');
+      if ('mediaSession' in navigator) {
+        navigator.mediaSession.playbackState = paused ? 'paused' : 'playing';
+      }
     }
     function stopProgressTimer() {
       if (state.progressTimer) {
@@ -2698,9 +2710,11 @@
           if (artworkUrl) {
             setPlayerArtwork(artworkUrl, track.name.slice(0, 1).toUpperCase());
             playerInfo.textContent = '';
+            updateMediaSession(track.name, track.artists.map(a => a.name).join(', '), artworkUrl);
           } else if (!inPendingWindow) {
             setPlayerArtwork(null, track.name.slice(0, 1).toUpperCase());
             playerInfo.textContent = '';
+            updateMediaSession(track.name, track.artists.map(a => a.name).join(', '), null);
           }
 
           if (!state.isScrubbing) {
@@ -2782,6 +2796,26 @@
       const connected = await state.player.connect();
       state.sdkReady = !!connected;
       updateAuthUi();
+
+      // Wire up lock screen / Control Centre media controls
+      if ('mediaSession' in navigator) {
+        navigator.mediaSession.setActionHandler('play', () => {
+          if (state.restoredPlayerStateOnly && state.activeTrack) {
+            resumeRestoredTrack().catch(console.error);
+          } else {
+            recoverDeviceAndRetry(() => togglePlayback()).catch(console.error);
+          }
+        });
+        navigator.mediaSession.setActionHandler('pause', () => {
+          recoverDeviceAndRetry(() => togglePlayback()).catch(console.error);
+        });
+        navigator.mediaSession.setActionHandler('nexttrack', () => {
+          if (state.randomPinnedKey) {
+            jumpToRandomCurrent().catch(console.error);
+          }
+        });
+        navigator.mediaSession.setActionHandler('previoustrack', null);
+      }
     }
 
     let bootstrapAuthPromise = null;
