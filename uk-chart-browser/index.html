@@ -934,7 +934,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.82</div>
+          <div class="tiny" id="version-code">Version: 1.83</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -1303,30 +1303,43 @@
       if (!(duration > 0 && position >= Math.max(0, duration - 1200))) return;
       if (state.lastAutoAdvancedFromSid === currentSid) return;
 
-      const playableRows = getPlayableVisibleRows();
-      if (!playableRows.length) return;
-
-      const currentIndex = playableRows.findIndex(row => row.sid === currentSid);
-      if (currentIndex < 0 || currentIndex >= playableRows.length - 1) return;
-
-      const nextRow = playableRows[currentIndex + 1];
-      if (!nextRow?.sid) return;
-
       state.autoAdvanceInFlight = true;
 
       try {
         if (state.randomPinnedKey) {
-          state.randomPinnedKey = rowKey(nextRow);
-          render();
-        }
+          // In random mode — pick a new random track from the current filter
+          const candidateRows = getRowsForCurrentFilter().filter(r => r.sid && r.sid !== currentSid);
+          const nextRow = pickRandomItem(candidateRows);
+          if (!nextRow?.sid) return;
 
-        await playTrack(nextRow, { isAutoAdvance: true, forceRestart: true });
-        await new Promise(resolve => setTimeout(resolve, 500));
-        await ensurePendingTrackIsActuallyPlaying();
+          state.randomPinnedKey = rowKey(nextRow);
+          state.intentToPlay = true;
+          render();
+
+          await recoverDeviceAndRetry(() => playTrack(nextRow, { isAutoAdvance: true }));
+          await new Promise(resolve => setTimeout(resolve, 500));
+          await ensurePendingTrackIsActuallyPlaying();
+          state.intentToPlay = false;
+        } else {
+          // Sequential advance — next track in the visible list
+          const playableRows = getPlayableVisibleRows();
+          if (!playableRows.length) return;
+
+          const currentIndex = playableRows.findIndex(row => row.sid === currentSid);
+          if (currentIndex < 0 || currentIndex >= playableRows.length - 1) return;
+
+          const nextRow = playableRows[currentIndex + 1];
+          if (!nextRow?.sid) return;
+
+          await playTrack(nextRow, { isAutoAdvance: true, forceRestart: true });
+          await new Promise(resolve => setTimeout(resolve, 500));
+          await ensurePendingTrackIsActuallyPlaying();
+        }
 
         state.lastAutoAdvancedFromSid = currentSid;
       } catch (err) {
         console.error('Auto-advance failed', err);
+        state.intentToPlay = false;
       } finally {
         window.setTimeout(() => {
           state.autoAdvanceInFlight = false;
@@ -2659,8 +2672,17 @@
             state.confirmedTrackSid = incomingTrackId;
           }
 
-          if (playbackState.paused && !inPendingWindow) stopProgressTimer();
-          else if (!playbackState.paused) startProgressTimer();
+          if (playbackState.paused && !inPendingWindow) {
+            stopProgressTimer();
+            // If in random mode and track ended (paused at the very end),
+            // trigger auto-advance — catches end-of-track when timer is throttled
+            if (state.randomPinnedKey && !state.autoAdvanceInFlight) {
+              const { position, duration } = getDerivedPlaybackPosition();
+              if (duration > 0 && position >= Math.max(0, duration - 2000)) {
+                maybeAutoAdvanceFromTimer();
+              }
+            }
+          } else if (!playbackState.paused) startProgressTimer();
         }
 
         render();
