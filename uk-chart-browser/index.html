@@ -1309,7 +1309,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.28</div>
+          <div class="tiny" id="version-code">Version: 2.29</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -4172,6 +4172,19 @@
       quizSubmitBtn.disabled = false;
       quizSetStatus('Listen carefully…');
       quizStartCountdown(quizState.clipLenMs);
+
+      // Verify audio is actually playing 600ms after seek — if still paused, resume
+      setTimeout(async () => {
+        if (!quizState.active || quizState.confirmed || !quizState.track) return;
+        if (state.playbackState?.paused) {
+          try {
+            await spotifyApi(
+              `https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`,
+              { method: 'PUT' }
+            );
+          } catch {}
+        }
+      }, 600);
     }).catch(() => {
       quizSetStatus('Seek failed — try again');
       quizPlayBtn.disabled = false;
