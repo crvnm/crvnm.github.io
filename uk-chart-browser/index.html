@@ -899,7 +899,7 @@
     body.quiz-mode #restartBtn {
       visibility: hidden;
     }
-    .eyebrow { cursor: pointer; user-select: none; transition: color 0.2s; }
+    body.quiz-mode { overscroll-behavior: none; }
     .eyebrow:hover { color: var(--accent); }
 
     .quiz-section {
@@ -974,6 +974,7 @@
       gap: 8px;
       align-items: stretch;
       text-align: center;
+      overscroll-behavior: none;
     }
 
     .quiz-hero {
@@ -1303,7 +1304,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.23</div>
+          <div class="tiny" id="version-code">Version: 2.24</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -3918,14 +3919,10 @@
     }
   }
 
-  // Prevent iOS from scrolling the page when focusing quiz inputs if already visible
+  // Prevent iOS scroll/jump when tapping quiz inputs
   [quizTitleInput, quizArtistInput].forEach(input => {
-    input.addEventListener('focus', () => {
-      const rect = input.getBoundingClientRect();
-      const isVisible = rect.top >= 0 && rect.bottom <= window.innerHeight;
-      if (!isVisible) {
-        input.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-      }
+    input.addEventListener('focus', e => {
+      e.target.focus({ preventScroll: true });
     }, { passive: true });
   });
 
