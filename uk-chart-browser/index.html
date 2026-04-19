@@ -1309,7 +1309,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.29</div>
+          <div class="tiny" id="version-code">Version: 2.30</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -4160,31 +4160,19 @@
     const clipStart = quizCalcClipStart(durationMs, posMode, quizState.clipLenMs);
     quizState.clipStartMs = clipStart;
 
-    quizSetStatus('Seek to clip…');
+    quizSetStatus('Seeking…');
 
-    // Seek to clip start then start countdown
+    // Use play+position_ms instead of a separate seek — avoids iOS audio context
+    // suspension that occurs between the initial play and a subsequent seek call
     spotifyApi(
-      `https://api.spotify.com/v1/me/player/seek?position_ms=${clipStart}&device_id=${encodeURIComponent(state.deviceId)}`,
-      { method: 'PUT' }
+      `https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`,
+      { method: 'PUT', body: JSON.stringify({ uris: [`spotify:track:${trackSid}`], position_ms: clipStart }) }
     ).then(() => {
       quizShowReplay();
       quizPlayBtn.disabled = false;
       quizSubmitBtn.disabled = false;
       quizSetStatus('Listen carefully…');
       quizStartCountdown(quizState.clipLenMs);
-
-      // Verify audio is actually playing 600ms after seek — if still paused, resume
-      setTimeout(async () => {
-        if (!quizState.active || quizState.confirmed || !quizState.track) return;
-        if (state.playbackState?.paused) {
-          try {
-            await spotifyApi(
-              `https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`,
-              { method: 'PUT' }
-            );
-          } catch {}
-        }
-      }, 600);
     }).catch(() => {
       quizSetStatus('Seek failed — try again');
       quizPlayBtn.disabled = false;
