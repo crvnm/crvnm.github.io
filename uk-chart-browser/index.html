@@ -980,7 +980,6 @@
       gap: 8px;
       align-items: stretch;
       text-align: center;
-      overscroll-behavior: none;
     }
 
     .quiz-hero {
@@ -1310,7 +1309,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.26</div>
+          <div class="tiny" id="version-code">Version: 2.27</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -3924,13 +3923,6 @@
       if (quizFilterChips) quizFilterChips.innerHTML = '';
     }
   }
-
-  // Prevent iOS scroll/jump when tapping quiz inputs
-  [quizTitleInput, quizArtistInput].forEach(input => {
-    input.addEventListener('focus', e => {
-      e.target.focus({ preventScroll: true });
-    }, { passive: true });
-  });
 
   eyebrow.addEventListener('click', () => quizSetMode(!quizState.active));
   eyebrow.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); quizSetMode(!quizState.active); } });
