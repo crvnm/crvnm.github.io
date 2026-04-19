@@ -971,7 +971,7 @@
     #quizPanel {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 8px;
       align-items: stretch;
       text-align: center;
     }
@@ -980,7 +980,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 8px;
+      gap: 0;
       width: 100%;
     }
 
@@ -1077,7 +1077,6 @@
     .quiz-status {
       font-size: 12px;
       color: var(--muted);
-      min-height: 16px;
     }
 
     /* Score row — compact single-line strip */
@@ -1116,7 +1115,7 @@
       width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 4px;
     }
     .quiz-input-wrap {
       display: flex;
@@ -1162,6 +1161,8 @@
     .quiz-reveal.visible + .quiz-countdown-ring { display: none; }
     .quiz-hero-stage:has(.quiz-reveal.visible) .quiz-countdown-ring { display: none; }
     .quiz-reveal .track-card { text-align: left; }
+    .quiz-reveal .song { margin-top: 2px; }
+    .quiz-reveal .row-actions-inline { margin-top: 0; }
 
     .quiz-result-banner {
       width: 100%;
@@ -1302,7 +1303,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.21</div>
+          <div class="tiny" id="version-code">Version: 1.33-debug</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -4243,7 +4244,6 @@
       <article class="track-card${isCurrent ? ' is-playing' : ''}">
         <div class="topline">
           <div class="topline-main">
-            <div class="week">📅 ${week}</div>
             <div class="song">${song}</div>
             <div class="artist">${renderArtistLine(artist, 0)}</div>
           </div>
