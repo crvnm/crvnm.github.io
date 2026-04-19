@@ -1309,7 +1309,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.27</div>
+          <div class="tiny" id="version-code">Version: 2.28</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -2390,6 +2390,14 @@
         durationAtPageHide: state.durationAtPageHide || 0,
         intentToPlay: !!state.intentToPlay,
         savedAt: Date.now(),
+        // Quiz state
+        quizActive: window.quizState?.active || false,
+        quizScore: window.quizState?.score || 0,
+        quizPlayed: window.quizState?.played || 0,
+        quizStreak: window.quizState?.streak || 0,
+        quizPool: document.getElementById('quizPool')?.value || 'current',
+        quizClipLen: document.getElementById('quizClipLen')?.value || '10',
+        quizClipPos: document.getElementById('quizClipPos')?.value || 'middle',
       };
       sessionStorage.setItem(APP_STATE_KEY, JSON.stringify(payload));
     }
@@ -2507,10 +2515,28 @@
       }
 
       if (saved.intentToPlay && state.activeTrack && state.restoredPlayerStateOnly) {
-        // Can't autoplay on a fresh page load — activateElement() needs a user
-        // gesture to unlock the audio context. Pre-warm the device in the
-        // background so the tap is instant, and show a clear prompt.
         playerInfo.textContent = 'Tap play to resume.';
+      }
+
+      // Restore quiz state — defer so the quiz script has initialised
+      if (saved.quizActive) {
+        setTimeout(() => {
+          if (!window.quizState) return;
+          // Restore score/played/streak
+          window.quizState.score = saved.quizScore || 0;
+          window.quizState.played = saved.quizPlayed || 0;
+          window.quizState.streak = saved.quizStreak || 0;
+          // Restore settings selects
+          const poolEl = document.getElementById('quizPool');
+          const clipLenEl = document.getElementById('quizClipLen');
+          const clipPosEl = document.getElementById('quizClipPos');
+          if (poolEl && saved.quizPool) poolEl.value = saved.quizPool;
+          if (clipLenEl && saved.quizClipLen) clipLenEl.value = saved.quizClipLen;
+          if (clipPosEl && saved.quizClipPos) clipPosEl.value = saved.quizClipPos;
+          // Activate quiz mode and update scoreboard
+          if (typeof quizSetMode === 'function') quizSetMode(true);
+          if (typeof quizUpdateScoreboard === 'function') quizUpdateScoreboard();
+        }, 100);
       }
     }
 
