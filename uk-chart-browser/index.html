@@ -1135,7 +1135,7 @@
       border-radius: 10px;
       color: var(--text);
       padding: 9px 12px;
-      font-size: 15px;
+      font-size: 16px; /* 16px prevents iOS Safari auto-zoom on focus */
       font-family: inherit;
       outline: none;
       transition: border-color 0.15s;
@@ -1303,7 +1303,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.33-debug</div>
+          <div class="tiny" id="version-code">Version: 2.22</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -3906,6 +3906,9 @@
 
     if (active) {
       quizRenderFilterChips();
+      // Minimise player so it doesn't take up space during quiz
+      state.isPlayerMinimized = true;
+      updatePlayerVisibility();
     } else {
       quizStopClip();
       quizState.track = null;
@@ -3915,7 +3918,16 @@
     }
   }
 
-  eyebrow.addEventListener('click', () => quizSetMode(!quizState.active));
+  // Prevent iOS from scrolling the page when focusing quiz inputs if already visible
+  [quizTitleInput, quizArtistInput].forEach(input => {
+    input.addEventListener('focus', () => {
+      const rect = input.getBoundingClientRect();
+      const isVisible = rect.top >= 0 && rect.bottom <= window.innerHeight;
+      if (!isVisible) {
+        input.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      }
+    }, { passive: true });
+  });
   eyebrow.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); quizSetMode(!quizState.active); } });
 
   // ── Clip playback ─────────────────────────────────────────────────────────
@@ -4264,6 +4276,8 @@
     if (playBtn && hasSpotify) {
       playBtn.addEventListener('click', async () => {
         document.body.classList.remove('quiz-mode');
+        state.isPlayerMinimized = false;
+        updatePlayerVisibility();
         try {
           if (getCurrentTrackId() === row.sid) {
             await recoverDeviceAndRetry(() => togglePlayback());
