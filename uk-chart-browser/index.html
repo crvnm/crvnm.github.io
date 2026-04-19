@@ -966,66 +966,153 @@
     .quiz-filter-chips:empty { display: none !important; }
     .quiz-settings-sep { display: none; }
 
-    .quiz-card {
-      background: var(--card);
-      border: 1px solid var(--card-border);
-      border-radius: var(--radius);
-      padding: 24px;
+    .quiz-card { /* removed — quizPanel is the container now */ }
+
+    #quizPanel {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 20px;
+      gap: 12px;
+      align-items: stretch;
       text-align: center;
     }
 
+    .quiz-hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .quiz-ring-actions-row { display: none; }
+    .quiz-ring-actions-main { display: none; }
+
     .quiz-countdown-ring {
       position: relative;
-      width: 80px;
-      height: 80px;
+      width: 96px;
+      height: 96px;
       flex: 0 0 auto;
     }
-    .quiz-countdown-ring svg {
+    .quiz-countdown-ring .ring-svg {
       transform: rotate(-90deg);
-      width: 80px;
-      height: 80px;
+      width: 96px;
+      height: 96px;
     }
     .quiz-countdown-ring circle {
       fill: none;
-      stroke-width: 5;
+      stroke-width: 4;
     }
-    .quiz-countdown-ring .ring-bg { stroke: rgba(255,255,255,0.1); }
+    .quiz-countdown-ring .ring-bg { stroke: rgba(255,255,255,0.08); }
     .quiz-countdown-ring .ring-fg {
       stroke: var(--accent);
       stroke-linecap: round;
       transition: stroke-dashoffset 0.25s linear;
     }
+
+    .quiz-play-center-btn {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: none;
+      background: rgba(124,156,255,0.12);
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .quiz-play-center-btn:hover:not(:disabled) {
+      background: rgba(124,156,255,0.22);
+      transform: scale(1.05);
+    }
+    .quiz-play-center-btn:disabled {
+      opacity: 0.35;
+      cursor: default;
+    }
+    .quiz-play-center-btn.is-counting {
+      opacity: 0;
+      pointer-events: none;
+      background: transparent;
+    }
+    .quiz-play-center-btn.is-counting.can-replay {
+      opacity: 1;
+      pointer-events: auto;
+      background: rgba(255,255,255,0.04);
+    }
+    .quiz-play-icon {
+      width: 28px;
+      height: 28px;
+      display: block;
+    }
+    .quiz-play-icon.play { }
+    .quiz-play-center-btn.is-counting .quiz-play-icon {
+      width: 14px;
+      height: 14px;
+    }
+
     .quiz-countdown-label {
       position: absolute;
       inset: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 22px;
+      font-size: 30px;
       font-weight: 700;
       color: var(--text);
+      pointer-events: none;
     }
+    .quiz-countdown-label:empty { display: none; }
 
     .quiz-status {
-      font-size: 14px;
+      font-size: 12px;
       color: var(--muted);
-      min-height: 20px;
+      min-height: 16px;
+    }
+
+    /* Score row — compact single-line strip */
+    .quiz-score-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .quiz-score-pill {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 5px 8px;
+      border-right: 1px solid var(--card-border);
+    }
+    .quiz-score-pill:last-child { border-right: none; }
+    .quiz-score-pill .score-val {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .quiz-score-pill .score-lbl {
+      font-size: 11px;
+      color: var(--muted);
     }
 
     .quiz-inputs {
       width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 8px;
     }
     .quiz-input-wrap {
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 3px;
       text-align: left;
     }
     .quiz-input-wrap label {
@@ -1039,7 +1126,7 @@
       border: 1px solid rgba(255,255,255,0.12);
       border-radius: 10px;
       color: var(--text);
-      padding: 10px 12px;
+      padding: 9px 12px;
       font-size: 15px;
       font-family: inherit;
       outline: none;
@@ -1053,7 +1140,7 @@
 
     .quiz-actions {
       display: flex;
-      gap: 10px;
+      gap: 8px;
       width: 100%;
     }
     .quiz-actions button { flex: 1; }
@@ -1064,34 +1151,6 @@
     }
     .quiz-reveal.visible { display: block; }
     .quiz-reveal .track-card { text-align: left; }
-
-    .quiz-score-row {
-      display: flex;
-      gap: 10px;
-      width: 100%;
-      flex-wrap: wrap;
-    }
-    .quiz-score-pill {
-      flex: 1;
-      min-width: 80px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid var(--card-border);
-      border-radius: 10px;
-      padding: 10px 12px;
-      text-align: center;
-    }
-    .quiz-score-pill .score-val {
-      display: block;
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--accent);
-    }
-    .quiz-score-pill .score-lbl {
-      display: block;
-      font-size: 11px;
-      color: var(--muted);
-      margin-top: 2px;
-    }
 
     .quiz-result-banner {
       width: 100%;
@@ -1183,44 +1242,45 @@
 
     <!-- Quiz panel -->
     <section class="panel quiz-section" id="quizPanel">
-      <div class="quiz-card">
-        <div class="quiz-score-row" id="quizScoreRow">
-          <div class="quiz-score-pill"><span class="score-val" id="quizScoreVal">0</span><span class="score-lbl">Score</span></div>
-          <div class="quiz-score-pill"><span class="score-val" id="quizPlayedVal">0</span><span class="score-lbl">Played</span></div>
-          <div class="quiz-score-pill"><span class="score-val" id="quizStreakVal">0</span><span class="score-lbl">Streak</span></div>
-        </div>
+      <div class="quiz-score-row" id="quizScoreRow">
+        <div class="quiz-score-pill"><span class="score-val" id="quizScoreVal">0</span><span class="score-lbl">Score</span></div>
+        <div class="quiz-score-pill"><span class="score-val" id="quizPlayedVal">0</span><span class="score-lbl">Played</span></div>
+        <div class="quiz-score-pill"><span class="score-val" id="quizStreakVal">0</span><span class="score-lbl">Streak</span></div>
+      </div>
 
+      <div class="quiz-hero">
         <div class="quiz-countdown-ring" id="quizRing">
-          <svg viewBox="0 0 80 80">
-            <circle class="ring-bg" cx="40" cy="40" r="35"/>
-            <circle class="ring-fg" id="quizRingFg" cx="40" cy="40" r="35"/>
+          <svg class="ring-svg" viewBox="0 0 96 96">
+            <circle class="ring-bg" cx="48" cy="48" r="42"/>
+            <circle class="ring-fg" id="quizRingFg" cx="48" cy="48" r="42"/>
           </svg>
-          <div class="quiz-countdown-label" id="quizCountdownLabel">—</div>
+          <button class="quiz-play-center-btn" id="quizPlayBtn">
+            <svg class="quiz-play-icon play" viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>
+          </button>
+          <div class="quiz-countdown-label" id="quizCountdownLabel"></div>
         </div>
+        <div class="quiz-status" id="quizStatus">Tap to play a clip</div>
+      </div>
 
-        <div class="quiz-status" id="quizStatus">Press Play to start</div>
-
-        <div class="quiz-inputs" id="quizInputs">
-          <div class="quiz-input-wrap">
-            <label for="quizTitleInput">Song title</label>
-            <input type="text" id="quizTitleInput" placeholder="Enter song title…" autocomplete="off" autocorrect="off" spellcheck="false" />
-          </div>
-          <div class="quiz-input-wrap">
-            <label for="quizArtistInput">Artist</label>
-            <input type="text" id="quizArtistInput" placeholder="Enter artist name…" autocomplete="off" autocorrect="off" spellcheck="false" />
-          </div>
+      <div class="quiz-inputs" id="quizInputs">
+        <div class="quiz-input-wrap">
+          <label for="quizTitleInput">Song title</label>
+          <input type="text" id="quizTitleInput" placeholder="Enter song title…" autocomplete="off" autocorrect="off" spellcheck="false" />
         </div>
-
-        <div class="quiz-result-banner" id="quizResultBanner"></div>
-
-        <div class="quiz-reveal" id="quizReveal"></div>
-
-        <div class="quiz-actions">
-          <button class="btn-secondary" id="quizPlayBtn">▶ Play clip</button>
-          <button class="btn-primary" id="quizSubmitBtn" disabled>Submit</button>
-          <button class="btn-secondary" id="quizSkipBtn" style="display:none">Next →</button>
+        <div class="quiz-input-wrap">
+          <label for="quizArtistInput">Artist</label>
+          <input type="text" id="quizArtistInput" placeholder="Enter artist name…" autocomplete="off" autocorrect="off" spellcheck="false" />
         </div>
       </div>
+
+      <div class="quiz-actions">
+        <button class="btn-primary" id="quizSubmitBtn" disabled>Submit</button>
+        <button class="btn-secondary" id="quizSkipBtn" style="display:none">Next →</button>
+      </div>
+
+      <div class="quiz-result-banner" id="quizResultBanner"></div>
+
+      <div class="quiz-reveal" id="quizReveal"></div>
     </section>
   </div>
 
@@ -1230,7 +1290,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.1</div>
+          <div class="tiny" id="version-code">Version: 1.33-debug</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -3653,7 +3713,7 @@
   const quizCountdownLabel = document.getElementById('quizCountdownLabel');
   const quizRingFg      = document.getElementById('quizRingFg');
 
-  const RING_R = 35;
+  const RING_R = 42;
   const RING_CIRC = 2 * Math.PI * RING_R;
 
   function quizSetRing(fraction) {
@@ -3664,7 +3724,26 @@
   function quizResetRing() {
     quizRingFg.style.strokeDasharray = `${RING_CIRC}`;
     quizRingFg.style.strokeDashoffset = `${RING_CIRC}`;
-    quizCountdownLabel.textContent = '—';
+    quizCountdownLabel.textContent = '';
+    quizPlayBtn.classList.remove('is-counting');
+    quizPlayBtn.innerHTML = '<svg class="quiz-play-icon play" viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>';
+  }
+
+  function quizShowCounting(label) {
+    quizCountdownLabel.textContent = label;
+    quizPlayBtn.classList.add('is-counting');
+    quizPlayBtn.classList.remove('can-replay');
+  }
+
+  function quizShowReplay() {
+    quizCountdownLabel.textContent = '';
+    quizPlayBtn.classList.add('is-counting', 'can-replay');
+    quizPlayBtn.innerHTML = '<svg class="quiz-play-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 1 0 .49-5.36"/></svg>';
+  }
+
+  function quizHideCounting() {
+    quizCountdownLabel.textContent = '';
+    quizPlayBtn.classList.remove('is-counting', 'can-replay');
   }
 
   function quizUpdateScoreboard() {
@@ -3746,7 +3825,7 @@
     );
     const artistFullOk = allGuessedMatched && (
       matchedCorrect.length === correctArtists.length ||
-      (correctArtists.length > 3 && matchedCorrect.length >= 3)
+      (correctArtists.length > 2 && matchedCorrect.length >= 2)
     );
 
     // Partial: at least one correct artist matched but not full
@@ -3882,21 +3961,22 @@
     quizStopClip();
     const endTime = Date.now() + durationMs;
     quizSetRing(1);
-    quizCountdownLabel.textContent = Math.ceil(durationMs / 1000);
+    quizShowCounting(String(Math.ceil(durationMs / 1000)));
 
     quizState.countdownTimer = setInterval(() => {
       const remaining = endTime - Date.now();
       if (remaining <= 0) {
         quizStopClip();
         quizSetRing(0);
-        quizCountdownLabel.textContent = '0';
+        quizShowCounting('0');
         quizSetStatus('Time\'s up — submit your answer or skip');
         quizSubmitBtn.disabled = false;
+        quizShowReplay();
         quizPauseClip();
         return;
       }
       quizSetRing(remaining / durationMs);
-      quizCountdownLabel.textContent = Math.ceil(remaining / 1000);
+      quizShowCounting(String(Math.ceil(remaining / 1000)));
     }, 100);
 
     // Belt-and-suspenders: also pause via timeout
@@ -3950,7 +4030,7 @@
     quizArtistInput.className = '';
     quizSubmitBtn.disabled = true;
     quizPlayBtn.disabled = false;
-    quizPlayBtn.textContent = '▶ Play clip';
+    quizPlayBtn.innerHTML = '<svg class="quiz-play-icon play" viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>'; quizPlayBtn.classList.remove('is-counting');
     quizSkipBtn.style.display = 'none';
     quizReveal.classList.remove('visible');
     quizResultBanner.classList.remove('visible', 'res-full', 'res-partial', 'res-wrong');
@@ -3981,7 +4061,7 @@
     _retryFired = false;
     _pollDebugCount = 0;
     quizPlayBtn.disabled = true;
-    quizPlayBtn.textContent = '⏳ Loading…';
+    quizPlayBtn.innerHTML = '<svg class="quiz-play-icon" viewBox="0 0 24 24" fill="currentColor" style="opacity:0.5"><polygon points="6,4 20,12 6,20"/></svg>'; quizPlayBtn.classList.remove('is-counting');
     quizSetStatus('Loading track…');
     quizStartConfirmTimeout();
 
@@ -3995,7 +4075,7 @@
         if (!ready) {
           quizSetStatus('Device not ready — try again');
           quizPlayBtn.disabled = false;
-          quizPlayBtn.textContent = '▶ Play clip';
+          quizPlayBtn.innerHTML = '<svg class="quiz-play-icon play" viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>'; quizPlayBtn.classList.remove('is-counting');
           quizState.waitingForConfirm = false;
           quizState.track = null;
           return;
@@ -4006,7 +4086,7 @@
     } catch (err) {
       quizSetStatus('Playback error — try again');
       quizPlayBtn.disabled = false;
-      quizPlayBtn.textContent = '▶ Play clip';
+      quizPlayBtn.innerHTML = '<svg class="quiz-play-icon play" viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>'; quizPlayBtn.classList.remove('is-counting');
       quizState.waitingForConfirm = false;
       quizState.track = null;
     }
@@ -4020,7 +4100,7 @@
       // Spotify played the wrong track — abort and show error
       quizSetStatus('Spotify played wrong track — try again');
       quizPlayBtn.disabled = false;
-      quizPlayBtn.textContent = '▶ Play clip';
+      quizPlayBtn.innerHTML = '<svg class="quiz-play-icon play" viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>'; quizPlayBtn.classList.remove('is-counting');
       quizState.waitingForConfirm = false;
       return;
     }
@@ -4039,7 +4119,7 @@
       `https://api.spotify.com/v1/me/player/seek?position_ms=${clipStart}&device_id=${encodeURIComponent(state.deviceId)}`,
       { method: 'PUT' }
     ).then(() => {
-      quizPlayBtn.textContent = '▶ Replay clip';
+      quizShowReplay();
       quizPlayBtn.disabled = false;
       quizSubmitBtn.disabled = false;
       quizSetStatus('Listen carefully…');
@@ -4047,7 +4127,7 @@
     }).catch(() => {
       quizSetStatus('Seek failed — try again');
       quizPlayBtn.disabled = false;
-      quizPlayBtn.textContent = '▶ Play clip';
+      quizPlayBtn.innerHTML = '<svg class="quiz-play-icon play" viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>'; quizPlayBtn.classList.remove('is-counting', 'can-replay');
     });
   }
 
@@ -4118,8 +4198,8 @@
     quizRenderReveal(row);
     quizReveal.classList.add('visible');
     quizSetRing(0);
-    quizCountdownLabel.textContent = '✓';
-    quizPlayBtn.textContent = '▶ Replay';
+    quizShowCounting('✓');
+    quizPlayBtn.innerHTML = '<svg class="quiz-play-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 1 0 .49-5.36"/></svg>'; quizPlayBtn.classList.add('is-counting');
     quizPlayBtn.disabled = true;
     quizSubmitBtn.disabled = true;
     quizSkipBtn.style.display = '';
@@ -4271,7 +4351,7 @@
       quizState.track = null;
       quizSetStatus('Track unavailable — trying another…');
       quizPlayBtn.disabled = false;
-      quizPlayBtn.textContent = '▶ Play clip';
+      quizPlayBtn.innerHTML = '<svg class="quiz-play-icon play" viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>'; quizPlayBtn.classList.remove('is-counting');
       // Auto-retry with a different track after a short pause
       setTimeout(() => {
         if (quizState.active && !quizState.confirmed && !quizState.waitingForConfirm) {
