@@ -262,7 +262,6 @@
     .topline-main {
       min-width: 0;
       flex: 1 1 auto;
-      overflow: hidden;
     }
 
     .row-actions-inline {
@@ -309,15 +308,12 @@
       font-size: 18px;
       line-height: 1.2;
       font-weight: 700;
-      white-space: nowrap;
-      overflow: hidden;
+      padding-right: 4px;
     }
 
     .artist {
       margin: 0;
       padding: 0;
-      white-space: nowrap;
-      overflow: hidden;
     }
 
     .artist-btn {
@@ -1306,7 +1302,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 1.33-debug</div>
+          <div class="tiny" id="version-code">Version: 2.21</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -3083,52 +3079,6 @@
           </div>
         `;
       }
-
-      setupCardMarquees();
-    }
-
-    function setupCardMarquees() {
-      // Apply marquee to .song divs (plain text)
-      resultsEl.querySelectorAll('.song').forEach(el => {
-        if (el.querySelector('.marquee-text')) return; // already set up
-        const text = el.textContent;
-        el.textContent = '';
-        el.classList.add('marquee-line');
-        const inner = document.createElement('span');
-        inner.className = 'marquee-text';
-        inner.textContent = text;
-        el.appendChild(inner);
-        requestAnimationFrame(() => {
-          const overflow = Math.ceil(inner.scrollWidth - el.clientWidth);
-          if (overflow > 2) {
-            const distance = overflow + 40;
-            el.style.setProperty('--marquee-distance', `${distance}px`);
-            el.style.setProperty('--marquee-duration', `${Math.max(8, distance / 24)}s`);
-            el.classList.add('is-overflowing');
-          }
-        });
-      });
-
-      // Apply marquee to .artist divs (contains buttons)
-      resultsEl.querySelectorAll('.artist').forEach(el => {
-        if (el.classList.contains('marquee-line')) return; // already set up
-        el.classList.add('marquee-line');
-        const inner = document.createElement('span');
-        inner.className = 'marquee-text';
-        inner.style.display = 'inline-flex';
-        inner.style.alignItems = 'center';
-        while (el.firstChild) inner.appendChild(el.firstChild);
-        el.appendChild(inner);
-        requestAnimationFrame(() => {
-          const overflow = Math.ceil(inner.scrollWidth - el.clientWidth);
-          if (overflow > 2) {
-            const distance = overflow + 40;
-            el.style.setProperty('--marquee-distance', `${distance}px`);
-            el.style.setProperty('--marquee-duration', `${Math.max(8, distance / 24)}s`);
-            el.classList.add('is-overflowing');
-          }
-        });
-      });
     }
 
     async function setupSpotifyPlayer() {
@@ -4323,50 +4273,6 @@
         } catch {}
       });
     }
-
-    // Apply marquee to the reveal card's song/artist
-    requestAnimationFrame(() => {
-      if (typeof setupCardMarquees === 'function') {
-        quizReveal.querySelectorAll('.song').forEach(el => {
-          if (el.querySelector('.marquee-text')) return;
-          const text = el.textContent;
-          el.textContent = '';
-          el.classList.add('marquee-line');
-          const inner = document.createElement('span');
-          inner.className = 'marquee-text';
-          inner.textContent = text;
-          el.appendChild(inner);
-          requestAnimationFrame(() => {
-            const overflow = Math.ceil(inner.scrollWidth - el.clientWidth);
-            if (overflow > 2) {
-              const distance = overflow + 40;
-              el.style.setProperty('--marquee-distance', `${distance}px`);
-              el.style.setProperty('--marquee-duration', `${Math.max(8, distance / 24)}s`);
-              el.classList.add('is-overflowing');
-            }
-          });
-        });
-        quizReveal.querySelectorAll('.artist').forEach(el => {
-          if (el.classList.contains('marquee-line')) return;
-          el.classList.add('marquee-line');
-          const inner = document.createElement('span');
-          inner.className = 'marquee-text';
-          inner.style.display = 'inline-flex';
-          inner.style.alignItems = 'center';
-          while (el.firstChild) inner.appendChild(el.firstChild);
-          el.appendChild(inner);
-          requestAnimationFrame(() => {
-            const overflow = Math.ceil(inner.scrollWidth - el.clientWidth);
-            if (overflow > 2) {
-              const distance = overflow + 40;
-              el.style.setProperty('--marquee-distance', `${distance}px`);
-              el.style.setProperty('--marquee-duration', `${Math.max(8, distance / 24)}s`);
-              el.classList.add('is-overflowing');
-            }
-          });
-        });
-      }
-    });
   }
   // We patch the confirmed-track event without touching existing logic by
   // observing state.confirmedTrackSid changes via a setter on a shadow prop.
