@@ -1309,7 +1309,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.31</div>
+          <div class="tiny" id="version-code">Version: 2.32</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -4010,6 +4010,16 @@
     const endTime = Date.now() + durationMs;
     quizSetRing(1);
     quizShowCounting(String(Math.ceil(durationMs / 1000)));
+
+    // If SDK events stop after countdown starts (audio context suspended on iOS),
+    // try to reactivate — but only if we're still in the active clip window
+    const tsAtStart = state.lastPlaybackTimestamp;
+    setTimeout(() => {
+      if (!quizState.active || quizState.confirmed || !quizState.track) return;
+      if (state.lastPlaybackTimestamp === tsAtStart && state.player) {
+        state.player.activateElement().catch(() => {});
+      }
+    }, 1500);
 
     quizState.countdownTimer = setInterval(() => {
       const remaining = endTime - Date.now();
