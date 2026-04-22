@@ -1309,7 +1309,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.32</div>
+          <div class="tiny" id="version-code">Version: 2.33</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -1997,6 +1997,7 @@
     function buildOverallPeakMap() {
       const peakMap = new Map();
       const firstWeekMap = new Map();
+      const weeksMap = new Map();
       const allRows = getRowsForSelectedPosition();
 
       // Collect the set of track group keys we need to look up
@@ -2015,27 +2016,35 @@
         }
       }
 
-      // Build firstWeekMap from the most complete data available.
-      // Use allYearsPositions if loaded (accurate cross-year debut),
-      // otherwise fall back to the full current year positions.
+      // Build firstWeekMap and weeksMap from all years positions
       const positionsMap = state.allYearsPositions || state.currentYearData?.positions || {};
       for (const rows of Object.values(positionsMap)) {
         for (const row of rows) {
           const key = getTrackGroupKey(row);
-          if (!key || !keysNeeded.has(key)) continue;
+          if (!key) continue;
           const rowDate = row.w || row.weekEnding || null;
-          if (!rowDate) continue;
-          const rowTime = new Date(rowDate).getTime();
-          if (Number.isNaN(rowTime)) continue;
-          const currentFirst = firstWeekMap.get(key);
-          if (currentFirst == null || rowTime < currentFirst.time) {
-            firstWeekMap.set(key, { time: rowTime, week: rowDate });
+
+          // firstWeekMap
+          if (rowDate) {
+            const rowTime = new Date(rowDate).getTime();
+            if (!Number.isNaN(rowTime)) {
+              const currentFirst = firstWeekMap.get(key);
+              if (currentFirst == null || rowTime < currentFirst.time) {
+                firstWeekMap.set(key, { time: rowTime, week: rowDate });
+              }
+            }
+          }
+
+          // weeksMap — track max wc value seen for this track
+          const wc = Number(row.wc);
+          if (Number.isFinite(wc) && wc > 0) {
+            const current = weeksMap.get(key) || 0;
+            if (wc > current) weeksMap.set(key, wc);
           }
         }
       }
 
-      // For any keys still missing from firstWeekMap (key format mismatch between
-      // the position data and the visible rows), fall back to the row's own date
+      // Fallback firstWeekMap from visible rows
       for (const row of allRows) {
         const key = getTrackGroupKey(row);
         if (!key || firstWeekMap.has(key)) continue;
@@ -2047,7 +2056,7 @@
         }
       }
 
-      return { peakMap, firstWeekMap };
+      return { peakMap, firstWeekMap, weeksMap };
     }
 
     let _mapsCache = null;
@@ -4279,10 +4288,9 @@
 
   function quizRenderReveal(row) {
     if (!quizReveal) return;
-    const { peakMap, firstWeekMap } = getOverallMaps();
+    const { peakMap, firstWeekMap, weeksMap } = getOverallMaps();
     const song = escapeHtml(row.tm || row.t || row.title || 'Unknown song');
     const artist = row.am || row.a || row.artist || '';
-    const week = escapeHtml(formatWeek(row.w || row.weekEnding));
     const trackKey = getTrackGroupKey(row);
     const overallPeak = trackKey ? peakMap.get(trackKey) : null;
     const peakPos = overallPeak != null ? overallPeak.pos : (row.pk ?? null);
@@ -4290,9 +4298,10 @@
     const peakWeekFormatted = peakWeekDate ? escapeHtml(formatWeek(peakWeekDate)) : null;
     const peakPosLabel = peakPos != null ? escapeHtml(ordinal(peakPos)) : '–';
     const peakPill = `<div class="pill pill-peak"><span class="pill-label">Peak</span><span class="pill-value">${peakPosLabel}</span>${peakWeekFormatted ? `<span class="pill-date">${peakWeekFormatted}</span>` : ''}</div>`;
-    const firstWeek = trackKey ? firstWeekMap.get(trackKey) : null;
-    const firstWeekFormatted = firstWeek?.week ? escapeHtml(formatWeek(firstWeek.week)) : '–';
-    const positionPill = row.__position ? `<div class="pill"><span class="pill-label">This week</span><span class="pill-value">${escapeHtml(ordinal(row.__position))}</span></div>` : '';
+    const weeks = trackKey ? weeksMap.get(trackKey) : null;
+    const weeksPill = weeks ? `<div class="pill"><span class="pill-label">Weeks on chart</span><span class="pill-value">${weeks}</span></div>` : '';
+    const year = row.w ? new Date(row.w).getFullYear() : (row.weekEnding ? new Date(row.weekEnding).getFullYear() : null);
+    const yearPill = year ? `<div class="pill"><span class="pill-label">Year</span><span class="pill-value">${year}</span></div>` : '';
     const hasSpotify = !!row.sid;
     const isCurrent = getCurrentTrackId() === row.sid;
     const isPaused = !state.playbackState || state.playbackState.paused;
@@ -4310,9 +4319,9 @@
           </div>
         </div>
         <div class="meta">
-          ${positionPill}
+          ${yearPill}
           ${peakPill}
-          <div class="pill"><span class="pill-label">First week</span><span class="pill-value">${firstWeekFormatted}</span></div>
+          ${weeksPill}
         </div>
       </article>`;
 
