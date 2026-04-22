@@ -27,7 +27,6 @@
         radial-gradient(circle at top left, rgba(124,156,255,0.18), transparent 35%),
         radial-gradient(circle at top right, rgba(139,92,246,0.18), transparent 35%),
         linear-gradient(180deg, #0b1020, #090d18 55%, #06080f 100%);
-      background-attachment: fixed;
     }
     body {
       margin: 0;
@@ -40,7 +39,6 @@
         radial-gradient(circle at top left, rgba(124,156,255,0.18), transparent 35%),
         radial-gradient(circle at top right, rgba(139,92,246,0.18), transparent 35%),
         linear-gradient(180deg, #0b1020, #090d18 55%, #06080f 100%);
-      background-attachment: fixed;
     }
 
     body { padding: 0; }
@@ -1324,7 +1322,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.40</div>
+          <div class="tiny" id="version-code">Version: 2.41</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -3334,7 +3332,7 @@
 
           if (playbackState.paused && !inPendingWindow) {
             stopProgressTimer();
-            if (state.randomPinnedKey && !state.autoAdvanceInFlight) {
+            if (!state.autoAdvanceInFlight) {
               const dur = playbackState?.track_window?.current_track?.duration_ms || 0;
               advLog('psc:paused-check', { prevPos: Math.round(prevSnapshotPosition), dur: Math.round(dur), incomingPos: incomingPosition, random: !!state.randomPinnedKey });
               if (dur > 0 && (prevSnapshotPosition >= Math.max(0, dur - 2000) || (incomingPosition === 0 && prevSnapshotPosition >= Math.max(0, dur - 10000)))) {
