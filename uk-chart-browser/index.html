@@ -1324,7 +1324,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.37</div>
+          <div class="tiny" id="version-code">Version: 2.38</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -4314,10 +4314,11 @@
     const peakWeekFormatted = peakWeekDate ? escapeHtml(formatWeek(peakWeekDate)) : null;
     const peakPosLabel = peakPos != null ? escapeHtml(ordinal(peakPos)) : '–';
     const peakPill = `<div class="pill pill-peak"><span class="pill-label">Peak</span><span class="pill-value">${peakPosLabel}</span>${peakWeekFormatted ? `<span class="pill-date">${peakWeekFormatted}</span>` : ''}</div>`;
+    const firstWeek = trackKey ? firstWeekMap.get(trackKey) : null;
+    const firstWeekFormatted = firstWeek?.week ? escapeHtml(formatWeek(firstWeek.week)) : '–';
+    const firstWeekPill = `<div class="pill"><span class="pill-label">First week</span><span class="pill-value">${firstWeekFormatted}</span></div>`;
     const weeks = trackKey ? weeksMap.get(trackKey) : null;
     const weeksPill = weeks ? `<div class="pill"><span class="pill-label">Weeks on chart</span><span class="pill-value">${weeks}</span></div>` : '';
-    const year = row.w ? new Date(row.w).getFullYear() : (row.weekEnding ? new Date(row.weekEnding).getFullYear() : null);
-    const yearPill = year ? `<div class="pill"><span class="pill-label">Year</span><span class="pill-value">${year}</span></div>` : '';
     const hasSpotify = !!row.sid;
     const isCurrent = getCurrentTrackId() === row.sid;
     const isPaused = !state.playbackState || state.playbackState.paused;
@@ -4335,7 +4336,7 @@
           </div>
         </div>
         <div class="meta">
-          ${yearPill}
+          ${firstWeekPill}
           ${peakPill}
           ${weeksPill}
         </div>
