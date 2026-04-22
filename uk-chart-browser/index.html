@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>UK Chart Browser</title>
   <style>
     :root {
@@ -23,22 +23,27 @@
       margin: 0;
       padding: 0;
       min-height: 100%;
+      min-height: -webkit-fill-available;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
       background:
         radial-gradient(circle at top left, rgba(124,156,255,0.18), transparent 35%),
         radial-gradient(circle at top right, rgba(139,92,246,0.18), transparent 35%),
         linear-gradient(180deg, #0b1020, #090d18 55%, #06080f 100%);
+      background-attachment: fixed;
     }
 
-    body { padding: 16px; }
+    body { padding: 0; }
 
     .app {
       max-width: 760px;
       margin: 0 auto;
       display: grid;
       gap: 16px;
-      padding-bottom: 180px;
+      padding: calc(16px + env(safe-area-inset-top)) 
+               calc(16px + env(safe-area-inset-right))
+               calc(180px + env(safe-area-inset-bottom))
+               calc(16px + env(safe-area-inset-left));
     }
 
     .hero, .panel, .track-card, .player-shell {
@@ -1309,7 +1314,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.35</div>
+          <div class="tiny" id="version-code">Version: 2.36</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
