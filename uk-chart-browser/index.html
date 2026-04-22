@@ -1309,7 +1309,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.33</div>
+          <div class="tiny" id="version-code">Version: 1.33-debug</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -3816,8 +3816,9 @@
       .replace(/\[[^\]]*\]/g, '')          // strip [Remaster] etc
       .replace(/\bfeat?\.?\s+\S+/gi, '')  // strip feat. xxx
       .replace(/\bft\.?\s+\S+/gi, '')     // strip ft. xxx
+      .replace(/&/g, 'and')               // normalise & → and before stripping punctuation
       .replace(/[^a-z0-9 ]/g, ' ')        // keep only alphanum + space
-      .replace(/\b(the|a|an)\b/g, ' ')    // strip articles
+      .replace(/\b(the|a|an|and)\b/g, ' ') // strip articles and 'and' as separator
       .replace(/\s+/g, ' ')
       .trim();
   }
