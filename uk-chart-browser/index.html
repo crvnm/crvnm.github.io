@@ -1324,7 +1324,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.39</div>
+          <div class="tiny" id="version-code">Version: 2.40</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -3059,6 +3059,7 @@
     }
 
     function render() {
+      if (typeof window.quizUpdateRevealPlayBtn === 'function') window.quizUpdateRevealPlayBtn();
       if (!state.currentYearData) return;
       const visibleRows = getVisibleRows();
       const renderRows = getRenderRows(visibleRows);
@@ -4359,7 +4360,15 @@
       });
     }
   }
-  // We patch the confirmed-track event without touching existing logic by
+  function quizUpdateRevealPlayBtn() {
+    if (!quizReveal.classList.contains('visible')) return;
+    const btn = quizReveal.querySelector('#quizRevealPlayBtn');
+    if (!btn || !quizState.track) return;
+    const isCurrent = getCurrentTrackId() === quizState.track.sid;
+    const isPaused = !state.playbackState || state.playbackState.paused;
+    btn.textContent = isCurrent && !isPaused ? '❚❚' : '▶';
+  }
+  window.quizUpdateRevealPlayBtn = quizUpdateRevealPlayBtn;
   // observing state.confirmedTrackSid changes via a setter on a shadow prop.
 
   let _lastConfirmedSid = null;
