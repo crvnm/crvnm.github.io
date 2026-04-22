@@ -912,6 +912,10 @@
     body.quiz-mode #restartBtn {
       visibility: hidden;
     }
+    body.quiz-mode #skipForwardBtn {
+      opacity: 0.3;
+      pointer-events: none;
+    }
     input::-webkit-contacts-auto-fill-button {
       visibility: hidden;
       display: none !important;
@@ -1322,7 +1326,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.41</div>
+          <div class="tiny" id="version-code">Version: 2.42</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -1366,7 +1370,7 @@
         <div class="player-controls-pro">
           <button class="icon-btn" id="restartBtn" aria-label="Restart track">↺</button>
           <button class="play-btn" id="togglePlayBtn" aria-label="Play or pause">▶</button>
-          <button class="icon-btn" id="openSpotifyBtn" aria-label="Open in Spotify">↗</button>
+          <button class="icon-btn" id="skipForwardBtn" aria-label="Skip to next track">⏭</button>
         </div>
         <div class="tiny" id="playerInfo">Waiting for Spotify playback.</div>
       </div>
@@ -1401,7 +1405,7 @@
     const closePlayerBtn = document.getElementById('closePlayerBtn');
     const togglePlayBtn = document.getElementById('togglePlayBtn');
     const restartBtn = document.getElementById('restartBtn');
-    const openSpotifyBtn = document.getElementById('openSpotifyBtn');
+    const skipForwardBtn = document.getElementById('skipForwardBtn');
     const progressBar = document.getElementById('progressBar');
     const currentTime = document.getElementById('currentTime');
     const durationTime = document.getElementById('durationTime');
@@ -3685,7 +3689,36 @@
         state.isScrubbing = false;
       }
     });
-    openSpotifyBtn.addEventListener('click', openCurrentInSpotify);
+    skipForwardBtn.addEventListener('click', async () => {
+      if (window.quizState?.active) return;
+      if (state.autoAdvanceInFlight) return;
+      state.autoAdvanceInFlight = true;
+      try {
+        const currentSid = getCurrentTrackId();
+        if (state.randomPinnedKey) {
+          const candidateRows = getRowsForCurrentFilter().filter(r => r.sid && r.sid !== currentSid);
+          const nextRow = pickRandomItem(candidateRows);
+          if (!nextRow?.sid) return;
+          state.randomPinnedKey = rowKey(nextRow);
+          state.intentToPlay = true;
+          render();
+          await recoverDeviceAndRetry(() => playTrack(nextRow, { isAutoAdvance: true }));
+          state.intentToPlay = false;
+        } else {
+          const playableRows = getPlayableVisibleRows();
+          const currentIndex = playableRows.findIndex(r => r.sid === currentSid);
+          if (currentIndex < 0 || currentIndex >= playableRows.length - 1) return;
+          const nextRow = playableRows[currentIndex + 1];
+          if (!nextRow?.sid) return;
+          await playTrack(nextRow, { isAutoAdvance: true, forceRestart: true });
+        }
+      } catch (err) {
+        console.error('Skip forward failed', err);
+        state.intentToPlay = false;
+      } finally {
+        setTimeout(() => { state.autoAdvanceInFlight = false; }, 1200);
+      }
+    });
     document.addEventListener('visibilitychange', () => {
       if (document.visibilityState === 'hidden') {
         // Snapshot the current position and track so we can detect and repair
