@@ -823,10 +823,10 @@
       flex-wrap: wrap;
       gap: 0 6px;
     }
-    .summary-sort-sep {
-      color: var(--muted);
+    .summary-sort-static {
       font-size: 15px;
       font-weight: 700;
+      color: var(--text);
     }
     .summary-sort-picker {
       position: relative;
@@ -1327,9 +1327,8 @@
       <div class="summary-copy">
         <div class="summary-title-row">
           <strong id="summaryTitle">Loading…</strong>
-          <span class="summary-sort-sep">·</span>
-          <div class="summary-sort-picker" id="sortPicker">
-            <button class="summary-sort-btn" id="sortPickerBtn">Sort: Position ▾</button>
+            <span class="summary-sort-static">· Sort: </span><div class="summary-sort-picker" id="sortPicker">
+            <button class="summary-sort-btn" id="sortPickerBtn">Position</button>
             <div class="summary-sort-dropdown" id="sortDropdown" hidden>
               <button class="summary-sort-option active" data-sort="position">Position</button>
               <button class="summary-sort-option" data-sort="week">Week</button>
@@ -1396,7 +1395,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.49</div>
+          <div class="tiny" id="version-code">Version: 2.50</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -3181,7 +3180,7 @@
       if (!state.currentYearData) return;
       const visibleRows = getVisibleRows();
       const renderRows = getRenderRows(visibleRows);
-      const { peakMap, firstWeekMap } = getOverallMaps();
+      const { peakMap, firstWeekMap, weeksMap } = getOverallMaps();
       const totalRows = state.peakWeekOnly
         ? reduceRowsToPeakWeek(getRowsForSelectedPosition()).length
         : getRowsForSelectedPosition().length;
@@ -3220,7 +3219,11 @@
         const peakPill = `<div class="pill pill-peak"><span class="pill-label">Peak</span><span class="pill-value">${peakPosLabel}</span>${peakWeekFormatted ? `<span class="pill-date">${peakWeekFormatted}</span>` : ''}</div>`;
         const firstWeek = trackKey ? firstWeekMap.get(trackKey) : null;
         const firstWeekFormatted = firstWeek?.week ? escapeHtml(formatWeek(firstWeek.week)) : '–';
-        const positionPill = row.__position ? `<div class="pill"><span class="pill-label">This week</span><span class="pill-value">${escapeHtml(ordinal(row.__position))}</span></div>` : '';
+        const showTotalWeeks = state.peakWeekOnly || state.sortMode === 'totalweeks';
+        const weeks = trackKey ? weeksMap.get(trackKey) : null;
+        const rightPill = showTotalWeeks
+          ? (weeks ? `<div class="pill"><span class="pill-label">Total weeks</span><span class="pill-value">${weeks}</span></div>` : '')
+          : (row.__position ? `<div class="pill"><span class="pill-label">This week</span><span class="pill-value">${escapeHtml(ordinal(row.__position))}</span></div>` : '');
         const hasSpotify = !!row.sid;
         const isCurrent = currentTrackId && row.sid === currentTrackId;
 
@@ -3238,9 +3241,9 @@
               </div>
             </div>
             <div class="meta">
-              ${(state.selectedPosition === 'ALL' || state.selectedPosition === 'TOP_10' || state.selectedPosition === 'TOP_5') ? positionPill : ''}
-              ${peakPill}
               <div class="pill"><span class="pill-label">First week</span><span class="pill-value">${firstWeekFormatted}</span></div>
+              ${peakPill}
+              ${rightPill}
             </div>
           </article>
         `;
@@ -3626,7 +3629,7 @@
     const sortLabels = { position: 'Position', week: 'Week', totalweeks: 'Total weeks' };
 
     function updateSortBtn() {
-      if (sortPickerBtn) sortPickerBtn.textContent = 'Sort: ' + (sortLabels[state.sortMode] || 'Position') + ' ▾';
+      if (sortPickerBtn) sortPickerBtn.textContent = sortLabels[state.sortMode] || 'Position';
       document.querySelectorAll('.summary-sort-option').forEach(b =>
         b.classList.toggle('active', b.dataset.sort === state.sortMode)
       );
@@ -3644,6 +3647,16 @@
       const mode = btn.dataset.sort;
       if (mode) {
         state.sortMode = mode;
+        // Auto-apply peak week filter when sorting by total weeks
+        if (mode === 'totalweeks' && !state.peakWeekOnly) {
+          state.peakWeekOnly = true;
+          updatePositionQuickPicks();
+        } else if (mode !== 'totalweeks' && state.peakWeekOnly && state._peakWeekAutoApplied) {
+          state.peakWeekOnly = false;
+          state._peakWeekAutoApplied = false;
+          updatePositionQuickPicks();
+        }
+        if (mode === 'totalweeks') state._peakWeekAutoApplied = true;
         updateSortBtn();
         render();
       }
