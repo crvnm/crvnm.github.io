@@ -1394,7 +1394,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.52</div>
+          <div class="tiny" id="version-code">Version: 2.53</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -2838,7 +2838,7 @@
     }
 
     async function loadIndex() {
-      const res = await fetch(`${DATA_BASE}/index.json?ts=${Date.now()}`, { cache: 'no-store' });
+      const res = await fetch(`${DATA_BASE}/index.json`, { cache: 'no-store' });
       if (!res.ok) throw new Error(`Could not load index.json (${res.status})`);
       const index = await res.json();
       const years = (index.years || []).map(y => String(y.year)).sort((a, b) => Number(b) - Number(a));
@@ -2854,7 +2854,7 @@
         const allYears = state.availableYears.filter(y => y !== 'ALL');
         Promise.all(
           allYears.map(y =>
-            fetch(`${DATA_BASE}/${y}.json?ts=${Date.now()}`, { cache: 'no-store' })
+            fetch(`${DATA_BASE}/${y}.json`)
               .then(r => r.ok ? r.json() : null)
               .catch(() => null)
           )
@@ -2890,7 +2890,7 @@
 
         const yearDataList = await Promise.all(
           allYears.map(async y => {
-            const res = await fetch(`${DATA_BASE}/${y}.json?ts=${Date.now()}`, { cache: 'no-store' });
+            const res = await fetch(`${DATA_BASE}/${y}.json`);
             if (!res.ok) throw new Error(`Could not load ${y}.json (${res.status})`);
             return res.json();
           })
@@ -2914,7 +2914,7 @@
         state.allYearsPositions = merged.positions;
         nextYearData = merged;
       } else {
-        const res = await fetch(`${DATA_BASE}/${year}.json?ts=${Date.now()}`, { cache: 'no-store' });
+        const res = await fetch(`${DATA_BASE}/${year}.json`);
         if (!res.ok) throw new Error(`Could not load ${year}.json (${res.status})`);
         nextYearData = await res.json();
       }
