@@ -815,6 +815,37 @@
       gap: 8px;
     }
 
+    .sort-control {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 3px 6px;
+    }
+    .sort-label {
+      font-size: 11px;
+      color: var(--muted);
+      margin-right: 2px;
+    }
+    .sort-btn {
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 11px;
+      font-family: inherit;
+      cursor: pointer;
+      padding: 3px 7px;
+      border-radius: 5px;
+      transition: background 0.15s, color 0.15s;
+    }
+    .sort-btn:hover { color: var(--text); }
+    .sort-btn.active {
+      background: rgba(124,156,255,0.18);
+      color: var(--accent);
+    }
+
     .position-quick-picks {
       grid-column: 1 / -1;
       display: flex;
@@ -1267,7 +1298,14 @@
         <span id="summarySub">Choose a year and chart position.</span>
         <div class="summary-filters" id="summaryFilters" hidden></div>
       </div>
-      <div class="toolbar"></div>
+      <div class="toolbar">
+        <div class="sort-control">
+          <span class="sort-label">Sort:</span>
+          <button class="sort-btn active" data-sort="position">Position</button>
+          <button class="sort-btn" data-sort="week">Week</button>
+          <button class="sort-btn" data-sort="totalweeks">Total weeks</button>
+        </div>
+      </div>
     </section>
 
     <section class="results browser-section" id="results"></section>
@@ -1323,7 +1361,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.44</div>
+          <div class="tiny" id="version-code">Version: 2.45</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -1461,6 +1499,7 @@
       pendingRequestedAt: 0,
       visibleRowLimit: 150,
       peakWeekOnly: false,
+      sortMode: 'position', // 'position' | 'week' | 'totalweeks'
       randomActionInFlight: false,
       transientNoticeTimer: null,
       pageHiddenAt: 0,
@@ -2163,6 +2202,44 @@
       }));
     }
 
+    function sortRows(rows) {
+      const mode = state.sortMode || 'position';
+      if (mode === 'position') {
+        // Ascending position, then ascending week
+        return [...rows].sort((a, b) => {
+          const pa = Number(a.__position ?? 9999);
+          const pb = Number(b.__position ?? 9999);
+          if (pa !== pb) return pa - pb;
+          return String(a.w || '').localeCompare(String(b.w || ''));
+        });
+      }
+      if (mode === 'week') {
+        // Ascending week, then ascending position
+        return [...rows].sort((a, b) => {
+          const wa = String(a.w || a.weekEnding || '');
+          const wb = String(b.w || b.weekEnding || '');
+          if (wa !== wb) return wa.localeCompare(wb);
+          return Number(a.__position ?? 9999) - Number(b.__position ?? 9999);
+        });
+      }
+      if (mode === 'totalweeks') {
+        const { weeksMap } = getOverallMaps();
+        const { peakMap } = getOverallMaps();
+        return [...rows].sort((a, b) => {
+          const keyA = getTrackGroupKey(a);
+          const keyB = getTrackGroupKey(b);
+          const wcA = keyA ? (weeksMap.get(keyA) || 0) : 0;
+          const wcB = keyB ? (weeksMap.get(keyB) || 0) : 0;
+          if (wcB !== wcA) return wcB - wcA; // most weeks first
+          const pkA = keyA ? (peakMap.get(keyA)?.pos ?? 9999) : 9999;
+          const pkB = keyB ? (peakMap.get(keyB)?.pos ?? 9999) : 9999;
+          if (pkA !== pkB) return pkA - pkB; // best peak first
+          return String(a.w || '').localeCompare(String(b.w || ''));
+        });
+      }
+      return rows;
+    }
+
     function getVisibleRows() {
       const rows = getRowsForSelectedPosition();
       if (state.randomPinnedKey) {
@@ -2173,7 +2250,8 @@
         ? rows
         : rows.filter(row => rowMatchesSearchFilters(row, filters));
 
-      return state.peakWeekOnly ? reduceRowsToPeakWeek(filteredRows) : filteredRows;
+      const reduced = state.peakWeekOnly ? reduceRowsToPeakWeek(filteredRows) : filteredRows;
+      return sortRows(reduced);
     }
 
     function getRowsForCurrentFilter() {
@@ -2412,6 +2490,7 @@
         positionAtPageHide: state.positionAtPageHide || 0,
         durationAtPageHide: state.durationAtPageHide || 0,
         intentToPlay: !!state.intentToPlay,
+        sortMode: state.sortMode || 'position',
         savedAt: Date.now(),
         // Quiz state
         quizActive: window.quizState?.active || false,
@@ -2464,6 +2543,11 @@
       state.randomPinnedKey = saved.randomPinnedKey || null;
       state.visibleRowLimit = Number(saved.visibleRowLimit) || 150;
       state.peakWeekOnly = !!saved.peakWeekOnly;
+
+      if (saved.sortMode) {
+        state.sortMode = saved.sortMode;
+        document.querySelectorAll('.sort-btn').forEach(b => b.classList.toggle('active', b.dataset.sort === saved.sortMode));
+      }
 
       updatePositionQuickPicks();
       render();
@@ -3499,6 +3583,16 @@
       state.randomPinnedKey = null;
       state.currentPlayableIndex = -1;
       state.visibleRowLimit = 150;
+      render();
+    });
+
+    document.querySelector('.sort-control')?.addEventListener('click', e => {
+      const btn = e.target.closest('.sort-btn');
+      if (!btn) return;
+      const mode = btn.dataset.sort;
+      if (!mode || mode === state.sortMode) return;
+      state.sortMode = mode;
+      document.querySelectorAll('.sort-btn').forEach(b => b.classList.toggle('active', b.dataset.sort === mode));
       render();
     });
 
