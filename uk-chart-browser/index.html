@@ -815,15 +815,16 @@
       gap: 8px;
     }
 
-    .summary-sort-row {
+    .summary-title-row {
       display: flex;
-      align-items: center;
-      gap: 4px;
-      margin-top: 4px;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0 6px;
     }
-    .summary-sort-label {
-      font-size: 12px;
+    .summary-sort-sep {
       color: var(--muted);
+      font-size: 15px;
+      font-weight: 700;
     }
     .summary-sort-picker {
       position: relative;
@@ -832,11 +833,11 @@
       background: none;
       border: none;
       padding: 0;
-      font-size: 12px;
+      font-size: 15px;
       font-family: inherit;
+      font-weight: 700;
       color: var(--accent);
       cursor: pointer;
-      font-weight: 500;
     }
     .summary-sort-btn:hover { opacity: 0.8; }
     .summary-sort-dropdown {
@@ -1320,13 +1321,11 @@
 
     <section class="panel summary browser-section">
       <div class="summary-copy">
-        <strong id="summaryTitle">Loading…</strong>
-        <span id="summarySub">Choose a year and chart position.</span>
-        <div class="summary-filters" id="summaryFilters" hidden></div>
-        <div class="summary-sort-row">
-          <span class="summary-sort-label">Sort by:</span>
+        <div class="summary-title-row">
+          <strong id="summaryTitle">Loading…</strong>
+          <span class="summary-sort-sep">·</span>
           <div class="summary-sort-picker" id="sortPicker">
-            <button class="summary-sort-btn" id="sortPickerBtn">Position ▾</button>
+            <button class="summary-sort-btn" id="sortPickerBtn">Sort: Position ▾</button>
             <div class="summary-sort-dropdown" id="sortDropdown" hidden>
               <button class="summary-sort-option active" data-sort="position">Position</button>
               <button class="summary-sort-option" data-sort="week">Week</button>
@@ -1334,6 +1333,8 @@
             </div>
           </div>
         </div>
+        <span id="summarySub">Choose a year and chart position.</span>
+        <div class="summary-filters" id="summaryFilters" hidden></div>
       </div>
       <div class="toolbar"></div>
     </section>
@@ -1391,7 +1392,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.46</div>
+          <div class="tiny" id="version-code">Version: 2.47</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -3621,7 +3622,7 @@
     const sortLabels = { position: 'Position', week: 'Week', totalweeks: 'Total weeks' };
 
     function updateSortBtn() {
-      if (sortPickerBtn) sortPickerBtn.textContent = (sortLabels[state.sortMode] || 'Position') + ' ▾';
+      if (sortPickerBtn) sortPickerBtn.textContent = 'Sort: ' + (sortLabels[state.sortMode] || 'Position') + ' ▾';
       document.querySelectorAll('.summary-sort-option').forEach(b =>
         b.classList.toggle('active', b.dataset.sort === state.sortMode)
       );
@@ -3633,10 +3634,11 @@
     });
 
     document.getElementById('sortDropdown')?.addEventListener('click', e => {
+      e.stopPropagation();
       const btn = e.target.closest('.summary-sort-option');
       if (!btn) return;
       const mode = btn.dataset.sort;
-      if (mode && mode !== state.sortMode) {
+      if (mode) {
         state.sortMode = mode;
         updateSortBtn();
         render();
@@ -3644,8 +3646,10 @@
       sortDropdown.hidden = true;
     });
 
-    document.addEventListener('click', () => {
-      if (sortDropdown) sortDropdown.hidden = true;
+    document.addEventListener('click', e => {
+      if (sortDropdown && !sortDropdown.hidden && !sortDropdown.contains(e.target) && e.target !== sortPickerBtn) {
+        sortDropdown.hidden = true;
+      }
     });
 
     summaryFilters?.addEventListener('click', event => {
