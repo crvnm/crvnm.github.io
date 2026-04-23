@@ -191,6 +191,8 @@
     .panel { padding: 14px 16px; }
 
     .summary {
+      position: relative;
+      z-index: 10;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -828,6 +830,7 @@
     }
     .summary-sort-picker {
       position: relative;
+      z-index: 1000;
     }
     .summary-sort-btn {
       background: none;
@@ -844,12 +847,12 @@
       position: absolute;
       top: calc(100% + 6px);
       left: 0;
-      background: var(--card);
+      background: #151b2e;
       border: 1px solid var(--card-border);
       border-radius: 10px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.7);
       padding: 4px;
-      z-index: 100;
+      z-index: 1000;
       min-width: 130px;
       display: flex;
       flex-direction: column;
@@ -1393,7 +1396,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.48</div>
+          <div class="tiny" id="version-code">Version: 2.49</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
