@@ -815,35 +815,61 @@
       gap: 8px;
     }
 
-    .sort-control {
+    .summary-sort-row {
       display: flex;
       align-items: center;
       gap: 4px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--card-border);
-      border-radius: 8px;
-      padding: 3px 6px;
+      margin-top: 4px;
     }
-    .sort-label {
-      font-size: 11px;
+    .summary-sort-label {
+      font-size: 12px;
       color: var(--muted);
-      margin-right: 2px;
     }
-    .sort-btn {
+    .summary-sort-picker {
+      position: relative;
+    }
+    .summary-sort-btn {
       background: none;
       border: none;
-      color: var(--muted);
-      font-size: 11px;
+      padding: 0;
+      font-size: 12px;
       font-family: inherit;
-      cursor: pointer;
-      padding: 3px 7px;
-      border-radius: 5px;
-      transition: background 0.15s, color 0.15s;
-    }
-    .sort-btn:hover { color: var(--text); }
-    .sort-btn.active {
-      background: rgba(124,156,255,0.18);
       color: var(--accent);
+      cursor: pointer;
+      font-weight: 500;
+    }
+    .summary-sort-btn:hover { opacity: 0.8; }
+    .summary-sort-dropdown {
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      padding: 4px;
+      z-index: 100;
+      min-width: 130px;
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+    .summary-sort-option {
+      background: none;
+      border: none;
+      padding: 8px 12px;
+      font-size: 13px;
+      font-family: inherit;
+      color: var(--text);
+      cursor: pointer;
+      border-radius: 7px;
+      text-align: left;
+      transition: background 0.12s;
+    }
+    .summary-sort-option:hover { background: rgba(255,255,255,0.08); }
+    .summary-sort-option.active {
+      color: var(--accent);
+      background: rgba(124,156,255,0.12);
     }
 
     .position-quick-picks {
@@ -1297,15 +1323,19 @@
         <strong id="summaryTitle">Loading…</strong>
         <span id="summarySub">Choose a year and chart position.</span>
         <div class="summary-filters" id="summaryFilters" hidden></div>
-      </div>
-      <div class="toolbar">
-        <div class="sort-control">
-          <span class="sort-label">Sort:</span>
-          <button class="sort-btn active" data-sort="position">Position</button>
-          <button class="sort-btn" data-sort="week">Week</button>
-          <button class="sort-btn" data-sort="totalweeks">Total weeks</button>
+        <div class="summary-sort-row">
+          <span class="summary-sort-label">Sort by:</span>
+          <div class="summary-sort-picker" id="sortPicker">
+            <button class="summary-sort-btn" id="sortPickerBtn">Position ▾</button>
+            <div class="summary-sort-dropdown" id="sortDropdown" hidden>
+              <button class="summary-sort-option active" data-sort="position">Position</button>
+              <button class="summary-sort-option" data-sort="week">Week</button>
+              <button class="summary-sort-option" data-sort="totalweeks">Total weeks</button>
+            </div>
+          </div>
         </div>
       </div>
+      <div class="toolbar"></div>
     </section>
 
     <section class="results browser-section" id="results"></section>
@@ -1361,7 +1391,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.45</div>
+          <div class="tiny" id="version-code">Version: 2.46</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -2546,7 +2576,7 @@
 
       if (saved.sortMode) {
         state.sortMode = saved.sortMode;
-        document.querySelectorAll('.sort-btn').forEach(b => b.classList.toggle('active', b.dataset.sort === saved.sortMode));
+        updateSortBtn();
       }
 
       updatePositionQuickPicks();
@@ -3586,14 +3616,36 @@
       render();
     });
 
-    document.querySelector('.sort-control')?.addEventListener('click', e => {
-      const btn = e.target.closest('.sort-btn');
+    const sortPickerBtn = document.getElementById('sortPickerBtn');
+    const sortDropdown = document.getElementById('sortDropdown');
+    const sortLabels = { position: 'Position', week: 'Week', totalweeks: 'Total weeks' };
+
+    function updateSortBtn() {
+      if (sortPickerBtn) sortPickerBtn.textContent = (sortLabels[state.sortMode] || 'Position') + ' ▾';
+      document.querySelectorAll('.summary-sort-option').forEach(b =>
+        b.classList.toggle('active', b.dataset.sort === state.sortMode)
+      );
+    }
+
+    sortPickerBtn?.addEventListener('click', e => {
+      e.stopPropagation();
+      sortDropdown.hidden = !sortDropdown.hidden;
+    });
+
+    document.getElementById('sortDropdown')?.addEventListener('click', e => {
+      const btn = e.target.closest('.summary-sort-option');
       if (!btn) return;
       const mode = btn.dataset.sort;
-      if (!mode || mode === state.sortMode) return;
-      state.sortMode = mode;
-      document.querySelectorAll('.sort-btn').forEach(b => b.classList.toggle('active', b.dataset.sort === mode));
-      render();
+      if (mode && mode !== state.sortMode) {
+        state.sortMode = mode;
+        updateSortBtn();
+        render();
+      }
+      sortDropdown.hidden = true;
+    });
+
+    document.addEventListener('click', () => {
+      if (sortDropdown) sortDropdown.hidden = true;
     });
 
     summaryFilters?.addEventListener('click', event => {
