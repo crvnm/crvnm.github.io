@@ -1715,14 +1715,14 @@
         "lw": 4,
         "pk": 2,
         "wc": 4,
-        "sid": "1j8tiOfpmZgrIfAyzFjWhg",
-        "spotifyUri": "spotify:track:1j8tiOfpmZgrIfAyzFjWhg",
-        "spotifyUrl": "https://open.spotify.com/track/1j8tiOfpmZgrIfAyzFjWhg",
-        "spotifyMatchScore": 105.0,
-        "spotifyMatchedBy": "title_j=1.00, artist_j=1.00, title_core_match, artist_core_match, exact_key",
+        "sid": "60nZcImufyMA1MKQY3dcCH",
+        "spotifyUri": "spotify:track:60nZcImufyMA1MKQY3dcCH",
+        "spotifyUrl": "https://open.spotify.com/track/60nZcImufyMA1MKQY3dcCH",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
         "tm": "Happy",
         "am": "Pharrell Williams",
-        "mbid": "f367ad6e-efd5-4496-aba5-21a4edcd82c6"
+        "mbid": null
       }
     ],
     "3": [
@@ -3367,14 +3367,14 @@
         "lw": 30,
         "pk": 4,
         "wc": 3,
-        "sid": "1j8tiOfpmZgrIfAyzFjWhg",
-        "spotifyUri": "spotify:track:1j8tiOfpmZgrIfAyzFjWhg",
-        "spotifyUrl": "https://open.spotify.com/track/1j8tiOfpmZgrIfAyzFjWhg",
-        "spotifyMatchScore": 105.0,
-        "spotifyMatchedBy": "title_j=1.00, artist_j=1.00, title_core_match, artist_core_match, exact_key",
+        "sid": "60nZcImufyMA1MKQY3dcCH",
+        "spotifyUri": "spotify:track:60nZcImufyMA1MKQY3dcCH",
+        "spotifyUrl": "https://open.spotify.com/track/60nZcImufyMA1MKQY3dcCH",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
         "tm": "Happy",
         "am": "Pharrell Williams",
-        "mbid": "f367ad6e-efd5-4496-aba5-21a4edcd82c6"
+        "mbid": null
       },
       {
         "w": "2013-12-27",
@@ -25035,14 +25035,14 @@
         "lw": 71,
         "pk": 30,
         "wc": 2,
-        "sid": "1j8tiOfpmZgrIfAyzFjWhg",
-        "spotifyUri": "spotify:track:1j8tiOfpmZgrIfAyzFjWhg",
-        "spotifyUrl": "https://open.spotify.com/track/1j8tiOfpmZgrIfAyzFjWhg",
-        "spotifyMatchScore": 105.0,
-        "spotifyMatchedBy": "title_j=1.00, artist_j=1.00, title_core_match, artist_core_match, exact_key",
+        "sid": "60nZcImufyMA1MKQY3dcCH",
+        "spotifyUri": "spotify:track:60nZcImufyMA1MKQY3dcCH",
+        "spotifyUrl": "https://open.spotify.com/track/60nZcImufyMA1MKQY3dcCH",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
         "tm": "Happy",
         "am": "Pharrell Williams",
-        "mbid": "f367ad6e-efd5-4496-aba5-21a4edcd82c6"
+        "mbid": null
       },
       {
         "w": "2013-12-20",
