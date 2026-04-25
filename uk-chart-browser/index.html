@@ -1455,7 +1455,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.56</div>
+          <div class="tiny" id="version-code">Version: 2.57</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -4015,9 +4015,9 @@
     // Initialise checkbox to match state
     if (xmasFilterCheck) xmasFilterCheck.checked = !state.hideChristmas;
 
-    settingsBtn?.addEventListener('click', () => { settingsModal.hidden = false; });
-    settingsModalClose?.addEventListener('click', () => { settingsModal.hidden = true; });
-    settingsModal?.addEventListener('click', e => { if (e.target === settingsModal) settingsModal.hidden = true; });
+    settingsBtn?.addEventListener('click', () => { settingsModal.classList.add('show'); settingsModal.hidden = false; });
+    settingsModalClose?.addEventListener('click', () => { settingsModal.classList.remove('show'); settingsModal.hidden = true; });
+    settingsModal?.addEventListener('click', e => { if (e.target === settingsModal) { settingsModal.classList.remove('show'); settingsModal.hidden = true; } });
 
     xmasFilterCheck?.addEventListener('change', () => {
       state.hideChristmas = !xmasFilterCheck.checked;
