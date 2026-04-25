@@ -1394,7 +1394,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.53</div>
+          <div class="tiny" id="version-code">Version: 2.55</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -4018,19 +4018,57 @@
 
   // ── String matching helpers ───────────────────────────────────────────────
 
+  // Suffixes inside brackets that should be stripped entirely from the title
+  const BRACKET_STRIP_RE = /\(\s*(?:remix|edit|version|remaster(?:ed)?|re-?record(?:ed)?|live|acoustic|instrumental|explicit|clean|with\s+\S.*?|feat(?:uring)?\.?\s+.*?|ft\.?\s+.*?|.*?\s+remix|.*?\s+version|.*?\s+edit)\s*\)/gi;
+
   function quizNormalise(str) {
     return String(str || '')
       .toLowerCase()
-      .replace(/\s*-\s*(radio edit|single version|original mix|album version|extended mix|remaster(?:ed)?|re-?record(?:ed)?|live|acoustic|instrumental|explicit|clean|edit|mix|version)[^-]*/gi, '') // strip " - Radio Edit" etc
-      .replace(/\([^)]*\)/g, '')          // strip (Radio Edit) etc
-      .replace(/\[[^\]]*\]/g, '')          // strip [Remaster] etc
-      .replace(/\bfeat?\.?\s+\S+/gi, '')  // strip feat. xxx
-      .replace(/\bft\.?\s+\S+/gi, '')     // strip ft. xxx
-      .replace(/&/g, 'and')               // normalise & → and before stripping punctuation
-      .replace(/[^a-z0-9 ]/g, ' ')        // keep only alphanum + space
-      .replace(/\b(the|a|an|and)\b/g, ' ') // strip articles and 'and' as separator
+      .replace(/\s*-\s*(radio edit|single version|original mix|album version|extended mix|remaster(?:ed)?|re-?record(?:ed)?|live|acoustic|instrumental|explicit|clean|edit|mix|version)[^-]*/gi, '')
+      .replace(/\([^)]*\)/g, '')          // strip all brackets
+      .replace(/\[[^\]]*\]/g, '')
+      .replace(/\bfeat?\.?\s+\S+/gi, '')
+      .replace(/\bft\.?\s+\S+/gi, '')
+      .replace(/&/g, 'and')
+      .replace(/[^a-z0-9 ]/g, ' ')
+      .replace(/\b(the|a|an|and)\b/g, ' ')
       .replace(/\s+/g, ' ')
       .trim();
+  }
+
+  // Extract the bracketed subtitle (if any) from a title, excluding noise brackets
+  function quizExtractBracketedTitle(title) {
+    const str = String(title || '');
+    // Find all bracketed groups
+    const matches = [...str.matchAll(/\(([^)]+)\)/g)];
+    for (const m of matches) {
+      const inner = m[1].trim();
+      // Skip noise brackets
+      if (BRACKET_STRIP_RE.test('(' + inner + ')')) continue;
+      BRACKET_STRIP_RE.lastIndex = 0;
+      // Skip if it looks like artist credits
+      if (/^(?:feat(?:uring)?\.?|ft\.?|with)\s+/i.test(inner)) continue;
+      return inner; // This is a real subtitle
+    }
+    return null;
+  }
+
+  function quizTitleMatch(guess, correctTitle) {
+    if (!guess || !guess.trim()) return false;
+    // Get the base title (before brackets) and the full title
+    const baseTitle = correctTitle.replace(BRACKET_STRIP_RE, '').replace(/\s*\([^)]*\)/g, '').trim();
+    BRACKET_STRIP_RE.lastIndex = 0;
+    const subtitle = quizExtractBracketedTitle(correctTitle);
+
+    // Full title match (normalised)
+    if (quizStringMatch(guess, correctTitle)) return true;
+    // Base-only match (no brackets needed)
+    if (baseTitle && quizStringMatch(guess, baseTitle)) return true;
+    // Subtitle-only match (they typed the bracketed bit)
+    if (subtitle && quizStringMatch(guess, subtitle)) return true;
+    // Combined base + subtitle in different order or format
+    if (subtitle && quizStringMatch(guess, `${baseTitle} ${subtitle}`)) return true;
+    return false;
   }
 
   function levenshtein(a, b) {
@@ -4053,10 +4091,8 @@
     const c = quizNormalise(correct);
     if (!g) return false;
     if (g === c) return true;
-    // Scale tolerance with length: 1 edit per 8 chars, min 1, max 4
     const allowedDist = Math.min(4, Math.max(1, Math.floor(c.length / 8)));
     if (levenshtein(g, c) <= allowedDist) return true;
-    // Check containment for longer answers
     if (c.length > 8 && (c.includes(g) || g.includes(c))) return true;
     return false;
   }
@@ -4075,35 +4111,46 @@
     const correctArtist = row.am || row.a || row.artist || '';
     const correctArtists = quizSplitArtists(correctArtist);
 
-    const titleOk = quizStringMatch(titleGuess, correctTitle);
+    const titleOk = quizTitleMatch(titleGuess, correctTitle);
 
-    // Split the guess into individual artists too, so order doesn't matter
     const guessedArtists = quizSplitArtists(artistGuess);
+    const primaryArtist = correctArtists[0];
+    const secondaryArtists = correctArtists.slice(1);
 
-    // Full match: every correct artist is matched by some guessed artist, and vice versa.
-    // If there are more than 3 correct artists, matching any 3 counts as full.
-    const matchedCorrect = correctArtists.filter(ca =>
-      guessedArtists.some(ga => quizStringMatch(ga, ca))
+    // Check if primary artist (first in list) is matched
+    const primaryMatched = primaryArtist && guessedArtists.some(ga => quizStringMatch(ga, primaryArtist));
+
+    // Count matched secondary artists
+    const matchedSecondary = secondaryArtists.filter(sa =>
+      guessedArtists.some(ga => quizStringMatch(ga, sa))
     );
-    const allGuessedMatched = guessedArtists.every(ga =>
+
+    // Ensure no wrong guesses (guessed artists must all match some correct artist)
+    const allGuessedValid = guessedArtists.every(ga =>
       correctArtists.some(ca => quizStringMatch(ga, ca))
     );
-    const artistFullOk = allGuessedMatched && (
-      matchedCorrect.length === correctArtists.length ||
-      (correctArtists.length > 2 && matchedCorrect.length >= 2)
-    );
 
-    // Partial: at least one correct artist matched but not full
-    const artistPartialOk = !artistFullOk && matchedCorrect.length > 0;
+    // Scoring:
+    // Full artist: got primary, OR got 2+ secondary, OR got all correct
+    // Half artist: got only secondary artist(s) but not primary
+    const artistFullOk = allGuessedValid && (
+      primaryMatched ||
+      matchedSecondary.length >= 2 ||
+      (matchedSecondary.length === secondaryArtists.length && secondaryArtists.length >= 2)
+    );
+    const artistHalfOk = !artistFullOk && allGuessedValid && matchedSecondary.length >= 1;
+    const artistPartialOk = !artistFullOk && !artistHalfOk &&
+      (primaryMatched || matchedSecondary.length > 0);
 
     let points = 0;
-    if (titleOk && artistFullOk)        points = 2;
-    else if (titleOk && artistPartialOk) points = 1.5;
-    else if (titleOk)                   points = 1;
-    else if (artistFullOk)              points = 0.5;
-    else if (artistPartialOk)           points = 0.25;
+    if      (titleOk && artistFullOk)  points = 2;
+    else if (titleOk && artistHalfOk)  points = 1.5;
+    else if (titleOk && artistPartialOk) points = 1.25;
+    else if (titleOk)                  points = 1;
+    else if (artistFullOk)             points = 0.5;
+    else if (artistHalfOk)             points = 0.25;
 
-    return { points, titleOk, artistOk: artistFullOk || artistPartialOk, artistPartial: artistPartialOk };
+    return { points, titleOk, artistOk: artistFullOk || artistHalfOk || artistPartialOk, artistPartial: artistHalfOk || artistPartialOk };
   }
 
   // ── Clip position calculation ─────────────────────────────────────────────
