@@ -96,6 +96,43 @@
       margin-bottom: 0;
     }
 
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .settings-btn {
+      background: none;
+      border: none;
+      color: var(--muted);
+      cursor: pointer;
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      border-radius: 6px;
+      transition: color 0.15s;
+    }
+    .settings-btn:hover { color: var(--text); }
+    .settings-modal-card { max-width: 340px; width: 90%; }
+    .settings-section { padding: 8px 0; }
+    .settings-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      cursor: pointer;
+    }
+    .settings-row input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      accent-color: var(--accent);
+      cursor: pointer;
+    }
+    .settings-row-title { display: block; font-size: 14px; font-weight: 500; color: var(--text); }
+    .settings-row-sub { display: block; font-size: 12px; color: var(--muted); margin-top: 2px; }
+
     .spotify-status-pill {
       flex: 0 0 auto;
       padding: 7px 10px;
@@ -1265,7 +1302,12 @@
     <section class="hero">
       <div class="hero-topbar">
         <div class="eyebrow" id="eyebrow" role="button" tabindex="0" title="Switch to quiz mode">UK chart browser</div>
-        <button class="spotify-status-pill" id="spotifyStatusPill" type="button" aria-label="Open Spotify playback settings">Spotify: Login</button>
+        <div class="topbar-right">
+          <button class="spotify-status-pill" id="spotifyStatusPill" type="button" aria-label="Open Spotify playback settings">Spotify: Login</button>
+          <button class="settings-btn" id="settingsBtn" aria-label="Settings">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </button>
+        </div>
       </div>
       <div class="controls browser-section">
         <div class="control">
@@ -1388,13 +1430,32 @@
     </section>
   </div>
 
+  <!-- Settings modal -->
+  <div class="modal-backdrop" id="settingsModal" hidden>
+    <section class="panel modal-card settings-modal-card" role="dialog" aria-modal="true" aria-labelledby="settingsModalTitle">
+      <div class="modal-header">
+        <strong id="settingsModalTitle">Settings</strong>
+        <button class="modal-close" id="settingsModalClose" aria-label="Close">×</button>
+      </div>
+      <div class="settings-section">
+        <label class="settings-row">
+          <input type="checkbox" id="xmasFilterCheck" />
+          <span>
+            <span class="settings-row-title">Show Christmas songs</span>
+            <span class="settings-row-sub">Include songs with Christmas themes in the browser and quiz</span>
+          </span>
+        </label>
+      </div>
+    </section>
+  </div>
+
   <div class="modal-backdrop" id="spotifyModal" hidden>
     <section class="panel auth-grid modal-card" role="dialog" aria-modal="true" aria-labelledby="spotifyModalTitle">
       <div class="modal-header">
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.55</div>
+          <div class="tiny" id="version-code">Version: 2.56</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -1532,7 +1593,8 @@
       pendingRequestedAt: 0,
       visibleRowLimit: 150,
       peakWeekOnly: false,
-      sortMode: 'position', // 'position' | 'week' | 'totalweeks'
+      sortMode: 'position',
+      hideChristmas: false, // 'position' | 'week' | 'totalweeks'
       randomActionInFlight: false,
       transientNoticeTimer: null,
       pageHiddenAt: 0,
@@ -2191,6 +2253,9 @@
       if (state.peakWeekOnly) {
         chips.push({ label: 'Peak Week', action: 'peakweek' });
       }
+      if (state.hideChristmas) {
+        chips.push({ label: '🎄 Hide Xmas', action: 'christmas' });
+      }
 
       if (filters.textTerm) {
         chips.push({ label: `Text: “${filters.textTerm}”`, action: 'text' });
@@ -2273,6 +2338,18 @@
       return rows;
     }
 
+    const XMAS_RE = /\b(christmas|xmas|santa claus|jingle bells?|jingle all|sleigh ride|silent night|holy night|deck the halls|winter wonderland|feliz navidad|happy xmas|war is over|fairytale of new york|fairytale of new york|merry christmas|mistletoe|reindeer|rudolph|frosty the snowman|yuletide|12 days of christmas|twelve days of christmas|chestnuts roasting|do they know its christmas|last christmas|i wish it could be christmas|driving home for christmas|all i want for christmas|santa baby|white christmas|o christmas|away in a manger|we wish you a merry|wonderful christmastime)\b/i;
+
+    function isChristmasSong(row) {
+      const t = String(row.tm || row.t || row.title || '').replace(/['']/g, "'");
+      const a = String(row.am || row.a || row.artist || '');
+      // Test title but exclude artist-name false positives like "Noel Gallagher"
+      if (XMAS_RE.test(t)) return true;
+      // Only test artist field for strong christmas indicators
+      if (/\bband aid\b/i.test(a)) return true;
+      return false;
+    }
+
     function getVisibleRows() {
       const rows = getRowsForSelectedPosition();
       if (state.randomPinnedKey) {
@@ -2284,7 +2361,8 @@
         : rows.filter(row => rowMatchesSearchFilters(row, filters));
 
       const reduced = state.peakWeekOnly ? reduceRowsToPeakWeek(filteredRows) : filteredRows;
-      return sortRows(reduced);
+      const xmasFiltered = state.hideChristmas ? reduced.filter(r => !isChristmasSong(r)) : reduced;
+      return sortRows(xmasFiltered);
     }
 
     function getRowsForCurrentFilter() {
@@ -2524,6 +2602,7 @@
         durationAtPageHide: state.durationAtPageHide || 0,
         intentToPlay: !!state.intentToPlay,
         sortMode: state.sortMode || 'position',
+        hideChristmas: !!state.hideChristmas,
         savedAt: Date.now(),
         // Quiz state
         quizActive: window.quizState?.active || false,
@@ -2580,6 +2659,10 @@
       if (saved.sortMode) {
         state.sortMode = saved.sortMode;
         updateSortBtn();
+      }
+      if (saved.hideChristmas) {
+        state.hideChristmas = true;
+        if (xmasFilterCheck) xmasFilterCheck.checked = false;
       }
 
       updatePositionQuickPicks();
@@ -3681,6 +3764,9 @@
         state.searchTerm = filters.textTerm || '';
       } else if (btn.dataset.clearFilter === 'peakweek') {
         state.peakWeekOnly = false;
+      } else if (btn.dataset.clearFilter === 'christmas') {
+        state.hideChristmas = false;
+        if (xmasFilterCheck) xmasFilterCheck.checked = true;
       }
 
       searchInput.value = state.searchTerm;
@@ -3921,9 +4007,22 @@
       });
     }
 
-    updatePositionQuickPicks();
-    updateTogglePlayButton();
-    updatePlayerVisibility();
+    const settingsBtn = document.getElementById('settingsBtn');
+    const settingsModal = document.getElementById('settingsModal');
+    const settingsModalClose = document.getElementById('settingsModalClose');
+    const xmasFilterCheck = document.getElementById('xmasFilterCheck');
+
+    // Initialise checkbox to match state
+    if (xmasFilterCheck) xmasFilterCheck.checked = !state.hideChristmas;
+
+    settingsBtn?.addEventListener('click', () => { settingsModal.hidden = false; });
+    settingsModalClose?.addEventListener('click', () => { settingsModal.hidden = true; });
+    settingsModal?.addEventListener('click', e => { if (e.target === settingsModal) settingsModal.hidden = true; });
+
+    xmasFilterCheck?.addEventListener('change', () => {
+      state.hideChristmas = !xmasFilterCheck.checked;
+      render();
+    });
 
     (async function init() {
       try {
@@ -4327,6 +4426,10 @@
       candidates = Object.values(posMap).flat().filter(r => r.sid);
       const seen = new Set();
       candidates = candidates.filter(r => { if (seen.has(r.sid)) return false; seen.add(r.sid); return true; });
+    }
+
+    if (state.hideChristmas) {
+      candidates = candidates.filter(r => !isChristmasSong(r));
     }
 
     // Exclude already-played tracks and persistently blacklisted tracks
