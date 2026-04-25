@@ -1455,7 +1455,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.58</div>
+          <div class="tiny" id="version-code">Version: 2.59</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -1594,6 +1594,7 @@
       visibleRowLimit: 150,
       peakWeekOnly: false,
       sortMode: 'position',
+      xmasSids: new Set(),
       hideChristmas: false, // 'position' | 'week' | 'totalweeks'
       randomActionInFlight: false,
       transientNoticeTimer: null,
@@ -2343,7 +2344,10 @@
     function isChristmasSong(row) {
       const t = String(row.tm || row.t || row.title || '').replace(/['']/g, "'");
       const a = String(row.am || row.a || row.artist || '');
-      // Test title but exclude artist-name false positives like "Noel Gallagher"
+      const sid = row.sid || '';
+      // Check curated SID list first
+      if (sid && state.xmasSids.has(sid)) return true;
+      // Keyword match on title
       if (XMAS_RE.test(t)) return true;
       // Only test artist field for strong christmas indicators
       if (/\bband aid\b/i.test(a)) return true;
@@ -2929,6 +2933,12 @@
       if (!state.availableYears.includes(state.selectedYear)) state.selectedYear = state.availableYears[0] || 'ALL';
       yearSelect.innerHTML = state.availableYears.map(y => `<option value="${y}">${y === 'ALL' ? 'All Years' : y}</option>`).join('');
       yearSelect.value = state.selectedYear;
+
+      // Load curated christmas SID list if present
+      if (Array.isArray(index.xmasSids)) {
+        state.xmasSids = new Set(index.xmasSids);
+      }
+
       await loadYear(state.selectedYear);
 
       // If a single year was loaded, silently fetch all years in the background
