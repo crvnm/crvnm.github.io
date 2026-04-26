@@ -120,16 +120,12 @@
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      gap: 12px;
       padding: 12px 0;
       border-bottom: 1px solid var(--card-border);
-      cursor: default;
     }
     .settings-row:last-child { border-bottom: none; }
-    .settings-row-text {
-      flex: 1;
-      min-width: 0;
-    }
+    .settings-row-text { flex: 1; min-width: 0; }
     .settings-row input[type="checkbox"] {
       width: 20px;
       height: 20px;
@@ -139,6 +135,11 @@
     }
     .settings-row-title { display: block; font-size: 14px; font-weight: 500; color: var(--text); }
     .settings-row-sub { display: block; font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .settings-row-stacked {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
     .settings-row select {
       background: rgba(255,255,255,0.08);
       border: 1px solid rgba(255,255,255,0.15);
@@ -148,7 +149,7 @@
       font-size: 13px;
       padding: 5px 8px;
       cursor: pointer;
-      flex-shrink: 0;
+      align-self: flex-start;
     }
 
     .spotify-status-pill {
@@ -1567,7 +1568,7 @@
           </span>
           <input type="checkbox" id="xmasFilterCheck" />
         </div>
-        <div class="settings-row">
+        <div class="settings-row settings-row-stacked">
           <span class="settings-row-text">
             <span class="settings-row-title">Default quiz rounds</span>
             <span class="settings-row-sub">Rounds when starting a new game</span>
@@ -1589,7 +1590,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.64</div>
+          <div class="tiny" id="version-code">Version: 2.65</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -4335,6 +4336,8 @@
     quizState.score = 0;
     quizState.played = 0;
     quizState.streak = 0;
+    quizState.track = null;
+    quizState.confirmed = false;
     quizState.playedSids.clear();
     quizUpdateScoreboard();
     quizUpdatePlayedPill();
@@ -4732,7 +4735,7 @@
   function quizResetQuestion() {
     quizStopClip();
     quizResetRing();
-    document.body.classList.add('quiz-mode');
+    if (quizState.active) document.body.classList.add('quiz-mode');
     quizTitleInput.value = '';
     quizArtistInput.value = '';
     quizTitleInput.disabled = false;
