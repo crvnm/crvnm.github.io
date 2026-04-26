@@ -113,38 +113,40 @@
       transition: color 0.15s;
     }
     .settings-btn:hover { color: var(--text); }
-    .settings-modal-card { max-width: 340px; width: 90%; }
-    .settings-section { padding: 8px 0; }
+    .settings-modal-card { max-width: 320px; width: calc(100% - 32px); }
+    .settings-section { padding: 4px 0; }
     .settings-row {
       display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 10px 0;
-      cursor: pointer;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--card-border);
+      cursor: default;
+    }
+    .settings-row:last-child { border-bottom: none; }
+    .settings-row-text {
+      flex: 1;
+      min-width: 0;
     }
     .settings-row input[type="checkbox"] {
-      width: 18px;
-      height: 18px;
+      width: 20px;
+      height: 20px;
       flex-shrink: 0;
-      margin-top: 2px;
       accent-color: var(--accent);
       cursor: pointer;
     }
     .settings-row-title { display: block; font-size: 14px; font-weight: 500; color: var(--text); }
     .settings-row-sub { display: block; font-size: 12px; color: var(--muted); margin-top: 2px; }
-    .settings-row-select {
-      cursor: default;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .settings-row-select select {
+    .settings-row select {
       background: rgba(255,255,255,0.08);
       border: 1px solid rgba(255,255,255,0.15);
       border-radius: 8px;
       color: var(--text);
       font-family: inherit;
       font-size: 13px;
-      padding: 4px 8px;
+      padding: 5px 8px;
       cursor: pointer;
       flex-shrink: 0;
     }
@@ -1558,17 +1560,17 @@
         <button class="icon-btn" id="settingsModalClose" aria-label="Close settings">✕</button>
       </div>
       <div class="settings-section">
-        <label class="settings-row">
-          <input type="checkbox" id="xmasFilterCheck" />
-          <span>
+        <div class="settings-row">
+          <span class="settings-row-text">
             <span class="settings-row-title">Show Christmas songs</span>
-            <span class="settings-row-sub">Include songs with Christmas themes in the browser and quiz</span>
+            <span class="settings-row-sub">Include Christmas songs in browser and quiz</span>
           </span>
-        </label>
-        <div class="settings-row settings-row-select">
-          <span>
+          <input type="checkbox" id="xmasFilterCheck" />
+        </div>
+        <div class="settings-row">
+          <span class="settings-row-text">
             <span class="settings-row-title">Default quiz rounds</span>
-            <span class="settings-row-sub">Number of rounds when starting a new quiz game</span>
+            <span class="settings-row-sub">Rounds when starting a new game</span>
           </span>
           <select id="defaultRoundsSelect">
             <option value="0">∞</option>
@@ -1587,7 +1589,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.63</div>
+          <div class="tiny" id="version-code">Version: 2.64</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -4165,7 +4167,11 @@
       localStorage.setItem(DEFAULT_ROUNDS_KEY, defaultRoundsSelect.value);
     });
 
-    // Initialise checkbox to match state
+    const XMAS_PREF_KEY = 'show_christmas_songs';
+    // Load persisted preference (default: show = true)
+    if (localStorage.getItem(XMAS_PREF_KEY) === 'false') {
+      state.hideChristmas = true;
+    }
     if (xmasFilterCheck) xmasFilterCheck.checked = !state.hideChristmas;
 
     settingsBtn?.addEventListener('click', () => { settingsModal.classList.add('show'); settingsModal.hidden = false; });
@@ -4174,6 +4180,7 @@
 
     xmasFilterCheck?.addEventListener('change', () => {
       state.hideChristmas = !xmasFilterCheck.checked;
+      localStorage.setItem(XMAS_PREF_KEY, String(xmasFilterCheck.checked));
       render();
     });
 
