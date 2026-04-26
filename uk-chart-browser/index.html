@@ -1559,7 +1559,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.61</div>
+          <div class="tiny" id="version-code">Version: 2.62</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -4737,6 +4737,13 @@
           return;
         }
       }
+      // If a restore is pending, handle it first to unlock the audio context
+      if (state.restoredPlayerStateOnly && state.activeTrack) {
+        await resumeRestoredTrack();
+        // Wait briefly for the restore to settle before playing the quiz track
+        await new Promise(r => setTimeout(r, 800));
+      }
+
       // playTrack will trigger player_state_changed which we intercept below
       await recoverDeviceAndRetry(() => playTrack(row, { isAutoAdvance: false }));
 
