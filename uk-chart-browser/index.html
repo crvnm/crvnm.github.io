@@ -1207,7 +1207,8 @@
       background: rgba(255,255,255,0.04);
       border: 1px solid var(--card-border);
       border-radius: 8px;
-      overflow: hidden;
+      overflow: visible;
+      position: relative;
     }
     .quiz-score-pill {
       flex: 1;
@@ -1218,7 +1219,8 @@
       padding: 5px 8px;
       border-right: 1px solid var(--card-border);
     }
-    .quiz-score-pill:last-child { border-right: none; }
+    .quiz-score-pill:first-child { border-radius: 8px 0 0 8px; }
+    .quiz-score-pill:last-child { border-right: none; border-radius: 0 8px 8px 0; }
     .quiz-score-pill .score-val {
       font-size: 15px;
       font-weight: 700;
@@ -1557,7 +1559,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.60</div>
+          <div class="tiny" id="version-code">Version: 2.61</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -4253,11 +4255,7 @@
   function quizUpdatePlayedPill() {
     const t = quizState.targetRounds;
     quizPlayedVal.textContent = quizState.played;
-    if (t > 0) {
-      quizPlayedLbl.textContent = `/ ${t}`;
-    } else {
-      quizPlayedLbl.textContent = 'Played';
-    }
+    quizPlayedLbl.textContent = t > 0 ? `/ ${t} played` : 'played';
   }
 
   quizPlayedPill?.addEventListener('click', e => {
