@@ -132,6 +132,22 @@
     }
     .settings-row-title { display: block; font-size: 14px; font-weight: 500; color: var(--text); }
     .settings-row-sub { display: block; font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .settings-row-select {
+      cursor: default;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .settings-row-select select {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 13px;
+      padding: 4px 8px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
 
     .spotify-status-pill {
       flex: 0 0 auto;
@@ -1549,6 +1565,18 @@
             <span class="settings-row-sub">Include songs with Christmas themes in the browser and quiz</span>
           </span>
         </label>
+        <div class="settings-row settings-row-select">
+          <span>
+            <span class="settings-row-title">Default quiz rounds</span>
+            <span class="settings-row-sub">Number of rounds when starting a new quiz game</span>
+          </span>
+          <select id="defaultRoundsSelect">
+            <option value="0">∞</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="20">20</option>
+          </select>
+        </div>
       </div>
     </section>
   </div>
@@ -1559,7 +1587,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.62</div>
+          <div class="tiny" id="version-code">Version: 2.63</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -2717,6 +2745,7 @@
         quizScore: window.quizState?.score || 0,
         quizPlayed: window.quizState?.played || 0,
         quizStreak: window.quizState?.streak || 0,
+        quizTargetRounds: window.quizState?.targetRounds || 0,
         quizPool: document.getElementById('quizPool')?.value || 'current',
         quizClipLen: document.getElementById('quizClipLen')?.value || '10',
         quizClipPos: document.getElementById('quizClipPos')?.value || 'middle',
@@ -2853,18 +2882,21 @@
       if (saved.quizActive) {
         setTimeout(() => {
           if (!window.quizState) return;
-          // Restore score/played/streak
           window.quizState.score = saved.quizScore || 0;
           window.quizState.played = saved.quizPlayed || 0;
           window.quizState.streak = saved.quizStreak || 0;
-          // Restore settings selects
+          window.quizState.targetRounds = saved.quizTargetRounds || 0;
           const poolEl = document.getElementById('quizPool');
           const clipLenEl = document.getElementById('quizClipLen');
           const clipPosEl = document.getElementById('quizClipPos');
           if (poolEl && saved.quizPool) poolEl.value = saved.quizPool;
           if (clipLenEl && saved.quizClipLen) clipLenEl.value = saved.quizClipLen;
           if (clipPosEl && saved.quizClipPos) clipPosEl.value = saved.quizClipPos;
-          // Activate quiz mode and update scoreboard
+          // Sync rounds popover active state
+          const targetRounds = saved.quizTargetRounds || 0;
+          document.querySelectorAll('.quiz-rounds-opt').forEach(b =>
+            b.classList.toggle('active', Number(b.dataset.rounds) === targetRounds)
+          );
           if (typeof quizSetMode === 'function') quizSetMode(true);
           if (typeof quizUpdateScoreboard === 'function') quizUpdateScoreboard();
         }, 100);
@@ -4124,7 +4156,14 @@
     const settingsBtn = document.getElementById('settingsBtn');
     const settingsModal = document.getElementById('settingsModal');
     const settingsModalClose = document.getElementById('settingsModalClose');
-    const xmasFilterCheck = document.getElementById('xmasFilterCheck');
+    const defaultRoundsSelect = document.getElementById('defaultRoundsSelect');
+    const DEFAULT_ROUNDS_KEY = 'quiz_default_rounds';
+    // Load saved default
+    const savedDefaultRounds = Number(localStorage.getItem(DEFAULT_ROUNDS_KEY) || '0');
+    if (defaultRoundsSelect) defaultRoundsSelect.value = String(savedDefaultRounds);
+    defaultRoundsSelect?.addEventListener('change', () => {
+      localStorage.setItem(DEFAULT_ROUNDS_KEY, defaultRoundsSelect.value);
+    });
 
     // Initialise checkbox to match state
     if (xmasFilterCheck) xmasFilterCheck.checked = !state.hideChristmas;
@@ -4530,6 +4569,15 @@
       updatePlayerVisibility();
       if (quizEndScreen) quizEndScreen.hidden = true;
       document.getElementById('quizInputs').style.visibility = '';
+      // Apply default rounds for a fresh game (not a restore)
+      if (quizState.played === 0) {
+        const def = Number(localStorage.getItem('quiz_default_rounds') || '0');
+        quizState.targetRounds = def;
+        document.querySelectorAll('.quiz-rounds-opt').forEach(b =>
+          b.classList.toggle('active', Number(b.dataset.rounds) === def)
+        );
+        if (typeof quizUpdatePlayedPill === 'function') quizUpdatePlayedPill();
+      }
     } else {
       quizStopClip();
       quizState.track = null;
