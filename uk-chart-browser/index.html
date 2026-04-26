@@ -1229,7 +1229,93 @@
       color: var(--muted);
     }
 
-    .quiz-inputs {
+    .quiz-score-pill-played {
+      position: relative;
+      cursor: pointer;
+    }
+    .quiz-score-pill-played:hover { background: rgba(255,255,255,0.1); }
+    .quiz-rounds-popover {
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: #151b2e;
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+      padding: 8px;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 90px;
+    }
+    .quiz-rounds-popover[hidden] { display: none; }
+    .quiz-rounds-label {
+      font-size: 10px;
+      color: var(--muted);
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 2px;
+    }
+    .quiz-rounds-opt {
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 13px;
+      font-family: inherit;
+      padding: 5px 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      text-align: center;
+      transition: background 0.12s;
+    }
+    .quiz-rounds-opt:hover { background: rgba(255,255,255,0.08); }
+    .quiz-rounds-opt.active { color: var(--accent); background: rgba(124,156,255,0.15); font-weight: 600; }
+
+    .quiz-end-screen {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      text-align: center;
+      padding: 8px 0;
+    }
+    .quiz-end-screen[hidden] { display: none; }
+    .quiz-end-score {
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .quiz-end-score strong { font-size: 28px; color: var(--accent); display: block; }
+    .quiz-leaderboard {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 10px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .quiz-leaderboard-title {
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 2px;
+    }
+    .quiz-lb-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+    }
+    .quiz-lb-label { color: var(--muted); }
+    .quiz-lb-val { color: var(--accent); font-weight: 600; }
+    .quiz-lb-new { font-size: 10px; color: #4ade80; margin-left: 4px; }
       width: 100%;
       display: flex;
       flex-direction: column;
@@ -1278,6 +1364,8 @@
     .quiz-reveal.visible { display: block; }
     .quiz-reveal.visible + .quiz-countdown-ring { display: none; }
     .quiz-hero-stage:has(.quiz-reveal.visible) .quiz-countdown-ring { display: none; }
+    .quiz-hero-stage:has(.quiz-end-screen:not([hidden])) .quiz-countdown-ring { display: none; }
+    .quiz-hero-stage:has(.quiz-end-screen:not([hidden])) .quiz-reveal { display: none; }
     .quiz-reveal .track-card { text-align: left; }
     .quiz-reveal .song { margin-top: 2px; }
     .quiz-reveal .row-actions-inline { margin-top: 0; }
@@ -1389,7 +1477,16 @@
     <section class="panel quiz-section" id="quizPanel">
       <div class="quiz-score-row" id="quizScoreRow">
         <div class="quiz-score-pill"><span class="score-val" id="quizScoreVal">0</span><span class="score-lbl">Score</span></div>
-        <div class="quiz-score-pill"><span class="score-val" id="quizPlayedVal">0</span><span class="score-lbl">Played</span></div>
+        <div class="quiz-score-pill quiz-score-pill-played" id="quizPlayedPill" role="button" tabindex="0" title="Set game length">
+          <span class="score-val" id="quizPlayedVal">0</span><span class="score-lbl" id="quizPlayedLbl">Played</span>
+          <div class="quiz-rounds-popover" id="quizRoundsPopover" hidden>
+            <span class="quiz-rounds-label">Rounds</span>
+            <button class="quiz-rounds-opt active" data-rounds="0">∞</button>
+            <button class="quiz-rounds-opt" data-rounds="5">5</button>
+            <button class="quiz-rounds-opt" data-rounds="10">10</button>
+            <button class="quiz-rounds-opt" data-rounds="20">20</button>
+          </div>
+        </div>
         <div class="quiz-score-pill"><span class="score-val" id="quizStreakVal">0</span><span class="score-lbl">Streak</span></div>
       </div>
 
@@ -1406,6 +1503,11 @@
             <div class="quiz-countdown-label" id="quizCountdownLabel"></div>
           </div>
           <div class="quiz-reveal" id="quizReveal"></div>
+          <div class="quiz-end-screen" id="quizEndScreen" hidden>
+            <div class="quiz-end-score" id="quizEndScore"></div>
+            <div class="quiz-leaderboard" id="quizLeaderboard"></div>
+            <button class="btn-primary" id="quizPlayAgainBtn">Play Again</button>
+          </div>
         </div>
         <div class="quiz-status" id="quizStatus">Tap to play a clip</div>
       </div>
@@ -1455,7 +1557,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.59</div>
+          <div class="tiny" id="version-code">Version: 2.60</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -2339,7 +2441,7 @@
       return rows;
     }
 
-    const XMAS_RE = /\b(christmas|xmas|santa claus|jingle bells?|jingle all|sleigh ride|silent night|holy night|deck the halls|winter wonderland|feliz navidad|happy xmas|war is over|fairytale of new york|fairytale of new york|merry christmas|mistletoe|reindeer|rudolph|frosty the snowman|yuletide|12 days of christmas|twelve days of christmas|chestnuts roasting|do they know its christmas|last christmas|i wish it could be christmas|driving home for christmas|all i want for christmas|santa baby|white christmas|o christmas|away in a manger|we wish you a merry|wonderful christmastime)\b/i;
+    const XMAS_RE = /\b(christmas|xmas|santa claus|jingle bells?|jingle all|sleigh ride|silent night|holy night|deck the halls|winter wonderland|feliz navidad|happy xmas|war is over|fairytale of new york|merry christmas|mistletoe|reindeer|rudolph|frosty the snowman|yuletide|12 days of christmas|twelve days of christmas|chestnuts roasting|do they know its christmas|last christmas|i wish it could be christmas|driving home for christmas|all i want for christmas|santa baby|white christmas|o christmas|away in a manger|we wish you a merry|wonderful christmastime|most wonderful time|marys boy child|mary's boy child|little drummer boy|step into christmas|rockin around|underneath the tree|stop the cavalry|holly jolly)\b/i;
 
     function isChristmasSong(row) {
       const t = String(row.tm || row.t || row.title || '').replace(/['']/g, "'");
@@ -4063,6 +4165,7 @@
     streak: 0,
     waitingForConfirm: false,
     playedSids: new Set(),
+    targetRounds: 0, // 0 = infinite
   };
 
   // DOM refs
@@ -4082,7 +4185,118 @@
   const quizResultBanner= document.getElementById('quizResultBanner');
   const quizScoreVal    = document.getElementById('quizScoreVal');
   const quizPlayedVal   = document.getElementById('quizPlayedVal');
+  const quizPlayedLbl   = document.getElementById('quizPlayedLbl');
   const quizStreakVal   = document.getElementById('quizStreakVal');
+  const quizPlayedPill  = document.getElementById('quizPlayedPill');
+  const quizRoundsPopover = document.getElementById('quizRoundsPopover');
+  const quizEndScreen   = document.getElementById('quizEndScreen');
+  const quizEndScore    = document.getElementById('quizEndScore');
+  const quizLeaderboard = document.getElementById('quizLeaderboard');
+  const quizPlayAgainBtn = document.getElementById('quizPlayAgainBtn');
+
+  // ── Leaderboard ─────────────────────────────────────────────────────────
+  const LB_KEY = 'quiz_leaderboard';
+  function lbLoad() { try { return JSON.parse(localStorage.getItem(LB_KEY) || '{}'); } catch { return {}; } }
+  function lbSave(lb) { try { localStorage.setItem(LB_KEY, JSON.stringify(lb)); } catch {} }
+
+  function lbUpdate(score, played, streak, target) {
+    const lb = lbLoad();
+    const isNew = {};
+    // Best score for this game length
+    const key = `best_${target || 'inf'}`;
+    if (lb[key] == null || score > lb[key]) { lb[key] = score; isNew[key] = true; }
+    // Best streak ever
+    if (lb.bestStreak == null || streak > lb.bestStreak) { lb.bestStreak = streak; isNew.bestStreak = true; }
+    // Best score per round (efficiency) for fixed-length games
+    if (target > 0) {
+      const perRound = score / played;
+      if (lb.bestPerRound == null || perRound > lb.bestPerRound) { lb.bestPerRound = perRound; isNew.bestPerRound = true; }
+    }
+    lbSave(lb);
+    return { lb, isNew };
+  }
+
+  function quizShowEndScreen() {
+    const target = quizState.targetRounds;
+    const { lb, isNew } = lbUpdate(quizState.score, quizState.played, quizState.streak, target);
+    const scoreDisplay = quizState.score.toFixed(1).replace(/\.0$/, '');
+    quizEndScore.innerHTML = `
+      <strong>${scoreDisplay}</strong>
+      ${quizState.played} rounds · Best streak: ${quizState.streak}
+    `;
+    const lbKey = `best_${target || 'inf'}`;
+    const rows = [
+      { label: `Best score${target ? ` (${target} rounds)` : ''}`, val: (lb[lbKey] || 0).toFixed(1).replace(/\.0$/,''), new: isNew[lbKey] },
+      { label: 'Best streak', val: lb.bestStreak || 0, new: isNew.bestStreak },
+    ];
+    if (lb.bestPerRound != null) {
+      rows.push({ label: 'Best avg/round', val: (lb.bestPerRound || 0).toFixed(2), new: isNew.bestPerRound });
+    }
+    quizLeaderboard.innerHTML = `
+      <div class="quiz-leaderboard-title">🏆 Personal bests</div>
+      ${rows.map(r => `<div class="quiz-lb-row">
+        <span class="quiz-lb-label">${r.label}</span>
+        <span class="quiz-lb-val">${r.val}${r.new ? '<span class="quiz-lb-new">NEW</span>' : ''}</span>
+      </div>`).join('')}
+    `;
+    // Show end screen, hide ring/reveal
+    quizEndScreen.hidden = false;
+    quizReveal?.classList.remove('visible');
+    quizSetStatus('');
+    // Hide inputs and actions during end screen
+    document.getElementById('quizInputs').style.visibility = 'hidden';
+    document.getElementById('quizSubmitBtn').style.display = 'none';
+    quizSkipBtn.style.display = 'none';
+  }
+
+  // ── Rounds target popover ────────────────────────────────────────────────
+  function quizUpdatePlayedPill() {
+    const t = quizState.targetRounds;
+    quizPlayedVal.textContent = quizState.played;
+    if (t > 0) {
+      quizPlayedLbl.textContent = `/ ${t}`;
+    } else {
+      quizPlayedLbl.textContent = 'Played';
+    }
+  }
+
+  quizPlayedPill?.addEventListener('click', e => {
+    e.stopPropagation();
+    if (quizState.active && quizState.played > 0) return; // don't change mid-game
+    quizRoundsPopover.hidden = !quizRoundsPopover.hidden;
+  });
+
+  quizRoundsPopover?.addEventListener('click', e => {
+    e.stopPropagation();
+    const btn = e.target.closest('.quiz-rounds-opt');
+    if (!btn) return;
+    const rounds = Number(btn.dataset.rounds);
+    quizState.targetRounds = rounds;
+    quizRoundsPopover.querySelectorAll('.quiz-rounds-opt').forEach(b =>
+      b.classList.toggle('active', Number(b.dataset.rounds) === rounds)
+    );
+    quizUpdatePlayedPill();
+    quizRoundsPopover.hidden = true;
+  });
+
+  document.addEventListener('click', () => {
+    if (quizRoundsPopover) quizRoundsPopover.hidden = true;
+  });
+
+  quizPlayAgainBtn?.addEventListener('click', () => {
+    quizEndScreen.hidden = true;
+    document.getElementById('quizInputs').style.visibility = '';
+    document.getElementById('quizSubmitBtn').style.display = '';
+    // Reset scores but keep target
+    quizState.score = 0;
+    quizState.played = 0;
+    quizState.streak = 0;
+    quizState.playedSids.clear();
+    quizUpdateScoreboard();
+    quizUpdatePlayedPill();
+    quizResetQuestion();
+    quizSetStatus('Tap to play a clip');
+  });
   const quizCountdownLabel = document.getElementById('quizCountdownLabel');
   const quizRingFg      = document.getElementById('quizRingFg');
 
@@ -4121,8 +4335,8 @@
 
   function quizUpdateScoreboard() {
     quizScoreVal.textContent = quizState.score.toFixed(1).replace(/\.0$/, '');
-    quizPlayedVal.textContent = quizState.played;
     quizStreakVal.textContent = quizState.streak;
+    quizUpdatePlayedPill();
   }
 
   // ── String matching helpers ───────────────────────────────────────────────
@@ -4314,14 +4528,20 @@
 
     if (active) {
       quizRenderFilterChips();
-      // Minimise player so it doesn't take up space during quiz
       state.isPlayerMinimized = true;
       updatePlayerVisibility();
+      if (quizEndScreen) quizEndScreen.hidden = true;
+      document.getElementById('quizInputs').style.visibility = '';
     } else {
       quizStopClip();
       quizState.track = null;
       quizState.waitingForConfirm = false;
       quizState.playedSids.clear();
+      quizState.score = 0;
+      quizState.played = 0;
+      quizState.streak = 0;
+      if (quizEndScreen) quizEndScreen.hidden = true;
+      document.getElementById('quizInputs').style.visibility = '';
       if (quizFilterChips) quizFilterChips.innerHTML = '';
     }
   }
@@ -4652,8 +4872,9 @@
     quizPlayBtn.innerHTML = '<svg class="quiz-play-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 1 0 .49-5.36"/></svg>'; quizPlayBtn.classList.add('is-counting');
     quizPlayBtn.disabled = true;
     quizSubmitBtn.disabled = true;
+    const isLastRound = quizState.targetRounds > 0 && quizState.played >= quizState.targetRounds;
     quizSkipBtn.style.display = '';
-    quizSkipBtn.textContent = 'Next →';
+    quizSkipBtn.textContent = isLastRound ? 'Finish 🏁' : 'Next →';
     quizSetStatus('');
   }
 
@@ -4837,9 +5058,14 @@
   quizSubmitBtn.addEventListener('click', quizSubmitAnswer);
 
   quizSkipBtn.addEventListener('click', () => {
+    const isLastRound = quizState.targetRounds > 0 && quizState.played >= quizState.targetRounds;
+    if (isLastRound) {
+      quizShowEndScreen();
+      return;
+    }
     quizResetQuestion();
     quizState.track = null;
-    quizSetStatus('Press Play to start');
+    quizSetStatus('Tap to play a clip');
     quizResetRing();
   });
 
