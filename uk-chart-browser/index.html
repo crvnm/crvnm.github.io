@@ -1595,7 +1595,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.67</div>
+          <div class="tiny" id="version-code">Version: 2.68</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -4396,11 +4396,14 @@
   // Suffixes inside brackets that should be stripped entirely from the title
   const BRACKET_STRIP_RE = /\(\s*(?:remix|edit|version|remaster(?:ed)?|re-?record(?:ed)?|live|acoustic|instrumental|explicit|clean|with\s+\S.*?|feat(?:uring)?\.?\s+.*?|ft\.?\s+.*?|.*?\s+remix|.*?\s+version|.*?\s+edit)\s*\)/gi;
 
+  const NUM_WORDS = { zero:0,one:1,two:2,three:3,four:4,five:5,six:6,seven:7,eight:8,nine:9,ten:10,eleven:11,twelve:12,thirteen:13,fourteen:14,fifteen:15,sixteen:16,seventeen:17,eighteen:18,nineteen:19,twenty:20 };
+  const WORD_NUMS = Object.fromEntries(Object.entries(NUM_WORDS).map(([w,n]) => [n,w]));
+
   function quizNormalise(str) {
-    return String(str || '')
+    let s = String(str || '')
       .toLowerCase()
       .replace(/\s*-\s*(radio edit|single version|original mix|album version|extended mix|remaster(?:ed)?|re-?record(?:ed)?|live|acoustic|instrumental|explicit|clean|edit|mix|version)[^-]*/gi, '')
-      .replace(/\([^)]*\)/g, '')          // strip all brackets
+      .replace(/\([^)]*\)/g, '')
       .replace(/\[[^\]]*\]/g, '')
       .replace(/\bfeat?\.?\s+\S+/gi, '')
       .replace(/\bft\.?\s+\S+/gi, '')
@@ -4409,6 +4412,11 @@
       .replace(/\b(the|a|an|and)\b/g, ' ')
       .replace(/\s+/g, ' ')
       .trim();
+    // Normalise number words → digits and digits → number words, then pick canonical form
+    // Replace word numbers with digits
+    s = s.replace(/\b(twenty|nineteen|eighteen|seventeen|sixteen|fifteen|fourteen|thirteen|twelve|eleven|ten|nine|eight|seven|six|five|four|three|two|one|zero)\b/gi,
+      m => NUM_WORDS[m.toLowerCase()]);
+    return s.replace(/\s+/g, ' ').trim();
   }
 
   // Extract the bracketed subtitle (if any) from a title, excluding noise brackets
