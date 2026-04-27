@@ -1595,7 +1595,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.68</div>
+          <div class="tiny" id="version-code">Version: 2.69</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -2753,6 +2753,7 @@
         quizScore: window.quizState?.score || 0,
         quizPlayed: window.quizState?.played || 0,
         quizStreak: window.quizState?.streak || 0,
+        quizBestStreak: window.quizState?.bestStreak || 0,
         quizTargetRounds: window.quizState?.targetRounds || 0,
         quizPool: document.getElementById('quizPool')?.value || 'current',
         quizClipLen: document.getElementById('quizClipLen')?.value || '10',
@@ -2893,6 +2894,7 @@
           window.quizState.score = saved.quizScore || 0;
           window.quizState.played = saved.quizPlayed || 0;
           window.quizState.streak = saved.quizStreak || 0;
+          window.quizState.bestStreak = saved.quizBestStreak || 0;
           window.quizState.targetRounds = saved.quizTargetRounds || 0;
           const poolEl = document.getElementById('quizPool');
           const clipLenEl = document.getElementById('quizClipLen');
@@ -4217,6 +4219,7 @@
     score: 0,
     played: 0,
     streak: 0,
+    bestStreak: 0,
     waitingForConfirm: false,
     playedSids: new Set(),
     targetRounds: 0, // 0 = infinite
@@ -4272,11 +4275,11 @@
 
   function quizShowEndScreen() {
     const target = quizState.targetRounds;
-    const { lb, isNew } = lbUpdate(quizState.score, quizState.played, quizState.streak, target);
+    const { lb, isNew } = lbUpdate(quizState.score, quizState.played, quizState.bestStreak, target);
     const scoreDisplay = quizState.score.toFixed(1).replace(/\.0$/, '');
     quizEndScore.innerHTML = `
       <strong>${scoreDisplay}</strong>
-      ${quizState.played} rounds · Best streak: ${quizState.streak}
+      ${quizState.played} rounds · Best streak: ${quizState.bestStreak}
     `;
     const lbKey = `best_${target || 'inf'}`;
     const rows = [
@@ -4341,6 +4344,7 @@
     quizState.score = 0;
     quizState.played = 0;
     quizState.streak = 0;
+    quizState.bestStreak = 0;
     quizState.track = null;
     quizState.confirmed = false;
     quizState.playedSids.clear();
@@ -4609,6 +4613,7 @@
       quizState.score = 0;
       quizState.played = 0;
       quizState.streak = 0;
+      quizState.bestStreak = 0;
       if (quizEndScreen) quizEndScreen.hidden = true;
       document.getElementById('quizInputs').style.visibility = '';
       if (quizFilterChips) quizFilterChips.innerHTML = '';
@@ -4911,7 +4916,10 @@
     );
 
     quizState.score += points;
-    if (points >= 2) quizState.streak++;
+    if (points >= 2) {
+      quizState.streak++;
+      if (quizState.streak > quizState.bestStreak) quizState.bestStreak = quizState.streak;
+    }
     else quizState.streak = 0;
     quizUpdateScoreboard();
 
