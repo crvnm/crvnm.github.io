@@ -1595,7 +1595,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.69</div>
+          <div class="tiny" id="version-code">Version: 2.70</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -5133,6 +5133,11 @@
   // ── Button event listeners ────────────────────────────────────────────────
 
   quizPlayBtn.addEventListener('click', () => {
+    // Call activateElement synchronously in the click handler — this MUST happen
+    // in the direct call stack of a user gesture for iOS to unlock the audio context
+    if (state.player) {
+      state.player.activateElement().catch(() => {});
+    }
     if (quizState.track && !quizState.confirmed) {
       quizReplayClip();
     } else {
