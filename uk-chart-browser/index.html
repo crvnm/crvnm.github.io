@@ -1595,7 +1595,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.73</div>
+          <div class="tiny" id="version-code">Version: 2.73-debug</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -4781,6 +4781,7 @@
       quizSetStatus('Please sign in to Spotify first');
       return;
     }
+    console.log('[Quiz] quizPlayClip called', new Error().stack.split('\n')[2]?.trim());
 
     const row = quizPickTrack();
     if (!row) {
@@ -4848,6 +4849,7 @@
 
   // Called by our player_state_changed hook when the quiz track is confirmed
   function quizOnTrackConfirmed(trackSid, durationMs) {
+    console.log('[Quiz] quizOnTrackConfirmed', trackSid, 'waiting=', quizState.waitingForConfirm, new Error().stack.split('\n')[2]?.trim());
     if (!quizState.active || !quizState.waitingForConfirm) return;
     clearTimeout(_confirmTimeoutId);
     if (trackSid !== quizState.track?.sid) {
@@ -5130,7 +5132,9 @@
       // Auto-retry with a different track after a short pause
       // Only retry if no track is set (i.e. we genuinely failed, not just delayed)
       setTimeout(() => {
+        console.log('[Quiz] Auto-retry check: active=', quizState.active, 'confirmed=', quizState.confirmed, 'waiting=', quizState.waitingForConfirm, 'track=', quizState.track?.sid);
         if (quizState.active && !quizState.confirmed && !quizState.waitingForConfirm && !quizState.track) {
+          console.log('[Quiz] Auto-retry firing quizPlayClip');
           quizPlayClip();
         }
       }, 1500);
@@ -5158,6 +5162,7 @@
   quizSubmitBtn.addEventListener('click', quizSubmitAnswer);
 
   quizSkipBtn.addEventListener('click', () => {
+    console.log('[Quiz] Skip/Finish clicked, isLastRound=', quizState.targetRounds > 0 && quizState.played >= quizState.targetRounds);
     const isLastRound = quizState.targetRounds > 0 && quizState.played >= quizState.targetRounds;
     if (isLastRound) {
       quizShowEndScreen();
