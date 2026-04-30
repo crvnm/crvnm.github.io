@@ -1128,6 +1128,12 @@
       align-items: center;
       justify-content: center;
     }
+    .quiz-mode-toggle-btn-wrap {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
 
     .quiz-ring-actions-row { display: none; }
     .quiz-ring-actions-main { display: none; }
@@ -1371,6 +1377,76 @@
     .quiz-input-wrap input.input-wrong { border-color: #ef4444; background: rgba(239,68,68,0.08); }
     .quiz-input-wrap input:disabled { opacity: 1; }
 
+    .quiz-status-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+    .quiz-mode-toggle-btn {
+      width: 46px;
+      height: 46px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px;
+      color: var(--muted);
+      font-size: 10px;
+      font-family: inherit;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      line-height: 1.2;
+      padding: 0;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1px;
+      white-space: nowrap;
+    }
+    .quiz-mode-toggle-btn:hover { color: var(--text); background: rgba(255,255,255,0.1); }
+    .quiz-mode-toggle-btn.active {
+      background: rgba(124,156,255,0.18);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .quiz-speak-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px;
+      border-radius: 12px;
+      border: 2px solid var(--accent);
+      background: rgba(124,156,255,0.08);
+      color: var(--accent);
+      font-size: 15px;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      transition: background 0.15s, opacity 0.15s;
+      margin-bottom: 10px;
+    }
+    .quiz-speak-btn:disabled { opacity: 0.4; cursor: default; }
+    .quiz-speak-btn.listening {
+      background: rgba(239,68,68,0.12);
+      border-color: #ef4444;
+      color: #ef4444;
+      animation: pulse-border 1.2s ease-in-out infinite;
+    }
+    @keyframes pulse-border {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(239,68,68,0.3); }
+      50% { box-shadow: 0 0 0 6px rgba(239,68,68,0); }
+    }
+    .quiz-speech-interim {
+      color: var(--muted);
+      font-style: italic;
+    }
+
     .quiz-actions {
       display: flex;
       gap: 8px;
@@ -1534,18 +1610,39 @@
             <div class="quiz-leaderboard" id="quizLeaderboard"></div>
             <button class="btn-primary" id="quizPlayAgainBtn">Play Again</button>
           </div>
+          <div class="quiz-mode-toggle-btn-wrap">
+            <button class="quiz-mode-toggle-btn" id="quizModeToggleBtn" hidden>
+              <span>TEXT</span><span>MODE</span>
+            </button>
+          </div>
         </div>
-        <div class="quiz-status" id="quizStatus">Tap to play a clip</div>
+        <div class="quiz-status-row">
+          <div class="quiz-status" id="quizStatus">Tap to play a clip</div>
+        </div>
       </div>
 
       <div class="quiz-inputs" id="quizInputs">
-        <div class="quiz-input-wrap">
-          <label for="quizTitleInput">Song title</label>
-          <input type="text" id="quizTitleInput" placeholder="Enter song title…" autocomplete="new-password" autocorrect="off" autocapitalize="none" spellcheck="false" inputmode="text" />
+        <!-- Text mode inputs -->
+        <div id="quizTextInputs">
+          <div class="quiz-input-wrap">
+            <label for="quizTitleInput">Song title</label>
+            <input type="text" id="quizTitleInput" placeholder="Enter song title…" autocomplete="new-password" autocorrect="off" autocapitalize="none" spellcheck="false" inputmode="text" />
+          </div>
+          <div class="quiz-input-wrap">
+            <label for="quizArtistInput">Artist</label>
+            <input type="text" id="quizArtistInput" placeholder="Enter artist name…" autocomplete="new-password" autocorrect="off" autocapitalize="none" spellcheck="false" inputmode="text" />
+          </div>
         </div>
-        <div class="quiz-input-wrap">
-          <label for="quizArtistInput">Artist</label>
-          <input type="text" id="quizArtistInput" placeholder="Enter artist name…" autocomplete="new-password" autocorrect="off" autocapitalize="none" spellcheck="false" inputmode="text" />
+        <!-- Speech mode inputs -->
+        <div id="quizSpeechInputs" hidden>
+          <button class="quiz-speak-btn" id="quizSpeakBtn" disabled>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1a4 4 0 0 1 4 4v7a4 4 0 0 1-8 0V5a4 4 0 0 1 4-4zm-1 18.93V22h2v-2.07A8 8 0 0 0 20 12h-2a6 6 0 0 1-12 0H4a8 8 0 0 0 7 7.93z"/></svg>
+            Speak Answer
+          </button>
+          <div class="quiz-input-wrap">
+            <label for="quizSpeechInput">Your answer</label>
+            <input type="text" id="quizSpeechInput" placeholder="Tap 'Speak Answer' then speak…" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" readonly />
+          </div>
         </div>
       </div>
 
@@ -1573,9 +1670,16 @@
           </span>
           <input type="checkbox" id="xmasFilterCheck" />
         </div>
-        <div class="settings-row settings-row-stacked">
+        <div class="settings-row settings-row-stacked" id="defaultAnswerModeRow">
           <span class="settings-row-text">
-            <span class="settings-row-title">Default quiz rounds</span>
+            <span class="settings-row-title">Default answer mode</span>
+            <span class="settings-row-sub">Text input or speech recognition for quiz answers</span>
+          </span>
+          <select id="defaultAnswerModeSelect">
+            <option value="text">Text</option>
+            <option value="speech">Speech</option>
+          </select>
+        </div>
             <span class="settings-row-sub">Rounds when starting a new game</span>
           </span>
           <select id="defaultRoundsSelect">
@@ -1595,7 +1699,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.84</div>
+          <div class="tiny" id="version-code">Version: 3.00</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -4411,6 +4515,9 @@
     quizCountdownLabel.textContent = '';
     quizPlayBtn.classList.add('is-counting', 'can-replay');
     quizPlayBtn.innerHTML = '<svg class="quiz-play-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 1 0 .49-5.36"/></svg>';
+    // Enable speak button when clip is ready (speech mode)
+    const speakBtn = document.getElementById('quizSpeakBtn');
+    if (speakBtn) speakBtn.disabled = false;
   }
 
   function quizHideCounting() {
@@ -4787,10 +4894,18 @@
 
   function quizResetQuestion() {
     quizStopClip();
+    stopSpeechRecognition();
     quizResetRing();
     if (quizState.active) document.body.classList.add('quiz-mode');
     quizTitleInput.value = '';
     quizArtistInput.value = '';
+    if (quizSpeechInput) {
+      quizSpeechInput.value = '';
+      quizSpeechInput.readOnly = false;
+      quizSpeechInput.disabled = false;
+      quizSpeechInput.className = '';
+    }
+    if (quizSpeakBtn) quizSpeakBtn.disabled = true;
     quizTitleInput.disabled = false;
     quizArtistInput.disabled = false;
     quizTitleInput.className = '';
@@ -4997,13 +5112,22 @@
   function quizSubmitAnswer() {
     if (!quizState.track || quizState.confirmed) return;
     quizStopClip();
+    stopSpeechRecognition();
     quizState.confirmed = true;
     quizState.played++;
 
     const row = quizState.track;
-    const { points, titleOk, artistOk, artistPartial } = quizScoreAnswer(
-      quizTitleInput.value, quizArtistInput.value, row
-    );
+    let points, titleOk, artistOk, artistPartial;
+
+    if (quizAnswerMode === 'speech' && SPEECH_SUPPORTED) {
+      const speechGuess = quizSpeechInput?.value || '';
+      ({ points, titleOk, artistOk } = quizScoreSpeech(speechGuess, row));
+      artistPartial = false;
+    } else {
+      ({ points, titleOk, artistOk, artistPartial } = quizScoreAnswer(
+        quizTitleInput.value, quizArtistInput.value, row
+      ));
+    }
 
     quizState.score += points;
     if (points >= 2) {
@@ -5016,8 +5140,18 @@
     // Colour the inputs
     quizTitleInput.disabled = true;
     quizArtistInput.disabled = true;
-    quizTitleInput.className = titleOk ? 'input-correct' : 'input-wrong';
-    quizArtistInput.className = artistOk ? (artistPartial ? 'input-partial' : 'input-correct') : 'input-wrong';
+    if (quizAnswerMode === 'speech' && SPEECH_SUPPORTED) {
+      quizTitleInput.className = '';
+      quizArtistInput.className = '';
+      if (quizSpeechInput) {
+        quizSpeechInput.disabled = true;
+        quizSpeechInput.className = (titleOk && artistOk) ? 'input-correct' : titleOk ? 'input-partial' : artistOk ? 'input-partial' : 'input-wrong';
+      }
+      if (quizSpeakBtn) quizSpeakBtn.disabled = true;
+    } else {
+      quizTitleInput.className = titleOk ? 'input-correct' : 'input-wrong';
+      quizArtistInput.className = artistOk ? (artistPartial ? 'input-partial' : 'input-correct') : 'input-wrong';
+    }
 
     // Result banner
     quizResultBanner.classList.add('visible');
@@ -5245,6 +5379,218 @@
     }
   });
 
+  // ── Speech mode ───────────────────────────────────────────────────────────
+
+  const SPEECH_SUPPORTED = ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window);
+  const ANSWER_MODE_KEY = 'quiz_answer_mode';
+
+  const quizTextInputs    = document.getElementById('quizTextInputs');
+  const quizSpeechInputs  = document.getElementById('quizSpeechInputs');
+  const quizSpeakBtn      = document.getElementById('quizSpeakBtn');
+  const quizSpeechInput   = document.getElementById('quizSpeechInput');
+  const quizModeToggleBtn = document.getElementById('quizModeToggleBtn');
+  const defaultAnswerModeSelect = document.getElementById('defaultAnswerModeSelect');
+  const defaultAnswerModeRow = document.getElementById('defaultAnswerModeRow');
+
+  let quizAnswerMode = localStorage.getItem(ANSWER_MODE_KEY) || 'text';
+  let _recognition = null;
+  let _isListening = false;
+
+  // Hide speech options entirely if not supported
+  if (!SPEECH_SUPPORTED) {
+    if (defaultAnswerModeRow) defaultAnswerModeRow.hidden = true;
+    quizAnswerMode = 'text';
+  } else {
+    if (quizModeToggleBtn) quizModeToggleBtn.hidden = false;
+  }
+
+  // Init settings select
+  if (defaultAnswerModeSelect) {
+    defaultAnswerModeSelect.value = quizAnswerMode;
+    defaultAnswerModeSelect.addEventListener('change', () => {
+      quizAnswerMode = defaultAnswerModeSelect.value;
+      localStorage.setItem(ANSWER_MODE_KEY, quizAnswerMode);
+      applyAnswerMode(quizAnswerMode);
+    });
+  }
+
+  function applyAnswerMode(mode) {
+    const isSpeech = mode === 'speech' && SPEECH_SUPPORTED;
+    quizTextInputs.hidden = isSpeech;
+    quizSpeechInputs.hidden = !isSpeech;
+    if (quizModeToggleBtn) {
+      const spans = quizModeToggleBtn.querySelectorAll('span');
+      if (spans.length >= 2) {
+        spans[0].textContent = isSpeech ? 'SPEECH' : 'TEXT';
+        spans[1].textContent = 'MODE';
+      }
+      quizModeToggleBtn.classList.toggle('active', isSpeech);
+      quizModeToggleBtn.title = isSpeech ? 'Switch to text input' : 'Switch to speech input';
+    }
+    if (isSpeech) {
+      quizSubmitBtn.disabled = !quizSpeechInput.value.trim() || !quizState.track || quizState.confirmed;
+    }
+  }
+
+  // Apply saved mode on load
+  applyAnswerMode(quizAnswerMode);
+
+  quizModeToggleBtn?.addEventListener('click', () => {
+    quizAnswerMode = quizAnswerMode === 'speech' ? 'text' : 'speech';
+    localStorage.setItem(ANSWER_MODE_KEY, quizAnswerMode);
+    if (defaultAnswerModeSelect) defaultAnswerModeSelect.value = quizAnswerMode;
+    stopSpeechRecognition();
+    applyAnswerMode(quizAnswerMode);
+  });
+
+  // ── Speech recognition ───────────────────────────────────────────────────
+
+  function buildRecognition() {
+    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const r = new SR();
+    r.continuous = false;
+    r.interimResults = true;
+    r.lang = 'en-GB';
+    r.maxAlternatives = 1;
+
+    r.onstart = () => {
+      _isListening = true;
+      quizSpeakBtn.classList.add('listening');
+      quizSpeakBtn.querySelector('span') ? null : null;
+      quizSpeakBtn.childNodes.forEach(n => { if (n.nodeType === 3) n.textContent = ' Stop'; });
+      // Update button text node
+      updateSpeakBtnLabel();
+      quizSpeechInput.readOnly = true; // keyboard-free while listening
+    };
+
+    r.onresult = (e) => {
+      let interim = '', final = '';
+      for (let i = e.resultIndex; i < e.results.length; i++) {
+        if (e.results[i].isFinal) final += e.results[i][0].transcript;
+        else interim += e.results[i][0].transcript;
+      }
+      // Show final + interim (interim styled differently via placeholder approach)
+      quizSpeechInput.value = final || interim;
+      quizSpeechInput.dataset.interim = interim ? '1' : '';
+      quizSubmitBtn.disabled = !quizSpeechInput.value.trim() || !quizState.track || quizState.confirmed;
+    };
+
+    r.onend = () => {
+      _isListening = false;
+      quizSpeakBtn.classList.remove('listening');
+      updateSpeakBtnLabel();
+      quizSpeechInput.readOnly = false; // allow manual edit after
+      quizSpeechInput.dataset.interim = '';
+    };
+
+    r.onerror = (e) => {
+      _isListening = false;
+      quizSpeakBtn.classList.remove('listening');
+      updateSpeakBtnLabel();
+      quizSpeechInput.readOnly = false;
+      if (e.error !== 'aborted') quizSetStatus('Mic error — try again');
+    };
+
+    return r;
+  }
+
+  function updateSpeakBtnLabel() {
+    if (!quizSpeakBtn) return;
+    const svg = quizSpeakBtn.querySelector('svg');
+    quizSpeakBtn.textContent = _isListening ? ' Stop listening' : ' Speak Answer';
+    if (svg) quizSpeakBtn.prepend(svg);
+  }
+
+  function stopSpeechRecognition() {
+    if (_recognition && _isListening) {
+      try { _recognition.abort(); } catch {}
+    }
+    _isListening = false;
+    if (quizSpeakBtn) quizSpeakBtn.classList.remove('listening');
+    updateSpeakBtnLabel();
+  }
+
+  quizSpeakBtn?.addEventListener('click', () => {
+    if (_isListening) {
+      stopSpeechRecognition();
+      return;
+    }
+    // Clear previous transcription on new attempt
+    quizSpeechInput.value = '';
+    quizSpeechInput.dataset.interim = '';
+    quizSubmitBtn.disabled = true;
+    _recognition = buildRecognition();
+    try {
+      _recognition.start();
+    } catch (e) {
+      quizSetStatus('Could not start microphone — try again');
+    }
+  });
+
+  quizSpeechInput?.addEventListener('input', () => {
+    quizSubmitBtn.disabled = !quizSpeechInput.value.trim() || !quizState.track || quizState.confirmed;
+  });
+
+  // ── Speech scoring ───────────────────────────────────────────────────────
+
+  function quizScoreSpeech(guess, row) {
+    if (!guess?.trim()) return { points: 0, titleOk: false, artistOk: false };
+    const correctTitle  = row.tm || row.t || row.title || '';
+    const correctArtist = row.am || row.a || row.artist || '';
+    const primaryArtist = quizSplitArtists(correctArtist)[0] || '';
+
+    // Speech gets wider Levenshtein tolerance: min(6, floor(len/6))
+    function speechMatch(g, c) {
+      const ng = quizNormalise(g), nc = quizNormalise(c);
+      if (!ng || !nc) return false;
+      if (ng === nc) return true;
+      const allowed = Math.min(6, Math.max(1, Math.floor(nc.length / 6)));
+      return levenshtein(ng, nc) <= allowed || (nc.length > 6 && (nc.includes(ng) || ng.includes(nc)));
+    }
+
+    // Check if title and primary artist both appear anywhere in the combined guess
+    // Try all substring windows of appropriate length for fuzzy matching
+    const normGuess = quizNormalise(guess);
+    const normTitle = quizNormalise(correctTitle);
+    const normArtist = quizNormalise(primaryArtist);
+
+    const titleOk = normTitle && (
+      normGuess.includes(normTitle) ||
+      speechMatch(guess, correctTitle) ||
+      // Try matching title within a substring of the guess
+      (() => {
+        const words = normGuess.split(' ');
+        const tWords = normTitle.split(' ');
+        for (let i = 0; i <= words.length - tWords.length; i++) {
+          const slice = words.slice(i, i + tWords.length + 2).join(' ');
+          if (speechMatch(slice, correctTitle)) return true;
+        }
+        return false;
+      })()
+    );
+
+    const artistOk = normArtist && (
+      normGuess.includes(normArtist) ||
+      speechMatch(guess, primaryArtist) ||
+      (() => {
+        const words = normGuess.split(' ');
+        const aWords = normArtist.split(' ');
+        for (let i = 0; i <= words.length - aWords.length; i++) {
+          const slice = words.slice(i, i + aWords.length + 2).join(' ');
+          if (speechMatch(slice, primaryArtist)) return true;
+        }
+        return false;
+      })()
+    );
+
+    let points = 0;
+    if (titleOk && artistOk) points = 2;
+    else if (titleOk) points = 1;
+    else if (artistOk) points = 0.5;
+
+    return { points, titleOk, artistOk };
+  }
+
   quizSubmitBtn.addEventListener('click', quizSubmitAnswer);
 
   quizSkipBtn.addEventListener('click', () => {
@@ -5259,10 +5605,20 @@
     quizResetRing();
   });
 
-  // Submit on Enter in either input
-  [quizTitleInput, quizArtistInput].forEach(inp => {
+  // Submit on Enter in any input
+  [quizTitleInput, quizArtistInput, quizSpeechInput].forEach(inp => {
+    if (!inp) return;
     inp.addEventListener('keydown', e => {
       if (e.key === 'Enter' && !quizSubmitBtn.disabled) quizSubmitAnswer();
+    });
+  });
+
+  // Enable submit when text inputs have content
+  [quizTitleInput, quizArtistInput].forEach(inp => {
+    inp.addEventListener('input', () => {
+      if (quizAnswerMode !== 'speech') {
+        quizSubmitBtn.disabled = (!quizTitleInput.value.trim() && !quizArtistInput.value.trim()) || !quizState.track || quizState.confirmed;
+      }
     });
   });
 
