@@ -1595,7 +1595,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.84-debug</div>
+          <div class="tiny" id="version-code">Version: 2.84</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -2235,7 +2235,6 @@
       return song.includes(term) || artist.includes(term);
     }
 
-
     function getPositionLabel(value) {
       if (value === 'ALL') return 'All Positions';
       if (value === 'TOP_10') return 'Top 10';
@@ -2649,7 +2648,6 @@
     }
 
     async function startLogin() {
-      console.log('[Restore] startLogin called', new Error().stack.split('\n').slice(1,4).join(' | '));
       if (!SPOTIFY_CLIENT_ID || SPOTIFY_CLIENT_ID.includes('REPLACE_WITH')) {
         alert('Set SPOTIFY_CLIENT_ID in the HTML first.');
         return;
@@ -2726,7 +2724,6 @@
     const APP_STATE_KEY = 'uk_chart_browser_restore_state';
 
     function saveAppUiStateForRestore() {
-      console.log('[Restore] saveAppUiStateForRestore called', new Error().stack.split('\n').slice(1,4).join(' | '));
       const derived = getDerivedPlaybackPosition();
       const payload = {
         selectedYear: state.selectedYear,
@@ -2793,7 +2790,6 @@
     }
 
     async function restoreAppUiStateAfterLogin() {
-      console.log('[Restore] restoreAppUiStateAfterLogin called');
       const saved = loadAppUiStateForRestore();
       if (!saved) return;
 
@@ -2937,7 +2933,6 @@
             window.quizState.waitingForConfirm = false;
             window.quizState.clipStartMs = saved.quizClipStartMs || 0;
             window.quizState.clipLenMs = saved.quizClipLenMs || 10000;
-            console.log('[Restore] quiz track restored:', row.tm || row.t || row.sid);
           }
         }, 100);
       }
@@ -2981,7 +2976,6 @@
     }
 
     async function rebuildSpotifyPlayer() {
-      console.log('[Restore] rebuildSpotifyPlayer called', new Error().stack.split('\n').slice(1,4).join(' | '));
       try {
         if (state.player) {
           try { await state.player.disconnect(); } catch {}
@@ -3019,7 +3013,6 @@
     }
 
     async function recoverOrScheduleRetry(action, advanceLogLabel) {
-      console.log('[Restore] recoverOrScheduleRetry', advanceLogLabel, 'visible=', document.visibilityState, new Error().stack.split('\n').slice(1,4).join(' | '));
       // If the page is visible, do a full login redirect
       if (document.visibilityState === 'visible') {
         advLog(advanceLogLabel || 'recover:login');
@@ -3044,7 +3037,6 @@
     }
 
     async function recoverDeviceAndRetry(action) {
-      console.log('[Restore] recoverDeviceAndRetry called', new Error().stack.split('\n').slice(1,4).join(' | '));
       try {
         return await action();
       } catch (err) {
@@ -3052,8 +3044,6 @@
         const isDevice = isRecoverableDeviceError(err);
 
         if (!isNetwork && !isDevice) throw err;
-
-        console.log('[Restore] recoverDeviceAndRetry: error caught', { isNetwork, isDevice, msg: err?.message || String(err) });
 
         // For network errors, wait for connectivity first
         if (isNetwork) {
@@ -3253,7 +3243,6 @@
       state.pendingRequestedAt = Date.now();
       state.confirmedTrackSid = null;
 
-
       // Reset local position to 0 immediately so the progress timer doesn't
       // show the old track's position while the new track loads.
       if (mustHardReset && state.lastPlaybackSnapshot) {
@@ -3435,7 +3424,6 @@
           };
         }
 
-
         clearPendingRequestedTrack();
         state.restoredPlayerStateOnly = false;
         refreshProgressFromSnapshot();
@@ -3563,7 +3551,6 @@
         const incomingPaused = !!playbackState?.paused;
         const ignoredAsStaleRestore = shouldIgnoreStaleRestoreState(playbackState);
 
-
         const pendingTrackId = state.pendingRequestedTrackSid;
         const pendingAge = Date.now() - state.pendingRequestedAt;
         const inPendingWindow = !!pendingTrackId && pendingAge < 8000;
@@ -3636,9 +3623,6 @@
           render();
           return;
         }
-
-
-
 
         // During a pending track switch, drop any event that belongs to the
         // old track — including null-track device-transfer events — so they
@@ -4170,7 +4154,6 @@
       }
     });
     document.addEventListener('visibilitychange', () => {
-      console.log('[Restore] visibilitychange:', document.visibilityState, 'quizActive=', window.quizState?.active, 'quizTrack=', window.quizState?.track?.sid);
       if (document.visibilityState === 'hidden') {
         // Snapshot the current position and track so we can detect and repair
         // the SDK's position=0 reconnect event when the page becomes visible again.
@@ -4630,8 +4613,6 @@
   quizPool.addEventListener('change', quizRenderFilterChips);
 
   function quizSetMode(active) {
-    console.log('[Quiz] quizSetMode', active, new Error().stack.split('\n').slice(1,5).join(' | '));
-    _qLog('SetMode', { active });
     quizState.active = active;
     eyebrow.textContent = active ? 'UK chart quiz' : 'UK chart browser';
     document.body.classList.toggle('quiz-mode', active);
@@ -4804,21 +4785,6 @@
     return unplayed[Math.floor(Math.random() * unplayed.length)];
   }
 
-  // ── Debug helpers ─────────────────────────────────────────────────────────
-  const _qLog = (event, data = {}) => {
-    const state_snapshot = {
-      track: quizState.track?.sid || null,
-      waiting: quizState.waitingForConfirm,
-      confirmed: quizState.confirmed,
-      active: quizState.active,
-      played: quizState.played,
-      restoreInFlight: window.state?.restoreResumeInFlight,
-      restoredOnly: window.state?.restoredPlayerStateOnly,
-      confirmedSid: window.state?.confirmedTrackSid,
-    };
-    console.log(`[Quiz:${event}]`, JSON.stringify({...data, ...state_snapshot}));
-  };
-
   function quizResetQuestion() {
     quizStopClip();
     quizResetRing();
@@ -4847,8 +4813,6 @@
       quizSetStatus('Please sign in to Spotify first');
       return;
     }
-    console.log('[Quiz] quizPlayClip called', new Error().stack.split('\n')[2]?.trim());
-    _qLog('PlayClip:start', { caller: new Error().stack.split('\n')[2]?.trim() });
 
     const row = quizPickTrack();
     if (!row) {
@@ -4886,7 +4850,6 @@
       }
       // If a restore is pending, clear it — quiz handles its own playback via recoverDeviceAndRetry
       if (state.restoredPlayerStateOnly) {
-        _qLog('PlayClip:clearing-restore-state');
         state.restoredPlayerStateOnly = false;
       }
 
@@ -4944,9 +4907,7 @@
 
   // Called by our player_state_changed hook when the quiz track is confirmed
   function quizOnTrackConfirmed(trackSid, durationMs) {
-    console.log('[Quiz] quizOnTrackConfirmed', trackSid, 'waiting=', quizState.waitingForConfirm, new Error().stack.split('\n')[2]?.trim());
-    _qLog('TrackConfirmed', { trackSid, caller: new Error().stack.split('\n')[2]?.trim() });
-    if (!quizState.active || !quizState.waitingForConfirm) { _qLog('TrackConfirmed:ignored', { trackSid }); return; }
+    if (!quizState.active || !quizState.waitingForConfirm) { return; }
     clearTimeout(_confirmTimeoutId);
     if (trackSid !== quizState.track?.sid) {
       // Spotify played the wrong track — abort and show error
@@ -5003,13 +4964,11 @@
   // Replay the current clip from the stored start position
   async function quizReplayClip() {
     if (!quizState.track || quizState.confirmed) return;
-    _qLog('ReplayClip:start');
     clearTimeout(_confirmTimeoutId);
     quizStopClip();
     quizSetStatus('Replaying…');
     // Clear restore flag — quiz handles its own playback
     if (state.restoredPlayerStateOnly) {
-      _qLog('ReplayClip:clearing-restore-state');
       state.restoredPlayerStateOnly = false;
     }
     try {
@@ -5191,15 +5150,13 @@
           const activeDeviceId = data?.device?.id;
 
           if (actualSid === targetSid) {
-            _qLog('RESTRetry:confirmed', { actualSid });
             _lastConfirmedSid = targetSid;
             quizState.waitingForConfirm = false;
             clearTimeout(_confirmTimeoutId);
             quizOnTrackConfirmed(targetSid, data?.item?.duration_ms || 0);
           } else {
             // Only retry if we're still waiting — may have confirmed while REST call was in flight
-            if (!quizState.waitingForConfirm) { _qLog('RESTRetry:skipped-not-waiting', { actualSid, targetSid }); return; }
-            _qLog('RESTRetry:restart-timeout', { actualSid, targetSid });
+            if (!quizState.waitingForConfirm) { return; }
             // REST API returned stale/empty state — retry play directly on SDK device
             clearTimeout(_confirmTimeoutId);
             quizStartConfirmTimeout();
@@ -5238,8 +5195,7 @@
   function quizStartConfirmTimeout() {
     clearTimeout(_confirmTimeoutId);
     _confirmTimeoutId = setTimeout(() => {
-      _qLog('ConfirmTimeout:fired');
-      if (!quizState.waitingForConfirm) { _qLog('ConfirmTimeout:skipped-not-waiting'); return; }
+      if (!quizState.waitingForConfirm) { return; }
       const failedSid = quizState.track?.sid;
       // Only blacklist if we genuinely never got audio (not a lock-screen dropout)
       if (failedSid && !quizState.confirmed) {
@@ -5264,13 +5220,9 @@
       if (!quizState.track) {
         quizSetStatus('Track unavailable — trying another…');
         setTimeout(() => {
-          _qLog('AutoRetry:check');
           if (quizState.active && !quizState.confirmed && !quizState.waitingForConfirm && !quizState.track) {
-            _qLog('AutoRetry:firing');
-            console.log('[Quiz] Auto-retry firing quizPlayClip');
             quizPlayClip();
           } else {
-            _qLog('AutoRetry:skipped');
           }
         }, 1500);
       }
@@ -5286,7 +5238,6 @@
     if (state.player) {
       state.player.activateElement().catch(() => {});
     }
-    _qLog('PlayBtn:click');
     if (quizState.track && !quizState.confirmed) {
       quizReplayClip();
     } else if (!quizState.track) {
@@ -5297,7 +5248,6 @@
   quizSubmitBtn.addEventListener('click', quizSubmitAnswer);
 
   quizSkipBtn.addEventListener('click', () => {
-    console.log('[Quiz] Skip/Finish clicked, isLastRound=', quizState.targetRounds > 0 && quizState.played >= quizState.targetRounds);
     const isLastRound = quizState.targetRounds > 0 && quizState.played >= quizState.targetRounds;
     if (isLastRound) {
       quizShowEndScreen();
