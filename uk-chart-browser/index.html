@@ -1702,7 +1702,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 3.02</div>
+          <div class="tiny" id="version-code">Version: 3.03</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -2321,6 +2321,7 @@
 
     function normaliseSearchTerm(s) {
       s = String(s || '').toLowerCase()
+        .replace(/[''`\u2018\u2019\u201B]/g, '')
         .replace(/[^a-z0-9 ]/g, ' ')
         .replace(/\b(twenty|nineteen|eighteen|seventeen|sixteen|fifteen|fourteen|thirteen|twelve|eleven|ten|nine|eight|seven|six|five|four|three|two|one|zero)\b/g,
           m => ({zero:0,one:1,two:2,three:3,four:4,five:5,six:6,seven:7,eight:8,nine:9,ten:10,eleven:11,twelve:12,thirteen:13,fourteen:14,fifteen:15,sixteen:16,seventeen:17,eighteen:18,nineteen:19,twenty:20})[m])
@@ -4551,6 +4552,7 @@
       .replace(/\bfeat?\.?\s+\S+/gi, '')
       .replace(/\bft\.?\s+\S+/gi, '')
       .replace(/&/g, 'and')
+      .replace(/[''`\u2018\u2019\u201B]/g, '') // strip apostrophes so "arm's" → "arms" not "arm s"
       .replace(/[^a-z0-9 ]/g, ' ')
       .replace(/\b(the|a|an|and)\b/g, ' ')
       .replace(/\s+/g, ' ')
