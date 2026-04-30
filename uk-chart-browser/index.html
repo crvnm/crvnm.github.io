@@ -1459,7 +1459,7 @@
       width: 100%;
     }
     .quiz-reveal.visible { display: block; }
-    .quiz-reveal.visible + .quiz-countdown-ring { display: none; }
+    .quiz-hero-stage:has(.quiz-reveal.visible) .quiz-countdown-ring { display: none; }
     .quiz-hero-stage:has(.quiz-reveal.visible) .quiz-mode-toggle-btn-wrap,
     .quiz-hero-stage:has(.quiz-end-screen:not([hidden])) .quiz-mode-toggle-btn-wrap {
       display: none;
@@ -1702,7 +1702,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 3.01</div>
+          <div class="tiny" id="version-code">Version: 3.02</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -4586,19 +4586,28 @@
 
   function quizTitleMatch(guess, correctTitle) {
     if (!guess || !guess.trim()) return false;
-    // Get the base title (before brackets) and the full title
     const baseTitle = correctTitle.replace(BRACKET_STRIP_RE, '').replace(/\s*\([^)]*\)/g, '').trim();
     BRACKET_STRIP_RE.lastIndex = 0;
     const subtitle = quizExtractBracketedTitle(correctTitle);
 
-    // Full title match (normalised)
+    // Direct full/base/subtitle match
     if (quizStringMatch(guess, correctTitle)) return true;
-    // Base-only match (no brackets needed)
     if (baseTitle && quizStringMatch(guess, baseTitle)) return true;
-    // Subtitle-only match (they typed the bracketed bit)
     if (subtitle && quizStringMatch(guess, subtitle)) return true;
-    // Combined base + subtitle in different order or format
     if (subtitle && quizStringMatch(guess, `${baseTitle} ${subtitle}`)) return true;
+
+    // Try matching against word-window substrings of the guess
+    const normGuess = quizNormalise(guess);
+    const normBase = quizNormalise(baseTitle || correctTitle);
+    if (normBase) {
+      const words = normGuess.split(' ');
+      const tLen = normBase.split(' ').length;
+      for (let i = 0; i <= words.length - tLen; i++) {
+        const slice = words.slice(i, i + tLen + 1).join(' ');
+        if (quizStringMatch(slice, baseTitle || correctTitle)) return true;
+      }
+    }
+
     return false;
   }
 
