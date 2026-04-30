@@ -1460,7 +1460,10 @@
     }
     .quiz-reveal.visible { display: block; }
     .quiz-reveal.visible + .quiz-countdown-ring { display: none; }
-    .quiz-hero-stage:has(.quiz-reveal.visible) .quiz-countdown-ring { display: none; }
+    .quiz-hero-stage:has(.quiz-reveal.visible) .quiz-mode-toggle-btn-wrap,
+    .quiz-hero-stage:has(.quiz-end-screen:not([hidden])) .quiz-mode-toggle-btn-wrap {
+      display: none;
+    }
     .quiz-hero-stage:has(.quiz-end-screen:not([hidden])) .quiz-countdown-ring { display: none; }
     .quiz-hero-stage:has(.quiz-end-screen:not([hidden])) .quiz-reveal { display: none; }
     .quiz-reveal .track-card { text-align: left; }
@@ -1699,7 +1702,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 3.00</div>
+          <div class="tiny" id="version-code">Version: 3.01</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
