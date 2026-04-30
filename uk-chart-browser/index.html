@@ -1595,7 +1595,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.78-debug</div>
+          <div class="tiny" id="version-code">Version: 2.79-debug</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -2917,26 +2917,14 @@
           if (typeof quizUpdateScoreboard === 'function') quizUpdateScoreboard();
           // Restore the current quiz track so replay works after restore
           if (saved.quizTrackSid && window.quizState && !window.quizState.track) {
-            const posMap = window.state?.allYearsPositions || window.state?.currentYearData?.positions || {};
-            const allRows = Object.values(posMap).flat();
-            const row = allRows.find(r => r.sid === saved.quizTrackSid);
-            if (row) {
-              window.quizState.track = row;
-              window.quizState.confirmed = false;
-              window.quizState.waitingForConfirm = false;
-              window.quizState.clipStartMs = saved.quizClipStartMs || 0;
-              window.quizState.clipLenMs = saved.quizClipLenMs || 10000;
-              console.log('[Restore] quiz track restored from session:', saved.quizTrackSid, 'clipStart:', saved.quizClipStartMs);
-              _qLog?.('Restore:trackRestored', { sid: row.sid });
-            } else {
-              // Row not found yet (data still loading) — store sid as stub so play button uses replay path
-              window.quizState.track = { sid: saved.quizTrackSid };
-              window.quizState.confirmed = false;
-              window.quizState.waitingForConfirm = false;
-              window.quizState.clipStartMs = saved.quizClipStartMs || 0;
-              window.quizState.clipLenMs = saved.quizClipLenMs || 10000;
-              console.log('[Restore] quiz track stub set (row not found yet):', saved.quizTrackSid);
-            }
+            // Use the full saved row — it was serialised before the page redirect so all metadata is intact
+            const row = saved.quizTrackRow || { sid: saved.quizTrackSid };
+            window.quizState.track = row;
+            window.quizState.confirmed = false;
+            window.quizState.waitingForConfirm = false;
+            window.quizState.clipStartMs = saved.quizClipStartMs || 0;
+            window.quizState.clipLenMs = saved.quizClipLenMs || 10000;
+            console.log('[Restore] quiz track restored:', row.tm || row.t || row.sid);
           }
         }, 100);
       }
@@ -4964,6 +4952,10 @@
           })}
         );
       });
+      // Start the countdown — quizOnTrackConfirmed will verify the playing SID matches
+      quizState.waitingForConfirm = true;
+      _lastConfirmedSid = null;
+      quizStartConfirmTimeout();
       quizSetStatus('Listen carefully…');
       quizStartCountdown(quizState.clipLenMs);
     } catch {
