@@ -1595,7 +1595,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.72</div>
+          <div class="tiny" id="version-code">Version: 2.73</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -3772,6 +3772,7 @@
       // Wire up lock screen / Control Centre media controls
       if ('mediaSession' in navigator) {
         navigator.mediaSession.setActionHandler('play', () => {
+          if (window.quizState?.active) return;
           if (state.restoredPlayerStateOnly && state.activeTrack) {
             resumeRestoredTrack().catch(console.error);
           } else {
@@ -3779,9 +3780,11 @@
           }
         });
         navigator.mediaSession.setActionHandler('pause', () => {
+          if (window.quizState?.active) return;
           recoverDeviceAndRetry(() => togglePlayback()).catch(console.error);
         });
         navigator.mediaSession.setActionHandler('nexttrack', () => {
+          if (window.quizState?.active) return;
           if (state.randomPinnedKey) {
             jumpToRandomCurrent().catch(console.error);
           } else {
@@ -4886,6 +4889,7 @@
   // Replay the current clip from the stored start position
   async function quizReplayClip() {
     if (!quizState.track || quizState.confirmed) return;
+    clearTimeout(_confirmTimeoutId); // cancel any pending confirm timeout
     quizStopClip();
     quizSetStatus('Replaying…');
     try {
@@ -5124,8 +5128,9 @@
       quizPlayBtn.disabled = false;
       quizPlayBtn.innerHTML = '<svg class="quiz-play-icon play" viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>'; quizPlayBtn.classList.remove('is-counting');
       // Auto-retry with a different track after a short pause
+      // Only retry if no track is set (i.e. we genuinely failed, not just delayed)
       setTimeout(() => {
-        if (quizState.active && !quizState.confirmed && !quizState.waitingForConfirm) {
+        if (quizState.active && !quizState.confirmed && !quizState.waitingForConfirm && !quizState.track) {
           quizPlayClip();
         }
       }, 1500);
