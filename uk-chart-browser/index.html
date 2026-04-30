@@ -1595,7 +1595,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.74-debug</div>
+          <div class="tiny" id="version-code">Version: 2.75-debug</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -4582,6 +4582,7 @@
   quizPool.addEventListener('change', quizRenderFilterChips);
 
   function quizSetMode(active) {
+    _qLog('SetMode', { active });
     quizState.active = active;
     eyebrow.textContent = active ? 'UK chart quiz' : 'UK chart browser';
     document.body.classList.toggle('quiz-mode', active);
@@ -4751,7 +4752,20 @@
     return unplayed[Math.floor(Math.random() * unplayed.length)];
   }
 
-  // ── Reset question UI ─────────────────────────────────────────────────────
+  // ── Debug helpers ─────────────────────────────────────────────────────────
+  const _qLog = (event, data = {}) => {
+    const state_snapshot = {
+      track: quizState.track?.sid || null,
+      waiting: quizState.waitingForConfirm,
+      confirmed: quizState.confirmed,
+      active: quizState.active,
+      played: quizState.played,
+      restoreInFlight: window.state?.restoreResumeInFlight,
+      restoredOnly: window.state?.restoredPlayerStateOnly,
+      confirmedSid: window.state?.confirmedTrackSid,
+    };
+    console.log(`[Quiz:${event}]`, JSON.stringify({...data, ...state_snapshot}));
+  };
 
   function quizResetQuestion() {
     quizStopClip();
@@ -4782,6 +4796,7 @@
       return;
     }
     console.log('[Quiz] quizPlayClip called', new Error().stack.split('\n')[2]?.trim());
+    _qLog('PlayClip:start', { caller: new Error().stack.split('\n')[2]?.trim() });
 
     const row = quizPickTrack();
     if (!row) {
@@ -4819,6 +4834,7 @@
       }
       // If a restore is pending, handle it first to unlock the audio context
       if (state.restoredPlayerStateOnly && state.activeTrack) {
+        _qLog('PlayClip:restore-first');
         await resumeRestoredTrack();
         // Wait briefly for the restore to settle before playing the quiz track
         await new Promise(r => setTimeout(r, 800));
@@ -4850,7 +4866,8 @@
   // Called by our player_state_changed hook when the quiz track is confirmed
   function quizOnTrackConfirmed(trackSid, durationMs) {
     console.log('[Quiz] quizOnTrackConfirmed', trackSid, 'waiting=', quizState.waitingForConfirm, new Error().stack.split('\n')[2]?.trim());
-    if (!quizState.active || !quizState.waitingForConfirm) return;
+    _qLog('TrackConfirmed', { trackSid, caller: new Error().stack.split('\n')[2]?.trim() });
+    if (!quizState.active || !quizState.waitingForConfirm) { _qLog('TrackConfirmed:ignored', { trackSid }); return; }
     clearTimeout(_confirmTimeoutId);
     if (trackSid !== quizState.track?.sid) {
       // Spotify played the wrong track — abort and show error
@@ -4891,6 +4908,7 @@
   // Replay the current clip from the stored start position
   async function quizReplayClip() {
     if (!quizState.track || quizState.confirmed) return;
+    _qLog('ReplayClip:start');
     clearTimeout(_confirmTimeoutId); // cancel any pending confirm timeout
     quizStopClip();
     quizSetStatus('Replaying…');
@@ -5069,14 +5087,15 @@
           const activeDeviceId = data?.device?.id;
 
           if (actualSid === targetSid) {
-            // SDK desynced but Spotify is playing the right track — confirm directly
+            _qLog('RESTRetry:confirmed', { actualSid });
             _lastConfirmedSid = targetSid;
             quizState.waitingForConfirm = false;
             clearTimeout(_confirmTimeoutId);
             quizOnTrackConfirmed(targetSid, data?.item?.duration_ms || 0);
           } else {
             // Only retry if we're still waiting — may have confirmed while REST call was in flight
-            if (!quizState.waitingForConfirm) return;
+            if (!quizState.waitingForConfirm) { _qLog('RESTRetry:skipped-not-waiting', { actualSid, targetSid }); return; }
+            _qLog('RESTRetry:restart-timeout', { actualSid, targetSid });
             // REST API returned stale/empty state — retry play directly on SDK device
             clearTimeout(_confirmTimeoutId);
             quizStartConfirmTimeout();
@@ -5115,9 +5134,11 @@
   function quizStartConfirmTimeout() {
     clearTimeout(_confirmTimeoutId);
     _confirmTimeoutId = setTimeout(() => {
-      if (!quizState.waitingForConfirm) return;
+      _qLog('ConfirmTimeout:fired');
+      if (!quizState.waitingForConfirm) { _qLog('ConfirmTimeout:skipped-not-waiting'); return; }
       const failedSid = quizState.track?.sid;
-      if (failedSid) {
+      // Only blacklist if we genuinely never got audio (not a lock-screen dropout)
+      if (failedSid && !quizState.confirmed) {
         quizState.playedSids.add(failedSid);
         const count = (_failCounts.get(failedSid) || 0) + 1;
         _failCounts.set(failedSid, count);
@@ -5128,19 +5149,27 @@
         }
       }
       quizState.waitingForConfirm = false;
-      quizState.track = null;
-      quizSetStatus('Track unavailable — trying another…');
+      // Do NOT clear quizState.track — if the user locked their phone mid-clip,
+      // we want replay to still work. The play button will call quizPlayClip
+      // only when track is null, so leave it set so replay mode is used instead.
+      quizSetStatus('Tap to replay or submit your answer');
       quizPlayBtn.disabled = false;
-      quizPlayBtn.innerHTML = '<svg class="quiz-play-icon play" viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>'; quizPlayBtn.classList.remove('is-counting');
-      // Auto-retry with a different track after a short pause
-      // Only retry if no track is set (i.e. we genuinely failed, not just delayed)
-      setTimeout(() => {
-        console.log('[Quiz] Auto-retry check: active=', quizState.active, 'confirmed=', quizState.confirmed, 'waiting=', quizState.waitingForConfirm, 'track=', quizState.track?.sid);
-        if (quizState.active && !quizState.confirmed && !quizState.waitingForConfirm && !quizState.track) {
-          console.log('[Quiz] Auto-retry firing quizPlayClip');
-          quizPlayClip();
-        }
-      }, 1500);
+      quizPlayBtn.innerHTML = '<svg class="quiz-play-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 1 0 .49-5.36"/></svg>';
+      quizPlayBtn.classList.add('is-counting');
+      // Only auto-retry if we have no track set at all (genuine failure, not lock-screen)
+      if (!quizState.track) {
+        quizSetStatus('Track unavailable — trying another…');
+        setTimeout(() => {
+          _qLog('AutoRetry:check');
+          if (quizState.active && !quizState.confirmed && !quizState.waitingForConfirm && !quizState.track) {
+            _qLog('AutoRetry:firing');
+            console.log('[Quiz] Auto-retry firing quizPlayClip');
+            quizPlayClip();
+          } else {
+            _qLog('AutoRetry:skipped');
+          }
+        }, 1500);
+      }
     }, 12000);
   }
 
@@ -5150,14 +5179,13 @@
   // ── Button event listeners ────────────────────────────────────────────────
 
   quizPlayBtn.addEventListener('click', () => {
-    // Call activateElement synchronously in the click handler — this MUST happen
-    // in the direct call stack of a user gesture for iOS to unlock the audio context
     if (state.player) {
       state.player.activateElement().catch(() => {});
     }
+    _qLog('PlayBtn:click');
     if (quizState.track && !quizState.confirmed) {
       quizReplayClip();
-    } else {
+    } else if (!quizState.track) {
       quizPlayClip();
     }
   });
