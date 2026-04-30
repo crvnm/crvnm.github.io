@@ -1595,7 +1595,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.70</div>
+          <div class="tiny" id="version-code">Version: 2.71</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -3693,7 +3693,7 @@
 
           if (playbackState.paused && !inPendingWindow) {
             stopProgressTimer();
-            if (!state.autoAdvanceInFlight) {
+            if (!state.autoAdvanceInFlight && !window.quizState?.active) {
               const dur = playbackState?.track_window?.current_track?.duration_ms || 0;
               advLog('psc:paused-check', { prevPos: Math.round(prevSnapshotPosition), dur: Math.round(dur), incomingPos: incomingPosition, random: !!state.randomPinnedKey });
               if (dur > 0 && (prevSnapshotPosition >= Math.max(0, dur - 2000) || (incomingPosition === 0 && prevSnapshotPosition >= Math.max(0, dur - 10000)))) {
@@ -4888,13 +4888,15 @@
     quizStopClip();
     quizSetStatus('Replaying…');
     try {
-      await quizPauseClip();
-      await new Promise(r => setTimeout(r, 200));
-      await spotifyApi(
-        `https://api.spotify.com/v1/me/player/seek?position_ms=${quizState.clipStartMs}&device_id=${encodeURIComponent(state.deviceId)}`,
-        { method: 'PUT' }
-      );
-      await spotifyApi(`https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`, { method: 'PUT' });
+      await recoverDeviceAndRetry(async () => {
+        await spotifyApi(
+          `https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`,
+          { method: 'PUT', body: JSON.stringify({
+            uris: [`spotify:track:${quizState.track.sid}`],
+            position_ms: quizState.clipStartMs
+          })}
+        );
+      });
       quizSetStatus('Listen carefully…');
       quizStartCountdown(quizState.clipLenMs);
     } catch {
