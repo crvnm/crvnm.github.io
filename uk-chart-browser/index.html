@@ -1595,7 +1595,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.71</div>
+          <div class="tiny" id="version-code">Version: 2.72</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -4824,10 +4824,11 @@
       await recoverDeviceAndRetry(() => playTrack(row, { isAutoAdvance: false }));
 
       // Don't rely solely on player_state_changed — confirm directly after 1.5s
-      // if not already confirmed. Handles tracks where SDK events are delayed
-      // (e.g. mega-hits on iOS Safari). Duration falls back to 210s (~3.5min).
+      // if not already confirmed. Handles tracks where SDK events are delayed.
+      // Skip if a restore is in progress — restore will play a different track.
       setTimeout(() => {
         if (!quizState.waitingForConfirm || quizState.track?.sid !== row.sid) return;
+        if (state.restoredPlayerStateOnly || state.restoreResumeInFlight) return;
         const sdkDuration = state.playbackState?.track_window?.current_track?.duration_ms;
         const duration = sdkDuration || 210000;
         _lastConfirmedSid = row.sid;
@@ -5040,6 +5041,8 @@
 
   function quizCheckConfirmation() {
     if (!quizState.active || !quizState.waitingForConfirm || !quizState.track) return;
+    // Don't confirm while a restore is in progress
+    if (state.restoredPlayerStateOnly || state.restoreResumeInFlight) return;
 
     const sid = state.confirmedTrackSid;
     const currentSid = getCurrentTrackId();
