@@ -1595,7 +1595,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.80-debug</div>
+          <div class="tiny" id="version-code">Version: 2.81-debug</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -3103,10 +3103,17 @@
       yearSelect.innerHTML = state.availableYears.map(y => `<option value="${y}">${y === 'ALL' ? 'All Years' : y}</option>`).join('');
       yearSelect.value = state.selectedYear;
 
-      // Load curated christmas SID list if present
-      if (Array.isArray(index.xmasSids)) {
-        state.xmasSids = new Set(index.xmasSids);
-      }
+      // Load curated christmas SID list from separate file
+      fetch(`${DATA_BASE}/xmastracks.json`)
+        .then(r => r.ok ? r.json() : null)
+        .then(data => {
+          if (Array.isArray(data?.xmasSids)) {
+            state.xmasSids = new Set(data.xmasSids);
+          } else if (Array.isArray(data)) {
+            state.xmasSids = new Set(data);
+          }
+        })
+        .catch(() => {}); // silently ignore if file doesn't exist yet
 
       await loadYear(state.selectedYear);
 
