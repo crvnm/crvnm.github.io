@@ -1595,7 +1595,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.76-debug</div>
+          <div class="tiny" id="version-code">Version: 2.77-debug</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -2922,7 +2922,14 @@
               window.quizState.track = row;
               window.quizState.confirmed = false;
               window.quizState.waitingForConfirm = false;
+              console.log('[Restore] quiz track restored from session:', saved.quizTrackSid);
               _qLog?.('Restore:trackRestored', { sid: row.sid });
+            } else {
+              // Row not found yet (data still loading) — store sid as stub so play button uses replay path
+              window.quizState.track = { sid: saved.quizTrackSid };
+              window.quizState.confirmed = false;
+              window.quizState.waitingForConfirm = false;
+              console.log('[Restore] quiz track stub set (row not found yet):', saved.quizTrackSid);
             }
           }
         }, 100);
@@ -4858,12 +4865,10 @@
           return;
         }
       }
-      // If a restore is pending, handle it first to unlock the audio context
-      if (state.restoredPlayerStateOnly && state.activeTrack) {
-        _qLog('PlayClip:restore-first');
-        await resumeRestoredTrack();
-        // Wait briefly for the restore to settle before playing the quiz track
-        await new Promise(r => setTimeout(r, 800));
+      // If a restore is pending, clear it — quiz handles its own playback via recoverDeviceAndRetry
+      if (state.restoredPlayerStateOnly) {
+        _qLog('PlayClip:clearing-restore-state');
+        state.restoredPlayerStateOnly = false;
       }
 
       // playTrack will trigger player_state_changed which we intercept below
@@ -4935,9 +4940,14 @@
   async function quizReplayClip() {
     if (!quizState.track || quizState.confirmed) return;
     _qLog('ReplayClip:start');
-    clearTimeout(_confirmTimeoutId); // cancel any pending confirm timeout
+    clearTimeout(_confirmTimeoutId);
     quizStopClip();
     quizSetStatus('Replaying…');
+    // Clear restore flag — quiz handles its own playback
+    if (state.restoredPlayerStateOnly) {
+      _qLog('ReplayClip:clearing-restore-state');
+      state.restoredPlayerStateOnly = false;
+    }
     try {
       await recoverDeviceAndRetry(async () => {
         await spotifyApi(
