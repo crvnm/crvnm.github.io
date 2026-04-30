@@ -1702,7 +1702,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 3.03</div>
+          <div class="tiny" id="version-code">Version: 3.04</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -4566,6 +4566,12 @@
     s = s.replace(/\bto\b/g, '2');
     s = s.replace(/\bfor\b/g, '4');
     s = s.replace(/\bate\b/g, '8');
+    // Normalise letter/word substitutions common in song titles
+    s = s.replace(/\byou\b/g, 'u');
+    s = s.replace(/\bare\b/g, 'r');
+    s = s.replace(/\bwhy\b/g, 'y');
+    s = s.replace(/\bsee\b/g, 'c');
+    s = s.replace(/\boh\b/g, 'o');
     return s.replace(/\s+/g, ' ').trim();
   }
 
