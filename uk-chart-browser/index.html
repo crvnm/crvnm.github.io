@@ -1595,7 +1595,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.79-debug</div>
+          <div class="tiny" id="version-code">Version: 2.80-debug</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -2758,6 +2758,7 @@
         quizBestStreak: window.quizState?.bestStreak || 0,
         quizTargetRounds: window.quizState?.targetRounds || 0,
         quizTrackSid: window.quizState?.track?.sid || null,
+        quizTrackRow: window.quizState?.track ? JSON.parse(JSON.stringify(window.quizState.track)) : null,
         quizClipStartMs: window.quizState?.clipStartMs || 0,
         quizClipLenMs: window.quizState?.clipLenMs || 10000,
         quizPool: document.getElementById('quizPool')?.value || 'current',
