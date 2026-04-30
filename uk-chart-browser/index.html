@@ -1595,7 +1595,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.82-debug</div>
+          <div class="tiny" id="version-code">Version: 2.83-debug</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -2212,15 +2212,27 @@
       return null;
     }
 
+    function normaliseSearchTerm(s) {
+      s = String(s || '').toLowerCase()
+        .replace(/[^a-z0-9 ]/g, ' ')
+        .replace(/\b(twenty|nineteen|eighteen|seventeen|sixteen|fifteen|fourteen|thirteen|twelve|eleven|ten|nine|eight|seven|six|five|four|three|two|one|zero)\b/g,
+          m => ({zero:0,one:1,two:2,three:3,four:4,five:5,six:6,seven:7,eight:8,nine:9,ten:10,eleven:11,twelve:12,thirteen:13,fourteen:14,fifteen:15,sixteen:16,seventeen:17,eighteen:18,nineteen:19,twenty:20})[m])
+        .replace(/\btoo\b/g, '2').replace(/\bto\b/g, '2')
+        .replace(/\bfor\b/g, '4').replace(/\bate\b/g, '8')
+        .replace(/\s+/g, ' ').trim();
+      return s;
+    }
+
     function rowMatchesSearchFilters(row, filters) {
-      const song = String(row.tm || row.t || row.title || '').toLowerCase();
-      const artist = String(row.am || row.a || row.artist || '').toLowerCase();
+      const song = normaliseSearchTerm(row.tm || row.t || row.title || '');
+      const artist = normaliseSearchTerm(row.am || row.a || row.artist || '');
       if (filters.yearStart !== null && filters.yearEnd !== null) {
         const rowYear = getRowYear(row);
         if (rowYear === null || rowYear < filters.yearStart || rowYear > filters.yearEnd) return false;
       }
       if (!filters.textTerm) return true;
-      return song.includes(filters.textTerm) || artist.includes(filters.textTerm);
+      const term = normaliseSearchTerm(filters.textTerm);
+      return song.includes(term) || artist.includes(term);
     }
 
 
