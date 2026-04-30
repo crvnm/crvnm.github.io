@@ -1595,7 +1595,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.83-debug</div>
+          <div class="tiny" id="version-code">Version: 2.84-debug</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -4890,8 +4890,37 @@
         state.restoredPlayerStateOnly = false;
       }
 
-      // playTrack will trigger player_state_changed which we intercept below
-      await recoverDeviceAndRetry(() => playTrack(row, { isAutoAdvance: false }));
+      const posMode = quizClipPos.value;
+      const clipLenMs = quizState.clipLenMs;
+
+      // For 'start' mode we know position is 0 without needing duration
+      // For other modes, fetch duration first so we can play directly at the right position
+      // This avoids the audible blip of playing from 0 then seeking
+      let clipStart = 0;
+      if (posMode !== 'start') {
+        try {
+          const trackData = await spotifyApi(`https://api.spotify.com/v1/tracks/${encodeURIComponent(row.sid)}`);
+          const durationMs = trackData?.duration_ms || 210000;
+          clipStart = quizCalcClipStart(durationMs, posMode, clipLenMs);
+          // Pre-set clipStartMs so quizOnTrackConfirmed uses it directly
+          quizState.clipStartMs = clipStart;
+        } catch {
+          // Fall back to 0 if fetch fails — quizOnTrackConfirmed will recalculate
+          clipStart = 0;
+        }
+      } else {
+        quizState.clipStartMs = 0;
+      }
+
+      await recoverDeviceAndRetry(async () => {
+        await spotifyApi(
+          `https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`,
+          { method: 'PUT', body: JSON.stringify({
+            uris: [`spotify:track:${row.sid}`],
+            position_ms: clipStart
+          })}
+        );
+      });
 
       // Don't rely solely on player_state_changed — confirm directly after 1.5s
       // if not already confirmed. Handles tracks where SDK events are delayed.
@@ -4932,27 +4961,43 @@
     quizState.playedSids.add(trackSid);
 
     const posMode = quizClipPos.value;
-    const clipStart = quizCalcClipStart(durationMs, posMode, quizState.clipLenMs);
-    quizState.clipStartMs = clipStart;
 
-    quizSetStatus('Seeking…');
+    // If clipStartMs was pre-calculated in quizPlayClip (non-start modes with duration fetch),
+    // the track is already playing at the right position — just start the countdown.
+    // Only re-seek if we don't have a pre-calculated position (fallback path).
+    const alreadyAtPosition = quizState.clipStartMs > 0 || posMode === 'start';
 
-    // Use play+position_ms instead of a separate seek — avoids iOS audio context
-    // suspension that occurs between the initial play and a subsequent seek call
-    spotifyApi(
-      `https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`,
-      { method: 'PUT', body: JSON.stringify({ uris: [`spotify:track:${trackSid}`], position_ms: clipStart }) }
-    ).then(() => {
+    if (alreadyAtPosition) {
+      if (posMode !== 'start' && !quizState.clipStartMs) {
+        // Duration-based recalculation needed as fallback
+        const clipStart = quizCalcClipStart(durationMs, posMode, quizState.clipLenMs);
+        quizState.clipStartMs = clipStart;
+      }
       quizShowReplay();
       quizPlayBtn.disabled = false;
       quizSubmitBtn.disabled = false;
       quizSetStatus('Listen carefully…');
       quizStartCountdown(quizState.clipLenMs);
-    }).catch(() => {
-      quizSetStatus('Seek failed — try again');
-      quizPlayBtn.disabled = false;
-      quizPlayBtn.innerHTML = '<svg class="quiz-play-icon play" viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>'; quizPlayBtn.classList.remove('is-counting', 'can-replay');
-    });
+    } else {
+      // start mode or fallback — no pre-seek done, use play+position_ms
+      const clipStart = quizCalcClipStart(durationMs, posMode, quizState.clipLenMs);
+      quizState.clipStartMs = clipStart;
+      quizSetStatus('Seeking…');
+      spotifyApi(
+        `https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`,
+        { method: 'PUT', body: JSON.stringify({ uris: [`spotify:track:${trackSid}`], position_ms: clipStart }) }
+      ).then(() => {
+        quizShowReplay();
+        quizPlayBtn.disabled = false;
+        quizSubmitBtn.disabled = false;
+        quizSetStatus('Listen carefully…');
+        quizStartCountdown(quizState.clipLenMs);
+      }).catch(() => {
+        quizSetStatus('Seek failed — try again');
+        quizPlayBtn.disabled = false;
+        quizPlayBtn.innerHTML = '<svg class="quiz-play-icon play" viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>'; quizPlayBtn.classList.remove('is-counting', 'can-replay');
+      });
+    }
   }
 
   // Replay the current clip from the stored start position
