@@ -1595,7 +1595,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.75-debug</div>
+          <div class="tiny" id="version-code">Version: 2.76-debug</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -2637,6 +2637,7 @@
     }
 
     async function startLogin() {
+      console.log('[Restore] startLogin called', new Error().stack.split('\n').slice(1,4).join(' | '));
       if (!SPOTIFY_CLIENT_ID || SPOTIFY_CLIENT_ID.includes('REPLACE_WITH')) {
         alert('Set SPOTIFY_CLIENT_ID in the HTML first.');
         return;
@@ -2713,6 +2714,7 @@
     const APP_STATE_KEY = 'uk_chart_browser_restore_state';
 
     function saveAppUiStateForRestore() {
+      console.log('[Restore] saveAppUiStateForRestore called', new Error().stack.split('\n').slice(1,4).join(' | '));
       const derived = getDerivedPlaybackPosition();
       const payload = {
         selectedYear: state.selectedYear,
@@ -2755,6 +2757,7 @@
         quizStreak: window.quizState?.streak || 0,
         quizBestStreak: window.quizState?.bestStreak || 0,
         quizTargetRounds: window.quizState?.targetRounds || 0,
+        quizTrackSid: window.quizState?.track?.sid || null,
         quizPool: document.getElementById('quizPool')?.value || 'current',
         quizClipLen: document.getElementById('quizClipLen')?.value || '10',
         quizClipPos: document.getElementById('quizClipPos')?.value || 'middle',
@@ -2775,6 +2778,7 @@
     }
 
     async function restoreAppUiStateAfterLogin() {
+      console.log('[Restore] restoreAppUiStateAfterLogin called');
       const saved = loadAppUiStateForRestore();
       if (!saved) return;
 
@@ -2909,6 +2913,18 @@
           );
           if (typeof quizSetMode === 'function') quizSetMode(true);
           if (typeof quizUpdateScoreboard === 'function') quizUpdateScoreboard();
+          // Restore the current quiz track so replay works after restore
+          if (saved.quizTrackSid && window.quizState && !window.quizState.track) {
+            const posMap = window.state?.allYearsPositions || window.state?.currentYearData?.positions || {};
+            const allRows = Object.values(posMap).flat();
+            const row = allRows.find(r => r.sid === saved.quizTrackSid);
+            if (row) {
+              window.quizState.track = row;
+              window.quizState.confirmed = false;
+              window.quizState.waitingForConfirm = false;
+              _qLog?.('Restore:trackRestored', { sid: row.sid });
+            }
+          }
         }, 100);
       }
     }
@@ -2951,6 +2967,7 @@
     }
 
     async function rebuildSpotifyPlayer() {
+      console.log('[Restore] rebuildSpotifyPlayer called', new Error().stack.split('\n').slice(1,4).join(' | '));
       try {
         if (state.player) {
           try { await state.player.disconnect(); } catch {}
@@ -2988,6 +3005,7 @@
     }
 
     async function recoverOrScheduleRetry(action, advanceLogLabel) {
+      console.log('[Restore] recoverOrScheduleRetry', advanceLogLabel, 'visible=', document.visibilityState, new Error().stack.split('\n').slice(1,4).join(' | '));
       // If the page is visible, do a full login redirect
       if (document.visibilityState === 'visible') {
         advLog(advanceLogLabel || 'recover:login');
@@ -3012,6 +3030,7 @@
     }
 
     async function recoverDeviceAndRetry(action) {
+      console.log('[Restore] recoverDeviceAndRetry called', new Error().stack.split('\n').slice(1,4).join(' | '));
       try {
         return await action();
       } catch (err) {
@@ -3019,6 +3038,8 @@
         const isDevice = isRecoverableDeviceError(err);
 
         if (!isNetwork && !isDevice) throw err;
+
+        console.log('[Restore] recoverDeviceAndRetry: error caught', { isNetwork, isDevice, msg: err?.message || String(err) });
 
         // For network errors, wait for connectivity first
         if (isNetwork) {
@@ -4128,6 +4149,7 @@
       }
     });
     document.addEventListener('visibilitychange', () => {
+      console.log('[Restore] visibilitychange:', document.visibilityState, 'quizActive=', window.quizState?.active, 'quizTrack=', window.quizState?.track?.sid);
       if (document.visibilityState === 'hidden') {
         // Snapshot the current position and track so we can detect and repair
         // the SDK's position=0 reconnect event when the page becomes visible again.
@@ -4582,6 +4604,7 @@
   quizPool.addEventListener('change', quizRenderFilterChips);
 
   function quizSetMode(active) {
+    console.log('[Quiz] quizSetMode', active, new Error().stack.split('\n').slice(1,5).join(' | '));
     _qLog('SetMode', { active });
     quizState.active = active;
     eyebrow.textContent = active ? 'UK chart quiz' : 'UK chart browser';
@@ -4611,13 +4634,16 @@
       }
     } else {
       quizStopClip();
-      quizState.track = null;
       quizState.waitingForConfirm = false;
-      quizState.playedSids.clear();
-      quizState.score = 0;
-      quizState.played = 0;
-      quizState.streak = 0;
-      quizState.bestStreak = 0;
+      // Only clear track/score if this is a genuine exit, not a restore cycle
+      if (!state?.restoredPlayerStateOnly) {
+        quizState.track = null;
+        quizState.playedSids.clear();
+        quizState.score = 0;
+        quizState.played = 0;
+        quizState.streak = 0;
+        quizState.bestStreak = 0;
+      }
       if (quizEndScreen) quizEndScreen.hidden = true;
       document.getElementById('quizInputs').style.visibility = '';
       if (quizFilterChips) quizFilterChips.innerHTML = '';
