@@ -1595,7 +1595,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.73-debug</div>
+          <div class="tiny" id="version-code">Version: 2.74-debug</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -5075,6 +5075,8 @@
             clearTimeout(_confirmTimeoutId);
             quizOnTrackConfirmed(targetSid, data?.item?.duration_ms || 0);
           } else {
+            // Only retry if we're still waiting — may have confirmed while REST call was in flight
+            if (!quizState.waitingForConfirm) return;
             // REST API returned stale/empty state — retry play directly on SDK device
             clearTimeout(_confirmTimeoutId);
             quizStartConfirmTimeout();
@@ -5088,6 +5090,7 @@
           }
         })
         .catch(e => {
+          if (!quizState.waitingForConfirm) return;
           playTrack(quizState.track, { isAutoAdvance: false }).catch(() => {});
         });
       return;
