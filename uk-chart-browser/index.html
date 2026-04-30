@@ -1595,7 +1595,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.77-debug</div>
+          <div class="tiny" id="version-code">Version: 2.78-debug</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -2758,6 +2758,8 @@
         quizBestStreak: window.quizState?.bestStreak || 0,
         quizTargetRounds: window.quizState?.targetRounds || 0,
         quizTrackSid: window.quizState?.track?.sid || null,
+        quizClipStartMs: window.quizState?.clipStartMs || 0,
+        quizClipLenMs: window.quizState?.clipLenMs || 10000,
         quizPool: document.getElementById('quizPool')?.value || 'current',
         quizClipLen: document.getElementById('quizClipLen')?.value || '10',
         quizClipPos: document.getElementById('quizClipPos')?.value || 'middle',
@@ -2922,13 +2924,17 @@
               window.quizState.track = row;
               window.quizState.confirmed = false;
               window.quizState.waitingForConfirm = false;
-              console.log('[Restore] quiz track restored from session:', saved.quizTrackSid);
+              window.quizState.clipStartMs = saved.quizClipStartMs || 0;
+              window.quizState.clipLenMs = saved.quizClipLenMs || 10000;
+              console.log('[Restore] quiz track restored from session:', saved.quizTrackSid, 'clipStart:', saved.quizClipStartMs);
               _qLog?.('Restore:trackRestored', { sid: row.sid });
             } else {
               // Row not found yet (data still loading) — store sid as stub so play button uses replay path
               window.quizState.track = { sid: saved.quizTrackSid };
               window.quizState.confirmed = false;
               window.quizState.waitingForConfirm = false;
+              window.quizState.clipStartMs = saved.quizClipStartMs || 0;
+              window.quizState.clipLenMs = saved.quizClipLenMs || 10000;
               console.log('[Restore] quiz track stub set (row not found yet):', saved.quizTrackSid);
             }
           }
