@@ -1595,7 +1595,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 2.81-debug</div>
+          <div class="tiny" id="version-code">Version: 2.82-debug</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -4454,6 +4454,11 @@
     // Replace word numbers with digits
     s = s.replace(/\b(twenty|nineteen|eighteen|seventeen|sixteen|fifteen|fourteen|thirteen|twelve|eleven|ten|nine|eight|seven|six|five|four|three|two|one|zero)\b/gi,
       m => NUM_WORDS[m.toLowerCase()]);
+    // Normalise homophones: to/too → 2, for → 4, ate → 8
+    s = s.replace(/\btoo\b/g, '2');
+    s = s.replace(/\bto\b/g, '2');
+    s = s.replace(/\bfor\b/g, '4');
+    s = s.replace(/\bate\b/g, '8');
     return s.replace(/\s+/g, ' ').trim();
   }
 
