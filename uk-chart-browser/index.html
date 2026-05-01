@@ -1644,7 +1644,7 @@
           </button>
           <div class="quiz-input-wrap">
             <label for="quizSpeechInput">Your answer</label>
-            <input type="text" id="quizSpeechInput" placeholder="Tap 'Speak Answer' then speak…" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" readonly />
+            <input type="text" id="quizSpeechInput" placeholder="Tap 'Speak Answer' then speak…" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" />
           </div>
         </div>
       </div>
@@ -1702,7 +1702,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 3.05</div>
+          <div class="tiny" id="version-code">Version: 3.06</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -5477,12 +5477,9 @@
 
     r.onstart = () => {
       _isListening = true;
+      quizSpeechInput.readOnly = true; // suppress keyboard while mic is active
       quizSpeakBtn.classList.add('listening');
-      quizSpeakBtn.querySelector('span') ? null : null;
-      quizSpeakBtn.childNodes.forEach(n => { if (n.nodeType === 3) n.textContent = ' Stop'; });
-      // Update button text node
       updateSpeakBtnLabel();
-      quizSpeechInput.readOnly = true; // keyboard-free while listening
     };
 
     r.onresult = (e) => {
@@ -5501,7 +5498,7 @@
       _isListening = false;
       quizSpeakBtn.classList.remove('listening');
       updateSpeakBtnLabel();
-      quizSpeechInput.readOnly = false; // allow manual edit after
+      quizSpeechInput.readOnly = false;
       quizSpeechInput.dataset.interim = '';
     };
 
