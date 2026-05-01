@@ -1702,7 +1702,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 3.04</div>
+          <div class="tiny" id="version-code">Version: 3.05</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -2321,6 +2321,7 @@
 
     function normaliseSearchTerm(s) {
       s = String(s || '').toLowerCase()
+        .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
         .replace(/[''`\u2018\u2019\u201B]/g, '')
         .replace(/[^a-z0-9 ]/g, ' ')
         .replace(/\b(twenty|nineteen|eighteen|seventeen|sixteen|fifteen|fourteen|thirteen|twelve|eleven|ten|nine|eight|seven|six|five|four|three|two|one|zero)\b/g,
@@ -4546,6 +4547,7 @@
   function quizNormalise(str) {
     let s = String(str || '')
       .toLowerCase()
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '') // é→e, ñ→n, ü→u etc.
       .replace(/\s*-\s*(radio edit|single version|original mix|album version|extended mix|remaster(?:ed)?|re-?record(?:ed)?|live|acoustic|instrumental|explicit|clean|edit|mix|version)[^-]*/gi, '')
       .replace(/\([^)]*\)/g, '')
       .replace(/\[[^\]]*\]/g, '')
