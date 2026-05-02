@@ -1702,7 +1702,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 3.07</div>
+          <div class="tiny" id="version-code">Version: 3.08</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -4659,11 +4659,20 @@
   function quizScoreAnswer(titleGuess, artistGuess, row) {
     const correctTitle  = row.tm || row.t || row.title || '';
     const correctArtist = row.am || row.a || row.artist || '';
+
+    // If artist field is empty but title contains " by ", split it out
+    let effectiveTitleGuess = titleGuess;
+    let effectiveArtistGuess = artistGuess;
+    if (!artistGuess?.trim() && /\bby\b/i.test(titleGuess)) {
+      const byIdx = titleGuess.search(/\bby\b/i);
+      effectiveTitleGuess = titleGuess.slice(0, byIdx).trim();
+      effectiveArtistGuess = titleGuess.slice(byIdx + 2).trim();
+    }
     const correctArtists = quizSplitArtists(correctArtist);
 
-    const titleOk = quizTitleMatch(titleGuess, correctTitle);
+    const titleOk = quizTitleMatch(effectiveTitleGuess, correctTitle);
 
-    const guessedArtists = quizSplitArtists(artistGuess);
+    const guessedArtists = quizSplitArtists(effectiveArtistGuess);
     const primaryArtist = correctArtists[0];
     const secondaryArtists = correctArtists.slice(1);
 
@@ -5590,7 +5599,7 @@
         const words = normGuess.split(' ');
         const tWords = normTitle.split(' ');
         for (let i = 0; i <= words.length - tWords.length; i++) {
-          const slice = words.slice(i, i + tWords.length + 2).join(' ');
+          const slice = words.slice(i, i + tWords.length + 1).join(' ');
           if (speechMatch(slice, correctTitle)) return true;
         }
         return false;
@@ -5604,7 +5613,7 @@
         const words = normGuess.split(' ');
         const aWords = normArtist.split(' ');
         for (let i = 0; i <= words.length - aWords.length; i++) {
-          const slice = words.slice(i, i + aWords.length + 2).join(' ');
+          const slice = words.slice(i, i + aWords.length + 1).join(' ');
           if (speechMatch(slice, primaryArtist)) return true;
         }
         return false;
