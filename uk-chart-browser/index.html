@@ -1717,7 +1717,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 3.12</div>
+          <div class="tiny" id="version-code">Version: 3.14</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -4628,8 +4628,10 @@
       const words = normGuess.split(' ');
       const tLen = normBase.split(' ').length;
       for (let i = 0; i <= words.length - tLen; i++) {
-        const slice = words.slice(i, i + tLen + 1).join(' ');
-        if (quizStringMatch(slice, baseTitle || correctTitle)) return true;
+        const exact = words.slice(i, i + tLen).join(' ');
+        if (quizStringMatch(exact, baseTitle || correctTitle)) return true;
+        const wider = words.slice(i, i + tLen + 1).join(' ');
+        if (quizStringMatch(wider, baseTitle || correctTitle)) return true;
       }
     }
 
@@ -5607,8 +5609,11 @@
         const words = normGuess.split(' ');
         const tWords = normTitle.split(' ');
         for (let i = 0; i <= words.length - tWords.length; i++) {
-          const slice = words.slice(i, i + tWords.length + 1).join(' ');
-          if (speechMatch(slice, correctTitle)) return true;
+          // Try exact length first, then +1 to handle run-together words
+          const exact = words.slice(i, i + tWords.length).join(' ');
+          if (speechMatch(exact, correctTitle)) return true;
+          const wider = words.slice(i, i + tWords.length + 1).join(' ');
+          if (speechMatch(wider, correctTitle)) return true;
         }
         return false;
       })()
@@ -5621,8 +5626,10 @@
         const words = normGuess.split(' ');
         const aWords = normArtist.split(' ');
         for (let i = 0; i <= words.length - aWords.length; i++) {
-          const slice = words.slice(i, i + aWords.length + 1).join(' ');
-          if (speechMatch(slice, primaryArtist)) return true;
+          const exact = words.slice(i, i + aWords.length).join(' ');
+          if (speechMatch(exact, primaryArtist)) return true;
+          const wider = words.slice(i, i + aWords.length + 1).join(' ');
+          if (speechMatch(wider, primaryArtist)) return true;
         }
         return false;
       })()
