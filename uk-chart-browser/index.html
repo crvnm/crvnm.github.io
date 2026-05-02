@@ -1702,7 +1702,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 3.06</div>
+          <div class="tiny" id="version-code">Version: 3.07</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -5526,6 +5526,7 @@
     }
     _isListening = false;
     if (quizSpeakBtn) quizSpeakBtn.classList.remove('listening');
+    if (quizSpeechInput) quizSpeechInput.readOnly = false;
     updateSpeakBtnLabel();
   }
 
@@ -5543,6 +5544,14 @@
       _recognition.start();
     } catch (e) {
       quizSetStatus('Could not start microphone — try again');
+    }
+  });
+
+  // If user taps the input while recognition is still running, stop it and make editable
+  quizSpeechInput?.addEventListener('pointerdown', () => {
+    if (_isListening) {
+      stopSpeechRecognition();
+      quizSpeechInput.readOnly = false;
     }
   });
 
