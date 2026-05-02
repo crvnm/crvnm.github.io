@@ -1367,8 +1367,10 @@
       color: var(--text);
       padding: 9px 12px;
       font-size: 16px; /* 16px prevents iOS Safari auto-zoom on focus */
+      line-height: 1.25;
       font-family: inherit;
       outline: none;
+      box-sizing: border-box;
       transition: border-color 0.15s;
     }
     .quiz-input-wrap input:focus { border-color: var(--accent); }
@@ -1383,33 +1385,32 @@
       justify-content: center;
       width: 100%;
     }
-    .quiz-mode-toggle-btn {
-      width: 46px;
-      height: 46px;
+    .quiz-mode-segment {
+      display: flex;
       background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.12);
       border-radius: 8px;
+      padding: 2px;
+      gap: 2px;
+    }
+    .quiz-seg-btn {
+      background: none;
+      border: none;
+      border-radius: 6px;
       color: var(--muted);
       font-size: 10px;
       font-family: inherit;
       font-weight: 700;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
-      line-height: 1.2;
-      padding: 0;
+      padding: 5px 8px;
       cursor: pointer;
-      transition: background 0.15s, color 0.15s, border-color 0.15s;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1px;
+      transition: background 0.15s, color 0.15s;
       white-space: nowrap;
     }
-    .quiz-mode-toggle-btn:hover { color: var(--text); background: rgba(255,255,255,0.1); }
-    .quiz-mode-toggle-btn.active {
-      background: rgba(124,156,255,0.18);
-      border-color: var(--accent);
+    .quiz-seg-btn:hover { color: var(--text); }
+    .quiz-seg-btn.active {
+      background: rgba(124,156,255,0.2);
       color: var(--accent);
     }
 
@@ -1419,17 +1420,18 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      padding: 12px;
-      border-radius: 12px;
-      border: 2px solid var(--accent);
+      padding: 9px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--accent);
       background: rgba(124,156,255,0.08);
       color: var(--accent);
-      font-size: 15px;
+      font-size: 16px;
+      line-height: 1.25;
       font-weight: 600;
       font-family: inherit;
       cursor: pointer;
+      box-sizing: border-box;
       transition: background 0.15s, opacity 0.15s;
-      margin-bottom: 10px;
     }
     .quiz-speak-btn:disabled { opacity: 0.4; cursor: default; }
     .quiz-speak-btn.listening {
@@ -1613,10 +1615,11 @@
             <div class="quiz-leaderboard" id="quizLeaderboard"></div>
             <button class="btn-primary" id="quizPlayAgainBtn">Play Again</button>
           </div>
-          <div class="quiz-mode-toggle-btn-wrap">
-            <button class="quiz-mode-toggle-btn" id="quizModeToggleBtn" hidden>
-              <span>TEXT</span><span>MODE</span>
-            </button>
+          <div class="quiz-mode-toggle-btn-wrap" id="quizModeToggleWrap" hidden>
+            <div class="quiz-mode-segment" id="quizModeSegment">
+              <button class="quiz-seg-btn active" data-mode="text">Type</button>
+              <button class="quiz-seg-btn" data-mode="speech">Speak</button>
+            </div>
           </div>
         </div>
         <div class="quiz-status-row">
@@ -1638,10 +1641,13 @@
         </div>
         <!-- Speech mode inputs -->
         <div id="quizSpeechInputs" hidden>
-          <button class="quiz-speak-btn" id="quizSpeakBtn" disabled>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1a4 4 0 0 1 4 4v7a4 4 0 0 1-8 0V5a4 4 0 0 1 4-4zm-1 18.93V22h2v-2.07A8 8 0 0 0 20 12h-2a6 6 0 0 1-12 0H4a8 8 0 0 0 7 7.93z"/></svg>
-            Speak Answer
-          </button>
+          <div class="quiz-input-wrap">
+            <label>&nbsp;</label>
+            <button class="quiz-speak-btn" id="quizSpeakBtn" disabled>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1a4 4 0 0 1 4 4v7a4 4 0 0 1-8 0V5a4 4 0 0 1 4-4zm-1 18.93V22h2v-2.07A8 8 0 0 0 20 12h-2a6 6 0 0 1-12 0H4a8 8 0 0 0 7 7.93z"/></svg>
+              Speak Answer
+            </button>
+          </div>
           <div class="quiz-input-wrap">
             <label for="quizSpeechInput">Your answer</label>
             <input type="text" id="quizSpeechInput" placeholder="Tap 'Speak Answer' then speak…" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" />
@@ -1702,7 +1708,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 3.08</div>
+          <div class="tiny" id="version-code">Version: 3.09</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -5415,27 +5421,39 @@
   const SPEECH_SUPPORTED = ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window);
   const ANSWER_MODE_KEY = 'quiz_answer_mode';
 
-  const quizTextInputs    = document.getElementById('quizTextInputs');
-  const quizSpeechInputs  = document.getElementById('quizSpeechInputs');
-  const quizSpeakBtn      = document.getElementById('quizSpeakBtn');
-  const quizSpeechInput   = document.getElementById('quizSpeechInput');
-  const quizModeToggleBtn = document.getElementById('quizModeToggleBtn');
-  const defaultAnswerModeSelect = document.getElementById('defaultAnswerModeSelect');
-  const defaultAnswerModeRow = document.getElementById('defaultAnswerModeRow');
-
   let quizAnswerMode = localStorage.getItem(ANSWER_MODE_KEY) || 'text';
   let _recognition = null;
   let _isListening = false;
 
-  // Hide speech options entirely if not supported
+  const quizTextInputs    = document.getElementById('quizTextInputs');
+  const quizSpeechInputs  = document.getElementById('quizSpeechInputs');
+  const quizSpeakBtn      = document.getElementById('quizSpeakBtn');
+  const quizSpeechInput   = document.getElementById('quizSpeechInput');
+  const quizModeToggleWrap = document.getElementById('quizModeToggleWrap');
+  const quizSegBtns = document.querySelectorAll('.quiz-seg-btn');
+  const defaultAnswerModeSelect = document.getElementById('defaultAnswerModeSelect');
+  const defaultAnswerModeRow = document.getElementById('defaultAnswerModeRow');
+
+  // Hide if speech not supported
   if (!SPEECH_SUPPORTED) {
     if (defaultAnswerModeRow) defaultAnswerModeRow.hidden = true;
     quizAnswerMode = 'text';
   } else {
-    if (quizModeToggleBtn) quizModeToggleBtn.hidden = false;
+    if (quizModeToggleWrap) quizModeToggleWrap.hidden = false;
   }
 
-  // Init settings select
+  function applyAnswerMode(mode) {
+    const isSpeech = mode === 'speech' && SPEECH_SUPPORTED;
+    quizTextInputs.hidden = isSpeech;
+    quizSpeechInputs.hidden = !isSpeech;
+    quizSegBtns.forEach(b => b.classList.toggle('active', b.dataset.mode === mode));
+    if (isSpeech) {
+      quizSubmitBtn.disabled = !quizSpeechInput.value.trim() || !quizState.track || quizState.confirmed;
+    }
+  }
+
+  applyAnswerMode(quizAnswerMode);
+
   if (defaultAnswerModeSelect) {
     defaultAnswerModeSelect.value = quizAnswerMode;
     defaultAnswerModeSelect.addEventListener('change', () => {
@@ -5445,29 +5463,10 @@
     });
   }
 
-  function applyAnswerMode(mode) {
-    const isSpeech = mode === 'speech' && SPEECH_SUPPORTED;
-    quizTextInputs.hidden = isSpeech;
-    quizSpeechInputs.hidden = !isSpeech;
-    if (quizModeToggleBtn) {
-      const spans = quizModeToggleBtn.querySelectorAll('span');
-      if (spans.length >= 2) {
-        spans[0].textContent = isSpeech ? 'SPEECH' : 'TEXT';
-        spans[1].textContent = 'MODE';
-      }
-      quizModeToggleBtn.classList.toggle('active', isSpeech);
-      quizModeToggleBtn.title = isSpeech ? 'Switch to text input' : 'Switch to speech input';
-    }
-    if (isSpeech) {
-      quizSubmitBtn.disabled = !quizSpeechInput.value.trim() || !quizState.track || quizState.confirmed;
-    }
-  }
-
-  // Apply saved mode on load
-  applyAnswerMode(quizAnswerMode);
-
-  quizModeToggleBtn?.addEventListener('click', () => {
-    quizAnswerMode = quizAnswerMode === 'speech' ? 'text' : 'speech';
+  document.getElementById('quizModeSegment')?.addEventListener('click', e => {
+    const btn = e.target.closest('.quiz-seg-btn');
+    if (!btn || btn.dataset.mode === quizAnswerMode) return;
+    quizAnswerMode = btn.dataset.mode;
     localStorage.setItem(ANSWER_MODE_KEY, quizAnswerMode);
     if (defaultAnswerModeSelect) defaultAnswerModeSelect.value = quizAnswerMode;
     stopSpeechRecognition();
