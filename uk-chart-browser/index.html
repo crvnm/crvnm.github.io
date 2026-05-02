@@ -1420,7 +1420,10 @@
       color: var(--accent);
     }
 
-    .quiz-speak-btn {
+    .quiz-speak-wrap {
+      justify-content: flex-end; /* align button to bottom like label+gap pushes input down */
+      min-height: 57px;
+    }
       width: 100%;
       display: flex;
       align-items: center;
@@ -1647,8 +1650,7 @@
         </div>
         <!-- Speech mode inputs -->
         <div id="quizSpeechInputs" hidden>
-          <div class="quiz-input-wrap">
-            <label>&nbsp;</label>
+          <div class="quiz-input-wrap quiz-speak-wrap">
             <button class="quiz-speak-btn" id="quizSpeakBtn" disabled>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1a4 4 0 0 1 4 4v7a4 4 0 0 1-8 0V5a4 4 0 0 1 4-4zm-1 18.93V22h2v-2.07A8 8 0 0 0 20 12h-2a6 6 0 0 1-12 0H4a8 8 0 0 0 7 7.93z"/></svg>
               Speak Answer
@@ -1714,7 +1716,7 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 3.10</div>
+          <div class="tiny" id="version-code">Version: 3.11</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
