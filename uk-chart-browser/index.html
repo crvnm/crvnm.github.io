@@ -151,6 +151,15 @@
       cursor: pointer;
       align-self: flex-start;
     }
+    .settings-version {
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px solid var(--card-border);
+      font-size: 11px;
+      color: var(--muted);
+      text-align: center;
+      letter-spacing: 0.02em;
+    }
 
     .spotify-status-pill {
       flex: 0 0 auto;
@@ -1654,7 +1663,7 @@
           <div class="quiz-input-wrap quiz-speak-wrap">
             <button class="quiz-speak-btn" id="quizSpeakBtn" disabled>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1a4 4 0 0 1 4 4v7a4 4 0 0 1-8 0V5a4 4 0 0 1 4-4zm-1 18.93V22h2v-2.07A8 8 0 0 0 20 12h-2a6 6 0 0 1-12 0H4a8 8 0 0 0 7 7.93z"/></svg>
-              Speak Answer
+              <span class="quiz-speak-label">Speak Answer</span>
             </button>
           </div>
           <div class="quiz-input-wrap">
@@ -1698,6 +1707,9 @@
             <option value="speech">Speech</option>
           </select>
         </div>
+        <div class="settings-row settings-row-stacked">
+          <span class="settings-row-text">
+            <span class="settings-row-title">Default rounds</span>
             <span class="settings-row-sub">Rounds when starting a new game</span>
           </span>
           <select id="defaultRoundsSelect">
@@ -1707,6 +1719,7 @@
             <option value="20">20</option>
           </select>
         </div>
+        <div class="settings-version" id="version-code">Version: 3.15</div>
       </div>
     </section>
   </div>
@@ -1717,7 +1730,6 @@
         <div>
           <strong id="spotifyModalTitle">Spotify playback</strong>
           <div class="tiny">Connect your Premium account for full controls</div>
-          <div class="tiny" id="version-code">Version: 3.14</div>
         </div>
         <button class="icon-btn" id="closeSpotifyModalBtn" aria-label="Close Spotify panel">✕</button>
       </div>
@@ -1778,6 +1790,7 @@
   <script src="https://sdk.scdn.co/spotify-player.js"></script>
   <script>
     const DATA_BASE = './out/year-json';
+    // PKCE flow — no client secret, so this client ID is safe to ship in the bundle.
     const SPOTIFY_CLIENT_ID = '63fc4799974d4b438bc756cf66c59103';
     const REDIRECT_URI = window.location.origin + window.location.pathname;
     const SCOPES = ['streaming','user-read-email','user-read-private','user-modify-playback-state','user-read-playback-state'];
@@ -1817,6 +1830,7 @@
     const authStatus = document.getElementById('authStatus');
     const sdkStatus = document.getElementById('sdkStatus');
     const deviceStatus = document.getElementById('deviceStatus');
+    const xmasFilterCheck = document.getElementById('xmasFilterCheck');
 
     const state = {
       availableYears: [],
@@ -1855,9 +1869,9 @@
       pendingRequestedAt: 0,
       visibleRowLimit: 150,
       peakWeekOnly: false,
-      sortMode: 'position',
+      sortMode: 'position', // 'position' | 'week' | 'totalweeks'
       xmasSids: new Set(),
-      hideChristmas: false, // 'position' | 'week' | 'totalweeks'
+      hideChristmas: false,
       randomActionInFlight: false,
       transientNoticeTimer: null,
       pageHiddenAt: 0,
@@ -1918,7 +1932,7 @@
         .replace(/&/g, '&amp;')
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;')
-        .replace(/\"/g, '&quot;')
+        .replace(/"/g, '&quot;')
         .replace(/'/g, '&#039;');
     }
     function formatMs(ms) {
@@ -2046,24 +2060,48 @@
     quizSaveBlacklist(_persistentBlacklist); quizSaveFailCounts(_failCounts);
     console.log('Quiz blacklist cleared');
   };
+    // In-memory buffer for the advance log. We used to JSON.parse + JSON.stringify
+    // sessionStorage on every call, which adds up over a long session. Now we keep
+    // entries in memory and flush on page hide.
+    const _ADV_LOG_KEY = '_advLog';
+    const _ADV_LOG_MAX = 200;
+    let _advLogBuffer = (() => {
+      try { return JSON.parse(sessionStorage.getItem(_ADV_LOG_KEY) || '[]'); }
+      catch { return []; }
+    })();
+    let _advLogDirty = false;
+
+    function _flushAdvLog() {
+      if (!_advLogDirty) return;
+      try { sessionStorage.setItem(_ADV_LOG_KEY, JSON.stringify(_advLogBuffer)); } catch {}
+      _advLogDirty = false;
+    }
+    window.addEventListener('pagehide', _flushAdvLog);
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'hidden') _flushAdvLog();
+    });
+
     function advLog(label, data = {}) {
-      try {
-        const entries = JSON.parse(sessionStorage.getItem('_advLog') || '[]');
-        entries.push({ t: Date.now(), label, ...data });
-        if (entries.length > 200) entries.splice(0, entries.length - 200);
-        sessionStorage.setItem('_advLog', JSON.stringify(entries));
-      } catch {}
+      _advLogBuffer.push({ t: Date.now(), label, ...data });
+      if (_advLogBuffer.length > _ADV_LOG_MAX) {
+        _advLogBuffer.splice(0, _advLogBuffer.length - _ADV_LOG_MAX);
+      }
+      _advLogDirty = true;
     }
     window.advanceLog = () => {
-      const entries = JSON.parse(sessionStorage.getItem('_advLog') || '[]');
-      return entries.map(e => {
+      _flushAdvLog();
+      return _advLogBuffer.map(e => {
         const d = new Date(e.t);
         const ts = `${d.getHours()}:${String(d.getMinutes()).padStart(2,'0')}:${String(d.getSeconds()).padStart(2,'0')}.${String(d.getMilliseconds()).padStart(3,'0')}`;
         const rest = Object.entries(e).filter(([k]) => k !== 't' && k !== 'label').map(([k,v]) => `${k}=${v}`).join(' ');
         return `${ts} ${e.label}${rest ? ' ' + rest : ''}`;
       }).join('\n');
     };
-    window.clearAdvanceLog = () => sessionStorage.removeItem('_advLog');
+    window.clearAdvanceLog = () => {
+      _advLogBuffer = [];
+      _advLogDirty = false;
+      sessionStorage.removeItem(_ADV_LOG_KEY);
+    };
 
     function stopProgressTimer() {
       if (state.progressTimer) {
@@ -2222,27 +2260,31 @@
       }
     }
 
+    const ARTIST_SPLIT_RE = /(\s*,\s*|\s+ft\.\s+|\s+feat\.\s+|\s+featuring\s+|\s*\/\s*)/i;
+
     function splitArtists(artistStr) {
       if (!artistStr) return [];
-      // Split on common separators, capturing the separator so we can render it
-      const parts = artistStr.split(/(\s*,\s*|\s+ft\.\s+|\s+feat\.\s+|\s+featuring\s+|\s*\/\s*)/i);
+      // Split on common separators, capturing the separator so we can render it.
+      // We classify each part by whether it matches the separator regex itself,
+      // rather than relying on index parity (which breaks if the string starts
+      // or ends with a separator, or has empty captures).
+      const rawParts = artistStr.split(ARTIST_SPLIT_RE);
       const result = [];
-      for (let i = 0; i < parts.length; i++) {
-        const part = parts[i].trim();
-        if (!part) continue;
-        // Odd indices are separators — check if it's a named separator or just punctuation
-        if (i % 2 === 1) {
+      const sepCheckRe = new RegExp(`^${ARTIST_SPLIT_RE.source}$`, 'i');
+      for (const raw of rawParts) {
+        if (!raw) continue;
+        if (sepCheckRe.test(raw)) {
           // Normalise the separator for display
-          const sep = parts[i];
-          if (/ft\.|feat\.|featuring/i.test(sep)) {
+          if (/ft\.|feat\.|featuring/i.test(raw)) {
             result.push({ type: 'sep', text: ' ft. ' });
-          } else if (/\//.test(sep)) {
+          } else if (/\//.test(raw)) {
             result.push({ type: 'sep', text: ' / ' });
           } else {
             result.push({ type: 'sep', text: ', ' });
           }
         } else {
-          result.push({ type: 'artist', name: part });
+          const name = raw.trim();
+          if (name) result.push({ type: 'artist', name });
         }
       }
       return result;
@@ -2413,9 +2455,9 @@
         }
       }
 
-      const reduced = [...grouped.values(), ...fallbackRows];
-      reduced.sort(comparePeakWeekRows);
-      return reduced;
+      // Note: callers (getVisibleRows) re-sort the result via sortRows(),
+      // so we don't sort here.
+      return [...grouped.values(), ...fallbackRows];
     }
 
     function buildOverallPeakMap() {
@@ -2483,14 +2525,25 @@
       return { peakMap, firstWeekMap, weeksMap };
     }
 
+    // Position-level peak/firstWeek/weeks maps. These are computed from
+    // getRowsForSelectedPosition() + state.allYearsPositions and DO NOT depend on
+    // the search filter, peak-week reduction, hideChristmas, or sortMode — those
+    // are applied later in getVisibleRows / sortRows. If a future change makes
+    // buildOverallPeakMap depend on additional state, add it to the cache key
+    // below.
     let _mapsCache = null;
     let _mapsCacheKey = null;
+    let _mapsCachePositionsRef = null;
 
     function getOverallMaps() {
-      const key = `${state.selectedYear}|${state.selectedPosition}|${state.peakWeekOnly}|${state.currentYearData?.year ?? ''}|${state.allYearsPositions ? '1' : '0'}`;
-      if (_mapsCache && _mapsCacheKey === key) return _mapsCache;
+      const positionsRef = state.allYearsPositions || state.currentYearData?.positions || null;
+      const key = `${state.selectedYear}|${state.selectedPosition}|${state.peakWeekOnly}|${state.currentYearData?.year ?? ''}`;
+      // Include the positionsRef object identity so swapping in a new
+      // allYearsPositions invalidates the cache automatically.
+      if (_mapsCache && _mapsCacheKey === key && _mapsCachePositionsRef === positionsRef) return _mapsCache;
       _mapsCache = buildOverallPeakMap();
       _mapsCacheKey = key;
+      _mapsCachePositionsRef = positionsRef;
       return _mapsCache;
     }
 
@@ -3338,7 +3391,7 @@
       const token = await getValidAccessToken();
       const headers = { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...(options.headers || {}) };
       const res = await fetch(url, { ...options, headers });
-      if (!res.ok && res.status !== 204) throw new Error(await res.text() || `Spotify API error ${res.status}`);
+      if (!res.ok) throw new Error(await res.text() || `Spotify API error ${res.status}`);
       return res;
     }
 
@@ -4085,21 +4138,28 @@
       render();
     });
 
-    searchInput.addEventListener('input', async () => {
+    let searchInputDebounceTimer = null;
+    searchInput.addEventListener('input', () => {
+      // Update the searchTerm immediately so other code reads the latest value,
+      // but defer the (expensive) render and any year reload by ~200ms so we
+      // don't fire a render or fetch on every keystroke.
       state.searchTerm = searchInput.value;
       state.randomPinnedKey = null;
       state.currentPlayableIndex = -1;
       state.visibleRowLimit = 150;
 
-      const filters = parseSearchFilters(state.searchTerm);
-      if (filters.yearStart !== null && filters.yearEnd !== null && state.selectedYear !== 'ALL') {
-        state.selectedYear = 'ALL';
-        yearSelect.value = 'ALL';
-        await loadYear('ALL');
-        return;
-      }
-
-      render();
+      clearTimeout(searchInputDebounceTimer);
+      searchInputDebounceTimer = setTimeout(async () => {
+        searchInputDebounceTimer = null;
+        const filters = parseSearchFilters(state.searchTerm);
+        if (filters.yearStart !== null && filters.yearEnd !== null && state.selectedYear !== 'ALL') {
+          state.selectedYear = 'ALL';
+          yearSelect.value = 'ALL';
+          await loadYear('ALL');
+          return;
+        }
+        render();
+      }, 200);
     });
     resultsEl.addEventListener('click', async event => {
       const loadMoreBtn = event.target.closest('#loadMoreBtn');
@@ -4287,7 +4347,6 @@
         state.positionAtPageHide = position;
         state.durationAtPageHide = duration;
         state.trackSidAtPageHide = trackSid || null;
-      } else {
       }
     });
 
@@ -4409,14 +4468,14 @@
   function lbLoad() { try { return JSON.parse(localStorage.getItem(LB_KEY) || '{}'); } catch { return {}; } }
   function lbSave(lb) { try { localStorage.setItem(LB_KEY, JSON.stringify(lb)); } catch {} }
 
-  function lbUpdate(score, played, streak, target) {
+  function lbUpdate(score, played, bestStreak, target) {
     const lb = lbLoad();
     const isNew = {};
     // Best score for this game length
     const key = `best_${target || 'inf'}`;
     if (lb[key] == null || score > lb[key]) { lb[key] = score; isNew[key] = true; }
     // Best streak ever
-    if (lb.bestStreak == null || streak > lb.bestStreak) { lb.bestStreak = streak; isNew.bestStreak = true; }
+    if (lb.bestStreak == null || bestStreak > lb.bestStreak) { lb.bestStreak = bestStreak; isNew.bestStreak = true; }
     // Best score per round (efficiency) for fixed-length games
     if (target > 0) {
       const perRound = score / played;
@@ -4780,6 +4839,7 @@
     });
 
     if (active) {
+      quizStartConfirmPoll();
       quizRenderFilterChips();
       state.isPlayerMinimized = true;
       updatePlayerVisibility();
@@ -4795,6 +4855,7 @@
         if (typeof quizUpdatePlayedPill === 'function') quizUpdatePlayedPill();
       }
     } else {
+      quizStopConfirmPoll();
       quizStopClip();
       quizState.waitingForConfirm = false;
       // Only clear track/score if this is a genuine exit, not a restore cycle
@@ -5411,8 +5472,18 @@
     }, 12000);
   }
 
-  // Poll for confirmation every 100ms
-  setInterval(quizCheckConfirmation, 100);
+  // Poll for confirmation every 100ms — but only while quiz mode is active.
+  // Started by quizSetMode(true), stopped by quizSetMode(false).
+  let _quizPollIntervalId = null;
+  function quizStartConfirmPoll() {
+    if (_quizPollIntervalId != null) return;
+    _quizPollIntervalId = setInterval(quizCheckConfirmation, 100);
+  }
+  function quizStopConfirmPoll() {
+    if (_quizPollIntervalId == null) return;
+    clearInterval(_quizPollIntervalId);
+    _quizPollIntervalId = null;
+  }
 
   // ── Button event listeners ────────────────────────────────────────────────
 
@@ -5534,9 +5605,8 @@
 
   function updateSpeakBtnLabel() {
     if (!quizSpeakBtn) return;
-    const svg = quizSpeakBtn.querySelector('svg');
-    quizSpeakBtn.textContent = _isListening ? ' Stop listening' : ' Speak Answer';
-    if (svg) quizSpeakBtn.prepend(svg);
+    const labelEl = quizSpeakBtn.querySelector('.quiz-speak-label');
+    if (labelEl) labelEl.textContent = _isListening ? 'Stop listening' : 'Speak Answer';
   }
 
   function stopSpeechRecognition() {
