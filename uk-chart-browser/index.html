@@ -1719,7 +1719,7 @@
             <option value="20">20</option>
           </select>
         </div>
-        <div class="settings-version" id="version-code">Version: 3.15</div>
+        <div class="settings-version" id="version-code">Version: 3.16</div>
       </div>
     </section>
   </div>
@@ -4622,7 +4622,7 @@
     let s = String(str || '')
       .toLowerCase()
       .normalize('NFD').replace(/[\u0300-\u036f]/g, '') // é→e, ñ→n, ü→u etc.
-      .replace(/\s*-\s*(radio edit|single version|original mix|album version|extended mix|remaster(?:ed)?|re-?record(?:ed)?|live|acoustic|instrumental|explicit|clean|edit|mix|version)[^-]*/gi, '')
+      .replace(/\s*-\s*(?:[\w\s]*?\s)?(radio edit|single version|original mix|album version|extended mix|remaster(?:ed)?|re-?record(?:ed)?|live|acoustic|instrumental|explicit|clean|edit|mix|version|remix)[^-]*/gi, '')
       .replace(/\([^)]*\)/g, '')
       .replace(/\[[^\]]*\]/g, '')
       .replace(/\bfeat?\.?\s+\S+/gi, '')
