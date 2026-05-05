@@ -1719,7 +1719,7 @@
             <option value="20">20</option>
           </select>
         </div>
-        <div class="settings-version" id="version-code">Version: 3.16</div>
+        <div class="settings-version" id="version-code">Version: 3.17</div>
       </div>
     </section>
   </div>
@@ -5662,7 +5662,13 @@
       if (!ng || !nc) return false;
       if (ng === nc) return true;
       const allowed = Math.min(6, Math.max(1, Math.floor(nc.length / 6)));
-      return levenshtein(ng, nc) <= allowed || (nc.length > 6 && (nc.includes(ng) || ng.includes(nc)));
+      if (levenshtein(ng, nc) <= allowed) return true;
+      // Substring containment: only allow if the contained string is at least
+      // half the length of the container, AND it sits on word boundaries (not
+      // inside a longer word like "it" inside "traitor").
+      if (ng.length >= nc.length / 2 && new RegExp('\\b' + ng.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&') + '\\b').test(nc)) return true;
+      if (nc.length >= ng.length / 2 && new RegExp('\\b' + nc.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&') + '\\b').test(ng)) return true;
+      return false;
     }
 
     // Check if title and primary artist both appear anywhere in the combined guess
