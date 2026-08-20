@@ -1719,7 +1719,7 @@
             <option value="20">20</option>
           </select>
         </div>
-        <div class="settings-version" id="version-code">Version: 3.18</div>
+        <div class="settings-version" id="version-code">Version: 3.19</div>
       </div>
     </section>
   </div>
@@ -2769,10 +2769,11 @@
 
       setRandomButtonsBusy(true);
       try {
-        const candidateRows = getRowsForCurrentFilter();
+        const candidateRows = getRowsForCurrentFilter()
+          .filter(row => row.sid && (!state.hideChristmas || !isChristmasSong(row)));
         const chosen = pickRandomItem(candidateRows);
         if (!chosen) {
-          throw new Error('No songs available for the current filters.');
+          throw new Error('No playable songs available for the current filters.');
         }
         state.randomPinnedKey = rowKey(chosen);
         render();
