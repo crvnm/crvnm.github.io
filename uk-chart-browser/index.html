@@ -1719,7 +1719,7 @@
             <option value="20">20</option>
           </select>
         </div>
-        <div class="settings-version" id="version-code">Version: 3.17</div>
+        <div class="settings-version" id="version-code">Version: 3.18</div>
       </div>
     </section>
   </div>
@@ -5085,8 +5085,10 @@
       // This avoids the audible blip of playing from 0 then seeking
       let clipStart = 0;
       if (posMode !== 'start') {
+        quizState.clipStartMs = 0;
         try {
-          const trackData = await spotifyApi(`https://api.spotify.com/v1/tracks/${encodeURIComponent(row.sid)}`);
+          const trackResponse = await spotifyApi(`https://api.spotify.com/v1/tracks/${encodeURIComponent(row.sid)}`);
+          const trackData = await trackResponse.json();
           const durationMs = trackData?.duration_ms || 210000;
           clipStart = quizCalcClipStart(durationMs, posMode, clipLenMs);
           // Pre-set clipStartMs so quizOnTrackConfirmed uses it directly
