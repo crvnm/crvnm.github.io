@@ -1,0 +1,5225 @@
+{
+  "year": 2026,
+  "weeks": [
+    "2026-01-02",
+    "2026-01-09",
+    "2026-01-16",
+    "2026-01-23",
+    "2026-01-30",
+    "2026-02-06",
+    "2026-02-13",
+    "2026-02-20",
+    "2026-02-27",
+    "2026-03-06",
+    "2026-03-13",
+    "2026-03-20",
+    "2026-03-27",
+    "2026-04-03",
+    "2026-04-10",
+    "2026-04-17"
+  ],
+  "minPosition": 1,
+  "maxPosition": 40,
+  "positions": {
+    "1": [
+      {
+        "w": "2026-01-02",
+        "t": "WHERE IS MY HUSBAND",
+        "a": "RAYE",
+        "lw": 48,
+        "pk": 1,
+        "wc": 15
+      },
+      {
+        "w": "2026-01-09",
+        "t": "END OF BEGINNING",
+        "a": "DJO",
+        "lw": 7,
+        "pk": 1,
+        "wc": 28
+      },
+      {
+        "w": "2026-01-16",
+        "t": "END OF BEGINNING",
+        "a": "DJO",
+        "lw": 1,
+        "pk": 1,
+        "wc": 29
+      },
+      {
+        "w": "2026-01-23",
+        "t": "RAINDANCE",
+        "a": "DAVE/TEMS",
+        "lw": 2,
+        "pk": 1,
+        "wc": 13
+      },
+      {
+        "w": "2026-01-30",
+        "t": "APERTURE",
+        "a": "HARRY STYLES",
+        "lw": "New",
+        "pk": 1,
+        "wc": 1
+      },
+      {
+        "w": "2026-02-06",
+        "t": "RAINDANCE",
+        "a": "DAVE/TEMS",
+        "lw": 2,
+        "pk": 1,
+        "wc": 15
+      },
+      {
+        "w": "2026-02-13",
+        "t": "OPALITE",
+        "a": "TAYLOR SWIFT",
+        "lw": 15,
+        "pk": 1,
+        "wc": 18
+      },
+      {
+        "w": "2026-02-20",
+        "t": "REIN ME IN",
+        "a": "SAM FENDER & OLIVIA DEAN",
+        "lw": 5,
+        "pk": 1,
+        "wc": 36
+      },
+      {
+        "w": "2026-02-27",
+        "t": "REIN ME IN",
+        "a": "SAM FENDER & OLIVIA DEAN",
+        "lw": 1,
+        "pk": 1,
+        "wc": 37
+      },
+      {
+        "w": "2026-03-06",
+        "t": "REIN ME IN",
+        "a": "SAM FENDER & OLIVIA DEAN",
+        "lw": 1,
+        "pk": 1,
+        "wc": 38
+      },
+      {
+        "w": "2026-03-13",
+        "t": "AMERICAN GIRLS",
+        "a": "HARRY STYLES",
+        "lw": "New",
+        "pk": 1,
+        "wc": 1
+      },
+      {
+        "w": "2026-03-20",
+        "t": "REIN ME IN",
+        "a": "SAM FENDER & OLIVIA DEAN",
+        "lw": 2,
+        "pk": 1,
+        "wc": 40
+      },
+      {
+        "w": "2026-03-27",
+        "t": "REIN ME IN",
+        "a": "SAM FENDER & OLIVIA DEAN",
+        "lw": 1,
+        "pk": 1,
+        "wc": 41
+      },
+      {
+        "w": "2026-04-03",
+        "t": "REIN ME IN",
+        "a": "SAM FENDER & OLIVIA DEAN",
+        "lw": 1,
+        "pk": 1,
+        "wc": 42
+      },
+      {
+        "w": "2026-04-10",
+        "t": "REIN ME IN",
+        "a": "SAM FENDER & OLIVIA DEAN",
+        "lw": 1,
+        "pk": 1,
+        "wc": 43
+      },
+      {
+        "w": "2026-04-17",
+        "t": "REIN ME IN",
+        "a": "SAM FENDER & OLIVIA DEAN",
+        "lw": 1,
+        "pk": 1,
+        "wc": 44
+      }
+    ],
+    "2": [
+      {
+        "w": "2026-01-02",
+        "t": "THE FATE OF OPHELIA",
+        "a": "TAYLOR SWIFT",
+        "lw": 40,
+        "pk": 1,
+        "wc": 13
+      },
+      {
+        "w": "2026-01-09",
+        "t": "THE FATE OF OPHELIA",
+        "a": "TAYLOR SWIFT",
+        "lw": 2,
+        "pk": 1,
+        "wc": 14
+      },
+      {
+        "w": "2026-01-16",
+        "t": "RAINDANCE",
+        "a": "DAVE/TEMS",
+        "lw": 4,
+        "pk": 2,
+        "wc": 12
+      },
+      {
+        "w": "2026-01-23",
+        "t": "END OF BEGINNING",
+        "a": "DJO",
+        "lw": 1,
+        "pk": 1,
+        "wc": 30
+      },
+      {
+        "w": "2026-01-30",
+        "t": "RAINDANCE",
+        "a": "DAVE/TEMS",
+        "lw": 1,
+        "pk": 1,
+        "wc": 14
+      },
+      {
+        "w": "2026-02-06",
+        "t": "WHERE IS MY HUSBAND",
+        "a": "RAYE",
+        "lw": 4,
+        "pk": 1,
+        "wc": 20
+      },
+      {
+        "w": "2026-02-13",
+        "t": "RAINDANCE",
+        "a": "DAVE/TEMS",
+        "lw": 1,
+        "pk": 1,
+        "wc": 16
+      },
+      {
+        "w": "2026-02-20",
+        "t": "SO EASY (TO FALL IN LOVE)",
+        "a": "OLIVIA DEAN",
+        "lw": 6,
+        "pk": 2,
+        "wc": 20
+      },
+      {
+        "w": "2026-02-27",
+        "t": "SO EASY (TO FALL IN LOVE)",
+        "a": "OLIVIA DEAN",
+        "lw": 2,
+        "pk": 2,
+        "wc": 21
+      },
+      {
+        "w": "2026-03-06",
+        "t": "ILOVEITILOVEITILOVEIT",
+        "a": "BELLA KAY",
+        "lw": 4,
+        "pk": 2,
+        "wc": 6
+      },
+      {
+        "w": "2026-03-13",
+        "t": "REIN ME IN",
+        "a": "SAM FENDER & OLIVIA DEAN",
+        "lw": 1,
+        "pk": 1,
+        "wc": 39
+      },
+      {
+        "w": "2026-03-20",
+        "t": "ILOVEITILOVEITILOVEIT",
+        "a": "BELLA KAY",
+        "lw": 3,
+        "pk": 2,
+        "wc": 8
+      },
+      {
+        "w": "2026-03-27",
+        "t": "SWIM",
+        "a": "BTS",
+        "lw": "New",
+        "pk": 2,
+        "wc": 1
+      },
+      {
+        "w": "2026-04-03",
+        "t": "ILOVEITILOVEITILOVEIT",
+        "a": "BELLA KAY",
+        "lw": 3,
+        "pk": 2,
+        "wc": 10
+      },
+      {
+        "w": "2026-04-10",
+        "t": "ILOVEITILOVEITILOVEIT",
+        "a": "BELLA KAY",
+        "lw": 2,
+        "pk": 2,
+        "wc": 11
+      },
+      {
+        "w": "2026-04-17",
+        "t": "DRACULA",
+        "a": "TAME IMPALA",
+        "lw": 3,
+        "pk": 2,
+        "wc": 25
+      }
+    ],
+    "3": [
+      {
+        "w": "2026-01-02",
+        "t": "RAINDANCE",
+        "a": "DAVE/TEMS",
+        "lw": 27,
+        "pk": 3,
+        "wc": 10
+      },
+      {
+        "w": "2026-01-09",
+        "t": "WHERE IS MY HUSBAND",
+        "a": "RAYE",
+        "lw": 1,
+        "pk": 1,
+        "wc": 16
+      },
+      {
+        "w": "2026-01-16",
+        "t": "THE FATE OF OPHELIA",
+        "a": "TAYLOR SWIFT",
+        "lw": 2,
+        "pk": 1,
+        "wc": 15
+      },
+      {
+        "w": "2026-01-23",
+        "t": "WHERE IS MY HUSBAND",
+        "a": "RAYE",
+        "lw": 4,
+        "pk": 1,
+        "wc": 18
+      },
+      {
+        "w": "2026-01-30",
+        "t": "END OF BEGINNING",
+        "a": "DJO",
+        "lw": 2,
+        "pk": 1,
+        "wc": 31
+      },
+      {
+        "w": "2026-02-06",
+        "t": "END OF BEGINNING",
+        "a": "DJO",
+        "lw": 3,
+        "pk": 1,
+        "wc": 32
+      },
+      {
+        "w": "2026-02-13",
+        "t": "WHERE IS MY HUSBAND",
+        "a": "RAYE",
+        "lw": 2,
+        "pk": 1,
+        "wc": 21
+      },
+      {
+        "w": "2026-02-20",
+        "t": "LUSH LIFE",
+        "a": "ZARA LARSSON",
+        "lw": 7,
+        "pk": 3,
+        "wc": 70
+      },
+      {
+        "w": "2026-02-27",
+        "t": "STATESIDE",
+        "a": "PINKPANTHERESS",
+        "lw": 9,
+        "pk": 3,
+        "wc": 16
+      },
+      {
+        "w": "2026-03-06",
+        "t": "FEVER DREAM",
+        "a": "ALEX WARREN",
+        "lw": "New",
+        "pk": 3,
+        "wc": 1
+      },
+      {
+        "w": "2026-03-13",
+        "t": "ILOVEITILOVEITILOVEIT",
+        "a": "BELLA KAY",
+        "lw": 2,
+        "pk": 2,
+        "wc": 7
+      },
+      {
+        "w": "2026-03-20",
+        "t": "AMERICAN GIRLS",
+        "a": "HARRY STYLES",
+        "lw": 1,
+        "pk": 1,
+        "wc": 2
+      },
+      {
+        "w": "2026-03-27",
+        "t": "ILOVEITILOVEITILOVEIT",
+        "a": "BELLA KAY",
+        "lw": 2,
+        "pk": 2,
+        "wc": 9
+      },
+      {
+        "w": "2026-04-03",
+        "t": "DRACULA",
+        "a": "TAME IMPALA",
+        "lw": 12,
+        "pk": 3,
+        "wc": 23
+      },
+      {
+        "w": "2026-04-10",
+        "t": "DRACULA",
+        "a": "TAME IMPALA",
+        "lw": 3,
+        "pk": 3,
+        "wc": 24
+      },
+      {
+        "w": "2026-04-17",
+        "t": "FEVER DREAM",
+        "a": "ALEX WARREN",
+        "lw": 5,
+        "pk": 3,
+        "wc": 7
+      }
+    ],
+    "4": [
+      {
+        "w": "2026-01-02",
+        "t": "SO EASY (TO FALL IN LOVE)",
+        "a": "OLIVIA DEAN",
+        "lw": 78,
+        "pk": 3,
+        "wc": 13
+      },
+      {
+        "w": "2026-01-09",
+        "t": "RAINDANCE",
+        "a": "DAVE/TEMS",
+        "lw": 3,
+        "pk": 3,
+        "wc": 11
+      },
+      {
+        "w": "2026-01-16",
+        "t": "WHERE IS MY HUSBAND",
+        "a": "RAYE",
+        "lw": 3,
+        "pk": 1,
+        "wc": 17
+      },
+      {
+        "w": "2026-01-23",
+        "t": "THE FATE OF OPHELIA",
+        "a": "TAYLOR SWIFT",
+        "lw": 3,
+        "pk": 1,
+        "wc": 16
+      },
+      {
+        "w": "2026-01-30",
+        "t": "WHERE IS MY HUSBAND",
+        "a": "RAYE",
+        "lw": 3,
+        "pk": 1,
+        "wc": 19
+      },
+      {
+        "w": "2026-02-06",
+        "t": "APERTURE",
+        "a": "HARRY STYLES",
+        "lw": 1,
+        "pk": 1,
+        "wc": 2
+      },
+      {
+        "w": "2026-02-13",
+        "t": "DTMF",
+        "a": "BAD BUNNY",
+        "lw": 43,
+        "pk": 4,
+        "wc": 9
+      },
+      {
+        "w": "2026-02-20",
+        "t": "MAN I NEED",
+        "a": "OLIVIA DEAN",
+        "lw": 8,
+        "pk": 1,
+        "wc": 27
+      },
+      {
+        "w": "2026-02-27",
+        "t": "ILOVEITILOVEITILOVEIT",
+        "a": "BELLA KAY",
+        "lw": 26,
+        "pk": 4,
+        "wc": 5
+      },
+      {
+        "w": "2026-03-06",
+        "t": "STATESIDE",
+        "a": "PINKPANTHERESS",
+        "lw": 3,
+        "pk": 3,
+        "wc": 17
+      },
+      {
+        "w": "2026-03-13",
+        "t": "APERTURE",
+        "a": "HARRY STYLES",
+        "lw": 10,
+        "pk": 1,
+        "wc": 7
+      },
+      {
+        "w": "2026-03-20",
+        "t": "STATESIDE",
+        "a": "PINKPANTHERESS",
+        "lw": 6,
+        "pk": 3,
+        "wc": 19
+      },
+      {
+        "w": "2026-03-27",
+        "t": "AMERICAN GIRLS",
+        "a": "HARRY STYLES",
+        "lw": 3,
+        "pk": 1,
+        "wc": 3
+      },
+      {
+        "w": "2026-04-03",
+        "t": "AMERICAN GIRLS",
+        "a": "HARRY STYLES",
+        "lw": 4,
+        "pk": 1,
+        "wc": 4
+      },
+      {
+        "w": "2026-04-10",
+        "t": "LUSH LIFE",
+        "a": "ZARA LARSSON",
+        "lw": 7,
+        "pk": 3,
+        "wc": 77
+      },
+      {
+        "w": "2026-04-17",
+        "t": "HOMEWRECKER",
+        "a": "SOMBR",
+        "lw": 6,
+        "pk": 4,
+        "wc": 10
+      }
+    ],
+    "5": [
+      {
+        "w": "2026-01-02",
+        "t": "REIN ME IN",
+        "a": "SAM FENDER & OLIVIA DEAN",
+        "lw": 34,
+        "pk": 5,
+        "wc": 29
+      },
+      {
+        "w": "2026-01-09",
+        "t": "SO EASY (TO FALL IN LOVE)",
+        "a": "OLIVIA DEAN",
+        "lw": 4,
+        "pk": 3,
+        "wc": 14
+      },
+      {
+        "w": "2026-01-16",
+        "t": "SO EASY (TO FALL IN LOVE)",
+        "a": "OLIVIA DEAN",
+        "lw": 5,
+        "pk": 3,
+        "wc": 15
+      },
+      {
+        "w": "2026-01-23",
+        "t": "I JUST MIGHT",
+        "a": "BRUNO MARS",
+        "lw": 6,
+        "pk": 5,
+        "wc": 2
+      },
+      {
+        "w": "2026-01-30",
+        "t": "THE FATE OF OPHELIA",
+        "a": "TAYLOR SWIFT",
+        "lw": 4,
+        "pk": 1,
+        "wc": 17
+      },
+      {
+        "w": "2026-02-06",
+        "t": "THE FATE OF OPHELIA",
+        "a": "TAYLOR SWIFT",
+        "lw": 5,
+        "pk": 1,
+        "wc": 18
+      },
+      {
+        "w": "2026-02-13",
+        "t": "REIN ME IN",
+        "a": "SAM FENDER & OLIVIA DEAN",
+        "lw": 7,
+        "pk": 5,
+        "wc": 35
+      },
+      {
+        "w": "2026-02-20",
+        "t": "DTMF",
+        "a": "BAD BUNNY",
+        "lw": 4,
+        "pk": 4,
+        "wc": 10
+      },
+      {
+        "w": "2026-02-27",
+        "t": "HOMEWRECKER",
+        "a": "SOMBR",
+        "lw": 7,
+        "pk": 5,
+        "wc": 3
+      },
+      {
+        "w": "2026-03-06",
+        "t": "SO EASY (TO FALL IN LOVE)",
+        "a": "OLIVIA DEAN",
+        "lw": 2,
+        "pk": 2,
+        "wc": 22
+      },
+      {
+        "w": "2026-03-13",
+        "t": "READY STEADY GO",
+        "a": "HARRY STYLES",
+        "lw": "New",
+        "pk": 5,
+        "wc": 1
+      },
+      {
+        "w": "2026-03-20",
+        "t": "SO EASY (TO FALL IN LOVE)",
+        "a": "OLIVIA DEAN",
+        "lw": 7,
+        "pk": 2,
+        "wc": 24
+      },
+      {
+        "w": "2026-03-27",
+        "t": "STATESIDE",
+        "a": "PINKPANTHERESS",
+        "lw": 4,
+        "pk": 3,
+        "wc": 20
+      },
+      {
+        "w": "2026-04-03",
+        "t": "SWIM",
+        "a": "BTS",
+        "lw": 2,
+        "pk": 2,
+        "wc": 2
+      },
+      {
+        "w": "2026-04-10",
+        "t": "FEVER DREAM",
+        "a": "ALEX WARREN",
+        "lw": 6,
+        "pk": 3,
+        "wc": 6
+      },
+      {
+        "w": "2026-04-17",
+        "t": "BABYDOLL",
+        "a": "DOMINIC FIKE",
+        "lw": 7,
+        "pk": 5,
+        "wc": 14
+      }
+    ],
+    "6": [
+      {
+        "w": "2026-01-02",
+        "t": "MAN I NEED",
+        "a": "OLIVIA DEAN",
+        "lw": 35,
+        "pk": 1,
+        "wc": 20
+      },
+      {
+        "w": "2026-01-09",
+        "t": "REIN ME IN",
+        "a": "SAM FENDER & OLIVIA DEAN",
+        "lw": 5,
+        "pk": 5,
+        "wc": 30
+      },
+      {
+        "w": "2026-01-16",
+        "t": "I JUST MIGHT",
+        "a": "BRUNO MARS",
+        "lw": "New",
+        "pk": 6,
+        "wc": 1
+      },
+      {
+        "w": "2026-01-23",
+        "t": "SO EASY (TO FALL IN LOVE)",
+        "a": "OLIVIA DEAN",
+        "lw": 5,
+        "pk": 3,
+        "wc": 16
+      },
+      {
+        "w": "2026-01-30",
+        "t": "I JUST MIGHT",
+        "a": "BRUNO MARS",
+        "lw": 5,
+        "pk": 5,
+        "wc": 3
+      },
+      {
+        "w": "2026-02-06",
+        "t": "SO EASY (TO FALL IN LOVE)",
+        "a": "OLIVIA DEAN",
+        "lw": 8,
+        "pk": 3,
+        "wc": 18
+      },
+      {
+        "w": "2026-02-13",
+        "t": "SO EASY (TO FALL IN LOVE)",
+        "a": "OLIVIA DEAN",
+        "lw": 6,
+        "pk": 3,
+        "wc": 19
+      },
+      {
+        "w": "2026-02-20",
+        "t": "I JUST MIGHT",
+        "a": "BRUNO MARS",
+        "lw": 9,
+        "pk": 5,
+        "wc": 6
+      },
+      {
+        "w": "2026-02-27",
+        "t": "LUSH LIFE",
+        "a": "ZARA LARSSON",
+        "lw": 3,
+        "pk": 3,
+        "wc": 71
+      },
+      {
+        "w": "2026-03-06",
+        "t": "I JUST MIGHT",
+        "a": "BRUNO MARS",
+        "lw": 8,
+        "pk": 5,
+        "wc": 8
+      },
+      {
+        "w": "2026-03-13",
+        "t": "STATESIDE",
+        "a": "PINKPANTHERESS",
+        "lw": 4,
+        "pk": 3,
+        "wc": 18
+      },
+      {
+        "w": "2026-03-20",
+        "t": "APERTURE",
+        "a": "HARRY STYLES",
+        "lw": 4,
+        "pk": 1,
+        "wc": 8
+      },
+      {
+        "w": "2026-03-27",
+        "t": "SO EASY (TO FALL IN LOVE)",
+        "a": "OLIVIA DEAN",
+        "lw": 5,
+        "pk": 2,
+        "wc": 25
+      },
+      {
+        "w": "2026-04-03",
+        "t": "FEVER DREAM",
+        "a": "ALEX WARREN",
+        "lw": 7,
+        "pk": 3,
+        "wc": 5
+      },
+      {
+        "w": "2026-04-10",
+        "t": "HOMEWRECKER",
+        "a": "SOMBR",
+        "lw": 9,
+        "pk": 5,
+        "wc": 9
+      },
+      {
+        "w": "2026-04-17",
+        "t": "LUSH LIFE",
+        "a": "ZARA LARSSON",
+        "lw": 4,
+        "pk": 3,
+        "wc": 78
+      }
+    ],
+    "7": [
+      {
+        "w": "2026-01-02",
+        "t": "END OF BEGINNING",
+        "a": "DJO",
+        "lw": 56,
+        "pk": 4,
+        "wc": 27
+      },
+      {
+        "w": "2026-01-09",
+        "t": "MAN I NEED",
+        "a": "OLIVIA DEAN",
+        "lw": 6,
+        "pk": 1,
+        "wc": 21
+      },
+      {
+        "w": "2026-01-16",
+        "t": "REIN ME IN",
+        "a": "SAM FENDER & OLIVIA DEAN",
+        "lw": 6,
+        "pk": 5,
+        "wc": 31
+      },
+      {
+        "w": "2026-01-23",
+        "t": "LUSH LIFE",
+        "a": "ZARA LARSSON",
+        "lw": 9,
+        "pk": 3,
+        "wc": 66
+      },
+      {
+        "w": "2026-01-30",
+        "t": "LUSH LIFE",
+        "a": "ZARA LARSSON",
+        "lw": 7,
+        "pk": 3,
+        "wc": 67
+      },
+      {
+        "w": "2026-02-06",
+        "t": "REIN ME IN",
+        "a": "SAM FENDER & OLIVIA DEAN",
+        "lw": 9,
+        "pk": 5,
+        "wc": 34
+      },
+      {
+        "w": "2026-02-13",
+        "t": "LUSH LIFE",
+        "a": "ZARA LARSSON",
+        "lw": 9,
+        "pk": 3,
+        "wc": 69
+      },
+      {
+        "w": "2026-02-20",
+        "t": "HOMEWRECKER",
+        "a": "SOMBR",
+        "lw": 14,
+        "pk": 7,
+        "wc": 2
+      },
+      {
+        "w": "2026-02-27",
+        "t": "MAN I NEED",
+        "a": "OLIVIA DEAN",
+        "lw": 4,
+        "pk": 1,
+        "wc": 28
+      },
+      {
+        "w": "2026-03-06",
+        "t": "HOMEWRECKER",
+        "a": "SOMBR",
+        "lw": 5,
+        "pk": 5,
+        "wc": 4
+      },
+      {
+        "w": "2026-03-13",
+        "t": "SO EASY (TO FALL IN LOVE)",
+        "a": "OLIVIA DEAN",
+        "lw": 5,
+        "pk": 2,
+        "wc": 23
+      },
+      {
+        "w": "2026-03-20",
+        "t": "HOMEWRECKER",
+        "a": "SOMBR",
+        "lw": 9,
+        "pk": 5,
+        "wc": 6
+      },
+      {
+        "w": "2026-03-27",
+        "t": "FEVER DREAM",
+        "a": "ALEX WARREN",
+        "lw": 9,
+        "pk": 3,
+        "wc": 4
+      },
+      {
+        "w": "2026-04-03",
+        "t": "LUSH LIFE",
+        "a": "ZARA LARSSON",
+        "lw": 10,
+        "pk": 3,
+        "wc": 76
+      },
+      {
+        "w": "2026-04-10",
+        "t": "BABYDOLL",
+        "a": "DOMINIC FIKE",
+        "lw": 8,
+        "pk": 7,
+        "wc": 13
+      },
+      {
+        "w": "2026-04-17",
+        "t": "WHITE KEYS",
+        "a": "DOMINIC FIKE",
+        "lw": 10,
+        "pk": 7,
+        "wc": 11
+      }
+    ],
+    "8": [
+      {
+        "w": "2026-01-02",
+        "t": "GOLDEN",
+        "a": "HUNTR/X/EJAE/AUDREY NUNA/REI",
+        "lw": 42,
+        "pk": 1,
+        "wc": 28
+      },
+      {
+        "w": "2026-01-09",
+        "t": "LUSH LIFE",
+        "a": "ZARA LARSSON",
+        "lw": 9,
+        "pk": 3,
+        "wc": 64
+      },
+      {
+        "w": "2026-01-16",
+        "t": "MAN I NEED",
+        "a": "OLIVIA DEAN",
+        "lw": 7,
+        "pk": 1,
+        "wc": 22
+      },
+      {
+        "w": "2026-01-23",
+        "t": "REIN ME IN",
+        "a": "SAM FENDER & OLIVIA DEAN",
+        "lw": 7,
+        "pk": 5,
+        "wc": 32
+      },
+      {
+        "w": "2026-01-30",
+        "t": "SO EASY (TO FALL IN LOVE)",
+        "a": "OLIVIA DEAN",
+        "lw": 6,
+        "pk": 3,
+        "wc": 17
+      },
+      {
+        "w": "2026-02-06",
+        "t": "I JUST MIGHT",
+        "a": "BRUNO MARS",
+        "lw": 6,
+        "pk": 5,
+        "wc": 4
+      },
+      {
+        "w": "2026-02-13",
+        "t": "MAN I NEED",
+        "a": "OLIVIA DEAN",
+        "lw": 11,
+        "pk": 1,
+        "wc": 26
+      },
+      {
+        "w": "2026-02-20",
+        "t": "OPALITE",
+        "a": "TAYLOR SWIFT",
+        "lw": 1,
+        "pk": 1,
+        "wc": 19
+      },
+      {
+        "w": "2026-02-27",
+        "t": "I JUST MIGHT",
+        "a": "BRUNO MARS",
+        "lw": 6,
+        "pk": 5,
+        "wc": 7
+      },
+      {
+        "w": "2026-03-06",
+        "t": "MAN I NEED",
+        "a": "OLIVIA DEAN",
+        "lw": 7,
+        "pk": 1,
+        "wc": 29
+      },
+      {
+        "w": "2026-03-13",
+        "t": "FEVER DREAM",
+        "a": "ALEX WARREN",
+        "lw": 3,
+        "pk": 3,
+        "wc": 2
+      },
+      {
+        "w": "2026-03-20",
+        "t": "LUSH LIFE",
+        "a": "ZARA LARSSON",
+        "lw": 11,
+        "pk": 3,
+        "wc": 74
+      },
+      {
+        "w": "2026-03-27",
+        "t": "HOMEWRECKER",
+        "a": "SOMBR",
+        "lw": 7,
+        "pk": 5,
+        "wc": 7
+      },
+      {
+        "w": "2026-04-03",
+        "t": "BABYDOLL",
+        "a": "DOMINIC FIKE",
+        "lw": 11,
+        "pk": 8,
+        "wc": 12
+      },
+      {
+        "w": "2026-04-10",
+        "t": "AMERICAN GIRLS",
+        "a": "HARRY STYLES",
+        "lw": 4,
+        "pk": 1,
+        "wc": 5
+      },
+      {
+        "w": "2026-04-17",
+        "t": "ILOVEITILOVEITILOVEIT",
+        "a": "BELLA KAY",
+        "lw": 2,
+        "pk": 2,
+        "wc": 12
+      }
+    ],
+    "9": [
+      {
+        "w": "2026-01-02",
+        "t": "LUSH LIFE",
+        "a": "ZARA LARSSON",
+        "lw": 50,
+        "pk": 3,
+        "wc": 63
+      },
+      {
+        "w": "2026-01-09",
+        "t": "I RUN",
+        "a": "HAVEN FT KAITLIN ARAGON",
+        "lw": 10,
+        "pk": 9,
+        "wc": 7
+      },
+      {
+        "w": "2026-01-16",
+        "t": "LUSH LIFE",
+        "a": "ZARA LARSSON",
+        "lw": 8,
+        "pk": 3,
+        "wc": 65
+      },
+      {
+        "w": "2026-01-23",
+        "t": "DIE ON THIS HILL",
+        "a": "SIENNA SPIRO",
+        "lw": 10,
+        "pk": 9,
+        "wc": 15
+      },
+      {
+        "w": "2026-01-30",
+        "t": "REIN ME IN",
+        "a": "SAM FENDER & OLIVIA DEAN",
+        "lw": 8,
+        "pk": 5,
+        "wc": 33
+      },
+      {
+        "w": "2026-02-06",
+        "t": "LUSH LIFE",
+        "a": "ZARA LARSSON",
+        "lw": 7,
+        "pk": 3,
+        "wc": 68
+      },
+      {
+        "w": "2026-02-13",
+        "t": "I JUST MIGHT",
+        "a": "BRUNO MARS",
+        "lw": 8,
+        "pk": 5,
+        "wc": 5
+      },
+      {
+        "w": "2026-02-20",
+        "t": "STATESIDE",
+        "a": "PINKPANTHERESS",
+        "lw": 10,
+        "pk": 9,
+        "wc": 15
+      },
+      {
+        "w": "2026-02-27",
+        "t": "OPALITE",
+        "a": "TAYLOR SWIFT",
+        "lw": 8,
+        "pk": 1,
+        "wc": 20
+      },
+      {
+        "w": "2026-03-06",
+        "t": "LUSH LIFE",
+        "a": "ZARA LARSSON",
+        "lw": 6,
+        "pk": 3,
+        "wc": 72
+      },
+      {
+        "w": "2026-03-13",
+        "t": "HOMEWRECKER",
+        "a": "SOMBR",
+        "lw": 7,
+        "pk": 5,
+        "wc": 5
+      },
+      {
+        "w": "2026-03-20",
+        "t": "FEVER DREAM",
+        "a": "ALEX WARREN",
+        "lw": 8,
+        "pk": 3,
+        "wc": 3
+      },
+      {
+        "w": "2026-03-27",
+        "t": "MAN I NEED",
+        "a": "OLIVIA DEAN",
+        "lw": 10,
+        "pk": 1,
+        "wc": 32
+      },
+      {
+        "w": "2026-04-03",
+        "t": "HOMEWRECKER",
+        "a": "SOMBR",
+        "lw": 8,
+        "pk": 5,
+        "wc": 8
+      },
+      {
+        "w": "2026-04-10",
+        "t": "MAN I NEED",
+        "a": "OLIVIA DEAN",
+        "lw": 10,
+        "pk": 1,
+        "wc": 34
+      },
+      {
+        "w": "2026-04-17",
+        "t": "MAN I NEED",
+        "a": "OLIVIA DEAN",
+        "lw": 9,
+        "pk": 1,
+        "wc": 35
+      }
+    ],
+    "10": [
+      {
+        "w": "2026-01-02",
+        "t": "I RUN",
+        "a": "HAVEN FT KAITLIN ARAGON",
+        "lw": 39,
+        "pk": 10,
+        "wc": 6
+      },
+      {
+        "w": "2026-01-09",
+        "t": "GOLDEN",
+        "a": "HUNTR/X/EJAE/AUDREY NUNA/REI",
+        "lw": 8,
+        "pk": 1,
+        "wc": 29
+      },
+      {
+        "w": "2026-01-16",
+        "t": "DIE ON THIS HILL",
+        "a": "SIENNA SPIRO",
+        "lw": 11,
+        "pk": 9,
+        "wc": 14
+      },
+      {
+        "w": "2026-01-23",
+        "t": "MAN I NEED",
+        "a": "OLIVIA DEAN",
+        "lw": 8,
+        "pk": 1,
+        "wc": 23
+      },
+      {
+        "w": "2026-01-30",
+        "t": "DIE ON THIS HILL",
+        "a": "SIENNA SPIRO",
+        "lw": 9,
+        "pk": 9,
+        "wc": 16
+      },
+      {
+        "w": "2026-02-06",
+        "t": "THE GREAT DIVIDE",
+        "a": "NOAH KAHAN",
+        "lw": "New",
+        "pk": 10,
+        "wc": 1
+      },
+      {
+        "w": "2026-02-13",
+        "t": "STATESIDE",
+        "a": "PINKPANTHERESS",
+        "lw": 13,
+        "pk": 10,
+        "wc": 14
+      },
+      {
+        "w": "2026-02-20",
+        "t": "APERTURE",
+        "a": "HARRY STYLES",
+        "lw": 12,
+        "pk": 1,
+        "wc": 4
+      },
+      {
+        "w": "2026-02-27",
+        "t": "DTMF",
+        "a": "BAD BUNNY",
+        "lw": 5,
+        "pk": 4,
+        "wc": 11
+      },
+      {
+        "w": "2026-03-06",
+        "t": "APERTURE",
+        "a": "HARRY STYLES",
+        "lw": 16,
+        "pk": 1,
+        "wc": 6
+      },
+      {
+        "w": "2026-03-13",
+        "t": "MAN I NEED",
+        "a": "OLIVIA DEAN",
+        "lw": 8,
+        "pk": 1,
+        "wc": 30
+      },
+      {
+        "w": "2026-03-20",
+        "t": "MAN I NEED",
+        "a": "OLIVIA DEAN",
+        "lw": 10,
+        "pk": 1,
+        "wc": 31
+      },
+      {
+        "w": "2026-03-27",
+        "t": "LUSH LIFE",
+        "a": "ZARA LARSSON",
+        "lw": 8,
+        "pk": 3,
+        "wc": 75
+      },
+      {
+        "w": "2026-04-03",
+        "t": "MAN I NEED",
+        "a": "OLIVIA DEAN",
+        "lw": 9,
+        "pk": 1,
+        "wc": 33
+      },
+      {
+        "w": "2026-04-10",
+        "t": "WHITE KEYS",
+        "a": "DOMINIC FIKE",
+        "lw": 12,
+        "pk": 10,
+        "wc": 10
+      },
+      {
+        "w": "2026-04-17",
+        "t": "AMERICAN GIRLS",
+        "a": "HARRY STYLES",
+        "lw": 8,
+        "pk": 1,
+        "wc": 6
+      }
+    ],
+    "11": [
+      {
+        "w": "2026-01-02",
+        "t": "OPALITE",
+        "a": "TAYLOR SWIFT",
+        "lw": "RE",
+        "pk": 2,
+        "wc": 12
+      },
+      {
+        "w": "2026-01-09",
+        "t": "DIE ON THIS HILL",
+        "a": "SIENNA SPIRO",
+        "lw": 12,
+        "pk": 9,
+        "wc": 13
+      },
+      {
+        "w": "2026-01-16",
+        "t": "I RUN",
+        "a": "HAVEN FT KAITLIN ARAGON",
+        "lw": 9,
+        "pk": 9,
+        "wc": 8
+      },
+      {
+        "w": "2026-01-23",
+        "t": "I RUN",
+        "a": "HAVEN FT KAITLIN ARAGON",
+        "lw": 11,
+        "pk": 9,
+        "wc": 9
+      },
+      {
+        "w": "2026-01-30",
+        "t": "MAN I NEED",
+        "a": "OLIVIA DEAN",
+        "lw": 10,
+        "pk": 1,
+        "wc": 24
+      },
+      {
+        "w": "2026-02-06",
+        "t": "MAN I NEED",
+        "a": "OLIVIA DEAN",
+        "lw": 11,
+        "pk": 1,
+        "wc": 25
+      },
+      {
+        "w": "2026-02-13",
+        "t": "DIE ON THIS HILL",
+        "a": "SIENNA SPIRO",
+        "lw": 12,
+        "pk": 9,
+        "wc": 18
+      },
+      {
+        "w": "2026-02-20",
+        "t": "RAINDANCE",
+        "a": "DAVE/TEMS",
+        "lw": 2,
+        "pk": 1,
+        "wc": 17
+      },
+      {
+        "w": "2026-02-27",
+        "t": "JUST THE WAY YOU ARE",
+        "a": "MILKY",
+        "lw": 14,
+        "pk": 8,
+        "wc": 10
+      },
+      {
+        "w": "2026-03-06",
+        "t": "OPALITE",
+        "a": "TAYLOR SWIFT",
+        "lw": 9,
+        "pk": 1,
+        "wc": 21
+      },
+      {
+        "w": "2026-03-13",
+        "t": "LUSH LIFE",
+        "a": "ZARA LARSSON",
+        "lw": 9,
+        "pk": 3,
+        "wc": 73
+      },
+      {
+        "w": "2026-03-20",
+        "t": "THE VISITOR",
+        "a": "SIENNA SPIRO",
+        "lw": "New",
+        "pk": 11,
+        "wc": 1
+      },
+      {
+        "w": "2026-03-27",
+        "t": "BABYDOLL",
+        "a": "DOMINIC FIKE",
+        "lw": 13,
+        "pk": 11,
+        "wc": 11
+      },
+      {
+        "w": "2026-04-03",
+        "t": "CLICK CLACK SYMPHONY",
+        "a": "RAYE FT HANS ZIMMER",
+        "lw": 18,
+        "pk": 11,
+        "wc": 2
+      },
+      {
+        "w": "2026-04-10",
+        "t": "JUST THE WAY YOU ARE",
+        "a": "MILKY",
+        "lw": 13,
+        "pk": 8,
+        "wc": 16
+      },
+      {
+        "w": "2026-04-17",
+        "t": "BEAUTY AND A BEAT",
+        "a": "JUSTIN BIEBER FT NICKI MINAJ",
+        "lw": "RE",
+        "pk": 11,
+        "wc": 25
+      }
+    ],
+    "12": [
+      {
+        "w": "2026-01-02",
+        "t": "DIE ON THIS HILL",
+        "a": "SIENNA SPIRO",
+        "lw": 51,
+        "pk": 9,
+        "wc": 12
+      },
+      {
+        "w": "2026-01-09",
+        "t": "PURPLE RAIN",
+        "a": "PRINCE & THE REVOLUTION",
+        "lw": "New",
+        "pk": 12,
+        "wc": 1
+      },
+      {
+        "w": "2026-01-16",
+        "t": "GOLDEN",
+        "a": "HUNTR/X/EJAE/AUDREY NUNA/REI",
+        "lw": 10,
+        "pk": 1,
+        "wc": 30
+      },
+      {
+        "w": "2026-01-23",
+        "t": "STATESIDE",
+        "a": "PINKPANTHERESS",
+        "lw": 23,
+        "pk": 12,
+        "wc": 11
+      },
+      {
+        "w": "2026-01-30",
+        "t": "STATESIDE",
+        "a": "PINKPANTHERESS",
+        "lw": 12,
+        "pk": 12,
+        "wc": 12
+      },
+      {
+        "w": "2026-02-06",
+        "t": "DIE ON THIS HILL",
+        "a": "SIENNA SPIRO",
+        "lw": 10,
+        "pk": 9,
+        "wc": 17
+      },
+      {
+        "w": "2026-02-13",
+        "t": "APERTURE",
+        "a": "HARRY STYLES",
+        "lw": 4,
+        "pk": 1,
+        "wc": 3
+      },
+      {
+        "w": "2026-02-20",
+        "t": "WHERE IS MY HUSBAND",
+        "a": "RAYE",
+        "lw": 3,
+        "pk": 1,
+        "wc": 22
+      },
+      {
+        "w": "2026-02-27",
+        "t": "CHAINS OF LOVE",
+        "a": "CHARLI XCX",
+        "lw": 17,
+        "pk": 12,
+        "wc": 4
+      },
+      {
+        "w": "2026-03-06",
+        "t": "JUST THE WAY YOU ARE",
+        "a": "MILKY",
+        "lw": 11,
+        "pk": 8,
+        "wc": 11
+      },
+      {
+        "w": "2026-03-13",
+        "t": "I JUST MIGHT",
+        "a": "BRUNO MARS",
+        "lw": 6,
+        "pk": 5,
+        "wc": 9
+      },
+      {
+        "w": "2026-03-20",
+        "t": "I JUST MIGHT",
+        "a": "BRUNO MARS",
+        "lw": 12,
+        "pk": 5,
+        "wc": 10
+      },
+      {
+        "w": "2026-03-27",
+        "t": "DRACULA",
+        "a": "TAME IMPALA",
+        "lw": 14,
+        "pk": 12,
+        "wc": 22
+      },
+      {
+        "w": "2026-04-03",
+        "t": "WHITE KEYS",
+        "a": "DOMINIC FIKE",
+        "lw": 17,
+        "pk": 12,
+        "wc": 9
+      },
+      {
+        "w": "2026-04-10",
+        "t": "MIDNIGHT SUN",
+        "a": "ZARA LARSSON",
+        "lw": 16,
+        "pk": 12,
+        "wc": 15
+      },
+      {
+        "w": "2026-04-17",
+        "t": "JUST THE WAY YOU ARE",
+        "a": "MILKY",
+        "lw": 11,
+        "pk": 8,
+        "wc": 17
+      }
+    ],
+    "13": [
+      {
+        "w": "2026-01-02",
+        "t": "ORDINARY",
+        "a": "ALEX WARREN",
+        "lw": 63,
+        "pk": 1,
+        "wc": 47
+      },
+      {
+        "w": "2026-01-09",
+        "t": "OPALITE",
+        "a": "TAYLOR SWIFT",
+        "lw": 11,
+        "pk": 2,
+        "wc": 13
+      },
+      {
+        "w": "2026-01-16",
+        "t": "PURPLE RAIN",
+        "a": "PRINCE & THE REVOLUTION",
+        "lw": 12,
+        "pk": 12,
+        "wc": 2
+      },
+      {
+        "w": "2026-01-23",
+        "t": "GOLDEN",
+        "a": "HUNTR/X/EJAE/AUDREY NUNA/REI",
+        "lw": 12,
+        "pk": 1,
+        "wc": 31
+      },
+      {
+        "w": "2026-01-30",
+        "t": "I RUN",
+        "a": "HAVEN FT KAITLIN ARAGON",
+        "lw": 11,
+        "pk": 9,
+        "wc": 10
+      },
+      {
+        "w": "2026-02-06",
+        "t": "STATESIDE",
+        "a": "PINKPANTHERESS",
+        "lw": 12,
+        "pk": 12,
+        "wc": 13
+      },
+      {
+        "w": "2026-02-13",
+        "t": "THE GREAT DIVIDE",
+        "a": "NOAH KAHAN",
+        "lw": 10,
+        "pk": 10,
+        "wc": 2
+      },
+      {
+        "w": "2026-02-20",
+        "t": "THE GREAT DIVIDE",
+        "a": "NOAH KAHAN",
+        "lw": 13,
+        "pk": 10,
+        "wc": 3
+      },
+      {
+        "w": "2026-02-27",
+        "t": "WHERE IS MY HUSBAND",
+        "a": "RAYE",
+        "lw": 12,
+        "pk": 1,
+        "wc": 23
+      },
+      {
+        "w": "2026-03-06",
+        "t": "WHERE IS MY HUSBAND",
+        "a": "RAYE",
+        "lw": 13,
+        "pk": 1,
+        "wc": 24
+      },
+      {
+        "w": "2026-03-13",
+        "t": "BABYDOLL",
+        "a": "DOMINIC FIKE",
+        "lw": 14,
+        "pk": 13,
+        "wc": 9
+      },
+      {
+        "w": "2026-03-20",
+        "t": "BABYDOLL",
+        "a": "DOMINIC FIKE",
+        "lw": 13,
+        "pk": 13,
+        "wc": 10
+      },
+      {
+        "w": "2026-03-27",
+        "t": "APERTURE",
+        "a": "HARRY STYLES",
+        "lw": 6,
+        "pk": 1,
+        "wc": 9
+      },
+      {
+        "w": "2026-04-03",
+        "t": "JUST THE WAY YOU ARE",
+        "a": "MILKY",
+        "lw": 16,
+        "pk": 8,
+        "wc": 15
+      },
+      {
+        "w": "2026-04-10",
+        "t": "CLICK CLACK SYMPHONY",
+        "a": "RAYE FT HANS ZIMMER",
+        "lw": 11,
+        "pk": 11,
+        "wc": 3
+      },
+      {
+        "w": "2026-04-17",
+        "t": "CHOOSIN' TEXAS",
+        "a": "ELLA LANGLEY",
+        "lw": 16,
+        "pk": 13,
+        "wc": 15
+      }
+    ],
+    "14": [
+      {
+        "w": "2026-01-02",
+        "t": "PHANTOM",
+        "a": "ESDEEKID & RICO ACE",
+        "lw": 44,
+        "pk": 12,
+        "wc": 16
+      },
+      {
+        "w": "2026-01-09",
+        "t": "RUNNING UP THAT HILL",
+        "a": "KATE BUSH",
+        "lw": 16,
+        "pk": 1,
+        "wc": 58
+      },
+      {
+        "w": "2026-01-16",
+        "t": "OPALITE",
+        "a": "TAYLOR SWIFT",
+        "lw": 13,
+        "pk": 2,
+        "wc": 14
+      },
+      {
+        "w": "2026-01-23",
+        "t": "OPALITE",
+        "a": "TAYLOR SWIFT",
+        "lw": 14,
+        "pk": 2,
+        "wc": 15
+      },
+      {
+        "w": "2026-01-30",
+        "t": "GOLDEN",
+        "a": "HUNTR/X/EJAE/AUDREY NUNA/REI",
+        "lw": 13,
+        "pk": 1,
+        "wc": 32
+      },
+      {
+        "w": "2026-02-06",
+        "t": "I RUN",
+        "a": "HAVEN FT KAITLIN ARAGON",
+        "lw": 13,
+        "pk": 9,
+        "wc": 11
+      },
+      {
+        "w": "2026-02-13",
+        "t": "HOMEWRECKER",
+        "a": "SOMBR",
+        "lw": "New",
+        "pk": 14,
+        "wc": 1
+      },
+      {
+        "w": "2026-02-20",
+        "t": "JUST THE WAY YOU ARE",
+        "a": "MILKY",
+        "lw": 23,
+        "pk": 8,
+        "wc": 9
+      },
+      {
+        "w": "2026-02-27",
+        "t": "RAINDANCE",
+        "a": "DAVE/TEMS",
+        "lw": 11,
+        "pk": 1,
+        "wc": 18
+      },
+      {
+        "w": "2026-03-06",
+        "t": "BABYDOLL",
+        "a": "DOMINIC FIKE",
+        "lw": 18,
+        "pk": 14,
+        "wc": 8
+      },
+      {
+        "w": "2026-03-13",
+        "t": "JUST THE WAY YOU ARE",
+        "a": "MILKY",
+        "lw": 12,
+        "pk": 8,
+        "wc": 12
+      },
+      {
+        "w": "2026-03-20",
+        "t": "DRACULA",
+        "a": "TAME IMPALA",
+        "lw": 17,
+        "pk": 14,
+        "wc": 21
+      },
+      {
+        "w": "2026-03-27",
+        "t": "I JUST MIGHT",
+        "a": "BRUNO MARS",
+        "lw": 12,
+        "pk": 5,
+        "wc": 11
+      },
+      {
+        "w": "2026-04-03",
+        "t": "APERTURE",
+        "a": "HARRY STYLES",
+        "lw": 13,
+        "pk": 1,
+        "wc": 10
+      },
+      {
+        "w": "2026-04-10",
+        "t": "ORDINARY",
+        "a": "ALEX WARREN",
+        "lw": 19,
+        "pk": 1,
+        "wc": 61
+      },
+      {
+        "w": "2026-04-17",
+        "t": "PINKY UP",
+        "a": "KATSEYE",
+        "lw": "New",
+        "pk": 14,
+        "wc": 1
+      }
+    ],
+    "15": [
+      {
+        "w": "2026-01-02",
+        "t": "CHANEL",
+        "a": "TYLA",
+        "lw": 66,
+        "pk": 15,
+        "wc": 7
+      },
+      {
+        "w": "2026-01-09",
+        "t": "ORDINARY",
+        "a": "ALEX WARREN",
+        "lw": 13,
+        "pk": 1,
+        "wc": 48
+      },
+      {
+        "w": "2026-01-16",
+        "t": "ORDINARY",
+        "a": "ALEX WARREN",
+        "lw": 15,
+        "pk": 1,
+        "wc": 49
+      },
+      {
+        "w": "2026-01-23",
+        "t": "PURPLE RAIN",
+        "a": "PRINCE & THE REVOLUTION",
+        "lw": 13,
+        "pk": 12,
+        "wc": 3
+      },
+      {
+        "w": "2026-01-30",
+        "t": "OPALITE",
+        "a": "TAYLOR SWIFT",
+        "lw": 14,
+        "pk": 2,
+        "wc": 16
+      },
+      {
+        "w": "2026-02-06",
+        "t": "OPALITE",
+        "a": "TAYLOR SWIFT",
+        "lw": 15,
+        "pk": 2,
+        "wc": 17
+      },
+      {
+        "w": "2026-02-13",
+        "t": "NUEVAYOL",
+        "a": "BAD BUNNY",
+        "lw": 88,
+        "pk": 15,
+        "wc": 6
+      },
+      {
+        "w": "2026-02-20",
+        "t": "ORDINARY",
+        "a": "ALEX WARREN",
+        "lw": 16,
+        "pk": 1,
+        "wc": 54
+      },
+      {
+        "w": "2026-02-27",
+        "t": "THE GREAT DIVIDE",
+        "a": "NOAH KAHAN",
+        "lw": 13,
+        "pk": 10,
+        "wc": 4
+      },
+      {
+        "w": "2026-03-06",
+        "t": "RISK IT ALL",
+        "a": "BRUNO MARS",
+        "lw": "New",
+        "pk": 15,
+        "wc": 1
+      },
+      {
+        "w": "2026-03-13",
+        "t": "OPALITE",
+        "a": "TAYLOR SWIFT",
+        "lw": 11,
+        "pk": 1,
+        "wc": 22
+      },
+      {
+        "w": "2026-03-20",
+        "t": "READY STEADY GO",
+        "a": "HARRY STYLES",
+        "lw": 5,
+        "pk": 5,
+        "wc": 2
+      },
+      {
+        "w": "2026-03-27",
+        "t": "THE VISITOR",
+        "a": "SIENNA SPIRO",
+        "lw": 11,
+        "pk": 11,
+        "wc": 2
+      },
+      {
+        "w": "2026-04-03",
+        "t": "WHERE IS MY HUSBAND",
+        "a": "RAYE",
+        "lw": 24,
+        "pk": 1,
+        "wc": 28
+      },
+      {
+        "w": "2026-04-10",
+        "t": "WHERE IS MY HUSBAND",
+        "a": "RAYE",
+        "lw": 15,
+        "pk": 1,
+        "wc": 29
+      },
+      {
+        "w": "2026-04-17",
+        "t": "DAISIES",
+        "a": "JUSTIN BIEBER",
+        "lw": "RE",
+        "pk": 1,
+        "wc": 26
+      }
+    ],
+    "16": [
+      {
+        "w": "2026-01-02",
+        "t": "RUNNING UP THAT HILL",
+        "a": "KATE BUSH",
+        "lw": 94,
+        "pk": 1,
+        "wc": 57
+      },
+      {
+        "w": "2026-01-09",
+        "t": "A COUPLE MINUTES",
+        "a": "OLIVIA DEAN",
+        "lw": 20,
+        "pk": 13,
+        "wc": 6
+      },
+      {
+        "w": "2026-01-16",
+        "t": "A COUPLE MINUTES",
+        "a": "OLIVIA DEAN",
+        "lw": 16,
+        "pk": 13,
+        "wc": 7
+      },
+      {
+        "w": "2026-01-23",
+        "t": "ORDINARY",
+        "a": "ALEX WARREN",
+        "lw": 15,
+        "pk": 1,
+        "wc": 50
+      },
+      {
+        "w": "2026-01-30",
+        "t": "OPENING NIGHT",
+        "a": "ARCTIC MONKEYS",
+        "lw": "New",
+        "pk": 16,
+        "wc": 1
+      },
+      {
+        "w": "2026-02-06",
+        "t": "A COUPLE MINUTES",
+        "a": "OLIVIA DEAN",
+        "lw": 18,
+        "pk": 13,
+        "wc": 10
+      },
+      {
+        "w": "2026-02-13",
+        "t": "ORDINARY",
+        "a": "ALEX WARREN",
+        "lw": 17,
+        "pk": 1,
+        "wc": 53
+      },
+      {
+        "w": "2026-02-20",
+        "t": "NUEVAYOL",
+        "a": "BAD BUNNY",
+        "lw": 15,
+        "pk": 15,
+        "wc": 7
+      },
+      {
+        "w": "2026-02-27",
+        "t": "APERTURE",
+        "a": "HARRY STYLES",
+        "lw": 10,
+        "pk": 1,
+        "wc": 5
+      },
+      {
+        "w": "2026-03-06",
+        "t": "ORDINARY",
+        "a": "ALEX WARREN",
+        "lw": 19,
+        "pk": 1,
+        "wc": 56
+      },
+      {
+        "w": "2026-03-13",
+        "t": "RAINDANCE",
+        "a": "DAVE/TEMS",
+        "lw": 17,
+        "pk": 1,
+        "wc": 20
+      },
+      {
+        "w": "2026-03-20",
+        "t": "JUST THE WAY YOU ARE",
+        "a": "MILKY",
+        "lw": 14,
+        "pk": 8,
+        "wc": 13
+      },
+      {
+        "w": "2026-03-27",
+        "t": "JUST THE WAY YOU ARE",
+        "a": "MILKY",
+        "lw": 16,
+        "pk": 8,
+        "wc": 14
+      },
+      {
+        "w": "2026-04-03",
+        "t": "MIDNIGHT SUN",
+        "a": "ZARA LARSSON",
+        "lw": 21,
+        "pk": 16,
+        "wc": 14
+      },
+      {
+        "w": "2026-04-10",
+        "t": "CHOOSIN' TEXAS",
+        "a": "ELLA LANGLEY",
+        "lw": 29,
+        "pk": 16,
+        "wc": 14
+      },
+      {
+        "w": "2026-04-17",
+        "t": "CLICK CLACK SYMPHONY",
+        "a": "RAYE FT HANS ZIMMER",
+        "lw": 13,
+        "pk": 11,
+        "wc": 4
+      }
+    ],
+    "17": [
+      {
+        "w": "2026-01-02",
+        "t": "CENTURY",
+        "a": "ESDEEKID",
+        "lw": 54,
+        "pk": 10,
+        "wc": 9
+      },
+      {
+        "w": "2026-01-09",
+        "t": "EVERY BREATH YOU TAKE",
+        "a": "POLICE",
+        "lw": 58,
+        "pk": 1,
+        "wc": 17
+      },
+      {
+        "w": "2026-01-16",
+        "t": "RUNNING UP THAT HILL",
+        "a": "KATE BUSH",
+        "lw": 14,
+        "pk": 1,
+        "wc": 59
+      },
+      {
+        "w": "2026-01-23",
+        "t": "A COUPLE MINUTES",
+        "a": "OLIVIA DEAN",
+        "lw": 16,
+        "pk": 13,
+        "wc": 8
+      },
+      {
+        "w": "2026-01-30",
+        "t": "ORDINARY",
+        "a": "ALEX WARREN",
+        "lw": 16,
+        "pk": 1,
+        "wc": 51
+      },
+      {
+        "w": "2026-02-06",
+        "t": "ORDINARY",
+        "a": "ALEX WARREN",
+        "lw": 17,
+        "pk": 1,
+        "wc": 52
+      },
+      {
+        "w": "2026-02-13",
+        "t": "THE FATE OF OPHELIA",
+        "a": "TAYLOR SWIFT",
+        "lw": 5,
+        "pk": 1,
+        "wc": 19
+      },
+      {
+        "w": "2026-02-20",
+        "t": "CHAINS OF LOVE",
+        "a": "CHARLI XCX",
+        "lw": "RE",
+        "pk": 17,
+        "wc": 3
+      },
+      {
+        "w": "2026-02-27",
+        "t": "A COUPLE MINUTES",
+        "a": "OLIVIA DEAN",
+        "lw": 20,
+        "pk": 13,
+        "wc": 13
+      },
+      {
+        "w": "2026-03-06",
+        "t": "RAINDANCE",
+        "a": "DAVE/TEMS",
+        "lw": 14,
+        "pk": 1,
+        "wc": 19
+      },
+      {
+        "w": "2026-03-13",
+        "t": "DRACULA",
+        "a": "TAME IMPALA",
+        "lw": 22,
+        "pk": 17,
+        "wc": 20
+      },
+      {
+        "w": "2026-03-20",
+        "t": "OPALITE",
+        "a": "TAYLOR SWIFT",
+        "lw": 15,
+        "pk": 1,
+        "wc": 23
+      },
+      {
+        "w": "2026-03-27",
+        "t": "WHITE KEYS",
+        "a": "DOMINIC FIKE",
+        "lw": 18,
+        "pk": 17,
+        "wc": 8
+      },
+      {
+        "w": "2026-04-03",
+        "t": "THE VISITOR",
+        "a": "SIENNA SPIRO",
+        "lw": 15,
+        "pk": 11,
+        "wc": 3
+      },
+      {
+        "w": "2026-04-10",
+        "t": "RAINDANCE",
+        "a": "DAVE/TEMS",
+        "lw": 18,
+        "pk": 1,
+        "wc": 24
+      },
+      {
+        "w": "2026-04-17",
+        "t": "MIDNIGHT SUN",
+        "a": "ZARA LARSSON",
+        "lw": 12,
+        "pk": 12,
+        "wc": 16
+      }
+    ],
+    "18": [
+      {
+        "w": "2026-01-02",
+        "t": "HOW IT'S DONE",
+        "a": "HUNTR/X/EJAE/AUDREY NUNA/REI",
+        "lw": 81,
+        "pk": 9,
+        "wc": 15
+      },
+      {
+        "w": "2026-01-09",
+        "t": "PHANTOM",
+        "a": "ESDEEKID & RICO ACE",
+        "lw": 14,
+        "pk": 12,
+        "wc": 17
+      },
+      {
+        "w": "2026-01-16",
+        "t": "EVERY BREATH YOU TAKE",
+        "a": "POLICE",
+        "lw": 17,
+        "pk": 1,
+        "wc": 18
+      },
+      {
+        "w": "2026-01-23",
+        "t": "THINK ABOUT US",
+        "a": "SONNY FODERA/D O D/BASKCOMB",
+        "lw": 22,
+        "pk": 18,
+        "wc": 14
+      },
+      {
+        "w": "2026-01-30",
+        "t": "A COUPLE MINUTES",
+        "a": "OLIVIA DEAN",
+        "lw": 17,
+        "pk": 13,
+        "wc": 9
+      },
+      {
+        "w": "2026-02-06",
+        "t": "GOLDEN",
+        "a": "HUNTR/X/EJAE/AUDREY NUNA/REI",
+        "lw": 14,
+        "pk": 1,
+        "wc": 33
+      },
+      {
+        "w": "2026-02-13",
+        "t": "END OF BEGINNING",
+        "a": "DJO",
+        "lw": 3,
+        "pk": 1,
+        "wc": 33
+      },
+      {
+        "w": "2026-02-20",
+        "t": "TITI ME PREGUNTO",
+        "a": "BAD BUNNY",
+        "lw": -1,
+        "pk": 18,
+        "wc": 1
+      },
+      {
+        "w": "2026-02-27",
+        "t": "BABYDOLL",
+        "a": "DOMINIC FIKE",
+        "lw": 23,
+        "pk": 18,
+        "wc": 7
+      },
+      {
+        "w": "2026-03-06",
+        "t": "DTMF",
+        "a": "BAD BUNNY",
+        "lw": 10,
+        "pk": 4,
+        "wc": 12
+      },
+      {
+        "w": "2026-03-13",
+        "t": "INTO THE GROOVE",
+        "a": "MADONNA",
+        "lw": 40,
+        "pk": 1,
+        "wc": 18
+      },
+      {
+        "w": "2026-03-20",
+        "t": "WHITE KEYS",
+        "a": "DOMINIC FIKE",
+        "lw": 19,
+        "pk": 18,
+        "wc": 7
+      },
+      {
+        "w": "2026-03-27",
+        "t": "CLICK CLACK SYMPHONY",
+        "a": "RAYE FT HANS ZIMMER",
+        "lw": "New",
+        "pk": 18,
+        "wc": 1
+      },
+      {
+        "w": "2026-04-03",
+        "t": "RAINDANCE",
+        "a": "DAVE/TEMS",
+        "lw": 20,
+        "pk": 1,
+        "wc": 23
+      },
+      {
+        "w": "2026-04-10",
+        "t": "SWIM",
+        "a": "BTS",
+        "lw": 5,
+        "pk": 2,
+        "wc": 3
+      },
+      {
+        "w": "2026-04-17",
+        "t": "ORDINARY",
+        "a": "ALEX WARREN",
+        "lw": 14,
+        "pk": 1,
+        "wc": 62
+      }
+    ],
+    "19": [
+      {
+        "w": "2026-01-02",
+        "t": "WHAT IT SOUNDS LIKE",
+        "a": "HUNTR/X/EJAE/AUDREY NUNA/REI",
+        "lw": "RE",
+        "pk": 13,
+        "wc": 10
+      },
+      {
+        "w": "2026-01-09",
+        "t": "CENTURY",
+        "a": "ESDEEKID",
+        "lw": 17,
+        "pk": 10,
+        "wc": 10
+      },
+      {
+        "w": "2026-01-16",
+        "t": "PHANTOM",
+        "a": "ESDEEKID & RICO ACE",
+        "lw": 18,
+        "pk": 12,
+        "wc": 18
+      },
+      {
+        "w": "2026-01-23",
+        "t": "EVERY BREATH YOU TAKE",
+        "a": "POLICE",
+        "lw": 18,
+        "pk": 1,
+        "wc": 19
+      },
+      {
+        "w": "2026-01-30",
+        "t": "PURPLE RAIN",
+        "a": "PRINCE & THE REVOLUTION",
+        "lw": 15,
+        "pk": 12,
+        "wc": 4
+      },
+      {
+        "w": "2026-02-06",
+        "t": "THINK ABOUT US",
+        "a": "SONNY FODERA/D O D/BASKCOMB",
+        "lw": 20,
+        "pk": 18,
+        "wc": 16
+      },
+      {
+        "w": "2026-02-13",
+        "t": "A COUPLE MINUTES",
+        "a": "OLIVIA DEAN",
+        "lw": 16,
+        "pk": 13,
+        "wc": 11
+      },
+      {
+        "w": "2026-02-20",
+        "t": "GOLDEN",
+        "a": "HUNTR/X/EJAE/AUDREY NUNA/REI",
+        "lw": 21,
+        "pk": 1,
+        "wc": 35
+      },
+      {
+        "w": "2026-02-27",
+        "t": "ORDINARY",
+        "a": "ALEX WARREN",
+        "lw": 15,
+        "pk": 1,
+        "wc": 55
+      },
+      {
+        "w": "2026-03-06",
+        "t": "THE HARDEST PART",
+        "a": "OLIVIA DEAN",
+        "lw": -1,
+        "pk": 19,
+        "wc": 1
+      },
+      {
+        "w": "2026-03-13",
+        "t": "WHITE KEYS",
+        "a": "DOMINIC FIKE",
+        "lw": 27,
+        "pk": 19,
+        "wc": 6
+      },
+      {
+        "w": "2026-03-20",
+        "t": "PORCH LIGHT",
+        "a": "NOAH KAHAN",
+        "lw": "New",
+        "pk": 19,
+        "wc": 1
+      },
+      {
+        "w": "2026-03-27",
+        "t": "OPALITE",
+        "a": "TAYLOR SWIFT",
+        "lw": 17,
+        "pk": 1,
+        "wc": 24
+      },
+      {
+        "w": "2026-04-03",
+        "t": "ORDINARY",
+        "a": "ALEX WARREN",
+        "lw": 23,
+        "pk": 1,
+        "wc": 60
+      },
+      {
+        "w": "2026-04-10",
+        "t": "STATESIDE",
+        "a": "PINKPANTHERESS",
+        "lw": 20,
+        "pk": 3,
+        "wc": 22
+      },
+      {
+        "w": "2026-04-17",
+        "t": "WHERE IS MY HUSBAND",
+        "a": "RAYE",
+        "lw": 15,
+        "pk": 1,
+        "wc": 30
+      }
+    ],
+    "20": [
+      {
+        "w": "2026-01-02",
+        "t": "A COUPLE MINUTES",
+        "a": "OLIVIA DEAN",
+        "lw": -1,
+        "pk": 13,
+        "wc": 5
+      },
+      {
+        "w": "2026-01-09",
+        "t": "LANDSLIDE",
+        "a": "FLEETWOOD MAC",
+        "lw": "New",
+        "pk": 20,
+        "wc": 1
+      },
+      {
+        "w": "2026-01-16",
+        "t": "4 RAWS",
+        "a": "ESDEEKID",
+        "lw": 23,
+        "pk": 20,
+        "wc": 15
+      },
+      {
+        "w": "2026-01-23",
+        "t": "4 RAWS",
+        "a": "ESDEEKID",
+        "lw": 20,
+        "pk": 20,
+        "wc": 16
+      },
+      {
+        "w": "2026-01-30",
+        "t": "THINK ABOUT US",
+        "a": "SONNY FODERA/D O D/BASKCOMB",
+        "lw": 18,
+        "pk": 18,
+        "wc": 15
+      },
+      {
+        "w": "2026-02-06",
+        "t": "MIDNIGHT SUN",
+        "a": "ZARA LARSSON",
+        "lw": 26,
+        "pk": 20,
+        "wc": 6
+      },
+      {
+        "w": "2026-02-13",
+        "t": "BAILE INOLVIDABLE",
+        "a": "BAD BUNNY",
+        "lw": "RE",
+        "pk": 20,
+        "wc": 4
+      },
+      {
+        "w": "2026-02-20",
+        "t": "A COUPLE MINUTES",
+        "a": "OLIVIA DEAN",
+        "lw": 19,
+        "pk": 13,
+        "wc": 12
+      },
+      {
+        "w": "2026-02-27",
+        "t": "GOLDEN",
+        "a": "HUNTR/X/EJAE/AUDREY NUNA/REI",
+        "lw": 19,
+        "pk": 1,
+        "wc": 36
+      },
+      {
+        "w": "2026-03-06",
+        "t": "NIGHTINGALE LANE.",
+        "a": "RAYE",
+        "lw": "New",
+        "pk": 20,
+        "wc": 1
+      },
+      {
+        "w": "2026-03-13",
+        "t": "WHERE IS MY HUSBAND",
+        "a": "RAYE",
+        "lw": 13,
+        "pk": 1,
+        "wc": 25
+      },
+      {
+        "w": "2026-03-20",
+        "t": "MIDNIGHT SUN",
+        "a": "ZARA LARSSON",
+        "lw": 22,
+        "pk": 20,
+        "wc": 12
+      },
+      {
+        "w": "2026-03-27",
+        "t": "RAINDANCE",
+        "a": "DAVE/TEMS",
+        "lw": 21,
+        "pk": 1,
+        "wc": 22
+      },
+      {
+        "w": "2026-04-03",
+        "t": "STATESIDE",
+        "a": "PINKPANTHERESS",
+        "lw": 5,
+        "pk": 3,
+        "wc": 21
+      },
+      {
+        "w": "2026-04-10",
+        "t": "THE VISITOR",
+        "a": "SIENNA SPIRO",
+        "lw": 17,
+        "pk": 11,
+        "wc": 4
+      },
+      {
+        "w": "2026-04-17",
+        "t": "HOUSE TOUR",
+        "a": "SABRINA CARPENTER",
+        "lw": "RE",
+        "pk": 17,
+        "wc": 10
+      }
+    ],
+    "21": [
+      {
+        "w": "2026-01-02",
+        "t": "LAST CHRISTMAS",
+        "a": "WHAM",
+        "lw": 1,
+        "pk": 1,
+        "wc": 115
+      },
+      {
+        "w": "2026-01-09",
+        "t": "CHANEL",
+        "a": "TYLA",
+        "lw": 15,
+        "pk": 15,
+        "wc": 8
+      },
+      {
+        "w": "2026-01-16",
+        "t": "CENTURY",
+        "a": "ESDEEKID",
+        "lw": 19,
+        "pk": 10,
+        "wc": 11
+      },
+      {
+        "w": "2026-01-23",
+        "t": "PHANTOM",
+        "a": "ESDEEKID & RICO ACE",
+        "lw": 19,
+        "pk": 12,
+        "wc": 19
+      },
+      {
+        "w": "2026-01-30",
+        "t": "EVERY BREATH YOU TAKE",
+        "a": "POLICE",
+        "lw": 19,
+        "pk": 1,
+        "wc": 20
+      },
+      {
+        "w": "2026-02-06",
+        "t": "PURPLE RAIN",
+        "a": "PRINCE & THE REVOLUTION",
+        "lw": 19,
+        "pk": 12,
+        "wc": 5
+      },
+      {
+        "w": "2026-02-13",
+        "t": "GOLDEN",
+        "a": "HUNTR/X/EJAE/AUDREY NUNA/REI",
+        "lw": 18,
+        "pk": 1,
+        "wc": 34
+      },
+      {
+        "w": "2026-02-20",
+        "t": "THE FATE OF OPHELIA",
+        "a": "TAYLOR SWIFT",
+        "lw": 17,
+        "pk": 1,
+        "wc": 20
+      },
+      {
+        "w": "2026-02-27",
+        "t": "THE FATE OF OPHELIA",
+        "a": "TAYLOR SWIFT",
+        "lw": 21,
+        "pk": 1,
+        "wc": 21
+      },
+      {
+        "w": "2026-03-06",
+        "t": "CHAINS OF LOVE",
+        "a": "CHARLI XCX",
+        "lw": 12,
+        "pk": 12,
+        "wc": 5
+      },
+      {
+        "w": "2026-03-13",
+        "t": "ORDINARY",
+        "a": "ALEX WARREN",
+        "lw": 16,
+        "pk": 1,
+        "wc": 57
+      },
+      {
+        "w": "2026-03-20",
+        "t": "RAINDANCE",
+        "a": "DAVE/TEMS",
+        "lw": 16,
+        "pk": 1,
+        "wc": 21
+      },
+      {
+        "w": "2026-03-27",
+        "t": "MIDNIGHT SUN",
+        "a": "ZARA LARSSON",
+        "lw": 20,
+        "pk": 20,
+        "wc": 13
+      },
+      {
+        "w": "2026-04-03",
+        "t": "SO EASY (TO FALL IN LOVE)",
+        "a": "OLIVIA DEAN",
+        "lw": 6,
+        "pk": 2,
+        "wc": 26
+      },
+      {
+        "w": "2026-04-10",
+        "t": "SO EASY (TO FALL IN LOVE)",
+        "a": "OLIVIA DEAN",
+        "lw": 21,
+        "pk": 2,
+        "wc": 27
+      },
+      {
+        "w": "2026-04-17",
+        "t": "RAINDANCE",
+        "a": "DAVE/TEMS",
+        "lw": 17,
+        "pk": 1,
+        "wc": 25
+      }
+    ],
+    "22": [
+      {
+        "w": "2026-01-02",
+        "t": "XMAS",
+        "a": "KYLIE MINOGUE",
+        "lw": 4,
+        "pk": 1,
+        "wc": 6
+      },
+      {
+        "w": "2026-01-09",
+        "t": "CALIFORNIA RAIN",
+        "a": "JAMES MARRIOTT",
+        "lw": "New",
+        "pk": 22,
+        "wc": 1
+      },
+      {
+        "w": "2026-01-16",
+        "t": "THINK ABOUT US",
+        "a": "SONNY FODERA/D O D/BASKCOMB",
+        "lw": 25,
+        "pk": 22,
+        "wc": 13
+      },
+      {
+        "w": "2026-01-23",
+        "t": "RUNNING UP THAT HILL",
+        "a": "KATE BUSH",
+        "lw": 17,
+        "pk": 1,
+        "wc": 60
+      },
+      {
+        "w": "2026-01-30",
+        "t": "PHANTOM",
+        "a": "ESDEEKID & RICO ACE",
+        "lw": 21,
+        "pk": 12,
+        "wc": 20
+      },
+      {
+        "w": "2026-02-06",
+        "t": "BOYS DON'T CRY",
+        "a": "CURE",
+        "lw": 36,
+        "pk": 22,
+        "wc": 3
+      },
+      {
+        "w": "2026-02-13",
+        "t": "MIDNIGHT SUN",
+        "a": "ZARA LARSSON",
+        "lw": 20,
+        "pk": 20,
+        "wc": 7
+      },
+      {
+        "w": "2026-02-20",
+        "t": "MIDNIGHT SUN",
+        "a": "ZARA LARSSON",
+        "lw": 22,
+        "pk": 20,
+        "wc": 8
+      },
+      {
+        "w": "2026-02-27",
+        "t": "MIDNIGHT SUN",
+        "a": "ZARA LARSSON",
+        "lw": 22,
+        "pk": 20,
+        "wc": 9
+      },
+      {
+        "w": "2026-03-06",
+        "t": "DRACULA",
+        "a": "TAME IMPALA",
+        "lw": 28,
+        "pk": 21,
+        "wc": 19
+      },
+      {
+        "w": "2026-03-13",
+        "t": "MIDNIGHT SUN",
+        "a": "ZARA LARSSON",
+        "lw": 25,
+        "pk": 20,
+        "wc": 11
+      },
+      {
+        "w": "2026-03-20",
+        "t": "INTO THE GROOVE",
+        "a": "MADONNA",
+        "lw": 18,
+        "pk": 1,
+        "wc": 19
+      },
+      {
+        "w": "2026-03-27",
+        "t": "READY STEADY GO",
+        "a": "HARRY STYLES",
+        "lw": 15,
+        "pk": 5,
+        "wc": 3
+      },
+      {
+        "w": "2026-04-03",
+        "t": "I KNOW YOU'RE HURTING",
+        "a": "RAYE",
+        "lw": "New",
+        "pk": 22,
+        "wc": 1
+      },
+      {
+        "w": "2026-04-10",
+        "t": "GOLDEN",
+        "a": "HUNTR/X/EJAE/AUDREY NUNA/REI",
+        "lw": 23,
+        "pk": 1,
+        "wc": 42
+      },
+      {
+        "w": "2026-04-17",
+        "t": "STATESIDE",
+        "a": "PINKPANTHERESS",
+        "lw": 19,
+        "pk": 3,
+        "wc": 23
+      }
+    ],
+    "23": [
+      {
+        "w": "2026-01-02",
+        "t": "4 RAWS",
+        "a": "ESDEEKID",
+        "lw": 65,
+        "pk": 23,
+        "wc": 13
+      },
+      {
+        "w": "2026-01-09",
+        "t": "4 RAWS",
+        "a": "ESDEEKID",
+        "lw": 23,
+        "pk": 23,
+        "wc": 14
+      },
+      {
+        "w": "2026-01-16",
+        "t": "STATESIDE",
+        "a": "PINKPANTHERESS",
+        "lw": 35,
+        "pk": 23,
+        "wc": 10
+      },
+      {
+        "w": "2026-01-23",
+        "t": "DIE WITH A SMILE",
+        "a": "LADY GAGA & BRUNO MARS",
+        "lw": 28,
+        "pk": 2,
+        "wc": 65
+      },
+      {
+        "w": "2026-01-30",
+        "t": "4 RAWS",
+        "a": "ESDEEKID",
+        "lw": 20,
+        "pk": 20,
+        "wc": 17
+      },
+      {
+        "w": "2026-02-06",
+        "t": "DIE WITH A SMILE",
+        "a": "LADY GAGA & BRUNO MARS",
+        "lw": 30,
+        "pk": 2,
+        "wc": 67
+      },
+      {
+        "w": "2026-02-13",
+        "t": "JUST THE WAY YOU ARE",
+        "a": "MILKY",
+        "lw": 35,
+        "pk": 8,
+        "wc": 8
+      },
+      {
+        "w": "2026-02-20",
+        "t": "BABYDOLL",
+        "a": "DOMINIC FIKE",
+        "lw": 30,
+        "pk": 23,
+        "wc": 6
+      },
+      {
+        "w": "2026-02-27",
+        "t": "DRAG PATH",
+        "a": "TWENTY ONE PILOTS",
+        "lw": "New",
+        "pk": 23,
+        "wc": 1
+      },
+      {
+        "w": "2026-03-06",
+        "t": "THE GREAT DIVIDE",
+        "a": "NOAH KAHAN",
+        "lw": 15,
+        "pk": 10,
+        "wc": 5
+      },
+      {
+        "w": "2026-03-13",
+        "t": "THE HARDEST PART",
+        "a": "OLIVIA DEAN",
+        "lw": 19,
+        "pk": 19,
+        "wc": 2
+      },
+      {
+        "w": "2026-03-20",
+        "t": "ORDINARY",
+        "a": "ALEX WARREN",
+        "lw": 21,
+        "pk": 1,
+        "wc": 58
+      },
+      {
+        "w": "2026-03-27",
+        "t": "ORDINARY",
+        "a": "ALEX WARREN",
+        "lw": 23,
+        "pk": 1,
+        "wc": 59
+      },
+      {
+        "w": "2026-04-03",
+        "t": "GOLDEN",
+        "a": "HUNTR/X/EJAE/AUDREY NUNA/REI",
+        "lw": 27,
+        "pk": 1,
+        "wc": 41
+      },
+      {
+        "w": "2026-04-10",
+        "t": "READY STEADY GO",
+        "a": "HARRY STYLES",
+        "lw": 24,
+        "pk": 5,
+        "wc": 5
+      },
+      {
+        "w": "2026-04-17",
+        "t": "THE VISITOR",
+        "a": "SIENNA SPIRO",
+        "lw": 20,
+        "pk": 11,
+        "wc": 5
+      }
+    ],
+    "24": [
+      {
+        "w": "2026-01-02",
+        "t": "THINK ABOUT US",
+        "a": "SONNY FODERA/D O D/BASKCOMB",
+        "lw": 89,
+        "pk": 24,
+        "wc": 11
+      },
+      {
+        "w": "2026-01-09",
+        "t": "INTERNET GIRL",
+        "a": "KATSEYE",
+        "lw": "New",
+        "pk": 24,
+        "wc": 1
+      },
+      {
+        "w": "2026-01-16",
+        "t": "FOLDED",
+        "a": "KEHLANI",
+        "lw": 30,
+        "pk": 20,
+        "wc": 20
+      },
+      {
+        "w": "2026-01-23",
+        "t": "FOLDED",
+        "a": "KEHLANI",
+        "lw": 24,
+        "pk": 20,
+        "wc": 21
+      },
+      {
+        "w": "2026-01-30",
+        "t": "RUNNING UP THAT HILL",
+        "a": "KATE BUSH",
+        "lw": 22,
+        "pk": 1,
+        "wc": 61
+      },
+      {
+        "w": "2026-02-06",
+        "t": "FOLDED",
+        "a": "KEHLANI",
+        "lw": 29,
+        "pk": 20,
+        "wc": 23
+      },
+      {
+        "w": "2026-02-13",
+        "t": "THINK ABOUT US",
+        "a": "SONNY FODERA/D O D/BASKCOMB",
+        "lw": 19,
+        "pk": 18,
+        "wc": 17
+      },
+      {
+        "w": "2026-02-20",
+        "t": "END OF BEGINNING",
+        "a": "DJO",
+        "lw": 18,
+        "pk": 1,
+        "wc": 34
+      },
+      {
+        "w": "2026-02-27",
+        "t": "DYING FOR YOU",
+        "a": "CHARLI XCX",
+        "lw": 27,
+        "pk": 24,
+        "wc": 2
+      },
+      {
+        "w": "2026-03-06",
+        "t": "GOLDEN",
+        "a": "HUNTR/X/EJAE/AUDREY NUNA/REI",
+        "lw": 20,
+        "pk": 1,
+        "wc": 37
+      },
+      {
+        "w": "2026-03-13",
+        "t": "RISK IT ALL",
+        "a": "BRUNO MARS",
+        "lw": 15,
+        "pk": 15,
+        "wc": 2
+      },
+      {
+        "w": "2026-03-20",
+        "t": "THE HARDEST PART",
+        "a": "OLIVIA DEAN",
+        "lw": 23,
+        "pk": 19,
+        "wc": 3
+      },
+      {
+        "w": "2026-03-27",
+        "t": "WHERE IS MY HUSBAND",
+        "a": "RAYE",
+        "lw": 25,
+        "pk": 1,
+        "wc": 27
+      },
+      {
+        "w": "2026-04-03",
+        "t": "READY STEADY GO",
+        "a": "HARRY STYLES",
+        "lw": 22,
+        "pk": 5,
+        "wc": 4
+      },
+      {
+        "w": "2026-04-10",
+        "t": "(WHEN YOU GONNA) GIVE IT UP TO ME",
+        "a": "SEAN PAUL FT KEYSHIA COLE",
+        "lw": 26,
+        "pk": 24,
+        "wc": 10
+      },
+      {
+        "w": "2026-04-17",
+        "t": "SO EASY (TO FALL IN LOVE)",
+        "a": "OLIVIA DEAN",
+        "lw": 21,
+        "pk": 2,
+        "wc": 28
+      }
+    ],
+    "25": [
+      {
+        "w": "2026-01-02",
+        "t": "TIT FOR TAT",
+        "a": "TATE MCRAE",
+        "lw": "RE",
+        "pk": 6,
+        "wc": 13
+      },
+      {
+        "w": "2026-01-09",
+        "t": "THINK ABOUT US",
+        "a": "SONNY FODERA/D O D/BASKCOMB",
+        "lw": 24,
+        "pk": 24,
+        "wc": 12
+      },
+      {
+        "w": "2026-01-16",
+        "t": "CHANEL",
+        "a": "TYLA",
+        "lw": 21,
+        "pk": 15,
+        "wc": 9
+      },
+      {
+        "w": "2026-01-23",
+        "t": "CHANEL",
+        "a": "TYLA",
+        "lw": 25,
+        "pk": 15,
+        "wc": 10
+      },
+      {
+        "w": "2026-01-30",
+        "t": "CHANEL",
+        "a": "TYLA",
+        "lw": 25,
+        "pk": 15,
+        "wc": 11
+      },
+      {
+        "w": "2026-02-06",
+        "t": "PHANTOM",
+        "a": "ESDEEKID & RICO ACE",
+        "lw": 22,
+        "pk": 12,
+        "wc": 21
+      },
+      {
+        "w": "2026-02-13",
+        "t": "DRACULA",
+        "a": "TAME IMPALA",
+        "lw": 65,
+        "pk": 21,
+        "wc": 16
+      },
+      {
+        "w": "2026-02-20",
+        "t": "THINK ABOUT US",
+        "a": "SONNY FODERA/D O D/BASKCOMB",
+        "lw": 24,
+        "pk": 18,
+        "wc": 18
+      },
+      {
+        "w": "2026-02-27",
+        "t": "END OF BEGINNING",
+        "a": "DJO",
+        "lw": 24,
+        "pk": 1,
+        "wc": 35
+      },
+      {
+        "w": "2026-03-06",
+        "t": "MIDNIGHT SUN",
+        "a": "ZARA LARSSON",
+        "lw": 22,
+        "pk": 20,
+        "wc": 10
+      },
+      {
+        "w": "2026-03-13",
+        "t": "GOLDEN",
+        "a": "HUNTR/X/EJAE/AUDREY NUNA/REI",
+        "lw": 24,
+        "pk": 1,
+        "wc": 38
+      },
+      {
+        "w": "2026-03-20",
+        "t": "WHERE IS MY HUSBAND",
+        "a": "RAYE",
+        "lw": 20,
+        "pk": 1,
+        "wc": 26
+      },
+      {
+        "w": "2026-03-27",
+        "t": "THE HARDEST PART",
+        "a": "OLIVIA DEAN",
+        "lw": 24,
+        "pk": 19,
+        "wc": 4
+      },
+      {
+        "w": "2026-04-03",
+        "t": "THE FATE OF OPHELIA",
+        "a": "TAYLOR SWIFT",
+        "lw": 30,
+        "pk": 1,
+        "wc": 26
+      },
+      {
+        "w": "2026-04-10",
+        "t": "THE FATE OF OPHELIA",
+        "a": "TAYLOR SWIFT",
+        "lw": 25,
+        "pk": 1,
+        "wc": 27
+      },
+      {
+        "w": "2026-04-17",
+        "t": "SWIM",
+        "a": "BTS",
+        "lw": 18,
+        "pk": 2,
+        "wc": 4
+      }
+    ],
+    "26": [
+      {
+        "w": "2026-01-02",
+        "t": "NO BROKE BOYS",
+        "a": "DISCO LINES & TINASHE",
+        "lw": 93,
+        "pk": 2,
+        "wc": 29
+      },
+      {
+        "w": "2026-01-09",
+        "t": "UPSIDE DOWN",
+        "a": "DIANA ROSS",
+        "lw": 86,
+        "pk": 2,
+        "wc": 14
+      },
+      {
+        "w": "2026-01-16",
+        "t": "YOU STOLE THE SHOW",
+        "a": "SIENNA SPIRO",
+        "lw": 37,
+        "pk": 26,
+        "wc": 13
+      },
+      {
+        "w": "2026-01-23",
+        "t": "CENTURY",
+        "a": "ESDEEKID",
+        "lw": 21,
+        "pk": 10,
+        "wc": 12
+      },
+      {
+        "w": "2026-01-30",
+        "t": "MIDNIGHT SUN",
+        "a": "ZARA LARSSON",
+        "lw": 29,
+        "pk": 26,
+        "wc": 5
+      },
+      {
+        "w": "2026-02-06",
+        "t": "12 TO 12",
+        "a": "SOMBR",
+        "lw": 33,
+        "pk": 7,
+        "wc": 27
+      },
+      {
+        "w": "2026-02-13",
+        "t": "12 TO 12",
+        "a": "SOMBR",
+        "lw": 26,
+        "pk": 7,
+        "wc": 28
+      },
+      {
+        "w": "2026-02-20",
+        "t": "ILOVEITILOVEITILOVEIT",
+        "a": "BELLA KAY",
+        "lw": 39,
+        "pk": 26,
+        "wc": 4
+      },
+      {
+        "w": "2026-02-27",
+        "t": "THINK ABOUT US",
+        "a": "SONNY FODERA/D O D/BASKCOMB",
+        "lw": 25,
+        "pk": 18,
+        "wc": 19
+      },
+      {
+        "w": "2026-03-06",
+        "t": "THE FATE OF OPHELIA",
+        "a": "TAYLOR SWIFT",
+        "lw": 21,
+        "pk": 1,
+        "wc": 22
+      },
+      {
+        "w": "2026-03-13",
+        "t": "CHAINS OF LOVE",
+        "a": "CHARLI XCX",
+        "lw": 21,
+        "pk": 12,
+        "wc": 6
+      },
+      {
+        "w": "2026-03-20",
+        "t": "GOLDEN",
+        "a": "HUNTR/X/EJAE/AUDREY NUNA/REI",
+        "lw": 25,
+        "pk": 1,
+        "wc": 39
+      },
+      {
+        "w": "2026-03-27",
+        "t": "PORCH LIGHT",
+        "a": "NOAH KAHAN",
+        "lw": 19,
+        "pk": 19,
+        "wc": 2
+      },
+      {
+        "w": "2026-04-03",
+        "t": "(WHEN YOU GONNA) GIVE IT UP TO ME",
+        "a": "SEAN PAUL FT KEYSHIA COLE",
+        "lw": 31,
+        "pk": 26,
+        "wc": 9
+      },
+      {
+        "w": "2026-04-10",
+        "t": "I JUST MIGHT",
+        "a": "BRUNO MARS",
+        "lw": 33,
+        "pk": 5,
+        "wc": 13
+      },
+      {
+        "w": "2026-04-17",
+        "t": "YUKON",
+        "a": "JUSTIN BIEBER",
+        "lw": "RE",
+        "pk": 12,
+        "wc": 18
+      }
+    ],
+    "27": [
+      {
+        "w": "2026-01-02",
+        "t": "FOLDED",
+        "a": "KEHLANI",
+        "lw": "RE",
+        "pk": 20,
+        "wc": 18
+      },
+      {
+        "w": "2026-01-09",
+        "t": "I THINK WE'RE ALONE NOW",
+        "a": "TIFFANY",
+        "lw": 29,
+        "pk": 1,
+        "wc": 15
+      },
+      {
+        "w": "2026-01-16",
+        "t": "LANDSLIDE",
+        "a": "FLEETWOOD MAC",
+        "lw": 20,
+        "pk": 20,
+        "wc": 2
+      },
+      {
+        "w": "2026-01-23",
+        "t": "YOU STOLE THE SHOW",
+        "a": "SIENNA SPIRO",
+        "lw": 26,
+        "pk": 26,
+        "wc": 14
+      },
+      {
+        "w": "2026-01-30",
+        "t": "WHAT YOU SAYING",
+        "a": "LIL UZI VERT",
+        "lw": 41,
+        "pk": 27,
+        "wc": 4
+      },
+      {
+        "w": "2026-02-06",
+        "t": "4 RAWS",
+        "a": "ESDEEKID",
+        "lw": 23,
+        "pk": 20,
+        "wc": 18
+      },
+      {
+        "w": "2026-02-13",
+        "t": "DRIVE SAFE",
+        "a": "MYLES SMITH & NIALL HORAN",
+        "lw": "New",
+        "pk": 27,
+        "wc": 1
+      },
+      {
+        "w": "2026-02-20",
+        "t": "DYING FOR YOU",
+        "a": "CHARLI XCX",
+        "lw": "New",
+        "pk": 27,
+        "wc": 1
+      },
+      {
+        "w": "2026-02-27",
+        "t": "NUEVAYOL",
+        "a": "BAD BUNNY",
+        "lw": 16,
+        "pk": 15,
+        "wc": 8
+      },
+      {
+        "w": "2026-03-06",
+        "t": "WHITE KEYS",
+        "a": "DOMINIC FIKE",
+        "lw": 41,
+        "pk": 27,
+        "wc": 5
+      },
+      {
+        "w": "2026-03-13",
+        "t": "THE GREAT DIVIDE",
+        "a": "NOAH KAHAN",
+        "lw": 23,
+        "pk": 10,
+        "wc": 6
+      },
+      {
+        "w": "2026-03-20",
+        "t": "THE GREAT DIVIDE",
+        "a": "NOAH KAHAN",
+        "lw": 27,
+        "pk": 10,
+        "wc": 7
+      },
+      {
+        "w": "2026-03-27",
+        "t": "GOLDEN",
+        "a": "HUNTR/X/EJAE/AUDREY NUNA/REI",
+        "lw": 26,
+        "pk": 1,
+        "wc": 40
+      },
+      {
+        "w": "2026-04-03",
+        "t": "FATHER",
+        "a": "YE/TRAVIS SCOTT",
+        "lw": "New",
+        "pk": 27,
+        "wc": 1
+      },
+      {
+        "w": "2026-04-10",
+        "t": "NICE TO EACH OTHER",
+        "a": "OLIVIA DEAN",
+        "lw": 30,
+        "pk": 4,
+        "wc": 24
+      },
+      {
+        "w": "2026-04-17",
+        "t": "(WHEN YOU GONNA) GIVE IT UP TO ME",
+        "a": "SEAN PAUL FT KEYSHIA COLE",
+        "lw": 24,
+        "pk": 24,
+        "wc": 11
+      }
+    ],
+    "28": [
+      {
+        "w": "2026-01-02",
+        "t": "12 TO 12",
+        "a": "SOMBR",
+        "lw": "RE",
+        "pk": 7,
+        "wc": 22
+      },
+      {
+        "w": "2026-01-09",
+        "t": "WHAT IT SOUNDS LIKE",
+        "a": "HUNTR/X/EJAE/AUDREY NUNA/REI",
+        "lw": 19,
+        "pk": 13,
+        "wc": 11
+      },
+      {
+        "w": "2026-01-16",
+        "t": "DIE WITH A SMILE",
+        "a": "LADY GAGA & BRUNO MARS",
+        "lw": "RE",
+        "pk": 2,
+        "wc": 64
+      },
+      {
+        "w": "2026-01-23",
+        "t": "LOCKED OUT OF HEAVEN",
+        "a": "BRUNO MARS",
+        "lw": 36,
+        "pk": 2,
+        "wc": 41
+      },
+      {
+        "w": "2026-01-30",
+        "t": "AS IT WAS",
+        "a": "HARRY STYLES",
+        "lw": "RE",
+        "pk": 1,
+        "wc": 103
+      },
+      {
+        "w": "2026-02-06",
+        "t": "YOU STOLE THE SHOW",
+        "a": "SIENNA SPIRO",
+        "lw": 32,
+        "pk": 26,
+        "wc": 16
+      },
+      {
+        "w": "2026-02-13",
+        "t": "DIE WITH A SMILE",
+        "a": "LADY GAGA & BRUNO MARS",
+        "lw": 23,
+        "pk": 2,
+        "wc": 68
+      },
+      {
+        "w": "2026-02-20",
+        "t": "DIE WITH A SMILE",
+        "a": "LADY GAGA & BRUNO MARS",
+        "lw": 28,
+        "pk": 2,
+        "wc": 69
+      },
+      {
+        "w": "2026-02-27",
+        "t": "DRACULA",
+        "a": "TAME IMPALA",
+        "lw": 32,
+        "pk": 21,
+        "wc": 18
+      },
+      {
+        "w": "2026-03-06",
+        "t": "END OF BEGINNING",
+        "a": "DJO",
+        "lw": 25,
+        "pk": 1,
+        "wc": 36
+      },
+      {
+        "w": "2026-03-13",
+        "t": "THE FATE OF OPHELIA",
+        "a": "TAYLOR SWIFT",
+        "lw": 26,
+        "pk": 1,
+        "wc": 23
+      },
+      {
+        "w": "2026-03-20",
+        "t": "THE FATE OF OPHELIA",
+        "a": "TAYLOR SWIFT",
+        "lw": 28,
+        "pk": 1,
+        "wc": 24
+      },
+      {
+        "w": "2026-03-27",
+        "t": "BODY TO BODY",
+        "a": "BTS",
+        "lw": "New",
+        "pk": 28,
+        "wc": 1
+      },
+      {
+        "w": "2026-04-03",
+        "t": "ALL THE LOVE",
+        "a": "YE/ANDRE TROUTMAN",
+        "lw": "New",
+        "pk": 28,
+        "wc": 1
+      },
+      {
+        "w": "2026-04-10",
+        "t": "SIGN OF THE TIMES",
+        "a": "HARRY STYLES",
+        "lw": -1,
+        "pk": 1,
+        "wc": 28
+      },
+      {
+        "w": "2026-04-17",
+        "t": "READY STEADY GO",
+        "a": "HARRY STYLES",
+        "lw": 23,
+        "pk": 5,
+        "wc": 6
+      }
+    ],
+    "29": [
+      {
+        "w": "2026-01-02",
+        "t": "I THINK WE'RE ALONE NOW",
+        "a": "TIFFANY",
+        "lw": "RE",
+        "pk": 1,
+        "wc": 14
+      },
+      {
+        "w": "2026-01-09",
+        "t": "HOW IT'S DONE",
+        "a": "HUNTR/X/EJAE/AUDREY NUNA/REI",
+        "lw": 18,
+        "pk": 9,
+        "wc": 16
+      },
+      {
+        "w": "2026-01-16",
+        "t": "PLASTIC CIGARETTE",
+        "a": "ZACH BRYAN",
+        "lw": "New",
+        "pk": 29,
+        "wc": 1
+      },
+      {
+        "w": "2026-01-23",
+        "t": "MIDNIGHT SUN",
+        "a": "ZARA LARSSON",
+        "lw": 39,
+        "pk": 29,
+        "wc": 4
+      },
+      {
+        "w": "2026-01-30",
+        "t": "FOLDED",
+        "a": "KEHLANI",
+        "lw": 24,
+        "pk": 20,
+        "wc": 22
+      },
+      {
+        "w": "2026-02-06",
+        "t": "WHAT YOU SAYING",
+        "a": "LIL UZI VERT",
+        "lw": 27,
+        "pk": 27,
+        "wc": 5
+      },
+      {
+        "w": "2026-02-13",
+        "t": "YUKON",
+        "a": "JUSTIN BIEBER",
+        "lw": "RE",
+        "pk": 12,
+        "wc": 14
+      },
+      {
+        "w": "2026-02-20",
+        "t": "DIE ON THIS HILL",
+        "a": "SIENNA SPIRO",
+        "lw": 11,
+        "pk": 9,
+        "wc": 19
+      },
+      {
+        "w": "2026-02-27",
+        "t": "DIE ON THIS HILL",
+        "a": "SIENNA SPIRO",
+        "lw": 29,
+        "pk": 9,
+        "wc": 20
+      },
+      {
+        "w": "2026-03-06",
+        "t": "THINK ABOUT US",
+        "a": "SONNY FODERA/D O D/BASKCOMB",
+        "lw": 26,
+        "pk": 18,
+        "wc": 20
+      },
+      {
+        "w": "2026-03-13",
+        "t": "12 TO 12",
+        "a": "SOMBR",
+        "lw": 30,
+        "pk": 7,
+        "wc": 32
+      },
+      {
+        "w": "2026-03-20",
+        "t": "DIE ON THIS HILL",
+        "a": "SIENNA SPIRO",
+        "lw": 32,
+        "pk": 9,
+        "wc": 23
+      },
+      {
+        "w": "2026-03-27",
+        "t": "INTO THE GROOVE",
+        "a": "MADONNA",
+        "lw": 22,
+        "pk": 1,
+        "wc": 20
+      },
+      {
+        "w": "2026-04-03",
+        "t": "CHOOSIN' TEXAS",
+        "a": "ELLA LANGLEY",
+        "lw": 32,
+        "pk": 29,
+        "wc": 13
+      },
+      {
+        "w": "2026-04-10",
+        "t": "TALK TO YOU",
+        "a": "ANOTR/54 ULTRA",
+        "lw": 48,
+        "pk": 29,
+        "wc": 5
+      },
+      {
+        "w": "2026-04-17",
+        "t": "GOLDEN",
+        "a": "HUNTR/X/EJAE/AUDREY NUNA/REI",
+        "lw": 22,
+        "pk": 1,
+        "wc": 43
+      }
+    ],
+    "30": [
+      {
+        "w": "2026-01-02",
+        "t": "TALK OF THE TOWN",
+        "a": "FRED AGAIN/SAMMY VIRJI/REGGIE",
+        "lw": 90,
+        "pk": 18,
+        "wc": 8
+      },
+      {
+        "w": "2026-01-09",
+        "t": "FOLDED",
+        "a": "KEHLANI",
+        "lw": 27,
+        "pk": 20,
+        "wc": 19
+      },
+      {
+        "w": "2026-01-16",
+        "t": "WHAT IT SOUNDS LIKE",
+        "a": "HUNTR/X/EJAE/AUDREY NUNA/REI",
+        "lw": 28,
+        "pk": 13,
+        "wc": 12
+      },
+      {
+        "w": "2026-01-23",
+        "t": "WGFT",
+        "a": "GUNNA & BURNA BOY",
+        "lw": 41,
+        "pk": 22,
+        "wc": 20
+      },
+      {
+        "w": "2026-01-30",
+        "t": "DIE WITH A SMILE",
+        "a": "LADY GAGA & BRUNO MARS",
+        "lw": 23,
+        "pk": 2,
+        "wc": 66
+      },
+      {
+        "w": "2026-02-06",
+        "t": "WHAT IT SOUNDS LIKE",
+        "a": "HUNTR/X/EJAE/AUDREY NUNA/REI",
+        "lw": 35,
+        "pk": 13,
+        "wc": 15
+      },
+      {
+        "w": "2026-02-13",
+        "t": "BABYDOLL",
+        "a": "DOMINIC FIKE",
+        "lw": "RE",
+        "pk": 30,
+        "wc": 5
+      },
+      {
+        "w": "2026-02-20",
+        "t": "12 TO 12",
+        "a": "SOMBR",
+        "lw": 26,
+        "pk": 7,
+        "wc": 29
+      },
+      {
+        "w": "2026-02-27",
+        "t": "TITI ME PREGUNTO",
+        "a": "BAD BUNNY",
+        "lw": 18,
+        "pk": 18,
+        "wc": 2
+      },
+      {
+        "w": "2026-03-06",
+        "t": "12 TO 12",
+        "a": "SOMBR",
+        "lw": 31,
+        "pk": 7,
+        "wc": 31
+      },
+      {
+        "w": "2026-03-13",
+        "t": "(WHEN YOU GONNA) GIVE IT UP TO ME",
+        "a": "SEAN PAUL FT KEYSHIA COLE",
+        "lw": 33,
+        "pk": 30,
+        "wc": 6
+      },
+      {
+        "w": "2026-03-20",
+        "t": "12 TO 12",
+        "a": "SOMBR",
+        "lw": 29,
+        "pk": 7,
+        "wc": 33
+      },
+      {
+        "w": "2026-03-27",
+        "t": "THE FATE OF OPHELIA",
+        "a": "TAYLOR SWIFT",
+        "lw": 28,
+        "pk": 1,
+        "wc": 25
+      },
+      {
+        "w": "2026-04-03",
+        "t": "NICE TO EACH OTHER",
+        "a": "OLIVIA DEAN",
+        "lw": -1,
+        "pk": 4,
+        "wc": 23
+      },
+      {
+        "w": "2026-04-10",
+        "t": "WAGWAN",
+        "a": "CENTRAL CEE",
+        "lw": 31,
+        "pk": 30,
+        "wc": 2
+      },
+      {
+        "w": "2026-04-17",
+        "t": "TALK TO YOU",
+        "a": "ANOTR/54 ULTRA",
+        "lw": 29,
+        "pk": 29,
+        "wc": 6
+      }
+    ],
+    "31": [
+      {
+        "w": "2026-01-02",
+        "t": "ALL I WANT FOR CHRISTMAS IS YOU",
+        "a": "MARIAH CAREY",
+        "lw": 2,
+        "pk": 1,
+        "wc": 149
+      },
+      {
+        "w": "2026-01-09",
+        "t": "12 TO 12",
+        "a": "SOMBR",
+        "lw": 28,
+        "pk": 7,
+        "wc": 23
+      },
+      {
+        "w": "2026-01-16",
+        "t": "12 TO 12",
+        "a": "SOMBR",
+        "lw": 31,
+        "pk": 7,
+        "wc": 24
+      },
+      {
+        "w": "2026-01-23",
+        "t": "WHAT IT SOUNDS LIKE",
+        "a": "HUNTR/X/EJAE/AUDREY NUNA/REI",
+        "lw": 30,
+        "pk": 13,
+        "wc": 13
+      },
+      {
+        "w": "2026-01-30",
+        "t": "CENTURY",
+        "a": "ESDEEKID",
+        "lw": 26,
+        "pk": 10,
+        "wc": 13
+      },
+      {
+        "w": "2026-02-06",
+        "t": "LANDSLIDE",
+        "a": "FLEETWOOD MAC",
+        "lw": 34,
+        "pk": 20,
+        "wc": 5
+      },
+      {
+        "w": "2026-02-13",
+        "t": "FOLDED",
+        "a": "KEHLANI",
+        "lw": 24,
+        "pk": 20,
+        "wc": 24
+      },
+      {
+        "w": "2026-02-20",
+        "t": "DRIVE SAFE",
+        "a": "MYLES SMITH & NIALL HORAN",
+        "lw": 27,
+        "pk": 27,
+        "wc": 2
+      },
+      {
+        "w": "2026-02-27",
+        "t": "12 TO 12",
+        "a": "SOMBR",
+        "lw": 30,
+        "pk": 7,
+        "wc": 30
+      },
+      {
+        "w": "2026-03-06",
+        "t": "DYING FOR YOU",
+        "a": "CHARLI XCX",
+        "lw": 24,
+        "pk": 24,
+        "wc": 3
+      },
+      {
+        "w": "2026-03-13",
+        "t": "END OF BEGINNING",
+        "a": "DJO",
+        "lw": 28,
+        "pk": 1,
+        "wc": 37
+      },
+      {
+        "w": "2026-03-20",
+        "t": "(WHEN YOU GONNA) GIVE IT UP TO ME",
+        "a": "SEAN PAUL FT KEYSHIA COLE",
+        "lw": 30,
+        "pk": 30,
+        "wc": 7
+      },
+      {
+        "w": "2026-03-27",
+        "t": "(WHEN YOU GONNA) GIVE IT UP TO ME",
+        "a": "SEAN PAUL FT KEYSHIA COLE",
+        "lw": 31,
+        "pk": 30,
+        "wc": 8
+      },
+      {
+        "w": "2026-04-03",
+        "t": "WAGWAN",
+        "a": "CENTRAL CEE",
+        "lw": "New",
+        "pk": 31,
+        "wc": 1
+      },
+      {
+        "w": "2026-04-10",
+        "t": "12 TO 12",
+        "a": "SOMBR",
+        "lw": 34,
+        "pk": 7,
+        "wc": 36
+      },
+      {
+        "w": "2026-04-17",
+        "t": "SIGN OF THE TIMES",
+        "a": "HARRY STYLES",
+        "lw": 28,
+        "pk": 1,
+        "wc": 29
+      }
+    ],
+    "32": [
+      {
+        "w": "2026-01-02",
+        "t": "ROCKIN' AROUND THE CHRISTMAS TREE",
+        "a": "BRENDA LEE",
+        "lw": 3,
+        "pk": 3,
+        "wc": 88
+      },
+      {
+        "w": "2026-01-09",
+        "t": "NO BROKE BOYS",
+        "a": "DISCO LINES & TINASHE",
+        "lw": 26,
+        "pk": 2,
+        "wc": 30
+      },
+      {
+        "w": "2026-01-16",
+        "t": "HOW IT'S DONE",
+        "a": "HUNTR/X/EJAE/AUDREY NUNA/REI",
+        "lw": 29,
+        "pk": 9,
+        "wc": 17
+      },
+      {
+        "w": "2026-01-23",
+        "t": "12 TO 12",
+        "a": "SOMBR",
+        "lw": 31,
+        "pk": 7,
+        "wc": 25
+      },
+      {
+        "w": "2026-01-30",
+        "t": "YOU STOLE THE SHOW",
+        "a": "SIENNA SPIRO",
+        "lw": 27,
+        "pk": 26,
+        "wc": 15
+      },
+      {
+        "w": "2026-02-06",
+        "t": "WILDFLOWER",
+        "a": "BILLIE EILISH",
+        "lw": "RE",
+        "pk": 7,
+        "wc": 44
+      },
+      {
+        "w": "2026-02-13",
+        "t": "YOU STOLE THE SHOW",
+        "a": "SIENNA SPIRO",
+        "lw": 28,
+        "pk": 26,
+        "wc": 17
+      },
+      {
+        "w": "2026-02-20",
+        "t": "DRACULA",
+        "a": "TAME IMPALA",
+        "lw": 25,
+        "pk": 21,
+        "wc": 17
+      },
+      {
+        "w": "2026-02-27",
+        "t": "DIE WITH A SMILE",
+        "a": "LADY GAGA & BRUNO MARS",
+        "lw": 28,
+        "pk": 2,
+        "wc": 70
+      },
+      {
+        "w": "2026-03-06",
+        "t": "DIE ON THIS HILL",
+        "a": "SIENNA SPIRO",
+        "lw": 29,
+        "pk": 9,
+        "wc": 21
+      },
+      {
+        "w": "2026-03-13",
+        "t": "DIE ON THIS HILL",
+        "a": "SIENNA SPIRO",
+        "lw": 32,
+        "pk": 9,
+        "wc": 22
+      },
+      {
+        "w": "2026-03-20",
+        "t": "RISK IT ALL",
+        "a": "BRUNO MARS",
+        "lw": 24,
+        "pk": 15,
+        "wc": 3
+      },
+      {
+        "w": "2026-03-27",
+        "t": "CHOOSIN' TEXAS",
+        "a": "ELLA LANGLEY",
+        "lw": 33,
+        "pk": 32,
+        "wc": 12
+      },
+      {
+        "w": "2026-04-03",
+        "t": "INTO THE GROOVE",
+        "a": "MADONNA",
+        "lw": 29,
+        "pk": 1,
+        "wc": 21
+      },
+      {
+        "w": "2026-04-10",
+        "t": "FATHER",
+        "a": "YE/TRAVIS SCOTT",
+        "lw": 27,
+        "pk": 27,
+        "wc": 2
+      },
+      {
+        "w": "2026-04-17",
+        "t": "RUNWAY",
+        "a": "LADY GAGA & DOECHII",
+        "lw": "New",
+        "pk": 32,
+        "wc": 1
+      }
+    ],
+    "33": [
+      {
+        "w": "2026-01-02",
+        "t": "TURN THE LIGHTS OFF",
+        "a": "KATO FT JON",
+        "lw": 72,
+        "pk": 33,
+        "wc": 3
+      },
+      {
+        "w": "2026-01-09",
+        "t": "TIT FOR TAT",
+        "a": "TATE MCRAE",
+        "lw": 25,
+        "pk": 6,
+        "wc": 14
+      },
+      {
+        "w": "2026-01-16",
+        "t": "TIT FOR TAT",
+        "a": "TATE MCRAE",
+        "lw": 33,
+        "pk": 6,
+        "wc": 15
+      },
+      {
+        "w": "2026-01-23",
+        "t": "HOW IT'S DONE",
+        "a": "HUNTR/X/EJAE/AUDREY NUNA/REI",
+        "lw": 32,
+        "pk": 9,
+        "wc": 18
+      },
+      {
+        "w": "2026-01-30",
+        "t": "12 TO 12",
+        "a": "SOMBR",
+        "lw": 32,
+        "pk": 7,
+        "wc": 26
+      },
+      {
+        "w": "2026-02-06",
+        "t": "CENTURY",
+        "a": "ESDEEKID",
+        "lw": 31,
+        "pk": 10,
+        "wc": 14
+      },
+      {
+        "w": "2026-02-13",
+        "t": "LANDSLIDE",
+        "a": "FLEETWOOD MAC",
+        "lw": 31,
+        "pk": 20,
+        "wc": 6
+      },
+      {
+        "w": "2026-02-20",
+        "t": "ALWAYS EVERYWHERE",
+        "a": "CHARLI XCX",
+        "lw": "New",
+        "pk": 33,
+        "wc": 1
+      },
+      {
+        "w": "2026-02-27",
+        "t": "(WHEN YOU GONNA) GIVE IT UP TO ME",
+        "a": "SEAN PAUL FT KEYSHIA COLE",
+        "lw": 38,
+        "pk": 33,
+        "wc": 4
+      },
+      {
+        "w": "2026-03-06",
+        "t": "(WHEN YOU GONNA) GIVE IT UP TO ME",
+        "a": "SEAN PAUL FT KEYSHIA COLE",
+        "lw": 33,
+        "pk": 33,
+        "wc": 5
+      },
+      {
+        "w": "2026-03-13",
+        "t": "THE SICK",
+        "a": "BELLA KAY",
+        "lw": 41,
+        "pk": 33,
+        "wc": 15
+      },
+      {
+        "w": "2026-03-20",
+        "t": "CHOOSIN' TEXAS",
+        "a": "ELLA LANGLEY",
+        "lw": 35,
+        "pk": 33,
+        "wc": 11
+      },
+      {
+        "w": "2026-03-27",
+        "t": "12 TO 12",
+        "a": "SOMBR",
+        "lw": 30,
+        "pk": 7,
+        "wc": 34
+      },
+      {
+        "w": "2026-04-03",
+        "t": "I JUST MIGHT",
+        "a": "BRUNO MARS",
+        "lw": 14,
+        "pk": 5,
+        "wc": 12
+      },
+      {
+        "w": "2026-04-10",
+        "t": "END OF BEGINNING",
+        "a": "DJO",
+        "lw": 37,
+        "pk": 1,
+        "wc": 41
+      },
+      {
+        "w": "2026-04-17",
+        "t": "THE FATE OF OPHELIA",
+        "a": "TAYLOR SWIFT",
+        "lw": 25,
+        "pk": 1,
+        "wc": 28
+      }
+    ],
+    "34": [
+      {
+        "w": "2026-01-02",
+        "t": "BACK TO FRIENDS",
+        "a": "SOMBR",
+        "lw": "RE",
+        "pk": 7,
+        "wc": 42
+      },
+      {
+        "w": "2026-01-09",
+        "t": "HEROES",
+        "a": "DAVID BOWIE",
+        "lw": "RE",
+        "pk": 12,
+        "wc": 13
+      },
+      {
+        "w": "2026-01-16",
+        "t": "NO BROKE BOYS",
+        "a": "DISCO LINES & TINASHE",
+        "lw": 32,
+        "pk": 2,
+        "wc": 31
+      },
+      {
+        "w": "2026-01-23",
+        "t": "LANDSLIDE",
+        "a": "FLEETWOOD MAC",
+        "lw": 27,
+        "pk": 20,
+        "wc": 3
+      },
+      {
+        "w": "2026-01-30",
+        "t": "LANDSLIDE",
+        "a": "FLEETWOOD MAC",
+        "lw": 34,
+        "pk": 20,
+        "wc": 4
+      },
+      {
+        "w": "2026-02-06",
+        "t": "WGFT",
+        "a": "GUNNA & BURNA BOY",
+        "lw": 37,
+        "pk": 22,
+        "wc": 22
+      },
+      {
+        "w": "2026-02-13",
+        "t": "WHAT YOU SAYING",
+        "a": "LIL UZI VERT",
+        "lw": 29,
+        "pk": 27,
+        "wc": 6
+      },
+      {
+        "w": "2026-02-20",
+        "t": "LANDSLIDE",
+        "a": "FLEETWOOD MAC",
+        "lw": 33,
+        "pk": 20,
+        "wc": 7
+      },
+      {
+        "w": "2026-02-27",
+        "t": "LANDSLIDE",
+        "a": "FLEETWOOD MAC",
+        "lw": 34,
+        "pk": 20,
+        "wc": 8
+      },
+      {
+        "w": "2026-03-06",
+        "t": "DIE WITH A SMILE",
+        "a": "LADY GAGA & BRUNO MARS",
+        "lw": 32,
+        "pk": 2,
+        "wc": 71
+      },
+      {
+        "w": "2026-03-13",
+        "t": "THINK ABOUT US",
+        "a": "SONNY FODERA/D O D/BASKCOMB",
+        "lw": 29,
+        "pk": 18,
+        "wc": 21
+      },
+      {
+        "w": "2026-03-20",
+        "t": "THE SICK",
+        "a": "BELLA KAY",
+        "lw": 33,
+        "pk": 33,
+        "wc": 16
+      },
+      {
+        "w": "2026-03-27",
+        "t": "THE GREAT DIVIDE",
+        "a": "NOAH KAHAN",
+        "lw": 27,
+        "pk": 10,
+        "wc": 8
+      },
+      {
+        "w": "2026-04-03",
+        "t": "12 TO 12",
+        "a": "SOMBR",
+        "lw": 33,
+        "pk": 7,
+        "wc": 35
+      },
+      {
+        "w": "2026-04-10",
+        "t": "THE GREAT DIVIDE",
+        "a": "NOAH KAHAN",
+        "lw": 36,
+        "pk": 10,
+        "wc": 10
+      },
+      {
+        "w": "2026-04-17",
+        "t": "I JUST MIGHT",
+        "a": "BRUNO MARS",
+        "lw": 26,
+        "pk": 5,
+        "wc": 14
+      }
+    ],
+    "35": [
+      {
+        "w": "2026-01-02",
+        "t": "WGFT",
+        "a": "GUNNA & BURNA BOY",
+        "lw": "RE",
+        "pk": 22,
+        "wc": 17
+      },
+      {
+        "w": "2026-01-09",
+        "t": "STATESIDE",
+        "a": "PINKPANTHERESS",
+        "lw": 40,
+        "pk": 35,
+        "wc": 9
+      },
+      {
+        "w": "2026-01-16",
+        "t": "I THINK WE'RE ALONE NOW",
+        "a": "TIFFANY",
+        "lw": 27,
+        "pk": 1,
+        "wc": 16
+      },
+      {
+        "w": "2026-01-23",
+        "t": "NO BROKE BOYS",
+        "a": "DISCO LINES & TINASHE",
+        "lw": 34,
+        "pk": 2,
+        "wc": 32
+      },
+      {
+        "w": "2026-01-30",
+        "t": "WHAT IT SOUNDS LIKE",
+        "a": "HUNTR/X/EJAE/AUDREY NUNA/REI",
+        "lw": 31,
+        "pk": 13,
+        "wc": 14
+      },
+      {
+        "w": "2026-02-06",
+        "t": "JUST THE WAY YOU ARE",
+        "a": "MILKY",
+        "lw": "RE",
+        "pk": 8,
+        "wc": 7
+      },
+      {
+        "w": "2026-02-13",
+        "t": "CHOOSIN' TEXAS",
+        "a": "ELLA LANGLEY",
+        "lw": 38,
+        "pk": 35,
+        "wc": 6
+      },
+      {
+        "w": "2026-02-20",
+        "t": "CHOOSIN' TEXAS",
+        "a": "ELLA LANGLEY",
+        "lw": 35,
+        "pk": 35,
+        "wc": 7
+      },
+      {
+        "w": "2026-02-27",
+        "t": "CHOOSIN' TEXAS",
+        "a": "ELLA LANGLEY",
+        "lw": 35,
+        "pk": 35,
+        "wc": 8
+      },
+      {
+        "w": "2026-03-06",
+        "t": "CHOOSIN' TEXAS",
+        "a": "ELLA LANGLEY",
+        "lw": 35,
+        "pk": 35,
+        "wc": 9
+      },
+      {
+        "w": "2026-03-13",
+        "t": "CHOOSIN' TEXAS",
+        "a": "ELLA LANGLEY",
+        "lw": 35,
+        "pk": 35,
+        "wc": 10
+      },
+      {
+        "w": "2026-03-20",
+        "t": "THINK ABOUT US",
+        "a": "SONNY FODERA/D O D/BASKCOMB",
+        "lw": 34,
+        "pk": 18,
+        "wc": 22
+      },
+      {
+        "w": "2026-03-27",
+        "t": "THINK ABOUT US",
+        "a": "SONNY FODERA/D O D/BASKCOMB",
+        "lw": 35,
+        "pk": 18,
+        "wc": 23
+      },
+      {
+        "w": "2026-04-03",
+        "t": "PORCH LIGHT",
+        "a": "NOAH KAHAN",
+        "lw": 26,
+        "pk": 19,
+        "wc": 3
+      },
+      {
+        "w": "2026-04-10",
+        "t": "DIE WITH A SMILE",
+        "a": "LADY GAGA & BRUNO MARS",
+        "lw": 39,
+        "pk": 2,
+        "wc": 76
+      },
+      {
+        "w": "2026-04-17",
+        "t": "NICE TO EACH OTHER",
+        "a": "OLIVIA DEAN",
+        "lw": 27,
+        "pk": 4,
+        "wc": 25
+      }
+    ],
+    "36": [
+      {
+        "w": "2026-01-02",
+        "t": "MANCHILD",
+        "a": "SABRINA CARPENTER",
+        "lw": "RE",
+        "pk": 1,
+        "wc": 23
+      },
+      {
+        "w": "2026-01-09",
+        "t": "TALK OF THE TOWN",
+        "a": "FRED AGAIN/SAMMY VIRJI/REGGIE",
+        "lw": 30,
+        "pk": 18,
+        "wc": 9
+      },
+      {
+        "w": "2026-01-16",
+        "t": "LOCKED OUT OF HEAVEN",
+        "a": "BRUNO MARS",
+        "lw": "RE",
+        "pk": 2,
+        "wc": 40
+      },
+      {
+        "w": "2026-01-23",
+        "t": "PLASTIC CIGARETTE",
+        "a": "ZACH BRYAN",
+        "lw": 29,
+        "pk": 29,
+        "wc": 2
+      },
+      {
+        "w": "2026-01-30",
+        "t": "BOYS DON'T CRY",
+        "a": "CURE",
+        "lw": 39,
+        "pk": 36,
+        "wc": 2
+      },
+      {
+        "w": "2026-02-06",
+        "t": "BACK TO FRIENDS",
+        "a": "SOMBR",
+        "lw": 40,
+        "pk": 7,
+        "wc": 47
+      },
+      {
+        "w": "2026-02-13",
+        "t": "BOYS DON'T CRY",
+        "a": "CURE",
+        "lw": 22,
+        "pk": 22,
+        "wc": 4
+      },
+      {
+        "w": "2026-02-20",
+        "t": "FOLDED",
+        "a": "KEHLANI",
+        "lw": 31,
+        "pk": 20,
+        "wc": 25
+      },
+      {
+        "w": "2026-02-27",
+        "t": "DRIVE SAFE",
+        "a": "MYLES SMITH & NIALL HORAN",
+        "lw": 31,
+        "pk": 27,
+        "wc": 3
+      },
+      {
+        "w": "2026-03-06",
+        "t": "BACK TO FRIENDS",
+        "a": "SOMBR",
+        "lw": 42,
+        "pk": 7,
+        "wc": 51
+      },
+      {
+        "w": "2026-03-13",
+        "t": "BACK TO FRIENDS",
+        "a": "SOMBR",
+        "lw": 36,
+        "pk": 7,
+        "wc": 52
+      },
+      {
+        "w": "2026-03-20",
+        "t": "END OF BEGINNING",
+        "a": "DJO",
+        "lw": 31,
+        "pk": 1,
+        "wc": 38
+      },
+      {
+        "w": "2026-03-27",
+        "t": "DIE ON THIS HILL",
+        "a": "SIENNA SPIRO",
+        "lw": 29,
+        "pk": 9,
+        "wc": 24
+      },
+      {
+        "w": "2026-04-03",
+        "t": "THE GREAT DIVIDE",
+        "a": "NOAH KAHAN",
+        "lw": 34,
+        "pk": 10,
+        "wc": 9
+      },
+      {
+        "w": "2026-04-10",
+        "t": "LANDSLIDE",
+        "a": "FLEETWOOD MAC",
+        "lw": 40,
+        "pk": 20,
+        "wc": 14
+      },
+      {
+        "w": "2026-04-17",
+        "t": "12 TO 12",
+        "a": "SOMBR",
+        "lw": 31,
+        "pk": 7,
+        "wc": 37
+      }
+    ],
+    "37": [
+      {
+        "w": "2026-01-02",
+        "t": "SUCH A FUNNY WAY",
+        "a": "SABRINA CARPENTER",
+        "lw": "New",
+        "pk": 37,
+        "wc": 1
+      },
+      {
+        "w": "2026-01-09",
+        "t": "YOU STOLE THE SHOW",
+        "a": "SIENNA SPIRO",
+        "lw": 47,
+        "pk": 37,
+        "wc": 12
+      },
+      {
+        "w": "2026-01-16",
+        "t": "UPSIDE DOWN",
+        "a": "DIANA ROSS",
+        "lw": 26,
+        "pk": 2,
+        "wc": 15
+      },
+      {
+        "w": "2026-01-23",
+        "t": "BACK TO FRIENDS",
+        "a": "SOMBR",
+        "lw": 40,
+        "pk": 7,
+        "wc": 45
+      },
+      {
+        "w": "2026-01-30",
+        "t": "WGFT",
+        "a": "GUNNA & BURNA BOY",
+        "lw": 30,
+        "pk": 22,
+        "wc": 21
+      },
+      {
+        "w": "2026-02-06",
+        "t": "NO BROKE BOYS",
+        "a": "DISCO LINES & TINASHE",
+        "lw": 39,
+        "pk": 2,
+        "wc": 34
+      },
+      {
+        "w": "2026-02-13",
+        "t": "RELEASE THE PRESSURE",
+        "a": "CALVIN HARRIS & KASABIAN",
+        "lw": "New",
+        "pk": 37,
+        "wc": 1
+      },
+      {
+        "w": "2026-02-20",
+        "t": "ICEMAN FREESTYLE",
+        "a": "CENTRAL CEE",
+        "lw": "New",
+        "pk": 37,
+        "wc": 1
+      },
+      {
+        "w": "2026-02-27",
+        "t": "YOU STOLE THE SHOW",
+        "a": "SIENNA SPIRO",
+        "lw": 39,
+        "pk": 26,
+        "wc": 19
+      },
+      {
+        "w": "2026-03-06",
+        "t": "NUEVAYOL",
+        "a": "BAD BUNNY",
+        "lw": 27,
+        "pk": 15,
+        "wc": 9
+      },
+      {
+        "w": "2026-03-13",
+        "t": "DIE WITH A SMILE",
+        "a": "LADY GAGA & BRUNO MARS",
+        "lw": 34,
+        "pk": 2,
+        "wc": 72
+      },
+      {
+        "w": "2026-03-20",
+        "t": "DIE WITH A SMILE",
+        "a": "LADY GAGA & BRUNO MARS",
+        "lw": 37,
+        "pk": 2,
+        "wc": 73
+      },
+      {
+        "w": "2026-03-27",
+        "t": "END OF BEGINNING",
+        "a": "DJO",
+        "lw": 36,
+        "pk": 1,
+        "wc": 39
+      },
+      {
+        "w": "2026-04-03",
+        "t": "END OF BEGINNING",
+        "a": "DJO",
+        "lw": 37,
+        "pk": 1,
+        "wc": 40
+      },
+      {
+        "w": "2026-04-10",
+        "t": "DIE ON THIS HILL",
+        "a": "SIENNA SPIRO",
+        "lw": 38,
+        "pk": 9,
+        "wc": 26
+      },
+      {
+        "w": "2026-04-17",
+        "t": "EARRINGS",
+        "a": "MALCOLM TODD",
+        "lw": 40,
+        "pk": 37,
+        "wc": 3
+      }
+    ],
+    "38": [
+      {
+        "w": "2026-01-02",
+        "t": "PINK PONY CLUB",
+        "a": "CHAPPELL ROAN",
+        "lw": "RE",
+        "pk": 1,
+        "wc": 58
+      },
+      {
+        "w": "2026-01-09",
+        "t": "BACK TO FRIENDS",
+        "a": "SOMBR",
+        "lw": 34,
+        "pk": 7,
+        "wc": 43
+      },
+      {
+        "w": "2026-01-16",
+        "t": "TALK OF THE TOWN",
+        "a": "FRED AGAIN/SAMMY VIRJI/REGGIE",
+        "lw": 36,
+        "pk": 18,
+        "wc": 10
+      },
+      {
+        "w": "2026-01-23",
+        "t": "TALK OF THE TOWN",
+        "a": "FRED AGAIN/SAMMY VIRJI/REGGIE",
+        "lw": 38,
+        "pk": 18,
+        "wc": 11
+      },
+      {
+        "w": "2026-01-30",
+        "t": "HOW IT'S DONE",
+        "a": "HUNTR/X/EJAE/AUDREY NUNA/REI",
+        "lw": 33,
+        "pk": 9,
+        "wc": 19
+      },
+      {
+        "w": "2026-02-06",
+        "t": "CHOOSIN' TEXAS",
+        "a": "ELLA LANGLEY",
+        "lw": 51,
+        "pk": 38,
+        "wc": 5
+      },
+      {
+        "w": "2026-02-13",
+        "t": "WILDFLOWER",
+        "a": "BILLIE EILISH",
+        "lw": 32,
+        "pk": 7,
+        "wc": 45
+      },
+      {
+        "w": "2026-02-20",
+        "t": "(WHEN YOU GONNA) GIVE IT UP TO ME",
+        "a": "SEAN PAUL FT KEYSHIA COLE",
+        "lw": 46,
+        "pk": 38,
+        "wc": 3
+      },
+      {
+        "w": "2026-02-27",
+        "t": "FOLDED",
+        "a": "KEHLANI",
+        "lw": 36,
+        "pk": 20,
+        "wc": 26
+      },
+      {
+        "w": "2026-03-06",
+        "t": "SHARE THE HOUSE",
+        "a": "EWAN MCVICAR",
+        "lw": 54,
+        "pk": 38,
+        "wc": 3
+      },
+      {
+        "w": "2026-03-13",
+        "t": "NIGHTINGALE LANE.",
+        "a": "RAYE",
+        "lw": 20,
+        "pk": 20,
+        "wc": 2
+      },
+      {
+        "w": "2026-03-20",
+        "t": "CHAINS OF LOVE",
+        "a": "CHARLI XCX",
+        "lw": 26,
+        "pk": 12,
+        "wc": 7
+      },
+      {
+        "w": "2026-03-27",
+        "t": "RISK IT ALL",
+        "a": "BRUNO MARS",
+        "lw": 32,
+        "pk": 15,
+        "wc": 4
+      },
+      {
+        "w": "2026-04-03",
+        "t": "DIE ON THIS HILL",
+        "a": "SIENNA SPIRO",
+        "lw": 36,
+        "pk": 9,
+        "wc": 25
+      },
+      {
+        "w": "2026-04-10",
+        "t": "ALL THE LOVE",
+        "a": "YE/ANDRE TROUTMAN",
+        "lw": 28,
+        "pk": 28,
+        "wc": 2
+      },
+      {
+        "w": "2026-04-17",
+        "t": "END OF BEGINNING",
+        "a": "DJO",
+        "lw": 33,
+        "pk": 1,
+        "wc": 42
+      }
+    ],
+    "39": [
+      {
+        "w": "2026-01-02",
+        "t": "PEOPLE WATCHING",
+        "a": "SAM FENDER",
+        "lw": "RE",
+        "pk": 4,
+        "wc": 38
+      },
+      {
+        "w": "2026-01-09",
+        "t": "WGFT",
+        "a": "GUNNA & BURNA BOY",
+        "lw": 35,
+        "pk": 22,
+        "wc": 18
+      },
+      {
+        "w": "2026-01-16",
+        "t": "MIDNIGHT SUN",
+        "a": "ZARA LARSSON",
+        "lw": 50,
+        "pk": 39,
+        "wc": 3
+      },
+      {
+        "w": "2026-01-23",
+        "t": "BOYS DON'T CRY",
+        "a": "CURE",
+        "lw": "New",
+        "pk": 39,
+        "wc": 1
+      },
+      {
+        "w": "2026-01-30",
+        "t": "NO BROKE BOYS",
+        "a": "DISCO LINES & TINASHE",
+        "lw": 35,
+        "pk": 2,
+        "wc": 33
+      },
+      {
+        "w": "2026-02-06",
+        "t": "TIT FOR TAT",
+        "a": "TATE MCRAE",
+        "lw": 42,
+        "pk": 6,
+        "wc": 18
+      },
+      {
+        "w": "2026-02-13",
+        "t": "ILOVEITILOVEITILOVEIT",
+        "a": "BELLA KAY",
+        "lw": 63,
+        "pk": 39,
+        "wc": 3
+      },
+      {
+        "w": "2026-02-20",
+        "t": "YOU STOLE THE SHOW",
+        "a": "SIENNA SPIRO",
+        "lw": 32,
+        "pk": 26,
+        "wc": 18
+      },
+      {
+        "w": "2026-02-27",
+        "t": "ALWAYS EVERYWHERE",
+        "a": "CHARLI XCX",
+        "lw": 33,
+        "pk": 33,
+        "wc": 2
+      },
+      {
+        "w": "2026-03-06",
+        "t": "LANDSLIDE",
+        "a": "FLEETWOOD MAC",
+        "lw": 34,
+        "pk": 20,
+        "wc": 9
+      },
+      {
+        "w": "2026-03-13",
+        "t": "SHARE THE HOUSE",
+        "a": "EWAN MCVICAR",
+        "lw": 38,
+        "pk": 38,
+        "wc": 4
+      },
+      {
+        "w": "2026-03-20",
+        "t": "BACK TO FRIENDS",
+        "a": "SOMBR",
+        "lw": 36,
+        "pk": 7,
+        "wc": 53
+      },
+      {
+        "w": "2026-03-27",
+        "t": "FYA",
+        "a": "BTS",
+        "lw": "New",
+        "pk": 39,
+        "wc": 1
+      },
+      {
+        "w": "2026-04-03",
+        "t": "DIE WITH A SMILE",
+        "a": "LADY GAGA & BRUNO MARS",
+        "lw": 40,
+        "pk": 2,
+        "wc": 75
+      },
+      {
+        "w": "2026-04-10",
+        "t": "I KNOW YOU'RE HURTING",
+        "a": "RAYE",
+        "lw": 22,
+        "pk": 22,
+        "wc": 2
+      },
+      {
+        "w": "2026-04-17",
+        "t": "FREE YOUR MIND",
+        "a": "PROSPA/CLOONEE",
+        "lw": 60,
+        "pk": 39,
+        "wc": 3
+      }
+    ],
+    "40": [
+      {
+        "w": "2026-01-02",
+        "t": "STATESIDE",
+        "a": "PINKPANTHERESS",
+        "lw": "RE",
+        "pk": 40,
+        "wc": 8
+      },
+      {
+        "w": "2026-01-09",
+        "t": "SHOULD I STAY OR SHOULD I GO",
+        "a": "CLASH",
+        "lw": 42,
+        "pk": 40,
+        "wc": 2
+      },
+      {
+        "w": "2026-01-16",
+        "t": "BACK TO FRIENDS",
+        "a": "SOMBR",
+        "lw": 38,
+        "pk": 7,
+        "wc": 44
+      },
+      {
+        "w": "2026-01-23",
+        "t": "TIT FOR TAT",
+        "a": "TATE MCRAE",
+        "lw": 33,
+        "pk": 6,
+        "wc": 16
+      },
+      {
+        "w": "2026-01-30",
+        "t": "BACK TO FRIENDS",
+        "a": "SOMBR",
+        "lw": 37,
+        "pk": 7,
+        "wc": 46
+      },
+      {
+        "w": "2026-02-06",
+        "t": "TALK OF THE TOWN",
+        "a": "FRED AGAIN/SAMMY VIRJI/REGGIE",
+        "lw": 41,
+        "pk": 18,
+        "wc": 13
+      },
+      {
+        "w": "2026-02-13",
+        "t": "FAME IS A GUN",
+        "a": "ADDISON RAE",
+        "lw": 41,
+        "pk": 23,
+        "wc": 15
+      },
+      {
+        "w": "2026-02-20",
+        "t": "BACK TO FRIENDS",
+        "a": "SOMBR",
+        "lw": 42,
+        "pk": 7,
+        "wc": 49
+      },
+      {
+        "w": "2026-02-27",
+        "t": "WUTHERING HEIGHTS",
+        "a": "KATE BUSH",
+        "lw": "RE",
+        "pk": 1,
+        "wc": 15
+      },
+      {
+        "w": "2026-03-06",
+        "t": "INTO THE GROOVE",
+        "a": "MADONNA",
+        "lw": "RE",
+        "pk": 1,
+        "wc": 17
+      },
+      {
+        "w": "2026-03-13",
+        "t": "DYING FOR YOU",
+        "a": "CHARLI XCX",
+        "lw": 31,
+        "pk": 24,
+        "wc": 4
+      },
+      {
+        "w": "2026-03-20",
+        "t": "LANDSLIDE",
+        "a": "FLEETWOOD MAC",
+        "lw": 41,
+        "pk": 20,
+        "wc": 11
+      },
+      {
+        "w": "2026-03-27",
+        "t": "DIE WITH A SMILE",
+        "a": "LADY GAGA & BRUNO MARS",
+        "lw": 37,
+        "pk": 2,
+        "wc": 74
+      },
+      {
+        "w": "2026-04-03",
+        "t": "LANDSLIDE",
+        "a": "FLEETWOOD MAC",
+        "lw": 44,
+        "pk": 20,
+        "wc": 13
+      },
+      {
+        "w": "2026-04-10",
+        "t": "EARRINGS",
+        "a": "MALCOLM TODD",
+        "lw": 68,
+        "pk": 40,
+        "wc": 2
+      },
+      {
+        "w": "2026-04-17",
+        "t": "PORCH LIGHT",
+        "a": "NOAH KAHAN",
+        "lw": 43,
+        "pk": 19,
+        "wc": 5
+      }
+    ]
+  }
+}
