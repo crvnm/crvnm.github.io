@@ -739,7 +739,7 @@
       },
       {
         "w": "2014-11-14",
-        "t": "I DON'T CA",
+        "t": "I DON'T CARE",
         "a": "CHERYL",
         "lw": "New",
         "pk": 1,
@@ -2423,13 +2423,14 @@
         "lw": 8,
         "pk": 4,
         "wc": 6,
-        "sid": "0C6BYlsXKgAQPnMfbYOnV4",
-        "spotifyUri": "spotify:track:0C6BYlsXKgAQPnMfbYOnV4",
-        "spotifyUrl": "https://open.spotify.com/track/0C6BYlsXKgAQPnMfbYOnV4",
+        "sid": "6jizk5lOUnfpaZXYMdfeC6",
+        "spotifyUri": "spotify:track:6jizk5lOUnfpaZXYMdfeC6",
+        "spotifyUrl": "https://open.spotify.com/track/6jizk5lOUnfpaZXYMdfeC6",
         "spotifyMatchScore": 112,
-        "spotifyMatchedBy": "manual",
+        "spotifyMatchedBy": "accepted",
         "tm": "Trumpets",
-        "am": "Jason Derulo"
+        "am": "Jason Derulo",
+        "spotifyDecisionSource": "canonical-listing-rule"
       },
       {
         "w": "2014-01-10",
@@ -2438,13 +2439,14 @@
         "lw": 4,
         "pk": 4,
         "wc": 7,
-        "sid": "0C6BYlsXKgAQPnMfbYOnV4",
-        "spotifyUri": "spotify:track:0C6BYlsXKgAQPnMfbYOnV4",
-        "spotifyUrl": "https://open.spotify.com/track/0C6BYlsXKgAQPnMfbYOnV4",
+        "sid": "6jizk5lOUnfpaZXYMdfeC6",
+        "spotifyUri": "spotify:track:6jizk5lOUnfpaZXYMdfeC6",
+        "spotifyUrl": "https://open.spotify.com/track/6jizk5lOUnfpaZXYMdfeC6",
         "spotifyMatchScore": 112,
-        "spotifyMatchedBy": "manual",
+        "spotifyMatchedBy": "accepted",
         "tm": "Trumpets",
-        "am": "Jason Derulo"
+        "am": "Jason Derulo",
+        "spotifyDecisionSource": "canonical-listing-rule"
       },
       {
         "w": "2014-01-17",
@@ -2453,13 +2455,14 @@
         "lw": 4,
         "pk": 4,
         "wc": 8,
-        "sid": "0C6BYlsXKgAQPnMfbYOnV4",
-        "spotifyUri": "spotify:track:0C6BYlsXKgAQPnMfbYOnV4",
-        "spotifyUrl": "https://open.spotify.com/track/0C6BYlsXKgAQPnMfbYOnV4",
+        "sid": "6jizk5lOUnfpaZXYMdfeC6",
+        "spotifyUri": "spotify:track:6jizk5lOUnfpaZXYMdfeC6",
+        "spotifyUrl": "https://open.spotify.com/track/6jizk5lOUnfpaZXYMdfeC6",
         "spotifyMatchScore": 112,
-        "spotifyMatchedBy": "manual",
+        "spotifyMatchedBy": "accepted",
         "tm": "Trumpets",
-        "am": "Jason Derulo"
+        "am": "Jason Derulo",
+        "spotifyDecisionSource": "canonical-listing-rule"
       },
       {
         "w": "2014-01-24",
@@ -2468,13 +2471,14 @@
         "lw": 4,
         "pk": 4,
         "wc": 9,
-        "sid": "0C6BYlsXKgAQPnMfbYOnV4",
-        "spotifyUri": "spotify:track:0C6BYlsXKgAQPnMfbYOnV4",
-        "spotifyUrl": "https://open.spotify.com/track/0C6BYlsXKgAQPnMfbYOnV4",
+        "sid": "6jizk5lOUnfpaZXYMdfeC6",
+        "spotifyUri": "spotify:track:6jizk5lOUnfpaZXYMdfeC6",
+        "spotifyUrl": "https://open.spotify.com/track/6jizk5lOUnfpaZXYMdfeC6",
         "spotifyMatchScore": 112,
-        "spotifyMatchedBy": "manual",
+        "spotifyMatchedBy": "accepted",
         "tm": "Trumpets",
-        "am": "Jason Derulo"
+        "am": "Jason Derulo",
+        "spotifyDecisionSource": "canonical-listing-rule"
       },
       {
         "w": "2014-01-31",
@@ -2583,7 +2587,7 @@
       },
       {
         "w": "2014-03-21",
-        "t": "I'M A FAK",
+        "t": "I'M A FREAK",
         "a": "ENRIQUE IGLESIAS FT PITBULL",
         "lw": "New",
         "pk": 4,
@@ -2809,7 +2813,7 @@
       },
       {
         "w": "2014-07-04",
-        "t": "ONE MO DAY (STAY WITH ME)",
+        "t": "ONE MORE DAY (STAY WITH ME)",
         "a": "EXAMPLE",
         "lw": "New",
         "pk": 4,
@@ -3109,7 +3113,7 @@
       },
       {
         "w": "2014-11-21",
-        "t": "I DON'T CA",
+        "t": "I DON'T CARE",
         "a": "CHERYL",
         "lw": 1,
         "pk": 1,
@@ -3277,7 +3281,7 @@
       },
       {
         "w": "2014-02-07",
-        "t": "CRYING FOR NO ASON",
+        "t": "CRYING FOR NO REASON",
         "a": "KATY B",
         "lw": "New",
         "pk": 5,
@@ -3307,7 +3311,7 @@
       },
       {
         "w": "2014-02-21",
-        "t": "CRYING FOR NO ASON",
+        "t": "CRYING FOR NO REASON",
         "a": "KATY B",
         "lw": 7,
         "pk": 5,
@@ -3993,7 +3997,7 @@
     "6": [
       {
         "w": "2014-01-03",
-        "t": "SOMEWHE ONLY WE KNOW",
+        "t": "SOMEWHERE ONLY WE KNOW",
         "a": "LILY ALLEN",
         "lw": 6,
         "pk": 1,
@@ -4425,7 +4429,7 @@
       },
       {
         "w": "2014-07-18",
-        "t": "RIGHT HE",
+        "t": "RIGHT HERE",
         "a": "JESS GLYNNE",
         "lw": "New",
         "pk": 6,
@@ -4863,13 +4867,14 @@
         "lw": 4,
         "pk": 4,
         "wc": 10,
-        "sid": "0C6BYlsXKgAQPnMfbYOnV4",
-        "spotifyUri": "spotify:track:0C6BYlsXKgAQPnMfbYOnV4",
-        "spotifyUrl": "https://open.spotify.com/track/0C6BYlsXKgAQPnMfbYOnV4",
+        "sid": "6jizk5lOUnfpaZXYMdfeC6",
+        "spotifyUri": "spotify:track:6jizk5lOUnfpaZXYMdfeC6",
+        "spotifyUrl": "https://open.spotify.com/track/6jizk5lOUnfpaZXYMdfeC6",
         "spotifyMatchScore": 112,
-        "spotifyMatchedBy": "manual",
+        "spotifyMatchedBy": "accepted",
         "tm": "Trumpets",
-        "am": "Jason Derulo"
+        "am": "Jason Derulo",
+        "spotifyDecisionSource": "canonical-listing-rule"
       },
       {
         "w": "2014-02-07",
@@ -4888,7 +4893,7 @@
       },
       {
         "w": "2014-02-14",
-        "t": "CRYING FOR NO ASON",
+        "t": "CRYING FOR NO REASON",
         "a": "KATY B",
         "lw": 5,
         "pk": 5,
@@ -5011,7 +5016,7 @@
       },
       {
         "w": "2014-04-11",
-        "t": "ANYWHE FOR YOU",
+        "t": "ANYWHERE FOR YOU",
         "a": "JOHN MARTIN",
         "lw": "New",
         "pk": 7,
@@ -5183,7 +5188,7 @@
       },
       {
         "w": "2014-06-27",
-        "t": "HE FOR YOU",
+        "t": "HERE FOR YOU",
         "a": "GORGON CITY FT LAURA WELSH",
         "lw": "New",
         "pk": 7,
@@ -5244,7 +5249,7 @@
       },
       {
         "w": "2014-07-25",
-        "t": "RIGHT HE",
+        "t": "RIGHT HERE",
         "a": "JESS GLYNNE",
         "lw": 6,
         "pk": 6,
@@ -6526,7 +6531,7 @@
       },
       {
         "w": "2014-02-28",
-        "t": "CRYING FOR NO ASON",
+        "t": "CRYING FOR NO REASON",
         "a": "KATY B",
         "lw": 5,
         "pk": 5,
@@ -6588,7 +6593,7 @@
       },
       {
         "w": "2014-03-28",
-        "t": "I'M A FAK",
+        "t": "I'M A FREAK",
         "a": "ENRIQUE IGLESIAS FT PITBULL",
         "lw": 4,
         "pk": 4,
@@ -6618,7 +6623,7 @@
       },
       {
         "w": "2014-04-11",
-        "t": "I'M A FAK",
+        "t": "I'M A FREAK",
         "a": "ENRIQUE IGLESIAS FT PITBULL",
         "lw": 11,
         "pk": 4,
@@ -6865,7 +6870,7 @@
       },
       {
         "w": "2014-08-01",
-        "t": "RIGHT HE",
+        "t": "RIGHT HERE",
         "a": "JESS GLYNNE",
         "lw": 7,
         "pk": 6,
@@ -7049,7 +7054,7 @@
       },
       {
         "w": "2014-10-24",
-        "t": "OH CECILIA (BAKING MY HEART)",
+        "t": "OH CECILIA (BREAKING MY HEART)",
         "a": "VAMPS",
         "lw": 46,
         "pk": 9,
@@ -7293,13 +7298,14 @@
         "lw": 7,
         "pk": 4,
         "wc": 11,
-        "sid": "0C6BYlsXKgAQPnMfbYOnV4",
-        "spotifyUri": "spotify:track:0C6BYlsXKgAQPnMfbYOnV4",
-        "spotifyUrl": "https://open.spotify.com/track/0C6BYlsXKgAQPnMfbYOnV4",
+        "sid": "6jizk5lOUnfpaZXYMdfeC6",
+        "spotifyUri": "spotify:track:6jizk5lOUnfpaZXYMdfeC6",
+        "spotifyUrl": "https://open.spotify.com/track/6jizk5lOUnfpaZXYMdfeC6",
         "spotifyMatchScore": 112,
-        "spotifyMatchedBy": "manual",
+        "spotifyMatchedBy": "accepted",
         "tm": "Trumpets",
-        "am": "Jason Derulo"
+        "am": "Jason Derulo",
+        "spotifyDecisionSource": "canonical-listing-rule"
       },
       {
         "w": "2014-02-14",
@@ -7348,7 +7354,7 @@
       },
       {
         "w": "2014-03-07",
-        "t": "CAN'T LY ON YOU",
+        "t": "CAN'T RELY ON YOU",
         "a": "PALOMA FAITH",
         "lw": "New",
         "pk": 10,
@@ -7686,7 +7692,7 @@
       },
       {
         "w": "2014-08-08",
-        "t": "KISSES FOR BAKFAST",
+        "t": "KISSES FOR BREAKFAST",
         "a": "MELISSA STEEL FT POPCAAN",
         "lw": "New",
         "pk": 10,
@@ -8059,7 +8065,7 @@
       },
       {
         "w": "2014-01-24",
-        "t": "CAN'T MEMBER TO FORGET YOU",
+        "t": "CAN'T REMEMBER TO FORGET YOU",
         "a": "SHAKIRA FT RIHANNA",
         "lw": "New",
         "pk": 11,
@@ -8214,7 +8220,7 @@
       },
       {
         "w": "2014-04-04",
-        "t": "I'M A FAK",
+        "t": "I'M A FREAK",
         "a": "ENRIQUE IGLESIAS FT PITBULL",
         "lw": 9,
         "pk": 4,
@@ -8491,7 +8497,7 @@
       },
       {
         "w": "2014-08-08",
-        "t": "RIGHT HE",
+        "t": "RIGHT HERE",
         "a": "JESS GLYNNE",
         "lw": 9,
         "pk": 6,
@@ -8916,13 +8922,14 @@
         "lw": 10,
         "pk": 4,
         "wc": 12,
-        "sid": "0C6BYlsXKgAQPnMfbYOnV4",
-        "spotifyUri": "spotify:track:0C6BYlsXKgAQPnMfbYOnV4",
-        "spotifyUrl": "https://open.spotify.com/track/0C6BYlsXKgAQPnMfbYOnV4",
+        "sid": "6jizk5lOUnfpaZXYMdfeC6",
+        "spotifyUri": "spotify:track:6jizk5lOUnfpaZXYMdfeC6",
+        "spotifyUrl": "https://open.spotify.com/track/6jizk5lOUnfpaZXYMdfeC6",
         "spotifyMatchScore": 112,
-        "spotifyMatchedBy": "manual",
+        "spotifyMatchedBy": "accepted",
         "tm": "Trumpets",
-        "am": "Jason Derulo"
+        "am": "Jason Derulo",
+        "spotifyDecisionSource": "canonical-listing-rule"
       },
       {
         "w": "2014-02-21",
@@ -8958,7 +8965,7 @@
       },
       {
         "w": "2014-03-07",
-        "t": "CRYING FOR NO ASON",
+        "t": "CRYING FOR NO REASON",
         "a": "KATY B",
         "lw": 9,
         "pk": 5,
@@ -9034,7 +9041,7 @@
       },
       {
         "w": "2014-04-11",
-        "t": "SCAM (FUNK MY LIFE UP)",
+        "t": "SCREAM (FUNK MY LIFE UP)",
         "a": "PAOLO NUTINI",
         "lw": "New",
         "pk": 12,
@@ -9315,7 +9322,7 @@
       },
       {
         "w": "2014-08-15",
-        "t": "RIGHT HE",
+        "t": "RIGHT HERE",
         "a": "JESS GLYNNE",
         "lw": 11,
         "pk": 6,
@@ -9781,7 +9788,7 @@
       },
       {
         "w": "2014-03-14",
-        "t": "CRYING FOR NO ASON",
+        "t": "CRYING FOR NO REASON",
         "a": "KATY B",
         "lw": 12,
         "pk": 5,
@@ -10033,7 +10040,7 @@
       },
       {
         "w": "2014-07-04",
-        "t": "HE FOR YOU",
+        "t": "HERE FOR YOU",
         "a": "GORGON CITY FT LAURA WELSH",
         "lw": 7,
         "pk": 7,
@@ -10355,7 +10362,7 @@
       },
       {
         "w": "2014-11-28",
-        "t": "I DON'T CA",
+        "t": "I DON'T CARE",
         "a": "CHERYL",
         "lw": 4,
         "pk": 1,
@@ -10670,7 +10677,7 @@
       },
       {
         "w": "2014-04-18",
-        "t": "I'M A FAK",
+        "t": "I'M A FREAK",
         "a": "ENRIQUE IGLESIAS FT PITBULL",
         "lw": 9,
         "pk": 4,
@@ -11181,7 +11188,7 @@
       },
       {
         "w": "2014-12-05",
-        "t": "THE HANGING TE",
+        "t": "THE HANGING TREE",
         "a": "JAMES NEWTON HOWARD/LAWRENCE",
         "lw": "New",
         "pk": 14,
@@ -11197,7 +11204,7 @@
       },
       {
         "w": "2014-12-12",
-        "t": "THE HANGING TE",
+        "t": "THE HANGING TREE",
         "a": "JAMES NEWTON HOWARD/LAWRENCE",
         "lw": 14,
         "pk": 14,
@@ -11341,7 +11348,7 @@
       },
       {
         "w": "2014-02-14",
-        "t": "CAN'T MEMBER TO FORGET YOU",
+        "t": "CAN'T REMEMBER TO FORGET YOU",
         "a": "SHAKIRA FT RIHANNA",
         "lw": 38,
         "pk": 11,
@@ -11672,7 +11679,7 @@
       },
       {
         "w": "2014-07-11",
-        "t": "ONE MO DAY (STAY WITH ME)",
+        "t": "ONE MORE DAY (STAY WITH ME)",
         "a": "EXAMPLE",
         "lw": 4,
         "pk": 4,
@@ -12073,7 +12080,7 @@
       },
       {
         "w": "2014-01-10",
-        "t": "SOMEWHE ONLY WE KNOW",
+        "t": "SOMEWHERE ONLY WE KNOW",
         "a": "LILY ALLEN",
         "lw": 6,
         "pk": 1,
@@ -12724,7 +12731,7 @@
       },
       {
         "w": "2014-10-31",
-        "t": "BAK FE",
+        "t": "BREAK FREE",
         "a": "ARIANA GRANDE FT ZEDD",
         "lw": 19,
         "pk": 16,
@@ -12981,13 +12988,14 @@
         "lw": 12,
         "pk": 4,
         "wc": 13,
-        "sid": "0C6BYlsXKgAQPnMfbYOnV4",
-        "spotifyUri": "spotify:track:0C6BYlsXKgAQPnMfbYOnV4",
-        "spotifyUrl": "https://open.spotify.com/track/0C6BYlsXKgAQPnMfbYOnV4",
+        "sid": "6jizk5lOUnfpaZXYMdfeC6",
+        "spotifyUri": "spotify:track:6jizk5lOUnfpaZXYMdfeC6",
+        "spotifyUrl": "https://open.spotify.com/track/6jizk5lOUnfpaZXYMdfeC6",
         "spotifyMatchScore": 112,
-        "spotifyMatchedBy": "manual",
+        "spotifyMatchedBy": "accepted",
         "tm": "Trumpets",
-        "am": "Jason Derulo"
+        "am": "Jason Derulo",
+        "spotifyDecisionSource": "canonical-listing-rule"
       },
       {
         "w": "2014-02-28",
@@ -13706,7 +13714,7 @@
       },
       {
         "w": "2014-01-17",
-        "t": "DA YOU",
+        "t": "DARE YOU",
         "a": "HARDWELL FT MATTHEW KOMA",
         "lw": "New",
         "pk": 18,
@@ -13785,7 +13793,7 @@
       },
       {
         "w": "2014-02-21",
-        "t": "CAN'T MEMBER TO FORGET YOU",
+        "t": "CAN'T REMEMBER TO FORGET YOU",
         "a": "SHAKIRA FT RIHANNA",
         "lw": 15,
         "pk": 11,
@@ -13909,7 +13917,7 @@
       },
       {
         "w": "2014-04-18",
-        "t": "CAN'T LY ON YOU",
+        "t": "CAN'T RELY ON YOU",
         "a": "PALOMA FAITH",
         "lw": 35,
         "pk": 10,
@@ -14609,7 +14617,7 @@
       },
       {
         "w": "2014-02-28",
-        "t": "CAN'T MEMBER TO FORGET YOU",
+        "t": "CAN'T REMEMBER TO FORGET YOU",
         "a": "SHAKIRA FT RIHANNA",
         "lw": 18,
         "pk": 11,
@@ -14922,7 +14930,7 @@
       },
       {
         "w": "2014-07-18",
-        "t": "ONE MO DAY (STAY WITH ME)",
+        "t": "ONE MORE DAY (STAY WITH ME)",
         "a": "EXAMPLE",
         "lw": 15,
         "pk": 4,
@@ -15136,7 +15144,7 @@
       },
       {
         "w": "2014-10-24",
-        "t": "BAK FE",
+        "t": "BREAK FREE",
         "a": "ARIANA GRANDE FT ZEDD",
         "lw": 23,
         "pk": 19,
@@ -15167,7 +15175,7 @@
       },
       {
         "w": "2014-11-07",
-        "t": "BAK FE",
+        "t": "BREAK FREE",
         "a": "ARIANA GRANDE FT ZEDD",
         "lw": 16,
         "pk": 16,
@@ -15548,7 +15556,7 @@
       },
       {
         "w": "2014-04-25",
-        "t": "I'M A FAK",
+        "t": "I'M A FREAK",
         "a": "ENRIQUE IGLESIAS FT PITBULL",
         "lw": 14,
         "pk": 4,
@@ -15841,7 +15849,7 @@
       },
       {
         "w": "2014-09-05",
-        "t": "BAK FE",
+        "t": "BREAK FREE",
         "a": "ARIANA GRANDE FT ZEDD",
         "lw": "New",
         "pk": 20,
@@ -16610,7 +16618,7 @@
       },
       {
         "w": "2014-08-15",
-        "t": "KISSES FOR BAKFAST",
+        "t": "KISSES FOR BREAKFAST",
         "a": "MELISSA STEEL FT POPCAAN",
         "lw": 10,
         "pk": 10,
@@ -16626,7 +16634,7 @@
       },
       {
         "w": "2014-08-22",
-        "t": "RIGHT HE",
+        "t": "RIGHT HERE",
         "a": "JESS GLYNNE",
         "lw": 12,
         "pk": 6,
@@ -16674,7 +16682,7 @@
       },
       {
         "w": "2014-09-12",
-        "t": "BAK FE",
+        "t": "BREAK FREE",
         "a": "ARIANA GRANDE FT ZEDD",
         "lw": 20,
         "pk": 20,
@@ -16782,7 +16790,7 @@
       },
       {
         "w": "2014-10-31",
-        "t": "OH CECILIA (BAKING MY HEART)",
+        "t": "OH CECILIA (BREAKING MY HEART)",
         "a": "VAMPS",
         "lw": 9,
         "pk": 9,
@@ -16926,7 +16934,7 @@
     "22": [
       {
         "w": "2014-01-03",
-        "t": "WCKING BALL",
+        "t": "WRECKING BALL",
         "a": "MILEY CYRUS",
         "lw": 42,
         "pk": 1,
@@ -17058,13 +17066,14 @@
         "lw": 17,
         "pk": 4,
         "wc": 14,
-        "sid": "0C6BYlsXKgAQPnMfbYOnV4",
-        "spotifyUri": "spotify:track:0C6BYlsXKgAQPnMfbYOnV4",
-        "spotifyUrl": "https://open.spotify.com/track/0C6BYlsXKgAQPnMfbYOnV4",
+        "sid": "6jizk5lOUnfpaZXYMdfeC6",
+        "spotifyUri": "spotify:track:6jizk5lOUnfpaZXYMdfeC6",
+        "spotifyUrl": "https://open.spotify.com/track/6jizk5lOUnfpaZXYMdfeC6",
         "spotifyMatchScore": 112,
-        "spotifyMatchedBy": "manual",
+        "spotifyMatchedBy": "accepted",
         "tm": "Trumpets",
-        "am": "Jason Derulo"
+        "am": "Jason Derulo",
+        "spotifyDecisionSource": "canonical-listing-rule"
       },
       {
         "w": "2014-03-07",
@@ -17100,7 +17109,7 @@
       },
       {
         "w": "2014-03-21",
-        "t": "CRYING FOR NO ASON",
+        "t": "CRYING FOR NO REASON",
         "a": "KATY B",
         "lw": 13,
         "pk": 5,
@@ -17179,7 +17188,7 @@
       },
       {
         "w": "2014-04-25",
-        "t": "SCAM (FUNK MY LIFE UP)",
+        "t": "SCREAM (FUNK MY LIFE UP)",
         "a": "PAOLO NUTINI",
         "lw": 28,
         "pk": 12,
@@ -17677,7 +17686,7 @@
       },
       {
         "w": "2014-12-05",
-        "t": "DESI",
+        "t": "DESIRE",
         "a": "YEARS & YEARS",
         "lw": "New",
         "pk": 22,
@@ -17885,7 +17894,7 @@
       },
       {
         "w": "2014-03-07",
-        "t": "CAN'T MEMBER TO FORGET YOU",
+        "t": "CAN'T REMEMBER TO FORGET YOU",
         "a": "SHAKIRA FT RIHANNA",
         "lw": 19,
         "pk": 11,
@@ -18057,7 +18066,7 @@
       },
       {
         "w": "2014-05-23",
-        "t": "CHILDN OF THE UNIVERSE",
+        "t": "CHILDREN OF THE UNIVERSE",
         "a": "MOLLY",
         "lw": 33,
         "pk": 23,
@@ -18378,7 +18387,7 @@
       },
       {
         "w": "2014-10-17",
-        "t": "BAK FE",
+        "t": "BREAK FREE",
         "a": "ARIANA GRANDE FT ZEDD",
         "lw": 24,
         "pk": 20,
@@ -18486,7 +18495,7 @@
       },
       {
         "w": "2014-12-05",
-        "t": "I DON'T CA",
+        "t": "I DON'T CARE",
         "a": "CHERYL",
         "lw": 13,
         "pk": 1,
@@ -18581,7 +18590,7 @@
       },
       {
         "w": "2014-01-17",
-        "t": "I SEE FI",
+        "t": "I SEE FIRE",
         "a": "ED SHEERAN",
         "lw": 30,
         "pk": 13,
@@ -19158,7 +19167,7 @@
       },
       {
         "w": "2014-10-03",
-        "t": "BAK FE",
+        "t": "BREAK FREE",
         "a": "ARIANA GRANDE FT ZEDD",
         "lw": 28,
         "pk": 20,
@@ -19174,7 +19183,7 @@
       },
       {
         "w": "2014-10-10",
-        "t": "BAK FE",
+        "t": "BREAK FREE",
         "a": "ARIANA GRANDE FT ZEDD",
         "lw": 24,
         "pk": 20,
@@ -19411,7 +19420,7 @@
       },
       {
         "w": "2014-01-24",
-        "t": "I SEE FI",
+        "t": "I SEE FIRE",
         "a": "ED SHEERAN",
         "lw": 24,
         "pk": 13,
@@ -19583,7 +19592,7 @@
       },
       {
         "w": "2014-04-11",
-        "t": "EMPI",
+        "t": "EMPIRE",
         "a": "SHAKIRA",
         "lw": 61,
         "pk": 25,
@@ -19630,7 +19639,7 @@
       },
       {
         "w": "2014-05-02",
-        "t": "I'M A FAK",
+        "t": "I'M A FREAK",
         "a": "ENRIQUE IGLESIAS FT PITBULL",
         "lw": 20,
         "pk": 4,
@@ -20416,7 +20425,7 @@
       },
       {
         "w": "2014-04-18",
-        "t": "ANYWHE FOR YOU",
+        "t": "ANYWHERE FOR YOU",
         "a": "JOHN MARTIN",
         "lw": 7,
         "pk": 7,
@@ -20601,7 +20610,7 @@
       },
       {
         "w": "2014-07-11",
-        "t": "HE FOR YOU",
+        "t": "HERE FOR YOU",
         "a": "GORGON CITY FT LAURA WELSH",
         "lw": 13,
         "pk": 7,
@@ -20711,7 +20720,7 @@
       },
       {
         "w": "2014-08-29",
-        "t": "RIGHT HE",
+        "t": "RIGHT HERE",
         "a": "JESS GLYNNE",
         "lw": 21,
         "pk": 6,
@@ -21086,7 +21095,7 @@
       },
       {
         "w": "2014-02-14",
-        "t": "ADO YOU",
+        "t": "ADORE YOU",
         "a": "MILEY CYRUS",
         "lw": 30,
         "pk": 27,
@@ -21149,7 +21158,7 @@
       },
       {
         "w": "2014-03-14",
-        "t": "CAN'T MEMBER TO FORGET YOU",
+        "t": "CAN'T REMEMBER TO FORGET YOU",
         "a": "SHAKIRA FT RIHANNA",
         "lw": 23,
         "pk": 11,
@@ -21368,7 +21377,7 @@
       },
       {
         "w": "2014-06-20",
-        "t": "3 LIONS",
+        "t": "RE3 LIONS",
         "a": "BADDIEL/SKINNER/LIGHTNING SEED",
         "lw": "RE",
         "pk": 1,
@@ -21696,7 +21705,7 @@
       },
       {
         "w": "2014-11-14",
-        "t": "BAK FE",
+        "t": "BREAK FREE",
         "a": "ARIANA GRANDE FT ZEDD",
         "lw": 19,
         "pk": 16,
@@ -21825,7 +21834,7 @@
       },
       {
         "w": "2014-01-10",
-        "t": "BLURD LINES",
+        "t": "BLURRED LINES",
         "a": "ROBIN THICKE/TI/PHARRELL",
         "lw": 39,
         "pk": 1,
@@ -22043,7 +22052,7 @@
       },
       {
         "w": "2014-04-18",
-        "t": "SCAM (FUNK MY LIFE UP)",
+        "t": "SCREAM (FUNK MY LIFE UP)",
         "a": "PAOLO NUTINI",
         "lw": 12,
         "pk": 12,
@@ -22074,7 +22083,7 @@
       },
       {
         "w": "2014-05-02",
-        "t": "SCAM (FUNK MY LIFE UP)",
+        "t": "SCREAM (FUNK MY LIFE UP)",
         "a": "PAOLO NUTINI",
         "lw": 22,
         "pk": 12,
@@ -22385,7 +22394,7 @@
       },
       {
         "w": "2014-09-19",
-        "t": "BAK FE",
+        "t": "BREAK FREE",
         "a": "ARIANA GRANDE FT ZEDD",
         "lw": 21,
         "pk": 20,
@@ -22401,7 +22410,7 @@
       },
       {
         "w": "2014-09-26",
-        "t": "BAK FE",
+        "t": "BREAK FREE",
         "a": "ARIANA GRANDE FT ZEDD",
         "lw": 28,
         "pk": 20,
@@ -22639,7 +22648,7 @@
       },
       {
         "w": "2014-01-10",
-        "t": "WCKING BALL",
+        "t": "WRECKING BALL",
         "a": "MILEY CYRUS",
         "lw": 22,
         "pk": 1,
@@ -22771,17 +22780,18 @@
         "lw": 22,
         "pk": 4,
         "wc": 15,
-        "sid": "0C6BYlsXKgAQPnMfbYOnV4",
-        "spotifyUri": "spotify:track:0C6BYlsXKgAQPnMfbYOnV4",
-        "spotifyUrl": "https://open.spotify.com/track/0C6BYlsXKgAQPnMfbYOnV4",
+        "sid": "6jizk5lOUnfpaZXYMdfeC6",
+        "spotifyUri": "spotify:track:6jizk5lOUnfpaZXYMdfeC6",
+        "spotifyUrl": "https://open.spotify.com/track/6jizk5lOUnfpaZXYMdfeC6",
         "spotifyMatchScore": 112,
-        "spotifyMatchedBy": "manual",
+        "spotifyMatchedBy": "accepted",
         "tm": "Trumpets",
-        "am": "Jason Derulo"
+        "am": "Jason Derulo",
+        "spotifyDecisionSource": "canonical-listing-rule"
       },
       {
         "w": "2014-03-14",
-        "t": "CAN'T LY ON YOU",
+        "t": "CAN'T RELY ON YOU",
         "a": "PALOMA FAITH",
         "lw": 10,
         "pk": 10,
@@ -22813,7 +22823,7 @@
       },
       {
         "w": "2014-03-28",
-        "t": "CRYING FOR NO ASON",
+        "t": "CRYING FOR NO REASON",
         "a": "KATY B",
         "lw": 22,
         "pk": 5,
@@ -23000,7 +23010,7 @@
       },
       {
         "w": "2014-06-20",
-        "t": "WE A ONE (OLE OLA)",
+        "t": "WE ARE ONE (OLE OLA)",
         "a": "PITBULL/LOPEZ/LEITTE",
         "lw": 77,
         "pk": 29,
@@ -23448,7 +23458,7 @@
       },
       {
         "w": "2014-01-10",
-        "t": "I SEE FI",
+        "t": "I SEE FIRE",
         "a": "ED SHEERAN",
         "lw": 32,
         "pk": 13,
@@ -23464,7 +23474,7 @@
       },
       {
         "w": "2014-01-17",
-        "t": "SOMEWHE ONLY WE KNOW",
+        "t": "SOMEWHERE ONLY WE KNOW",
         "a": "LILY ALLEN",
         "lw": 16,
         "pk": 1,
@@ -23480,7 +23490,7 @@
       },
       {
         "w": "2014-01-24",
-        "t": "DA YOU",
+        "t": "DARE YOU",
         "a": "HARDWELL FT MATTHEW KOMA",
         "lw": 18,
         "pk": 18,
@@ -23512,7 +23522,7 @@
       },
       {
         "w": "2014-02-07",
-        "t": "ADO YOU",
+        "t": "ADORE YOU",
         "a": "MILEY CYRUS",
         "lw": 33,
         "pk": 30,
@@ -23544,7 +23554,7 @@
       },
       {
         "w": "2014-02-21",
-        "t": "ADO YOU",
+        "t": "ADORE YOU",
         "a": "MILEY CYRUS",
         "lw": 27,
         "pk": 27,
@@ -23951,7 +23961,7 @@
       },
       {
         "w": "2014-08-22",
-        "t": "KISSES FOR BAKFAST",
+        "t": "KISSES FOR BREAKFAST",
         "a": "MELISSA STEEL FT POPCAAN",
         "lw": 21,
         "pk": 10,
@@ -24123,7 +24133,7 @@
       },
       {
         "w": "2014-11-07",
-        "t": "OH CECILIA (BAKING MY HEART)",
+        "t": "OH CECILIA (BREAKING MY HEART)",
         "a": "VAMPS",
         "lw": 21,
         "pk": 9,
@@ -24314,7 +24324,7 @@
       },
       {
         "w": "2014-01-31",
-        "t": "CAN'T MEMBER TO FORGET YOU",
+        "t": "CAN'T REMEMBER TO FORGET YOU",
         "a": "SHAKIRA FT RIHANNA",
         "lw": 11,
         "pk": 11,
@@ -24458,7 +24468,7 @@
       },
       {
         "w": "2014-04-04",
-        "t": "CRYING FOR NO ASON",
+        "t": "CRYING FOR NO REASON",
         "a": "KATY B",
         "lw": 29,
         "pk": 5,
@@ -24504,7 +24514,7 @@
       },
       {
         "w": "2014-04-25",
-        "t": "CAN'T LY ON YOU",
+        "t": "CAN'T RELY ON YOU",
         "a": "PALOMA FAITH",
         "lw": 18,
         "pk": 10,
@@ -25067,7 +25077,7 @@
     "32": [
       {
         "w": "2014-01-03",
-        "t": "I SEE FI",
+        "t": "I SEE FIRE",
         "a": "ED SHEERAN",
         "lw": 20,
         "pk": 13,
@@ -25353,7 +25363,7 @@
       },
       {
         "w": "2014-05-09",
-        "t": "I'M A FAK",
+        "t": "I'M A FREAK",
         "a": "ENRIQUE IGLESIAS FT PITBULL",
         "lw": 25,
         "pk": 4,
@@ -25617,7 +25627,7 @@
       },
       {
         "w": "2014-09-05",
-        "t": "RIGHT HE",
+        "t": "RIGHT HERE",
         "a": "JESS GLYNNE",
         "lw": 26,
         "pk": 6,
@@ -25788,7 +25798,7 @@
       },
       {
         "w": "2014-11-21",
-        "t": "BAK FE",
+        "t": "BREAK FREE",
         "a": "ARIANA GRANDE FT ZEDD",
         "lw": 27,
         "pk": 16,
@@ -25948,7 +25958,7 @@
       },
       {
         "w": "2014-01-31",
-        "t": "ADO YOU",
+        "t": "ADORE YOU",
         "a": "MILEY CYRUS",
         "lw": 48,
         "pk": 33,
@@ -26049,17 +26059,18 @@
         "lw": 29,
         "pk": 4,
         "wc": 16,
-        "sid": "0C6BYlsXKgAQPnMfbYOnV4",
-        "spotifyUri": "spotify:track:0C6BYlsXKgAQPnMfbYOnV4",
-        "spotifyUrl": "https://open.spotify.com/track/0C6BYlsXKgAQPnMfbYOnV4",
+        "sid": "6jizk5lOUnfpaZXYMdfeC6",
+        "spotifyUri": "spotify:track:6jizk5lOUnfpaZXYMdfeC6",
+        "spotifyUrl": "https://open.spotify.com/track/6jizk5lOUnfpaZXYMdfeC6",
         "spotifyMatchScore": 112,
-        "spotifyMatchedBy": "manual",
+        "spotifyMatchedBy": "accepted",
         "tm": "Trumpets",
-        "am": "Jason Derulo"
+        "am": "Jason Derulo",
+        "spotifyDecisionSource": "canonical-listing-rule"
       },
       {
         "w": "2014-03-21",
-        "t": "CAN'T LY ON YOU",
+        "t": "CAN'T RELY ON YOU",
         "a": "PALOMA FAITH",
         "lw": 29,
         "pk": 10,
@@ -26183,7 +26194,7 @@
       },
       {
         "w": "2014-05-16",
-        "t": "CHILDN OF THE UNIVERSE",
+        "t": "CHILDREN OF THE UNIVERSE",
         "a": "MOLLY",
         "lw": 48,
         "pk": 33,
@@ -26277,7 +26288,7 @@
       },
       {
         "w": "2014-06-27",
-        "t": "WE A ONE (OLE OLA)",
+        "t": "WE ARE ONE (OLE OLA)",
         "a": "PITBULL/LOPEZ/LEITTE",
         "lw": 29,
         "pk": 29,
@@ -26763,7 +26774,7 @@
       },
       {
         "w": "2014-01-31",
-        "t": "I SEE FI",
+        "t": "I SEE FIRE",
         "a": "ED SHEERAN",
         "lw": 25,
         "pk": 13,
@@ -26983,7 +26994,7 @@
       },
       {
         "w": "2014-05-09",
-        "t": "SCAM (FUNK MY LIFE UP)",
+        "t": "SCREAM (FUNK MY LIFE UP)",
         "a": "PAOLO NUTINI",
         "lw": 28,
         "pk": 12,
@@ -27738,7 +27749,7 @@
       },
       {
         "w": "2014-04-11",
-        "t": "CAN'T LY ON YOU",
+        "t": "CAN'T RELY ON YOU",
         "a": "PALOMA FAITH",
         "lw": 53,
         "pk": 10,
@@ -28336,7 +28347,7 @@
     "36": [
       {
         "w": "2014-01-03",
-        "t": "BONFI HEART",
+        "t": "BONFIRE HEART",
         "a": "JAMES BLUNT",
         "lw": 47,
         "pk": 4,
@@ -28512,7 +28523,7 @@
       },
       {
         "w": "2014-03-21",
-        "t": "CAN'T MEMBER TO FORGET YOU",
+        "t": "CAN'T REMEMBER TO FORGET YOU",
         "a": "SHAKIRA FT RIHANNA",
         "lw": 27,
         "pk": 11,
@@ -28589,7 +28600,7 @@
       },
       {
         "w": "2014-04-25",
-        "t": "ANYWHE FOR YOU",
+        "t": "ANYWHERE FOR YOU",
         "a": "JOHN MARTIN",
         "lw": 26,
         "pk": 7,
@@ -28793,7 +28804,7 @@
       },
       {
         "w": "2014-07-25",
-        "t": "ONE MO DAY (STAY WITH ME)",
+        "t": "ONE MORE DAY (STAY WITH ME)",
         "a": "EXAMPLE",
         "lw": 19,
         "pk": 4,
@@ -29101,7 +29112,7 @@
       },
       {
         "w": "2014-12-12",
-        "t": "DESI",
+        "t": "DESIRE",
         "a": "YEARS & YEARS",
         "lw": 22,
         "pk": 22,
@@ -29166,7 +29177,7 @@
       },
       {
         "w": "2014-01-10",
-        "t": "BONFI HEART",
+        "t": "BONFIRE HEART",
         "a": "JAMES BLUNT",
         "lw": 36,
         "pk": 4,
@@ -29362,13 +29373,14 @@
         "lw": 40,
         "pk": 4,
         "wc": 19,
-        "sid": "0C6BYlsXKgAQPnMfbYOnV4",
-        "spotifyUri": "spotify:track:0C6BYlsXKgAQPnMfbYOnV4",
-        "spotifyUrl": "https://open.spotify.com/track/0C6BYlsXKgAQPnMfbYOnV4",
+        "sid": "6jizk5lOUnfpaZXYMdfeC6",
+        "spotifyUri": "spotify:track:6jizk5lOUnfpaZXYMdfeC6",
+        "spotifyUrl": "https://open.spotify.com/track/6jizk5lOUnfpaZXYMdfeC6",
         "spotifyMatchScore": 112,
-        "spotifyMatchedBy": "manual",
+        "spotifyMatchedBy": "accepted",
         "tm": "Trumpets",
-        "am": "Jason Derulo"
+        "am": "Jason Derulo",
+        "spotifyDecisionSource": "canonical-listing-rule"
       },
       {
         "w": "2014-04-11",
@@ -29915,7 +29927,7 @@
       },
       {
         "w": "2014-12-12",
-        "t": "I DON'T CA",
+        "t": "I DON'T CARE",
         "a": "CHERYL",
         "lw": 23,
         "pk": 1,
@@ -30042,7 +30054,7 @@
       },
       {
         "w": "2014-02-07",
-        "t": "CAN'T MEMBER TO FORGET YOU",
+        "t": "CAN'T REMEMBER TO FORGET YOU",
         "a": "SHAKIRA FT RIHANNA",
         "lw": 31,
         "pk": 11,
@@ -30142,13 +30154,14 @@
         "lw": 33,
         "pk": 4,
         "wc": 17,
-        "sid": "0C6BYlsXKgAQPnMfbYOnV4",
-        "spotifyUri": "spotify:track:0C6BYlsXKgAQPnMfbYOnV4",
-        "spotifyUrl": "https://open.spotify.com/track/0C6BYlsXKgAQPnMfbYOnV4",
+        "sid": "6jizk5lOUnfpaZXYMdfeC6",
+        "spotifyUri": "spotify:track:6jizk5lOUnfpaZXYMdfeC6",
+        "spotifyUrl": "https://open.spotify.com/track/6jizk5lOUnfpaZXYMdfeC6",
         "spotifyMatchScore": 112,
-        "spotifyMatchedBy": "manual",
+        "spotifyMatchedBy": "accepted",
         "tm": "Trumpets",
-        "am": "Jason Derulo"
+        "am": "Jason Derulo",
+        "spotifyDecisionSource": "canonical-listing-rule"
       },
       {
         "w": "2014-03-28",
@@ -30198,7 +30211,7 @@
       },
       {
         "w": "2014-04-18",
-        "t": "FOR THE FIRST TIME IN FOVER",
+        "t": "FOR THE FIRST TIME IN FOREVER",
         "a": "IDINA MENZEL/KRISTEN BELL",
         "lw": 56,
         "pk": 38,
@@ -30230,7 +30243,7 @@
       },
       {
         "w": "2014-05-02",
-        "t": "FOR THE FIRST TIME IN FOVER",
+        "t": "FOR THE FIRST TIME IN FOREVER",
         "a": "IDINA MENZEL/KRISTEN BELL",
         "lw": 40,
         "pk": 38,
@@ -30669,7 +30682,7 @@
       },
       {
         "w": "2014-11-14",
-        "t": "OH CECILIA (BAKING MY HEART)",
+        "t": "OH CECILIA (BREAKING MY HEART)",
         "a": "VAMPS",
         "lw": 30,
         "pk": 9,
@@ -30783,7 +30796,7 @@
     "39": [
       {
         "w": "2014-01-03",
-        "t": "BLURD LINES",
+        "t": "BLURRED LINES",
         "a": "ROBIN THICKE/TI/PHARRELL",
         "lw": 60,
         "pk": 1,
@@ -30815,7 +30828,7 @@
       },
       {
         "w": "2014-01-17",
-        "t": "WCKING BALL",
+        "t": "WRECKING BALL",
         "a": "MILEY CYRUS",
         "lw": 29,
         "pk": 1,
@@ -30991,7 +31004,7 @@
       },
       {
         "w": "2014-04-04",
-        "t": "CAN'T MEMBER TO FORGET YOU",
+        "t": "CAN'T REMEMBER TO FORGET YOU",
         "a": "SHAKIRA FT RIHANNA",
         "lw": 42,
         "pk": 11,
@@ -31348,7 +31361,7 @@
       },
       {
         "w": "2014-09-12",
-        "t": "RIGHT HE",
+        "t": "RIGHT HERE",
         "a": "JESS GLYNNE",
         "lw": 32,
         "pk": 6,
@@ -31632,7 +31645,7 @@
       },
       {
         "w": "2014-01-17",
-        "t": "BONFI HEART",
+        "t": "BONFIRE HEART",
         "a": "JAMES BLUNT",
         "lw": 37,
         "pk": 4,
@@ -31648,7 +31661,7 @@
       },
       {
         "w": "2014-01-24",
-        "t": "SOMEWHE ONLY WE KNOW",
+        "t": "SOMEWHERE ONLY WE KNOW",
         "a": "LILY ALLEN",
         "lw": 30,
         "pk": 1,
@@ -31680,7 +31693,7 @@
       },
       {
         "w": "2014-02-07",
-        "t": "NO GTS",
+        "t": "NO REGRETS",
         "a": "DAPPY",
         "lw": 83,
         "pk": 1,
@@ -31797,13 +31810,14 @@
         "lw": 38,
         "pk": 4,
         "wc": 18,
-        "sid": "0C6BYlsXKgAQPnMfbYOnV4",
-        "spotifyUri": "spotify:track:0C6BYlsXKgAQPnMfbYOnV4",
-        "spotifyUrl": "https://open.spotify.com/track/0C6BYlsXKgAQPnMfbYOnV4",
+        "sid": "6jizk5lOUnfpaZXYMdfeC6",
+        "spotifyUri": "spotify:track:6jizk5lOUnfpaZXYMdfeC6",
+        "spotifyUrl": "https://open.spotify.com/track/6jizk5lOUnfpaZXYMdfeC6",
         "spotifyMatchScore": 112,
-        "spotifyMatchedBy": "manual",
+        "spotifyMatchedBy": "accepted",
         "tm": "Trumpets",
-        "am": "Jason Derulo"
+        "am": "Jason Derulo",
+        "spotifyDecisionSource": "canonical-listing-rule"
       },
       {
         "w": "2014-04-04",
@@ -31855,7 +31869,7 @@
       },
       {
         "w": "2014-04-25",
-        "t": "FOR THE FIRST TIME IN FOVER",
+        "t": "FOR THE FIRST TIME IN FOREVER",
         "a": "IDINA MENZEL/KRISTEN BELL",
         "lw": 38,
         "pk": 38,
@@ -31903,7 +31917,7 @@
       },
       {
         "w": "2014-05-16",
-        "t": "I'M A FAK",
+        "t": "I'M A FREAK",
         "a": "ENRIQUE IGLESIAS FT PITBULL",
         "lw": 32,
         "pk": 4,
