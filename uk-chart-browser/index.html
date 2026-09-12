@@ -5664,6 +5664,10 @@
       const ng = quizNormalise(g), nc = quizNormalise(c);
       if (!ng || !nc) return false;
       if (ng === nc) return true;
+      // Speech recognition often joins a punctuated title into one token
+      // (for example "Anti-Hero" -> "antihero"). Treat spacing alone as
+      // immaterial, while retaining the normal fuzzy limits below.
+      if (ng.replace(/\s+/g, '') === nc.replace(/\s+/g, '')) return true;
       const allowed = Math.min(6, Math.max(1, Math.floor(nc.length / 6)));
       if (levenshtein(ng, nc) <= allowed) return true;
       // Substring containment: only allow if the contained string is at least
@@ -5671,6 +5675,27 @@
       // inside a longer word like "it" inside "traitor").
       if (ng.length >= nc.length / 2 && new RegExp('\\b' + ng.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&') + '\\b').test(nc)) return true;
       if (nc.length >= ng.length / 2 && new RegExp('\\b' + nc.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&') + '\\b').test(ng)) return true;
+      return false;
+    }
+
+    function speechJoinedHyphenMatch(normalisedGuess, correct) {
+      // Only create a joined-token alias when the canonical text itself has an
+      // internal hyphen. This fixes "Anti-Hero" -> "antihero" without making
+      // one word of an ordinary multi-word title sufficient for full credit.
+      if (!/[a-z0-9]\s*[-‐‑‒–—]\s*[a-z0-9]/i.test(String(correct || ''))) return false;
+      const joined = quizNormalise(correct).replace(/\s+/g, '');
+      return joined.length >= 4 && normalisedGuess.split(' ').includes(joined);
+    }
+
+    function speechWindowMatch(normalisedGuess, normalisedCorrect, correct) {
+      const words = normalisedGuess.split(' ');
+      const expectedWords = normalisedCorrect.split(' ').length;
+      const lengths = [expectedWords, expectedWords + 1];
+      for (const length of lengths) {
+        for (let i = 0; i <= words.length - length; i++) {
+          if (speechMatch(words.slice(i, i + length).join(' '), correct)) return true;
+        }
+      }
       return false;
     }
 
@@ -5683,35 +5708,15 @@
     const titleOk = normTitle && (
       normGuess.includes(normTitle) ||
       speechMatch(guess, correctTitle) ||
-      // Try matching title within a substring of the guess
-      (() => {
-        const words = normGuess.split(' ');
-        const tWords = normTitle.split(' ');
-        for (let i = 0; i <= words.length - tWords.length; i++) {
-          // Try exact length first, then +1 to handle run-together words
-          const exact = words.slice(i, i + tWords.length).join(' ');
-          if (speechMatch(exact, correctTitle)) return true;
-          const wider = words.slice(i, i + tWords.length + 1).join(' ');
-          if (speechMatch(wider, correctTitle)) return true;
-        }
-        return false;
-      })()
+      speechJoinedHyphenMatch(normGuess, correctTitle) ||
+      speechWindowMatch(normGuess, normTitle, correctTitle)
     );
 
     const artistOk = normArtist && (
       normGuess.includes(normArtist) ||
       speechMatch(guess, primaryArtist) ||
-      (() => {
-        const words = normGuess.split(' ');
-        const aWords = normArtist.split(' ');
-        for (let i = 0; i <= words.length - aWords.length; i++) {
-          const exact = words.slice(i, i + aWords.length).join(' ');
-          if (speechMatch(exact, primaryArtist)) return true;
-          const wider = words.slice(i, i + aWords.length + 1).join(' ');
-          if (speechMatch(wider, primaryArtist)) return true;
-        }
-        return false;
-      })()
+      speechJoinedHyphenMatch(normGuess, primaryArtist) ||
+      speechWindowMatch(normGuess, normArtist, primaryArtist)
     );
 
     let points = 0;
