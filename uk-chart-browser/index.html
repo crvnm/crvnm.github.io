@@ -1719,7 +1719,7 @@
             <option value="20">20</option>
           </select>
         </div>
-        <div class="settings-version" id="version-code">Version: 3.20</div>
+        <div class="settings-version" id="version-code">Version: 3.21</div>
       </div>
     </section>
   </div>
@@ -3834,7 +3834,7 @@
 
         advLog('psc:accepted', { sid: incomingTrackId?.slice(-6), pos: incomingPosition, paused: incomingPaused, pending: !!inPendingWindow, newConf: isNewTrackConfirmation });
 
-        const snapshotToWrite = isNewTrackConfirmation
+        const snapshotToWrite = isNewTrackConfirmation && !window.quizState?.active
           ? { ...playbackState, position: 0 }
           : playbackState;
 
@@ -4436,6 +4436,8 @@
     waitingForConfirm: false,
     playedSids: new Set(),
     targetRounds: 0, // 0 = infinite
+    playRequestAt: 0,
+    playRequestPositionMs: 0,
   };
 
   // DOM refs
@@ -4858,7 +4860,11 @@
     } else {
       quizStopConfirmPoll();
       quizStopClip();
+      clearTimeout(_confirmTimeoutId);
+      clearPendingRequestedTrack();
       quizState.waitingForConfirm = false;
+      quizState.playRequestAt = 0;
+      quizState.playRequestPositionMs = 0;
       // Only clear track/score if this is a genuine exit, not a restore cycle
       if (!state?.restoredPlayerStateOnly) {
         quizState.track = null;
@@ -4884,6 +4890,60 @@
     clearTimeout(quizState.pauseTimer);
     quizState.countdownTimer = null;
     quizState.pauseTimer = null;
+  }
+
+  function quizPlaybackMatchesRequest(trackSid, isPlaying, positionMs, observedAt) {
+    if (!quizState.track || trackSid !== quizState.track.sid || !isPlaying) return false;
+    if ((observedAt || 0) < quizState.playRequestAt) return false;
+    const requested = Math.max(0, Number(quizState.playRequestPositionMs) || 0);
+    const position = Math.max(0, Number(positionMs) || 0);
+    return position >= Math.max(0, requested - 1500) && position <= requested + 3500;
+  }
+
+  function quizScheduleSdkConfirmation(trackSid, requestAt) {
+    for (const delay of [350, 1200]) {
+      setTimeout(async () => {
+        if (!quizState.waitingForConfirm || quizState.track?.sid !== trackSid) return;
+        if (quizState.playRequestAt !== requestAt || !state.player?.getCurrentState) return;
+        try {
+          const playbackState = await state.player.getCurrentState();
+          const currentSid = getPlaybackStateTrackId(playbackState);
+          if (!quizPlaybackMatchesRequest(
+            currentSid,
+            !playbackState?.paused,
+            playbackState?.position,
+            Date.now()
+          )) return;
+          const duration = playbackState?.track_window?.current_track?.duration_ms || 0;
+          quizOnTrackConfirmed(trackSid, duration);
+        } catch {}
+      }, delay);
+    }
+  }
+
+  async function quizRequestPlaybackAt(trackSid, positionMs, { resetRecovery = false } = {}) {
+    if (resetRecovery) _retryFired = false;
+    _pollDebugCount = 0;
+    const requestAt = Date.now();
+    quizState.playRequestAt = requestAt;
+    quizState.playRequestPositionMs = Math.max(0, Number(positionMs) || 0);
+    quizState.waitingForConfirm = true;
+    state.activeTrack = quizState.track;
+    state.pendingRequestedTrackSid = trackSid;
+    state.pendingRequestedAt = requestAt;
+    state.confirmedTrackSid = null;
+    clearTimeout(_confirmTimeoutId);
+    quizStartConfirmTimeout();
+    await recoverDeviceAndRetry(async () => {
+      await spotifyApi(
+        `https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`,
+        { method: 'PUT', body: JSON.stringify({
+          uris: [`spotify:track:${trackSid}`],
+          position_ms: quizState.playRequestPositionMs
+        })}
+      );
+    });
+    quizScheduleSdkConfirmation(trackSid, requestAt);
   }
 
   async function quizPauseClip() {
@@ -5004,6 +5064,8 @@
 
   function quizResetQuestion() {
     quizStopClip();
+    clearTimeout(_confirmTimeoutId);
+    clearPendingRequestedTrack();
     stopSpeechRecognition();
     quizResetRing();
     if (quizState.active) document.body.classList.add('quiz-mode');
@@ -5029,6 +5091,8 @@
     quizResultBanner.textContent = '';
     quizState.confirmed = false;
     quizState.waitingForConfirm = false;
+    quizState.playRequestAt = 0;
+    quizState.playRequestPositionMs = 0;
   }
 
   // ── Play a quiz clip ──────────────────────────────────────────────────────
@@ -5048,14 +5112,10 @@
     quizResetQuestion();
     quizState.track = row;
     quizState.clipLenMs = Number(quizClipLen.value) * 1000;
-    quizState.waitingForConfirm = true;
     _lastConfirmedSid = null;
-    _retryFired = false;
-    _pollDebugCount = 0;
     quizPlayBtn.disabled = true;
     quizPlayBtn.innerHTML = '<svg class="quiz-play-icon" viewBox="0 0 24 24" fill="currentColor" style="opacity:0.5"><polygon points="6,4 20,12 6,20"/></svg>'; quizPlayBtn.classList.remove('is-counting');
     quizSetStatus('Loading track…');
-    quizStartConfirmTimeout();
 
     try {
       // Ensure SDK is healthy before playing — brief desync after clip pause can cause
@@ -5102,28 +5162,11 @@
         quizState.clipStartMs = 0;
       }
 
-      await recoverDeviceAndRetry(async () => {
-        await spotifyApi(
-          `https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`,
-          { method: 'PUT', body: JSON.stringify({
-            uris: [`spotify:track:${row.sid}`],
-            position_ms: clipStart
-          })}
-        );
-      });
-
-      // Don't rely solely on player_state_changed — confirm directly after 1.5s
-      // if not already confirmed. Handles tracks where SDK events are delayed.
-      // Skip if a restore is in progress — restore will play a different track.
-      setTimeout(() => {
-        if (!quizState.waitingForConfirm || quizState.track?.sid !== row.sid) return;
-        if (state.restoredPlayerStateOnly || state.restoreResumeInFlight) return;
-        const sdkDuration = state.playbackState?.track_window?.current_track?.duration_ms;
-        const duration = sdkDuration || 210000;
-        _lastConfirmedSid = row.sid;
-        quizOnTrackConfirmed(row.sid, duration);
-      }, 1500);
+      quizSetStatus('Starting clip…');
+      await quizRequestPlaybackAt(row.sid, clipStart, { resetRecovery: true });
     } catch (err) {
+      clearTimeout(_confirmTimeoutId);
+      clearPendingRequestedTrack();
       quizSetStatus('Playback error — try again');
       quizPlayBtn.disabled = false;
       quizPlayBtn.innerHTML = '<svg class="quiz-play-icon play" viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>'; quizPlayBtn.classList.remove('is-counting');
@@ -5135,57 +5178,47 @@
   // Called by our player_state_changed hook when the quiz track is confirmed
   function quizOnTrackConfirmed(trackSid, durationMs) {
     if (!quizState.active || !quizState.waitingForConfirm) { return; }
-    clearTimeout(_confirmTimeoutId);
     if (trackSid !== quizState.track?.sid) {
       // Spotify played the wrong track — abort and show error
       quizSetStatus('Spotify played wrong track — try again');
       quizPlayBtn.disabled = false;
       quizPlayBtn.innerHTML = '<svg class="quiz-play-icon play" viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>'; quizPlayBtn.classList.remove('is-counting');
       quizState.waitingForConfirm = false;
+      clearPendingRequestedTrack();
       return;
     }
 
-    quizState.waitingForConfirm = false;
-    quizState.playedSids.add(trackSid);
-
     const posMode = quizClipPos.value;
-
-    // If clipStartMs was pre-calculated in quizPlayClip (non-start modes with duration fetch),
-    // the track is already playing at the right position — just start the countdown.
-    // Only re-seek if we don't have a pre-calculated position (fallback path).
-    const alreadyAtPosition = quizState.clipStartMs > 0 || posMode === 'start';
-
-    if (alreadyAtPosition) {
-      if (posMode !== 'start' && !quizState.clipStartMs) {
-        // Duration-based recalculation needed as fallback
-        const clipStart = quizCalcClipStart(durationMs, posMode, quizState.clipLenMs);
-        quizState.clipStartMs = clipStart;
-      }
-      quizShowReplay();
-      quizPlayBtn.disabled = false;
-      quizSubmitBtn.disabled = false;
-      quizSetStatus('Listen carefully…');
-      quizStartCountdown(quizState.clipLenMs);
-    } else {
-      // start mode or fallback — no pre-seek done, use play+position_ms
+    if (posMode !== 'start' && !quizState.clipStartMs) {
+      // The duration lookup failed before the first play. Now that the SDK has
+      // supplied a duration, request the real clip position and wait for a new
+      // confirmation instead of counting down during the seek.
       const clipStart = quizCalcClipStart(durationMs, posMode, quizState.clipLenMs);
-      quizState.clipStartMs = clipStart;
-      quizSetStatus('Seeking…');
-      spotifyApi(
-        `https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`,
-        { method: 'PUT', body: JSON.stringify({ uris: [`spotify:track:${trackSid}`], position_ms: clipStart }) }
-      ).then(() => {
-        quizShowReplay();
-        quizPlayBtn.disabled = false;
-        quizSubmitBtn.disabled = false;
-        quizSetStatus('Listen carefully…');
-        quizStartCountdown(quizState.clipLenMs);
-      }).catch(() => {
-        quizSetStatus('Seek failed — try again');
-        quizPlayBtn.disabled = false;
-        quizPlayBtn.innerHTML = '<svg class="quiz-play-icon play" viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>'; quizPlayBtn.classList.remove('is-counting', 'can-replay');
-      });
+      if (clipStart > 0) {
+        quizState.clipStartMs = clipStart;
+        quizSetStatus('Seeking…');
+        quizRequestPlaybackAt(trackSid, clipStart, { resetRecovery: true })
+          .catch(() => {
+            clearTimeout(_confirmTimeoutId);
+            quizState.waitingForConfirm = false;
+            quizSetStatus('Seek failed — try again');
+            quizPlayBtn.disabled = false;
+            quizPlayBtn.innerHTML = '<svg class="quiz-play-icon play" viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>'; quizPlayBtn.classList.remove('is-counting', 'can-replay');
+          });
+        return;
+      }
     }
+
+    clearTimeout(_confirmTimeoutId);
+    quizState.waitingForConfirm = false;
+    clearPendingRequestedTrack();
+    state.confirmedTrackSid = trackSid;
+    quizState.playedSids.add(trackSid);
+    quizShowReplay();
+    quizPlayBtn.disabled = false;
+    quizSubmitBtn.disabled = false;
+    quizSetStatus('Listen carefully…');
+    quizStartCountdown(quizState.clipLenMs);
   }
 
   // Replay the current clip from the stored start position
@@ -5194,27 +5227,24 @@
     clearTimeout(_confirmTimeoutId);
     quizStopClip();
     quizSetStatus('Replaying…');
+    quizPlayBtn.disabled = true;
     // Clear restore flag — quiz handles its own playback
     if (state.restoredPlayerStateOnly) {
       state.restoredPlayerStateOnly = false;
     }
     try {
-      await recoverDeviceAndRetry(async () => {
-        await spotifyApi(
-          `https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`,
-          { method: 'PUT', body: JSON.stringify({
-            uris: [`spotify:track:${quizState.track.sid}`],
-            position_ms: quizState.clipStartMs
-          })}
-        );
-      });
-      // Start the countdown — quizOnTrackConfirmed will verify the playing SID matches
-      quizState.waitingForConfirm = true;
       _lastConfirmedSid = null;
-      quizStartConfirmTimeout();
-      quizSetStatus('Listen carefully…');
-      quizStartCountdown(quizState.clipLenMs);
+      quizSetStatus('Starting replay…');
+      await quizRequestPlaybackAt(
+        quizState.track.sid,
+        quizState.clipStartMs,
+        { resetRecovery: true }
+      );
     } catch {
+      clearTimeout(_confirmTimeoutId);
+      quizState.waitingForConfirm = false;
+      clearPendingRequestedTrack();
+      quizPlayBtn.disabled = false;
       quizSetStatus('Replay failed — try again');
     }
   }
@@ -5377,64 +5407,63 @@
     // Don't confirm while a restore is in progress
     if (state.restoredPlayerStateOnly || state.restoreResumeInFlight) return;
 
-    const sid = state.confirmedTrackSid;
-    const currentSid = getCurrentTrackId();
+    const currentSid = getPlaybackStateTrackId(state.playbackState);
     const targetSid = quizState.track.sid;
 
     // Log every 10 polls (~1s) while waiting
     if (_pollDebugCount++ % 10 === 0) {
     }
 
-    // If Spotify is stuck after 5s — either SDK desynced or play ignored — retry
+    // Only begin the countdown after a fresh SDK state confirms that the
+    // requested track is playing close to the requested clip position.
+    if (quizPlaybackMatchesRequest(
+      currentSid,
+      !state.playbackState?.paused,
+      state.playbackState?.position,
+      state.lastPlaybackTimestamp
+    )) {
+      _lastConfirmedSid = targetSid;
+      const duration = state.playbackState?.track_window?.current_track?.duration_ms || 0;
+      quizOnTrackConfirmed(targetSid, duration);
+      return;
+    }
+
+    // If Spotify is stuck after 5s, verify the real playback state once. The
+    // API helper returns a Response, so decode it before inspecting the track.
+    // A failed or misplaced start is retried at the stored clip position—never 0.
     if (!_retryFired && _pollDebugCount > 50 && state.deviceId) {
       _retryFired = true;
-      // Fetch actual playback state from REST API to detect SDK desync
-      spotifyApi('https://api.spotify.com/v1/me/player', { method: 'GET' })
-        .then(async data => {
-          const actualSid = data?.item?.id;
-          const isPlaying = data?.is_playing;
-          const activeDeviceId = data?.device?.id;
-
-          if (actualSid === targetSid) {
-            _lastConfirmedSid = targetSid;
-            quizState.waitingForConfirm = false;
-            clearTimeout(_confirmTimeoutId);
-            quizOnTrackConfirmed(targetSid, data?.item?.duration_ms || 0);
-          } else {
-            // Only retry if we're still waiting — may have confirmed while REST call was in flight
-            if (!quizState.waitingForConfirm) { return; }
-            // REST API returned stale/empty state — retry play directly on SDK device
-            clearTimeout(_confirmTimeoutId);
-            quizStartConfirmTimeout();
-            try {
-              await spotifyApi(
-                `https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`,
-                { method: 'PUT', body: JSON.stringify({ uris: [`spotify:track:${targetSid}`], position_ms: 0 }) }
-              );
-            } catch (e) {
-            }
-          }
-        })
-        .catch(e => {
-          if (!quizState.waitingForConfirm) return;
-          playTrack(quizState.track, { isAutoAdvance: false }).catch(() => {});
-        });
-      return;
-    }
-
-    // Fire if confirmedTrackSid just changed to our target
-    if (sid === targetSid && sid !== _lastConfirmedSid) {
-      _lastConfirmedSid = sid;
-      const dur = state.playbackState?.track_window?.current_track?.duration_ms || 0;
-      quizOnTrackConfirmed(sid, dur);
-      return;
-    }
-
-    // Also fire if the SDK is already playing our track
-    if (currentSid === targetSid && !state.playbackState?.paused) {
-      _lastConfirmedSid = targetSid;
-      const dur = state.playbackState?.track_window?.current_track?.duration_ms || 0;
-      quizOnTrackConfirmed(targetSid, dur);
+      (async () => {
+        let playback = null;
+        try {
+          const response = await spotifyApi(
+            'https://api.spotify.com/v1/me/player',
+            { method: 'GET' }
+          );
+          if (response.status !== 204) playback = await response.json();
+        } catch {}
+        if (!quizState.waitingForConfirm || quizState.track?.sid !== targetSid) return;
+        if (quizPlaybackMatchesRequest(
+          playback?.item?.id,
+          playback?.is_playing,
+          playback?.progress_ms,
+          Date.now()
+        )) {
+          _lastConfirmedSid = targetSid;
+          quizOnTrackConfirmed(targetSid, playback?.item?.duration_ms || 0);
+          return;
+        }
+        quizSetStatus('Retrying clip position…');
+        try {
+          await quizRequestPlaybackAt(
+            targetSid,
+            quizState.playRequestPositionMs,
+            { resetRecovery: false }
+          );
+        } catch {
+          // The existing confirmation timeout leaves a safe replay action.
+        }
+      })();
     }
   }
 
@@ -5455,6 +5484,7 @@
         }
       }
       quizState.waitingForConfirm = false;
+      clearPendingRequestedTrack();
       // Do NOT clear quizState.track — if the user locked their phone mid-clip,
       // we want replay to still work. The play button will call quizPlayClip
       // only when track is null, so leave it set so replay mode is used instead.
