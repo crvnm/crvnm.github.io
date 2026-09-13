@@ -2120,7 +2120,8 @@
         "spotifyMatchedBy": "manual",
         "tm": "You're the One I Love",
         "am": "Shola Ama",
-        "mbid": null
+        "mbid": null,
+        "isrc": "GBAHT0200461"
       },
       {
         "w": "1997-09-05",
@@ -2794,7 +2795,8 @@
         "spotifyMatchedBy": "manual",
         "tm": "Free",
         "am": "Ultra Nate",
-        "mbid": "5b081884-1221-4847-bcd5-ecd0a4dd1708"
+        "mbid": "5b081884-1221-4847-bcd5-ecd0a4dd1708",
+        "isrc": "GBDVG1133103"
       },
       {
         "w": "1997-06-27",
@@ -2843,7 +2845,8 @@
         "spotifyMatchedBy": "manual",
         "tm": "Free",
         "am": "Ultra Nate",
-        "mbid": "5b081884-1221-4847-bcd5-ecd0a4dd1708"
+        "mbid": "5b081884-1221-4847-bcd5-ecd0a4dd1708",
+        "isrc": "GBDVG1133103"
       },
       {
         "w": "1997-07-18",
@@ -3614,7 +3617,8 @@
         "spotifyMatchedBy": "manual",
         "tm": "Free",
         "am": "Ultra Nate",
-        "mbid": "5b081884-1221-4847-bcd5-ecd0a4dd1708"
+        "mbid": "5b081884-1221-4847-bcd5-ecd0a4dd1708",
+        "isrc": "GBDVG1133103"
       },
       {
         "w": "1997-06-20",
@@ -3710,7 +3714,8 @@
         "spotifyMatchedBy": "manual",
         "tm": "Free",
         "am": "Ultra Nate",
-        "mbid": "5b081884-1221-4847-bcd5-ecd0a4dd1708"
+        "mbid": "5b081884-1221-4847-bcd5-ecd0a4dd1708",
+        "isrc": "GBDVG1133103"
       },
       {
         "w": "1997-08-01",
@@ -4497,7 +4502,8 @@
         "spotifyMatchedBy": "manual",
         "tm": "Free",
         "am": "Ultra Nate",
-        "mbid": "5b081884-1221-4847-bcd5-ecd0a4dd1708"
+        "mbid": "5b081884-1221-4847-bcd5-ecd0a4dd1708",
+        "isrc": "GBDVG1133103"
       },
       {
         "w": "1997-07-11",
@@ -5317,7 +5323,8 @@
         "spotifyMatchedBy": "manual",
         "tm": "Free",
         "am": "Ultra Nate",
-        "mbid": "5b081884-1221-4847-bcd5-ecd0a4dd1708"
+        "mbid": "5b081884-1221-4847-bcd5-ecd0a4dd1708",
+        "isrc": "GBDVG1133103"
       },
       {
         "w": "1997-07-04",
@@ -6202,7 +6209,8 @@
         "spotifyMatchedBy": "manual",
         "tm": "Free",
         "am": "Ultra Nate",
-        "mbid": "5b081884-1221-4847-bcd5-ecd0a4dd1708"
+        "mbid": "5b081884-1221-4847-bcd5-ecd0a4dd1708",
+        "isrc": "GBDVG1133103"
       },
       {
         "w": "1997-07-25",
@@ -6234,7 +6242,8 @@
         "spotifyMatchedBy": "manual",
         "tm": "Free",
         "am": "Ultra Nate",
-        "mbid": "5b081884-1221-4847-bcd5-ecd0a4dd1708"
+        "mbid": "5b081884-1221-4847-bcd5-ecd0a4dd1708",
+        "isrc": "GBDVG1133103"
       },
       {
         "w": "1997-08-08",
@@ -6732,7 +6741,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Show Me Love",
         "am": "Robin S",
-        "mbid": "2b06535e-8e13-4794-9d41-96e7f9c48cb8"
+        "mbid": "2b06535e-8e13-4794-9d41-96e7f9c48cb8",
+        "isrc": "USAT29300075"
       },
       {
         "w": "1997-03-14",
@@ -7770,14 +7780,16 @@
         "lw": "New",
         "pk": 10,
         "wc": 1,
-        "sid": null,
-        "spotifyUri": null,
-        "spotifyUrl": null,
-        "spotifyMatchScore": null,
-        "spotifyMatchedBy": null,
-        "tm": null,
-        "am": null,
-        "mbid": null
+        "sid": "2Rv0jhouur1hUmlJqulyhA",
+        "spotifyUri": "spotify:track:2Rv0jhouur1hUmlJqulyhA",
+        "spotifyUrl": "https://open.spotify.com/track/2Rv0jhouur1hUmlJqulyhA",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
+        "tm": "Waltz Away Dreaming - Original UK Single Version",
+        "am": "Toby Bourke, George Michael",
+        "mbid": null,
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBLFP1142366"
       },
       {
         "w": "1997-06-13",
@@ -8759,7 +8771,8 @@
         "spotifyMatchedBy": "manual",
         "tm": "Free",
         "am": "Ultra Nate",
-        "mbid": "5b081884-1221-4847-bcd5-ecd0a4dd1708"
+        "mbid": "5b081884-1221-4847-bcd5-ecd0a4dd1708",
+        "isrc": "GBDVG1133103"
       },
       {
         "w": "1997-08-15",
@@ -9664,7 +9677,8 @@
         "spotifyMatchedBy": "manual",
         "tm": "You're the One I Love",
         "am": "Shola Ama",
-        "mbid": null
+        "mbid": null,
+        "isrc": "GBAHT0200461"
       },
       {
         "w": "1997-09-12",
@@ -10454,7 +10468,8 @@
         "spotifyMatchedBy": "manual",
         "tm": "Free",
         "am": "Ultra Nate",
-        "mbid": "5b081884-1221-4847-bcd5-ecd0a4dd1708"
+        "mbid": "5b081884-1221-4847-bcd5-ecd0a4dd1708",
+        "isrc": "GBDVG1133103"
       },
       {
         "w": "1997-08-22",
@@ -12190,7 +12205,8 @@
         "spotifyMatchedBy": "manual",
         "tm": "You're the One I Love",
         "am": "Shola Ama",
-        "mbid": null
+        "mbid": null,
+        "isrc": "GBAHT0200461"
       },
       {
         "w": "1997-09-19",
@@ -12978,7 +12994,8 @@
         "spotifyMatchedBy": "manual",
         "tm": "Free",
         "am": "Ultra Nate",
-        "mbid": "5b081884-1221-4847-bcd5-ecd0a4dd1708"
+        "mbid": "5b081884-1221-4847-bcd5-ecd0a4dd1708",
+        "isrc": "GBDVG1133103"
       },
       {
         "w": "1997-08-29",
@@ -13026,7 +13043,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Crazy Chance - '97 Version",
         "am": "Kavana",
-        "mbid": "7bbc381d-4ff7-4a71-9fbb-baf4a57c0ad4"
+        "mbid": "7bbc381d-4ff7-4a71-9fbb-baf4a57c0ad4",
+        "isrc": "GBAAA9710864"
       },
       {
         "w": "1997-09-19",
@@ -13163,14 +13181,16 @@
         "lw": "New",
         "pk": 16,
         "wc": 1,
-        "sid": null,
-        "spotifyUri": null,
-        "spotifyUrl": null,
-        "spotifyMatchScore": null,
-        "spotifyMatchedBy": null,
-        "tm": null,
-        "am": null,
-        "mbid": "b5e9192c-95fc-47e7-8dd0-33d3a166536c"
+        "sid": "2qG04Yyy0byZt3fTjFZKPm",
+        "spotifyUri": "spotify:track:2qG04Yyy0byZt3fTjFZKPm",
+        "spotifyUrl": "https://open.spotify.com/track/2qG04Yyy0byZt3fTjFZKPm",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
+        "tm": "Gunman",
+        "am": "187 Lockdown",
+        "mbid": "b5e9192c-95fc-47e7-8dd0-33d3a166536c",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAHS9803762"
       },
       {
         "w": "1997-11-21",
@@ -13218,7 +13238,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "It's Over Love",
         "am": "Todd Terry",
-        "mbid": "ac192fae-46c4-4542-9904-1307cc5d2b2e"
+        "mbid": "ac192fae-46c4-4542-9904-1307cc5d2b2e",
+        "isrc": "DED419700359"
       },
       {
         "w": "1997-12-12",
@@ -14286,7 +14307,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Show Me Love",
         "am": "Robin S",
-        "mbid": "2b06535e-8e13-4794-9d41-96e7f9c48cb8"
+        "mbid": "2b06535e-8e13-4794-9d41-96e7f9c48cb8",
+        "isrc": "USAT29300075"
       },
       {
         "w": "1997-03-21",
@@ -15509,7 +15531,8 @@
         "spotifyMatchedBy": "manual",
         "tm": "Free",
         "am": "Ultra Nate",
-        "mbid": "5b081884-1221-4847-bcd5-ecd0a4dd1708"
+        "mbid": "5b081884-1221-4847-bcd5-ecd0a4dd1708",
+        "isrc": "GBDVG1133103"
       },
       {
         "w": "1997-09-05",
@@ -17038,7 +17061,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "You Are The Universe",
         "am": "The Brand New Heavies",
-        "mbid": null
+        "mbid": null,
+        "isrc": "GBAMY9700045"
       },
       {
         "w": "1997-07-04",
@@ -17835,14 +17859,16 @@
         "lw": 10,
         "pk": 10,
         "wc": 2,
-        "sid": null,
-        "spotifyUri": null,
-        "spotifyUrl": null,
-        "spotifyMatchScore": null,
-        "spotifyMatchedBy": null,
-        "tm": null,
-        "am": null,
-        "mbid": null
+        "sid": "2Rv0jhouur1hUmlJqulyhA",
+        "spotifyUri": "spotify:track:2Rv0jhouur1hUmlJqulyhA",
+        "spotifyUrl": "https://open.spotify.com/track/2Rv0jhouur1hUmlJqulyhA",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
+        "tm": "Waltz Away Dreaming - Original UK Single Version",
+        "am": "Toby Bourke, George Michael",
+        "mbid": null,
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBLFP1142366"
       },
       {
         "w": "1997-06-20",
@@ -20818,7 +20844,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Snoop's Upside Ya Head",
         "am": "Snoop Dogg feat. Charlie Wilson",
-        "mbid": "2f32f0c2-f019-40dc-8cc3-9dc6fbfed6e2"
+        "mbid": "2f32f0c2-f019-40dc-8cc3-9dc6fbfed6e2",
+        "isrc": "USKO10403718"
       },
       {
         "w": "1997-01-10",
@@ -21412,7 +21439,8 @@
         "spotifyMatchedBy": "manual",
         "tm": "You're the One I Love",
         "am": "Shola Ama",
-        "mbid": null
+        "mbid": null,
+        "isrc": "GBAHT0200461"
       },
       {
         "w": "1997-09-26",
@@ -22215,7 +22243,8 @@
         "spotifyMatchedBy": "manual",
         "tm": "Free",
         "am": "Ultra Nate",
-        "mbid": "5b081884-1221-4847-bcd5-ecd0a4dd1708"
+        "mbid": "5b081884-1221-4847-bcd5-ecd0a4dd1708",
+        "isrc": "GBDVG1133103"
       },
       {
         "w": "1997-09-12",
@@ -22385,14 +22414,16 @@
         "lw": 16,
         "pk": 16,
         "wc": 2,
-        "sid": null,
-        "spotifyUri": null,
-        "spotifyUrl": null,
-        "spotifyMatchScore": null,
-        "spotifyMatchedBy": null,
-        "tm": null,
-        "am": null,
-        "mbid": "b5e9192c-95fc-47e7-8dd0-33d3a166536c"
+        "sid": "2qG04Yyy0byZt3fTjFZKPm",
+        "spotifyUri": "spotify:track:2qG04Yyy0byZt3fTjFZKPm",
+        "spotifyUrl": "https://open.spotify.com/track/2qG04Yyy0byZt3fTjFZKPm",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
+        "tm": "Gunman",
+        "am": "187 Lockdown",
+        "mbid": "b5e9192c-95fc-47e7-8dd0-33d3a166536c",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAHS9803762"
       },
       {
         "w": "1997-11-28",
@@ -23505,7 +23536,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Show Me Love",
         "am": "Robin S",
-        "mbid": "2b06535e-8e13-4794-9d41-96e7f9c48cb8"
+        "mbid": "2b06535e-8e13-4794-9d41-96e7f9c48cb8",
+        "isrc": "USAT29300075"
       },
       {
         "w": "1997-03-28",
@@ -24959,7 +24991,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "It's Over Love",
         "am": "Todd Terry",
-        "mbid": "ac192fae-46c4-4542-9904-1307cc5d2b2e"
+        "mbid": "ac192fae-46c4-4542-9904-1307cc5d2b2e",
+        "isrc": "DED419700359"
       },
       {
         "w": "1997-12-19",
@@ -27058,14 +27091,16 @@
         "lw": 22,
         "pk": 10,
         "wc": 3,
-        "sid": null,
-        "spotifyUri": null,
-        "spotifyUrl": null,
-        "spotifyMatchScore": null,
-        "spotifyMatchedBy": null,
-        "tm": null,
-        "am": null,
-        "mbid": null
+        "sid": "2Rv0jhouur1hUmlJqulyhA",
+        "spotifyUri": "spotify:track:2Rv0jhouur1hUmlJqulyhA",
+        "spotifyUrl": "https://open.spotify.com/track/2Rv0jhouur1hUmlJqulyhA",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
+        "tm": "Waltz Away Dreaming - Original UK Single Version",
+        "am": "Toby Bourke, George Michael",
+        "mbid": null,
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBLFP1142366"
       },
       {
         "w": "1997-06-27",
@@ -27532,7 +27567,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Snoop's Upside Ya Head",
         "am": "Snoop Dogg feat. Charlie Wilson",
-        "mbid": "2f32f0c2-f019-40dc-8cc3-9dc6fbfed6e2"
+        "mbid": "2f32f0c2-f019-40dc-8cc3-9dc6fbfed6e2",
+        "isrc": "USKO10403718"
       },
       {
         "w": "1997-01-17",
@@ -28126,7 +28162,8 @@
         "spotifyMatchedBy": "manual",
         "tm": "You're the One I Love",
         "am": "Shola Ama",
-        "mbid": null
+        "mbid": null,
+        "isrc": "GBAHT0200461"
       },
       {
         "w": "1997-10-03",
@@ -28980,7 +29017,8 @@
         "spotifyMatchedBy": "manual",
         "tm": "You're the One I Love",
         "am": "Shola Ama",
-        "mbid": null
+        "mbid": null,
+        "isrc": "GBAHT0200461"
       },
       {
         "w": "1997-10-10",
@@ -30604,7 +30642,8 @@
         "spotifyMatchedBy": "manual",
         "tm": "Free",
         "am": "Ultra Nate",
-        "mbid": "5b081884-1221-4847-bcd5-ecd0a4dd1708"
+        "mbid": "5b081884-1221-4847-bcd5-ecd0a4dd1708",
+        "isrc": "GBDVG1133103"
       },
       {
         "w": "1997-09-19",
