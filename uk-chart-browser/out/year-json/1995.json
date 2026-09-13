@@ -674,7 +674,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Gangsta's Paradise",
         "am": "Coolio feat. L.V.",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USTB10400128"
       },
       {
         "w": "1995-11-03",
@@ -690,7 +691,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Gangsta's Paradise",
         "am": "Coolio feat. L.V.",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USTB10400128"
       },
       {
         "w": "1995-11-10",
@@ -699,7 +701,15 @@
         "lw": "New",
         "pk": 1,
         "wc": 1,
-        "sid": null
+        "sid": "7h1AgX064mcLzLHIjmsHFp",
+        "spotifyUri": "spotify:track:7h1AgX064mcLzLHIjmsHFp",
+        "spotifyUrl": "https://open.spotify.com/track/7h1AgX064mcLzLHIjmsHFp",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "I Believe",
+        "am": "Robson & Jerome",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBARL9500296"
       },
       {
         "w": "1995-11-17",
@@ -708,7 +718,15 @@
         "lw": 1,
         "pk": 1,
         "wc": 2,
-        "sid": null
+        "sid": "7h1AgX064mcLzLHIjmsHFp",
+        "spotifyUri": "spotify:track:7h1AgX064mcLzLHIjmsHFp",
+        "spotifyUrl": "https://open.spotify.com/track/7h1AgX064mcLzLHIjmsHFp",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "I Believe",
+        "am": "Robson & Jerome",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBARL9500296"
       },
       {
         "w": "1995-11-24",
@@ -717,7 +735,15 @@
         "lw": 1,
         "pk": 1,
         "wc": 3,
-        "sid": null
+        "sid": "7h1AgX064mcLzLHIjmsHFp",
+        "spotifyUri": "spotify:track:7h1AgX064mcLzLHIjmsHFp",
+        "spotifyUrl": "https://open.spotify.com/track/7h1AgX064mcLzLHIjmsHFp",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "I Believe",
+        "am": "Robson & Jerome",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBARL9500296"
       },
       {
         "w": "1995-12-01",
@@ -726,7 +752,15 @@
         "lw": 1,
         "pk": 1,
         "wc": 4,
-        "sid": null
+        "sid": "7h1AgX064mcLzLHIjmsHFp",
+        "spotifyUri": "spotify:track:7h1AgX064mcLzLHIjmsHFp",
+        "spotifyUrl": "https://open.spotify.com/track/7h1AgX064mcLzLHIjmsHFp",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "I Believe",
+        "am": "Robson & Jerome",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBARL9500296"
       },
       {
         "w": "1995-12-08",
@@ -1396,7 +1430,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Gangsta's Paradise",
         "am": "Coolio feat. L.V.",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USTB10400128"
       },
       {
         "w": "1995-11-24",
@@ -1412,7 +1447,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Gangsta's Paradise",
         "am": "Coolio feat. L.V.",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USTB10400128"
       },
       {
         "w": "1995-12-01",
@@ -1428,7 +1464,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Gangsta's Paradise",
         "am": "Coolio feat. L.V.",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USTB10400128"
       },
       {
         "w": "1995-12-08",
@@ -1437,7 +1474,15 @@
         "lw": 1,
         "pk": 1,
         "wc": 5,
-        "sid": null
+        "sid": "7h1AgX064mcLzLHIjmsHFp",
+        "spotifyUri": "spotify:track:7h1AgX064mcLzLHIjmsHFp",
+        "spotifyUrl": "https://open.spotify.com/track/7h1AgX064mcLzLHIjmsHFp",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "I Believe",
+        "am": "Robson & Jerome",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBARL9500296"
       },
       {
         "w": "1995-12-15",
@@ -1446,7 +1491,15 @@
         "lw": "New",
         "pk": 2,
         "wc": 1,
-        "sid": null
+        "sid": "6hLY3Tz1Xt5kBuKNDTs4ib",
+        "spotifyUri": "spotify:track:6hLY3Tz1Xt5kBuKNDTs4ib",
+        "spotifyUrl": "https://open.spotify.com/track/6hLY3Tz1Xt5kBuKNDTs4ib",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
+        "tm": "Free As A Bird - 1995 Mix",
+        "am": "The Beatles",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBDCE1100052"
       },
       {
         "w": "1995-12-22",
@@ -2120,7 +2173,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Gangsta's Paradise",
         "am": "Coolio feat. L.V.",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USTB10400128"
       },
       {
         "w": "1995-11-17",
@@ -2184,7 +2238,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Gangsta's Paradise",
         "am": "Coolio feat. L.V.",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USTB10400128"
       },
       {
         "w": "1995-12-15",
@@ -2209,7 +2264,15 @@
         "lw": 2,
         "pk": 2,
         "wc": 2,
-        "sid": null
+        "sid": "6hLY3Tz1Xt5kBuKNDTs4ib",
+        "spotifyUri": "spotify:track:6hLY3Tz1Xt5kBuKNDTs4ib",
+        "spotifyUrl": "https://open.spotify.com/track/6hLY3Tz1Xt5kBuKNDTs4ib",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
+        "tm": "Free As A Bird - 1995 Mix",
+        "am": "The Beatles",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBDCE1100052"
       },
       {
         "w": "1995-12-29",
@@ -2828,7 +2891,15 @@
         "lw": "New",
         "pk": 4,
         "wc": 1,
-        "sid": null
+        "sid": "28GN153BkwVaeFZB2PMDli",
+        "spotifyUri": "spotify:track:28GN153BkwVaeFZB2PMDli",
+        "spotifyUrl": "https://open.spotify.com/track/28GN153BkwVaeFZB2PMDli",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Thunder",
+        "am": "East 17",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAAP9500558"
       },
       {
         "w": "1995-11-10",
@@ -2933,7 +3004,15 @@
         "lw": 8,
         "pk": 4,
         "wc": 5,
-        "sid": null
+        "sid": "7d7ZdELrrj6wpBxjhHzSS6",
+        "spotifyUri": "spotify:track:7d7ZdELrrj6wpBxjhHzSS6",
+        "spotifyUrl": "https://open.spotify.com/track/7d7ZdELrrj6wpBxjhHzSS6",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "It's Oh So Quiet",
+        "am": "Björk",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBBTF0200247"
       },
       {
         "w": "1995-12-29",
@@ -2942,7 +3021,15 @@
         "lw": 4,
         "pk": 4,
         "wc": 6,
-        "sid": null
+        "sid": "7d7ZdELrrj6wpBxjhHzSS6",
+        "spotifyUri": "spotify:track:7d7ZdELrrj6wpBxjhHzSS6",
+        "spotifyUrl": "https://open.spotify.com/track/7d7ZdELrrj6wpBxjhHzSS6",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "It's Oh So Quiet",
+        "am": "Björk",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBBTF0200247"
       }
     ],
     "5": [
@@ -3526,7 +3613,15 @@
         "lw": 4,
         "pk": 4,
         "wc": 2,
-        "sid": null
+        "sid": "28GN153BkwVaeFZB2PMDli",
+        "spotifyUri": "spotify:track:28GN153BkwVaeFZB2PMDli",
+        "spotifyUrl": "https://open.spotify.com/track/28GN153BkwVaeFZB2PMDli",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Thunder",
+        "am": "East 17",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAAP9500558"
       },
       {
         "w": "1995-11-17",
@@ -3535,7 +3630,15 @@
         "lw": 8,
         "pk": 5,
         "wc": 3,
-        "sid": null
+        "sid": "2qKkC6fd0JS8hOmTvY7AQt",
+        "spotifyUri": "spotify:track:2qKkC6fd0JS8hOmTvY7AQt",
+        "spotifyUrl": "https://open.spotify.com/track/2qKkC6fd0JS8hOmTvY7AQt",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "You'll See",
+        "am": "Madonna",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USWB19500077"
       },
       {
         "w": "1995-11-24",
@@ -3599,7 +3702,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Gangsta's Paradise",
         "am": "Coolio feat. L.V.",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USTB10400128"
       },
       {
         "w": "1995-12-22",
@@ -4253,7 +4357,15 @@
         "lw": 5,
         "pk": 4,
         "wc": 3,
-        "sid": null
+        "sid": "28GN153BkwVaeFZB2PMDli",
+        "spotifyUri": "spotify:track:28GN153BkwVaeFZB2PMDli",
+        "spotifyUrl": "https://open.spotify.com/track/28GN153BkwVaeFZB2PMDli",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Thunder",
+        "am": "East 17",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAAP9500558"
       },
       {
         "w": "1995-11-24",
@@ -4262,7 +4374,15 @@
         "lw": 5,
         "pk": 5,
         "wc": 4,
-        "sid": null
+        "sid": "2qKkC6fd0JS8hOmTvY7AQt",
+        "spotifyUri": "spotify:track:2qKkC6fd0JS8hOmTvY7AQt",
+        "spotifyUrl": "https://open.spotify.com/track/2qKkC6fd0JS8hOmTvY7AQt",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "You'll See",
+        "am": "Madonna",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USWB19500077"
       },
       {
         "w": "1995-12-01",
@@ -4271,7 +4391,15 @@
         "lw": "New",
         "pk": 6,
         "wc": 1,
-        "sid": null
+        "sid": "3m5MLdIz1jmbDjbIkgHOt3",
+        "spotifyUri": "spotify:track:3m5MLdIz1jmbDjbIkgHOt3",
+        "spotifyUrl": "https://open.spotify.com/track/3m5MLdIz1jmbDjbIkgHOt3",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Miss Sarajevo",
+        "am": "Passengers, Luciano Pavarotti",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAAN9500157"
       },
       {
         "w": "1995-12-08",
@@ -4296,7 +4424,15 @@
         "lw": 2,
         "pk": 1,
         "wc": 6,
-        "sid": null
+        "sid": "7h1AgX064mcLzLHIjmsHFp",
+        "spotifyUri": "spotify:track:7h1AgX064mcLzLHIjmsHFp",
+        "spotifyUrl": "https://open.spotify.com/track/7h1AgX064mcLzLHIjmsHFp",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "I Believe",
+        "am": "Robson & Jerome",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBARL9500296"
       },
       {
         "w": "1995-12-22",
@@ -4305,7 +4441,15 @@
         "lw": "New",
         "pk": 6,
         "wc": 1,
-        "sid": null
+        "sid": "5VftBW5TPj4D6PqgowMyIW",
+        "spotifyUri": "spotify:track:5VftBW5TPj4D6PqgowMyIW",
+        "spotifyUrl": "https://open.spotify.com/track/5VftBW5TPj4D6PqgowMyIW",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
+        "tm": "A Winter's Tale",
+        "am": "Queen",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBUM71104208"
       },
       {
         "w": "1995-12-29",
@@ -4321,7 +4465,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Gangsta's Paradise",
         "am": "Coolio feat. L.V.",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USTB10400128"
       }
     ],
     "7": [
@@ -4981,7 +5126,15 @@
         "lw": "New",
         "pk": 7,
         "wc": 1,
-        "sid": null
+        "sid": "2aC8wwfrM0YeTAzzk8hxqC",
+        "spotifyUri": "spotify:track:2aC8wwfrM0YeTAzzk8hxqC",
+        "spotifyUrl": "https://open.spotify.com/track/2aC8wwfrM0YeTAzzk8hxqC",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
+        "tm": "Disco 2000",
+        "am": "Pulp",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAAN9500145"
       },
       {
         "w": "1995-12-15",
@@ -4990,7 +5143,15 @@
         "lw": "New",
         "pk": 7,
         "wc": 1,
-        "sid": null
+        "sid": "5qhkUkewB9jGDpxnp9DxLE",
+        "spotifyUri": "spotify:track:5qhkUkewB9jGDpxnp9DxLE",
+        "spotifyUrl": "https://open.spotify.com/track/5qhkUkewB9jGDpxnp9DxLE",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
+        "tm": "The Best Things In Life Are Free - K Klass 7\"",
+        "am": "Luther Vandross, Janet Jackson",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USAM19501215"
       },
       {
         "w": "1995-12-22",
@@ -5006,7 +5167,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Gangsta's Paradise",
         "am": "Coolio feat. L.V.",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USTB10400128"
       },
       {
         "w": "1995-12-29",
@@ -5670,7 +5832,15 @@
         "lw": 11,
         "pk": 8,
         "wc": 2,
-        "sid": null
+        "sid": "2qKkC6fd0JS8hOmTvY7AQt",
+        "spotifyUri": "spotify:track:2qKkC6fd0JS8hOmTvY7AQt",
+        "spotifyUrl": "https://open.spotify.com/track/2qKkC6fd0JS8hOmTvY7AQt",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "You'll See",
+        "am": "Madonna",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USWB19500077"
       },
       {
         "w": "1995-11-17",
@@ -5711,7 +5881,15 @@
         "lw": 9,
         "pk": 8,
         "wc": 2,
-        "sid": null
+        "sid": "7d7ZdELrrj6wpBxjhHzSS6",
+        "spotifyUri": "spotify:track:7d7ZdELrrj6wpBxjhHzSS6",
+        "spotifyUrl": "https://open.spotify.com/track/7d7ZdELrrj6wpBxjhHzSS6",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "It's Oh So Quiet",
+        "am": "Björk",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBBTF0200247"
       },
       {
         "w": "1995-12-08",
@@ -5736,7 +5914,15 @@
         "lw": 9,
         "pk": 8,
         "wc": 4,
-        "sid": null
+        "sid": "7d7ZdELrrj6wpBxjhHzSS6",
+        "spotifyUri": "spotify:track:7d7ZdELrrj6wpBxjhHzSS6",
+        "spotifyUrl": "https://open.spotify.com/track/7d7ZdELrrj6wpBxjhHzSS6",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "It's Oh So Quiet",
+        "am": "Björk",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBBTF0200247"
       },
       {
         "w": "1995-12-22",
@@ -5745,7 +5931,15 @@
         "lw": 6,
         "pk": 1,
         "wc": 7,
-        "sid": null
+        "sid": "7h1AgX064mcLzLHIjmsHFp",
+        "spotifyUri": "spotify:track:7h1AgX064mcLzLHIjmsHFp",
+        "spotifyUrl": "https://open.spotify.com/track/7h1AgX064mcLzLHIjmsHFp",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "I Believe",
+        "am": "Robson & Jerome",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBARL9500296"
       },
       {
         "w": "1995-12-29",
@@ -5754,7 +5948,15 @@
         "lw": 3,
         "pk": 2,
         "wc": 3,
-        "sid": null
+        "sid": "6hLY3Tz1Xt5kBuKNDTs4ib",
+        "spotifyUri": "spotify:track:6hLY3Tz1Xt5kBuKNDTs4ib",
+        "spotifyUrl": "https://open.spotify.com/track/6hLY3Tz1Xt5kBuKNDTs4ib",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
+        "tm": "Free As A Bird - 1995 Mix",
+        "am": "The Beatles",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBDCE1100052"
       }
     ],
     "9": [
@@ -6385,7 +6587,15 @@
         "lw": "New",
         "pk": 9,
         "wc": 1,
-        "sid": null
+        "sid": "7d7ZdELrrj6wpBxjhHzSS6",
+        "spotifyUri": "spotify:track:7d7ZdELrrj6wpBxjhHzSS6",
+        "spotifyUrl": "https://open.spotify.com/track/7d7ZdELrrj6wpBxjhHzSS6",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "It's Oh So Quiet",
+        "am": "Björk",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBBTF0200247"
       },
       {
         "w": "1995-12-01",
@@ -6394,7 +6604,15 @@
         "lw": 6,
         "pk": 5,
         "wc": 5,
-        "sid": null
+        "sid": "2qKkC6fd0JS8hOmTvY7AQt",
+        "spotifyUri": "spotify:track:2qKkC6fd0JS8hOmTvY7AQt",
+        "spotifyUrl": "https://open.spotify.com/track/2qKkC6fd0JS8hOmTvY7AQt",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "You'll See",
+        "am": "Madonna",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USWB19500077"
       },
       {
         "w": "1995-12-08",
@@ -6403,7 +6621,15 @@
         "lw": 8,
         "pk": 8,
         "wc": 3,
-        "sid": null
+        "sid": "7d7ZdELrrj6wpBxjhHzSS6",
+        "spotifyUri": "spotify:track:7d7ZdELrrj6wpBxjhHzSS6",
+        "spotifyUrl": "https://open.spotify.com/track/7d7ZdELrrj6wpBxjhHzSS6",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "It's Oh So Quiet",
+        "am": "Björk",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBBTF0200247"
       },
       {
         "w": "1995-12-15",
@@ -6437,7 +6663,15 @@
         "lw": 8,
         "pk": 1,
         "wc": 8,
-        "sid": null
+        "sid": "7h1AgX064mcLzLHIjmsHFp",
+        "spotifyUri": "spotify:track:7h1AgX064mcLzLHIjmsHFp",
+        "spotifyUrl": "https://open.spotify.com/track/7h1AgX064mcLzLHIjmsHFp",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "I Believe",
+        "am": "Robson & Jerome",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBARL9500296"
       }
     ],
     "10": [
@@ -6860,7 +7094,15 @@
         "lw": "RE",
         "pk": 6,
         "wc": 12,
-        "sid": null
+        "sid": "646QQKwY2nvJSRApkd0ccD",
+        "spotifyUri": "spotify:track:646QQKwY2nvJSRApkd0ccD",
+        "spotifyUrl": "https://open.spotify.com/track/646QQKwY2nvJSRApkd0ccD",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Don't You Want Me",
+        "am": "Felix",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBARL1000276"
       },
       {
         "w": "1995-08-18",
@@ -7104,7 +7346,15 @@
         "lw": "New",
         "pk": 10,
         "wc": 1,
-        "sid": null
+        "sid": "68XDZSuCJdT8ld3W48F4Fk",
+        "spotifyUri": "spotify:track:68XDZSuCJdT8ld3W48F4Fk",
+        "spotifyUrl": "https://open.spotify.com/track/68XDZSuCJdT8ld3W48F4Fk",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
+        "tm": "Gold",
+        "am": "Prince",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USQX91801764"
       },
       {
         "w": "1995-12-15",
@@ -7138,7 +7388,15 @@
         "lw": 13,
         "pk": 10,
         "wc": 4,
-        "sid": null
+        "sid": "2VULat2tU9eCfaFsg1pk82",
+        "spotifyUri": "spotify:track:2VULat2tU9eCfaFsg1pk82",
+        "spotifyUrl": "https://open.spotify.com/track/2VULat2tU9eCfaFsg1pk82",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "I Am Blessed",
+        "am": "Eternal, Simon Climie",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAYE9500008"
       }
     ],
     "11": [
@@ -7570,7 +7828,15 @@
         "lw": 10,
         "pk": 6,
         "wc": 13,
-        "sid": null
+        "sid": "646QQKwY2nvJSRApkd0ccD",
+        "spotifyUri": "spotify:track:646QQKwY2nvJSRApkd0ccD",
+        "spotifyUrl": "https://open.spotify.com/track/646QQKwY2nvJSRApkd0ccD",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Don't You Want Me",
+        "am": "Felix",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBARL1000276"
       },
       {
         "w": "1995-08-25",
@@ -7712,7 +7978,15 @@
         "lw": "New",
         "pk": 11,
         "wc": 1,
-        "sid": null
+        "sid": "2qKkC6fd0JS8hOmTvY7AQt",
+        "spotifyUri": "spotify:track:2qKkC6fd0JS8hOmTvY7AQt",
+        "spotifyUrl": "https://open.spotify.com/track/2qKkC6fd0JS8hOmTvY7AQt",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "You'll See",
+        "am": "Madonna",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USWB19500077"
       },
       {
         "w": "1995-11-10",
@@ -8420,7 +8694,15 @@
         "lw": 6,
         "pk": 4,
         "wc": 4,
-        "sid": null
+        "sid": "28GN153BkwVaeFZB2PMDli",
+        "spotifyUri": "spotify:track:28GN153BkwVaeFZB2PMDli",
+        "spotifyUrl": "https://open.spotify.com/track/28GN153BkwVaeFZB2PMDli",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Thunder",
+        "am": "East 17",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAAP9500558"
       },
       {
         "w": "1995-12-01",
@@ -8429,7 +8711,15 @@
         "lw": 12,
         "pk": 4,
         "wc": 5,
-        "sid": null
+        "sid": "28GN153BkwVaeFZB2PMDli",
+        "spotifyUri": "spotify:track:28GN153BkwVaeFZB2PMDli",
+        "spotifyUrl": "https://open.spotify.com/track/28GN153BkwVaeFZB2PMDli",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Thunder",
+        "am": "East 17",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAAP9500558"
       },
       {
         "w": "1995-12-08",
@@ -8438,7 +8728,15 @@
         "lw": 6,
         "pk": 6,
         "wc": 2,
-        "sid": null
+        "sid": "3m5MLdIz1jmbDjbIkgHOt3",
+        "spotifyUri": "spotify:track:3m5MLdIz1jmbDjbIkgHOt3",
+        "spotifyUrl": "https://open.spotify.com/track/3m5MLdIz1jmbDjbIkgHOt3",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Miss Sarajevo",
+        "am": "Passengers, Luciano Pavarotti",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAAN9500157"
       },
       {
         "w": "1995-12-15",
@@ -8447,7 +8745,15 @@
         "lw": 14,
         "pk": 12,
         "wc": 2,
-        "sid": null
+        "sid": "2VULat2tU9eCfaFsg1pk82",
+        "spotifyUri": "spotify:track:2VULat2tU9eCfaFsg1pk82",
+        "spotifyUrl": "https://open.spotify.com/track/2VULat2tU9eCfaFsg1pk82",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "I Am Blessed",
+        "am": "Eternal, Simon Climie",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAYE9500008"
       },
       {
         "w": "1995-12-22",
@@ -9147,7 +9453,15 @@
         "lw": 9,
         "pk": 5,
         "wc": 6,
-        "sid": null
+        "sid": "2qKkC6fd0JS8hOmTvY7AQt",
+        "spotifyUri": "spotify:track:2qKkC6fd0JS8hOmTvY7AQt",
+        "spotifyUrl": "https://open.spotify.com/track/2qKkC6fd0JS8hOmTvY7AQt",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "You'll See",
+        "am": "Madonna",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USWB19500077"
       },
       {
         "w": "1995-12-15",
@@ -9156,7 +9470,15 @@
         "lw": 7,
         "pk": 7,
         "wc": 2,
-        "sid": null
+        "sid": "2aC8wwfrM0YeTAzzk8hxqC",
+        "spotifyUri": "spotify:track:2aC8wwfrM0YeTAzzk8hxqC",
+        "spotifyUrl": "https://open.spotify.com/track/2aC8wwfrM0YeTAzzk8hxqC",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
+        "tm": "Disco 2000",
+        "am": "Pulp",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAAN9500145"
       },
       {
         "w": "1995-12-22",
@@ -9165,7 +9487,15 @@
         "lw": 12,
         "pk": 12,
         "wc": 3,
-        "sid": null
+        "sid": "2VULat2tU9eCfaFsg1pk82",
+        "spotifyUri": "spotify:track:2VULat2tU9eCfaFsg1pk82",
+        "spotifyUrl": "https://open.spotify.com/track/2VULat2tU9eCfaFsg1pk82",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "I Am Blessed",
+        "am": "Eternal, Simon Climie",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAYE9500008"
       },
       {
         "w": "1995-12-29",
@@ -9174,7 +9504,15 @@
         "lw": 6,
         "pk": 6,
         "wc": 2,
-        "sid": null
+        "sid": "5VftBW5TPj4D6PqgowMyIW",
+        "spotifyUri": "spotify:track:5VftBW5TPj4D6PqgowMyIW",
+        "spotifyUrl": "https://open.spotify.com/track/5VftBW5TPj4D6PqgowMyIW",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
+        "tm": "A Winter's Tale",
+        "am": "Queen",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBUM71104208"
       }
     ],
     "14": [
@@ -9851,7 +10189,15 @@
         "lw": "New",
         "pk": 14,
         "wc": 1,
-        "sid": null
+        "sid": "2VULat2tU9eCfaFsg1pk82",
+        "spotifyUri": "spotify:track:2VULat2tU9eCfaFsg1pk82",
+        "spotifyUrl": "https://open.spotify.com/track/2VULat2tU9eCfaFsg1pk82",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "I Am Blessed",
+        "am": "Eternal, Simon Climie",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAYE9500008"
       },
       {
         "w": "1995-12-15",
@@ -9876,7 +10222,15 @@
         "lw": 13,
         "pk": 7,
         "wc": 3,
-        "sid": null
+        "sid": "2aC8wwfrM0YeTAzzk8hxqC",
+        "spotifyUri": "spotify:track:2aC8wwfrM0YeTAzzk8hxqC",
+        "spotifyUrl": "https://open.spotify.com/track/2aC8wwfrM0YeTAzzk8hxqC",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
+        "tm": "Disco 2000",
+        "am": "Pulp",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAAN9500145"
       },
       {
         "w": "1995-12-29",
@@ -10541,7 +10895,15 @@
         "lw": 10,
         "pk": 10,
         "wc": 2,
-        "sid": null
+        "sid": "68XDZSuCJdT8ld3W48F4Fk",
+        "spotifyUri": "spotify:track:68XDZSuCJdT8ld3W48F4Fk",
+        "spotifyUrl": "https://open.spotify.com/track/68XDZSuCJdT8ld3W48F4Fk",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
+        "tm": "Gold",
+        "am": "Prince",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USQX91801764"
       },
       {
         "w": "1995-12-22",
@@ -10566,7 +10928,15 @@
         "lw": 14,
         "pk": 7,
         "wc": 4,
-        "sid": null
+        "sid": "2aC8wwfrM0YeTAzzk8hxqC",
+        "spotifyUri": "spotify:track:2aC8wwfrM0YeTAzzk8hxqC",
+        "spotifyUrl": "https://open.spotify.com/track/2aC8wwfrM0YeTAzzk8hxqC",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
+        "tm": "Disco 2000",
+        "am": "Pulp",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAAN9500145"
       }
     ],
     "16": [
@@ -11219,7 +11589,15 @@
         "lw": 12,
         "pk": 4,
         "wc": 6,
-        "sid": null
+        "sid": "28GN153BkwVaeFZB2PMDli",
+        "spotifyUri": "spotify:track:28GN153BkwVaeFZB2PMDli",
+        "spotifyUrl": "https://open.spotify.com/track/28GN153BkwVaeFZB2PMDli",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Thunder",
+        "am": "East 17",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAAP9500558"
       },
       {
         "w": "1995-12-15",
@@ -11228,7 +11606,15 @@
         "lw": 13,
         "pk": 5,
         "wc": 7,
-        "sid": null
+        "sid": "2qKkC6fd0JS8hOmTvY7AQt",
+        "spotifyUri": "spotify:track:2qKkC6fd0JS8hOmTvY7AQt",
+        "spotifyUrl": "https://open.spotify.com/track/2qKkC6fd0JS8hOmTvY7AQt",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "You'll See",
+        "am": "Madonna",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USWB19500077"
       },
       {
         "w": "1995-12-22",
@@ -11237,7 +11623,15 @@
         "lw": 7,
         "pk": 7,
         "wc": 2,
-        "sid": null
+        "sid": "5qhkUkewB9jGDpxnp9DxLE",
+        "spotifyUri": "spotify:track:5qhkUkewB9jGDpxnp9DxLE",
+        "spotifyUrl": "https://open.spotify.com/track/5qhkUkewB9jGDpxnp9DxLE",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
+        "tm": "The Best Things In Life Are Free - K Klass 7\"",
+        "am": "Luther Vandross, Janet Jackson",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USAM19501215"
       },
       {
         "w": "1995-12-29",
@@ -11246,7 +11640,14 @@
         "lw": 18,
         "pk": 16,
         "wc": 3,
-        "sid": null
+        "sid": "08rB0GdZF0qcWncWR5ofas",
+        "spotifyUri": "spotify:track:08rB0GdZF0qcWncWR5ofas",
+        "spotifyUrl": "https://open.spotify.com/track/08rB0GdZF0qcWncWR5ofas",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "If You Wanna Party",
+        "am": "Molella",
+        "spotifyDecisionSource": "global-ledger"
       }
     ],
     "17": [
@@ -11880,7 +12281,15 @@
         "lw": 12,
         "pk": 6,
         "wc": 3,
-        "sid": null
+        "sid": "3m5MLdIz1jmbDjbIkgHOt3",
+        "spotifyUri": "spotify:track:3m5MLdIz1jmbDjbIkgHOt3",
+        "spotifyUrl": "https://open.spotify.com/track/3m5MLdIz1jmbDjbIkgHOt3",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Miss Sarajevo",
+        "am": "Passengers, Luciano Pavarotti",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAAN9500157"
       },
       {
         "w": "1995-12-22",
@@ -11889,7 +12298,15 @@
         "lw": 15,
         "pk": 10,
         "wc": 3,
-        "sid": null
+        "sid": "68XDZSuCJdT8ld3W48F4Fk",
+        "spotifyUri": "spotify:track:68XDZSuCJdT8ld3W48F4Fk",
+        "spotifyUrl": "https://open.spotify.com/track/68XDZSuCJdT8ld3W48F4Fk",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
+        "tm": "Gold",
+        "am": "Prince",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USQX91801764"
       },
       {
         "w": "1995-12-29",
@@ -12574,7 +12991,14 @@
         "lw": "New",
         "pk": 18,
         "wc": 1,
-        "sid": null
+        "sid": "08rB0GdZF0qcWncWR5ofas",
+        "spotifyUri": "spotify:track:08rB0GdZF0qcWncWR5ofas",
+        "spotifyUrl": "https://open.spotify.com/track/08rB0GdZF0qcWncWR5ofas",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "If You Wanna Party",
+        "am": "Molella",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1995-12-22",
@@ -12583,7 +13007,14 @@
         "lw": 18,
         "pk": 18,
         "wc": 2,
-        "sid": null
+        "sid": "08rB0GdZF0qcWncWR5ofas",
+        "spotifyUri": "spotify:track:08rB0GdZF0qcWncWR5ofas",
+        "spotifyUrl": "https://open.spotify.com/track/08rB0GdZF0qcWncWR5ofas",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "If You Wanna Party",
+        "am": "Molella",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1995-12-29",
@@ -12592,7 +13023,15 @@
         "lw": 17,
         "pk": 10,
         "wc": 4,
-        "sid": null
+        "sid": "68XDZSuCJdT8ld3W48F4Fk",
+        "spotifyUri": "spotify:track:68XDZSuCJdT8ld3W48F4Fk",
+        "spotifyUrl": "https://open.spotify.com/track/68XDZSuCJdT8ld3W48F4Fk",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
+        "tm": "Gold",
+        "am": "Prince",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USQX91801764"
       }
     ],
     "19": [
@@ -13293,7 +13732,15 @@
         "lw": 16,
         "pk": 4,
         "wc": 7,
-        "sid": null
+        "sid": "28GN153BkwVaeFZB2PMDli",
+        "spotifyUri": "spotify:track:28GN153BkwVaeFZB2PMDli",
+        "spotifyUrl": "https://open.spotify.com/track/28GN153BkwVaeFZB2PMDli",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Thunder",
+        "am": "East 17",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAAP9500558"
       },
       {
         "w": "1995-12-22",
@@ -13318,7 +13765,15 @@
         "lw": 21,
         "pk": 5,
         "wc": 9,
-        "sid": null
+        "sid": "2qKkC6fd0JS8hOmTvY7AQt",
+        "spotifyUri": "spotify:track:2qKkC6fd0JS8hOmTvY7AQt",
+        "spotifyUrl": "https://open.spotify.com/track/2qKkC6fd0JS8hOmTvY7AQt",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "You'll See",
+        "am": "Madonna",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USWB19500077"
       }
     ],
     "20": [
@@ -13983,7 +14438,15 @@
         "lw": "New",
         "pk": 20,
         "wc": 1,
-        "sid": null
+        "sid": "4RybDty1Wav5P1thf98064",
+        "spotifyUri": "spotify:track:4RybDty1Wav5P1thf98064",
+        "spotifyUrl": "https://open.spotify.com/track/4RybDty1Wav5P1thf98064",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
+        "tm": "Are You Out There - 7\" Edit",
+        "am": "Crescendo",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAAP9500613"
       },
       {
         "w": "1995-12-29",
@@ -13992,7 +14455,15 @@
         "lw": 16,
         "pk": 7,
         "wc": 3,
-        "sid": null
+        "sid": "5qhkUkewB9jGDpxnp9DxLE",
+        "spotifyUri": "spotify:track:5qhkUkewB9jGDpxnp9DxLE",
+        "spotifyUrl": "https://open.spotify.com/track/5qhkUkewB9jGDpxnp9DxLE",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
+        "tm": "The Best Things In Life Are Free - K Klass 7\"",
+        "am": "Luther Vandross, Janet Jackson",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USAM19501215"
       }
     ],
     "21": [
@@ -14700,7 +15171,15 @@
         "lw": 16,
         "pk": 5,
         "wc": 8,
-        "sid": null
+        "sid": "2qKkC6fd0JS8hOmTvY7AQt",
+        "spotifyUri": "spotify:track:2qKkC6fd0JS8hOmTvY7AQt",
+        "spotifyUrl": "https://open.spotify.com/track/2qKkC6fd0JS8hOmTvY7AQt",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "You'll See",
+        "am": "Madonna",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USWB19500077"
       },
       {
         "w": "1995-12-29",
@@ -14709,7 +15188,15 @@
         "lw": 23,
         "pk": 4,
         "wc": 9,
-        "sid": null
+        "sid": "28GN153BkwVaeFZB2PMDli",
+        "spotifyUri": "spotify:track:28GN153BkwVaeFZB2PMDli",
+        "spotifyUrl": "https://open.spotify.com/track/28GN153BkwVaeFZB2PMDli",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Thunder",
+        "am": "East 17",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAAP9500558"
       }
     ],
     "22": [
@@ -15380,7 +15867,15 @@
         "lw": "New",
         "pk": 22,
         "wc": 1,
-        "sid": null
+        "sid": "2jcYdv4mQQYCRaCrILHwBz",
+        "spotifyUri": "spotify:track:2jcYdv4mQQYCRaCrILHwBz",
+        "spotifyUrl": "https://open.spotify.com/track/2jcYdv4mQQYCRaCrILHwBz",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "I Don't Wanna Be a Star",
+        "am": "Corona",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "ITA199800037"
       },
       {
         "w": "1995-12-29",
@@ -16075,7 +16570,15 @@
         "lw": 19,
         "pk": 4,
         "wc": 8,
-        "sid": null
+        "sid": "28GN153BkwVaeFZB2PMDli",
+        "spotifyUri": "spotify:track:28GN153BkwVaeFZB2PMDli",
+        "spotifyUrl": "https://open.spotify.com/track/28GN153BkwVaeFZB2PMDli",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Thunder",
+        "am": "East 17",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAAP9500558"
       },
       {
         "w": "1995-12-29",
@@ -16553,7 +17056,15 @@
         "lw": 11,
         "pk": 6,
         "wc": 14,
-        "sid": null
+        "sid": "646QQKwY2nvJSRApkd0ccD",
+        "spotifyUri": "spotify:track:646QQKwY2nvJSRApkd0ccD",
+        "spotifyUrl": "https://open.spotify.com/track/646QQKwY2nvJSRApkd0ccD",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Don't You Want Me",
+        "am": "Felix",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBARL1000276"
       },
       {
         "w": "1995-09-01",
@@ -16778,7 +17289,15 @@
         "lw": 26,
         "pk": 6,
         "wc": 5,
-        "sid": null
+        "sid": "3m5MLdIz1jmbDjbIkgHOt3",
+        "spotifyUri": "spotify:track:3m5MLdIz1jmbDjbIkgHOt3",
+        "spotifyUrl": "https://open.spotify.com/track/3m5MLdIz1jmbDjbIkgHOt3",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Miss Sarajevo",
+        "am": "Passengers, Luciano Pavarotti",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAAN9500157"
       }
     ],
     "25": [
@@ -18116,7 +18635,15 @@
         "lw": 17,
         "pk": 6,
         "wc": 4,
-        "sid": null
+        "sid": "3m5MLdIz1jmbDjbIkgHOt3",
+        "spotifyUri": "spotify:track:3m5MLdIz1jmbDjbIkgHOt3",
+        "spotifyUrl": "https://open.spotify.com/track/3m5MLdIz1jmbDjbIkgHOt3",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Miss Sarajevo",
+        "am": "Passengers, Luciano Pavarotti",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAAN9500157"
       },
       {
         "w": "1995-12-29",
@@ -18125,7 +18652,15 @@
         "lw": 22,
         "pk": 22,
         "wc": 2,
-        "sid": null
+        "sid": "2jcYdv4mQQYCRaCrILHwBz",
+        "spotifyUri": "spotify:track:2jcYdv4mQQYCRaCrILHwBz",
+        "spotifyUrl": "https://open.spotify.com/track/2jcYdv4mQQYCRaCrILHwBz",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "I Don't Wanna Be a Star",
+        "am": "Corona",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "ITA199800037"
       }
     ],
     "27": [
@@ -19454,7 +19989,15 @@
         "lw": 31,
         "pk": 28,
         "wc": 2,
-        "sid": null
+        "sid": "1QwPDSiL8Rf4snXzLOMZOj",
+        "spotifyUri": "spotify:track:1QwPDSiL8Rf4snXzLOMZOj",
+        "spotifyUrl": "https://open.spotify.com/track/1QwPDSiL8Rf4snXzLOMZOj",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Eye of the Tiger - Remastered",
+        "am": "Frank Bruno",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "FR6V81725983"
       }
     ],
     "29": [
@@ -20134,7 +20677,15 @@
         "lw": 20,
         "pk": 20,
         "wc": 2,
-        "sid": null
+        "sid": "4RybDty1Wav5P1thf98064",
+        "spotifyUri": "spotify:track:4RybDty1Wav5P1thf98064",
+        "spotifyUrl": "https://open.spotify.com/track/4RybDty1Wav5P1thf98064",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
+        "tm": "Are You Out There - 7\" Edit",
+        "am": "Crescendo",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAAP9500613"
       }
     ],
     "30": [
@@ -21479,7 +22030,15 @@
         "lw": "New",
         "pk": 31,
         "wc": 1,
-        "sid": null
+        "sid": "1QwPDSiL8Rf4snXzLOMZOj",
+        "spotifyUri": "spotify:track:1QwPDSiL8Rf4snXzLOMZOj",
+        "spotifyUrl": "https://open.spotify.com/track/1QwPDSiL8Rf4snXzLOMZOj",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Eye of the Tiger - Remastered",
+        "am": "Frank Bruno",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "FR6V81725983"
       },
       {
         "w": "1995-12-29",
@@ -24735,7 +25294,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "This Summer",
         "am": "Squeeze",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAAM9500184"
       },
       {
         "w": "1995-09-15",

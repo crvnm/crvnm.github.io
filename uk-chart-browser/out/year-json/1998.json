@@ -2240,7 +2240,15 @@
         "lw": "New",
         "pk": 3,
         "wc": 1,
-        "sid": null
+        "sid": "4eYQUKYYsJqIvxTVByO9mo",
+        "spotifyUri": "spotify:track:4eYQUKYYsJqIvxTVByO9mo",
+        "spotifyUrl": "https://open.spotify.com/track/4eYQUKYYsJqIvxTVByO9mo",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
+        "tm": "If You Buy This Record (Your Life Will Be Better) - Radio Edit",
+        "am": "The Tamperer, Get Far, Alex Farolfi, Maya",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "ITL019800393"
       },
       {
         "w": "1998-11-20",
@@ -2266,7 +2274,15 @@
         "lw": "New",
         "pk": 3,
         "wc": 1,
-        "sid": null
+        "sid": "0QWFiyhOqFu9RP8qzP6z5L",
+        "spotifyUri": "spotify:track:0QWFiyhOqFu9RP8qzP6z5L",
+        "spotifyUrl": "https://open.spotify.com/track/0QWFiyhOqFu9RP8qzP6z5L",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
+        "tm": "I'm Your Angel (with Céline Dion)",
+        "am": "R. Kelly, Céline Dion",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USJI19810435"
       },
       {
         "w": "1998-12-04",
@@ -2309,7 +2325,15 @@
         "lw": "New",
         "pk": 3,
         "wc": 1,
-        "sid": null
+        "sid": "4HjQIWR7J0KfIMQqdWRO9r",
+        "spotifyUri": "spotify:track:4HjQIWR7J0KfIMQqdWRO9r",
+        "spotifyUrl": "https://open.spotify.com/track/4HjQIWR7J0KfIMQqdWRO9r",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
+        "tm": "She Wants You",
+        "am": "Billie Piper",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAAA9820545"
       },
       {
         "w": "1998-12-25",
@@ -2987,7 +3011,15 @@
         "lw": 3,
         "pk": 3,
         "wc": 2,
-        "sid": null
+        "sid": "4eYQUKYYsJqIvxTVByO9mo",
+        "spotifyUri": "spotify:track:4eYQUKYYsJqIvxTVByO9mo",
+        "spotifyUrl": "https://open.spotify.com/track/4eYQUKYYsJqIvxTVByO9mo",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
+        "tm": "If You Buy This Record (Your Life Will Be Better) - Radio Edit",
+        "am": "The Tamperer, Get Far, Alex Farolfi, Maya",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "ITL019800393"
       },
       {
         "w": "1998-11-27",
@@ -3047,7 +3079,15 @@
         "lw": "New",
         "pk": 4,
         "wc": 1,
-        "sid": null
+        "sid": "0JN7vUgUolHGHFrOR8xk7S",
+        "spotifyUri": "spotify:track:0JN7vUgUolHGHFrOR8xk7S",
+        "spotifyUrl": "https://open.spotify.com/track/0JN7vUgUolHGHFrOR8xk7S",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
+        "tm": "When You Believe - from The Prince of Egypt",
+        "am": "Whitney Houston, Mariah Carey",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USAR19800417"
       },
       {
         "w": "1998-12-25",
@@ -5332,7 +5372,15 @@
         "lw": 4,
         "pk": 3,
         "wc": 3,
-        "sid": null
+        "sid": "4eYQUKYYsJqIvxTVByO9mo",
+        "spotifyUri": "spotify:track:4eYQUKYYsJqIvxTVByO9mo",
+        "spotifyUrl": "https://open.spotify.com/track/4eYQUKYYsJqIvxTVByO9mo",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
+        "tm": "If You Buy This Record (Your Life Will Be Better) - Radio Edit",
+        "am": "The Tamperer, Get Far, Alex Farolfi, Maya",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "ITL019800393"
       },
       {
         "w": "1998-12-04",
@@ -6143,7 +6191,15 @@
         "lw": 3,
         "pk": 3,
         "wc": 2,
-        "sid": null
+        "sid": "0QWFiyhOqFu9RP8qzP6z5L",
+        "spotifyUri": "spotify:track:0QWFiyhOqFu9RP8qzP6z5L",
+        "spotifyUrl": "https://open.spotify.com/track/0QWFiyhOqFu9RP8qzP6z5L",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
+        "tm": "I'm Your Angel (with Céline Dion)",
+        "am": "R. Kelly, Céline Dion",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USJI19810435"
       },
       {
         "w": "1998-12-11",
@@ -6987,7 +7043,15 @@
         "lw": 3,
         "pk": 3,
         "wc": 2,
-        "sid": null
+        "sid": "4HjQIWR7J0KfIMQqdWRO9r",
+        "spotifyUri": "spotify:track:4HjQIWR7J0KfIMQqdWRO9r",
+        "spotifyUrl": "https://open.spotify.com/track/4HjQIWR7J0KfIMQqdWRO9r",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
+        "tm": "She Wants You",
+        "am": "Billie Piper",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAAA9820545"
       }
     ],
     "10": [
@@ -8396,7 +8460,15 @@
         "lw": 7,
         "pk": 3,
         "wc": 4,
-        "sid": null
+        "sid": "4eYQUKYYsJqIvxTVByO9mo",
+        "spotifyUri": "spotify:track:4eYQUKYYsJqIvxTVByO9mo",
+        "spotifyUrl": "https://open.spotify.com/track/4eYQUKYYsJqIvxTVByO9mo",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
+        "tm": "If You Buy This Record (Your Life Will Be Better) - Radio Edit",
+        "am": "The Tamperer, Get Far, Alex Farolfi, Maya",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "ITL019800393"
       },
       {
         "w": "1998-12-11",
@@ -8458,7 +8530,15 @@
         "lw": 9,
         "pk": 3,
         "wc": 3,
-        "sid": null
+        "sid": "4HjQIWR7J0KfIMQqdWRO9r",
+        "spotifyUri": "spotify:track:4HjQIWR7J0KfIMQqdWRO9r",
+        "spotifyUrl": "https://open.spotify.com/track/4HjQIWR7J0KfIMQqdWRO9r",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
+        "tm": "She Wants You",
+        "am": "Billie Piper",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAAA9820545"
       },
       {
         "w": "1998-01-09",
@@ -10685,7 +10765,15 @@
         "lw": 8,
         "pk": 3,
         "wc": 3,
-        "sid": null
+        "sid": "0QWFiyhOqFu9RP8qzP6z5L",
+        "spotifyUri": "spotify:track:0QWFiyhOqFu9RP8qzP6z5L",
+        "spotifyUrl": "https://open.spotify.com/track/0QWFiyhOqFu9RP8qzP6z5L",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
+        "tm": "I'm Your Angel (with Céline Dion)",
+        "am": "R. Kelly, Céline Dion",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USJI19810435"
       },
       {
         "w": "1998-12-18",
@@ -10711,7 +10799,15 @@
         "lw": 4,
         "pk": 4,
         "wc": 2,
-        "sid": null
+        "sid": "0JN7vUgUolHGHFrOR8xk7S",
+        "spotifyUri": "spotify:track:0JN7vUgUolHGHFrOR8xk7S",
+        "spotifyUrl": "https://open.spotify.com/track/0JN7vUgUolHGHFrOR8xk7S",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
+        "tm": "When You Believe - from The Prince of Egypt",
+        "am": "Whitney Houston, Mariah Carey",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USAR19800417"
       }
     ],
     "15": [
@@ -12141,7 +12237,15 @@
         "lw": 14,
         "pk": 4,
         "wc": 3,
-        "sid": null
+        "sid": "0JN7vUgUolHGHFrOR8xk7S",
+        "spotifyUri": "spotify:track:0JN7vUgUolHGHFrOR8xk7S",
+        "spotifyUrl": "https://open.spotify.com/track/0JN7vUgUolHGHFrOR8xk7S",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
+        "tm": "When You Believe - from The Prince of Egypt",
+        "am": "Whitney Houston, Mariah Carey",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USAR19800417"
       },
       {
         "w": "1998-01-09",
@@ -13565,7 +13669,15 @@
         "lw": 11,
         "pk": 3,
         "wc": 5,
-        "sid": null
+        "sid": "4eYQUKYYsJqIvxTVByO9mo",
+        "spotifyUri": "spotify:track:4eYQUKYYsJqIvxTVByO9mo",
+        "spotifyUrl": "https://open.spotify.com/track/4eYQUKYYsJqIvxTVByO9mo",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
+        "tm": "If You Buy This Record (Your Life Will Be Better) - Radio Edit",
+        "am": "The Tamperer, Get Far, Alex Farolfi, Maya",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "ITL019800393"
       },
       {
         "w": "1998-12-18",
@@ -13574,7 +13686,15 @@
         "lw": 14,
         "pk": 3,
         "wc": 4,
-        "sid": null
+        "sid": "0QWFiyhOqFu9RP8qzP6z5L",
+        "spotifyUri": "spotify:track:0QWFiyhOqFu9RP8qzP6z5L",
+        "spotifyUrl": "https://open.spotify.com/track/0QWFiyhOqFu9RP8qzP6z5L",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
+        "tm": "I'm Your Angel (with Céline Dion)",
+        "am": "R. Kelly, Céline Dion",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USJI19810435"
       },
       {
         "w": "1998-12-25",
@@ -13602,7 +13722,15 @@
         "lw": 23,
         "pk": 3,
         "wc": 6,
-        "sid": null
+        "sid": "0QWFiyhOqFu9RP8qzP6z5L",
+        "spotifyUri": "spotify:track:0QWFiyhOqFu9RP8qzP6z5L",
+        "spotifyUrl": "https://open.spotify.com/track/0QWFiyhOqFu9RP8qzP6z5L",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
+        "tm": "I'm Your Angel (with Céline Dion)",
+        "am": "R. Kelly, Céline Dion",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USJI19810435"
       },
       {
         "w": "1998-01-09",
@@ -17261,7 +17389,15 @@
         "lw": 18,
         "pk": 3,
         "wc": 5,
-        "sid": null
+        "sid": "0QWFiyhOqFu9RP8qzP6z5L",
+        "spotifyUri": "spotify:track:0QWFiyhOqFu9RP8qzP6z5L",
+        "spotifyUrl": "https://open.spotify.com/track/0QWFiyhOqFu9RP8qzP6z5L",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
+        "tm": "I'm Your Angel (with Céline Dion)",
+        "am": "R. Kelly, Céline Dion",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USJI19810435"
       }
     ],
     "24": [
@@ -22273,7 +22409,15 @@
         "lw": 18,
         "pk": 3,
         "wc": 6,
-        "sid": null
+        "sid": "4eYQUKYYsJqIvxTVByO9mo",
+        "spotifyUri": "spotify:track:4eYQUKYYsJqIvxTVByO9mo",
+        "spotifyUrl": "https://open.spotify.com/track/4eYQUKYYsJqIvxTVByO9mo",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
+        "tm": "If You Buy This Record (Your Life Will Be Better) - Radio Edit",
+        "am": "The Tamperer, Get Far, Alex Farolfi, Maya",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "ITL019800393"
       },
       {
         "w": "1998-12-25",
@@ -23721,7 +23865,15 @@
         "lw": 39,
         "pk": 3,
         "wc": 8,
-        "sid": null
+        "sid": "4eYQUKYYsJqIvxTVByO9mo",
+        "spotifyUri": "spotify:track:4eYQUKYYsJqIvxTVByO9mo",
+        "spotifyUrl": "https://open.spotify.com/track/4eYQUKYYsJqIvxTVByO9mo",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
+        "tm": "If You Buy This Record (Your Life Will Be Better) - Radio Edit",
+        "am": "The Tamperer, Get Far, Alex Farolfi, Maya",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "ITL019800393"
       },
       {
         "w": "1998-01-09",
@@ -28788,7 +28940,15 @@
         "lw": 30,
         "pk": 3,
         "wc": 7,
-        "sid": null
+        "sid": "4eYQUKYYsJqIvxTVByO9mo",
+        "spotifyUri": "spotify:track:4eYQUKYYsJqIvxTVByO9mo",
+        "spotifyUrl": "https://open.spotify.com/track/4eYQUKYYsJqIvxTVByO9mo",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "manual",
+        "tm": "If You Buy This Record (Your Life Will Be Better) - Radio Edit",
+        "am": "The Tamperer, Get Far, Alex Farolfi, Maya",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "ITL019800393"
       }
     ],
     "40": [
