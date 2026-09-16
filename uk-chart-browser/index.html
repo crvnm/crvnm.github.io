@@ -1724,7 +1724,7 @@
             <option value="20">20</option>
           </select>
         </div>
-        <div class="settings-version" id="version-code">Version: 3.24</div>
+        <div class="settings-version" id="version-code">Version: 3.25</div>
       </div>
     </section>
   </div>
@@ -2004,6 +2004,54 @@
         artist: artist || '',
         artwork: artworkUrl ? [{ src: artworkUrl }] : [],
       });
+      // The Spotify SDK may refresh its own Media Session handlers whenever its
+      // metadata changes. Reapply ours so the hardware next key advances the
+      // browser's filtered/random queue, rather than Spotify's one-track context.
+      installMediaSessionActionHandlers();
+    }
+
+    function setMediaSessionActionHandler(action, handler) {
+      try {
+        navigator.mediaSession.setActionHandler(action, handler);
+        return true;
+      } catch (error) {
+        // Media Session actions vary between browser/OS versions. One unsupported
+        // action must not prevent nexttrack (or the remaining controls) working.
+        console.warn(`Media Session action unavailable: ${action}`, error);
+        return false;
+      }
+    }
+
+    function installMediaSessionActionHandlers() {
+      if (!('mediaSession' in navigator)) return;
+
+      const handlePlayMedia = () => {
+        if (window.quizState?.active) return;
+        if (state.restoredPlayerStateOnly && state.activeTrack) {
+          resumeRestoredTrack().catch(console.error);
+        } else {
+          recoverDeviceAndRetry(() => togglePlayback()).catch(console.error);
+        }
+      };
+      const handlePauseMedia = () => {
+        if (window.quizState?.active) return;
+        recoverDeviceAndRetry(() => togglePlayback()).catch(console.error);
+      };
+      const handleNextMediaTrack = event => {
+        if (window.quizState?.active) return;
+        advLog('media:next-action', { action: event?.action || 'nexttrack' });
+        skipToNextTrack();
+      };
+
+      const installed = {
+        play: setMediaSessionActionHandler('play', handlePlayMedia),
+        pause: setMediaSessionActionHandler('pause', handlePauseMedia),
+        nexttrack: setMediaSessionActionHandler('nexttrack', handleNextMediaTrack),
+        seekforward: setMediaSessionActionHandler('seekforward', handleNextMediaTrack),
+      };
+      setMediaSessionActionHandler('previoustrack', null);
+      setMediaSessionActionHandler('seekbackward', null);
+      advLog('media:handlers-installed', installed);
     }
 
     function refreshPlayerMarquee() {
@@ -3730,11 +3778,16 @@
         name: 'UK Chart Browser',
         getOAuthToken: async cb => cb(await getValidAccessToken()),
         volume: 0.8,
+        enableMediaSession: true,
       });
 
       state.player.addListener('ready', ({ device_id }) => {
         state.deviceId = device_id;
         state.sdkReady = true;
+        installMediaSessionActionHandlers();
+        // Let any final SDK setup finish, then ensure our queue-aware handler is
+        // the last next-track handler registered for the active media session.
+        setTimeout(installMediaSessionActionHandlers, 250);
         updateAuthUi();
       });
       state.player.addListener('not_ready', ({ device_id }) => {
@@ -3964,6 +4017,7 @@
 
       const connected = await state.player.connect();
       state.sdkReady = !!connected;
+      installMediaSessionActionHandlers();
       updateAuthUi();
 
       // Dedicated SDK resync interval — fires every 5s whenever a track is pending
@@ -3990,29 +4044,6 @@
         ).catch(() => {});
       }, 500);
 
-      // Wire up lock screen / Control Centre media controls
-      if ('mediaSession' in navigator) {
-        navigator.mediaSession.setActionHandler('play', () => {
-          if (window.quizState?.active) return;
-          if (state.restoredPlayerStateOnly && state.activeTrack) {
-            resumeRestoredTrack().catch(console.error);
-          } else {
-            recoverDeviceAndRetry(() => togglePlayback()).catch(console.error);
-          }
-        });
-        navigator.mediaSession.setActionHandler('pause', () => {
-          if (window.quizState?.active) return;
-          recoverDeviceAndRetry(() => togglePlayback()).catch(console.error);
-        });
-        const handleNextMediaTrack = () => {
-          if (window.quizState?.active) return;
-          skipToNextTrack();
-        };
-        navigator.mediaSession.setActionHandler('nexttrack', handleNextMediaTrack);
-        navigator.mediaSession.setActionHandler('previoustrack', null);
-        navigator.mediaSession.setActionHandler('seekforward', handleNextMediaTrack);
-        navigator.mediaSession.setActionHandler('seekbackward', null);
-      }
     }
 
     let bootstrapAuthPromise = null;
