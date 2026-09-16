@@ -2357,7 +2357,13 @@
 
       const yearRangeMatch = source.match(/\b((?:19|20)\d{2})\s*(?:-|to)\s*((?:19|20)\d{2})\b/i);
       if (!yearRangeMatch) {
-        return { textTerm: source.toLowerCase(), yearStart: null, yearEnd: null };
+        const singleYearMatch = source.match(/\b((?:19|20)\d{2})\b/);
+        if (!singleYearMatch) {
+          return { textTerm: source.toLowerCase(), yearStart: null, yearEnd: null };
+        }
+        const year = Number(singleYearMatch[1]);
+        const textTerm = source.replace(singleYearMatch[0], ' ').replace(/\s+/g, ' ').trim().toLowerCase();
+        return { textTerm, yearStart: year, yearEnd: year };
       }
 
       const a = Number(yearRangeMatch[1]);
@@ -2596,7 +2602,10 @@
       }
 
       if (filters.yearStart !== null && filters.yearEnd !== null) {
-        chips.push({ label: `Years: ${filters.yearStart}–${filters.yearEnd}`, action: 'range' });
+        const label = filters.yearStart === filters.yearEnd
+          ? `Year: ${filters.yearStart}`
+          : `Years: ${filters.yearStart}–${filters.yearEnd}`;
+        chips.push({ label, action: 'range' });
       }
 
       summaryFilters.hidden = chips.length === 0;
@@ -2716,7 +2725,11 @@
       const filters = parseSearchFilters(state.searchTerm);
       const parts = [];
       if (filters.textTerm) parts.push(`for “${filters.textTerm}”`);
-      if (filters.yearStart !== null && filters.yearEnd !== null) parts.push(`in ${filters.yearStart}–${filters.yearEnd}`);
+      if (filters.yearStart !== null && filters.yearEnd !== null) {
+        parts.push(filters.yearStart === filters.yearEnd
+          ? `in ${filters.yearStart}`
+          : `in ${filters.yearStart}–${filters.yearEnd}`);
+      }
       return parts.join(' ');
     }
 
@@ -4126,7 +4139,9 @@
       const filters = parseSearchFilters(state.searchTerm);
       if (btn.dataset.clearFilter === 'text') {
         state.searchTerm = filters.yearStart !== null && filters.yearEnd !== null
-          ? `${filters.yearStart}-${filters.yearEnd}`
+          ? (filters.yearStart === filters.yearEnd
+            ? `${filters.yearStart}`
+            : `${filters.yearStart}-${filters.yearEnd}`)
           : '';
       } else if (btn.dataset.clearFilter === 'range') {
         state.searchTerm = filters.textTerm || '';
@@ -4823,7 +4838,11 @@
     const chips = [];
     const year = state.selectedYear;
     if (year && year !== 'ALL') chips.push(year);
-    else if (filters.yearStart !== null && filters.yearEnd !== null) chips.push(`${filters.yearStart}–${filters.yearEnd}`);
+    else if (filters.yearStart !== null && filters.yearEnd !== null) {
+      chips.push(filters.yearStart === filters.yearEnd
+        ? `${filters.yearStart}`
+        : `${filters.yearStart}–${filters.yearEnd}`);
+    }
     if (state.selectedPosition && state.selectedPosition !== 'ALL') chips.push(getPositionLabel(state.selectedPosition));
     if (state.peakWeekOnly) chips.push('Peak Week');
     if (filters.textTerm) chips.push(`"${filters.textTerm}"`);
