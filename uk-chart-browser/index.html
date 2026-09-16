@@ -1724,7 +1724,7 @@
             <option value="20">20</option>
           </select>
         </div>
-        <div class="settings-version" id="version-code">Version: 3.22</div>
+        <div class="settings-version" id="version-code">Version: 3.23</div>
       </div>
     </section>
   </div>
@@ -4007,11 +4007,7 @@
         });
         navigator.mediaSession.setActionHandler('nexttrack', () => {
           if (window.quizState?.active) return;
-          if (state.randomPinnedKey) {
-            jumpToRandomCurrent().catch(console.error);
-          } else {
-            maybeAutoAdvanceFromTimer();
-          }
+          skipToNextTrack();
         });
         navigator.mediaSession.setActionHandler('previoustrack', null);
         navigator.mediaSession.setActionHandler('seekforward', null);
@@ -4328,7 +4324,7 @@
         state.isScrubbing = false;
       }
     });
-    skipForwardBtn.addEventListener('click', async () => {
+    async function skipToNextTrack() {
       if (window.quizState?.active) return;
       if (state.autoAdvanceInFlight) return;
       state.autoAdvanceInFlight = true;
@@ -4357,7 +4353,8 @@
       } finally {
         setTimeout(() => { state.autoAdvanceInFlight = false; }, 1200);
       }
-    });
+    }
+    skipForwardBtn.addEventListener('click', skipToNextTrack);
     document.addEventListener('visibilitychange', () => {
       if (document.visibilityState === 'hidden') {
         // Snapshot the current position and track so we can detect and repair
