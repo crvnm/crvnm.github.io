@@ -1724,7 +1724,7 @@
             <option value="20">20</option>
           </select>
         </div>
-        <div class="settings-version" id="version-code">Version: 3.23</div>
+        <div class="settings-version" id="version-code">Version: 3.24</div>
       </div>
     </section>
   </div>
@@ -3920,8 +3920,7 @@
               advLog('psc:paused-check', { prevPos: Math.round(prevSnapshotPosition), dur: Math.round(dur), incomingPos: incomingPosition, random: !!state.randomPinnedKey });
               if (dur > 0 && (prevSnapshotPosition >= Math.max(0, dur - 2000) || (incomingPosition === 0 && prevSnapshotPosition >= Math.max(0, dur - 10000)))) {
                 advLog('psc:advance-triggered');
-                state.autoAdvanceInFlight = true;
-                maybeAutoAdvanceFromTimer();
+                skipToNextTrack();
               }
             }
           } else if (!playbackState.paused) startProgressTimer();
@@ -4005,12 +4004,13 @@
           if (window.quizState?.active) return;
           recoverDeviceAndRetry(() => togglePlayback()).catch(console.error);
         });
-        navigator.mediaSession.setActionHandler('nexttrack', () => {
+        const handleNextMediaTrack = () => {
           if (window.quizState?.active) return;
           skipToNextTrack();
-        });
+        };
+        navigator.mediaSession.setActionHandler('nexttrack', handleNextMediaTrack);
         navigator.mediaSession.setActionHandler('previoustrack', null);
-        navigator.mediaSession.setActionHandler('seekforward', null);
+        navigator.mediaSession.setActionHandler('seekforward', handleNextMediaTrack);
         navigator.mediaSession.setActionHandler('seekbackward', null);
       }
     }
@@ -4338,6 +4338,8 @@
           state.intentToPlay = true;
           render();
           await recoverDeviceAndRetry(() => playTrack(nextRow, { isAutoAdvance: true }));
+          await new Promise(resolve => setTimeout(resolve, 500));
+          await ensurePendingTrackIsActuallyPlaying();
           state.intentToPlay = false;
         } else {
           const playableRows = getPlayableVisibleRows();
@@ -4345,7 +4347,9 @@
           if (currentIndex < 0 || currentIndex >= playableRows.length - 1) return;
           const nextRow = playableRows[currentIndex + 1];
           if (!nextRow?.sid) return;
-          await playTrack(nextRow, { isAutoAdvance: true, forceRestart: true });
+          await recoverDeviceAndRetry(() => playTrack(nextRow, { isAutoAdvance: true, forceRestart: true }));
+          await new Promise(resolve => setTimeout(resolve, 500));
+          await ensurePendingTrackIsActuallyPlaying();
         }
       } catch (err) {
         console.error('Skip forward failed', err);
@@ -4355,6 +4359,11 @@
       }
     }
     skipForwardBtn.addEventListener('click', skipToNextTrack);
+    document.addEventListener('keydown', event => {
+      if (event.key !== 'MediaTrackNext') return;
+      event.preventDefault();
+      skipToNextTrack();
+    });
     document.addEventListener('visibilitychange', () => {
       if (document.visibilityState === 'hidden') {
         // Snapshot the current position and track so we can detect and repair
