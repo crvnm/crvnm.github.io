@@ -1724,7 +1724,7 @@
             <option value="20">20</option>
           </select>
         </div>
-        <div class="settings-version" id="version-code">Version: 3.25</div>
+        <div class="settings-version" id="version-code">Version: 3.26</div>
       </div>
     </section>
   </div>
@@ -1885,6 +1885,8 @@
       trackSidAtPageHide: null,
       intentToPlay: false,
       confirmedTrackSid: null,
+      nativePlaybackQueue: [],
+      nativePlaybackQueueIndex: -1,
     };
 
     function qs(name) { return new URLSearchParams(window.location.search).get(name); }
@@ -1995,63 +1997,6 @@
       setMarqueeText(playerArtist, artist);
       minibarSong.textContent = song;
       minibarArtist.textContent = artist;
-    }
-
-    function updateMediaSession(song, artist, artworkUrl) {
-      if (!('mediaSession' in navigator)) return;
-      navigator.mediaSession.metadata = new MediaMetadata({
-        title: song || '',
-        artist: artist || '',
-        artwork: artworkUrl ? [{ src: artworkUrl }] : [],
-      });
-      // The Spotify SDK may refresh its own Media Session handlers whenever its
-      // metadata changes. Reapply ours so the hardware next key advances the
-      // browser's filtered/random queue, rather than Spotify's one-track context.
-      installMediaSessionActionHandlers();
-    }
-
-    function setMediaSessionActionHandler(action, handler) {
-      try {
-        navigator.mediaSession.setActionHandler(action, handler);
-        return true;
-      } catch (error) {
-        // Media Session actions vary between browser/OS versions. One unsupported
-        // action must not prevent nexttrack (or the remaining controls) working.
-        console.warn(`Media Session action unavailable: ${action}`, error);
-        return false;
-      }
-    }
-
-    function installMediaSessionActionHandlers() {
-      if (!('mediaSession' in navigator)) return;
-
-      const handlePlayMedia = () => {
-        if (window.quizState?.active) return;
-        if (state.restoredPlayerStateOnly && state.activeTrack) {
-          resumeRestoredTrack().catch(console.error);
-        } else {
-          recoverDeviceAndRetry(() => togglePlayback()).catch(console.error);
-        }
-      };
-      const handlePauseMedia = () => {
-        if (window.quizState?.active) return;
-        recoverDeviceAndRetry(() => togglePlayback()).catch(console.error);
-      };
-      const handleNextMediaTrack = event => {
-        if (window.quizState?.active) return;
-        advLog('media:next-action', { action: event?.action || 'nexttrack' });
-        skipToNextTrack();
-      };
-
-      const installed = {
-        play: setMediaSessionActionHandler('play', handlePlayMedia),
-        pause: setMediaSessionActionHandler('pause', handlePauseMedia),
-        nexttrack: setMediaSessionActionHandler('nexttrack', handleNextMediaTrack),
-        seekforward: setMediaSessionActionHandler('seekforward', handleNextMediaTrack),
-      };
-      setMediaSessionActionHandler('previoustrack', null);
-      setMediaSessionActionHandler('seekbackward', null);
-      advLog('media:handlers-installed', installed);
     }
 
     function refreshPlayerMarquee() {
@@ -2207,7 +2152,9 @@
     }
 
     function getCurrentTrackId() {
-      return state.currentTrackSid || getPlaybackStateTrackId(state.playbackState);
+      // Prefer the latest accepted SDK snapshot. currentTrackSid is only a
+      // fallback for the brief period where a restored player has no snapshot.
+      return getPlaybackStateTrackId(state.playbackState) || state.currentTrackSid;
     }
 
     function getPlayableVisibleRows() {
@@ -2228,6 +2175,62 @@
     function getPlayableQueueIndexForRow(targetRow) {
       if (!targetRow?.sid) return -1;
       return getPlayableVisibleRows().findIndex(row => row.sid === targetRow.sid);
+    }
+
+    const NATIVE_PLAYBACK_QUEUE_LIMIT = 50;
+
+    function uniquePlayableRows(rows) {
+      const unique = [];
+      const seenSids = new Set();
+      for (const row of rows || []) {
+        if (!row?.sid || seenSids.has(row.sid)) continue;
+        seenSids.add(row.sid);
+        unique.push(row);
+      }
+      return unique;
+    }
+
+    function shuffleRows(rows) {
+      const shuffled = [...rows];
+      for (let i = shuffled.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      return shuffled;
+    }
+
+    function buildNativePlaybackQueue(startRow) {
+      if (!startRow?.sid) return [];
+
+      if (state.randomPinnedKey) {
+        const candidates = uniquePlayableRows(getRowsForCurrentFilter())
+          .filter(row => row.sid !== startRow.sid);
+        return [startRow, ...shuffleRows(candidates)]
+          .slice(0, NATIVE_PLAYBACK_QUEUE_LIMIT);
+      }
+
+      const rows = getPlayableVisibleRows();
+      const startIndex = rows.findIndex(row => row.sid === startRow.sid);
+      if (startIndex < 0) return [startRow];
+      return rows.slice(startIndex, startIndex + NATIVE_PLAYBACK_QUEUE_LIMIT);
+    }
+
+    function getExpectedNativeQueueAdvance(incomingTrackId) {
+      if (!incomingTrackId || !state.nativePlaybackQueue.length) return null;
+      const nextIndex = state.nativePlaybackQueueIndex + 1;
+      const nextRow = state.nativePlaybackQueue[nextIndex];
+      if (!nextRow || nextRow.sid !== incomingTrackId) return null;
+      return { row: nextRow, index: nextIndex };
+    }
+
+    function getNativePlaybackUris(startTrackId) {
+      const startIndex = state.nativePlaybackQueue
+        .findIndex(row => row.sid === startTrackId);
+      const rows = startIndex >= 0
+        ? state.nativePlaybackQueue.slice(startIndex)
+        : [];
+      return (rows.length ? rows : [{ sid: startTrackId }])
+        .map(row => `spotify:track:${row.sid}`);
     }
 
     async function maybeAutoAdvanceFromTimer() {
@@ -3481,11 +3484,14 @@
       const currentTrackId = getPlaybackStateTrackId(state.playbackState);
       const isSwitchingTrack = currentTrackId !== row.sid;
       const mustHardReset = isSwitchingTrack || options.forceRestart;
+      const nativePlaybackQueue = buildNativePlaybackQueue(row);
 
       state.activeTrack = row;
       state.pendingRequestedTrackSid = row.sid;
       state.pendingRequestedAt = Date.now();
       state.confirmedTrackSid = null;
+      state.nativePlaybackQueue = nativePlaybackQueue;
+      state.nativePlaybackQueueIndex = 0;
 
       // Reset local position to 0 immediately so the progress timer doesn't
       // show the old track's position while the new track loads.
@@ -3499,7 +3505,10 @@
       await spotifyApi(`https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`, {
         method: 'PUT',
         body: JSON.stringify({
-          uris: [`spotify:track:${row.sid}`],
+          // A real Spotify context lets the SDK's cross-origin Media Session
+          // handler advance when the hardware next key is pressed. Our timer
+          // still performs the normal early auto-advance before track end.
+          uris: nativePlaybackQueue.map(queueRow => `spotify:track:${queueRow.sid}`),
           position_ms: 0,
         }),
       });
@@ -3551,7 +3560,10 @@
               {
                 method: 'PUT',
                 body: JSON.stringify({
-                  uris: [`spotify:track:${expectedSid}`],
+                  // Preserve the known queue when a delayed SDK start needs a
+                  // kick; falling back to one URI here would silently break the
+                  // hardware next key on slower starts.
+                  uris: getNativePlaybackUris(expectedSid),
                   position_ms: 0,
                 }),
               }
@@ -3625,6 +3637,7 @@
         0
       );
       const trackSid = state.activeTrack.sid;
+      const nativePlaybackQueue = buildNativePlaybackQueue(state.activeTrack);
 
       state.restoreResumeInFlight = true;
 
@@ -3634,6 +3647,8 @@
         state.restoreSeekUntil = Date.now() + 5000;
         state.pendingRequestedTrackSid = trackSid;
         state.pendingRequestedAt = Date.now();
+        state.nativePlaybackQueue = nativePlaybackQueue;
+        state.nativePlaybackQueueIndex = 0;
 
         await recoverDeviceAndRetry(async () => {
           await state.player.activateElement();
@@ -3643,7 +3658,7 @@
             {
               method: 'PUT',
               body: JSON.stringify({
-                uris: [`spotify:track:${trackSid}`],
+                uris: nativePlaybackQueue.map(queueRow => `spotify:track:${queueRow.sid}`),
                 position_ms: restorePosition,
               }),
             }
@@ -3784,10 +3799,6 @@
       state.player.addListener('ready', ({ device_id }) => {
         state.deviceId = device_id;
         state.sdkReady = true;
-        installMediaSessionActionHandlers();
-        // Let any final SDK setup finish, then ensure our queue-aware handler is
-        // the last next-track handler registered for the active media session.
-        setTimeout(installMediaSessionActionHandlers, 250);
         updateAuthUi();
       });
       state.player.addListener('not_ready', ({ device_id }) => {
@@ -3881,6 +3892,17 @@
           return;
         }
 
+        // Spotify owns the active Media Session inside its cross-origin player
+        // frame. Its hardware-next handler can therefore move within the URI
+        // queue without first setting our pending track. Accept only the exact
+        // next queued song, and only once Spotify confirms that it is playing.
+        const nativeQueueAdvance =
+          !window.quizState?.active &&
+          !inPendingWindow &&
+          !incomingPaused
+            ? getExpectedNativeQueueAdvance(incomingTrackId)
+            : null;
+
         // After the pending window closes, still reject events for tracks
         // other than the confirmed track for a short window to catch delayed
         // old-track events that arrive after the new track is confirmed.
@@ -3889,10 +3911,24 @@
           state.confirmedTrackSid &&
           incomingTrackId &&
           incomingTrackId !== state.confirmedTrackSid &&
+          !nativeQueueAdvance &&
           !state.restoreSeekTrackSid
         ) {
           advLog('psc:drop-post-confirm', { inc: incomingTrackId?.slice(-6), confirmed: state.confirmedTrackSid?.slice(-6), pos: incomingPosition });
           return;
+        }
+
+        if (nativeQueueAdvance) {
+          state.nativePlaybackQueueIndex = nativeQueueAdvance.index;
+          state.activeTrack = nativeQueueAdvance.row;
+          state.currentPlayableIndex = getPlayableQueueIndexForRow(nativeQueueAdvance.row);
+          if (state.randomPinnedKey) {
+            state.randomPinnedKey = rowKey(nativeQueueAdvance.row);
+          }
+          advLog('psc:native-queue-advance', {
+            sid: incomingTrackId?.slice(-6),
+            queueIndex: nativeQueueAdvance.index,
+          });
         }
 
         // On first confirmed playing event for the pending track, force position
@@ -3913,6 +3949,7 @@
         state.playbackState = snapshotToWrite;
         state.lastPlaybackSnapshot = snapshotToWrite;
         state.lastPlaybackTimestamp = Date.now();
+        if (incomingTrackId) state.currentTrackSid = incomingTrackId;
         if (!inPendingWindow || !incomingPaused) updateTogglePlayButton();
 
         if (!playbackState) {
@@ -3929,11 +3966,9 @@
           if (artworkUrl) {
             setPlayerArtwork(artworkUrl, track.name.slice(0, 1).toUpperCase());
             playerInfo.textContent = '';
-            updateMediaSession(track.name, track.artists.map(a => a.name).join(', '), artworkUrl);
           } else if (!inPendingWindow) {
             setPlayerArtwork(null, track.name.slice(0, 1).toUpperCase());
             playerInfo.textContent = '';
-            updateMediaSession(track.name, track.artists.map(a => a.name).join(', '), null);
           }
 
           if (!state.isScrubbing) {
@@ -4017,7 +4052,6 @@
 
       const connected = await state.player.connect();
       state.sdkReady = !!connected;
-      installMediaSessionActionHandlers();
       updateAuthUi();
 
       // Dedicated SDK resync interval — fires every 5s whenever a track is pending
@@ -4295,6 +4329,8 @@
       state.pendingRequestedTrackSid = null;
       state.pendingRequestedAt = 0;
       state.confirmedTrackSid = null;
+      state.nativePlaybackQueue = [];
+      state.nativePlaybackQueueIndex = -1;
       stopProgressTimer();
       updateAuthUi();
     });
@@ -4390,11 +4426,6 @@
       }
     }
     skipForwardBtn.addEventListener('click', skipToNextTrack);
-    document.addEventListener('keydown', event => {
-      if (event.key !== 'MediaTrackNext') return;
-      event.preventDefault();
-      skipToNextTrack();
-    });
     document.addEventListener('visibilitychange', () => {
       if (document.visibilityState === 'hidden') {
         // Snapshot the current position and track so we can detect and repair
