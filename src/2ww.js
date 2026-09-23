@@ -1,412 +1,136 @@
+// Selectable findings used by the NICE NG12 rule engine in 2ww-logic.js.
+// Labels deliberately include qualifiers such as unexplained, persistent and
+// first presentation because those qualifiers form part of the recommendation.
 var data = {
-	"weight_loss": {
-		"text": "Weight Loss",
-		"categories": ["General / Non-specific","Lower GI", "Upper GI", "Lung"]
-	},
-	"abdominal_pain": {
-		"text": "Abdominal Pain",
-		"categories": ["General / Non-specific","Lower GI","Upper GI", "Gynaecology"]
-	},
-	"upper_abdominal_pain": {
-		"text": "Upper Abdominal Pain",
-		"categories": ["General / Non-specific","Upper GI"]
-	},
-	"back_pain": {
-		"text": "Back Pain",
-		"categories": ["General / Non-specific","Upper GI","Gynaecology"]
-	},
-	"iron_deficiency_anaemia": {
-		"text": "Iron Deficiency Anaemia",
-		"categories": ["General / Non-specific","Blood Tests","Lower GI"]
-	},
-	"non_iron_deficiency_anaemia": {
-		"text": "Non-iron Deficiency Anaemia",
-		"categories": ["General / Non-specific","Lower GI","Blood Tests"]
-	},
-	"low_haemoglobin": {
-		"text": "Low Haemoglobin",
-		"categories": ["General / Non-specific","Upper GI","Blood Tests","Gynaecology"]
-	},
-	"raise_white_cell_count": {
-		"text": "Raised White Cell Count",
-		"categories": ["Urology: Bladder / Renal","Blood Tests"]
-	},
-	"thrombocytosis": {
-		"text": "Thrombocytosis",
-		"categories": ["General / Non-specific","Blood Tests","Upper GI","Lung","Gynaecology"]
-	},
-	"unexplained_breast_lump": {
-		"text": "Unexplained Breast Lump",
-		"categories": ["Breast"]
-	},
-	"unilateral_nipple_discharge": {
-		"text": "Unilateral Nipple Discharge",
-		"categories": ["Breast"]
-	},
-	"unilateral_nipple_retraction": {
-		"text": "Unilateral Nipple Retraction",
-		"categories": ["Breast"]
-	},
-	"skin_changes_suggesting_breast_cancer": {
-		"text": "Skin Changes Suggesting Breast Cancer",
-		"categories": ["Breast"]
-	},
-	"unexplained_lump_axilla": {
-		"text": "Unexplained Lump in the Axilla",
-		"categories": ["Breast"]
-	},
-	"rectal_mass": {
-		"text": "Rectal Mass",
-		"categories": ["Lower GI"]
-	},
-	"abdominal_mass": {
-		"text": "Abdominal Mass",
-		"categories": ["Lower GI", "Gynaecology"]
-	},
-	"anal_mass": {
-		"text": "Anal Mass",
-		"categories": ["Lower GI"]
-	},
-	"anal_ulceration": {
-		"text": "Anal Ulceration",
-		"categories": ["Lower GI"]
-	},
-	"rectal_bleeding": {
-		"text": "Rectal Bleeding",
-		"categories": ["Lower GI"]
-	},
-	"change_in_bowel_habit": {
-		"text": "Change in Bowel Habit",
-		"categories": ["Lower GI"]
-	},
-	"test_occult_blood_faeces": {
-		"text": "Test Shows Occult Blood in Faeces",
-		"categories": ["Lower GI"]
-	},
-	"dysphagia": {
-		"text": "Dysphagia",
-		"categories": ["Upper GI"]
-	},
-	"reflux": {
-		"text": "Reflux",
-		"categories": ["Upper GI"]
-	},
-	"dyspepsia": {
-		"text": "Dyspepsia",
-		"categories": ["Upper GI"]
-	},
-	"upper_abdominal_mass": {
-		"text": "Upper Abdominal Mass",
-		"categories": ["Upper GI"]
-	},
-	"treatment_resistant_dyspepsia": {
-		"text": "Treatment Resistant Dyspepsia",
-		"categories": ["Upper GI"]
-	},
-	"nausea_or_vomiting": {
-		"text": "Nausea / Vomiting",
-		"categories": ["Upper GI"]
-	},
-	"jaundice": {
-		"text": "Jaundice",
-		"categories": ["Upper GI"]
-	},
-	"diarrhoea": {
-		"text": "Diarrhoea",
-		"categories": ["Upper GI"]
-	},
-	"constipation": {
-		"text": "Constipation",
-		"categories": ["Upper GI"]
-	},
-	"new_onset_diabetes": {
-		"text": "New Onset Diabetes",
-		"categories": ["Upper GI"]
-	},
-	"upper_abdominal_mass_enlarged_gallbladder": {
-		"text": "Upper Abdominal Mass Consistent with Enlarged Gall Bladder",
-		"categories": ["Upper GI"]
-	},
-	"upper_abdominal_mass_enlarged_liver": {
-		"text": "Upper Abdominal Mass Consistent with Enlarged Liver",
-		"categories": ["Upper GI"]
-	},
-	"cough": {
-		"text": "Cough",
-		"categories": ["Lung"]
-	},
-	"fatigue": {
-		"text": "Fatigue",
-		"categories": ["Lung","Haematology"]
-	},
-	"chest_pain": {
-		"text": "Chest Pain",
-		"categories": ["Lung"]
-	},
-	"appetite_loss": {
-		"text": "Appetite Loss",
-		"categories": ["Lung","Gynaecology"]
-	},
-	"unexplained_haemoptysis": {
-		"text": "Unexplained Haemoptysis",
-		"categories": ["Lung"]
-	},
-	"chest_xray_suggesting_lung_cancer": {
-		"text": "Chest X-Ray Suggesting Lung Cancer",
-		"categories": ["Lung"]
-	},
-	"persistent_or_recurrent_chest_infection": {
-		"text": "Persistent / Recurrent Chest Infection",
-		"categories": ["Lung"]
-	},
-	"finger_clubbing": {
-		"text": "Finger Clubbing",
-		"categories": ["Lung"]
-	},
-	"supraclavicular_lymphadenopathy": {
-		"text": "Supraclavicular Lymphadenopathy",
-		"categories": ["Lung"]
-	},
-	"persistent_cervical_lymphadenopathy": {
-		"text": "Persistent Cervical Lymphadenopathy",
-		"categories": ["Lung"]
-	},
-	"chest_signs_consistent_with_lung_cancer": {
-		"text": "Chest Signs Consistent with Lung Cancer",
-		"categories": ["Lung"]
-	},
-	"asbestos_exposure": {
-		"text": "Asbestos Exposure",
-		"categories": ["Lung"]
-	},
-	"chest_signs_pleural_disease": {
-		"text": "Chest Signs Compatible with Pleural Disease",
-		"categories": ["Lung"]
-	},
-	"persistent_unexplained_hoarseness": {
-		"text": "Persistent Unexplained Hoarseness",
-		"categories": ["ENT"]
-	},
-	"unexplained_neck_lump": {
-		"text": "Unexplained Neck Lump",
-		"categories": ["ENT"]
-	},
-	"unexplained_oral_ulcer": {
-		"text": "Unexplained Oral Ulcer (>3 weeks)",
-		"categories": ["ENT"]
-	},
-	"lump_lip_oral_cavity": {
-		"text": "Lump on Lip or in Oral Cavity",
-		"categories": ["ENT"]
-	},
-	"red_or_red_white_oral_patch": {
-		"text": "Red / Red and White Oral Patch",
-		"categories": ["ENT"]
-	},
-	"unexplained_thyroid_lump": {
-		"text": "Unexplained Thyroid Lump",
-		"categories": ["ENT"]
-	},
-	"malignant_feeling_prostate": {
-		"text": "Malignant Feeling Prostate",
-		"categories": ["Urology: Prostate"]
-	},
-	"psa_level_above_age_threshold": {
-		"text": "PSA Level Above Age Threshold",
-		"categories": ["Urology: Prostate","Blood Tests"]
-	},
-	"lower_urinary_tract_symptoms": {
-		"text": "Lower Urinary Tract Symptoms",
-		"categories": ["Urology: Prostate"]
-	},
-	"erectile_dysfunction": {
-		"text": "Erectile Dysfunction",
-		"categories": ["Urology: Prostate"]
-	},
-	"visible_haematuria": {
-		"text": "Visible Haematuria",
-		"categories": ["Urology: Prostate","Gynaecology"]
-	},
-	"visible_haematuria_no_uti": {
-		"text": "Visible Haematuria, No UTI",
-		"categories": ["Urology: Bladder / Renal"]
-	},
-	"visible_haematuria_recurring_after_uti_treatment": {
-		"text": "Visible Haematuria Recurring After UTI Treatment",
-		"categories": ["Urology: Bladder / Renal"]
-	},
-	"unexplained_non_visible_haematuria": {
-		"text": "Unexplained Non-Visible Haematuria",
-		"categories": ["Urology: Bladder / Renal"]
-	},
-	"dysuria": {
-		"text": "Dysuria",
-		"categories": ["Urology: Bladder / Renal"]
-	},
-	"recurrent_or_persistent_unexplained_uti": {
-		"text": "Recurrent / Persistent Unexplained UTI",
-		"categories": ["Urology: Bladder / Renal"]
-	},
-	"non_painful_enlargement_testis": {
-		"text": "Non-Painful Enlargement of the Testis",
-		"categories": ["Urology: Testis"]
-	},
-	"change_shape_or_texture_testis": {
-		"text": "Change in Shape or Texture of the Testis",
-		"categories": ["Urology: Testis"]
-	},
-	"unexplained_or_persistent_testicular_symptoms": {
-		"text": "Unexplained / Persistent Testicular Symptoms",
-		"categories": ["Urology: Testis"]
-	},
-	"penile_mass_or_ulcerated_lesion": {
-		"text": "Penile Mass or Ulcerated Lesion (STI excluded or treatment completed)",
-		"categories": ["Urology: Penis"]
-	},
-	"unexplained_or_persistent_symptoms_of_foreskin_or_glans": {
-		"text": "Unexplained / Persistent Symptoms of the Foreskin or Glans",
-		"categories": ["Urology: Penis"]
-	},
-	"ascites": {
-		"text": "Ascities",
-		"categories": ["Gynaecology"]
-	},
-	"pelvic_mass": {
-		"text": "Pelvic Mass",
-		"categories": ["Gynaecology"]
-	},
-	"post_menopausal_bleeding": {
-		"text": "Postmenopausal Bleeding",
-		"categories": ["Gynaecology"]
-	},
-	"cervix_consistent_with_cancer": {
-		"text": "Cervix Appearance Consistent with Cancer",
-		"categories": ["Gynaecology"]
-	},
-	"unexplained_vulval_lump": {
-		"text": "Unexplained Vulval Lump",
-		"categories": ["Gynaecology"]
-	},
-	"unexplained_vulval_ulceration": {
-		"text": "Unexplained Vulval Ulceration",
-		"categories": ["Gynaecology"]
-	},
-	"unexplained_vulval_bleeding": {
-		"text": "Unexplained Vulval Bleeding",
-		"categories": ["Gynaecology"]
-	},
-	"unexplained_vaginal_mass": {
-		"text": "Unexplained Mass in/at the Vaginal Entrance",
-		"categories": ["Gynaecology"]
-	},
-	"unexplained_vaginal_discharge": {
-		"text": "Unexplained Vaginal Discharge",
-		"categories": ["Gynaecology"]
-	},
-	"abdominal_distension": {
-		"text": "Abdominal Distension / Bloating",
-		"categories": ["Gynaecology"]
-	},
-	"early_satiety": {
-		"text": "Early Satiety",
-		"categories": ["Gynaecology"]
-	},
-	"pelvic_pain": {
-		"text": "Pelvic Pain",
-		"categories": ["Gynaecology"]
-	},
-	"urinary_urgency": {
-		"text": "Urinary Urgency",
-		"categories": ["Gynaecology"]
-	},
-	"urinary_frequency": {
-		"text": "Urinary Frequency",
-		"categories": ["Gynaecology"]
-	},
-	"high_blood_glucose": {
-		"text": "High Blood Glucose Levels",
-		"categories": ["Gynaecology","Blood Tests"]
-	},
-	"IBS_symptoms": {
-		"text": "IBS Symptoms (within last year)",
-		"categories": ["Gynaecology"]
-	},
-	"unexplained_petechiae": {
-		"text": "Unexplained Petechiae",
-		"categories": ["Haematology"]
-	},
-	"hepatosplenomegaly": {
-		"text": "Hepatosplenomegaly",
-		"categories": ["Haematology"]
-	},
-	"splenomegaly": {
-		"text": "Splenomegaly",
-		"categories": ["Haematology"]
-	},
-	"pallor": {
-		"text": "Pallor",
-		"categories": ["Haematology"]
-	},
-	"unexplained_fever": {
-		"text": "Unexplained Fever",
-		"categories": ["Haematology"]
-	},
-	"unexplained_persistent_infection": {
-		"text": "Unexplained Persistent Infection",
-		"categories": ["Haematology"]
-	},
-	"unexplained_persistent_infection": {
-		"text": "Unexplained Persistent Infection",
-		"categories": ["Haematology"]
-	},
-	"generalised_lymphadenopathy": {
-		"text": "Generalised Lymphadenopathy",
-		"categories": ["Haematology"]
-	},
-	"unexplained_lymphadenopathy": {
-		"text": "Unexplained Lymphadenopathy",
-		"categories": ["Haematology"]
-	},
-	"persistent_unexplained_bone_pain": {
-		"text": "Persistent or Unexplained Bone Pain",
-		"categories": ["Haematology"]
-	},
-	"unexplained_bruising": {
-		"text": "Unexplained Bruising",
-		"categories": ["Haematology"]
-	},
-	"unexplained_bleeding": {
-		"text": "Unexplained Bleeding",
-		"categories": ["Haematology"]
-	},
-	"unexplained_fracture": {
-		"text": "Unexplained Fracture",
-		"categories": ["Haematology"]
-	},
-	"hypercalcaemia": {
-		"text": "Hypercalcaemia",
-		"categories": ["Haematology","Blood Tests"]
-	},
-	"leukopenia": {
-		"text": "Leukopenia",
-		"categories": ["Haematology","Blood Tests"]
-	},
-	"raised_plasma_viscosity": {
-		"text": "Raised Plasma Viscosity",
-		"categories": ["Haematology","Blood Tests"]
-	},
-	"raised_ESR": {
-		"text": "Raised ESR",
-		"categories": ["Haematology","Blood Tests"]
-	},
-	"protein_electrophoresis_suggesting_myeloma": {
-		"text": "Protein Electrophoresis Suggesting Myeloma",
-		"categories": ["Haematology","Blood Tests"]
-	},
-	"bence_jones_suggesting_myeloma": {
-		"text": "Bence Jones Suggesting Myeloma",
-		"categories": ["Haematology"]
-	}
+  "weight_loss": {"text":"Unexplained weight loss","categories":["General / Non-specific","Lower GI","Upper GI","Lung"]},
+  "weight_loss_over_5_percent_6_months": {"text":"Unexplained weight loss >5% within 6 months","categories":["General / Non-specific"]},
+  "appetite_loss": {"text":"Unexplained appetite loss","categories":["General / Non-specific","Lung"]},
+  "deep_vein_thrombosis": {"text":"Deep vein thrombosis","categories":["General / Non-specific"]},
+  "abdominal_pain": {"text":"Unexplained abdominal pain","categories":["Lower GI","Upper GI"]},
+  "upper_abdominal_pain": {"text":"Upper abdominal pain","categories":["Upper GI"]},
+  "back_pain": {"text":"Back pain","categories":["Upper GI"]},
+  "persistent_back_pain": {"text":"Persistent back pain","categories":["Haematology"]},
+  "iron_deficiency_anaemia": {"text":"Iron-deficiency anaemia","categories":["Blood Tests","Lower GI"]},
+  "non_iron_deficiency_anaemia": {"text":"Non-iron-deficiency anaemia","categories":["Blood Tests","Lower GI"]},
+  "low_haemoglobin": {"text":"Low haemoglobin","categories":["Blood Tests","Upper GI","Gynaecology"]},
+  "raised_white_cell_count": {"text":"Raised white cell count","categories":["Blood Tests","Urology: Bladder / Renal"]},
+  "thrombocytosis": {"text":"Thrombocytosis","categories":["Blood Tests","Upper GI","Lung","Gynaecology"]},
+  "high_blood_glucose": {"text":"High blood glucose","categories":["Blood Tests","Gynaecology"]},
 
+  "unexplained_breast_lump": {"text":"Unexplained breast lump, with or without pain","categories":["Breast"]},
+  "unilateral_nipple_discharge": {"text":"Discharge from 1 nipple only","categories":["Breast"]},
+  "unilateral_nipple_retraction": {"text":"Retraction of 1 nipple only","categories":["Breast"]},
+  "concerning_breast_changes": {"text":"Other changes of concern in 1 nipple only","categories":["Breast"]},
+  "skin_changes_suggesting_breast_cancer": {"text":"Skin changes suggesting breast cancer","categories":["Breast"]},
+  "unexplained_lump_axilla": {"text":"Unexplained axillary lump","categories":["Breast"]},
 
+  "rectal_mass": {"text":"Rectal mass","categories":["Lower GI"]},
+  "abdominal_mass": {"text":"Abdominal mass","categories":["Lower GI"]},
+  "anal_mass": {"text":"Unexplained anal mass","categories":["Lower GI"]},
+  "anal_ulceration": {"text":"Unexplained anal ulceration","categories":["Lower GI"]},
+  "rectal_bleeding": {"text":"Unexplained rectal bleeding","categories":["Lower GI"]},
+  "change_in_bowel_habit": {"text":"Change in bowel habit","categories":["Lower GI"]},
+
+  "dysphagia": {"text":"Dysphagia","categories":["Upper GI"]},
+  "reflux": {"text":"Reflux","categories":["Upper GI"]},
+  "dyspepsia": {"text":"Dyspepsia","categories":["Upper GI"]},
+  "treatment_resistant_dyspepsia": {"text":"Treatment-resistant dyspepsia","categories":["Upper GI"]},
+  "upper_abdominal_mass_consistent_with_stomach_cancer": {"text":"Upper abdominal mass consistent with stomach cancer","categories":["Upper GI"]},
+  "haematemesis": {"text":"Haematemesis","categories":["Upper GI"]},
+  "nausea_or_vomiting": {"text":"Nausea or vomiting","categories":["Upper GI"]},
+  "jaundice": {"text":"Jaundice","categories":["Upper GI"]},
+  "diarrhoea": {"text":"Diarrhoea","categories":["Upper GI"]},
+  "constipation": {"text":"Constipation","categories":["Upper GI"]},
+  "new_onset_diabetes": {"text":"New-onset diabetes","categories":["Upper GI"]},
+  "upper_abdominal_mass_enlarged_gallbladder": {"text":"Upper abdominal mass consistent with enlarged gall bladder","categories":["Upper GI"]},
+  "upper_abdominal_mass_enlarged_liver": {"text":"Upper abdominal mass consistent with enlarged liver","categories":["Upper GI"]},
+
+  "cough": {"text":"Unexplained cough","categories":["Lung"]},
+  "persistent_fatigue": {"text":"Persistent fatigue","categories":["Lung","Haematology"]},
+  "shortness_of_breath": {"text":"Unexplained shortness of breath","categories":["Lung"]},
+  "chest_pain": {"text":"Unexplained chest pain","categories":["Lung"]},
+  "unexplained_haemoptysis": {"text":"Unexplained haemoptysis","categories":["Lung"]},
+  "chest_xray_suggesting_lung_cancer": {"text":"Chest X-ray suggests lung cancer","categories":["Lung"]},
+  "chest_xray_suggesting_mesothelioma": {"text":"Chest X-ray suggests mesothelioma","categories":["Lung"]},
+  "persistent_or_recurrent_chest_infection": {"text":"Persistent or recurrent chest infection","categories":["Lung"]},
+  "finger_clubbing": {"text":"Finger clubbing","categories":["Lung"]},
+  "supraclavicular_lymphadenopathy": {"text":"Supraclavicular lymphadenopathy","categories":["Lung"]},
+  "persistent_cervical_lymphadenopathy": {"text":"Persistent cervical lymphadenopathy","categories":["Lung"]},
+  "chest_signs_consistent_with_lung_cancer": {"text":"Chest signs consistent with lung cancer","categories":["Lung"]},
+  "asbestos_exposure": {"text":"Exposure to asbestos","categories":["Lung"]},
+  "chest_signs_pleural_disease": {"text":"Chest signs compatible with pleural disease","categories":["Lung"]},
+
+  "persistent_unexplained_hoarseness": {"text":"Persistent unexplained hoarseness","categories":["Head and Neck"]},
+  "unexplained_neck_lump": {"text":"Unexplained neck lump (laryngeal criterion)","categories":["Head and Neck"]},
+  "persistent_unexplained_neck_lump": {"text":"Persistent unexplained neck lump (oral criterion)","categories":["Head and Neck"]},
+  "unexplained_oral_ulcer": {"text":"Unexplained oral ulcer lasting >3 weeks","categories":["Head and Neck"]},
+  "lump_lip_oral_cavity": {"text":"Lump on lip or in oral cavity","categories":["Head and Neck"]},
+  "red_or_red_white_oral_patch": {"text":"Red or red-and-white oral patch consistent with erythroplakia / erythroleukoplakia","categories":["Head and Neck"]},
+  "unexplained_thyroid_lump": {"text":"Unexplained thyroid lump","categories":["Head and Neck"]},
+
+  "malignant_feeling_prostate": {"text":"Prostate feels malignant on digital rectal examination","categories":["Urology: Prostate"]},
+  "lower_urinary_tract_symptoms": {"text":"Lower urinary tract symptoms","categories":["Urology: Prostate"]},
+  "erectile_dysfunction": {"text":"Erectile dysfunction","categories":["Urology: Prostate"]},
+  "visible_haematuria": {"text":"Visible haematuria","categories":["Urology: Prostate","Gynaecology"]},
+  "visible_haematuria_no_uti": {"text":"Unexplained visible haematuria without UTI","categories":["Urology: Bladder / Renal"]},
+  "visible_haematuria_recurring_after_uti_treatment": {"text":"Visible haematuria persisting or recurring after successful UTI treatment","categories":["Urology: Bladder / Renal"]},
+  "unexplained_non_visible_haematuria": {"text":"Unexplained non-visible haematuria","categories":["Urology: Bladder / Renal"]},
+  "dysuria": {"text":"Dysuria","categories":["Urology: Bladder / Renal"]},
+  "recurrent_or_persistent_unexplained_uti": {"text":"Recurrent or persistent unexplained UTI","categories":["Urology: Bladder / Renal"]},
+  "non_painful_enlargement_testis": {"text":"Non-painful enlargement of the testis","categories":["Urology: Testis"]},
+  "change_shape_or_texture_testis": {"text":"Change in shape or texture of the testis","categories":["Urology: Testis"]},
+  "unexplained_or_persistent_testicular_symptoms": {"text":"Unexplained or persistent testicular symptoms","categories":["Urology: Testis"]},
+  "penile_mass_or_ulcerated_lesion": {"text":"Penile mass or ulcerated lesion after STI exclusion","categories":["Urology: Penis"]},
+  "persistent_penile_lesion_after_sti_treatment": {"text":"Persistent penile lesion after STI treatment","categories":["Urology: Penis"]},
+  "unexplained_or_persistent_symptoms_of_foreskin_or_glans": {"text":"Unexplained or persistent symptoms of foreskin or glans","categories":["Urology: Penis"]},
+
+  "ascites": {"text":"Ascites on physical examination","categories":["Gynaecology"]},
+  "abdominal_or_pelvic_mass_not_fibroids": {"text":"Abdominal or pelvic mass on examination, not obviously fibroids","categories":["Gynaecology"]},
+  "ovarian_persistent_distension": {"text":"Persistent/frequent abdominal distension, particularly >12 times/month","categories":["Gynaecology"]},
+  "ovarian_persistent_early_satiety": {"text":"Persistent/frequent early satiety or appetite loss, particularly >12 times/month","categories":["Gynaecology"]},
+  "ovarian_persistent_pelvic_or_abdominal_pain": {"text":"Persistent/frequent pelvic or abdominal pain, particularly >12 times/month","categories":["Gynaecology"]},
+  "ovarian_persistent_urinary_urgency_or_frequency": {"text":"Persistent/frequent urinary urgency or frequency, particularly >12 times/month","categories":["Gynaecology"]},
+  "IBS_symptoms": {"text":"New IBS-type symptoms within the last 12 months","categories":["Gynaecology"]},
+  "ultrasound_suggesting_ovarian_cancer": {"text":"Ultrasound suggests ovarian cancer","categories":["Gynaecology","Investigation Findings"]},
+  "post_menopausal_bleeding_not_attributable_to_hrt": {"text":"Unexplained post-menopausal bleeding not attributable to HRT","categories":["Gynaecology"]},
+  "unexplained_vaginal_discharge_first_presentation": {"text":"Unexplained vaginal discharge, first presentation","categories":["Gynaecology"]},
+  "unexplained_vaginal_discharge": {"text":"Unexplained vaginal discharge (not first presentation)","categories":["Gynaecology"]},
+  "cervix_consistent_with_cancer": {"text":"Cervix appearance consistent with cancer","categories":["Gynaecology"]},
+  "unexplained_vulval_lump": {"text":"Unexplained vulval lump","categories":["Gynaecology"]},
+  "unexplained_vulval_ulceration": {"text":"Unexplained vulval ulceration","categories":["Gynaecology"]},
+  "unexplained_vulval_bleeding": {"text":"Unexplained vulval bleeding","categories":["Gynaecology"]},
+  "unexplained_vaginal_mass": {"text":"Unexplained palpable vaginal mass","categories":["Gynaecology"]},
+
+  "pigmented_lesion_7_point_score_3_or_more": {"text":"Suspicious pigmented lesion: weighted 7-point score >=3","categories":["Skin"]},
+  "dermoscopy_suggesting_melanoma": {"text":"Dermoscopy suggests melanoma","categories":["Skin","Investigation Findings"]},
+  "lesion_suggesting_nodular_melanoma": {"text":"Pigmented or non-pigmented lesion suggests nodular melanoma","categories":["Skin"]},
+  "lesion_suspicious_for_squamous_cell_carcinoma": {"text":"Skin lesion suspicious for squamous cell carcinoma","categories":["Skin"]},
+  "lesion_suspicious_for_basal_cell_carcinoma": {"text":"Skin lesion suspicious for basal cell carcinoma","categories":["Skin"]},
+
+  "progressive_subacute_loss_central_neurological_function": {"text":"Progressive, sub-acute loss of central neurological function","categories":["Brain / CNS"]},
+  "new_abnormal_cerebellar_or_central_neurological_function": {"text":"New abnormal cerebellar or central neurological function","categories":["Brain / CNS"]},
+
+  "unexplained_petechiae": {"text":"Unexplained petechiae","categories":["Haematology"]},
+  "hepatosplenomegaly": {"text":"Hepatosplenomegaly","categories":["Haematology"]},
+  "splenomegaly": {"text":"Unexplained splenomegaly","categories":["Haematology"]},
+  "pallor": {"text":"Pallor","categories":["Haematology"]},
+  "unexplained_fever": {"text":"Unexplained fever","categories":["Haematology"]},
+  "unexplained_persistent_or_recurrent_infection": {"text":"Unexplained persistent or recurrent infection","categories":["Haematology"]},
+  "generalised_lymphadenopathy": {"text":"Generalised lymphadenopathy","categories":["Haematology"]},
+  "unexplained_lymphadenopathy": {"text":"Unexplained lymphadenopathy","categories":["Haematology"]},
+  "persistent_unexplained_bone_pain": {"text":"Persistent or unexplained bone pain","categories":["Haematology"]},
+  "unexplained_bruising": {"text":"Unexplained bruising","categories":["Haematology"]},
+  "unexplained_bleeding": {"text":"Unexplained bleeding","categories":["Haematology"]},
+  "unexplained_fracture": {"text":"Unexplained fracture","categories":["Haematology"]},
+  "myeloma_blood_tests_suggestive": {"text":"Recommended blood-test panel suggests myeloma","categories":["Haematology","Investigation Findings"]},
+
+  "xray_suggesting_bone_sarcoma": {"text":"X-ray suggests possible bone sarcoma","categories":["Sarcoma","Investigation Findings"]},
+  "unexplained_bone_swelling_or_pain": {"text":"Unexplained bone swelling or pain","categories":["Sarcoma"]},
+  "unexplained_lump_increasing_in_size": {"text":"Unexplained lump increasing in size","categories":["Sarcoma"]},
+  "ultrasound_suggesting_or_uncertain_soft_tissue_sarcoma": {"text":"Ultrasound suggests soft-tissue sarcoma, or is uncertain with persistent clinical concern","categories":["Sarcoma","Investigation Findings"]},
+
+  "child_palpable_abdominal_mass_or_enlarged_organ": {"text":"Child: palpable abdominal mass or unexplained enlarged abdominal organ","categories":["Childhood Cancers"]},
+  "absent_fundal_red_reflex": {"text":"Child: absent fundal red reflex","categories":["Childhood Cancers"]},
+  "child_unexplained_visible_haematuria": {"text":"Child: unexplained visible haematuria","categories":["Childhood Cancers"]},
+  "persistent_parent_or_carer_concern": {"text":"Child: persistent parent or carer concern about symptoms","categories":["Childhood Cancers"]}
 };
