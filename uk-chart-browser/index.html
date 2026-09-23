@@ -1724,7 +1724,7 @@
             <option value="20">20</option>
           </select>
         </div>
-        <div class="settings-version" id="version-code">Version: 3.27</div>
+        <div class="settings-version" id="version-code">Version: 3.28</div>
       </div>
     </section>
   </div>
@@ -1859,6 +1859,9 @@
       lastPlaybackSnapshot: null,
       lastPlaybackTimestamp: 0,
       autoAdvanceInFlight: false,
+      autoAdvanceStartedAt: 0,
+      autoAdvanceLockId: 0,
+      autoAdvanceLockSequence: 0,
       lastAutoAdvancedFromSid: null,
       currentPlayableIndex: -1,
       loadYearRequestId: 0,
@@ -2263,8 +2266,42 @@
         .map(row => `spotify:track:${row.sid}`);
     }
 
+    // Longer than the full device-rebuild path, but short enough to discard a
+    // timer lock left behind while the browser was suspended in the background.
+    const ADVANCE_LOCK_STALE_MS = 30000;
+
+    function isAdvanceLockFresh(source) {
+      if (!state.autoAdvanceInFlight) return false;
+      const age = Date.now() - (state.autoAdvanceStartedAt || 0);
+      if (age < ADVANCE_LOCK_STALE_MS) return true;
+      state.autoAdvanceInFlight = false;
+      state.autoAdvanceStartedAt = 0;
+      state.autoAdvanceLockId = 0;
+      advLog('advance:stale-lock-cleared', { source, age });
+      return false;
+    }
+
+    function acquireAdvanceLock(source) {
+      if (isAdvanceLockFresh(source)) return 0;
+      const lockId = ++state.autoAdvanceLockSequence;
+      state.autoAdvanceInFlight = true;
+      state.autoAdvanceStartedAt = Date.now();
+      state.autoAdvanceLockId = lockId;
+      return lockId;
+    }
+
+    function releaseAdvanceLockAfterDelay(lockId) {
+      window.setTimeout(() => {
+        // A timer suspended while the page slept must not release a newer lock.
+        if (state.autoAdvanceLockId !== lockId) return;
+        state.autoAdvanceInFlight = false;
+        state.autoAdvanceStartedAt = 0;
+        state.autoAdvanceLockId = 0;
+      }, 1200);
+    }
+
     async function maybeAutoAdvanceFromTimer() {
-      if (state.autoAdvanceInFlight || state.isScrubbing) return;
+      if (isAdvanceLockFresh('timer-check') || state.isScrubbing) return;
       if (state.pendingRequestedTrackSid) return;
       // Don't auto-advance while quiz mode is active — user controls playback manually
       if (window.quizState?.active) return;
@@ -2287,7 +2324,8 @@
       }
 
       advLog('advance:triggered', { pos: Math.round(position), dur: Math.round(duration), random: !!state.randomPinnedKey });
-      state.autoAdvanceInFlight = true;
+      const advanceLockId = acquireAdvanceLock('timer');
+      if (!advanceLockId) return;
 
       try {
         if (state.randomPinnedKey) {
@@ -2340,9 +2378,7 @@
         console.error('Auto-advance failed', err);
         state.intentToPlay = false;
       } finally {
-        window.setTimeout(() => {
-          state.autoAdvanceInFlight = false;
-        }, 1200);
+        releaseAdvanceLockAfterDelay(advanceLockId);
       }
     }
 
@@ -3271,7 +3307,14 @@
 
     function isRecoverableDeviceError(err) {
       const message = String(err?.message || err || '');
-      return /device not found|no active device|NO_ACTIVE_DEVICE/i.test(message);
+      return err?.code === 'NO_ACTIVE_DEVICE' ||
+        /device not found|no active device|NO_ACTIVE_DEVICE|player is not ready/i.test(message);
+    }
+
+    function noActiveDeviceError() {
+      const error = new Error('Spotify player is not ready: no active device');
+      error.code = 'NO_ACTIVE_DEVICE';
+      return error;
     }
 
     function isNetworkError(err) {
@@ -3507,8 +3550,7 @@
       }
 
       if (!state.player || !state.deviceId) {
-        alert('Spotify player is not ready yet. Sign in and wait for the device to be ready.');
-        return;
+        throw noActiveDeviceError();
       }
 
       const currentTrackId = getPlaybackStateTrackId(state.playbackState);
@@ -3641,7 +3683,7 @@
       await spotifyApi('https://api.spotify.com/v1/me/player/pause', { method: 'PUT' });
     }
     async function resumePlayback() {
-      if (!state.deviceId) return;
+      if (!state.deviceId) throw noActiveDeviceError();
       await spotifyApi(`https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`, { method: 'PUT' });
     }
 
@@ -3848,7 +3890,10 @@
         updateAuthUi();
       });
       state.player.addListener('not_ready', ({ device_id }) => {
-        if (state.deviceId === device_id) state.deviceId = null;
+        if (state.deviceId === device_id) {
+          state.deviceId = null;
+          state.sdkReady = false;
+        }
         updateAuthUi();
       });
       state.player.addListener('player_state_changed', playbackState => {
@@ -4061,7 +4106,7 @@
 
           if (playbackState.paused && !inPendingWindow) {
             stopProgressTimer();
-            if (!state.autoAdvanceInFlight && !window.quizState?.active) {
+            if (!isAdvanceLockFresh('paused-check') && !window.quizState?.active) {
               const dur = playbackState?.track_window?.current_track?.duration_ms || 0;
               advLog('psc:paused-check', { prevPos: Math.round(prevSnapshotPosition), dur: Math.round(dur), incomingPos: incomingPosition, random: !!state.randomPinnedKey });
               if (dur > 0 && (prevSnapshotPosition >= Math.max(0, dur - 2000) || (incomingPosition === 0 && prevSnapshotPosition >= Math.max(0, dur - 10000)))) {
@@ -4389,6 +4434,9 @@
       state.confirmedTrackSid = null;
       state.nativePlaybackQueue = [];
       state.nativePlaybackQueueIndex = -1;
+      state.autoAdvanceInFlight = false;
+      state.autoAdvanceStartedAt = 0;
+      state.autoAdvanceLockId = 0;
       stopProgressTimer();
       updateAuthUi();
     });
@@ -4451,8 +4499,8 @@
     });
     async function skipToNextTrack() {
       if (window.quizState?.active) return;
-      if (state.autoAdvanceInFlight) return;
-      state.autoAdvanceInFlight = true;
+      const advanceLockId = acquireAdvanceLock('manual-skip');
+      if (!advanceLockId) return;
       try {
         const currentSid = getCurrentTrackId();
         if (state.randomPinnedKey) {
@@ -4480,7 +4528,7 @@
         console.error('Skip forward failed', err);
         state.intentToPlay = false;
       } finally {
-        setTimeout(() => { state.autoAdvanceInFlight = false; }, 1200);
+        releaseAdvanceLockAfterDelay(advanceLockId);
       }
     }
     skipForwardBtn.addEventListener('click', skipToNextTrack);
