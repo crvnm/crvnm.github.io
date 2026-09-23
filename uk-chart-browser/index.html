@@ -1724,7 +1724,7 @@
             <option value="20">20</option>
           </select>
         </div>
-        <div class="settings-version" id="version-code">Version: 3.26</div>
+        <div class="settings-version" id="version-code">Version: 3.27</div>
       </div>
     </section>
   </div>
@@ -2031,9 +2031,6 @@
       const paused = !state.playbackState || state.playbackState.paused;
       togglePlayBtn.textContent = paused ? '▶' : '❚❚';
       togglePlayBtn.setAttribute('aria-label', paused ? 'Play' : 'Pause');
-      if ('mediaSession' in navigator) {
-        navigator.mediaSession.playbackState = paused ? 'paused' : 'playing';
-      }
     }
     // Blacklist tracks with 3+ failures — a Map of sid -> failure count
   const _BLACKLIST_KEY = 'quiz_blacklisted_sids';
@@ -2217,10 +2214,43 @@
 
     function getExpectedNativeQueueAdvance(incomingTrackId) {
       if (!incomingTrackId || !state.nativePlaybackQueue.length) return null;
-      const nextIndex = state.nativePlaybackQueueIndex + 1;
-      const nextRow = state.nativePlaybackQueue[nextIndex];
-      if (!nextRow || nextRow.sid !== incomingTrackId) return null;
-      return { row: nextRow, index: nextIndex };
+      const firstForwardIndex = state.nativePlaybackQueueIndex + 1;
+      const forwardIndex = state.nativePlaybackQueue.findIndex(
+        (row, index) => index >= firstForwardIndex && row.sid === incomingTrackId
+      );
+      if (forwardIndex < 0) return null;
+      return { row: state.nativePlaybackQueue[forwardIndex], index: forwardIndex };
+    }
+
+    function getPlaybackRowReconciliation(incomingTrackId) {
+      if (!incomingTrackId) return null;
+
+      if (state.nativePlaybackQueue.length) {
+        const firstAllowedIndex = Math.max(0, state.nativePlaybackQueueIndex);
+        const queueIndex = state.nativePlaybackQueue.findIndex(
+          (row, index) => index >= firstAllowedIndex && row.sid === incomingTrackId
+        );
+        return queueIndex >= 0
+          ? { row: state.nativePlaybackQueue[queueIndex], index: queueIndex }
+          : null;
+      }
+
+      const row = getRowsForCurrentFilter().find(candidate => candidate.sid === incomingTrackId);
+      return row ? { row, index: -1 } : null;
+    }
+
+    function adoptPlaybackRow(match, reason) {
+      if (!match?.row) return false;
+      if (match.index >= 0) state.nativePlaybackQueueIndex = match.index;
+      state.activeTrack = match.row;
+      state.currentPlayableIndex = getPlayableQueueIndexForRow(match.row);
+      if (state.randomPinnedKey) state.randomPinnedKey = rowKey(match.row);
+      advLog('psc:playback-row-adopted', {
+        reason,
+        sid: match.row.sid?.slice(-6),
+        queueIndex: match.index,
+      });
+      return true;
     }
 
     function getNativePlaybackUris(startTrackId) {
@@ -3486,6 +3516,14 @@
       const mustHardReset = isSwitchingTrack || options.forceRestart;
       const nativePlaybackQueue = buildNativePlaybackQueue(row);
 
+      // A fresh track request supersedes any UI-only state retained after an
+      // OAuth restore or SDK reconnect. Leaving this set makes play/pause try
+      // to restore a stale chart card instead of controlling the live track.
+      state.restoredPlayerStateOnly = false;
+      state.restoreResumeInFlight = false;
+      state.restoreSeekTrackSid = null;
+      state.restoreSeekTargetMs = 0;
+      state.restoreSeekUntil = 0;
       state.activeTrack = row;
       state.pendingRequestedTrackSid = row.sid;
       state.pendingRequestedAt = Date.now();
@@ -3615,6 +3653,14 @@
 
       if (shouldRehydrateRestoredTrack) {
         await resumeRestoredTrack();
+        return;
+      }
+
+      // Let the SDK atomically toggle its own player. This avoids choosing the
+      // wrong action when a delayed state event briefly reports the old paused
+      // value during a random/native queue transition.
+      if (state.player && state.sdkReady) {
+        await state.player.togglePlay();
         return;
       }
 
@@ -3919,16 +3965,25 @@
         }
 
         if (nativeQueueAdvance) {
-          state.nativePlaybackQueueIndex = nativeQueueAdvance.index;
-          state.activeTrack = nativeQueueAdvance.row;
-          state.currentPlayableIndex = getPlayableQueueIndexForRow(nativeQueueAdvance.row);
-          if (state.randomPinnedKey) {
-            state.randomPinnedKey = rowKey(nativeQueueAdvance.row);
-          }
+          adoptPlaybackRow(nativeQueueAdvance, 'native-forward');
           advLog('psc:native-queue-advance', {
             sid: incomingTrackId?.slice(-6),
             queueIndex: nativeQueueAdvance.index,
           });
+        } else if (
+          !window.quizState?.active &&
+          !inPendingWindow &&
+          !incomingPaused &&
+          !state.confirmedTrackSid &&
+          incomingTrackId !== state.activeTrack?.sid
+        ) {
+          // If a preceding confirmation was delayed or lost, the live SDK state
+          // is authoritative. Reconcile only to this queue position or a row in
+          // the current filter; never move backwards through the queue.
+          adoptPlaybackRow(
+            getPlaybackRowReconciliation(incomingTrackId),
+            'unconfirmed-live-state'
+          );
         }
 
         // On first confirmed playing event for the pending track, force position
@@ -3950,6 +4005,9 @@
         state.lastPlaybackSnapshot = snapshotToWrite;
         state.lastPlaybackTimestamp = Date.now();
         if (incomingTrackId) state.currentTrackSid = incomingTrackId;
+        if (!window.quizState?.active && !incomingPaused && incomingTrackId) {
+          state.restoredPlayerStateOnly = false;
+        }
         if (!inPendingWindow || !incomingPaused) updateTogglePlayButton();
 
         if (!playbackState) {
