@@ -1724,7 +1724,7 @@
             <option value="20">20</option>
           </select>
         </div>
-        <div class="settings-version" id="version-code">Version: 3.32</div>
+        <div class="settings-version" id="version-code">Version: 3.33</div>
       </div>
     </section>
   </div>
@@ -5894,7 +5894,7 @@
         } catch {}
         if (!quizState.waitingForConfirm || quizState.track?.sid !== targetSid) return;
         if (quizPlaybackMatchesRequest(
-          playback?.item?.id,
+          playback?.item?.linked_from?.id || playback?.item?.id,
           playback?.is_playing,
           playback?.progress_ms,
           Date.now()
