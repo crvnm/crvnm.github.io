@@ -1724,7 +1724,7 @@
             <option value="20">20</option>
           </select>
         </div>
-        <div class="settings-version" id="version-code">Version: 3.31</div>
+        <div class="settings-version" id="version-code">Version: 3.32</div>
       </div>
     </section>
   </div>
@@ -2160,7 +2160,14 @@
     }
 
     function getPlaybackStateTrackId(playbackState) {
-      const uri = playbackState?.track_window?.current_track?.uri;
+      const track = playbackState?.track_window?.current_track;
+      // Spotify may transparently substitute a market-playable recording. In
+      // that case linked_from identifies the URI we originally requested and
+      // should remain the chart row's identity for card/queue reconciliation.
+      const linkedFromUri = track?.linked_from?.uri;
+      const uri = linkedFromUri?.startsWith('spotify:track:')
+        ? linkedFromUri
+        : track?.uri;
       return uri && uri.startsWith('spotify:track:') ? uri.split(':')[2] : null;
     }
 
@@ -3668,72 +3675,50 @@
     async function ensurePendingTrackIsActuallyPlaying() {
       if (state.restoreSeekTrackSid || state.restoredPlayerStateOnly) return;
       const expectedSid = state.pendingRequestedTrackSid;
-      const actualSid = getCurrentTrackId();
-      const { position } = getDerivedPlaybackPosition();
-
       if (!expectedSid) return;
-      if (actualSid === expectedSid && position > 1500) {
-        state.confirmedTrackSid = expectedSid;
-        clearPendingRequestedTrack();
+      let liveState = null;
+      try { liveState = await state.player?.getCurrentState?.(); } catch {}
+      const observedState = liveState || state.playbackState;
+      const actualSid = getPlaybackStateTrackId(observedState) || getCurrentTrackId();
+      const derived = getDerivedPlaybackPosition();
+      const position = Number.isFinite(observedState?.position)
+        ? observedState.position
+        : derived.position;
+      const isPaused = !!observedState?.paused;
+      const isExpectedTrack = actualSid === expectedSid;
+
+      if (isExpectedTrack && !isPaused) {
+        await reconcilePlaybackAfterVisibility();
+        if (state.pendingRequestedTrackSid === expectedSid) {
+          state.confirmedTrackSid = expectedSid;
+          clearPendingRequestedTrack();
+          playerInfo.textContent = '';
+          render();
+        }
         return;
       }
 
-      const inRestoreSeekWindow =
-        state.restoreSeekTrackSid &&
-        expectedSid === state.restoreSeekTrackSid &&
-        Date.now() < state.restoreSeekUntil;
-
+      const requestAge = Date.now() - state.pendingRequestedAt;
+      const recoveryMode = isExpectedTrack && isPaused ? 'resume' : 'replay';
       if (
-        expectedSid &&
-        actualSid === expectedSid &&
-        state.playbackState?.paused &&
-        position < 1500 &&
-        state.deviceId
-      ) {
-        try {
-          if (inRestoreSeekWindow && state.restoreSeekTargetMs > 0) {
-            await spotifyApi(
-              `https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`,
-              { method: 'PUT' }
-            );
-          } else {
-            await spotifyApi(
-              `https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`,
-              {
-                method: 'PUT',
-                body: JSON.stringify({
-                  // Preserve the known queue when a delayed SDK start needs a
-                  // kick; falling back to one URI here would silently break the
-                  // hardware next key on slower starts.
-                  uris: getNativePlaybackUris(expectedSid),
-                  position_ms: 0,
-                }),
-              }
-            );
-          }
-        } catch (err) {
-          console.warn('Pending-track start kick failed', err);
-        }
-      }
-
-      // If Spotify has not moved to the requested track, retry that exact queue
-      // once. The previous recovery sought the old track back to zero and could
-      // repeat forever, leaving the title, card and audible track out of sync.
-      if (
-        expectedSid &&
-        actualSid !== expectedSid &&
         state.deviceId &&
         state.confirmedTrackSid !== expectedSid &&
-        Date.now() - state.pendingRequestedAt >= 2500
+        (recoveryMode === 'resume' || requestAge >= 2500)
       ) {
+        // Keep one recovery identity even if Spotify alternates between the
+        // requested-paused and previous-track states; otherwise each change
+        // could reset the retry budget and form a loop.
         const recoveryKey = `${expectedSid}:${state.pendingRequestedAt}`;
+        const recoveryPosition = recoveryMode === 'resume'
+          ? Math.max(0, Math.round(position || 0))
+          : 0;
         const replayExpectedQueue = () => spotifyApi(
           `https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`,
           {
             method: 'PUT',
             body: JSON.stringify({
               uris: getNativePlaybackUris(expectedSid),
-              position_ms: 0,
+              position_ms: recoveryPosition,
             }),
           }
         );
@@ -3743,10 +3728,19 @@
           state.pendingRecoveryStage = 1;
           state.pendingRecoveryAttemptedAt = Date.now();
           try {
-            await recoverDeviceAndRetry(replayExpectedQueue);
-            advLog('pending:queue-retried', { sid: expectedSid.slice(-6) });
+            if (recoveryMode === 'resume' && state.player?.resume) {
+              try {
+                await state.player.resume();
+              } catch {
+                await recoverDeviceAndRetry(replayExpectedQueue);
+              }
+              advLog('pending:paused-track-resumed', { sid: expectedSid.slice(-6) });
+            } else {
+              await recoverDeviceAndRetry(replayExpectedQueue);
+              advLog('pending:queue-retried', { sid: expectedSid.slice(-6) });
+            }
           } catch (err) {
-            console.warn('Pending-track queue retry failed', err);
+            console.warn('Pending-track recovery failed', err);
           }
           return;
         }
