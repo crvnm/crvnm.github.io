@@ -1724,7 +1724,7 @@
             <option value="20">20</option>
           </select>
         </div>
-        <div class="settings-version" id="version-code">Version: 3.29</div>
+        <div class="settings-version" id="version-code">Version: 3.30</div>
       </div>
     </section>
   </div>
@@ -2120,6 +2120,32 @@
       }
       const elapsed = Date.now() - state.lastPlaybackTimestamp;
       return { position: Math.min(basePosition + elapsed, duration), duration };
+    }
+    function syncMediaSessionPosition(playbackState = state.playbackState) {
+      // Spotify continues to own Media Session metadata and action handlers.
+      // We supply only the current track's position state so operating-system
+      // controls do not display the SDK's long-lived audio-stream duration.
+      const mediaSession = navigator.mediaSession;
+      if (!mediaSession || typeof mediaSession.setPositionState !== 'function') return;
+
+      const durationMs = Number(playbackState?.track_window?.current_track?.duration_ms);
+      const positionMs = Number(playbackState?.position);
+      if (
+        !Number.isFinite(durationMs) ||
+        durationMs <= 0 ||
+        !Number.isFinite(positionMs)
+      ) return;
+
+      try {
+        mediaSession.setPositionState({
+          duration: durationMs / 1000,
+          playbackRate: 1,
+          position: Math.min(Math.max(positionMs, 0), durationMs) / 1000,
+        });
+      } catch {
+        // Media Session support varies by browser. Playback must remain usable
+        // even when a platform declines a position-state update.
+      }
     }
     function refreshProgressFromSnapshot() {
       const { position, duration } = getDerivedPlaybackPosition();
@@ -3996,6 +4022,7 @@
           state.playbackState = repairedState;
           state.lastPlaybackSnapshot = repairedState;
           state.lastPlaybackTimestamp = 0;
+          syncMediaSessionPosition(repairedState);
           state.pageHiddenAt = 0;
           updateTogglePlayButton();
           stopProgressTimer();
@@ -4078,6 +4105,7 @@
         state.playbackState = snapshotToWrite;
         state.lastPlaybackSnapshot = snapshotToWrite;
         state.lastPlaybackTimestamp = Date.now();
+        syncMediaSessionPosition(snapshotToWrite);
         if (incomingTrackId) state.currentTrackSid = incomingTrackId;
         if (!window.quizState?.active && !incomingPaused && incomingTrackId) {
           state.restoredPlayerStateOnly = false;
@@ -4517,6 +4545,7 @@
         state.lastPlaybackTimestamp = Date.now();
         if (state.lastPlaybackSnapshot) {
           state.lastPlaybackSnapshot = { ...state.lastPlaybackSnapshot, position: seekMs };
+          syncMediaSessionPosition(state.lastPlaybackSnapshot);
         }
         refreshProgressFromSnapshot();
         // If scraped to within 10s of the end, clear the advance guard so
@@ -4577,6 +4606,7 @@
         state.playbackState = liveState;
         state.lastPlaybackSnapshot = liveState;
         state.lastPlaybackTimestamp = Date.now();
+        syncMediaSessionPosition(liveState);
         state.currentTrackSid = liveTrackId;
         state.confirmedTrackSid = liveTrackId;
         state.pendingRequestedTrackSid = null;
