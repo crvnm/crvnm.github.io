@@ -1724,7 +1724,7 @@
             <option value="20">20</option>
           </select>
         </div>
-        <div class="settings-version" id="version-code">Version: 3.30</div>
+        <div class="settings-version" id="version-code">Version: 3.31</div>
       </div>
     </section>
   </div>
@@ -1875,6 +1875,9 @@
       restoreResumeInFlight: false,
       pendingRequestedTrackSid: null,
       pendingRequestedAt: 0,
+      pendingRecoveryRequestKey: null,
+      pendingRecoveryStage: 0,
+      pendingRecoveryAttemptedAt: 0,
       visibleRowLimit: 150,
       peakWeekOnly: false,
       sortMode: 'position', // 'position' | 'week' | 'totalweeks'
@@ -2075,7 +2078,10 @@
       try { sessionStorage.setItem(_ADV_LOG_KEY, JSON.stringify(_advLogBuffer)); } catch {}
       _advLogDirty = false;
     }
-    window.addEventListener('pagehide', _flushAdvLog);
+    window.addEventListener('pagehide', () => {
+      _flushAdvLog();
+      try { saveAppUiStateForRestore(); } catch {}
+    });
     document.addEventListener('visibilitychange', () => {
       if (document.visibilityState === 'hidden') _flushAdvLog();
     });
@@ -2888,6 +2894,9 @@
     function clearPendingRequestedTrack() {
       state.pendingRequestedTrackSid = null;
       state.pendingRequestedAt = 0;
+      state.pendingRecoveryRequestKey = null;
+      state.pendingRecoveryStage = 0;
+      state.pendingRecoveryAttemptedAt = 0;
     }
 
     async function normalizePendingTrackStart(expectedSid) {
@@ -3097,6 +3106,7 @@
         intentToPlay: !!state.intentToPlay,
         sortMode: state.sortMode || 'position',
         hideChristmas: !!state.hideChristmas,
+        scrollY: Math.max(0, window.scrollY || 0),
         savedAt: Date.now(),
         // Quiz state
         quizActive: window.quizState?.active || false,
@@ -3167,6 +3177,9 @@
 
       updatePositionQuickPicks();
       render();
+
+      const restoredScrollY = Math.max(0, Number(saved.scrollY) || 0);
+      requestAnimationFrame(() => window.scrollTo({ top: restoredScrollY, behavior: 'auto' }));
 
       const restoredTrack = findRowBySavedState(saved);
       if (restoredTrack && saved.playerVisible) {
@@ -3614,6 +3627,9 @@
       state.activeTrack = row;
       state.pendingRequestedTrackSid = row.sid;
       state.pendingRequestedAt = Date.now();
+      state.pendingRecoveryRequestKey = null;
+      state.pendingRecoveryStage = 0;
+      state.pendingRecoveryAttemptedAt = 0;
       state.confirmedTrackSid = null;
       state.nativePlaybackQueue = nativePlaybackQueue;
       state.nativePlaybackQueueIndex = 0;
@@ -3657,6 +3673,7 @@
 
       if (!expectedSid) return;
       if (actualSid === expectedSid && position > 1500) {
+        state.confirmedTrackSid = expectedSid;
         clearPendingRequestedTrack();
         return;
       }
@@ -3699,22 +3716,67 @@
         }
       }
 
-      // If track is playing but player_state_changed never fired (SDK desynced),
-      // send a seek to wake up the SDK event stream
+      // If Spotify has not moved to the requested track, retry that exact queue
+      // once. The previous recovery sought the old track back to zero and could
+      // repeat forever, leaving the title, card and audible track out of sync.
       if (
         expectedSid &&
-        !state.playbackState?.paused &&
         actualSid !== expectedSid &&
         state.deviceId &&
-        state.confirmedTrackSid !== expectedSid
+        state.confirmedTrackSid !== expectedSid &&
+        Date.now() - state.pendingRequestedAt >= 2500
       ) {
-        try {
-          await spotifyApi(
-            `https://api.spotify.com/v1/me/player/seek?position_ms=0&device_id=${encodeURIComponent(state.deviceId)}`,
-            { method: 'PUT' }
-          );
-        } catch (err) {
-          console.warn('SDK resync seek failed', err);
+        const recoveryKey = `${expectedSid}:${state.pendingRequestedAt}`;
+        const replayExpectedQueue = () => spotifyApi(
+          `https://api.spotify.com/v1/me/player/play?device_id=${encodeURIComponent(state.deviceId)}`,
+          {
+            method: 'PUT',
+            body: JSON.stringify({
+              uris: getNativePlaybackUris(expectedSid),
+              position_ms: 0,
+            }),
+          }
+        );
+
+        if (state.pendingRecoveryRequestKey !== recoveryKey) {
+          state.pendingRecoveryRequestKey = recoveryKey;
+          state.pendingRecoveryStage = 1;
+          state.pendingRecoveryAttemptedAt = Date.now();
+          try {
+            await recoverDeviceAndRetry(replayExpectedQueue);
+            advLog('pending:queue-retried', { sid: expectedSid.slice(-6) });
+          } catch (err) {
+            console.warn('Pending-track queue retry failed', err);
+          }
+          return;
+        }
+
+        const recoveryAge = Date.now() - state.pendingRecoveryAttemptedAt;
+        if (state.pendingRecoveryStage === 1 && recoveryAge >= 4000) {
+          state.pendingRecoveryStage = 2;
+          state.pendingRecoveryAttemptedAt = Date.now();
+          const rebuilt = await rebuildSpotifyPlayer();
+          if (!rebuilt) {
+            clearPendingRequestedTrack();
+            showTransientSummaryNotice('Spotify disconnected — tap the track to try again.', 5000);
+            return;
+          }
+          try {
+            await replayExpectedQueue();
+            advLog('pending:device-rebuilt', { sid: expectedSid.slice(-6) });
+          } catch (err) {
+            clearPendingRequestedTrack();
+            showTransientSummaryNotice('Spotify did not respond — tap the track to try again.', 5000);
+            console.warn('Pending-track retry after device rebuild failed', err);
+          }
+          return;
+        }
+
+        if (state.pendingRecoveryStage === 2 && recoveryAge >= 6000) {
+          advLog('pending:recovery-exhausted', { sid: expectedSid.slice(-6) });
+          clearPendingRequestedTrack();
+          await reconcilePlaybackAfterVisibility();
+          showTransientSummaryNotice('Spotify did not start that track — please try again.', 5000);
         }
       }
     }
@@ -4209,29 +4271,21 @@
       state.sdkReady = !!connected;
       updateAuthUi();
 
-      // Dedicated SDK resync interval — fires every 5s whenever a track is pending
-      // but player_state_changed hasn't fired for it yet (covers mega-hit tracks
-      // that delay SDK events on iOS Safari for up to 40+ seconds).
-      let _lastResyncAt = 0;
+      // Bounded pending-track recovery. ensurePendingTrackIsActuallyPlaying()
+      // records a request key, so a stuck request can be replayed once but can
+      // never create an unbounded API loop.
       setInterval(() => {
         const pending = state.pendingRequestedTrackSid;
         if (!pending || pending === state.confirmedTrackSid || !state.deviceId) return;
         // Don't resync if we're in the quiz — quiz has its own confirmation logic
         if (window.quizState?.active) return;
-        // Don't resync if the current SDK track is already playing normally
-        // (i.e. position > 3s) — that means the SDK is fine, just slow to confirm
-        const { position } = getDerivedPlaybackPosition();
-        if (position > 3000 && !state.playbackState?.paused) return;
-        const now = Date.now();
-        if (now - _lastResyncAt < 5000) return;
-        // Only start resyncing after 3s of waiting
-        if (now - (state.pendingRequestedAt || 0) < 3000) return;
-        _lastResyncAt = now;
-        spotifyApi(
-          `https://api.spotify.com/v1/me/player/seek?position_ms=0&device_id=${encodeURIComponent(state.deviceId)}`,
-          { method: 'PUT' }
-        ).catch(() => {});
-      }, 500);
+        if (Date.now() - (state.pendingRequestedAt || 0) < 2500) return;
+        ensurePendingTrackIsActuallyPlaying().catch(error => {
+          advLog('pending:recovery-error', {
+            msg: String(error?.message || error).slice(0, 80),
+          });
+        });
+      }, 1000);
 
     }
 
@@ -4646,13 +4700,64 @@
       }
     }
 
+    function getNextNativePlaybackRow() {
+      const currentSid = getCurrentTrackId();
+      const firstAllowedIndex = Math.max(0, state.nativePlaybackQueueIndex);
+      const currentQueueIndex = state.nativePlaybackQueue.findIndex(
+        (row, index) => index >= firstAllowedIndex && row.sid === currentSid
+      );
+      const baseIndex = currentQueueIndex >= 0
+        ? currentQueueIndex
+        : state.nativePlaybackQueueIndex;
+      return state.nativePlaybackQueue[baseIndex + 1] || null;
+    }
+
+    async function tryNativeQueuedSkip(expectedRow) {
+      if (!expectedRow?.sid || !state.player || !state.sdkReady) return false;
+      const previousSid = getCurrentTrackId();
+
+      await state.player.activateElement();
+      await state.player.nextTrack();
+
+      // Give the SDK event first chance to reconcile the card. If an event is
+      // delayed or collapsed, read the authoritative local SDK state directly.
+      for (const delay of [250, 500, 900]) {
+        await new Promise(resolve => setTimeout(resolve, delay));
+        const liveState = await state.player.getCurrentState();
+        const liveSid = getPlaybackStateTrackId(liveState);
+        if (!liveState || liveSid === previousSid) continue;
+        if (liveSid !== expectedRow.sid) return false;
+
+        await reconcilePlaybackAfterVisibility();
+        if (liveState.paused) {
+          await state.player.resume();
+        }
+        return true;
+      }
+      return false;
+    }
+
     async function skipToNextTrack() {
       if (window.quizState?.active) return;
       const advanceLockId = acquireAdvanceLock('manual-skip');
       if (!advanceLockId) return;
+      skipForwardBtn.disabled = true;
       try {
         const currentSid = getCurrentTrackId();
-        if (state.randomPinnedKey) {
+        const queuedNextRow = getNextNativePlaybackRow();
+        if (queuedNextRow) {
+          const nativeAdvanced = await recoverDeviceAndRetry(
+            () => tryNativeQueuedSkip(queuedNextRow)
+          );
+          if (nativeAdvanced) return;
+          advLog('skip:native-fallback', { sid: queuedNextRow.sid.slice(-6) });
+          if (state.randomPinnedKey) state.randomPinnedKey = rowKey(queuedNextRow);
+          await recoverDeviceAndRetry(
+            () => playTrack(queuedNextRow, { isAutoAdvance: true, forceRestart: true })
+          );
+          await new Promise(resolve => setTimeout(resolve, 500));
+          await ensurePendingTrackIsActuallyPlaying();
+        } else if (state.randomPinnedKey) {
           const candidateRows = getRowsForCurrentFilter().filter(r => r.sid && r.sid !== currentSid);
           const nextRow = pickRandomItem(candidateRows);
           if (!nextRow?.sid) return;
@@ -4678,6 +4783,7 @@
         state.intentToPlay = false;
       } finally {
         releaseAdvanceLockAfterDelay(advanceLockId);
+        window.setTimeout(() => { skipForwardBtn.disabled = false; }, 1250);
       }
     }
     skipForwardBtn.addEventListener('click', skipToNextTrack);
