@@ -1724,7 +1724,7 @@
             <option value="20">20</option>
           </select>
         </div>
-        <div class="settings-version" id="version-code">Version: 3.29</div>
+        <div class="settings-version" id="version-code">Version: 3.30</div>
       </div>
     </section>
   </div>
@@ -3334,7 +3334,18 @@
     function isRecoverableDeviceError(err) {
       const message = String(err?.message || err || '');
       return err?.code === 'NO_ACTIVE_DEVICE' ||
-        /device not found|no active device|NO_ACTIVE_DEVICE|player is not ready/i.test(message);
+        (Number(err?.status) === 404 && isSpotifyPlayerCommandUrl(err?.url)) ||
+        /device not found|no active device|NO_ACTIVE_DEVICE|player is not ready|player is not connected|player.*disconnected/i.test(message);
+    }
+
+    function isSpotifyPlayerCommandUrl(value) {
+      try {
+        const url = new URL(String(value || ''), window.location.href);
+        return url.hostname === 'api.spotify.com' &&
+          /^\/v1\/me\/player(?:\/|$)/.test(url.pathname);
+      } catch {
+        return false;
+      }
     }
 
     function noActiveDeviceError() {
@@ -3560,7 +3571,15 @@
       const token = await getValidAccessToken();
       const headers = { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...(options.headers || {}) };
       const res = await fetch(url, { ...options, headers });
-      if (!res.ok) throw new Error(await res.text() || `Spotify API error ${res.status}`);
+      if (!res.ok) {
+        let responseText = '';
+        try { responseText = await res.text(); } catch {}
+        const error = new Error(responseText || `Spotify API error ${res.status}`);
+        error.status = res.status;
+        error.url = url;
+        error.method = options.method || 'GET';
+        throw error;
+      }
       return res;
     }
 
