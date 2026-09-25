@@ -1724,7 +1724,7 @@
             <option value="20">20</option>
           </select>
         </div>
-        <div class="settings-version" id="version-code">Version: 3.28</div>
+        <div class="settings-version" id="version-code">Version: 3.29</div>
       </div>
     </section>
   </div>
@@ -1890,6 +1890,7 @@
       confirmedTrackSid: null,
       nativePlaybackQueue: [],
       nativePlaybackQueueIndex: -1,
+      backgroundReconcileInFlight: false,
     };
 
     function qs(name) { return new URLSearchParams(window.location.search).get(name); }
@@ -2126,6 +2127,12 @@
     }
     function startProgressTimer() {
       stopProgressTimer();
+      // Spotify already has a native queue. Avoid starting page timers or API
+      // playback changes while a background tab can be suspended mid-operation.
+      if (document.visibilityState !== 'visible') {
+        advLog('timer:background-deferred');
+        return;
+      }
       advLog('timer:started');
       state.progressTimer = setInterval(() => {
         if (!state.lastPlaybackSnapshot || state.lastPlaybackSnapshot.paused || state.isScrubbing) return;
@@ -2256,6 +2263,24 @@
       return true;
     }
 
+    function getAuthoritativePlaybackRow(incomingTrackId) {
+      if (!incomingTrackId) return null;
+
+      const forwardStart = Math.max(0, state.nativePlaybackQueueIndex);
+      let queueIndex = state.nativePlaybackQueue.findIndex(
+        (row, index) => index >= forwardStart && row.sid === incomingTrackId
+      );
+      if (queueIndex < 0) {
+        queueIndex = state.nativePlaybackQueue.findIndex(row => row.sid === incomingTrackId);
+      }
+      if (queueIndex >= 0) {
+        return { row: state.nativePlaybackQueue[queueIndex], index: queueIndex };
+      }
+
+      const row = getRowsForCurrentFilter().find(candidate => candidate.sid === incomingTrackId);
+      return row ? { row, index: -1 } : null;
+    }
+
     function getNativePlaybackUris(startTrackId) {
       const startIndex = state.nativePlaybackQueue
         .findIndex(row => row.sid === startTrackId);
@@ -2301,6 +2326,7 @@
     }
 
     async function maybeAutoAdvanceFromTimer() {
+      if (document.visibilityState !== 'visible') return;
       if (isAdvanceLockFresh('timer-check') || state.isScrubbing) return;
       if (state.pendingRequestedTrackSid) return;
       // Don't auto-advance while quiz mode is active — user controls playback manually
@@ -3888,6 +3914,9 @@
         state.deviceId = device_id;
         state.sdkReady = true;
         updateAuthUi();
+        if (document.visibilityState === 'visible' && state.pageHiddenAt) {
+          window.setTimeout(() => reconcilePlaybackAfterVisibility(), 250);
+        }
       });
       state.player.addListener('not_ready', ({ device_id }) => {
         if (state.deviceId === device_id) {
@@ -4106,7 +4135,11 @@
 
           if (playbackState.paused && !inPendingWindow) {
             stopProgressTimer();
-            if (!isAdvanceLockFresh('paused-check') && !window.quizState?.active) {
+            if (
+              document.visibilityState === 'visible' &&
+              !isAdvanceLockFresh('paused-check') &&
+              !window.quizState?.active
+            ) {
               const dur = playbackState?.track_window?.current_track?.duration_ms || 0;
               advLog('psc:paused-check', { prevPos: Math.round(prevSnapshotPosition), dur: Math.round(dur), incomingPos: incomingPosition, random: !!state.randomPinnedKey });
               if (dur > 0 && (prevSnapshotPosition >= Math.max(0, dur - 2000) || (incomingPosition === 0 && prevSnapshotPosition >= Math.max(0, dur - 10000)))) {
@@ -4437,6 +4470,7 @@
       state.autoAdvanceInFlight = false;
       state.autoAdvanceStartedAt = 0;
       state.autoAdvanceLockId = 0;
+      state.backgroundReconcileInFlight = false;
       stopProgressTimer();
       updateAuthUi();
     });
@@ -4497,6 +4531,102 @@
         state.isScrubbing = false;
       }
     });
+
+    async function reconcilePlaybackAfterVisibility(attempt = 0) {
+      if (
+        document.visibilityState !== 'visible' ||
+        window.quizState?.active ||
+        !state.player ||
+        !state.sdkReady ||
+        state.backgroundReconcileInFlight
+      ) return;
+
+      state.backgroundReconcileInFlight = true;
+      try {
+        // A playback request frozen just as the tab was hidden gets a brief
+        // chance to settle before we ask the SDK for its authoritative state.
+        const pendingAge = Date.now() - (state.pendingRequestedAt || 0);
+        if (state.pendingRequestedTrackSid && pendingAge < 8000) {
+          await new Promise(resolve => setTimeout(resolve, 600));
+          if (document.visibilityState !== 'visible') return;
+        }
+
+        const liveState = await state.player.getCurrentState();
+        if (!liveState) {
+          advLog('visibility:state-unavailable', { attempt });
+          if (attempt < 1) {
+            window.setTimeout(() => reconcilePlaybackAfterVisibility(attempt + 1), 500);
+          }
+          return;
+        }
+
+        const liveTrackId = getPlaybackStateTrackId(liveState);
+        const liveTrack = liveState.track_window?.current_track;
+        if (!liveTrackId || !liveTrack) return;
+
+        const match = getAuthoritativePlaybackRow(liveTrackId);
+        const pinnedKey = match?.row ? rowKey(match.row) : null;
+        if (
+          match &&
+          (state.activeTrack?.sid !== liveTrackId ||
+            (state.randomPinnedKey && state.randomPinnedKey !== pinnedKey))
+        ) {
+          adoptPlaybackRow(match, 'visibility-resume');
+        }
+
+        state.playbackState = liveState;
+        state.lastPlaybackSnapshot = liveState;
+        state.lastPlaybackTimestamp = Date.now();
+        state.currentTrackSid = liveTrackId;
+        state.confirmedTrackSid = liveTrackId;
+        state.pendingRequestedTrackSid = null;
+        state.pendingRequestedAt = 0;
+        state.restoredPlayerStateOnly = false;
+        state.restoreResumeInFlight = false;
+        state.restoreSeekTrackSid = null;
+        state.restoreSeekTargetMs = 0;
+        state.restoreSeekUntil = 0;
+        state.pageHiddenAt = 0;
+        state.positionAtPageHide = 0;
+        state.durationAtPageHide = 0;
+        state.trackSidAtPageHide = null;
+
+        const liveArtist = liveTrack.artists?.map(artist => artist.name).join(', ') || '';
+        const artworkUrl = liveTrack.album?.images?.[0]?.url || null;
+        syncPlayerTitles(liveTrack.name || 'Unknown song', liveArtist);
+        setPlayerArtwork(artworkUrl, (liveTrack.name || '♪').slice(0, 1).toUpperCase());
+        playerInfo.textContent = '';
+        playerShell.hidden = false;
+        updatePlayerVisibility();
+        refreshProgressFromSnapshot();
+        updateTogglePlayButton();
+
+        if (liveState.paused) stopProgressTimer();
+        else startProgressTimer();
+        render();
+
+        advLog('visibility:state-reconciled', {
+          sid: liveTrackId.slice(-6),
+          paused: !!liveState.paused,
+          queueIndex: state.nativePlaybackQueueIndex,
+        });
+
+        const duration = liveTrack.duration_ms || 0;
+        const position = liveState.position || 0;
+        if (liveState.paused && duration > 0 && position >= Math.max(0, duration - 2000)) {
+          advLog('visibility:advance-ended-track');
+          Promise.resolve().then(() => skipToNextTrack());
+        }
+      } catch (error) {
+        advLog('visibility:reconcile-error', {
+          msg: String(error?.message || error).slice(0, 80),
+        });
+        console.warn('Could not reconcile Spotify state after backgrounding', error);
+      } finally {
+        state.backgroundReconcileInFlight = false;
+      }
+    }
+
     async function skipToNextTrack() {
       if (window.quizState?.active) return;
       const advanceLockId = acquireAdvanceLock('manual-skip');
@@ -4542,6 +4672,9 @@
         state.positionAtPageHide = position;
         state.durationAtPageHide = duration;
         state.trackSidAtPageHide = trackSid || null;
+        stopProgressTimer();
+      } else {
+        reconcilePlaybackAfterVisibility();
       }
     });
 
