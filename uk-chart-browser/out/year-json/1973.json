@@ -854,7 +854,14 @@
         "lw": 5,
         "pk": 2,
         "wc": 4,
-        "sid": null
+        "sid": "3w0ZmyR5gMRPZvqQA3p2G2",
+        "spotifyUri": "spotify:track:3w0ZmyR5gMRPZvqQA3p2G2",
+        "spotifyUrl": "https://open.spotify.com/track/3w0ZmyR5gMRPZvqQA3p2G2",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Cindy Incidentally",
+        "am": "Faces",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-03-16",
@@ -963,7 +970,14 @@
         "lw": 4,
         "pk": 2,
         "wc": 2,
-        "sid": null
+        "sid": "5mFX2LnOX5XLLcAbxUMwQv",
+        "spotifyUri": "spotify:track:5mFX2LnOX5XLLcAbxUMwQv",
+        "spotifyUrl": "https://open.spotify.com/track/5mFX2LnOX5XLLcAbxUMwQv",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Hell Raiser",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-05-18",
@@ -972,7 +986,14 @@
         "lw": 2,
         "pk": 2,
         "wc": 3,
-        "sid": null
+        "sid": "5mFX2LnOX5XLLcAbxUMwQv",
+        "spotifyUri": "spotify:track:5mFX2LnOX5XLLcAbxUMwQv",
+        "spotifyUrl": "https://open.spotify.com/track/5mFX2LnOX5XLLcAbxUMwQv",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Hell Raiser",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-05-25",
@@ -981,7 +1002,14 @@
         "lw": 2,
         "pk": 2,
         "wc": 4,
-        "sid": null
+        "sid": "5mFX2LnOX5XLLcAbxUMwQv",
+        "spotifyUri": "spotify:track:5mFX2LnOX5XLLcAbxUMwQv",
+        "spotifyUrl": "https://open.spotify.com/track/5mFX2LnOX5XLLcAbxUMwQv",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Hell Raiser",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-06-01",
@@ -1218,7 +1246,14 @@
         "lw": "New",
         "pk": 2,
         "wc": 1,
-        "sid": null
+        "sid": "3Pu3IChaAoa5EjgUBv5F6x",
+        "spotifyUri": "spotify:track:3Pu3IChaAoa5EjgUBv5F6x",
+        "spotifyUrl": "https://open.spotify.com/track/3Pu3IChaAoa5EjgUBv5F6x",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Ballroom Blitz",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-09-28",
@@ -1227,7 +1262,14 @@
         "lw": 2,
         "pk": 2,
         "wc": 2,
-        "sid": null
+        "sid": "3Pu3IChaAoa5EjgUBv5F6x",
+        "spotifyUri": "spotify:track:3Pu3IChaAoa5EjgUBv5F6x",
+        "spotifyUrl": "https://open.spotify.com/track/3Pu3IChaAoa5EjgUBv5F6x",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Ballroom Blitz",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-10-05",
@@ -1236,7 +1278,14 @@
         "lw": 2,
         "pk": 2,
         "wc": 3,
-        "sid": null
+        "sid": "3Pu3IChaAoa5EjgUBv5F6x",
+        "spotifyUri": "spotify:track:3Pu3IChaAoa5EjgUBv5F6x",
+        "spotifyUrl": "https://open.spotify.com/track/3Pu3IChaAoa5EjgUBv5F6x",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Ballroom Blitz",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-10-12",
@@ -1541,7 +1590,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "20th Century Boy",
         "am": "T. Rex",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBBLG1400033"
       },
       {
         "w": "1973-03-16",
@@ -1557,7 +1607,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "20th Century Boy",
         "am": "T. Rex",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBBLG1400033"
       },
       {
         "w": "1973-03-23",
@@ -1573,7 +1624,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "20th Century Boy",
         "am": "T. Rex",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBBLG1400033"
       },
       {
         "w": "1973-03-30",
@@ -1937,7 +1989,14 @@
         "lw": 4,
         "pk": 3,
         "wc": 6,
-        "sid": null
+        "sid": "40lzYjHgIw0r55twhZI3SK",
+        "spotifyUri": "spotify:track:40lzYjHgIw0r55twhZI3SK",
+        "spotifyUrl": "https://open.spotify.com/track/40lzYjHgIw0r55twhZI3SK",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Monster Mash",
+        "am": "Bobby “Boris” Pickett & The Crypt Kickers",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-10-12",
@@ -1946,7 +2005,14 @@
         "lw": 2,
         "pk": 2,
         "wc": 4,
-        "sid": null
+        "sid": "3Pu3IChaAoa5EjgUBv5F6x",
+        "spotifyUri": "spotify:track:3Pu3IChaAoa5EjgUBv5F6x",
+        "spotifyUrl": "https://open.spotify.com/track/3Pu3IChaAoa5EjgUBv5F6x",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Ballroom Blitz",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-10-19",
@@ -2335,7 +2401,14 @@
         "lw": "New",
         "pk": 4,
         "wc": 1,
-        "sid": null
+        "sid": "5mFX2LnOX5XLLcAbxUMwQv",
+        "spotifyUri": "spotify:track:5mFX2LnOX5XLLcAbxUMwQv",
+        "spotifyUrl": "https://open.spotify.com/track/5mFX2LnOX5XLLcAbxUMwQv",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Hell Raiser",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-05-11",
@@ -2453,7 +2526,14 @@
         "lw": 6,
         "pk": 4,
         "wc": 7,
-        "sid": null
+        "sid": "57CGdod2ydkE0DEAXP1wWJ",
+        "spotifyUri": "spotify:track:57CGdod2ydkE0DEAXP1wWJ",
+        "spotifyUrl": "https://open.spotify.com/track/57CGdod2ydkE0DEAXP1wWJ",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Snoopy Versus the Red Baron",
+        "am": "The Hotshots",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-07-20",
@@ -2585,7 +2665,14 @@
         "lw": 21,
         "pk": 4,
         "wc": 4,
-        "sid": null
+        "sid": "40lzYjHgIw0r55twhZI3SK",
+        "spotifyUri": "spotify:track:40lzYjHgIw0r55twhZI3SK",
+        "spotifyUrl": "https://open.spotify.com/track/40lzYjHgIw0r55twhZI3SK",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Monster Mash",
+        "am": "Bobby “Boris” Pickett & The Crypt Kickers",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-09-28",
@@ -2594,7 +2681,14 @@
         "lw": 4,
         "pk": 4,
         "wc": 5,
-        "sid": null
+        "sid": "40lzYjHgIw0r55twhZI3SK",
+        "spotifyUri": "spotify:track:40lzYjHgIw0r55twhZI3SK",
+        "spotifyUrl": "https://open.spotify.com/track/40lzYjHgIw0r55twhZI3SK",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Monster Mash",
+        "am": "Bobby “Boris” Pickett & The Crypt Kickers",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-10-05",
@@ -2876,7 +2970,14 @@
         "lw": 17,
         "pk": 5,
         "wc": 2,
-        "sid": null
+        "sid": "3w0ZmyR5gMRPZvqQA3p2G2",
+        "spotifyUri": "spotify:track:3w0ZmyR5gMRPZvqQA3p2G2",
+        "spotifyUrl": "https://open.spotify.com/track/3w0ZmyR5gMRPZvqQA3p2G2",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Cindy Incidentally",
+        "am": "Faces",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-03-02",
@@ -2885,7 +2986,14 @@
         "lw": 5,
         "pk": 5,
         "wc": 3,
-        "sid": null
+        "sid": "3w0ZmyR5gMRPZvqQA3p2G2",
+        "spotifyUri": "spotify:track:3w0ZmyR5gMRPZvqQA3p2G2",
+        "spotifyUrl": "https://open.spotify.com/track/3w0ZmyR5gMRPZvqQA3p2G2",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Cindy Incidentally",
+        "am": "Faces",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-03-09",
@@ -2903,7 +3011,14 @@
         "lw": 2,
         "pk": 2,
         "wc": 5,
-        "sid": null
+        "sid": "3w0ZmyR5gMRPZvqQA3p2G2",
+        "spotifyUri": "spotify:track:3w0ZmyR5gMRPZvqQA3p2G2",
+        "spotifyUrl": "https://open.spotify.com/track/3w0ZmyR5gMRPZvqQA3p2G2",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Cindy Incidentally",
+        "am": "Faces",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-03-23",
@@ -2935,7 +3050,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "20th Century Boy",
         "am": "T. Rex",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBBLG1400033"
       },
       {
         "w": "1973-04-06",
@@ -3030,7 +3146,14 @@
         "lw": 2,
         "pk": 2,
         "wc": 5,
-        "sid": null
+        "sid": "5mFX2LnOX5XLLcAbxUMwQv",
+        "spotifyUri": "spotify:track:5mFX2LnOX5XLLcAbxUMwQv",
+        "spotifyUrl": "https://open.spotify.com/track/5mFX2LnOX5XLLcAbxUMwQv",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Hell Raiser",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-06-08",
@@ -3264,7 +3387,14 @@
         "lw": 3,
         "pk": 3,
         "wc": 7,
-        "sid": null
+        "sid": "40lzYjHgIw0r55twhZI3SK",
+        "spotifyUri": "spotify:track:40lzYjHgIw0r55twhZI3SK",
+        "spotifyUrl": "https://open.spotify.com/track/40lzYjHgIw0r55twhZI3SK",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Monster Mash",
+        "am": "Bobby “Boris” Pickett & The Crypt Kickers",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-10-19",
@@ -3273,7 +3403,14 @@
         "lw": 5,
         "pk": 3,
         "wc": 8,
-        "sid": null
+        "sid": "40lzYjHgIw0r55twhZI3SK",
+        "spotifyUri": "spotify:track:40lzYjHgIw0r55twhZI3SK",
+        "spotifyUrl": "https://open.spotify.com/track/40lzYjHgIw0r55twhZI3SK",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Monster Mash",
+        "am": "Bobby “Boris” Pickett & The Crypt Kickers",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-10-26",
@@ -3282,7 +3419,14 @@
         "lw": 8,
         "pk": 5,
         "wc": 8,
-        "sid": null
+        "sid": "3fSWHHIHLRvdB5PYJ7PXrF",
+        "spotifyUri": "spotify:track:3fSWHHIHLRvdB5PYJ7PXrF",
+        "spotifyUrl": "https://open.spotify.com/track/3fSWHHIHLRvdB5PYJ7PXrF",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Caroline",
+        "am": "Status Quo",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-11-02",
@@ -3291,7 +3435,14 @@
         "lw": 5,
         "pk": 5,
         "wc": 9,
-        "sid": null
+        "sid": "3fSWHHIHLRvdB5PYJ7PXrF",
+        "spotifyUri": "spotify:track:3fSWHHIHLRvdB5PYJ7PXrF",
+        "spotifyUrl": "https://open.spotify.com/track/3fSWHHIHLRvdB5PYJ7PXrF",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Caroline",
+        "am": "Status Quo",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-11-09",
@@ -3746,7 +3897,14 @@
         "lw": 7,
         "pk": 6,
         "wc": 5,
-        "sid": null
+        "sid": "57CGdod2ydkE0DEAXP1wWJ",
+        "spotifyUri": "spotify:track:57CGdod2ydkE0DEAXP1wWJ",
+        "spotifyUrl": "https://open.spotify.com/track/57CGdod2ydkE0DEAXP1wWJ",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Snoopy Versus the Red Baron",
+        "am": "The Hotshots",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-07-06",
@@ -3755,7 +3913,14 @@
         "lw": 6,
         "pk": 6,
         "wc": 6,
-        "sid": null
+        "sid": "57CGdod2ydkE0DEAXP1wWJ",
+        "spotifyUri": "spotify:track:57CGdod2ydkE0DEAXP1wWJ",
+        "spotifyUrl": "https://open.spotify.com/track/57CGdod2ydkE0DEAXP1wWJ",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Snoopy Versus the Red Baron",
+        "am": "The Hotshots",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-07-13",
@@ -4403,7 +4568,14 @@
         "lw": 12,
         "pk": 7,
         "wc": 4,
-        "sid": null
+        "sid": "57CGdod2ydkE0DEAXP1wWJ",
+        "spotifyUri": "spotify:track:57CGdod2ydkE0DEAXP1wWJ",
+        "spotifyUrl": "https://open.spotify.com/track/57CGdod2ydkE0DEAXP1wWJ",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Snoopy Versus the Red Baron",
+        "am": "The Hotshots",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-06-29",
@@ -4633,7 +4805,14 @@
         "lw": 3,
         "pk": 2,
         "wc": 5,
-        "sid": null
+        "sid": "3Pu3IChaAoa5EjgUBv5F6x",
+        "spotifyUri": "spotify:track:3Pu3IChaAoa5EjgUBv5F6x",
+        "spotifyUrl": "https://open.spotify.com/track/3Pu3IChaAoa5EjgUBv5F6x",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Ballroom Blitz",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-10-26",
@@ -4667,7 +4846,14 @@
         "lw": 5,
         "pk": 5,
         "wc": 10,
-        "sid": null
+        "sid": "3fSWHHIHLRvdB5PYJ7PXrF",
+        "spotifyUri": "spotify:track:3fSWHHIHLRvdB5PYJ7PXrF",
+        "spotifyUrl": "https://open.spotify.com/track/3fSWHHIHLRvdB5PYJ7PXrF",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Caroline",
+        "am": "Status Quo",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-11-16",
@@ -5044,7 +5230,14 @@
         "lw": 5,
         "pk": 2,
         "wc": 6,
-        "sid": null
+        "sid": "5mFX2LnOX5XLLcAbxUMwQv",
+        "spotifyUri": "spotify:track:5mFX2LnOX5XLLcAbxUMwQv",
+        "spotifyUrl": "https://open.spotify.com/track/5mFX2LnOX5XLLcAbxUMwQv",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Hell Raiser",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-06-15",
@@ -5271,7 +5464,14 @@
         "lw": 9,
         "pk": 8,
         "wc": 7,
-        "sid": null
+        "sid": "3fSWHHIHLRvdB5PYJ7PXrF",
+        "spotifyUri": "spotify:track:3fSWHHIHLRvdB5PYJ7PXrF",
+        "spotifyUrl": "https://open.spotify.com/track/3fSWHHIHLRvdB5PYJ7PXrF",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Caroline",
+        "am": "Status Quo",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-10-26",
@@ -5548,7 +5748,14 @@
         "lw": 5,
         "pk": 2,
         "wc": 6,
-        "sid": null
+        "sid": "3w0ZmyR5gMRPZvqQA3p2G2",
+        "spotifyUri": "spotify:track:3w0ZmyR5gMRPZvqQA3p2G2",
+        "spotifyUrl": "https://open.spotify.com/track/3w0ZmyR5gMRPZvqQA3p2G2",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Cindy Incidentally",
+        "am": "Faces",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-03-30",
@@ -5942,7 +6149,14 @@
         "lw": 11,
         "pk": 9,
         "wc": 6,
-        "sid": null
+        "sid": "3fSWHHIHLRvdB5PYJ7PXrF",
+        "spotifyUri": "spotify:track:3fSWHHIHLRvdB5PYJ7PXrF",
+        "spotifyUrl": "https://open.spotify.com/track/3fSWHHIHLRvdB5PYJ7PXrF",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Caroline",
+        "am": "Status Quo",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-10-19",
@@ -6486,7 +6700,14 @@
         "lw": 4,
         "pk": 4,
         "wc": 8,
-        "sid": null
+        "sid": "57CGdod2ydkE0DEAXP1wWJ",
+        "spotifyUri": "spotify:track:57CGdod2ydkE0DEAXP1wWJ",
+        "spotifyUrl": "https://open.spotify.com/track/57CGdod2ydkE0DEAXP1wWJ",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Snoopy Versus the Red Baron",
+        "am": "The Hotshots",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-07-27",
@@ -7384,7 +7605,14 @@
         "lw": 17,
         "pk": 11,
         "wc": 5,
-        "sid": null
+        "sid": "3fSWHHIHLRvdB5PYJ7PXrF",
+        "spotifyUri": "spotify:track:3fSWHHIHLRvdB5PYJ7PXrF",
+        "spotifyUrl": "https://open.spotify.com/track/3fSWHHIHLRvdB5PYJ7PXrF",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Caroline",
+        "am": "Status Quo",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-10-12",
@@ -7899,7 +8127,14 @@
         "lw": 25,
         "pk": 12,
         "wc": 3,
-        "sid": null
+        "sid": "57CGdod2ydkE0DEAXP1wWJ",
+        "spotifyUri": "spotify:track:57CGdod2ydkE0DEAXP1wWJ",
+        "spotifyUrl": "https://open.spotify.com/track/57CGdod2ydkE0DEAXP1wWJ",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Snoopy Versus the Red Baron",
+        "am": "The Hotshots",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-06-22",
@@ -8133,7 +8368,14 @@
         "lw": 7,
         "pk": 2,
         "wc": 6,
-        "sid": null
+        "sid": "3Pu3IChaAoa5EjgUBv5F6x",
+        "spotifyUri": "spotify:track:3Pu3IChaAoa5EjgUBv5F6x",
+        "spotifyUrl": "https://open.spotify.com/track/3Pu3IChaAoa5EjgUBv5F6x",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Ballroom Blitz",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-11-02",
@@ -8640,7 +8882,14 @@
         "lw": 10,
         "pk": 4,
         "wc": 9,
-        "sid": null
+        "sid": "57CGdod2ydkE0DEAXP1wWJ",
+        "spotifyUri": "spotify:track:57CGdod2ydkE0DEAXP1wWJ",
+        "spotifyUrl": "https://open.spotify.com/track/57CGdod2ydkE0DEAXP1wWJ",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Snoopy Versus the Red Baron",
+        "am": "The Hotshots",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-08-03",
@@ -8792,7 +9041,14 @@
         "lw": 5,
         "pk": 3,
         "wc": 9,
-        "sid": null
+        "sid": "40lzYjHgIw0r55twhZI3SK",
+        "spotifyUri": "spotify:track:40lzYjHgIw0r55twhZI3SK",
+        "spotifyUrl": "https://open.spotify.com/track/40lzYjHgIw0r55twhZI3SK",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Monster Mash",
+        "am": "Bobby “Boris” Pickett & The Crypt Kickers",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-11-02",
@@ -9779,7 +10035,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "20th Century Boy",
         "am": "T. Rex",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBBLG1400033"
       },
       {
         "w": "1973-04-13",
@@ -11090,7 +11347,14 @@
         "lw": "New",
         "pk": 17,
         "wc": 1,
-        "sid": null
+        "sid": "3w0ZmyR5gMRPZvqQA3p2G2",
+        "spotifyUri": "spotify:track:3w0ZmyR5gMRPZvqQA3p2G2",
+        "spotifyUrl": "https://open.spotify.com/track/3w0ZmyR5gMRPZvqQA3p2G2",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Cindy Incidentally",
+        "am": "Faces",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-02-23",
@@ -11190,7 +11454,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "20th Century Boy",
         "am": "T. Rex",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBBLG1400033"
       },
       {
         "w": "1973-04-20",
@@ -11518,7 +11783,14 @@
         "lw": 23,
         "pk": 17,
         "wc": 4,
-        "sid": null
+        "sid": "3fSWHHIHLRvdB5PYJ7PXrF",
+        "spotifyUri": "spotify:track:3fSWHHIHLRvdB5PYJ7PXrF",
+        "spotifyUrl": "https://open.spotify.com/track/3fSWHHIHLRvdB5PYJ7PXrF",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Caroline",
+        "am": "Status Quo",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-10-05",
@@ -11866,7 +12138,14 @@
         "lw": 9,
         "pk": 2,
         "wc": 7,
-        "sid": null
+        "sid": "3w0ZmyR5gMRPZvqQA3p2G2",
+        "spotifyUri": "spotify:track:3w0ZmyR5gMRPZvqQA3p2G2",
+        "spotifyUrl": "https://open.spotify.com/track/3w0ZmyR5gMRPZvqQA3p2G2",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Cindy Incidentally",
+        "am": "Faces",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-04-06",
@@ -13507,7 +13786,14 @@
         "lw": 13,
         "pk": 4,
         "wc": 10,
-        "sid": null
+        "sid": "57CGdod2ydkE0DEAXP1wWJ",
+        "spotifyUri": "spotify:track:57CGdod2ydkE0DEAXP1wWJ",
+        "spotifyUrl": "https://open.spotify.com/track/57CGdod2ydkE0DEAXP1wWJ",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Snoopy Versus the Red Baron",
+        "am": "The Hotshots",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-08-10",
@@ -13691,7 +13977,14 @@
         "lw": 7,
         "pk": 5,
         "wc": 11,
-        "sid": null
+        "sid": "3fSWHHIHLRvdB5PYJ7PXrF",
+        "spotifyUri": "spotify:track:3fSWHHIHLRvdB5PYJ7PXrF",
+        "spotifyUrl": "https://open.spotify.com/track/3fSWHHIHLRvdB5PYJ7PXrF",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Caroline",
+        "am": "Status Quo",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-11-23",
@@ -14082,7 +14375,14 @@
         "lw": 8,
         "pk": 2,
         "wc": 7,
-        "sid": null
+        "sid": "5mFX2LnOX5XLLcAbxUMwQv",
+        "spotifyUri": "spotify:track:5mFX2LnOX5XLLcAbxUMwQv",
+        "spotifyUrl": "https://open.spotify.com/track/5mFX2LnOX5XLLcAbxUMwQv",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Hell Raiser",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-06-22",
@@ -14241,7 +14541,14 @@
         "lw": 30,
         "pk": 21,
         "wc": 3,
-        "sid": null
+        "sid": "40lzYjHgIw0r55twhZI3SK",
+        "spotifyUri": "spotify:track:40lzYjHgIw0r55twhZI3SK",
+        "spotifyUrl": "https://open.spotify.com/track/40lzYjHgIw0r55twhZI3SK",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Monster Mash",
+        "am": "Bobby “Boris” Pickett & The Crypt Kickers",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-09-21",
@@ -14325,7 +14632,14 @@
         "lw": 13,
         "pk": 3,
         "wc": 10,
-        "sid": null
+        "sid": "40lzYjHgIw0r55twhZI3SK",
+        "spotifyUri": "spotify:track:40lzYjHgIw0r55twhZI3SK",
+        "spotifyUrl": "https://open.spotify.com/track/40lzYjHgIw0r55twhZI3SK",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Monster Mash",
+        "am": "Bobby “Boris” Pickett & The Crypt Kickers",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-11-09",
@@ -15624,7 +15938,14 @@
         "lw": 28,
         "pk": 23,
         "wc": 3,
-        "sid": null
+        "sid": "3fSWHHIHLRvdB5PYJ7PXrF",
+        "spotifyUri": "spotify:track:3fSWHHIHLRvdB5PYJ7PXrF",
+        "spotifyUrl": "https://open.spotify.com/track/3fSWHHIHLRvdB5PYJ7PXrF",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Caroline",
+        "am": "Status Quo",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-09-28",
@@ -16772,7 +17093,14 @@
         "lw": 39,
         "pk": 25,
         "wc": 2,
-        "sid": null
+        "sid": "57CGdod2ydkE0DEAXP1wWJ",
+        "spotifyUri": "spotify:track:57CGdod2ydkE0DEAXP1wWJ",
+        "spotifyUrl": "https://open.spotify.com/track/57CGdod2ydkE0DEAXP1wWJ",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Snoopy Versus the Red Baron",
+        "am": "The Hotshots",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-06-15",
@@ -17017,7 +17345,14 @@
         "lw": 12,
         "pk": 2,
         "wc": 7,
-        "sid": null
+        "sid": "3Pu3IChaAoa5EjgUBv5F6x",
+        "spotifyUri": "spotify:track:3Pu3IChaAoa5EjgUBv5F6x",
+        "spotifyUrl": "https://open.spotify.com/track/3Pu3IChaAoa5EjgUBv5F6x",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Ballroom Blitz",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-11-09",
@@ -17347,7 +17682,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "20th Century Boy",
         "am": "T. Rex",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBBLG1400033"
       },
       {
         "w": "1973-04-27",
@@ -18171,7 +18507,14 @@
         "lw": 21,
         "pk": 2,
         "wc": 8,
-        "sid": null
+        "sid": "5mFX2LnOX5XLLcAbxUMwQv",
+        "spotifyUri": "spotify:track:5mFX2LnOX5XLLcAbxUMwQv",
+        "spotifyUrl": "https://open.spotify.com/track/5mFX2LnOX5XLLcAbxUMwQv",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Hell Raiser",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-06-29",
@@ -18276,7 +18619,14 @@
         "lw": 20,
         "pk": 4,
         "wc": 11,
-        "sid": null
+        "sid": "57CGdod2ydkE0DEAXP1wWJ",
+        "spotifyUri": "spotify:track:57CGdod2ydkE0DEAXP1wWJ",
+        "spotifyUrl": "https://open.spotify.com/track/57CGdod2ydkE0DEAXP1wWJ",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Snoopy Versus the Red Baron",
+        "am": "The Hotshots",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-08-17",
@@ -19043,7 +19393,14 @@
         "lw": 44,
         "pk": 28,
         "wc": 2,
-        "sid": null
+        "sid": "3fSWHHIHLRvdB5PYJ7PXrF",
+        "spotifyUri": "spotify:track:3fSWHHIHLRvdB5PYJ7PXrF",
+        "spotifyUrl": "https://open.spotify.com/track/3fSWHHIHLRvdB5PYJ7PXrF",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Caroline",
+        "am": "Status Quo",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-09-21",
@@ -19175,7 +19532,14 @@
         "lw": 20,
         "pk": 5,
         "wc": 12,
-        "sid": null
+        "sid": "3fSWHHIHLRvdB5PYJ7PXrF",
+        "spotifyUri": "spotify:track:3fSWHHIHLRvdB5PYJ7PXrF",
+        "spotifyUrl": "https://open.spotify.com/track/3fSWHHIHLRvdB5PYJ7PXrF",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Caroline",
+        "am": "Status Quo",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-11-30",
@@ -19266,7 +19630,14 @@
         "lw": 23,
         "pk": 18,
         "wc": 8,
-        "sid": null
+        "sid": "14TgffNQPJhXzbTe6LUsaB",
+        "spotifyUri": "spotify:track:14TgffNQPJhXzbTe6LUsaB",
+        "spotifyUrl": "https://open.spotify.com/track/14TgffNQPJhXzbTe6LUsaB",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Keeper of the Castle",
+        "am": "Four Tops",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-01-12",
@@ -19823,7 +20194,14 @@
         "lw": 21,
         "pk": 3,
         "wc": 11,
-        "sid": null
+        "sid": "40lzYjHgIw0r55twhZI3SK",
+        "spotifyUri": "spotify:track:40lzYjHgIw0r55twhZI3SK",
+        "spotifyUrl": "https://open.spotify.com/track/40lzYjHgIw0r55twhZI3SK",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Monster Mash",
+        "am": "Bobby “Boris” Pickett & The Crypt Kickers",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-11-16",
@@ -19873,7 +20251,14 @@
         "lw": 30,
         "pk": 29,
         "wc": 5,
-        "sid": null
+        "sid": "6Dvt2EOb8FspzfNAknV6KM",
+        "spotifyUri": "spotify:track:6Dvt2EOb8FspzfNAknV6KM",
+        "spotifyUrl": "https://open.spotify.com/track/6Dvt2EOb8FspzfNAknV6KM",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Sweet Understanding Love",
+        "am": "Four Tops",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-12-14",
@@ -20338,7 +20723,14 @@
         "lw": 43,
         "pk": 30,
         "wc": 2,
-        "sid": null
+        "sid": "40lzYjHgIw0r55twhZI3SK",
+        "spotifyUri": "spotify:track:40lzYjHgIw0r55twhZI3SK",
+        "spotifyUrl": "https://open.spotify.com/track/40lzYjHgIw0r55twhZI3SK",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Monster Mash",
+        "am": "Bobby “Boris” Pickett & The Crypt Kickers",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-09-14",
@@ -20481,7 +20873,14 @@
         "lw": 33,
         "pk": 30,
         "wc": 4,
-        "sid": null
+        "sid": "6Dvt2EOb8FspzfNAknV6KM",
+        "spotifyUri": "spotify:track:6Dvt2EOb8FspzfNAknV6KM",
+        "spotifyUrl": "https://open.spotify.com/track/6Dvt2EOb8FspzfNAknV6KM",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Sweet Understanding Love",
+        "am": "Four Tops",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-12-07",
@@ -20701,7 +21100,14 @@
         "lw": 18,
         "pk": 2,
         "wc": 8,
-        "sid": null
+        "sid": "3w0ZmyR5gMRPZvqQA3p2G2",
+        "spotifyUri": "spotify:track:3w0ZmyR5gMRPZvqQA3p2G2",
+        "spotifyUrl": "https://open.spotify.com/track/3w0ZmyR5gMRPZvqQA3p2G2",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Cindy Incidentally",
+        "am": "Faces",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-04-13",
@@ -21737,7 +22143,14 @@
         "lw": 25,
         "pk": 2,
         "wc": 8,
-        "sid": null
+        "sid": "3Pu3IChaAoa5EjgUBv5F6x",
+        "spotifyUri": "spotify:track:3Pu3IChaAoa5EjgUBv5F6x",
+        "spotifyUrl": "https://open.spotify.com/track/3Pu3IChaAoa5EjgUBv5F6x",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Ballroom Blitz",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-11-16",
@@ -22470,7 +22883,14 @@
         "lw": 34,
         "pk": 33,
         "wc": 3,
-        "sid": null
+        "sid": "6Dvt2EOb8FspzfNAknV6KM",
+        "spotifyUri": "spotify:track:6Dvt2EOb8FspzfNAknV6KM",
+        "spotifyUrl": "https://open.spotify.com/track/6Dvt2EOb8FspzfNAknV6KM",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Sweet Understanding Love",
+        "am": "Four Tops",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-11-30",
@@ -22542,7 +22962,14 @@
         "lw": 29,
         "pk": 18,
         "wc": 9,
-        "sid": null
+        "sid": "14TgffNQPJhXzbTe6LUsaB",
+        "spotifyUri": "spotify:track:14TgffNQPJhXzbTe6LUsaB",
+        "spotifyUrl": "https://open.spotify.com/track/14TgffNQPJhXzbTe6LUsaB",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Keeper of the Castle",
+        "am": "Four Tops",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-01-19",
@@ -22940,7 +23367,14 @@
         "lw": 27,
         "pk": 4,
         "wc": 12,
-        "sid": null
+        "sid": "57CGdod2ydkE0DEAXP1wWJ",
+        "spotifyUri": "spotify:track:57CGdod2ydkE0DEAXP1wWJ",
+        "spotifyUrl": "https://open.spotify.com/track/57CGdod2ydkE0DEAXP1wWJ",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Snoopy Versus the Red Baron",
+        "am": "The Hotshots",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-08-24",
@@ -23106,7 +23540,14 @@
         "lw": 40,
         "pk": 34,
         "wc": 2,
-        "sid": null
+        "sid": "6Dvt2EOb8FspzfNAknV6KM",
+        "spotifyUri": "spotify:track:6Dvt2EOb8FspzfNAknV6KM",
+        "spotifyUrl": "https://open.spotify.com/track/6Dvt2EOb8FspzfNAknV6KM",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Sweet Understanding Love",
+        "am": "Four Tops",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-11-23",
@@ -23163,7 +23604,14 @@
         "lw": 29,
         "pk": 29,
         "wc": 6,
-        "sid": null
+        "sid": "6Dvt2EOb8FspzfNAknV6KM",
+        "spotifyUri": "spotify:track:6Dvt2EOb8FspzfNAknV6KM",
+        "spotifyUrl": "https://open.spotify.com/track/6Dvt2EOb8FspzfNAknV6KM",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Sweet Understanding Love",
+        "am": "Four Tops",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-12-21",
@@ -23406,7 +23854,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "20th Century Boy",
         "am": "T. Rex",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBBLG1400033"
       },
       {
         "w": "1973-05-04",
@@ -23515,7 +23964,14 @@
         "lw": 27,
         "pk": 2,
         "wc": 9,
-        "sid": null
+        "sid": "5mFX2LnOX5XLLcAbxUMwQv",
+        "spotifyUri": "spotify:track:5mFX2LnOX5XLLcAbxUMwQv",
+        "spotifyUrl": "https://open.spotify.com/track/5mFX2LnOX5XLLcAbxUMwQv",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Hell Raiser",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-07-06",
@@ -24448,7 +24904,14 @@
         "lw": 34,
         "pk": 29,
         "wc": 7,
-        "sid": null
+        "sid": "6Dvt2EOb8FspzfNAknV6KM",
+        "spotifyUri": "spotify:track:6Dvt2EOb8FspzfNAknV6KM",
+        "spotifyUrl": "https://open.spotify.com/track/6Dvt2EOb8FspzfNAknV6KM",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Sweet Understanding Love",
+        "am": "Four Tops",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-12-28",
@@ -24457,7 +24920,14 @@
         "lw": 36,
         "pk": 29,
         "wc": 8,
-        "sid": null
+        "sid": "6Dvt2EOb8FspzfNAknV6KM",
+        "spotifyUri": "spotify:track:6Dvt2EOb8FspzfNAknV6KM",
+        "spotifyUrl": "https://open.spotify.com/track/6Dvt2EOb8FspzfNAknV6KM",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Sweet Understanding Love",
+        "am": "Four Tops",
+        "spotifyDecisionSource": "global-ledger"
       }
     ],
     "37": [
@@ -25953,7 +26423,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "20th Century Boy",
         "am": "T. Rex",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBBLG1400033"
       },
       {
         "w": "1973-05-11",
@@ -26003,7 +26474,14 @@
         "lw": "New",
         "pk": 39,
         "wc": 1,
-        "sid": null
+        "sid": "57CGdod2ydkE0DEAXP1wWJ",
+        "spotifyUri": "spotify:track:57CGdod2ydkE0DEAXP1wWJ",
+        "spotifyUrl": "https://open.spotify.com/track/57CGdod2ydkE0DEAXP1wWJ",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Snoopy Versus the Red Baron",
+        "am": "The Hotshots",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-06-08",
@@ -26382,7 +26860,14 @@
         "lw": 40,
         "pk": 9,
         "wc": 15,
-        "sid": null
+        "sid": "1PLgQkmhgh6GHQnomQ50Rv",
+        "spotifyUri": "spotify:track:1PLgQkmhgh6GHQnomQ50Rv",
+        "spotifyUrl": "https://open.spotify.com/track/1PLgQkmhgh6GHQnomQ50Rv",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Goodbye to Love",
+        "am": "Carpenters",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-01-12",
@@ -26974,7 +27459,14 @@
         "lw": "New",
         "pk": 40,
         "wc": 1,
-        "sid": null
+        "sid": "6Dvt2EOb8FspzfNAknV6KM",
+        "spotifyUri": "spotify:track:6Dvt2EOb8FspzfNAknV6KM",
+        "spotifyUrl": "https://open.spotify.com/track/6Dvt2EOb8FspzfNAknV6KM",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Sweet Understanding Love",
+        "am": "Four Tops",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1973-11-16",

@@ -808,7 +808,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "And the Beat Goes On",
         "am": "The Whispers",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USA371130765"
       },
       {
         "w": "1980-02-29",
@@ -1518,7 +1519,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "And the Beat Goes On",
         "am": "The Whispers",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USA371130765"
       },
       {
         "w": "1980-03-07",
@@ -2696,7 +2698,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Never Knew Love Like This Before",
         "am": "Stephanie Mills",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USPR38002470"
       },
       {
         "w": "1980-12-05",
@@ -2859,7 +2862,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "And the Beat Goes On",
         "am": "The Whispers",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USA371130765"
       },
       {
         "w": "1980-03-14",
@@ -3547,7 +3551,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "And the Beat Goes On",
         "am": "The Whispers",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USA371130765"
       },
       {
         "w": "1980-02-22",
@@ -4061,7 +4066,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Never Knew Love Like This Before",
         "am": "Stephanie Mills",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USPR38002470"
       },
       {
         "w": "1980-11-28",
@@ -4779,7 +4785,14 @@
         "lw": 12,
         "pk": 7,
         "wc": 5,
-        "sid": null
+        "sid": "6a8K4QCWvuIcUWrAGcN4JN",
+        "spotifyUri": "spotify:track:6a8K4QCWvuIcUWrAGcN4JN",
+        "spotifyUrl": "https://open.spotify.com/track/6a8K4QCWvuIcUWrAGcN4JN",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Celebration",
+        "am": "Kool & the Gang",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1980-12-05",
@@ -4795,7 +4808,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Never Knew Love Like This Before",
         "am": "Stephanie Mills",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USPR38002470"
       },
       {
         "w": "1980-12-12",
@@ -5476,7 +5490,14 @@
         "lw": 7,
         "pk": 7,
         "wc": 6,
-        "sid": null
+        "sid": "6a8K4QCWvuIcUWrAGcN4JN",
+        "spotifyUri": "spotify:track:6a8K4QCWvuIcUWrAGcN4JN",
+        "spotifyUrl": "https://open.spotify.com/track/6a8K4QCWvuIcUWrAGcN4JN",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Celebration",
+        "am": "Kool & the Gang",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1980-12-12",
@@ -6136,7 +6157,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Never Knew Love Like This Before",
         "am": "Stephanie Mills",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USPR38002470"
       },
       {
         "w": "1980-11-21",
@@ -6382,7 +6404,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "And the Beat Goes On",
         "am": "The Whispers",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USA371130765"
       },
       {
         "w": "1980-03-21",
@@ -6811,7 +6834,14 @@
         "lw": 21,
         "pk": 10,
         "wc": 4,
-        "sid": null
+        "sid": "1Gnufs5iuI3h5ow29J7tOO",
+        "spotifyUri": "spotify:track:1Gnufs5iuI3h5ow29J7tOO",
+        "spotifyUrl": "https://open.spotify.com/track/1Gnufs5iuI3h5ow29J7tOO",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Love X Love",
+        "am": "George Benson",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1980-10-31",
@@ -7589,7 +7619,14 @@
         "lw": 8,
         "pk": 7,
         "wc": 7,
-        "sid": null
+        "sid": "6a8K4QCWvuIcUWrAGcN4JN",
+        "spotifyUri": "spotify:track:6a8K4QCWvuIcUWrAGcN4JN",
+        "spotifyUrl": "https://open.spotify.com/track/6a8K4QCWvuIcUWrAGcN4JN",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Celebration",
+        "am": "Kool & the Gang",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1980-12-19",
@@ -8236,7 +8273,14 @@
         "lw": 10,
         "pk": 10,
         "wc": 5,
-        "sid": null
+        "sid": "1Gnufs5iuI3h5ow29J7tOO",
+        "spotifyUri": "spotify:track:1Gnufs5iuI3h5ow29J7tOO",
+        "spotifyUrl": "https://open.spotify.com/track/1Gnufs5iuI3h5ow29J7tOO",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Love X Love",
+        "am": "George Benson",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1980-11-07",
@@ -8270,7 +8314,14 @@
         "lw": 22,
         "pk": 12,
         "wc": 4,
-        "sid": null
+        "sid": "6a8K4QCWvuIcUWrAGcN4JN",
+        "spotifyUri": "spotify:track:6a8K4QCWvuIcUWrAGcN4JN",
+        "spotifyUrl": "https://open.spotify.com/track/6a8K4QCWvuIcUWrAGcN4JN",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Celebration",
+        "am": "Kool & the Gang",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1980-11-28",
@@ -8327,7 +8378,14 @@
         "lw": 20,
         "pk": 12,
         "wc": 3,
-        "sid": null
+        "sid": "60s19t9XMIhOAA84rQDMyU",
+        "spotifyUri": "spotify:track:60s19t9XMIhOAA84rQDMyU",
+        "spotifyUrl": "https://open.spotify.com/track/60s19t9XMIhOAA84rQDMyU",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Flash (remastered 2011)",
+        "am": "Queen",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1980-12-26",
@@ -9012,7 +9070,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Never Knew Love Like This Before",
         "am": "Stephanie Mills",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USPR38002470"
       },
       {
         "w": "1980-12-19",
@@ -10397,7 +10456,14 @@
         "lw": 12,
         "pk": 12,
         "wc": 4,
-        "sid": null
+        "sid": "60s19t9XMIhOAA84rQDMyU",
+        "spotifyUri": "spotify:track:60s19t9XMIhOAA84rQDMyU",
+        "spotifyUrl": "https://open.spotify.com/track/60s19t9XMIhOAA84rQDMyU",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Flash (remastered 2011)",
+        "am": "Queen",
+        "spotifyDecisionSource": "global-ledger"
       }
     ],
     "16": [
@@ -10408,7 +10474,15 @@
         "lw": 14,
         "pk": 13,
         "wc": 7,
-        "sid": null
+        "sid": "5D9cGUts4bN2zoxhLrQdCJ",
+        "spotifyUri": "spotify:track:5D9cGUts4bN2zoxhLrQdCJ",
+        "spotifyUrl": "https://open.spotify.com/track/5D9cGUts4bN2zoxhLrQdCJ",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Union City Blue - Remastered 2001",
+        "am": "Blondie",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USCH30100062"
       },
       {
         "w": "1980-01-11",
@@ -10442,7 +10516,14 @@
         "lw": 26,
         "pk": 16,
         "wc": 4,
-        "sid": null
+        "sid": "3cD5B2EuqHOgQNPYqO5a2y",
+        "spotifyUri": "spotify:track:3cD5B2EuqHOgQNPYqO5a2y",
+        "spotifyUrl": "https://open.spotify.com/track/3cD5B2EuqHOgQNPYqO5a2y",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Spirits (Having Flown)",
+        "am": "Bee Gees",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1980-02-01",
@@ -11069,7 +11150,14 @@
         "lw": 11,
         "pk": 7,
         "wc": 8,
-        "sid": null
+        "sid": "6a8K4QCWvuIcUWrAGcN4JN",
+        "spotifyUri": "spotify:track:6a8K4QCWvuIcUWrAGcN4JN",
+        "spotifyUrl": "https://open.spotify.com/track/6a8K4QCWvuIcUWrAGcN4JN",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Celebration",
+        "am": "Kool & the Gang",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1980-12-26",
@@ -11258,7 +11346,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "And the Beat Goes On",
         "am": "The Whispers",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USA371130765"
       },
       {
         "w": "1980-03-28",
@@ -11884,7 +11973,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "And the Beat Goes On",
         "am": "The Whispers",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USA371130765"
       },
       {
         "w": "1980-02-15",
@@ -12439,7 +12529,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Never Knew Love Like This Before",
         "am": "Stephanie Mills",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USPR38002470"
       },
       {
         "w": "1980-11-14",
@@ -13764,7 +13855,14 @@
         "lw": 12,
         "pk": 10,
         "wc": 6,
-        "sid": null
+        "sid": "1Gnufs5iuI3h5ow29J7tOO",
+        "spotifyUri": "spotify:track:1Gnufs5iuI3h5ow29J7tOO",
+        "spotifyUrl": "https://open.spotify.com/track/1Gnufs5iuI3h5ow29J7tOO",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Love X Love",
+        "am": "George Benson",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1980-11-14",
@@ -13816,7 +13914,14 @@
         "lw": 30,
         "pk": 20,
         "wc": 2,
-        "sid": null
+        "sid": "60s19t9XMIhOAA84rQDMyU",
+        "spotifyUri": "spotify:track:60s19t9XMIhOAA84rQDMyU",
+        "spotifyUrl": "https://open.spotify.com/track/60s19t9XMIhOAA84rQDMyU",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Flash (remastered 2011)",
+        "am": "Queen",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1980-12-19",
@@ -13832,7 +13937,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Never Knew Love Like This Before",
         "am": "Stephanie Mills",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USPR38002470"
       },
       {
         "w": "1980-12-26",
@@ -13923,7 +14029,14 @@
         "lw": 16,
         "pk": 16,
         "wc": 5,
-        "sid": null
+        "sid": "3cD5B2EuqHOgQNPYqO5a2y",
+        "spotifyUri": "spotify:track:3cD5B2EuqHOgQNPYqO5a2y",
+        "spotifyUrl": "https://open.spotify.com/track/3cD5B2EuqHOgQNPYqO5a2y",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Spirits (Having Flown)",
+        "am": "Bee Gees",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1980-02-08",
@@ -14431,7 +14544,14 @@
         "lw": 26,
         "pk": 21,
         "wc": 3,
-        "sid": null
+        "sid": "1Gnufs5iuI3h5ow29J7tOO",
+        "spotifyUri": "spotify:track:1Gnufs5iuI3h5ow29J7tOO",
+        "spotifyUrl": "https://open.spotify.com/track/1Gnufs5iuI3h5ow29J7tOO",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Love X Love",
+        "am": "George Benson",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1980-10-24",
@@ -15038,7 +15158,14 @@
         "lw": 27,
         "pk": 22,
         "wc": 5,
-        "sid": null
+        "sid": "0sGb9Qvmmz2YXQL6bVQ9wK",
+        "spotifyUri": "spotify:track:0sGb9Qvmmz2YXQL6bVQ9wK",
+        "spotifyUrl": "https://open.spotify.com/track/0sGb9Qvmmz2YXQL6bVQ9wK",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Best Friend",
+        "am": "The English Beat",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1980-09-19",
@@ -15154,7 +15281,14 @@
         "lw": 33,
         "pk": 22,
         "wc": 3,
-        "sid": null
+        "sid": "6a8K4QCWvuIcUWrAGcN4JN",
+        "spotifyUri": "spotify:track:6a8K4QCWvuIcUWrAGcN4JN",
+        "spotifyUrl": "https://open.spotify.com/track/6a8K4QCWvuIcUWrAGcN4JN",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Celebration",
+        "am": "Kool & the Gang",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1980-11-21",
@@ -15270,7 +15404,15 @@
         "lw": 16,
         "pk": 13,
         "wc": 8,
-        "sid": null
+        "sid": "5D9cGUts4bN2zoxhLrQdCJ",
+        "spotifyUri": "spotify:track:5D9cGUts4bN2zoxhLrQdCJ",
+        "spotifyUrl": "https://open.spotify.com/track/5D9cGUts4bN2zoxhLrQdCJ",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Union City Blue - Remastered 2001",
+        "am": "Blondie",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USCH30100062"
       },
       {
         "w": "1980-01-18",
@@ -15854,7 +15996,14 @@
         "lw": 31,
         "pk": 23,
         "wc": 3,
-        "sid": null
+        "sid": "3tHKO0C90AfV7kll9uz0gq",
+        "spotifyUri": "spotify:track:3tHKO0C90AfV7kll9uz0gq",
+        "spotifyUrl": "https://open.spotify.com/track/3tHKO0C90AfV7kll9uz0gq",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Too Nice to Talk To",
+        "am": "The English Beat",
+        "spotifyDecisionSource": "global-ledger"
       }
     ],
     "24": [
@@ -16359,7 +16508,14 @@
         "lw": 22,
         "pk": 22,
         "wc": 6,
-        "sid": null
+        "sid": "0sGb9Qvmmz2YXQL6bVQ9wK",
+        "spotifyUri": "spotify:track:0sGb9Qvmmz2YXQL6bVQ9wK",
+        "spotifyUrl": "https://open.spotify.com/track/0sGb9Qvmmz2YXQL6bVQ9wK",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Best Friend",
+        "am": "The English Beat",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1980-09-26",
@@ -17249,7 +17405,14 @@
         "lw": 16,
         "pk": 7,
         "wc": 9,
-        "sid": null
+        "sid": "6a8K4QCWvuIcUWrAGcN4JN",
+        "spotifyUri": "spotify:track:6a8K4QCWvuIcUWrAGcN4JN",
+        "spotifyUrl": "https://open.spotify.com/track/6a8K4QCWvuIcUWrAGcN4JN",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Celebration",
+        "am": "Kool & the Gang",
+        "spotifyDecisionSource": "global-ledger"
       }
     ],
     "26": [
@@ -17292,7 +17455,14 @@
         "lw": 38,
         "pk": 26,
         "wc": 3,
-        "sid": null
+        "sid": "3cD5B2EuqHOgQNPYqO5a2y",
+        "spotifyUri": "spotify:track:3cD5B2EuqHOgQNPYqO5a2y",
+        "spotifyUrl": "https://open.spotify.com/track/3cD5B2EuqHOgQNPYqO5a2y",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Spirits (Having Flown)",
+        "am": "Bee Gees",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1980-01-25",
@@ -17795,7 +17965,14 @@
         "lw": 45,
         "pk": 26,
         "wc": 2,
-        "sid": null
+        "sid": "1Gnufs5iuI3h5ow29J7tOO",
+        "spotifyUri": "spotify:track:1Gnufs5iuI3h5ow29J7tOO",
+        "spotifyUrl": "https://open.spotify.com/track/1Gnufs5iuI3h5ow29J7tOO",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Love X Love",
+        "am": "George Benson",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1980-10-17",
@@ -17843,7 +18020,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Never Knew Love Like This Before",
         "am": "Stephanie Mills",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USPR38002470"
       },
       {
         "w": "1980-11-07",
@@ -18409,7 +18587,14 @@
         "lw": 30,
         "pk": 27,
         "wc": 4,
-        "sid": null
+        "sid": "0sGb9Qvmmz2YXQL6bVQ9wK",
+        "spotifyUri": "spotify:track:0sGb9Qvmmz2YXQL6bVQ9wK",
+        "spotifyUrl": "https://open.spotify.com/track/0sGb9Qvmmz2YXQL6bVQ9wK",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Best Friend",
+        "am": "The English Beat",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1980-09-12",
@@ -18548,7 +18733,14 @@
         "lw": 20,
         "pk": 10,
         "wc": 7,
-        "sid": null
+        "sid": "1Gnufs5iuI3h5ow29J7tOO",
+        "spotifyUri": "spotify:track:1Gnufs5iuI3h5ow29J7tOO",
+        "spotifyUrl": "https://open.spotify.com/track/1Gnufs5iuI3h5ow29J7tOO",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Love X Love",
+        "am": "George Benson",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1980-11-21",
@@ -20503,7 +20695,14 @@
         "lw": 33,
         "pk": 30,
         "wc": 3,
-        "sid": null
+        "sid": "0sGb9Qvmmz2YXQL6bVQ9wK",
+        "spotifyUri": "spotify:track:0sGb9Qvmmz2YXQL6bVQ9wK",
+        "spotifyUrl": "https://open.spotify.com/track/0sGb9Qvmmz2YXQL6bVQ9wK",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Best Friend",
+        "am": "The English Beat",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1980-09-05",
@@ -20553,7 +20752,14 @@
         "lw": 24,
         "pk": 22,
         "wc": 7,
-        "sid": null
+        "sid": "0sGb9Qvmmz2YXQL6bVQ9wK",
+        "spotifyUri": "spotify:track:0sGb9Qvmmz2YXQL6bVQ9wK",
+        "spotifyUrl": "https://open.spotify.com/track/0sGb9Qvmmz2YXQL6bVQ9wK",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Best Friend",
+        "am": "The English Beat",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1980-10-03",
@@ -20671,7 +20877,14 @@
         "lw": "New",
         "pk": 30,
         "wc": 1,
-        "sid": null
+        "sid": "60s19t9XMIhOAA84rQDMyU",
+        "spotifyUri": "spotify:track:60s19t9XMIhOAA84rQDMyU",
+        "spotifyUrl": "https://open.spotify.com/track/60s19t9XMIhOAA84rQDMyU",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Flash (remastered 2011)",
+        "am": "Queen",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1980-12-12",
@@ -20789,7 +21002,14 @@
         "lw": 21,
         "pk": 16,
         "wc": 6,
-        "sid": null
+        "sid": "3cD5B2EuqHOgQNPYqO5a2y",
+        "spotifyUri": "spotify:track:3cD5B2EuqHOgQNPYqO5a2y",
+        "spotifyUrl": "https://open.spotify.com/track/3cD5B2EuqHOgQNPYqO5a2y",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Spirits (Having Flown)",
+        "am": "Bee Gees",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1980-02-15",
@@ -21390,7 +21610,14 @@
         "lw": 50,
         "pk": 31,
         "wc": 2,
-        "sid": null
+        "sid": "3tHKO0C90AfV7kll9uz0gq",
+        "spotifyUri": "spotify:track:3tHKO0C90AfV7kll9uz0gq",
+        "spotifyUrl": "https://open.spotify.com/track/3tHKO0C90AfV7kll9uz0gq",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Too Nice to Talk To",
+        "am": "The English Beat",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1980-12-26",
@@ -22060,7 +22287,14 @@
         "lw": 38,
         "pk": 32,
         "wc": 3,
-        "sid": null
+        "sid": "0LuuhVplAORj0wZcDjGaiy",
+        "spotifyUri": "spotify:track:0LuuhVplAORj0wZcDjGaiy",
+        "spotifyUrl": "https://open.spotify.com/track/0LuuhVplAORj0wZcDjGaiy",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "The Night, the Wine & the Roses",
+        "am": "Liquid Gold",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1980-11-21",
@@ -22296,7 +22530,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "And the Beat Goes On",
         "am": "The Whispers",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USA371130765"
       },
       {
         "w": "1980-04-04",
@@ -22562,7 +22797,14 @@
         "lw": 60,
         "pk": 33,
         "wc": 2,
-        "sid": null
+        "sid": "0sGb9Qvmmz2YXQL6bVQ9wK",
+        "spotifyUri": "spotify:track:0sGb9Qvmmz2YXQL6bVQ9wK",
+        "spotifyUrl": "https://open.spotify.com/track/0sGb9Qvmmz2YXQL6bVQ9wK",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Best Friend",
+        "am": "The English Beat",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1980-08-29",
@@ -22678,7 +22920,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Never Knew Love Like This Before",
         "am": "Stephanie Mills",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USPR38002470"
       },
       {
         "w": "1980-10-31",
@@ -22703,7 +22946,14 @@
         "lw": 72,
         "pk": 33,
         "wc": 2,
-        "sid": null
+        "sid": "6a8K4QCWvuIcUWrAGcN4JN",
+        "spotifyUri": "spotify:track:6a8K4QCWvuIcUWrAGcN4JN",
+        "spotifyUrl": "https://open.spotify.com/track/6a8K4QCWvuIcUWrAGcN4JN",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Celebration",
+        "am": "Kool & the Gang",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1980-11-14",
@@ -22721,7 +22971,14 @@
         "lw": 32,
         "pk": 32,
         "wc": 4,
-        "sid": null
+        "sid": "0LuuhVplAORj0wZcDjGaiy",
+        "spotifyUri": "spotify:track:0LuuhVplAORj0wZcDjGaiy",
+        "spotifyUrl": "https://open.spotify.com/track/0LuuhVplAORj0wZcDjGaiy",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "The Night, the Wine & the Roses",
+        "am": "Liquid Gold",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1980-11-28",
@@ -23345,7 +23602,14 @@
         "lw": 30,
         "pk": 22,
         "wc": 8,
-        "sid": null
+        "sid": "0sGb9Qvmmz2YXQL6bVQ9wK",
+        "spotifyUri": "spotify:track:0sGb9Qvmmz2YXQL6bVQ9wK",
+        "spotifyUrl": "https://open.spotify.com/track/0sGb9Qvmmz2YXQL6bVQ9wK",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Best Friend",
+        "am": "The English Beat",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1980-10-10",
@@ -23531,7 +23795,15 @@
         "lw": 23,
         "pk": 13,
         "wc": 9,
-        "sid": null
+        "sid": "5D9cGUts4bN2zoxhLrQdCJ",
+        "spotifyUri": "spotify:track:5D9cGUts4bN2zoxhLrQdCJ",
+        "spotifyUrl": "https://open.spotify.com/track/5D9cGUts4bN2zoxhLrQdCJ",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Union City Blue - Remastered 2001",
+        "am": "Blondie",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USCH30100062"
       },
       {
         "w": "1980-01-25",
@@ -24144,7 +24416,14 @@
         "lw": 37,
         "pk": 35,
         "wc": 4,
-        "sid": null
+        "sid": "5pgou6mZ4xm5Ebebn3pAsP",
+        "spotifyUri": "spotify:track:5pgou6mZ4xm5Ebebn3pAsP",
+        "spotifyUrl": "https://open.spotify.com/track/5pgou6mZ4xm5Ebebn3pAsP",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Falcon",
+        "am": "The RAH Band",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1980-11-28",
@@ -24289,7 +24568,14 @@
         "lw": 31,
         "pk": 16,
         "wc": 7,
-        "sid": null
+        "sid": "3cD5B2EuqHOgQNPYqO5a2y",
+        "spotifyUri": "spotify:track:3cD5B2EuqHOgQNPYqO5a2y",
+        "spotifyUrl": "https://open.spotify.com/track/3cD5B2EuqHOgQNPYqO5a2y",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Spirits (Having Flown)",
+        "am": "Bee Gees",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1980-02-22",
@@ -24987,7 +25273,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "And the Beat Goes On",
         "am": "The Whispers",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USA371130765"
       },
       {
         "w": "1980-02-08",
@@ -25538,7 +25825,14 @@
         "lw": 47,
         "pk": 37,
         "wc": 3,
-        "sid": null
+        "sid": "5pgou6mZ4xm5Ebebn3pAsP",
+        "spotifyUri": "spotify:track:5pgou6mZ4xm5Ebebn3pAsP",
+        "spotifyUrl": "https://open.spotify.com/track/5pgou6mZ4xm5Ebebn3pAsP",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Falcon",
+        "am": "The RAH Band",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1980-11-21",
@@ -25633,7 +25927,14 @@
         "lw": 61,
         "pk": 38,
         "wc": 2,
-        "sid": null
+        "sid": "3cD5B2EuqHOgQNPYqO5a2y",
+        "spotifyUri": "spotify:track:3cD5B2EuqHOgQNPYqO5a2y",
+        "spotifyUrl": "https://open.spotify.com/track/3cD5B2EuqHOgQNPYqO5a2y",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Spirits (Having Flown)",
+        "am": "Bee Gees",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1980-01-18",
@@ -26251,7 +26552,14 @@
         "lw": 61,
         "pk": 38,
         "wc": 2,
-        "sid": null
+        "sid": "0LuuhVplAORj0wZcDjGaiy",
+        "spotifyUri": "spotify:track:0LuuhVplAORj0wZcDjGaiy",
+        "spotifyUrl": "https://open.spotify.com/track/0LuuhVplAORj0wZcDjGaiy",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "The Night, the Wine & the Roses",
+        "am": "Liquid Gold",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1980-11-14",
@@ -26285,7 +26593,14 @@
         "lw": 35,
         "pk": 35,
         "wc": 5,
-        "sid": null
+        "sid": "5pgou6mZ4xm5Ebebn3pAsP",
+        "spotifyUri": "spotify:track:5pgou6mZ4xm5Ebebn3pAsP",
+        "spotifyUrl": "https://open.spotify.com/track/5pgou6mZ4xm5Ebebn3pAsP",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Falcon",
+        "am": "The RAH Band",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1980-12-05",
@@ -26986,7 +27301,14 @@
         "lw": 33,
         "pk": 32,
         "wc": 5,
-        "sid": null
+        "sid": "0LuuhVplAORj0wZcDjGaiy",
+        "spotifyUri": "spotify:track:0LuuhVplAORj0wZcDjGaiy",
+        "spotifyUrl": "https://open.spotify.com/track/0LuuhVplAORj0wZcDjGaiy",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "The Night, the Wine & the Roses",
+        "am": "Liquid Gold",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1980-12-05",
@@ -27043,7 +27365,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Never Knew Love Like This Before",
         "am": "Stephanie Mills",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USPR38002470"
       }
     ],
     "40": [
@@ -27095,7 +27418,14 @@
         "lw": 54,
         "pk": 40,
         "wc": 2,
-        "sid": null
+        "sid": "5D9phXwiuJkduWHREzPBtD",
+        "spotifyUri": "spotify:track:5D9phXwiuJkduWHREzPBtD",
+        "spotifyUrl": "https://open.spotify.com/track/5D9phXwiuJkduWHREzPBtD",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Wonderland",
+        "am": "Commodores",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1980-02-01",
@@ -27275,7 +27605,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "All for Leyna",
         "am": "Billy Joel",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USSM17900400"
       },
       {
         "w": "1980-05-02",

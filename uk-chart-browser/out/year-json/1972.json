@@ -1253,7 +1253,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Children of the Revolution",
         "am": "T. Rex",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBBLG1400028"
       },
       {
         "w": "1972-09-29",
@@ -1269,7 +1270,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Children of the Revolution",
         "am": "T. Rex",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBBLG1400028"
       },
       {
         "w": "1972-10-06",
@@ -1285,7 +1287,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Children of the Revolution",
         "am": "T. Rex",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBBLG1400028"
       },
       {
         "w": "1972-10-13",
@@ -2062,7 +2065,14 @@
         "lw": 6,
         "pk": 3,
         "wc": 5,
-        "sid": null
+        "sid": "2Nl8qre4yoWGVrOPPel06S",
+        "spotifyUri": "spotify:track:2Nl8qre4yoWGVrOPPel06S",
+        "spotifyUrl": "https://open.spotify.com/track/2Nl8qre4yoWGVrOPPel06S",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "In a Broken Dream",
+        "am": "Python Lee Jackson feat. Rod Stewart",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-11-03",
@@ -2582,7 +2592,14 @@
         "lw": 8,
         "pk": 4,
         "wc": 4,
-        "sid": null
+        "sid": "4YJnGnfx9ODDqNUpHrkgpT",
+        "spotifyUri": "spotify:track:4YJnGnfx9ODDqNUpHrkgpT",
+        "spotifyUrl": "https://open.spotify.com/track/4YJnGnfx9ODDqNUpHrkgpT",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Little Willy",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-07-07",
@@ -2591,7 +2608,14 @@
         "lw": 4,
         "pk": 4,
         "wc": 5,
-        "sid": null
+        "sid": "4YJnGnfx9ODDqNUpHrkgpT",
+        "spotifyUri": "spotify:track:4YJnGnfx9ODDqNUpHrkgpT",
+        "spotifyUrl": "https://open.spotify.com/track/4YJnGnfx9ODDqNUpHrkgpT",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Little Willy",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-07-14",
@@ -2764,7 +2788,14 @@
         "lw": 6,
         "pk": 4,
         "wc": 5,
-        "sid": null
+        "sid": "1rC4qPMZkxNeWzAlsG0dFH",
+        "spotifyUri": "spotify:track:1rC4qPMZkxNeWzAlsG0dFH",
+        "spotifyUrl": "https://open.spotify.com/track/1rC4qPMZkxNeWzAlsG0dFH",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Wig Wam Bam",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-10-13",
@@ -2821,7 +2852,14 @@
         "lw": 3,
         "pk": 3,
         "wc": 6,
-        "sid": null
+        "sid": "2Nl8qre4yoWGVrOPPel06S",
+        "spotifyUri": "spotify:track:2Nl8qre4yoWGVrOPPel06S",
+        "spotifyUrl": "https://open.spotify.com/track/2Nl8qre4yoWGVrOPPel06S",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "In a Broken Dream",
+        "am": "Python Lee Jackson feat. Rod Stewart",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-11-10",
@@ -3488,7 +3526,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Children of the Revolution",
         "am": "T. Rex",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBBLG1400028"
       },
       {
         "w": "1972-10-20",
@@ -4044,7 +4083,14 @@
         "lw": 4,
         "pk": 4,
         "wc": 6,
-        "sid": null
+        "sid": "4YJnGnfx9ODDqNUpHrkgpT",
+        "spotifyUri": "spotify:track:4YJnGnfx9ODDqNUpHrkgpT",
+        "spotifyUrl": "https://open.spotify.com/track/4YJnGnfx9ODDqNUpHrkgpT",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Little Willy",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-07-21",
@@ -4053,7 +4099,14 @@
         "lw": 6,
         "pk": 4,
         "wc": 7,
-        "sid": null
+        "sid": "4YJnGnfx9ODDqNUpHrkgpT",
+        "spotifyUri": "spotify:track:4YJnGnfx9ODDqNUpHrkgpT",
+        "spotifyUrl": "https://open.spotify.com/track/4YJnGnfx9ODDqNUpHrkgpT",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Little Willy",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-07-28",
@@ -4178,7 +4231,14 @@
         "lw": 15,
         "pk": 6,
         "wc": 4,
-        "sid": null
+        "sid": "1rC4qPMZkxNeWzAlsG0dFH",
+        "spotifyUri": "spotify:track:1rC4qPMZkxNeWzAlsG0dFH",
+        "spotifyUrl": "https://open.spotify.com/track/1rC4qPMZkxNeWzAlsG0dFH",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Wig Wam Bam",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-10-06",
@@ -4203,7 +4263,14 @@
         "lw": 4,
         "pk": 4,
         "wc": 6,
-        "sid": null
+        "sid": "1rC4qPMZkxNeWzAlsG0dFH",
+        "spotifyUri": "spotify:track:1rC4qPMZkxNeWzAlsG0dFH",
+        "spotifyUrl": "https://open.spotify.com/track/1rC4qPMZkxNeWzAlsG0dFH",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Wig Wam Bam",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-10-20",
@@ -4212,7 +4279,14 @@
         "lw": 9,
         "pk": 6,
         "wc": 4,
-        "sid": null
+        "sid": "2Nl8qre4yoWGVrOPPel06S",
+        "spotifyUri": "spotify:track:2Nl8qre4yoWGVrOPPel06S",
+        "spotifyUrl": "https://open.spotify.com/track/2Nl8qre4yoWGVrOPPel06S",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "In a Broken Dream",
+        "am": "Python Lee Jackson feat. Rod Stewart",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-10-27",
@@ -4954,7 +5028,14 @@
         "lw": 4,
         "pk": 3,
         "wc": 7,
-        "sid": null
+        "sid": "2Nl8qre4yoWGVrOPPel06S",
+        "spotifyUri": "spotify:track:2Nl8qre4yoWGVrOPPel06S",
+        "spotifyUrl": "https://open.spotify.com/track/2Nl8qre4yoWGVrOPPel06S",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "In a Broken Dream",
+        "am": "Python Lee Jackson feat. Rod Stewart",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-11-17",
@@ -5398,7 +5479,14 @@
         "lw": 23,
         "pk": 8,
         "wc": 3,
-        "sid": null
+        "sid": "4YJnGnfx9ODDqNUpHrkgpT",
+        "spotifyUri": "spotify:track:4YJnGnfx9ODDqNUpHrkgpT",
+        "spotifyUrl": "https://open.spotify.com/track/4YJnGnfx9ODDqNUpHrkgpT",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Little Willy",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-06-30",
@@ -5628,7 +5716,14 @@
         "lw": 6,
         "pk": 4,
         "wc": 7,
-        "sid": null
+        "sid": "1rC4qPMZkxNeWzAlsG0dFH",
+        "spotifyUri": "spotify:track:1rC4qPMZkxNeWzAlsG0dFH",
+        "spotifyUrl": "https://open.spotify.com/track/1rC4qPMZkxNeWzAlsG0dFH",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Wig Wam Bam",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-10-27",
@@ -6192,7 +6287,14 @@
         "lw": 19,
         "pk": 9,
         "wc": 5,
-        "sid": null
+        "sid": "4zK1pYVKMB13es6Bim0muF",
+        "spotifyUri": "spotify:track:4zK1pYVKMB13es6Bim0muF",
+        "spotifyUrl": "https://open.spotify.com/track/4zK1pYVKMB13es6Bim0muF",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Run to Me",
+        "am": "Bee Gees",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-08-25",
@@ -6292,7 +6394,14 @@
         "lw": 18,
         "pk": 9,
         "wc": 3,
-        "sid": null
+        "sid": "2Nl8qre4yoWGVrOPPel06S",
+        "spotifyUri": "spotify:track:2Nl8qre4yoWGVrOPPel06S",
+        "spotifyUrl": "https://open.spotify.com/track/2Nl8qre4yoWGVrOPPel06S",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "In a Broken Dream",
+        "am": "Python Lee Jackson feat. Rod Stewart",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-10-20",
@@ -6349,7 +6458,14 @@
         "lw": 11,
         "pk": 9,
         "wc": 7,
-        "sid": null
+        "sid": "1PLgQkmhgh6GHQnomQ50Rv",
+        "spotifyUri": "spotify:track:1PLgQkmhgh6GHQnomQ50Rv",
+        "spotifyUrl": "https://open.spotify.com/track/1PLgQkmhgh6GHQnomQ50Rv",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Goodbye to Love",
+        "am": "Carpenters",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-11-17",
@@ -7016,7 +7132,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Children of the Revolution",
         "am": "T. Rex",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBBLG1400028"
       },
       {
         "w": "1972-10-27",
@@ -7025,7 +7142,14 @@
         "lw": 8,
         "pk": 4,
         "wc": 8,
-        "sid": null
+        "sid": "1rC4qPMZkxNeWzAlsG0dFH",
+        "spotifyUri": "spotify:track:1rC4qPMZkxNeWzAlsG0dFH",
+        "spotifyUrl": "https://open.spotify.com/track/1rC4qPMZkxNeWzAlsG0dFH",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Wig Wam Bam",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-11-03",
@@ -7266,7 +7390,14 @@
         "lw": 14,
         "pk": 11,
         "wc": 5,
-        "sid": null
+        "sid": "1GyQrKyK660LcFW1iPnneq",
+        "spotifyUri": "spotify:track:1GyQrKyK660LcFW1iPnneq",
+        "spotifyUrl": "https://open.spotify.com/track/1GyQrKyK660LcFW1iPnneq",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Poppa Joe",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-03-10",
@@ -7546,7 +7677,14 @@
         "lw": 6,
         "pk": 4,
         "wc": 8,
-        "sid": null
+        "sid": "4YJnGnfx9ODDqNUpHrkgpT",
+        "spotifyUri": "spotify:track:4YJnGnfx9ODDqNUpHrkgpT",
+        "spotifyUrl": "https://open.spotify.com/track/4YJnGnfx9ODDqNUpHrkgpT",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Little Willy",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-08-04",
@@ -7603,7 +7741,14 @@
         "lw": 9,
         "pk": 9,
         "wc": 6,
-        "sid": null
+        "sid": "4zK1pYVKMB13es6Bim0muF",
+        "spotifyUri": "spotify:track:4zK1pYVKMB13es6Bim0muF",
+        "spotifyUrl": "https://open.spotify.com/track/4zK1pYVKMB13es6Bim0muF",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Run to Me",
+        "am": "Bee Gees",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-09-01",
@@ -7712,7 +7857,14 @@
         "lw": 18,
         "pk": 11,
         "wc": 5,
-        "sid": null
+        "sid": "1PLgQkmhgh6GHQnomQ50Rv",
+        "spotifyUri": "spotify:track:1PLgQkmhgh6GHQnomQ50Rv",
+        "spotifyUrl": "https://open.spotify.com/track/1PLgQkmhgh6GHQnomQ50Rv",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Goodbye to Love",
+        "am": "Carpenters",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-11-03",
@@ -7721,7 +7873,14 @@
         "lw": 11,
         "pk": 11,
         "wc": 6,
-        "sid": null
+        "sid": "1PLgQkmhgh6GHQnomQ50Rv",
+        "spotifyUri": "spotify:track:1PLgQkmhgh6GHQnomQ50Rv",
+        "spotifyUrl": "https://open.spotify.com/track/1PLgQkmhgh6GHQnomQ50Rv",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Goodbye to Love",
+        "am": "Carpenters",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-11-10",
@@ -7941,7 +8100,14 @@
         "lw": 11,
         "pk": 11,
         "wc": 6,
-        "sid": null
+        "sid": "1GyQrKyK660LcFW1iPnneq",
+        "spotifyUri": "spotify:track:1GyQrKyK660LcFW1iPnneq",
+        "spotifyUrl": "https://open.spotify.com/track/1GyQrKyK660LcFW1iPnneq",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Poppa Joe",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-03-17",
@@ -7950,7 +8116,14 @@
         "lw": 12,
         "pk": 11,
         "wc": 7,
-        "sid": null
+        "sid": "1GyQrKyK660LcFW1iPnneq",
+        "spotifyUri": "spotify:track:1GyQrKyK660LcFW1iPnneq",
+        "spotifyUrl": "https://open.spotify.com/track/1GyQrKyK660LcFW1iPnneq",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Poppa Joe",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-03-24",
@@ -8384,7 +8557,14 @@
         "lw": 7,
         "pk": 3,
         "wc": 8,
-        "sid": null
+        "sid": "2Nl8qre4yoWGVrOPPel06S",
+        "spotifyUri": "spotify:track:2Nl8qre4yoWGVrOPPel06S",
+        "spotifyUrl": "https://open.spotify.com/track/2Nl8qre4yoWGVrOPPel06S",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "In a Broken Dream",
+        "am": "Python Lee Jackson feat. Rod Stewart",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-11-24",
@@ -8888,7 +9068,14 @@
         "lw": 11,
         "pk": 9,
         "wc": 7,
-        "sid": null
+        "sid": "4zK1pYVKMB13es6Bim0muF",
+        "spotifyUri": "spotify:track:4zK1pYVKMB13es6Bim0muF",
+        "spotifyUrl": "https://open.spotify.com/track/4zK1pYVKMB13es6Bim0muF",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Run to Me",
+        "am": "Bee Gees",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-09-08",
@@ -8897,7 +9084,14 @@
         "lw": 13,
         "pk": 9,
         "wc": 8,
-        "sid": null
+        "sid": "4zK1pYVKMB13es6Bim0muF",
+        "spotifyUri": "spotify:track:4zK1pYVKMB13es6Bim0muF",
+        "spotifyUrl": "https://open.spotify.com/track/4zK1pYVKMB13es6Bim0muF",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Run to Me",
+        "am": "Bee Gees",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-09-15",
@@ -9234,7 +9428,14 @@
         "lw": 26,
         "pk": 14,
         "wc": 4,
-        "sid": null
+        "sid": "1GyQrKyK660LcFW1iPnneq",
+        "spotifyUri": "spotify:track:1GyQrKyK660LcFW1iPnneq",
+        "spotifyUrl": "https://open.spotify.com/track/1GyQrKyK660LcFW1iPnneq",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Poppa Joe",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-03-03",
@@ -9656,7 +9857,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Children of the Revolution",
         "am": "T. Rex",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBBLG1400028"
       },
       {
         "w": "1972-09-22",
@@ -10345,7 +10547,14 @@
         "lw": 25,
         "pk": 15,
         "wc": 3,
-        "sid": null
+        "sid": "1rC4qPMZkxNeWzAlsG0dFH",
+        "spotifyUri": "spotify:track:1rC4qPMZkxNeWzAlsG0dFH",
+        "spotifyUrl": "https://open.spotify.com/track/1rC4qPMZkxNeWzAlsG0dFH",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Wig Wam Bam",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-09-29",
@@ -10452,7 +10661,14 @@
         "lw": 9,
         "pk": 9,
         "wc": 8,
-        "sid": null
+        "sid": "1PLgQkmhgh6GHQnomQ50Rv",
+        "spotifyUri": "spotify:track:1PLgQkmhgh6GHQnomQ50Rv",
+        "spotifyUrl": "https://open.spotify.com/track/1PLgQkmhgh6GHQnomQ50Rv",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Goodbye to Love",
+        "am": "Carpenters",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-11-24",
@@ -10461,7 +10677,14 @@
         "lw": 15,
         "pk": 9,
         "wc": 9,
-        "sid": null
+        "sid": "1PLgQkmhgh6GHQnomQ50Rv",
+        "spotifyUri": "spotify:track:1PLgQkmhgh6GHQnomQ50Rv",
+        "spotifyUrl": "https://open.spotify.com/track/1PLgQkmhgh6GHQnomQ50Rv",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Goodbye to Love",
+        "am": "Carpenters",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-12-01",
@@ -10622,7 +10845,14 @@
         "lw": 17,
         "pk": 16,
         "wc": 5,
-        "sid": null
+        "sid": "1ke2Df0auUWdrP86EvCZul",
+        "spotifyUri": "spotify:track:1ke2Df0auUWdrP86EvCZul",
+        "spotifyUrl": "https://open.spotify.com/track/1ke2Df0auUWdrP86EvCZul",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "My World",
+        "am": "Bee Gees",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-03-03",
@@ -10631,7 +10861,14 @@
         "lw": 16,
         "pk": 16,
         "wc": 6,
-        "sid": null
+        "sid": "1ke2Df0auUWdrP86EvCZul",
+        "spotifyUri": "spotify:track:1ke2Df0auUWdrP86EvCZul",
+        "spotifyUrl": "https://open.spotify.com/track/1ke2Df0auUWdrP86EvCZul",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "My World",
+        "am": "Bee Gees",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-03-10",
@@ -11307,7 +11544,14 @@
         "lw": 20,
         "pk": 17,
         "wc": 4,
-        "sid": null
+        "sid": "1ke2Df0auUWdrP86EvCZul",
+        "spotifyUri": "spotify:track:1ke2Df0auUWdrP86EvCZul",
+        "spotifyUrl": "https://open.spotify.com/track/1ke2Df0auUWdrP86EvCZul",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "My World",
+        "am": "Bee Gees",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-02-25",
@@ -11366,7 +11610,14 @@
         "lw": 12,
         "pk": 11,
         "wc": 8,
-        "sid": null
+        "sid": "1GyQrKyK660LcFW1iPnneq",
+        "spotifyUri": "spotify:track:1GyQrKyK660LcFW1iPnneq",
+        "spotifyUrl": "https://open.spotify.com/track/1GyQrKyK660LcFW1iPnneq",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Poppa Joe",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-03-31",
@@ -11642,7 +11893,14 @@
         "lw": 11,
         "pk": 4,
         "wc": 9,
-        "sid": null
+        "sid": "4YJnGnfx9ODDqNUpHrkgpT",
+        "spotifyUri": "spotify:track:4YJnGnfx9ODDqNUpHrkgpT",
+        "spotifyUrl": "https://open.spotify.com/track/4YJnGnfx9ODDqNUpHrkgpT",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Little Willy",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-08-11",
@@ -11827,7 +12085,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Children of the Revolution",
         "am": "T. Rex",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBBLG1400028"
       },
       {
         "w": "1972-11-03",
@@ -11836,7 +12095,14 @@
         "lw": 10,
         "pk": 4,
         "wc": 9,
-        "sid": null
+        "sid": "1rC4qPMZkxNeWzAlsG0dFH",
+        "spotifyUri": "spotify:track:1rC4qPMZkxNeWzAlsG0dFH",
+        "spotifyUrl": "https://open.spotify.com/track/1rC4qPMZkxNeWzAlsG0dFH",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Wig Wam Bam",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-11-10",
@@ -12522,7 +12788,14 @@
         "lw": 49,
         "pk": 18,
         "wc": 2,
-        "sid": null
+        "sid": "2Nl8qre4yoWGVrOPPel06S",
+        "spotifyUri": "spotify:track:2Nl8qre4yoWGVrOPPel06S",
+        "spotifyUrl": "https://open.spotify.com/track/2Nl8qre4yoWGVrOPPel06S",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "In a Broken Dream",
+        "am": "Python Lee Jackson feat. Rod Stewart",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-10-13",
@@ -12547,7 +12820,14 @@
         "lw": 22,
         "pk": 18,
         "wc": 4,
-        "sid": null
+        "sid": "1PLgQkmhgh6GHQnomQ50Rv",
+        "spotifyUri": "spotify:track:1PLgQkmhgh6GHQnomQ50Rv",
+        "spotifyUrl": "https://open.spotify.com/track/1PLgQkmhgh6GHQnomQ50Rv",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Goodbye to Love",
+        "am": "Carpenters",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-10-27",
@@ -12661,7 +12941,14 @@
         "lw": 25,
         "pk": 18,
         "wc": 5,
-        "sid": null
+        "sid": "14TgffNQPJhXzbTe6LUsaB",
+        "spotifyUri": "spotify:track:14TgffNQPJhXzbTe6LUsaB",
+        "spotifyUrl": "https://open.spotify.com/track/14TgffNQPJhXzbTe6LUsaB",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Keeper of the Castle",
+        "am": "Four Tops",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-12-22",
@@ -13095,7 +13382,14 @@
         "lw": 26,
         "pk": 19,
         "wc": 4,
-        "sid": null
+        "sid": "4zK1pYVKMB13es6Bim0muF",
+        "spotifyUri": "spotify:track:4zK1pYVKMB13es6Bim0muF",
+        "spotifyUrl": "https://open.spotify.com/track/4zK1pYVKMB13es6Bim0muF",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Run to Me",
+        "am": "Bee Gees",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-08-18",
@@ -13422,7 +13716,14 @@
         "lw": 26,
         "pk": 20,
         "wc": 3,
-        "sid": null
+        "sid": "1ke2Df0auUWdrP86EvCZul",
+        "spotifyUri": "spotify:track:1ke2Df0auUWdrP86EvCZul",
+        "spotifyUrl": "https://open.spotify.com/track/1ke2Df0auUWdrP86EvCZul",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "My World",
+        "am": "Bee Gees",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-02-18",
@@ -13472,7 +13773,14 @@
         "lw": 16,
         "pk": 16,
         "wc": 7,
-        "sid": null
+        "sid": "1ke2Df0auUWdrP86EvCZul",
+        "spotifyUri": "spotify:track:1ke2Df0auUWdrP86EvCZul",
+        "spotifyUrl": "https://open.spotify.com/track/1ke2Df0auUWdrP86EvCZul",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "My World",
+        "am": "Bee Gees",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-03-17",
@@ -13754,7 +14062,14 @@
         "lw": 17,
         "pk": 4,
         "wc": 10,
-        "sid": null
+        "sid": "4YJnGnfx9ODDqNUpHrkgpT",
+        "spotifyUri": "spotify:track:4YJnGnfx9ODDqNUpHrkgpT",
+        "spotifyUrl": "https://open.spotify.com/track/4YJnGnfx9ODDqNUpHrkgpT",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Little Willy",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-08-18",
@@ -14894,7 +15209,14 @@
         "lw": 17,
         "pk": 11,
         "wc": 9,
-        "sid": null
+        "sid": "1GyQrKyK660LcFW1iPnneq",
+        "spotifyUri": "spotify:track:1GyQrKyK660LcFW1iPnneq",
+        "spotifyUrl": "https://open.spotify.com/track/1GyQrKyK660LcFW1iPnneq",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Poppa Joe",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-04-07",
@@ -15265,7 +15587,14 @@
         "lw": 27,
         "pk": 22,
         "wc": 3,
-        "sid": null
+        "sid": "1PLgQkmhgh6GHQnomQ50Rv",
+        "spotifyUri": "spotify:track:1PLgQkmhgh6GHQnomQ50Rv",
+        "spotifyUrl": "https://open.spotify.com/track/1PLgQkmhgh6GHQnomQ50Rv",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Goodbye to Love",
+        "am": "Carpenters",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-10-20",
@@ -15363,7 +15692,14 @@
         "lw": 15,
         "pk": 9,
         "wc": 10,
-        "sid": null
+        "sid": "1PLgQkmhgh6GHQnomQ50Rv",
+        "spotifyUri": "spotify:track:1PLgQkmhgh6GHQnomQ50Rv",
+        "spotifyUrl": "https://open.spotify.com/track/1PLgQkmhgh6GHQnomQ50Rv",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Goodbye to Love",
+        "am": "Carpenters",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-12-08",
@@ -15736,7 +16072,14 @@
         "lw": 47,
         "pk": 23,
         "wc": 2,
-        "sid": null
+        "sid": "4YJnGnfx9ODDqNUpHrkgpT",
+        "spotifyUri": "spotify:track:4YJnGnfx9ODDqNUpHrkgpT",
+        "spotifyUrl": "https://open.spotify.com/track/4YJnGnfx9ODDqNUpHrkgpT",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Little Willy",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-06-23",
@@ -16043,7 +16386,14 @@
         "lw": 30,
         "pk": 23,
         "wc": 3,
-        "sid": null
+        "sid": "14TgffNQPJhXzbTe6LUsaB",
+        "spotifyUri": "spotify:track:14TgffNQPJhXzbTe6LUsaB",
+        "spotifyUrl": "https://open.spotify.com/track/14TgffNQPJhXzbTe6LUsaB",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Keeper of the Castle",
+        "am": "Four Tops",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-12-08",
@@ -16077,7 +16427,14 @@
         "lw": 18,
         "pk": 18,
         "wc": 6,
-        "sid": null
+        "sid": "14TgffNQPJhXzbTe6LUsaB",
+        "spotifyUri": "spotify:track:14TgffNQPJhXzbTe6LUsaB",
+        "spotifyUrl": "https://open.spotify.com/track/14TgffNQPJhXzbTe6LUsaB",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Keeper of the Castle",
+        "am": "Four Tops",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-12-29",
@@ -16086,7 +16443,14 @@
         "lw": 23,
         "pk": 18,
         "wc": 7,
-        "sid": null
+        "sid": "14TgffNQPJhXzbTe6LUsaB",
+        "spotifyUri": "spotify:track:14TgffNQPJhXzbTe6LUsaB",
+        "spotifyUrl": "https://open.spotify.com/track/14TgffNQPJhXzbTe6LUsaB",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Keeper of the Castle",
+        "am": "Four Tops",
+        "spotifyDecisionSource": "global-ledger"
       }
     ],
     "24": [
@@ -16714,7 +17078,14 @@
         "lw": 12,
         "pk": 3,
         "wc": 9,
-        "sid": null
+        "sid": "2Nl8qre4yoWGVrOPPel06S",
+        "spotifyUri": "spotify:track:2Nl8qre4yoWGVrOPPel06S",
+        "spotifyUrl": "https://open.spotify.com/track/2Nl8qre4yoWGVrOPPel06S",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "In a Broken Dream",
+        "am": "Python Lee Jackson feat. Rod Stewart",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-12-01",
@@ -17297,7 +17668,14 @@
         "lw": 48,
         "pk": 25,
         "wc": 2,
-        "sid": null
+        "sid": "1rC4qPMZkxNeWzAlsG0dFH",
+        "spotifyUri": "spotify:track:1rC4qPMZkxNeWzAlsG0dFH",
+        "spotifyUrl": "https://open.spotify.com/track/1rC4qPMZkxNeWzAlsG0dFH",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Wig Wam Bam",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-09-22",
@@ -17397,7 +17775,14 @@
         "lw": 17,
         "pk": 4,
         "wc": 10,
-        "sid": null
+        "sid": "1rC4qPMZkxNeWzAlsG0dFH",
+        "spotifyUri": "spotify:track:1rC4qPMZkxNeWzAlsG0dFH",
+        "spotifyUrl": "https://open.spotify.com/track/1rC4qPMZkxNeWzAlsG0dFH",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Wig Wam Bam",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-11-17",
@@ -17454,7 +17839,14 @@
         "lw": 23,
         "pk": 23,
         "wc": 4,
-        "sid": null
+        "sid": "14TgffNQPJhXzbTe6LUsaB",
+        "spotifyUri": "spotify:track:14TgffNQPJhXzbTe6LUsaB",
+        "spotifyUrl": "https://open.spotify.com/track/14TgffNQPJhXzbTe6LUsaB",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Keeper of the Castle",
+        "am": "Four Tops",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-12-15",
@@ -17570,7 +17962,14 @@
         "lw": 38,
         "pk": 26,
         "wc": 2,
-        "sid": null
+        "sid": "1ke2Df0auUWdrP86EvCZul",
+        "spotifyUri": "spotify:track:1ke2Df0auUWdrP86EvCZul",
+        "spotifyUrl": "https://open.spotify.com/track/1ke2Df0auUWdrP86EvCZul",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "My World",
+        "am": "Bee Gees",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-02-11",
@@ -17588,7 +17987,14 @@
         "lw": 30,
         "pk": 26,
         "wc": 3,
-        "sid": null
+        "sid": "1GyQrKyK660LcFW1iPnneq",
+        "spotifyUri": "spotify:track:1GyQrKyK660LcFW1iPnneq",
+        "spotifyUrl": "https://open.spotify.com/track/1GyQrKyK660LcFW1iPnneq",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Poppa Joe",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-02-25",
@@ -17888,7 +18294,14 @@
         "lw": 36,
         "pk": 26,
         "wc": 3,
-        "sid": null
+        "sid": "4zK1pYVKMB13es6Bim0muF",
+        "spotifyUri": "spotify:track:4zK1pYVKMB13es6Bim0muF",
+        "spotifyUrl": "https://open.spotify.com/track/4zK1pYVKMB13es6Bim0muF",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Run to Me",
+        "am": "Bee Gees",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-08-11",
@@ -18650,7 +19063,14 @@
         "lw": 13,
         "pk": 9,
         "wc": 9,
-        "sid": null
+        "sid": "4zK1pYVKMB13es6Bim0muF",
+        "spotifyUri": "spotify:track:4zK1pYVKMB13es6Bim0muF",
+        "spotifyUrl": "https://open.spotify.com/track/4zK1pYVKMB13es6Bim0muF",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Run to Me",
+        "am": "Bee Gees",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-09-22",
@@ -18684,7 +19104,14 @@
         "lw": 35,
         "pk": 27,
         "wc": 2,
-        "sid": null
+        "sid": "1PLgQkmhgh6GHQnomQ50Rv",
+        "spotifyUri": "spotify:track:1PLgQkmhgh6GHQnomQ50Rv",
+        "spotifyUrl": "https://open.spotify.com/track/1PLgQkmhgh6GHQnomQ50Rv",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Goodbye to Love",
+        "am": "Carpenters",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-10-13",
@@ -18807,7 +19234,14 @@
         "lw": 22,
         "pk": 9,
         "wc": 11,
-        "sid": null
+        "sid": "1PLgQkmhgh6GHQnomQ50Rv",
+        "spotifyUri": "spotify:track:1PLgQkmhgh6GHQnomQ50Rv",
+        "spotifyUrl": "https://open.spotify.com/track/1PLgQkmhgh6GHQnomQ50Rv",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Goodbye to Love",
+        "am": "Carpenters",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-12-15",
@@ -18845,7 +19279,14 @@
         "lw": 24,
         "pk": 3,
         "wc": 10,
-        "sid": null
+        "sid": "2ugcAd8o4Fdko468kPwzSc",
+        "spotifyUri": "spotify:track:2ugcAd8o4Fdko468kPwzSc",
+        "spotifyUrl": "https://open.spotify.com/track/2ugcAd8o4Fdko468kPwzSc",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Johnny Reggae",
+        "am": "The Piglets",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-01-14",
@@ -19011,7 +19452,14 @@
         "lw": 22,
         "pk": 11,
         "wc": 10,
-        "sid": null
+        "sid": "1GyQrKyK660LcFW1iPnneq",
+        "spotifyUri": "spotify:track:1GyQrKyK660LcFW1iPnneq",
+        "spotifyUrl": "https://open.spotify.com/track/1GyQrKyK660LcFW1iPnneq",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Poppa Joe",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-04-14",
@@ -19259,7 +19707,14 @@
         "lw": 20,
         "pk": 4,
         "wc": 11,
-        "sid": null
+        "sid": "4YJnGnfx9ODDqNUpHrkgpT",
+        "spotifyUri": "spotify:track:4YJnGnfx9ODDqNUpHrkgpT",
+        "spotifyUrl": "https://open.spotify.com/track/4YJnGnfx9ODDqNUpHrkgpT",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Little Willy",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-08-25",
@@ -19636,7 +20091,14 @@
         "lw": 20,
         "pk": 16,
         "wc": 8,
-        "sid": null
+        "sid": "1ke2Df0auUWdrP86EvCZul",
+        "spotifyUri": "spotify:track:1ke2Df0auUWdrP86EvCZul",
+        "spotifyUrl": "https://open.spotify.com/track/1ke2Df0auUWdrP86EvCZul",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "My World",
+        "am": "Bee Gees",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-03-24",
@@ -19971,7 +20433,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Where Is the Love",
         "am": "Roberta Flack & Donny Hathaway",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USAT20003377"
       },
       {
         "w": "1972-09-08",
@@ -20005,7 +20468,14 @@
         "lw": 27,
         "pk": 9,
         "wc": 10,
-        "sid": null
+        "sid": "4zK1pYVKMB13es6Bim0muF",
+        "spotifyUri": "spotify:track:4zK1pYVKMB13es6Bim0muF",
+        "spotifyUrl": "https://open.spotify.com/track/4zK1pYVKMB13es6Bim0muF",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Run to Me",
+        "am": "Bee Gees",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-09-29",
@@ -20080,7 +20550,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Children of the Revolution",
         "am": "T. Rex",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBBLG1400028"
       },
       {
         "w": "1972-11-10",
@@ -20116,7 +20587,14 @@
         "lw": 24,
         "pk": 3,
         "wc": 10,
-        "sid": null
+        "sid": "2Nl8qre4yoWGVrOPPel06S",
+        "spotifyUri": "spotify:track:2Nl8qre4yoWGVrOPPel06S",
+        "spotifyUrl": "https://open.spotify.com/track/2Nl8qre4yoWGVrOPPel06S",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "In a Broken Dream",
+        "am": "Python Lee Jackson feat. Rod Stewart",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-12-08",
@@ -20243,7 +20721,14 @@
         "lw": 46,
         "pk": 30,
         "wc": 2,
-        "sid": null
+        "sid": "1GyQrKyK660LcFW1iPnneq",
+        "spotifyUri": "spotify:track:1GyQrKyK660LcFW1iPnneq",
+        "spotifyUrl": "https://open.spotify.com/track/1GyQrKyK660LcFW1iPnneq",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Poppa Joe",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-02-18",
@@ -20752,7 +21237,14 @@
         "lw": 45,
         "pk": 30,
         "wc": 2,
-        "sid": null
+        "sid": "14TgffNQPJhXzbTe6LUsaB",
+        "spotifyUri": "spotify:track:14TgffNQPJhXzbTe6LUsaB",
+        "spotifyUrl": "https://open.spotify.com/track/14TgffNQPJhXzbTe6LUsaB",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Keeper of the Castle",
+        "am": "Four Tops",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-12-01",
@@ -21224,7 +21716,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Where Is the Love",
         "am": "Roberta Flack & Donny Hathaway",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USAT20003377"
       },
       {
         "w": "1972-09-01",
@@ -22610,7 +23103,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Where Is the Love",
         "am": "Roberta Flack & Donny Hathaway",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USAT20003377"
       },
       {
         "w": "1972-08-25",
@@ -23303,7 +23797,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Where Is the Love",
         "am": "Roberta Flack & Donny Hathaway",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USAT20003377"
       },
       {
         "w": "1972-09-15",
@@ -24017,7 +24512,14 @@
         "lw": "New",
         "pk": 35,
         "wc": 1,
-        "sid": null
+        "sid": "1PLgQkmhgh6GHQnomQ50Rv",
+        "spotifyUri": "spotify:track:1PLgQkmhgh6GHQnomQ50Rv",
+        "spotifyUrl": "https://open.spotify.com/track/1PLgQkmhgh6GHQnomQ50Rv",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Goodbye to Love",
+        "am": "Carpenters",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-10-06",
@@ -24560,7 +25062,14 @@
         "lw": 50,
         "pk": 36,
         "wc": 2,
-        "sid": null
+        "sid": "4zK1pYVKMB13es6Bim0muF",
+        "spotifyUri": "spotify:track:4zK1pYVKMB13es6Bim0muF",
+        "spotifyUrl": "https://open.spotify.com/track/4zK1pYVKMB13es6Bim0muF",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Run to Me",
+        "am": "Bee Gees",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-08-04",
@@ -24592,7 +25101,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Where Is the Love",
         "am": "Roberta Flack & Donny Hathaway",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USAT20003377"
       },
       {
         "w": "1972-08-18",
@@ -24767,7 +25277,14 @@
         "lw": 25,
         "pk": 4,
         "wc": 11,
-        "sid": null
+        "sid": "1rC4qPMZkxNeWzAlsG0dFH",
+        "spotifyUri": "spotify:track:1rC4qPMZkxNeWzAlsG0dFH",
+        "spotifyUrl": "https://open.spotify.com/track/1rC4qPMZkxNeWzAlsG0dFH",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Wig Wam Bam",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-11-24",
@@ -24794,7 +25311,14 @@
         "lw": 29,
         "pk": 3,
         "wc": 11,
-        "sid": null
+        "sid": "2Nl8qre4yoWGVrOPPel06S",
+        "spotifyUri": "spotify:track:2Nl8qre4yoWGVrOPPel06S",
+        "spotifyUrl": "https://open.spotify.com/track/2Nl8qre4yoWGVrOPPel06S",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "In a Broken Dream",
+        "am": "Python Lee Jackson feat. Rod Stewart",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-12-15",
@@ -24848,7 +25372,14 @@
         "lw": 28,
         "pk": 3,
         "wc": 11,
-        "sid": null
+        "sid": "2ugcAd8o4Fdko468kPwzSc",
+        "spotifyUri": "spotify:track:2ugcAd8o4Fdko468kPwzSc",
+        "spotifyUrl": "https://open.spotify.com/track/2ugcAd8o4Fdko468kPwzSc",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Johnny Reggae",
+        "am": "The Piglets",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-01-21",
@@ -25283,7 +25814,14 @@
         "lw": 28,
         "pk": 4,
         "wc": 12,
-        "sid": null
+        "sid": "4YJnGnfx9ODDqNUpHrkgpT",
+        "spotifyUri": "spotify:track:4YJnGnfx9ODDqNUpHrkgpT",
+        "spotifyUrl": "https://open.spotify.com/track/4YJnGnfx9ODDqNUpHrkgpT",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Little Willy",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-09-01",
@@ -25567,7 +26105,14 @@
         "lw": "New",
         "pk": 38,
         "wc": 1,
-        "sid": null
+        "sid": "1ke2Df0auUWdrP86EvCZul",
+        "spotifyUri": "spotify:track:1ke2Df0auUWdrP86EvCZul",
+        "spotifyUrl": "https://open.spotify.com/track/1ke2Df0auUWdrP86EvCZul",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "My World",
+        "am": "Bee Gees",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-02-04",
@@ -25681,7 +26226,14 @@
         "lw": 29,
         "pk": 16,
         "wc": 9,
-        "sid": null
+        "sid": "1ke2Df0auUWdrP86EvCZul",
+        "spotifyUri": "spotify:track:1ke2Df0auUWdrP86EvCZul",
+        "spotifyUrl": "https://open.spotify.com/track/1ke2Df0auUWdrP86EvCZul",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "My World",
+        "am": "Bee Gees",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-03-31",
@@ -25722,7 +26274,14 @@
         "lw": 28,
         "pk": 11,
         "wc": 11,
-        "sid": null
+        "sid": "1GyQrKyK660LcFW1iPnneq",
+        "spotifyUri": "spotify:track:1GyQrKyK660LcFW1iPnneq",
+        "spotifyUrl": "https://open.spotify.com/track/1GyQrKyK660LcFW1iPnneq",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Poppa Joe",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-04-21",
@@ -26136,7 +26695,14 @@
         "lw": 36,
         "pk": 4,
         "wc": 12,
-        "sid": null
+        "sid": "1rC4qPMZkxNeWzAlsG0dFH",
+        "spotifyUri": "spotify:track:1rC4qPMZkxNeWzAlsG0dFH",
+        "spotifyUrl": "https://open.spotify.com/track/1rC4qPMZkxNeWzAlsG0dFH",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Wig Wam Bam",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-12-01",
@@ -26728,7 +27294,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Children of the Revolution",
         "am": "T. Rex",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBBLG1400028"
       },
       {
         "w": "1972-11-17",
@@ -27455,7 +28022,14 @@
         "lw": 42,
         "pk": 9,
         "wc": 13,
-        "sid": null
+        "sid": "1PLgQkmhgh6GHQnomQ50Rv",
+        "spotifyUri": "spotify:track:1PLgQkmhgh6GHQnomQ50Rv",
+        "spotifyUrl": "https://open.spotify.com/track/1PLgQkmhgh6GHQnomQ50Rv",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Goodbye to Love",
+        "am": "Carpenters",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1972-12-29",
@@ -27464,7 +28038,14 @@
         "lw": 40,
         "pk": 9,
         "wc": 14,
-        "sid": null
+        "sid": "1PLgQkmhgh6GHQnomQ50Rv",
+        "spotifyUri": "spotify:track:1PLgQkmhgh6GHQnomQ50Rv",
+        "spotifyUrl": "https://open.spotify.com/track/1PLgQkmhgh6GHQnomQ50Rv",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Goodbye to Love",
+        "am": "Carpenters",
+        "spotifyDecisionSource": "global-ledger"
       }
     ]
   }

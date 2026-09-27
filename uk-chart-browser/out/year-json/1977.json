@@ -415,7 +415,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "I Feel Love",
         "am": "Donna Summer",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USPR39402393"
       },
       {
         "w": "1977-07-29",
@@ -431,7 +432,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "I Feel Love",
         "am": "Donna Summer",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USPR39402393"
       },
       {
         "w": "1977-08-05",
@@ -447,7 +449,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "I Feel Love",
         "am": "Donna Summer",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USPR39402393"
       },
       {
         "w": "1977-08-12",
@@ -463,7 +466,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "I Feel Love",
         "am": "Donna Summer",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USPR39402393"
       },
       {
         "w": "1977-08-19",
@@ -1731,7 +1735,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "I Feel Love",
         "am": "Donna Summer",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USPR39402393"
       },
       {
         "w": "1977-07-22",
@@ -1804,7 +1809,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "I Feel Love",
         "am": "Donna Summer",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USPR39402393"
       },
       {
         "w": "1977-08-26",
@@ -3117,7 +3123,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "I Feel Love",
         "am": "Donna Summer",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USPR39402393"
       },
       {
         "w": "1977-09-02",
@@ -3705,7 +3712,14 @@
         "lw": 7,
         "pk": 6,
         "wc": 4,
-        "sid": null
+        "sid": "2mKj8Em0GLFu8I78yM1CfU",
+        "spotifyUri": "spotify:track:2mKj8Em0GLFu8I78yM1CfU",
+        "spotifyUrl": "https://open.spotify.com/track/2mKj8Em0GLFu8I78yM1CfU",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Pretty Vacant",
+        "am": "Sex Pistols",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1977-08-05",
@@ -3732,7 +3746,14 @@
         "lw": 7,
         "pk": 6,
         "wc": 7,
-        "sid": null
+        "sid": "7riizE9mPVu0UnOyYHxxM0",
+        "spotifyUri": "spotify:track:7riizE9mPVu0UnOyYHxxM0",
+        "spotifyUrl": "https://open.spotify.com/track/7riizE9mPVu0UnOyYHxxM0",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "The Crunch",
+        "am": "The RAH Band",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1977-08-26",
@@ -3741,7 +3762,14 @@
         "lw": 6,
         "pk": 6,
         "wc": 8,
-        "sid": null
+        "sid": "7riizE9mPVu0UnOyYHxxM0",
+        "spotifyUri": "spotify:track:7riizE9mPVu0UnOyYHxxM0",
+        "spotifyUrl": "https://open.spotify.com/track/7riizE9mPVu0UnOyYHxxM0",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "The Crunch",
+        "am": "The RAH Band",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1977-09-02",
@@ -4311,7 +4339,14 @@
         "lw": 45,
         "pk": 7,
         "wc": 2,
-        "sid": null
+        "sid": "2mKj8Em0GLFu8I78yM1CfU",
+        "spotifyUri": "spotify:track:2mKj8Em0GLFu8I78yM1CfU",
+        "spotifyUrl": "https://open.spotify.com/track/2mKj8Em0GLFu8I78yM1CfU",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Pretty Vacant",
+        "am": "Sex Pistols",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1977-07-22",
@@ -4320,7 +4355,14 @@
         "lw": 7,
         "pk": 7,
         "wc": 3,
-        "sid": null
+        "sid": "2mKj8Em0GLFu8I78yM1CfU",
+        "spotifyUri": "spotify:track:2mKj8Em0GLFu8I78yM1CfU",
+        "spotifyUrl": "https://open.spotify.com/track/2mKj8Em0GLFu8I78yM1CfU",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Pretty Vacant",
+        "am": "Sex Pistols",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1977-07-29",
@@ -4354,7 +4396,14 @@
         "lw": 13,
         "pk": 7,
         "wc": 6,
-        "sid": null
+        "sid": "7riizE9mPVu0UnOyYHxxM0",
+        "spotifyUri": "spotify:track:7riizE9mPVu0UnOyYHxxM0",
+        "spotifyUrl": "https://open.spotify.com/track/7riizE9mPVu0UnOyYHxxM0",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "The Crunch",
+        "am": "The RAH Band",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1977-08-19",
@@ -4388,7 +4437,14 @@
         "lw": 6,
         "pk": 6,
         "wc": 9,
-        "sid": null
+        "sid": "7riizE9mPVu0UnOyYHxxM0",
+        "spotifyUri": "spotify:track:7riizE9mPVu0UnOyYHxxM0",
+        "spotifyUrl": "https://open.spotify.com/track/7riizE9mPVu0UnOyYHxxM0",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "The Crunch",
+        "am": "The RAH Band",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1977-09-09",
@@ -4474,7 +4530,15 @@
         "lw": 9,
         "pk": 7,
         "wc": 8,
-        "sid": null
+        "sid": "6kooDsorCpWVMGc994XjWN",
+        "spotifyUri": "spotify:track:6kooDsorCpWVMGc994XjWN",
+        "spotifyUrl": "https://open.spotify.com/track/6kooDsorCpWVMGc994XjWN",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Black Betty",
+        "am": "Ram Jam",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USSM10211288"
       },
       {
         "w": "1977-11-04",
@@ -4976,7 +5040,14 @@
         "lw": 6,
         "pk": 6,
         "wc": 5,
-        "sid": null
+        "sid": "2mKj8Em0GLFu8I78yM1CfU",
+        "spotifyUri": "spotify:track:2mKj8Em0GLFu8I78yM1CfU",
+        "spotifyUrl": "https://open.spotify.com/track/2mKj8Em0GLFu8I78yM1CfU",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Pretty Vacant",
+        "am": "Sex Pistols",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1977-08-12",
@@ -5144,7 +5215,15 @@
         "lw": 11,
         "pk": 7,
         "wc": 10,
-        "sid": null
+        "sid": "6kooDsorCpWVMGc994XjWN",
+        "spotifyUri": "spotify:track:6kooDsorCpWVMGc994XjWN",
+        "spotifyUrl": "https://open.spotify.com/track/6kooDsorCpWVMGc994XjWN",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Black Betty",
+        "am": "Ram Jam",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USSM10211288"
       },
       {
         "w": "1977-11-18",
@@ -5319,7 +5398,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Car Wash",
         "am": "Rose Royce",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USA560624107"
       },
       {
         "w": "1977-02-18",
@@ -5651,7 +5731,14 @@
         "lw": 11,
         "pk": 9,
         "wc": 7,
-        "sid": null
+        "sid": "2XyOX9rXu6BAH5DXxD8zmu",
+        "spotifyUri": "spotify:track:2XyOX9rXu6BAH5DXxD8zmu",
+        "spotifyUrl": "https://open.spotify.com/track/2XyOX9rXu6BAH5DXxD8zmu",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Easy",
+        "am": "Commodores",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1977-08-19",
@@ -5776,7 +5863,15 @@
         "lw": 12,
         "pk": 9,
         "wc": 7,
-        "sid": null
+        "sid": "6kooDsorCpWVMGc994XjWN",
+        "spotifyUri": "spotify:track:6kooDsorCpWVMGc994XjWN",
+        "spotifyUrl": "https://open.spotify.com/track/6kooDsorCpWVMGc994XjWN",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Black Betty",
+        "am": "Ram Jam",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USSM10211288"
       },
       {
         "w": "1977-10-28",
@@ -5960,7 +6055,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Car Wash",
         "am": "Rose Royce",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USA560624107"
       },
       {
         "w": "1977-02-04",
@@ -5976,7 +6072,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Car Wash",
         "am": "Rose Royce",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USA560624107"
       },
       {
         "w": "1977-02-11",
@@ -6299,7 +6396,14 @@
         "lw": 20,
         "pk": 10,
         "wc": 5,
-        "sid": null
+        "sid": "2XyOX9rXu6BAH5DXxD8zmu",
+        "spotifyUri": "spotify:track:2XyOX9rXu6BAH5DXxD8zmu",
+        "spotifyUrl": "https://open.spotify.com/track/2XyOX9rXu6BAH5DXxD8zmu",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Easy",
+        "am": "Commodores",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1977-08-05",
@@ -6946,7 +7050,14 @@
         "lw": 10,
         "pk": 10,
         "wc": 6,
-        "sid": null
+        "sid": "2XyOX9rXu6BAH5DXxD8zmu",
+        "spotifyUri": "spotify:track:2XyOX9rXu6BAH5DXxD8zmu",
+        "spotifyUrl": "https://open.spotify.com/track/2XyOX9rXu6BAH5DXxD8zmu",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Easy",
+        "am": "Commodores",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1977-08-12",
@@ -6964,7 +7075,14 @@
         "lw": 9,
         "pk": 9,
         "wc": 8,
-        "sid": null
+        "sid": "2XyOX9rXu6BAH5DXxD8zmu",
+        "spotifyUri": "spotify:track:2XyOX9rXu6BAH5DXxD8zmu",
+        "spotifyUrl": "https://open.spotify.com/track/2XyOX9rXu6BAH5DXxD8zmu",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Easy",
+        "am": "Commodores",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1977-08-26",
@@ -6996,7 +7114,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "I Feel Love",
         "am": "Donna Summer",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USPR39402393"
       },
       {
         "w": "1977-09-09",
@@ -7091,7 +7210,15 @@
         "lw": 7,
         "pk": 7,
         "wc": 9,
-        "sid": null
+        "sid": "6kooDsorCpWVMGc994XjWN",
+        "spotifyUri": "spotify:track:6kooDsorCpWVMGc994XjWN",
+        "spotifyUrl": "https://open.spotify.com/track/6kooDsorCpWVMGc994XjWN",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Black Betty",
+        "am": "Ram Jam",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USSM10211288"
       },
       {
         "w": "1977-11-11",
@@ -7607,7 +7734,14 @@
         "lw": 8,
         "pk": 6,
         "wc": 6,
-        "sid": null
+        "sid": "2mKj8Em0GLFu8I78yM1CfU",
+        "spotifyUri": "spotify:track:2mKj8Em0GLFu8I78yM1CfU",
+        "spotifyUrl": "https://open.spotify.com/track/2mKj8Em0GLFu8I78yM1CfU",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Pretty Vacant",
+        "am": "Sex Pistols",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1977-08-19",
@@ -7716,7 +7850,15 @@
         "lw": 16,
         "pk": 12,
         "wc": 6,
-        "sid": null
+        "sid": "6kooDsorCpWVMGc994XjWN",
+        "spotifyUri": "spotify:track:6kooDsorCpWVMGc994XjWN",
+        "spotifyUrl": "https://open.spotify.com/track/6kooDsorCpWVMGc994XjWN",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Black Betty",
+        "am": "Ram Jam",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USSM10211288"
       },
       {
         "w": "1977-10-21",
@@ -7978,7 +8120,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Car Wash",
         "am": "Rose Royce",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USA560624107"
       },
       {
         "w": "1977-02-25",
@@ -8003,7 +8146,15 @@
         "lw": 21,
         "pk": 13,
         "wc": 5,
-        "sid": null
+        "sid": "51qi5dgc9CsotM87GmRkAX",
+        "spotifyUri": "spotify:track:51qi5dgc9CsotM87GmRkAX",
+        "spotifyUrl": "https://open.spotify.com/track/51qi5dgc9CsotM87GmRkAX",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Don't Leave Me This Way",
+        "am": "Thelma Houston",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USUM71303881"
       },
       {
         "w": "1977-03-11",
@@ -8285,7 +8436,14 @@
         "lw": 20,
         "pk": 13,
         "wc": 5,
-        "sid": null
+        "sid": "7riizE9mPVu0UnOyYHxxM0",
+        "spotifyUri": "spotify:track:7riizE9mPVu0UnOyYHxxM0",
+        "spotifyUrl": "https://open.spotify.com/track/7riizE9mPVu0UnOyYHxxM0",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "The Crunch",
+        "am": "The RAH Band",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1977-08-12",
@@ -8358,7 +8516,14 @@
         "lw": 7,
         "pk": 6,
         "wc": 10,
-        "sid": null
+        "sid": "7riizE9mPVu0UnOyYHxxM0",
+        "spotifyUri": "spotify:track:7riizE9mPVu0UnOyYHxxM0",
+        "spotifyUrl": "https://open.spotify.com/track/7riizE9mPVu0UnOyYHxxM0",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "The Crunch",
+        "am": "The RAH Band",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1977-09-16",
@@ -9263,7 +9428,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Car Wash",
         "am": "Rose Royce",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USA560624107"
       },
       {
         "w": "1977-03-04",
@@ -9304,7 +9470,15 @@
         "lw": 17,
         "pk": 13,
         "wc": 7,
-        "sid": null
+        "sid": "51qi5dgc9CsotM87GmRkAX",
+        "spotifyUri": "spotify:track:51qi5dgc9CsotM87GmRkAX",
+        "spotifyUrl": "https://open.spotify.com/track/51qi5dgc9CsotM87GmRkAX",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Don't Leave Me This Way",
+        "am": "Thelma Houston",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USUM71303881"
       },
       {
         "w": "1977-03-25",
@@ -9525,7 +9699,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "I Feel Love",
         "am": "Donna Summer",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USPR39402393"
       },
       {
         "w": "1977-07-15",
@@ -9616,7 +9791,14 @@
         "lw": 11,
         "pk": 9,
         "wc": 9,
-        "sid": null
+        "sid": "2XyOX9rXu6BAH5DXxD8zmu",
+        "spotifyUri": "spotify:track:2XyOX9rXu6BAH5DXxD8zmu",
+        "spotifyUrl": "https://open.spotify.com/track/2XyOX9rXu6BAH5DXxD8zmu",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Easy",
+        "am": "Commodores",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1977-09-02",
@@ -9849,7 +10031,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Car Wash",
         "am": "Rose Royce",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USA560624107"
       },
       {
         "w": "1977-01-28",
@@ -10287,7 +10470,15 @@
         "lw": 18,
         "pk": 16,
         "wc": 5,
-        "sid": null
+        "sid": "6kooDsorCpWVMGc994XjWN",
+        "spotifyUri": "spotify:track:6kooDsorCpWVMGc994XjWN",
+        "spotifyUrl": "https://open.spotify.com/track/6kooDsorCpWVMGc994XjWN",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Black Betty",
+        "am": "Ram Jam",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USSM10211288"
       },
       {
         "w": "1977-10-14",
@@ -10557,7 +10748,15 @@
         "lw": 13,
         "pk": 13,
         "wc": 6,
-        "sid": null
+        "sid": "51qi5dgc9CsotM87GmRkAX",
+        "spotifyUri": "spotify:track:51qi5dgc9CsotM87GmRkAX",
+        "spotifyUrl": "https://open.spotify.com/track/51qi5dgc9CsotM87GmRkAX",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Don't Leave Me This Way",
+        "am": "Thelma Houston",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USUM71303881"
       },
       {
         "w": "1977-03-18",
@@ -10898,7 +11097,14 @@
         "lw": 13,
         "pk": 6,
         "wc": 11,
-        "sid": null
+        "sid": "7riizE9mPVu0UnOyYHxxM0",
+        "spotifyUri": "spotify:track:7riizE9mPVu0UnOyYHxxM0",
+        "spotifyUrl": "https://open.spotify.com/track/7riizE9mPVu0UnOyYHxxM0",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "The Crunch",
+        "am": "The RAH Band",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1977-09-23",
@@ -11154,7 +11360,15 @@
         "lw": 24,
         "pk": 18,
         "wc": 3,
-        "sid": null
+        "sid": "51qi5dgc9CsotM87GmRkAX",
+        "spotifyUri": "spotify:track:51qi5dgc9CsotM87GmRkAX",
+        "spotifyUrl": "https://open.spotify.com/track/51qi5dgc9CsotM87GmRkAX",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Don't Leave Me This Way",
+        "am": "Thelma Houston",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USUM71303881"
       },
       {
         "w": "1977-02-25",
@@ -11568,7 +11782,15 @@
         "lw": 22,
         "pk": 18,
         "wc": 4,
-        "sid": null
+        "sid": "6kooDsorCpWVMGc994XjWN",
+        "spotifyUri": "spotify:track:6kooDsorCpWVMGc994XjWN",
+        "spotifyUrl": "https://open.spotify.com/track/6kooDsorCpWVMGc994XjWN",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Black Betty",
+        "am": "Ram Jam",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USSM10211288"
       },
       {
         "w": "1977-10-07",
@@ -12276,7 +12498,15 @@
         "lw": 8,
         "pk": 7,
         "wc": 11,
-        "sid": null
+        "sid": "6kooDsorCpWVMGc994XjWN",
+        "spotifyUri": "spotify:track:6kooDsorCpWVMGc994XjWN",
+        "spotifyUrl": "https://open.spotify.com/track/6kooDsorCpWVMGc994XjWN",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Black Betty",
+        "am": "Ram Jam",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USSM10211288"
       },
       {
         "w": "1977-11-25",
@@ -12733,7 +12963,14 @@
         "lw": 21,
         "pk": 20,
         "wc": 4,
-        "sid": null
+        "sid": "2XyOX9rXu6BAH5DXxD8zmu",
+        "spotifyUri": "spotify:track:2XyOX9rXu6BAH5DXxD8zmu",
+        "spotifyUrl": "https://open.spotify.com/track/2XyOX9rXu6BAH5DXxD8zmu",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Easy",
+        "am": "Commodores",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1977-07-29",
@@ -12742,7 +12979,14 @@
         "lw": 21,
         "pk": 20,
         "wc": 4,
-        "sid": null
+        "sid": "7riizE9mPVu0UnOyYHxxM0",
+        "spotifyUri": "spotify:track:7riizE9mPVu0UnOyYHxxM0",
+        "spotifyUrl": "https://open.spotify.com/track/7riizE9mPVu0UnOyYHxxM0",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "The Crunch",
+        "am": "The RAH Band",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1977-08-05",
@@ -13030,7 +13274,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Car Wash",
         "am": "Rose Royce",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USA560624107"
       },
       {
         "w": "1977-01-21",
@@ -13105,7 +13350,15 @@
         "lw": 18,
         "pk": 18,
         "wc": 4,
-        "sid": null
+        "sid": "51qi5dgc9CsotM87GmRkAX",
+        "spotifyUri": "spotify:track:51qi5dgc9CsotM87GmRkAX",
+        "spotifyUrl": "https://open.spotify.com/track/51qi5dgc9CsotM87GmRkAX",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Don't Leave Me This Way",
+        "am": "Thelma Houston",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USUM71303881"
       },
       {
         "w": "1977-03-04",
@@ -13348,7 +13601,14 @@
         "lw": 28,
         "pk": 21,
         "wc": 3,
-        "sid": null
+        "sid": "2XyOX9rXu6BAH5DXxD8zmu",
+        "spotifyUri": "spotify:track:2XyOX9rXu6BAH5DXxD8zmu",
+        "spotifyUrl": "https://open.spotify.com/track/2XyOX9rXu6BAH5DXxD8zmu",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Easy",
+        "am": "Commodores",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1977-07-22",
@@ -13357,7 +13617,14 @@
         "lw": 32,
         "pk": 21,
         "wc": 3,
-        "sid": null
+        "sid": "7riizE9mPVu0UnOyYHxxM0",
+        "spotifyUri": "spotify:track:7riizE9mPVu0UnOyYHxxM0",
+        "spotifyUrl": "https://open.spotify.com/track/7riizE9mPVu0UnOyYHxxM0",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "The Crunch",
+        "am": "The RAH Band",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1977-07-29",
@@ -13393,7 +13660,14 @@
         "lw": 12,
         "pk": 6,
         "wc": 7,
-        "sid": null
+        "sid": "2mKj8Em0GLFu8I78yM1CfU",
+        "spotifyUri": "spotify:track:2mKj8Em0GLFu8I78yM1CfU",
+        "spotifyUrl": "https://open.spotify.com/track/2mKj8Em0GLFu8I78yM1CfU",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Pretty Vacant",
+        "am": "Sex Pistols",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1977-08-26",
@@ -14139,7 +14413,15 @@
         "lw": 24,
         "pk": 22,
         "wc": 3,
-        "sid": null
+        "sid": "6kooDsorCpWVMGc994XjWN",
+        "spotifyUri": "spotify:track:6kooDsorCpWVMGc994XjWN",
+        "spotifyUrl": "https://open.spotify.com/track/6kooDsorCpWVMGc994XjWN",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Black Betty",
+        "am": "Ram Jam",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USSM10211288"
       },
       {
         "w": "1977-09-30",
@@ -15071,7 +15353,15 @@
         "lw": 38,
         "pk": 24,
         "wc": 2,
-        "sid": null
+        "sid": "51qi5dgc9CsotM87GmRkAX",
+        "spotifyUri": "spotify:track:51qi5dgc9CsotM87GmRkAX",
+        "spotifyUrl": "https://open.spotify.com/track/51qi5dgc9CsotM87GmRkAX",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Don't Leave Me This Way",
+        "am": "Thelma Houston",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USUM71303881"
       },
       {
         "w": "1977-02-18",
@@ -15441,7 +15731,15 @@
         "lw": 37,
         "pk": 24,
         "wc": 2,
-        "sid": null
+        "sid": "6kooDsorCpWVMGc994XjWN",
+        "spotifyUri": "spotify:track:6kooDsorCpWVMGc994XjWN",
+        "spotifyUrl": "https://open.spotify.com/track/6kooDsorCpWVMGc994XjWN",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Black Betty",
+        "am": "Ram Jam",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USSM10211288"
       },
       {
         "w": "1977-09-23",
@@ -16465,7 +16763,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Car Wash",
         "am": "Rose Royce",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USA560624107"
       },
       {
         "w": "1977-03-11",
@@ -16813,7 +17112,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "I Feel Love",
         "am": "Donna Summer",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USPR39402393"
       },
       {
         "w": "1977-09-16",
@@ -17045,7 +17345,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Car Wash",
         "am": "Rose Royce",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USA560624107"
       },
       {
         "w": "1977-01-14",
@@ -18085,7 +18386,14 @@
         "lw": 43,
         "pk": 28,
         "wc": 2,
-        "sid": null
+        "sid": "2XyOX9rXu6BAH5DXxD8zmu",
+        "spotifyUri": "spotify:track:2XyOX9rXu6BAH5DXxD8zmu",
+        "spotifyUrl": "https://open.spotify.com/track/2XyOX9rXu6BAH5DXxD8zmu",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Easy",
+        "am": "Commodores",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1977-07-15",
@@ -18335,7 +18643,15 @@
         "lw": 19,
         "pk": 7,
         "wc": 12,
-        "sid": null
+        "sid": "6kooDsorCpWVMGc994XjWN",
+        "spotifyUri": "spotify:track:6kooDsorCpWVMGc994XjWN",
+        "spotifyUrl": "https://open.spotify.com/track/6kooDsorCpWVMGc994XjWN",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Black Betty",
+        "am": "Ram Jam",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USSM10211288"
       },
       {
         "w": "1977-12-02",
@@ -20698,7 +21014,14 @@
         "lw": 49,
         "pk": 32,
         "wc": 2,
-        "sid": null
+        "sid": "7riizE9mPVu0UnOyYHxxM0",
+        "spotifyUri": "spotify:track:7riizE9mPVu0UnOyYHxxM0",
+        "spotifyUrl": "https://open.spotify.com/track/7riizE9mPVu0UnOyYHxxM0",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "The Crunch",
+        "am": "The RAH Band",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1977-07-22",
@@ -20926,7 +21249,14 @@
         "lw": 38,
         "pk": 32,
         "wc": 5,
-        "sid": null
+        "sid": "1gSmU1LlCndh23gvcsgPfo",
+        "spotifyUri": "spotify:track:1gSmU1LlCndh23gvcsgPfo",
+        "spotifyUrl": "https://open.spotify.com/track/1gSmU1LlCndh23gvcsgPfo",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Sweet Love",
+        "am": "Commodores",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1977-11-11",
@@ -21404,7 +21734,14 @@
         "lw": 15,
         "pk": 9,
         "wc": 10,
-        "sid": null
+        "sid": "2XyOX9rXu6BAH5DXxD8zmu",
+        "spotifyUri": "spotify:track:2XyOX9rXu6BAH5DXxD8zmu",
+        "spotifyUrl": "https://open.spotify.com/track/2XyOX9rXu6BAH5DXxD8zmu",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Easy",
+        "am": "Commodores",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1977-09-09",
@@ -21436,7 +21773,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "I Feel Love",
         "am": "Donna Summer",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USPR39402393"
       },
       {
         "w": "1977-09-23",
@@ -22374,7 +22712,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Car Wash",
         "am": "Rose Royce",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USA560624107"
       },
       {
         "w": "1977-03-18",
@@ -22688,7 +23027,14 @@
         "lw": 21,
         "pk": 6,
         "wc": 8,
-        "sid": null
+        "sid": "2mKj8Em0GLFu8I78yM1CfU",
+        "spotifyUri": "spotify:track:2mKj8Em0GLFu8I78yM1CfU",
+        "spotifyUrl": "https://open.spotify.com/track/2mKj8Em0GLFu8I78yM1CfU",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Pretty Vacant",
+        "am": "Sex Pistols",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1977-09-02",
@@ -22772,7 +23118,14 @@
         "lw": 41,
         "pk": 35,
         "wc": 2,
-        "sid": null
+        "sid": "1gSmU1LlCndh23gvcsgPfo",
+        "spotifyUri": "spotify:track:1gSmU1LlCndh23gvcsgPfo",
+        "spotifyUrl": "https://open.spotify.com/track/1gSmU1LlCndh23gvcsgPfo",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Sweet Love",
+        "am": "Commodores",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1977-10-21",
@@ -23056,7 +23409,15 @@
         "lw": 15,
         "pk": 13,
         "wc": 8,
-        "sid": null
+        "sid": "51qi5dgc9CsotM87GmRkAX",
+        "spotifyUri": "spotify:track:51qi5dgc9CsotM87GmRkAX",
+        "spotifyUrl": "https://open.spotify.com/track/51qi5dgc9CsotM87GmRkAX",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Don't Leave Me This Way",
+        "am": "Thelma Houston",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USUM71303881"
       },
       {
         "w": "1977-04-01",
@@ -24020,7 +24381,15 @@
         "lw": "New",
         "pk": 37,
         "wc": 1,
-        "sid": null
+        "sid": "6kooDsorCpWVMGc994XjWN",
+        "spotifyUri": "spotify:track:6kooDsorCpWVMGc994XjWN",
+        "spotifyUrl": "https://open.spotify.com/track/6kooDsorCpWVMGc994XjWN",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Black Betty",
+        "am": "Ram Jam",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USSM10211288"
       },
       {
         "w": "1977-09-16",
@@ -24230,7 +24599,15 @@
         "lw": "New",
         "pk": 38,
         "wc": 1,
-        "sid": null
+        "sid": "51qi5dgc9CsotM87GmRkAX",
+        "spotifyUri": "spotify:track:51qi5dgc9CsotM87GmRkAX",
+        "spotifyUrl": "https://open.spotify.com/track/51qi5dgc9CsotM87GmRkAX",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Don't Leave Me This Way",
+        "am": "Thelma Houston",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USUM71303881"
       },
       {
         "w": "1977-02-11",
@@ -24674,7 +25051,14 @@
         "lw": 17,
         "pk": 6,
         "wc": 12,
-        "sid": null
+        "sid": "7riizE9mPVu0UnOyYHxxM0",
+        "spotifyUri": "spotify:track:7riizE9mPVu0UnOyYHxxM0",
+        "spotifyUrl": "https://open.spotify.com/track/7riizE9mPVu0UnOyYHxxM0",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "The Crunch",
+        "am": "The RAH Band",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1977-09-30",
@@ -24740,7 +25124,14 @@
         "lw": 40,
         "pk": 35,
         "wc": 4,
-        "sid": null
+        "sid": "1gSmU1LlCndh23gvcsgPfo",
+        "spotifyUri": "spotify:track:1gSmU1LlCndh23gvcsgPfo",
+        "spotifyUrl": "https://open.spotify.com/track/1gSmU1LlCndh23gvcsgPfo",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Sweet Love",
+        "am": "Commodores",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1977-11-04",
@@ -24758,7 +25149,14 @@
         "lw": 32,
         "pk": 32,
         "wc": 6,
-        "sid": null
+        "sid": "1gSmU1LlCndh23gvcsgPfo",
+        "spotifyUri": "spotify:track:1gSmU1LlCndh23gvcsgPfo",
+        "spotifyUrl": "https://open.spotify.com/track/1gSmU1LlCndh23gvcsgPfo",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Sweet Love",
+        "am": "Commodores",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1977-11-18",
@@ -26004,7 +26402,14 @@
         "lw": 35,
         "pk": 35,
         "wc": 3,
-        "sid": null
+        "sid": "1gSmU1LlCndh23gvcsgPfo",
+        "spotifyUri": "spotify:track:1gSmU1LlCndh23gvcsgPfo",
+        "spotifyUrl": "https://open.spotify.com/track/1gSmU1LlCndh23gvcsgPfo",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Sweet Love",
+        "am": "Commodores",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1977-10-28",

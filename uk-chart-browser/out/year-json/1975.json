@@ -113,7 +113,14 @@
         "lw": 5,
         "pk": 1,
         "wc": 6,
-        "sid": null
+        "sid": "1LPCESFhMbgMaQjRG5dm9P",
+        "spotifyUri": "spotify:track:1LPCESFhMbgMaQjRG5dm9P",
+        "spotifyUrl": "https://open.spotify.com/track/1LPCESFhMbgMaQjRG5dm9P",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Ms Grace",
+        "am": "The Tymes",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-01-31",
@@ -423,7 +430,15 @@
         "lw": 2,
         "pk": 1,
         "wc": 5,
-        "sid": null
+        "sid": "5HQEmiV2lKnSO6qa2fsR7x",
+        "spotifyUri": "spotify:track:5HQEmiV2lKnSO6qa2fsR7x",
+        "spotifyUrl": "https://open.spotify.com/track/5HQEmiV2lKnSO6qa2fsR7x",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "I'm Not In Love",
+        "am": "10cc",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBF087500001"
       },
       {
         "w": "1975-07-04",
@@ -432,7 +447,15 @@
         "lw": 1,
         "pk": 1,
         "wc": 6,
-        "sid": null
+        "sid": "5HQEmiV2lKnSO6qa2fsR7x",
+        "spotifyUri": "spotify:track:5HQEmiV2lKnSO6qa2fsR7x",
+        "spotifyUrl": "https://open.spotify.com/track/5HQEmiV2lKnSO6qa2fsR7x",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "I'm Not In Love",
+        "am": "10cc",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBF087500001"
       },
       {
         "w": "1975-07-11",
@@ -851,7 +874,14 @@
         "lw": 1,
         "pk": 1,
         "wc": 7,
-        "sid": null
+        "sid": "1LPCESFhMbgMaQjRG5dm9P",
+        "spotifyUri": "spotify:track:1LPCESFhMbgMaQjRG5dm9P",
+        "spotifyUrl": "https://open.spotify.com/track/1LPCESFhMbgMaQjRG5dm9P",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Ms Grace",
+        "am": "The Tymes",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-02-07",
@@ -869,7 +899,14 @@
         "lw": 8,
         "pk": 2,
         "wc": 5,
-        "sid": null
+        "sid": "74jZhGv0fdLaf9q8AZZ15k",
+        "spotifyUri": "spotify:track:74jZhGv0fdLaf9q8AZZ15k",
+        "spotifyUrl": "https://open.spotify.com/track/74jZhGv0fdLaf9q8AZZ15k",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Please Mr. Postman",
+        "am": "Carpenters",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-02-21",
@@ -962,7 +999,14 @@
         "lw": 5,
         "pk": 2,
         "wc": 5,
-        "sid": null
+        "sid": "4yJZP61jBhVTesHBZ0gpQn",
+        "spotifyUri": "spotify:track:4yJZP61jBhVTesHBZ0gpQn",
+        "spotifyUrl": "https://open.spotify.com/track/4yJZP61jBhVTesHBZ0gpQn",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Fox on the Run",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-04-18",
@@ -971,7 +1015,14 @@
         "lw": 2,
         "pk": 2,
         "wc": 6,
-        "sid": null
+        "sid": "4yJZP61jBhVTesHBZ0gpQn",
+        "spotifyUri": "spotify:track:4yJZP61jBhVTesHBZ0gpQn",
+        "spotifyUrl": "https://open.spotify.com/track/4yJZP61jBhVTesHBZ0gpQn",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Fox on the Run",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-04-25",
@@ -1087,7 +1138,15 @@
         "lw": 3,
         "pk": 2,
         "wc": 4,
-        "sid": null
+        "sid": "5HQEmiV2lKnSO6qa2fsR7x",
+        "spotifyUri": "spotify:track:5HQEmiV2lKnSO6qa2fsR7x",
+        "spotifyUrl": "https://open.spotify.com/track/5HQEmiV2lKnSO6qa2fsR7x",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "I'm Not In Love",
+        "am": "10cc",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBF087500001"
       },
       {
         "w": "1975-06-27",
@@ -1475,7 +1534,14 @@
         "lw": 3,
         "pk": 3,
         "wc": 8,
-        "sid": null
+        "sid": "21f4TJOkju9zp8FxksMM5y",
+        "spotifyUri": "spotify:track:21f4TJOkju9zp8FxksMM5y",
+        "spotifyUrl": "https://open.spotify.com/track/21f4TJOkju9zp8FxksMM5y",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Juke Box Jive",
+        "am": "The Rubettes",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-01-10",
@@ -1580,7 +1646,14 @@
         "lw": 2,
         "pk": 2,
         "wc": 6,
-        "sid": null
+        "sid": "74jZhGv0fdLaf9q8AZZ15k",
+        "spotifyUri": "spotify:track:74jZhGv0fdLaf9q8AZZ15k",
+        "spotifyUrl": "https://open.spotify.com/track/74jZhGv0fdLaf9q8AZZ15k",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Please Mr. Postman",
+        "am": "Carpenters",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-02-28",
@@ -1589,7 +1662,14 @@
         "lw": 3,
         "pk": 2,
         "wc": 7,
-        "sid": null
+        "sid": "74jZhGv0fdLaf9q8AZZ15k",
+        "spotifyUri": "spotify:track:74jZhGv0fdLaf9q8AZZ15k",
+        "spotifyUrl": "https://open.spotify.com/track/74jZhGv0fdLaf9q8AZZ15k",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Please Mr. Postman",
+        "am": "Carpenters",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-03-07",
@@ -1682,7 +1762,14 @@
         "lw": 2,
         "pk": 2,
         "wc": 7,
-        "sid": null
+        "sid": "4yJZP61jBhVTesHBZ0gpQn",
+        "spotifyUri": "spotify:track:4yJZP61jBhVTesHBZ0gpQn",
+        "spotifyUrl": "https://open.spotify.com/track/4yJZP61jBhVTesHBZ0gpQn",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Fox on the Run",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-05-02",
@@ -1780,7 +1867,15 @@
         "lw": 8,
         "pk": 3,
         "wc": 3,
-        "sid": null
+        "sid": "5HQEmiV2lKnSO6qa2fsR7x",
+        "spotifyUri": "spotify:track:5HQEmiV2lKnSO6qa2fsR7x",
+        "spotifyUrl": "https://open.spotify.com/track/5HQEmiV2lKnSO6qa2fsR7x",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "I'm Not In Love",
+        "am": "10cc",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBF087500001"
       },
       {
         "w": "1975-06-20",
@@ -2236,7 +2331,14 @@
         "lw": 2,
         "pk": 1,
         "wc": 8,
-        "sid": null
+        "sid": "1LPCESFhMbgMaQjRG5dm9P",
+        "spotifyUri": "spotify:track:1LPCESFhMbgMaQjRG5dm9P",
+        "spotifyUrl": "https://open.spotify.com/track/1LPCESFhMbgMaQjRG5dm9P",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Ms Grace",
+        "am": "The Tymes",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-02-14",
@@ -2532,7 +2634,15 @@
         "lw": 1,
         "pk": 1,
         "wc": 7,
-        "sid": null
+        "sid": "5HQEmiV2lKnSO6qa2fsR7x",
+        "spotifyUri": "spotify:track:5HQEmiV2lKnSO6qa2fsR7x",
+        "spotifyUrl": "https://open.spotify.com/track/5HQEmiV2lKnSO6qa2fsR7x",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "I'm Not In Love",
+        "am": "10cc",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBF087500001"
       },
       {
         "w": "1975-07-18",
@@ -2671,7 +2781,14 @@
         "lw": 6,
         "pk": 4,
         "wc": 6,
-        "sid": null
+        "sid": "6EBKoEIouglwrX64ExBv28",
+        "spotifyUri": "spotify:track:6EBKoEIouglwrX64ExBv28",
+        "spotifyUrl": "https://open.spotify.com/track/6EBKoEIouglwrX64ExBv28",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Summertime City",
+        "am": "Mike Batt",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-09-26",
@@ -2910,7 +3027,14 @@
         "lw": 7,
         "pk": 5,
         "wc": 5,
-        "sid": null
+        "sid": "1LPCESFhMbgMaQjRG5dm9P",
+        "spotifyUri": "spotify:track:1LPCESFhMbgMaQjRG5dm9P",
+        "spotifyUrl": "https://open.spotify.com/track/1LPCESFhMbgMaQjRG5dm9P",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Ms Grace",
+        "am": "The Tymes",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-01-24",
@@ -3072,7 +3196,14 @@
         "lw": 10,
         "pk": 5,
         "wc": 4,
-        "sid": null
+        "sid": "4yJZP61jBhVTesHBZ0gpQn",
+        "spotifyUri": "spotify:track:4yJZP61jBhVTesHBZ0gpQn",
+        "spotifyUrl": "https://open.spotify.com/track/4yJZP61jBhVTesHBZ0gpQn",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Fox on the Run",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-04-11",
@@ -3484,7 +3615,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Hold Back the Night",
         "am": "The Trammps",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USBR10500111"
       },
       {
         "w": "1975-11-14",
@@ -3716,7 +3848,14 @@
         "lw": 3,
         "pk": 2,
         "wc": 8,
-        "sid": null
+        "sid": "74jZhGv0fdLaf9q8AZZ15k",
+        "spotifyUri": "spotify:track:74jZhGv0fdLaf9q8AZZ15k",
+        "spotifyUrl": "https://open.spotify.com/track/74jZhGv0fdLaf9q8AZZ15k",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Please Mr. Postman",
+        "am": "Carpenters",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-03-14",
@@ -3741,7 +3880,14 @@
         "lw": 7,
         "pk": 6,
         "wc": 5,
-        "sid": null
+        "sid": "2x1LQq8lsUzAA2wNj8yjC9",
+        "spotifyUri": "spotify:track:2x1LQq8lsUzAA2wNj8yjC9",
+        "spotifyUrl": "https://open.spotify.com/track/2x1LQq8lsUzAA2wNj8yjC9",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Pick Up the Pieces",
+        "am": "Average White Band",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-03-28",
@@ -4062,7 +4208,14 @@
         "lw": 9,
         "pk": 6,
         "wc": 4,
-        "sid": null
+        "sid": "6EBKoEIouglwrX64ExBv28",
+        "spotifyUri": "spotify:track:6EBKoEIouglwrX64ExBv28",
+        "spotifyUrl": "https://open.spotify.com/track/6EBKoEIouglwrX64ExBv28",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Summertime City",
+        "am": "Mike Batt",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-09-12",
@@ -4071,7 +4224,14 @@
         "lw": 6,
         "pk": 6,
         "wc": 5,
-        "sid": null
+        "sid": "6EBKoEIouglwrX64ExBv28",
+        "spotifyUri": "spotify:track:6EBKoEIouglwrX64ExBv28",
+        "spotifyUrl": "https://open.spotify.com/track/6EBKoEIouglwrX64ExBv28",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Summertime City",
+        "am": "Mike Batt",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-09-19",
@@ -4282,7 +4442,14 @@
         "lw": 27,
         "pk": 7,
         "wc": 4,
-        "sid": null
+        "sid": "1LPCESFhMbgMaQjRG5dm9P",
+        "spotifyUri": "spotify:track:1LPCESFhMbgMaQjRG5dm9P",
+        "spotifyUrl": "https://open.spotify.com/track/1LPCESFhMbgMaQjRG5dm9P",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Ms Grace",
+        "am": "The Tymes",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-01-17",
@@ -4398,7 +4565,14 @@
         "lw": 9,
         "pk": 7,
         "wc": 4,
-        "sid": null
+        "sid": "2x1LQq8lsUzAA2wNj8yjC9",
+        "spotifyUri": "spotify:track:2x1LQq8lsUzAA2wNj8yjC9",
+        "spotifyUrl": "https://open.spotify.com/track/2x1LQq8lsUzAA2wNj8yjC9",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Pick Up the Pieces",
+        "am": "Average White Band",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-03-21",
@@ -4439,7 +4613,15 @@
         "lw": 9,
         "pk": 7,
         "wc": 5,
-        "sid": null
+        "sid": "17G1l87afiH57dBvYgQm86",
+        "spotifyUri": "spotify:track:17G1l87afiH57dBvYgQm86",
+        "spotifyUrl": "https://open.spotify.com/track/17G1l87afiH57dBvYgQm86",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "I Can Do It",
+        "am": "The Rubettes",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAKW7501003"
       },
       {
         "w": "1975-04-11",
@@ -4860,7 +5042,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Hold Back the Night",
         "am": "The Trammps",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USBR10500111"
       },
       {
         "w": "1975-11-21",
@@ -5005,7 +5188,14 @@
         "lw": 15,
         "pk": 8,
         "wc": 4,
-        "sid": null
+        "sid": "74jZhGv0fdLaf9q8AZZ15k",
+        "spotifyUri": "spotify:track:74jZhGv0fdLaf9q8AZZ15k",
+        "spotifyUrl": "https://open.spotify.com/track/74jZhGv0fdLaf9q8AZZ15k",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Please Mr. Postman",
+        "am": "Carpenters",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-02-14",
@@ -5235,7 +5425,15 @@
         "lw": 41,
         "pk": 8,
         "wc": 2,
-        "sid": null
+        "sid": "5HQEmiV2lKnSO6qa2fsR7x",
+        "spotifyUri": "spotify:track:5HQEmiV2lKnSO6qa2fsR7x",
+        "spotifyUrl": "https://open.spotify.com/track/5HQEmiV2lKnSO6qa2fsR7x",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "I'm Not In Love",
+        "am": "10cc",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBF087500001"
       },
       {
         "w": "1975-06-13",
@@ -5310,7 +5508,15 @@
         "lw": 4,
         "pk": 1,
         "wc": 8,
-        "sid": null
+        "sid": "5HQEmiV2lKnSO6qa2fsR7x",
+        "spotifyUri": "spotify:track:5HQEmiV2lKnSO6qa2fsR7x",
+        "spotifyUrl": "https://open.spotify.com/track/5HQEmiV2lKnSO6qa2fsR7x",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "I'm Not In Love",
+        "am": "10cc",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBF087500001"
       },
       {
         "w": "1975-07-25",
@@ -5735,7 +5941,14 @@
         "lw": 22,
         "pk": 9,
         "wc": 3,
-        "sid": null
+        "sid": "2x1LQq8lsUzAA2wNj8yjC9",
+        "spotifyUri": "spotify:track:2x1LQq8lsUzAA2wNj8yjC9",
+        "spotifyUrl": "https://open.spotify.com/track/2x1LQq8lsUzAA2wNj8yjC9",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Pick Up the Pieces",
+        "am": "Average White Band",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-03-14",
@@ -5762,7 +5975,15 @@
         "lw": 10,
         "pk": 9,
         "wc": 4,
-        "sid": null
+        "sid": "17G1l87afiH57dBvYgQm86",
+        "spotifyUri": "spotify:track:17G1l87afiH57dBvYgQm86",
+        "spotifyUrl": "https://open.spotify.com/track/17G1l87afiH57dBvYgQm86",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "I Can Do It",
+        "am": "The Rubettes",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAKW7501003"
       },
       {
         "w": "1975-04-04",
@@ -5787,7 +6008,15 @@
         "lw": 7,
         "pk": 7,
         "wc": 6,
-        "sid": null
+        "sid": "17G1l87afiH57dBvYgQm86",
+        "spotifyUri": "spotify:track:17G1l87afiH57dBvYgQm86",
+        "spotifyUrl": "https://open.spotify.com/track/17G1l87afiH57dBvYgQm86",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "I Can Do It",
+        "am": "The Rubettes",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAKW7501003"
       },
       {
         "w": "1975-04-18",
@@ -6044,7 +6273,14 @@
         "lw": 36,
         "pk": 9,
         "wc": 3,
-        "sid": null
+        "sid": "6EBKoEIouglwrX64ExBv28",
+        "spotifyUri": "spotify:track:6EBKoEIouglwrX64ExBv28",
+        "spotifyUrl": "https://open.spotify.com/track/6EBKoEIouglwrX64ExBv28",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Summertime City",
+        "am": "Mike Batt",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-09-05",
@@ -6287,7 +6523,14 @@
         "lw": 3,
         "pk": 3,
         "wc": 9,
-        "sid": null
+        "sid": "21f4TJOkju9zp8FxksMM5y",
+        "spotifyUri": "spotify:track:21f4TJOkju9zp8FxksMM5y",
+        "spotifyUrl": "https://open.spotify.com/track/21f4TJOkju9zp8FxksMM5y",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Juke Box Jive",
+        "am": "The Rubettes",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-01-17",
@@ -6398,7 +6641,15 @@
         "lw": 20,
         "pk": 10,
         "wc": 3,
-        "sid": null
+        "sid": "17G1l87afiH57dBvYgQm86",
+        "spotifyUri": "spotify:track:17G1l87afiH57dBvYgQm86",
+        "spotifyUrl": "https://open.spotify.com/track/17G1l87afiH57dBvYgQm86",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "I Can Do It",
+        "am": "The Rubettes",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAKW7501003"
       },
       {
         "w": "1975-03-28",
@@ -6407,7 +6658,14 @@
         "lw": 21,
         "pk": 10,
         "wc": 3,
-        "sid": null
+        "sid": "4yJZP61jBhVTesHBZ0gpQn",
+        "spotifyUri": "spotify:track:4yJZP61jBhVTesHBZ0gpQn",
+        "spotifyUrl": "https://open.spotify.com/track/4yJZP61jBhVTesHBZ0gpQn",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Fox on the Run",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-04-04",
@@ -6466,7 +6724,14 @@
         "lw": 3,
         "pk": 2,
         "wc": 8,
-        "sid": null
+        "sid": "4yJZP61jBhVTesHBZ0gpQn",
+        "spotifyUri": "spotify:track:4yJZP61jBhVTesHBZ0gpQn",
+        "spotifyUrl": "https://open.spotify.com/track/4yJZP61jBhVTesHBZ0gpQn",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Fox on the Run",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-05-09",
@@ -6673,7 +6938,14 @@
         "lw": 13,
         "pk": 10,
         "wc": 6,
-        "sid": null
+        "sid": "1KEk2MGdZniuMOdo7KmoyY",
+        "spotifyUri": "spotify:track:1KEk2MGdZniuMOdo7KmoyY",
+        "spotifyUrl": "https://open.spotify.com/track/1KEk2MGdZniuMOdo7KmoyY",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Dolly My Love",
+        "am": "The Moments",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-08-29",
@@ -7369,7 +7641,14 @@
         "lw": 10,
         "pk": 10,
         "wc": 7,
-        "sid": null
+        "sid": "1KEk2MGdZniuMOdo7KmoyY",
+        "spotifyUri": "spotify:track:1KEk2MGdZniuMOdo7KmoyY",
+        "spotifyUrl": "https://open.spotify.com/track/1KEk2MGdZniuMOdo7KmoyY",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Dolly My Love",
+        "am": "The Moments",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-09-05",
@@ -7746,7 +8025,14 @@
         "lw": 6,
         "pk": 6,
         "wc": 6,
-        "sid": null
+        "sid": "2x1LQq8lsUzAA2wNj8yjC9",
+        "spotifyUri": "spotify:track:2x1LQq8lsUzAA2wNj8yjC9",
+        "spotifyUrl": "https://open.spotify.com/track/2x1LQq8lsUzAA2wNj8yjC9",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Pick Up the Pieces",
+        "am": "Average White Band",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-04-04",
@@ -7780,7 +8066,15 @@
         "lw": 9,
         "pk": 7,
         "wc": 7,
-        "sid": null
+        "sid": "17G1l87afiH57dBvYgQm86",
+        "spotifyUri": "spotify:track:17G1l87afiH57dBvYgQm86",
+        "spotifyUrl": "https://open.spotify.com/track/17G1l87afiH57dBvYgQm86",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "I Can Do It",
+        "am": "The Rubettes",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAKW7501003"
       },
       {
         "w": "1975-04-25",
@@ -8669,7 +8963,14 @@
         "lw": 18,
         "pk": 13,
         "wc": 5,
-        "sid": null
+        "sid": "1KEk2MGdZniuMOdo7KmoyY",
+        "spotifyUri": "spotify:track:1KEk2MGdZniuMOdo7KmoyY",
+        "spotifyUrl": "https://open.spotify.com/track/1KEk2MGdZniuMOdo7KmoyY",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Dolly My Love",
+        "am": "The Moments",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-08-22",
@@ -8730,7 +9031,14 @@
         "lw": 4,
         "pk": 4,
         "wc": 7,
-        "sid": null
+        "sid": "6EBKoEIouglwrX64ExBv28",
+        "spotifyUri": "spotify:track:6EBKoEIouglwrX64ExBv28",
+        "spotifyUrl": "https://open.spotify.com/track/6EBKoEIouglwrX64ExBv28",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Summertime City",
+        "am": "Mike Batt",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-10-03",
@@ -9060,7 +9368,14 @@
         "lw": 6,
         "pk": 2,
         "wc": 9,
-        "sid": null
+        "sid": "74jZhGv0fdLaf9q8AZZ15k",
+        "spotifyUri": "spotify:track:74jZhGv0fdLaf9q8AZZ15k",
+        "spotifyUrl": "https://open.spotify.com/track/74jZhGv0fdLaf9q8AZZ15k",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Please Mr. Postman",
+        "am": "Carpenters",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-03-21",
@@ -9308,7 +9623,15 @@
         "lw": 8,
         "pk": 1,
         "wc": 9,
-        "sid": null
+        "sid": "5HQEmiV2lKnSO6qa2fsR7x",
+        "spotifyUri": "spotify:track:5HQEmiV2lKnSO6qa2fsR7x",
+        "spotifyUrl": "https://open.spotify.com/track/5HQEmiV2lKnSO6qa2fsR7x",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "I'm Not In Love",
+        "am": "10cc",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBF087500001"
       },
       {
         "w": "1975-08-01",
@@ -9383,7 +9706,14 @@
         "lw": 11,
         "pk": 10,
         "wc": 8,
-        "sid": null
+        "sid": "1KEk2MGdZniuMOdo7KmoyY",
+        "spotifyUri": "spotify:track:1KEk2MGdZniuMOdo7KmoyY",
+        "spotifyUrl": "https://open.spotify.com/track/1KEk2MGdZniuMOdo7KmoyY",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Dolly My Love",
+        "am": "The Moments",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-09-12",
@@ -9658,7 +9988,14 @@
         "lw": 25,
         "pk": 15,
         "wc": 3,
-        "sid": null
+        "sid": "74jZhGv0fdLaf9q8AZZ15k",
+        "spotifyUri": "spotify:track:74jZhGv0fdLaf9q8AZZ15k",
+        "spotifyUrl": "https://open.spotify.com/track/74jZhGv0fdLaf9q8AZZ15k",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Please Mr. Postman",
+        "am": "Carpenters",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-02-07",
@@ -9997,7 +10334,14 @@
         "lw": 17,
         "pk": 15,
         "wc": 4,
-        "sid": null
+        "sid": "1YScc3lBsERKqdAm0W1yXx",
+        "spotifyUri": "spotify:track:1YScc3lBsERKqdAm0W1yXx",
+        "spotifyUrl": "https://open.spotify.com/track/1YScc3lBsERKqdAm0W1yXx",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Action",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-08-08",
@@ -10149,7 +10493,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Hold Back the Night",
         "am": "The Trammps",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USBR10500111"
       },
       {
         "w": "1975-11-07",
@@ -10197,7 +10542,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Hold Back the Night",
         "am": "The Trammps",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USBR10500111"
       },
       {
         "w": "1975-11-28",
@@ -11314,7 +11660,14 @@
         "lw": 27,
         "pk": 17,
         "wc": 3,
-        "sid": null
+        "sid": "1YScc3lBsERKqdAm0W1yXx",
+        "spotifyUri": "spotify:track:1YScc3lBsERKqdAm0W1yXx",
+        "spotifyUrl": "https://open.spotify.com/track/1YScc3lBsERKqdAm0W1yXx",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Action",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-08-01",
@@ -11646,7 +11999,14 @@
         "lw": 10,
         "pk": 3,
         "wc": 10,
-        "sid": null
+        "sid": "21f4TJOkju9zp8FxksMM5y",
+        "spotifyUri": "spotify:track:21f4TJOkju9zp8FxksMM5y",
+        "spotifyUrl": "https://open.spotify.com/track/21f4TJOkju9zp8FxksMM5y",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Juke Box Jive",
+        "am": "The Rubettes",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-01-24",
@@ -11787,7 +12147,14 @@
         "lw": 12,
         "pk": 6,
         "wc": 7,
-        "sid": null
+        "sid": "2x1LQq8lsUzAA2wNj8yjC9",
+        "spotifyUri": "spotify:track:2x1LQq8lsUzAA2wNj8yjC9",
+        "spotifyUrl": "https://open.spotify.com/track/2x1LQq8lsUzAA2wNj8yjC9",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Pick Up the Pieces",
+        "am": "Average White Band",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-04-11",
@@ -12026,7 +12393,14 @@
         "lw": 23,
         "pk": 18,
         "wc": 4,
-        "sid": null
+        "sid": "1KEk2MGdZniuMOdo7KmoyY",
+        "spotifyUri": "spotify:track:1KEk2MGdZniuMOdo7KmoyY",
+        "spotifyUrl": "https://open.spotify.com/track/1KEk2MGdZniuMOdo7KmoyY",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Dolly My Love",
+        "am": "The Moments",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-08-15",
@@ -12167,7 +12541,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Hold Back the Night",
         "am": "The Trammps",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USBR10500111"
       },
       {
         "w": "1975-10-31",
@@ -12678,7 +13053,14 @@
         "lw": 15,
         "pk": 15,
         "wc": 5,
-        "sid": null
+        "sid": "1YScc3lBsERKqdAm0W1yXx",
+        "spotifyUri": "spotify:track:1YScc3lBsERKqdAm0W1yXx",
+        "spotifyUrl": "https://open.spotify.com/track/1YScc3lBsERKqdAm0W1yXx",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Action",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-08-15",
@@ -13078,7 +13460,15 @@
         "lw": 31,
         "pk": 20,
         "wc": 2,
-        "sid": null
+        "sid": "17G1l87afiH57dBvYgQm86",
+        "spotifyUri": "spotify:track:17G1l87afiH57dBvYgQm86",
+        "spotifyUrl": "https://open.spotify.com/track/17G1l87afiH57dBvYgQm86",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "I Can Do It",
+        "am": "The Rubettes",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAKW7501003"
       },
       {
         "w": "1975-03-21",
@@ -13760,7 +14150,14 @@
         "lw": 42,
         "pk": 21,
         "wc": 2,
-        "sid": null
+        "sid": "4yJZP61jBhVTesHBZ0gpQn",
+        "spotifyUri": "spotify:track:4yJZP61jBhVTesHBZ0gpQn",
+        "spotifyUrl": "https://open.spotify.com/track/4yJZP61jBhVTesHBZ0gpQn",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Fox on the Run",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-03-28",
@@ -13819,7 +14216,14 @@
         "lw": 26,
         "pk": 21,
         "wc": 5,
-        "sid": null
+        "sid": "4msPRe3NEDVL6dsBcE7AhL",
+        "spotifyUri": "spotify:track:4msPRe3NEDVL6dsBcE7AhL",
+        "spotifyUrl": "https://open.spotify.com/track/4msPRe3NEDVL6dsBcE7AhL",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Get Down Tonight",
+        "am": "K.C. & The Sunshine Band",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-05-02",
@@ -13837,7 +14241,14 @@
         "lw": 10,
         "pk": 2,
         "wc": 9,
-        "sid": null
+        "sid": "4yJZP61jBhVTesHBZ0gpQn",
+        "spotifyUri": "spotify:track:4yJZP61jBhVTesHBZ0gpQn",
+        "spotifyUrl": "https://open.spotify.com/track/4yJZP61jBhVTesHBZ0gpQn",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Fox on the Run",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-05-16",
@@ -14019,7 +14430,14 @@
         "lw": 19,
         "pk": 15,
         "wc": 6,
-        "sid": null
+        "sid": "1YScc3lBsERKqdAm0W1yXx",
+        "spotifyUri": "spotify:track:1YScc3lBsERKqdAm0W1yXx",
+        "spotifyUrl": "https://open.spotify.com/track/1YScc3lBsERKqdAm0W1yXx",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Action",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-08-22",
@@ -14103,7 +14521,14 @@
         "lw": 13,
         "pk": 4,
         "wc": 8,
-        "sid": null
+        "sid": "6EBKoEIouglwrX64ExBv28",
+        "spotifyUri": "spotify:track:6EBKoEIouglwrX64ExBv28",
+        "spotifyUrl": "https://open.spotify.com/track/6EBKoEIouglwrX64ExBv28",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Summertime City",
+        "am": "Mike Batt",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-10-10",
@@ -14385,7 +14810,14 @@
         "lw": 32,
         "pk": 22,
         "wc": 2,
-        "sid": null
+        "sid": "2x1LQq8lsUzAA2wNj8yjC9",
+        "spotifyUri": "spotify:track:2x1LQq8lsUzAA2wNj8yjC9",
+        "spotifyUrl": "https://open.spotify.com/track/2x1LQq8lsUzAA2wNj8yjC9",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Pick Up the Pieces",
+        "am": "Average White Band",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-03-07",
@@ -15284,7 +15716,14 @@
         "lw": 34,
         "pk": 23,
         "wc": 3,
-        "sid": null
+        "sid": "1KEk2MGdZniuMOdo7KmoyY",
+        "spotifyUri": "spotify:track:1KEk2MGdZniuMOdo7KmoyY",
+        "spotifyUrl": "https://open.spotify.com/track/1KEk2MGdZniuMOdo7KmoyY",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Dolly My Love",
+        "am": "The Moments",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-08-08",
@@ -15359,7 +15798,14 @@
         "lw": 14,
         "pk": 10,
         "wc": 9,
-        "sid": null
+        "sid": "1KEk2MGdZniuMOdo7KmoyY",
+        "spotifyUri": "spotify:track:1KEk2MGdZniuMOdo7KmoyY",
+        "spotifyUrl": "https://open.spotify.com/track/1KEk2MGdZniuMOdo7KmoyY",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Dolly My Love",
+        "am": "The Moments",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-09-19",
@@ -15777,7 +16223,14 @@
         "lw": 21,
         "pk": 21,
         "wc": 6,
-        "sid": null
+        "sid": "4msPRe3NEDVL6dsBcE7AhL",
+        "spotifyUri": "spotify:track:4msPRe3NEDVL6dsBcE7AhL",
+        "spotifyUrl": "https://open.spotify.com/track/4msPRe3NEDVL6dsBcE7AhL",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Get Down Tonight",
+        "am": "K.C. & The Sunshine Band",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-05-09",
@@ -15786,7 +16239,14 @@
         "lw": 24,
         "pk": 21,
         "wc": 7,
-        "sid": null
+        "sid": "4msPRe3NEDVL6dsBcE7AhL",
+        "spotifyUri": "spotify:track:4msPRe3NEDVL6dsBcE7AhL",
+        "spotifyUrl": "https://open.spotify.com/track/4msPRe3NEDVL6dsBcE7AhL",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Get Down Tonight",
+        "am": "K.C. & The Sunshine Band",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-05-16",
@@ -15915,7 +16375,15 @@
         "lw": 14,
         "pk": 1,
         "wc": 10,
-        "sid": null
+        "sid": "5HQEmiV2lKnSO6qa2fsR7x",
+        "spotifyUri": "spotify:track:5HQEmiV2lKnSO6qa2fsR7x",
+        "spotifyUrl": "https://open.spotify.com/track/5HQEmiV2lKnSO6qa2fsR7x",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "I'm Not In Love",
+        "am": "10cc",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBF087500001"
       },
       {
         "w": "1975-08-08",
@@ -16254,7 +16722,14 @@
         "lw": 39,
         "pk": 25,
         "wc": 2,
-        "sid": null
+        "sid": "74jZhGv0fdLaf9q8AZZ15k",
+        "spotifyUri": "spotify:track:74jZhGv0fdLaf9q8AZZ15k",
+        "spotifyUrl": "https://open.spotify.com/track/74jZhGv0fdLaf9q8AZZ15k",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Please Mr. Postman",
+        "am": "Carpenters",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-01-31",
@@ -16832,7 +17307,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Hold Back the Night",
         "am": "The Trammps",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USBR10500111"
       },
       {
         "w": "1975-12-05",
@@ -17105,7 +17581,14 @@
         "lw": 28,
         "pk": 26,
         "wc": 4,
-        "sid": null
+        "sid": "4msPRe3NEDVL6dsBcE7AhL",
+        "spotifyUri": "spotify:track:4msPRe3NEDVL6dsBcE7AhL",
+        "spotifyUrl": "https://open.spotify.com/track/4msPRe3NEDVL6dsBcE7AhL",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Get Down Tonight",
+        "am": "K.C. & The Sunshine Band",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-04-25",
@@ -17573,7 +18056,14 @@
         "lw": 33,
         "pk": 27,
         "wc": 3,
-        "sid": null
+        "sid": "1LPCESFhMbgMaQjRG5dm9P",
+        "spotifyUri": "spotify:track:1LPCESFhMbgMaQjRG5dm9P",
+        "spotifyUrl": "https://open.spotify.com/track/1LPCESFhMbgMaQjRG5dm9P",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Ms Grace",
+        "am": "The Tymes",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-01-10",
@@ -17714,7 +18204,14 @@
         "lw": 14,
         "pk": 2,
         "wc": 10,
-        "sid": null
+        "sid": "74jZhGv0fdLaf9q8AZZ15k",
+        "spotifyUri": "spotify:track:74jZhGv0fdLaf9q8AZZ15k",
+        "spotifyUrl": "https://open.spotify.com/track/74jZhGv0fdLaf9q8AZZ15k",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Please Mr. Postman",
+        "am": "Carpenters",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-03-28",
@@ -17944,7 +18441,14 @@
         "lw": 47,
         "pk": 27,
         "wc": 2,
-        "sid": null
+        "sid": "1YScc3lBsERKqdAm0W1yXx",
+        "spotifyUri": "spotify:track:1YScc3lBsERKqdAm0W1yXx",
+        "spotifyUrl": "https://open.spotify.com/track/1YScc3lBsERKqdAm0W1yXx",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Action",
+        "am": "Sweet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-07-25",
@@ -18307,7 +18811,14 @@
         "lw": 4,
         "pk": 1,
         "wc": 9,
-        "sid": null
+        "sid": "1LPCESFhMbgMaQjRG5dm9P",
+        "spotifyUri": "spotify:track:1LPCESFhMbgMaQjRG5dm9P",
+        "spotifyUrl": "https://open.spotify.com/track/1LPCESFhMbgMaQjRG5dm9P",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Ms Grace",
+        "am": "The Tymes",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-02-21",
@@ -18414,7 +18925,14 @@
         "lw": 33,
         "pk": 28,
         "wc": 3,
-        "sid": null
+        "sid": "4msPRe3NEDVL6dsBcE7AhL",
+        "spotifyUri": "spotify:track:4msPRe3NEDVL6dsBcE7AhL",
+        "spotifyUrl": "https://open.spotify.com/track/4msPRe3NEDVL6dsBcE7AhL",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Get Down Tonight",
+        "am": "K.C. & The Sunshine Band",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-04-18",
@@ -18755,7 +19273,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Hold Back the Night",
         "am": "The Trammps",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USBR10500111"
       },
       {
         "w": "1975-10-24",
@@ -19830,7 +20349,14 @@
         "lw": 32,
         "pk": 30,
         "wc": 4,
-        "sid": null
+        "sid": "3ntrdR24dLkKrzSGRv1FlH",
+        "spotifyUri": "spotify:track:3ntrdR24dLkKrzSGRv1FlH",
+        "spotifyUrl": "https://open.spotify.com/track/3ntrdR24dLkKrzSGRv1FlH",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Stand By Me (Remastered 2010)",
+        "am": "John Lennon",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-05-30",
@@ -20332,7 +20858,15 @@
         "lw": "New",
         "pk": 31,
         "wc": 1,
-        "sid": null
+        "sid": "17G1l87afiH57dBvYgQm86",
+        "spotifyUri": "spotify:track:17G1l87afiH57dBvYgQm86",
+        "spotifyUrl": "https://open.spotify.com/track/17G1l87afiH57dBvYgQm86",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "I Can Do It",
+        "am": "The Rubettes",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAKW7501003"
       },
       {
         "w": "1975-03-14",
@@ -20411,7 +20945,14 @@
         "lw": 47,
         "pk": 31,
         "wc": 2,
-        "sid": null
+        "sid": "2R6ryTnnqOci2Ms19wMNzB",
+        "spotifyUri": "spotify:track:2R6ryTnnqOci2Ms19wMNzB",
+        "spotifyUrl": "https://open.spotify.com/track/2R6ryTnnqOci2Ms19wMNzB",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Cut the Cake",
+        "am": "Average White Band",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-05-09",
@@ -20923,7 +21464,14 @@
         "lw": 18,
         "pk": 3,
         "wc": 11,
-        "sid": null
+        "sid": "21f4TJOkju9zp8FxksMM5y",
+        "spotifyUri": "spotify:track:21f4TJOkju9zp8FxksMM5y",
+        "spotifyUrl": "https://open.spotify.com/track/21f4TJOkju9zp8FxksMM5y",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Juke Box Jive",
+        "am": "The Rubettes",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-01-31",
@@ -20959,7 +21507,14 @@
         "lw": "New",
         "pk": 32,
         "wc": 1,
-        "sid": null
+        "sid": "2x1LQq8lsUzAA2wNj8yjC9",
+        "spotifyUri": "spotify:track:2x1LQq8lsUzAA2wNj8yjC9",
+        "spotifyUrl": "https://open.spotify.com/track/2x1LQq8lsUzAA2wNj8yjC9",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Pick Up the Pieces",
+        "am": "Average White Band",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-02-28",
@@ -21116,7 +21671,14 @@
         "lw": 37,
         "pk": 32,
         "wc": 3,
-        "sid": null
+        "sid": "3ntrdR24dLkKrzSGRv1FlH",
+        "spotifyUri": "spotify:track:3ntrdR24dLkKrzSGRv1FlH",
+        "spotifyUrl": "https://open.spotify.com/track/3ntrdR24dLkKrzSGRv1FlH",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Stand By Me (Remastered 2010)",
+        "am": "John Lennon",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-05-23",
@@ -21134,7 +21696,14 @@
         "lw": 30,
         "pk": 30,
         "wc": 5,
-        "sid": null
+        "sid": "3ntrdR24dLkKrzSGRv1FlH",
+        "spotifyUri": "spotify:track:3ntrdR24dLkKrzSGRv1FlH",
+        "spotifyUrl": "https://open.spotify.com/track/3ntrdR24dLkKrzSGRv1FlH",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Stand By Me (Remastered 2010)",
+        "am": "John Lennon",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-06-06",
@@ -21577,7 +22146,14 @@
         "lw": 32,
         "pk": 3,
         "wc": 12,
-        "sid": null
+        "sid": "21f4TJOkju9zp8FxksMM5y",
+        "spotifyUri": "spotify:track:21f4TJOkju9zp8FxksMM5y",
+        "spotifyUrl": "https://open.spotify.com/track/21f4TJOkju9zp8FxksMM5y",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Juke Box Jive",
+        "am": "The Rubettes",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-02-07",
@@ -21693,7 +22269,14 @@
         "lw": 43,
         "pk": 33,
         "wc": 2,
-        "sid": null
+        "sid": "4msPRe3NEDVL6dsBcE7AhL",
+        "spotifyUri": "spotify:track:4msPRe3NEDVL6dsBcE7AhL",
+        "spotifyUrl": "https://open.spotify.com/track/4msPRe3NEDVL6dsBcE7AhL",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Get Down Tonight",
+        "am": "K.C. & The Sunshine Band",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-04-11",
@@ -21702,7 +22285,14 @@
         "lw": 18,
         "pk": 6,
         "wc": 8,
-        "sid": null
+        "sid": "2x1LQq8lsUzAA2wNj8yjC9",
+        "spotifyUri": "spotify:track:2x1LQq8lsUzAA2wNj8yjC9",
+        "spotifyUrl": "https://open.spotify.com/track/2x1LQq8lsUzAA2wNj8yjC9",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Pick Up the Pieces",
+        "am": "Average White Band",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-04-18",
@@ -22454,7 +23044,14 @@
         "lw": 32,
         "pk": 30,
         "wc": 6,
-        "sid": null
+        "sid": "3ntrdR24dLkKrzSGRv1FlH",
+        "spotifyUri": "spotify:track:3ntrdR24dLkKrzSGRv1FlH",
+        "spotifyUrl": "https://open.spotify.com/track/3ntrdR24dLkKrzSGRv1FlH",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Stand By Me (Remastered 2010)",
+        "am": "John Lennon",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-06-13",
@@ -22545,7 +23142,14 @@
         "lw": 48,
         "pk": 34,
         "wc": 2,
-        "sid": null
+        "sid": "1KEk2MGdZniuMOdo7KmoyY",
+        "spotifyUri": "spotify:track:1KEk2MGdZniuMOdo7KmoyY",
+        "spotifyUrl": "https://open.spotify.com/track/1KEk2MGdZniuMOdo7KmoyY",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Dolly My Love",
+        "am": "The Moments",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-08-01",
@@ -23906,7 +24510,14 @@
         "lw": 49,
         "pk": 36,
         "wc": 2,
-        "sid": null
+        "sid": "6EBKoEIouglwrX64ExBv28",
+        "spotifyUri": "spotify:track:6EBKoEIouglwrX64ExBv28",
+        "spotifyUrl": "https://open.spotify.com/track/6EBKoEIouglwrX64ExBv28",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Summertime City",
+        "am": "Mike Batt",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-08-29",
@@ -24342,7 +24953,15 @@
         "lw": 12,
         "pk": 7,
         "wc": 8,
-        "sid": null
+        "sid": "17G1l87afiH57dBvYgQm86",
+        "spotifyUri": "spotify:track:17G1l87afiH57dBvYgQm86",
+        "spotifyUrl": "https://open.spotify.com/track/17G1l87afiH57dBvYgQm86",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "I Can Do It",
+        "am": "The Rubettes",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAKW7501003"
       },
       {
         "w": "1975-05-02",
@@ -24360,7 +24979,14 @@
         "lw": 48,
         "pk": 37,
         "wc": 2,
-        "sid": null
+        "sid": "3ntrdR24dLkKrzSGRv1FlH",
+        "spotifyUri": "spotify:track:3ntrdR24dLkKrzSGRv1FlH",
+        "spotifyUrl": "https://open.spotify.com/track/3ntrdR24dLkKrzSGRv1FlH",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Stand By Me (Remastered 2010)",
+        "am": "John Lennon",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-05-16",
@@ -25478,7 +26104,14 @@
         "lw": "New",
         "pk": 39,
         "wc": 1,
-        "sid": null
+        "sid": "74jZhGv0fdLaf9q8AZZ15k",
+        "spotifyUri": "spotify:track:74jZhGv0fdLaf9q8AZZ15k",
+        "spotifyUrl": "https://open.spotify.com/track/74jZhGv0fdLaf9q8AZZ15k",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Please Mr. Postman",
+        "am": "Carpenters",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-01-24",
@@ -25537,7 +26170,14 @@
         "lw": 28,
         "pk": 1,
         "wc": 10,
-        "sid": null
+        "sid": "1LPCESFhMbgMaQjRG5dm9P",
+        "spotifyUri": "spotify:track:1LPCESFhMbgMaQjRG5dm9P",
+        "spotifyUrl": "https://open.spotify.com/track/1LPCESFhMbgMaQjRG5dm9P",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Ms Grace",
+        "am": "The Tymes",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-02-28",
@@ -25589,7 +26229,14 @@
         "lw": 27,
         "pk": 2,
         "wc": 11,
-        "sid": null
+        "sid": "74jZhGv0fdLaf9q8AZZ15k",
+        "spotifyUri": "spotify:track:74jZhGv0fdLaf9q8AZZ15k",
+        "spotifyUrl": "https://open.spotify.com/track/74jZhGv0fdLaf9q8AZZ15k",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Please Mr. Postman",
+        "am": "Carpenters",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-04-04",
@@ -26519,7 +27166,15 @@
         "lw": 24,
         "pk": 1,
         "wc": 11,
-        "sid": null
+        "sid": "5HQEmiV2lKnSO6qa2fsR7x",
+        "spotifyUri": "spotify:track:5HQEmiV2lKnSO6qa2fsR7x",
+        "spotifyUrl": "https://open.spotify.com/track/5HQEmiV2lKnSO6qa2fsR7x",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "I'm Not In Love",
+        "am": "10cc",
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBF087500001"
       },
       {
         "w": "1975-08-15",
@@ -26601,7 +27256,14 @@
         "lw": 45,
         "pk": 40,
         "wc": 3,
-        "sid": null
+        "sid": "3cxfUgWIrj0is6kZBED65i",
+        "spotifyUri": "spotify:track:3cxfUgWIrj0is6kZBED65i",
+        "spotifyUrl": "https://open.spotify.com/track/3cxfUgWIrj0is6kZBED65i",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Yum Yum (Gimme Some)",
+        "am": "Fatback Band",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1975-09-26",

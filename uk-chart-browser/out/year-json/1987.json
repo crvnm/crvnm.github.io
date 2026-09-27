@@ -334,7 +334,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "I Wanna Dance With Somebody (Who Loves Me)",
         "am": "Whitney Houston",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USAR18700121"
       },
       {
         "w": "1987-06-12",
@@ -350,7 +351,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "I Wanna Dance With Somebody (Who Loves Me)",
         "am": "Whitney Houston",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USAR18700121"
       },
       {
         "w": "1987-06-19",
@@ -582,7 +584,14 @@
         "lw": 6,
         "pk": 1,
         "wc": 5,
-        "sid": null
+        "sid": "5mwzpzRue1SBWwrbbhXfbf",
+        "spotifyUri": "spotify:track:5mwzpzRue1SBWwrbbhXfbf",
+        "spotifyUrl": "https://open.spotify.com/track/5mwzpzRue1SBWwrbbhXfbf",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "You Win Again",
+        "am": "Bee Gees",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1987-10-23",
@@ -591,7 +600,14 @@
         "lw": 1,
         "pk": 1,
         "wc": 6,
-        "sid": null
+        "sid": "5mwzpzRue1SBWwrbbhXfbf",
+        "spotifyUri": "spotify:track:5mwzpzRue1SBWwrbbhXfbf",
+        "spotifyUrl": "https://open.spotify.com/track/5mwzpzRue1SBWwrbbhXfbf",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "You Win Again",
+        "am": "Bee Gees",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1987-10-30",
@@ -600,7 +616,14 @@
         "lw": 1,
         "pk": 1,
         "wc": 7,
-        "sid": null
+        "sid": "5mwzpzRue1SBWwrbbhXfbf",
+        "spotifyUri": "spotify:track:5mwzpzRue1SBWwrbbhXfbf",
+        "spotifyUrl": "https://open.spotify.com/track/5mwzpzRue1SBWwrbbhXfbf",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "You Win Again",
+        "am": "Bee Gees",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1987-11-06",
@@ -609,7 +632,14 @@
         "lw": 1,
         "pk": 1,
         "wc": 8,
-        "sid": null
+        "sid": "5mwzpzRue1SBWwrbbhXfbf",
+        "spotifyUri": "spotify:track:5mwzpzRue1SBWwrbbhXfbf",
+        "spotifyUrl": "https://open.spotify.com/track/5mwzpzRue1SBWwrbbhXfbf",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "You Win Again",
+        "am": "Bee Gees",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1987-11-13",
@@ -972,7 +1002,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "I Wanna Dance With Somebody (Who Loves Me)",
         "am": "Whitney Houston",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USAR18700121"
       },
       {
         "w": "1987-06-05",
@@ -1020,7 +1051,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "I Wanna Dance With Somebody (Who Loves Me)",
         "am": "Whitney Houston",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USAR18700121"
       },
       {
         "w": "1987-06-26",
@@ -1036,7 +1068,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "I Wanna Dance With Somebody (Who Loves Me)",
         "am": "Whitney Houston",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USAR18700121"
       },
       {
         "w": "1987-07-03",
@@ -1159,7 +1192,14 @@
         "lw": 10,
         "pk": 2,
         "wc": 2,
-        "sid": null
+        "sid": "70SUqMnl69mui5lpfebWJk",
+        "spotifyUri": "spotify:track:70SUqMnl69mui5lpfebWJk",
+        "spotifyUrl": "https://open.spotify.com/track/70SUqMnl69mui5lpfebWJk",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "What Have I Done to Deserve This?",
+        "am": "Pet Shop Boys & Dusty Springfield",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1987-09-04",
@@ -1168,7 +1208,14 @@
         "lw": 2,
         "pk": 2,
         "wc": 3,
-        "sid": null
+        "sid": "70SUqMnl69mui5lpfebWJk",
+        "spotifyUri": "spotify:track:70SUqMnl69mui5lpfebWJk",
+        "spotifyUrl": "https://open.spotify.com/track/70SUqMnl69mui5lpfebWJk",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "What Have I Done to Deserve This?",
+        "am": "Pet Shop Boys & Dusty Springfield",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1987-09-11",
@@ -1177,7 +1224,14 @@
         "lw": 3,
         "pk": 2,
         "wc": 4,
-        "sid": null
+        "sid": "17zC9AEvxzPsu8OFc9rmev",
+        "spotifyUri": "spotify:track:17zC9AEvxzPsu8OFc9rmev",
+        "spotifyUrl": "https://open.spotify.com/track/17zC9AEvxzPsu8OFc9rmev",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Wipeout",
+        "am": "Fat Boys & The Beach Boys",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1987-09-18",
@@ -1827,7 +1881,14 @@
         "lw": 19,
         "pk": 3,
         "wc": 3,
-        "sid": null
+        "sid": "17zC9AEvxzPsu8OFc9rmev",
+        "spotifyUri": "spotify:track:17zC9AEvxzPsu8OFc9rmev",
+        "spotifyUrl": "https://open.spotify.com/track/17zC9AEvxzPsu8OFc9rmev",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Wipeout",
+        "am": "Fat Boys & The Beach Boys",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1987-09-11",
@@ -1836,7 +1897,14 @@
         "lw": 2,
         "pk": 2,
         "wc": 4,
-        "sid": null
+        "sid": "70SUqMnl69mui5lpfebWJk",
+        "spotifyUri": "spotify:track:70SUqMnl69mui5lpfebWJk",
+        "spotifyUrl": "https://open.spotify.com/track/70SUqMnl69mui5lpfebWJk",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "What Have I Done to Deserve This?",
+        "am": "Pet Shop Boys & Dusty Springfield",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1987-09-18",
@@ -1845,7 +1913,14 @@
         "lw": 2,
         "pk": 2,
         "wc": 5,
-        "sid": null
+        "sid": "17zC9AEvxzPsu8OFc9rmev",
+        "spotifyUri": "spotify:track:17zC9AEvxzPsu8OFc9rmev",
+        "spotifyUrl": "https://open.spotify.com/track/17zC9AEvxzPsu8OFc9rmev",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Wipeout",
+        "am": "Fat Boys & The Beach Boys",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1987-09-25",
@@ -1927,7 +2002,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Love in the First Degree",
         "am": "Bananarama",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAAP9600097"
       },
       {
         "w": "1987-11-06",
@@ -1952,7 +2028,14 @@
         "lw": 1,
         "pk": 1,
         "wc": 9,
-        "sid": null
+        "sid": "5mwzpzRue1SBWwrbbhXfbf",
+        "spotifyUri": "spotify:track:5mwzpzRue1SBWwrbbhXfbf",
+        "spotifyUrl": "https://open.spotify.com/track/5mwzpzRue1SBWwrbbhXfbf",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "You Win Again",
+        "am": "Bee Gees",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1987-11-20",
@@ -2371,7 +2454,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "I Wanna Dance With Somebody (Who Loves Me)",
         "am": "Whitney Houston",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USAR18700121"
       },
       {
         "w": "1987-07-10",
@@ -2638,7 +2722,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Love in the First Degree",
         "am": "Bananarama",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAAP9600097"
       },
       {
         "w": "1987-11-13",
@@ -2728,7 +2813,14 @@
         "lw": 9,
         "pk": 4,
         "wc": 4,
-        "sid": null
+        "sid": "0YrnkWSgHkzFCIZ1pA1G0g",
+        "spotifyUri": "spotify:track:0YrnkWSgHkzFCIZ1pA1G0g",
+        "spotifyUrl": "https://open.spotify.com/track/0YrnkWSgHkzFCIZ1pA1G0g",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Love Letters (remastered)",
+        "am": "Alison Moyet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1987-12-25",
@@ -3329,7 +3421,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Love in the First Degree",
         "am": "Bananarama",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAAP9600097"
       },
       {
         "w": "1987-10-30",
@@ -3466,7 +3559,14 @@
         "lw": 4,
         "pk": 4,
         "wc": 5,
-        "sid": null
+        "sid": "0YrnkWSgHkzFCIZ1pA1G0g",
+        "spotifyUri": "spotify:track:0YrnkWSgHkzFCIZ1pA1G0g",
+        "spotifyUrl": "https://open.spotify.com/track/0YrnkWSgHkzFCIZ1pA1G0g",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Love Letters (remastered)",
+        "am": "Alison Moyet",
+        "spotifyDecisionSource": "global-ledger"
       }
     ],
     "6": [
@@ -3477,7 +3577,14 @@
         "lw": 5,
         "pk": 4,
         "wc": 6,
-        "sid": null
+        "sid": "0YrnkWSgHkzFCIZ1pA1G0g",
+        "spotifyUri": "spotify:track:0YrnkWSgHkzFCIZ1pA1G0g",
+        "spotifyUrl": "https://open.spotify.com/track/0YrnkWSgHkzFCIZ1pA1G0g",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Love Letters (remastered)",
+        "am": "Alison Moyet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1987-01-09",
@@ -3998,7 +4105,14 @@
         "lw": 22,
         "pk": 6,
         "wc": 4,
-        "sid": null
+        "sid": "5mwzpzRue1SBWwrbbhXfbf",
+        "spotifyUri": "spotify:track:5mwzpzRue1SBWwrbbhXfbf",
+        "spotifyUrl": "https://open.spotify.com/track/5mwzpzRue1SBWwrbbhXfbf",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "You Win Again",
+        "am": "Bee Gees",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1987-10-16",
@@ -4674,7 +4788,14 @@
         "lw": 3,
         "pk": 2,
         "wc": 6,
-        "sid": null
+        "sid": "17zC9AEvxzPsu8OFc9rmev",
+        "spotifyUri": "spotify:track:17zC9AEvxzPsu8OFc9rmev",
+        "spotifyUrl": "https://open.spotify.com/track/17zC9AEvxzPsu8OFc9rmev",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Wipeout",
+        "am": "Fat Boys & The Beach Boys",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1987-10-02",
@@ -4758,7 +4879,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Love in the First Degree",
         "am": "Bananarama",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAAP9600097"
       },
       {
         "w": "1987-11-20",
@@ -4767,7 +4889,14 @@
         "lw": 3,
         "pk": 1,
         "wc": 10,
-        "sid": null
+        "sid": "5mwzpzRue1SBWwrbbhXfbf",
+        "spotifyUri": "spotify:track:5mwzpzRue1SBWwrbbhXfbf",
+        "spotifyUrl": "https://open.spotify.com/track/5mwzpzRue1SBWwrbbhXfbf",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "You Win Again",
+        "am": "Bee Gees",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1987-11-27",
@@ -5178,7 +5307,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "I Wanna Dance With Somebody (Who Loves Me)",
         "am": "Whitney Houston",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USAR18700121"
       },
       {
         "w": "1987-07-17",
@@ -5303,7 +5433,14 @@
         "lw": 3,
         "pk": 2,
         "wc": 5,
-        "sid": null
+        "sid": "70SUqMnl69mui5lpfebWJk",
+        "spotifyUri": "spotify:track:70SUqMnl69mui5lpfebWJk",
+        "spotifyUrl": "https://open.spotify.com/track/70SUqMnl69mui5lpfebWJk",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "What Have I Done to Deserve This?",
+        "am": "Pet Shop Boys & Dusty Springfield",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1987-09-25",
@@ -6147,7 +6284,14 @@
         "lw": 30,
         "pk": 9,
         "wc": 3,
-        "sid": null
+        "sid": "0YrnkWSgHkzFCIZ1pA1G0g",
+        "spotifyUri": "spotify:track:0YrnkWSgHkzFCIZ1pA1G0g",
+        "spotifyUrl": "https://open.spotify.com/track/0YrnkWSgHkzFCIZ1pA1G0g",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Love Letters (remastered)",
+        "am": "Alison Moyet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1987-12-18",
@@ -6461,7 +6605,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "I Wanna Dance With Somebody (Who Loves Me)",
         "am": "Whitney Houston",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USAR18700121"
       },
       {
         "w": "1987-05-29",
@@ -6634,7 +6779,14 @@
         "lw": "New",
         "pk": 10,
         "wc": 1,
-        "sid": null
+        "sid": "70SUqMnl69mui5lpfebWJk",
+        "spotifyUri": "spotify:track:70SUqMnl69mui5lpfebWJk",
+        "spotifyUrl": "https://open.spotify.com/track/70SUqMnl69mui5lpfebWJk",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "What Have I Done to Deserve This?",
+        "am": "Pet Shop Boys & Dusty Springfield",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1987-08-28",
@@ -7942,7 +8094,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "I Wanna Dance With Somebody (Who Loves Me)",
         "am": "Whitney Houston",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USAR18700121"
       },
       {
         "w": "1987-07-24",
@@ -8097,7 +8250,14 @@
         "lw": 7,
         "pk": 2,
         "wc": 7,
-        "sid": null
+        "sid": "17zC9AEvxzPsu8OFc9rmev",
+        "spotifyUri": "spotify:track:17zC9AEvxzPsu8OFc9rmev",
+        "spotifyUrl": "https://open.spotify.com/track/17zC9AEvxzPsu8OFc9rmev",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Wipeout",
+        "am": "Fat Boys & The Beach Boys",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1987-10-09",
@@ -8903,7 +9063,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Love in the First Degree",
         "am": "Bananarama",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAAP9600097"
       },
       {
         "w": "1987-11-27",
@@ -10206,7 +10367,14 @@
         "lw": 8,
         "pk": 2,
         "wc": 6,
-        "sid": null
+        "sid": "70SUqMnl69mui5lpfebWJk",
+        "spotifyUri": "spotify:track:70SUqMnl69mui5lpfebWJk",
+        "spotifyUrl": "https://open.spotify.com/track/70SUqMnl69mui5lpfebWJk",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "What Have I Done to Deserve This?",
+        "am": "Pet Shop Boys & Dusty Springfield",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1987-10-02",
@@ -10329,7 +10497,14 @@
         "lw": 7,
         "pk": 1,
         "wc": 11,
-        "sid": null
+        "sid": "5mwzpzRue1SBWwrbbhXfbf",
+        "spotifyUri": "spotify:track:5mwzpzRue1SBWwrbbhXfbf",
+        "spotifyUrl": "https://open.spotify.com/track/5mwzpzRue1SBWwrbbhXfbf",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "You Win Again",
+        "am": "Bee Gees",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1987-12-04",
@@ -11058,7 +11233,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Love in the First Degree",
         "am": "Bananarama",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAAP9600097"
       },
       {
         "w": "1987-12-04",
@@ -12200,7 +12376,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "I Wanna Dance With Somebody (Who Loves Me)",
         "am": "Whitney Houston",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USAR18700121"
       },
       {
         "w": "1987-07-31",
@@ -12327,7 +12504,14 @@
         "lw": 12,
         "pk": 2,
         "wc": 8,
-        "sid": null
+        "sid": "17zC9AEvxzPsu8OFc9rmev",
+        "spotifyUri": "spotify:track:17zC9AEvxzPsu8OFc9rmev",
+        "spotifyUrl": "https://open.spotify.com/track/17zC9AEvxzPsu8OFc9rmev",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Wipeout",
+        "am": "Fat Boys & The Beach Boys",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1987-10-16",
@@ -12911,7 +13095,14 @@
         "lw": 41,
         "pk": 19,
         "wc": 2,
-        "sid": null
+        "sid": "17zC9AEvxzPsu8OFc9rmev",
+        "spotifyUri": "spotify:track:17zC9AEvxzPsu8OFc9rmev",
+        "spotifyUrl": "https://open.spotify.com/track/17zC9AEvxzPsu8OFc9rmev",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Wipeout",
+        "am": "Fat Boys & The Beach Boys",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1987-09-04",
@@ -14200,7 +14391,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "I Wanna Dance With Somebody (Who Loves Me)",
         "am": "Whitney Houston",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USAR18700121"
       },
       {
         "w": "1987-08-07",
@@ -15017,7 +15209,14 @@
         "lw": 53,
         "pk": 22,
         "wc": 3,
-        "sid": null
+        "sid": "5mwzpzRue1SBWwrbbhXfbf",
+        "spotifyUri": "spotify:track:5mwzpzRue1SBWwrbbhXfbf",
+        "spotifyUrl": "https://open.spotify.com/track/5mwzpzRue1SBWwrbbhXfbf",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "You Win Again",
+        "am": "Bee Gees",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1987-10-09",
@@ -15042,7 +15241,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Love in the First Degree",
         "am": "Bananarama",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAAP9600097"
       },
       {
         "w": "1987-10-23",
@@ -17120,7 +17320,14 @@
         "lw": 15,
         "pk": 2,
         "wc": 7,
-        "sid": null
+        "sid": "70SUqMnl69mui5lpfebWJk",
+        "spotifyUri": "spotify:track:70SUqMnl69mui5lpfebWJk",
+        "spotifyUrl": "https://open.spotify.com/track/70SUqMnl69mui5lpfebWJk",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "What Have I Done to Deserve This?",
+        "am": "Pet Shop Boys & Dusty Springfield",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1987-10-09",
@@ -17215,7 +17422,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Love in the First Degree",
         "am": "Bananarama",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAAP9600097"
       },
       {
         "w": "1987-12-11",
@@ -19347,7 +19555,14 @@
         "lw": 15,
         "pk": 1,
         "wc": 12,
-        "sid": null
+        "sid": "5mwzpzRue1SBWwrbbhXfbf",
+        "spotifyUri": "spotify:track:5mwzpzRue1SBWwrbbhXfbf",
+        "spotifyUrl": "https://open.spotify.com/track/5mwzpzRue1SBWwrbbhXfbf",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "You Win Again",
+        "am": "Bee Gees",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1987-12-11",
@@ -20150,7 +20365,14 @@
         "lw": 34,
         "pk": 30,
         "wc": 9,
-        "sid": null
+        "sid": "1089tBrasHIE2g91xuy0QV",
+        "spotifyUri": "spotify:track:1089tBrasHIE2g91xuy0QV",
+        "spotifyUrl": "https://open.spotify.com/track/1089tBrasHIE2g91xuy0QV",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Victory",
+        "am": "Kool & the Gang",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1987-02-06",
@@ -20721,7 +20943,14 @@
         "lw": 43,
         "pk": 30,
         "wc": 2,
-        "sid": null
+        "sid": "0YrnkWSgHkzFCIZ1pA1G0g",
+        "spotifyUri": "spotify:track:0YrnkWSgHkzFCIZ1pA1G0g",
+        "spotifyUrl": "https://open.spotify.com/track/0YrnkWSgHkzFCIZ1pA1G0g",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Love Letters (remastered)",
+        "am": "Alison Moyet",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1987-12-11",
@@ -21738,7 +21967,14 @@
         "lw": 35,
         "pk": 32,
         "wc": 4,
-        "sid": null
+        "sid": "2wmbN4rOCsDGIbmrbfNQy1",
+        "spotifyUri": "spotify:track:2wmbN4rOCsDGIbmrbfNQy1",
+        "spotifyUrl": "https://open.spotify.com/track/2wmbN4rOCsDGIbmrbfNQy1",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Let Yourself Go",
+        "am": "Sybil",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1987-05-22",
@@ -22034,7 +22270,14 @@
         "lw": 18,
         "pk": 2,
         "wc": 9,
-        "sid": null
+        "sid": "17zC9AEvxzPsu8OFc9rmev",
+        "spotifyUri": "spotify:track:17zC9AEvxzPsu8OFc9rmev",
+        "spotifyUrl": "https://open.spotify.com/track/17zC9AEvxzPsu8OFc9rmev",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Wipeout",
+        "am": "Fat Boys & The Beach Boys",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1987-10-23",
@@ -22575,7 +22818,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "I Wanna Dance With Somebody (Who Loves Me)",
         "am": "Whitney Houston",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "USAR18700121"
       },
       {
         "w": "1987-08-14",
@@ -22877,7 +23121,14 @@
         "lw": 39,
         "pk": 34,
         "wc": 8,
-        "sid": null
+        "sid": "1089tBrasHIE2g91xuy0QV",
+        "spotifyUri": "spotify:track:1089tBrasHIE2g91xuy0QV",
+        "spotifyUrl": "https://open.spotify.com/track/1089tBrasHIE2g91xuy0QV",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Victory",
+        "am": "Kool & the Gang",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1987-01-30",
@@ -23568,7 +23819,14 @@
         "lw": 30,
         "pk": 30,
         "wc": 10,
-        "sid": null
+        "sid": "1089tBrasHIE2g91xuy0QV",
+        "spotifyUri": "spotify:track:1089tBrasHIE2g91xuy0QV",
+        "spotifyUrl": "https://open.spotify.com/track/1089tBrasHIE2g91xuy0QV",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Victory",
+        "am": "Kool & the Gang",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1987-02-13",
@@ -23720,7 +23978,14 @@
         "lw": 38,
         "pk": 35,
         "wc": 3,
-        "sid": null
+        "sid": "2wmbN4rOCsDGIbmrbfNQy1",
+        "spotifyUri": "spotify:track:2wmbN4rOCsDGIbmrbfNQy1",
+        "spotifyUrl": "https://open.spotify.com/track/2wmbN4rOCsDGIbmrbfNQy1",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Let Yourself Go",
+        "am": "Sybil",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1987-05-15",
@@ -24418,7 +24683,14 @@
         "lw": 32,
         "pk": 32,
         "wc": 5,
-        "sid": null
+        "sid": "2wmbN4rOCsDGIbmrbfNQy1",
+        "spotifyUri": "spotify:track:2wmbN4rOCsDGIbmrbfNQy1",
+        "spotifyUrl": "https://open.spotify.com/track/2wmbN4rOCsDGIbmrbfNQy1",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Let Yourself Go",
+        "am": "Sybil",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1987-05-29",
@@ -24582,7 +24854,14 @@
         "lw": 37,
         "pk": 36,
         "wc": 3,
-        "sid": null
+        "sid": "3Oa8vnNXStoOHLbJwwMEDP",
+        "spotifyUri": "spotify:track:3Oa8vnNXStoOHLbJwwMEDP",
+        "spotifyUrl": "https://open.spotify.com/track/3Oa8vnNXStoOHLbJwwMEDP",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Lips Like Sugar",
+        "am": "Echo & the Bunnymen",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1987-08-21",
@@ -25260,7 +25539,14 @@
         "lw": 57,
         "pk": 37,
         "wc": 2,
-        "sid": null
+        "sid": "3Oa8vnNXStoOHLbJwwMEDP",
+        "spotifyUri": "spotify:track:3Oa8vnNXStoOHLbJwwMEDP",
+        "spotifyUrl": "https://open.spotify.com/track/3Oa8vnNXStoOHLbJwwMEDP",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Lips Like Sugar",
+        "am": "Echo & the Bunnymen",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1987-08-14",
@@ -25779,7 +26065,14 @@
         "lw": 47,
         "pk": 38,
         "wc": 2,
-        "sid": null
+        "sid": "2wmbN4rOCsDGIbmrbfNQy1",
+        "spotifyUri": "spotify:track:2wmbN4rOCsDGIbmrbfNQy1",
+        "spotifyUrl": "https://open.spotify.com/track/2wmbN4rOCsDGIbmrbfNQy1",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Let Yourself Go",
+        "am": "Sybil",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1987-05-08",
@@ -26276,7 +26569,14 @@
         "lw": 42,
         "pk": 39,
         "wc": 7,
-        "sid": null
+        "sid": "1089tBrasHIE2g91xuy0QV",
+        "spotifyUri": "spotify:track:1089tBrasHIE2g91xuy0QV",
+        "spotifyUrl": "https://open.spotify.com/track/1089tBrasHIE2g91xuy0QV",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Victory",
+        "am": "Kool & the Gang",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1987-01-23",
@@ -26874,7 +27174,8 @@
         "spotifyMatchedBy": "accepted",
         "tm": "Love in the First Degree",
         "am": "Bananarama",
-        "spotifyDecisionSource": "global-ledger"
+        "spotifyDecisionSource": "global-ledger",
+        "isrc": "GBAAP9600097"
       },
       {
         "w": "1987-12-18",

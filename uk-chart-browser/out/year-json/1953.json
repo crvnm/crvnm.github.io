@@ -3245,7 +3245,14 @@
         "lw": 4,
         "pk": 1,
         "wc": 12,
-        "sid": null
+        "sid": "2cwTVrrgHxl4gcHY4IHr18",
+        "spotifyUri": "spotify:track:2cwTVrrgHxl4gcHY4IHr18",
+        "spotifyUrl": "https://open.spotify.com/track/2cwTVrrgHxl4gcHY4IHr18",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Don't Let The Stars Get In Your Eyes.",
+        "am": "Perry Como",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1953-04-10",
@@ -5925,7 +5932,14 @@
         "lw": 3,
         "pk": 3,
         "wc": 3,
-        "sid": null
+        "sid": "1yjKu4b7bDXwC69tQBFvJo",
+        "spotifyUri": "spotify:track:1yjKu4b7bDXwC69tQBFvJo",
+        "spotifyUrl": "https://open.spotify.com/track/1yjKu4b7bDXwC69tQBFvJo",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Ricochet",
+        "am": "Joan Regan",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1953-12-11",
@@ -5934,7 +5948,14 @@
         "lw": "New",
         "pk": 8,
         "wc": 1,
-        "sid": null
+        "sid": "1yjKu4b7bDXwC69tQBFvJo",
+        "spotifyUri": "spotify:track:1yjKu4b7bDXwC69tQBFvJo",
+        "spotifyUrl": "https://open.spotify.com/track/1yjKu4b7bDXwC69tQBFvJo",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "accepted",
+        "tm": "Ricochet",
+        "am": "Joan Regan",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1953-12-18",
