@@ -82,7 +82,14 @@
         "lw": 1,
         "pk": 1,
         "wc": 6,
-        "sid": null
+        "sid": "3AIEEEIDJFnqv8rozNVCRZ",
+        "spotifyUri": "spotify:track:3AIEEEIDJFnqv8rozNVCRZ",
+        "spotifyUrl": "https://open.spotify.com/track/3AIEEEIDJFnqv8rozNVCRZ",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Don't You Want Me",
+        "am": "The Human League",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-01-15",
@@ -141,7 +148,14 @@
         "lw": 3,
         "pk": 1,
         "wc": 15,
-        "sid": null
+        "sid": "7G3zERqh2d2tij0pVQfohU",
+        "spotifyUri": "spotify:track:7G3zERqh2d2tij0pVQfohU",
+        "spotifyUrl": "https://open.spotify.com/track/7G3zERqh2d2tij0pVQfohU",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "The Model",
+        "am": "Kraftwerk",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-02-12",
@@ -310,7 +324,14 @@
         "lw": 3,
         "pk": 1,
         "wc": 3,
-        "sid": null
+        "sid": "1FYTt8izKA8EMqhULwqOcU",
+        "spotifyUri": "spotify:track:1FYTt8izKA8EMqhULwqOcU",
+        "spotifyUrl": "https://open.spotify.com/track/1FYTt8izKA8EMqhULwqOcU",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Ebony And Ivory",
+        "am": "Paul McCartney, Stevie Wonder",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-04-30",
@@ -319,7 +340,14 @@
         "lw": 1,
         "pk": 1,
         "wc": 4,
-        "sid": null
+        "sid": "1FYTt8izKA8EMqhULwqOcU",
+        "spotifyUri": "spotify:track:1FYTt8izKA8EMqhULwqOcU",
+        "spotifyUrl": "https://open.spotify.com/track/1FYTt8izKA8EMqhULwqOcU",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Ebony And Ivory",
+        "am": "Paul McCartney, Stevie Wonder",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-05-07",
@@ -328,7 +356,14 @@
         "lw": 1,
         "pk": 1,
         "wc": 5,
-        "sid": null
+        "sid": "1FYTt8izKA8EMqhULwqOcU",
+        "spotifyUri": "spotify:track:1FYTt8izKA8EMqhULwqOcU",
+        "spotifyUrl": "https://open.spotify.com/track/1FYTt8izKA8EMqhULwqOcU",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Ebony And Ivory",
+        "am": "Paul McCartney, Stevie Wonder",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-05-14",
@@ -337,7 +372,14 @@
         "lw": 8,
         "pk": 1,
         "wc": 2,
-        "sid": null
+        "sid": "3q07nyhbjPf2izxg12WvQl",
+        "spotifyUri": "spotify:track:3q07nyhbjPf2izxg12WvQl",
+        "spotifyUrl": "https://open.spotify.com/track/3q07nyhbjPf2izxg12WvQl",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "A Little Peace",
+        "am": "Nicole",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-05-21",
@@ -346,7 +388,14 @@
         "lw": 1,
         "pk": 1,
         "wc": 3,
-        "sid": null
+        "sid": "3q07nyhbjPf2izxg12WvQl",
+        "spotifyUri": "spotify:track:3q07nyhbjPf2izxg12WvQl",
+        "spotifyUrl": "https://open.spotify.com/track/3q07nyhbjPf2izxg12WvQl",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "A Little Peace",
+        "am": "Nicole",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-05-28",
@@ -355,7 +404,14 @@
         "lw": 8,
         "pk": 1,
         "wc": 2,
-        "sid": null
+        "sid": "7JIr53FZOBcTjZFn5ddJmJ",
+        "spotifyUri": "spotify:track:7JIr53FZOBcTjZFn5ddJmJ",
+        "spotifyUrl": "https://open.spotify.com/track/7JIr53FZOBcTjZFn5ddJmJ",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "House of Fun",
+        "am": "Madness",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-06-04",
@@ -364,7 +420,14 @@
         "lw": 1,
         "pk": 1,
         "wc": 3,
-        "sid": null
+        "sid": "7JIr53FZOBcTjZFn5ddJmJ",
+        "spotifyUri": "spotify:track:7JIr53FZOBcTjZFn5ddJmJ",
+        "spotifyUrl": "https://open.spotify.com/track/7JIr53FZOBcTjZFn5ddJmJ",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "House of Fun",
+        "am": "Madness",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-06-11",
@@ -405,7 +468,14 @@
         "lw": 3,
         "pk": 1,
         "wc": 7,
-        "sid": null
+        "sid": "6DMOzL2zPZBAW0LDYCYLWm",
+        "spotifyUri": "spotify:track:6DMOzL2zPZBAW0LDYCYLWm",
+        "spotifyUrl": "https://open.spotify.com/track/6DMOzL2zPZBAW0LDYCYLWm",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I've Never Been To Me",
+        "am": "Charlene",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-07-02",
@@ -494,7 +564,14 @@
         "lw": 2,
         "pk": 1,
         "wc": 6,
-        "sid": null
+        "sid": "4MQoct1QCZVGuDHW55aE0k",
+        "spotifyUri": "spotify:track:4MQoct1QCZVGuDHW55aE0k",
+        "spotifyUrl": "https://open.spotify.com/track/4MQoct1QCZVGuDHW55aE0k",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Come On Eileen",
+        "am": "Dexys Midnight Runners",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-08-13",
@@ -503,7 +580,14 @@
         "lw": 1,
         "pk": 1,
         "wc": 7,
-        "sid": null
+        "sid": "4MQoct1QCZVGuDHW55aE0k",
+        "spotifyUri": "spotify:track:4MQoct1QCZVGuDHW55aE0k",
+        "spotifyUrl": "https://open.spotify.com/track/4MQoct1QCZVGuDHW55aE0k",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Come On Eileen",
+        "am": "Dexys Midnight Runners",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-08-20",
@@ -512,7 +596,14 @@
         "lw": 1,
         "pk": 1,
         "wc": 8,
-        "sid": null
+        "sid": "4MQoct1QCZVGuDHW55aE0k",
+        "spotifyUri": "spotify:track:4MQoct1QCZVGuDHW55aE0k",
+        "spotifyUrl": "https://open.spotify.com/track/4MQoct1QCZVGuDHW55aE0k",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Come On Eileen",
+        "am": "Dexys Midnight Runners",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-08-27",
@@ -521,7 +612,14 @@
         "lw": 1,
         "pk": 1,
         "wc": 9,
-        "sid": null
+        "sid": "4MQoct1QCZVGuDHW55aE0k",
+        "spotifyUri": "spotify:track:4MQoct1QCZVGuDHW55aE0k",
+        "spotifyUrl": "https://open.spotify.com/track/4MQoct1QCZVGuDHW55aE0k",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Come On Eileen",
+        "am": "Dexys Midnight Runners",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-09-03",
@@ -828,7 +926,14 @@
         "lw": 1,
         "pk": 1,
         "wc": 7,
-        "sid": null
+        "sid": "3AIEEEIDJFnqv8rozNVCRZ",
+        "spotifyUri": "spotify:track:3AIEEEIDJFnqv8rozNVCRZ",
+        "spotifyUrl": "https://open.spotify.com/track/3AIEEEIDJFnqv8rozNVCRZ",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Don't You Want Me",
+        "am": "The Human League",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-01-22",
@@ -837,7 +942,14 @@
         "lw": 10,
         "pk": 2,
         "wc": 13,
-        "sid": null
+        "sid": "7G3zERqh2d2tij0pVQfohU",
+        "spotifyUri": "spotify:track:7G3zERqh2d2tij0pVQfohU",
+        "spotifyUrl": "https://open.spotify.com/track/7G3zERqh2d2tij0pVQfohU",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "The Model",
+        "am": "Kraftwerk",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-01-29",
@@ -1023,7 +1135,14 @@
         "lw": 4,
         "pk": 2,
         "wc": 6,
-        "sid": null
+        "sid": "0owaXsPfNwYLyOv2goThTX",
+        "spotifyUri": "spotify:track:0owaXsPfNwYLyOv2goThTX",
+        "spotifyUrl": "https://open.spotify.com/track/0owaXsPfNwYLyOv2goThTX",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Ain't No Pleasing You",
+        "am": "Chas & Dave",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-04-23",
@@ -1048,7 +1167,14 @@
         "lw": 6,
         "pk": 2,
         "wc": 4,
-        "sid": null
+        "sid": "23MbJwSXJRfM8rwQ6RUdD5",
+        "spotifyUri": "spotify:track:23MbJwSXJRfM8rwQ6RUdD5",
+        "spotifyUrl": "https://open.spotify.com/track/23MbJwSXJRfM8rwQ6RUdD5",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "One Step Further - Original 7 Inch Mix",
+        "am": "Bardo",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-05-07",
@@ -1057,7 +1183,14 @@
         "lw": 4,
         "pk": 2,
         "wc": 5,
-        "sid": null
+        "sid": "4SLVywG6MwIdxmnmoRrxUb",
+        "spotifyUri": "spotify:track:4SLVywG6MwIdxmnmoRrxUb",
+        "spotifyUrl": "https://open.spotify.com/track/4SLVywG6MwIdxmnmoRrxUb",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "This Time We'll Get It Right",
+        "am": "England World Cup Squad 82",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-05-14",
@@ -1066,7 +1199,14 @@
         "lw": 1,
         "pk": 1,
         "wc": 6,
-        "sid": null
+        "sid": "1FYTt8izKA8EMqhULwqOcU",
+        "spotifyUri": "spotify:track:1FYTt8izKA8EMqhULwqOcU",
+        "spotifyUrl": "https://open.spotify.com/track/1FYTt8izKA8EMqhULwqOcU",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Ebony And Ivory",
+        "am": "Paul McCartney, Stevie Wonder",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-05-21",
@@ -1124,7 +1264,14 @@
         "lw": 1,
         "pk": 1,
         "wc": 4,
-        "sid": null
+        "sid": "7JIr53FZOBcTjZFn5ddJmJ",
+        "spotifyUri": "spotify:track:7JIr53FZOBcTjZFn5ddJmJ",
+        "spotifyUrl": "https://open.spotify.com/track/7JIr53FZOBcTjZFn5ddJmJ",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "House of Fun",
+        "am": "Madness",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-06-18",
@@ -1133,7 +1280,14 @@
         "lw": 3,
         "pk": 2,
         "wc": 4,
-        "sid": null
+        "sid": "5b3NxkCIUD5Yo8OTj3eEum",
+        "spotifyUri": "spotify:track:5b3NxkCIUD5Yo8OTj3eEum",
+        "spotifyUrl": "https://open.spotify.com/track/5b3NxkCIUD5Yo8OTj3eEum",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Torch - Original 7\" Single Version",
+        "am": "Soft Cell",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-06-25",
@@ -1158,7 +1312,14 @@
         "lw": 1,
         "pk": 1,
         "wc": 8,
-        "sid": null
+        "sid": "6DMOzL2zPZBAW0LDYCYLWm",
+        "spotifyUri": "spotify:track:6DMOzL2zPZBAW0LDYCYLWm",
+        "spotifyUrl": "https://open.spotify.com/track/6DMOzL2zPZBAW0LDYCYLWm",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I've Never Been To Me",
+        "am": "Charlene",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-07-09",
@@ -1199,7 +1360,14 @@
         "lw": 7,
         "pk": 2,
         "wc": 4,
-        "sid": null
+        "sid": "2yHg8zS8ktkZr61fossnP9",
+        "spotifyUri": "spotify:track:2yHg8zS8ktkZr61fossnP9",
+        "spotifyUrl": "https://open.spotify.com/track/2yHg8zS8ktkZr61fossnP9",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Da Da Da I Don't Love You You Don't Love Me Aha Aha Aha",
+        "am": "Trio",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-07-30",
@@ -1208,7 +1376,14 @@
         "lw": 9,
         "pk": 2,
         "wc": 5,
-        "sid": null
+        "sid": "4MQoct1QCZVGuDHW55aE0k",
+        "spotifyUri": "spotify:track:4MQoct1QCZVGuDHW55aE0k",
+        "spotifyUrl": "https://open.spotify.com/track/4MQoct1QCZVGuDHW55aE0k",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Come On Eileen",
+        "am": "Dexys Midnight Runners",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-08-06",
@@ -1281,7 +1456,14 @@
         "lw": 1,
         "pk": 1,
         "wc": 10,
-        "sid": null
+        "sid": "4MQoct1QCZVGuDHW55aE0k",
+        "spotifyUri": "spotify:track:4MQoct1QCZVGuDHW55aE0k",
+        "spotifyUrl": "https://open.spotify.com/track/4MQoct1QCZVGuDHW55aE0k",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Come On Eileen",
+        "am": "Dexys Midnight Runners",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-09-10",
@@ -1306,7 +1488,14 @@
         "lw": 4,
         "pk": 2,
         "wc": 3,
-        "sid": null
+        "sid": "49oTeJ5xTJw6jEaJP3HV2i",
+        "spotifyUri": "spotify:track:49oTeJ5xTJw6jEaJP3HV2i",
+        "spotifyUrl": "https://open.spotify.com/track/49oTeJ5xTJw6jEaJP3HV2i",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Private Investigations",
+        "am": "Dire Straits",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-09-24",
@@ -1396,7 +1585,14 @@
         "lw": 9,
         "pk": 2,
         "wc": 4,
-        "sid": null
+        "sid": "5paJLghWSGmEf6sY7LeYel",
+        "spotifyUri": "spotify:track:5paJLghWSGmEf6sY7LeYel",
+        "spotifyUrl": "https://open.spotify.com/track/5paJLghWSGmEf6sY7LeYel",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Annie, I'm Not Your Daddy",
+        "am": "Kid Creole And The Coconuts",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-11-05",
@@ -1588,7 +1784,14 @@
         "lw": 2,
         "pk": 2,
         "wc": 14,
-        "sid": null
+        "sid": "7G3zERqh2d2tij0pVQfohU",
+        "spotifyUri": "spotify:track:7G3zERqh2d2tij0pVQfohU",
+        "spotifyUrl": "https://open.spotify.com/track/7G3zERqh2d2tij0pVQfohU",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "The Model",
+        "am": "Kraftwerk",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-02-05",
@@ -1757,7 +1960,14 @@
         "lw": 19,
         "pk": 3,
         "wc": 2,
-        "sid": null
+        "sid": "1FYTt8izKA8EMqhULwqOcU",
+        "spotifyUri": "spotify:track:1FYTt8izKA8EMqhULwqOcU",
+        "spotifyUrl": "https://open.spotify.com/track/1FYTt8izKA8EMqhULwqOcU",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Ebony And Ivory",
+        "am": "Paul McCartney, Stevie Wonder",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-04-23",
@@ -1766,7 +1976,14 @@
         "lw": 9,
         "pk": 3,
         "wc": 4,
-        "sid": null
+        "sid": "50ZorxsKK4skrDDqtwLuJf",
+        "spotifyUri": "spotify:track:50ZorxsKK4skrDDqtwLuJf",
+        "spotifyUrl": "https://open.spotify.com/track/50ZorxsKK4skrDDqtwLuJf",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Papas Got a Brand New Pigbag - 7\" Version",
+        "am": "Pigbag",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-04-30",
@@ -1775,7 +1992,14 @@
         "lw": 3,
         "pk": 3,
         "wc": 5,
-        "sid": null
+        "sid": "50ZorxsKK4skrDDqtwLuJf",
+        "spotifyUri": "spotify:track:50ZorxsKK4skrDDqtwLuJf",
+        "spotifyUrl": "https://open.spotify.com/track/50ZorxsKK4skrDDqtwLuJf",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Papas Got a Brand New Pigbag - 7\" Version",
+        "am": "Pigbag",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-05-07",
@@ -1849,7 +2073,14 @@
         "lw": 16,
         "pk": 3,
         "wc": 2,
-        "sid": null
+        "sid": "5b3NxkCIUD5Yo8OTj3eEum",
+        "spotifyUri": "spotify:track:5b3NxkCIUD5Yo8OTj3eEum",
+        "spotifyUrl": "https://open.spotify.com/track/5b3NxkCIUD5Yo8OTj3eEum",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Torch - Original 7\" Single Version",
+        "am": "Soft Cell",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-06-11",
@@ -1858,7 +2089,14 @@
         "lw": 3,
         "pk": 3,
         "wc": 3,
-        "sid": null
+        "sid": "5b3NxkCIUD5Yo8OTj3eEum",
+        "spotifyUri": "spotify:track:5b3NxkCIUD5Yo8OTj3eEum",
+        "spotifyUrl": "https://open.spotify.com/track/5b3NxkCIUD5Yo8OTj3eEum",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Torch - Original 7\" Single Version",
+        "am": "Soft Cell",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-06-18",
@@ -1867,7 +2105,14 @@
         "lw": 9,
         "pk": 3,
         "wc": 6,
-        "sid": null
+        "sid": "6DMOzL2zPZBAW0LDYCYLWm",
+        "spotifyUri": "spotify:track:6DMOzL2zPZBAW0LDYCYLWm",
+        "spotifyUrl": "https://open.spotify.com/track/6DMOzL2zPZBAW0LDYCYLWm",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I've Never Been To Me",
+        "am": "Charlene",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-06-25",
@@ -1876,7 +2121,14 @@
         "lw": 2,
         "pk": 2,
         "wc": 5,
-        "sid": null
+        "sid": "5b3NxkCIUD5Yo8OTj3eEum",
+        "spotifyUri": "spotify:track:5b3NxkCIUD5Yo8OTj3eEum",
+        "spotifyUrl": "https://open.spotify.com/track/5b3NxkCIUD5Yo8OTj3eEum",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Torch - Original 7\" Single Version",
+        "am": "Soft Cell",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-07-02",
@@ -2045,7 +2297,14 @@
         "lw": 2,
         "pk": 1,
         "wc": 11,
-        "sid": null
+        "sid": "4MQoct1QCZVGuDHW55aE0k",
+        "spotifyUri": "spotify:track:4MQoct1QCZVGuDHW55aE0k",
+        "spotifyUrl": "https://open.spotify.com/track/4MQoct1QCZVGuDHW55aE0k",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Come On Eileen",
+        "am": "Dexys Midnight Runners",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-09-17",
@@ -2070,7 +2329,14 @@
         "lw": 2,
         "pk": 2,
         "wc": 4,
-        "sid": null
+        "sid": "49oTeJ5xTJw6jEaJP3HV2i",
+        "spotifyUri": "spotify:track:49oTeJ5xTJw6jEaJP3HV2i",
+        "spotifyUrl": "https://open.spotify.com/track/49oTeJ5xTJw6jEaJP3HV2i",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Private Investigations",
+        "am": "Dire Straits",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-10-01",
@@ -2323,7 +2589,14 @@
         "lw": 8,
         "pk": 4,
         "wc": 10,
-        "sid": null
+        "sid": "0PWzw28ei5W16wyYIrEEJR",
+        "spotifyUri": "spotify:track:0PWzw28ei5W16wyYIrEEJR",
+        "spotifyUrl": "https://open.spotify.com/track/0PWzw28ei5W16wyYIrEEJR",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Mirror Mirror",
+        "am": "Dollar",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-01-22",
@@ -2381,7 +2654,14 @@
         "lw": 1,
         "pk": 1,
         "wc": 16,
-        "sid": null
+        "sid": "7G3zERqh2d2tij0pVQfohU",
+        "spotifyUri": "spotify:track:7G3zERqh2d2tij0pVQfohU",
+        "spotifyUrl": "https://open.spotify.com/track/7G3zERqh2d2tij0pVQfohU",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "The Model",
+        "am": "Kraftwerk",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-02-19",
@@ -2390,7 +2670,14 @@
         "lw": 6,
         "pk": 4,
         "wc": 5,
-        "sid": null
+        "sid": "5KGPz0EcptGsUt3mziN0T4",
+        "spotifyUri": "spotify:track:5KGPz0EcptGsUt3mziN0T4",
+        "spotifyUrl": "https://open.spotify.com/track/5KGPz0EcptGsUt3mziN0T4",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Maid Of Orleans (The Waltz Joan Of Arc)",
+        "am": "Orchestral Manoeuvres In The Dark",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-02-26",
@@ -2431,7 +2718,14 @@
         "lw": 6,
         "pk": 4,
         "wc": 5,
-        "sid": null
+        "sid": "6zMmd8cgljvjDlVriRAfv3",
+        "spotifyUri": "spotify:track:6zMmd8cgljvjDlVriRAfv3",
+        "spotifyUrl": "https://open.spotify.com/track/6zMmd8cgljvjDlVriRAfv3",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "It Ain't What You Do It's the Way That You Do It",
+        "am": "Fun Boy Three, Bananarama",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-03-19",
@@ -2472,7 +2766,14 @@
         "lw": 7,
         "pk": 4,
         "wc": 5,
-        "sid": null
+        "sid": "2kkvB3RNRzwjFdGhaUA0tz",
+        "spotifyUri": "spotify:track:2kkvB3RNRzwjFdGhaUA0tz",
+        "spotifyUrl": "https://open.spotify.com/track/2kkvB3RNRzwjFdGhaUA0tz",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Layla",
+        "am": "Derek & The Dominos",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-04-09",
@@ -2481,7 +2782,14 @@
         "lw": 7,
         "pk": 4,
         "wc": 5,
-        "sid": null
+        "sid": "0owaXsPfNwYLyOv2goThTX",
+        "spotifyUri": "spotify:track:0owaXsPfNwYLyOv2goThTX",
+        "spotifyUrl": "https://open.spotify.com/track/0owaXsPfNwYLyOv2goThTX",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Ain't No Pleasing You",
+        "am": "Chas & Dave",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-04-16",
@@ -2522,7 +2830,14 @@
         "lw": 11,
         "pk": 4,
         "wc": 4,
-        "sid": null
+        "sid": "4SLVywG6MwIdxmnmoRrxUb",
+        "spotifyUri": "spotify:track:4SLVywG6MwIdxmnmoRrxUb",
+        "spotifyUrl": "https://open.spotify.com/track/4SLVywG6MwIdxmnmoRrxUb",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "This Time We'll Get It Right",
+        "am": "England World Cup Squad 82",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-05-07",
@@ -2579,7 +2894,14 @@
         "lw": 1,
         "pk": 1,
         "wc": 4,
-        "sid": null
+        "sid": "3q07nyhbjPf2izxg12WvQl",
+        "spotifyUri": "spotify:track:3q07nyhbjPf2izxg12WvQl",
+        "spotifyUrl": "https://open.spotify.com/track/3q07nyhbjPf2izxg12WvQl",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "A Little Peace",
+        "am": "Nicole",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-06-04",
@@ -2605,7 +2927,14 @@
         "lw": 5,
         "pk": 4,
         "wc": 5,
-        "sid": null
+        "sid": "6HvUtPLqkP0t6zd6YNdWby",
+        "spotifyUri": "spotify:track:6HvUtPLqkP0t6zd6YNdWby",
+        "spotifyUrl": "https://open.spotify.com/track/6HvUtPLqkP0t6zd6YNdWby",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "The Look Of Love, Pt.1",
+        "am": "ABC",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-06-18",
@@ -2614,7 +2943,14 @@
         "lw": 4,
         "pk": 4,
         "wc": 6,
-        "sid": null
+        "sid": "6HvUtPLqkP0t6zd6YNdWby",
+        "spotifyUri": "spotify:track:6HvUtPLqkP0t6zd6YNdWby",
+        "spotifyUrl": "https://open.spotify.com/track/6HvUtPLqkP0t6zd6YNdWby",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "The Look Of Love, Pt.1",
+        "am": "ABC",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-06-25",
@@ -2623,7 +2959,14 @@
         "lw": 7,
         "pk": 4,
         "wc": 7,
-        "sid": null
+        "sid": "1XgAvoD8fJQ1WMSYubcJXy",
+        "spotifyUri": "spotify:track:1XgAvoD8fJQ1WMSYubcJXy",
+        "spotifyUrl": "https://open.spotify.com/track/1XgAvoD8fJQ1WMSYubcJXy",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I'm A Wonderful Thing, Baby",
+        "am": "Kid Creole And The Coconuts",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-07-02",
@@ -2760,7 +3103,14 @@
         "lw": 6,
         "pk": 4,
         "wc": 5,
-        "sid": null
+        "sid": "3QaF9cHXm42zYpagUeTfUy",
+        "spotifyUri": "spotify:track:3QaF9cHXm42zYpagUeTfUy",
+        "spotifyUrl": "https://open.spotify.com/track/3QaF9cHXm42zYpagUeTfUy",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Can't Take My Eyes Off Of You",
+        "am": "Boys Town Gang",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-09-03",
@@ -2785,7 +3135,14 @@
         "lw": 13,
         "pk": 4,
         "wc": 2,
-        "sid": null
+        "sid": "49oTeJ5xTJw6jEaJP3HV2i",
+        "spotifyUri": "spotify:track:49oTeJ5xTJw6jEaJP3HV2i",
+        "spotifyUrl": "https://open.spotify.com/track/49oTeJ5xTJw6jEaJP3HV2i",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Private Investigations",
+        "am": "Dire Straits",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-09-17",
@@ -2794,7 +3151,14 @@
         "lw": 5,
         "pk": 4,
         "wc": 6,
-        "sid": null
+        "sid": "3U7RdUdPsJQqnZHEI0ifo9",
+        "spotifyUri": "spotify:track:3U7RdUdPsJQqnZHEI0ifo9",
+        "spotifyUrl": "https://open.spotify.com/track/3U7RdUdPsJQqnZHEI0ifo9",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Walking on Sunshine '82 (Edit)",
+        "am": "Rocker's Revenge, Donnie Calvin",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-09-24",
@@ -2803,7 +3167,14 @@
         "lw": 4,
         "pk": 4,
         "wc": 7,
-        "sid": null
+        "sid": "3U7RdUdPsJQqnZHEI0ifo9",
+        "spotifyUri": "spotify:track:3U7RdUdPsJQqnZHEI0ifo9",
+        "spotifyUrl": "https://open.spotify.com/track/3U7RdUdPsJQqnZHEI0ifo9",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Walking on Sunshine '82 (Edit)",
+        "am": "Rocker's Revenge, Donnie Calvin",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-10-01",
@@ -2828,7 +3199,14 @@
         "lw": 11,
         "pk": 4,
         "wc": 8,
-        "sid": null
+        "sid": "58DXqHKK7TfxUmhCq2ux4E",
+        "spotifyUri": "spotify:track:58DXqHKK7TfxUmhCq2ux4E",
+        "spotifyUrl": "https://open.spotify.com/track/58DXqHKK7TfxUmhCq2ux4E",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Hard to Say I'm Sorry",
+        "am": "Chicago",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-10-15",
@@ -2869,7 +3247,14 @@
         "lw": 5,
         "pk": 4,
         "wc": 3,
-        "sid": null
+        "sid": "3VbGCXWRiouAq8VyMYN2MI",
+        "spotifyUri": "spotify:track:3VbGCXWRiouAq8VyMYN2MI",
+        "spotifyUrl": "https://open.spotify.com/track/3VbGCXWRiouAq8VyMYN2MI",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Love Me Do - Remastered 2009",
+        "am": "The Beatles",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-11-05",
@@ -3053,7 +3438,14 @@
         "lw": 2,
         "pk": 1,
         "wc": 8,
-        "sid": null
+        "sid": "3AIEEEIDJFnqv8rozNVCRZ",
+        "spotifyUri": "spotify:track:3AIEEEIDJFnqv8rozNVCRZ",
+        "spotifyUrl": "https://open.spotify.com/track/3AIEEEIDJFnqv8rozNVCRZ",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Don't You Want Me",
+        "am": "The Human League",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-01-29",
@@ -3078,7 +3470,14 @@
         "lw": 9,
         "pk": 5,
         "wc": 11,
-        "sid": null
+        "sid": "71XUT6NKJULv7uX6WydqOl",
+        "spotifyUri": "spotify:track:71XUT6NKJULv7uX6WydqOl",
+        "spotifyUrl": "https://open.spotify.com/track/71XUT6NKJULv7uX6WydqOl",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Dead Ringer for Love (with Cher)",
+        "am": "Meat Loaf, Cher",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-02-12",
@@ -3087,7 +3486,14 @@
         "lw": 5,
         "pk": 5,
         "wc": 12,
-        "sid": null
+        "sid": "71XUT6NKJULv7uX6WydqOl",
+        "spotifyUri": "spotify:track:71XUT6NKJULv7uX6WydqOl",
+        "spotifyUrl": "https://open.spotify.com/track/71XUT6NKJULv7uX6WydqOl",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Dead Ringer for Love (with Cher)",
+        "am": "Meat Loaf, Cher",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-02-19",
@@ -3096,7 +3502,14 @@
         "lw": 4,
         "pk": 1,
         "wc": 17,
-        "sid": null
+        "sid": "7G3zERqh2d2tij0pVQfohU",
+        "spotifyUri": "spotify:track:7G3zERqh2d2tij0pVQfohU",
+        "spotifyUrl": "https://open.spotify.com/track/7G3zERqh2d2tij0pVQfohU",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "The Model",
+        "am": "Kraftwerk",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-02-26",
@@ -3153,7 +3566,14 @@
         "lw": 4,
         "pk": 4,
         "wc": 6,
-        "sid": null
+        "sid": "6zMmd8cgljvjDlVriRAfv3",
+        "spotifyUri": "spotify:track:6zMmd8cgljvjDlVriRAfv3",
+        "spotifyUrl": "https://open.spotify.com/track/6zMmd8cgljvjDlVriRAfv3",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "It Ain't What You Do It's the Way That You Do It",
+        "am": "Fun Boy Three, Bananarama",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-03-26",
@@ -3226,7 +3646,14 @@
         "lw": 2,
         "pk": 2,
         "wc": 7,
-        "sid": null
+        "sid": "0owaXsPfNwYLyOv2goThTX",
+        "spotifyUri": "spotify:track:0owaXsPfNwYLyOv2goThTX",
+        "spotifyUrl": "https://open.spotify.com/track/0owaXsPfNwYLyOv2goThTX",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Ain't No Pleasing You",
+        "am": "Chas & Dave",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-04-30",
@@ -3235,7 +3662,14 @@
         "lw": 17,
         "pk": 5,
         "wc": 4,
-        "sid": null
+        "sid": "4IZqQrcECMKcLxHWDzhzMV",
+        "spotifyUri": "spotify:track:4IZqQrcECMKcLxHWDzhzMV",
+        "spotifyUrl": "https://open.spotify.com/track/4IZqQrcECMKcLxHWDzhzMV",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Really Saying Something",
+        "am": "Bananarama, Fun Boy Three",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-05-07",
@@ -3244,7 +3678,14 @@
         "lw": 5,
         "pk": 5,
         "wc": 5,
-        "sid": null
+        "sid": "4IZqQrcECMKcLxHWDzhzMV",
+        "spotifyUri": "spotify:track:4IZqQrcECMKcLxHWDzhzMV",
+        "spotifyUrl": "https://open.spotify.com/track/4IZqQrcECMKcLxHWDzhzMV",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Really Saying Something",
+        "am": "Bananarama, Fun Boy Three",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-05-14",
@@ -3253,7 +3694,14 @@
         "lw": 13,
         "pk": 5,
         "wc": 3,
-        "sid": null
+        "sid": "5r1Zt0s7y3pZf4V0PxVfzj",
+        "spotifyUri": "spotify:track:5r1Zt0s7y3pZf4V0PxVfzj",
+        "spotifyUrl": "https://open.spotify.com/track/5r1Zt0s7y3pZf4V0PxVfzj",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "We Have a Dream",
+        "am": "The Scottish World Cup Squad",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-05-21",
@@ -3294,7 +3742,14 @@
         "lw": 6,
         "pk": 5,
         "wc": 4,
-        "sid": null
+        "sid": "6HvUtPLqkP0t6zd6YNdWby",
+        "spotifyUri": "spotify:track:6HvUtPLqkP0t6zd6YNdWby",
+        "spotifyUrl": "https://open.spotify.com/track/6HvUtPLqkP0t6zd6YNdWby",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "The Look Of Love, Pt.1",
+        "am": "ABC",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-06-11",
@@ -3319,7 +3774,14 @@
         "lw": 2,
         "pk": 1,
         "wc": 5,
-        "sid": null
+        "sid": "7JIr53FZOBcTjZFn5ddJmJ",
+        "spotifyUri": "spotify:track:7JIr53FZOBcTjZFn5ddJmJ",
+        "spotifyUrl": "https://open.spotify.com/track/7JIr53FZOBcTjZFn5ddJmJ",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "House of Fun",
+        "am": "Madness",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-06-25",
@@ -3408,7 +3870,14 @@
         "lw": 2,
         "pk": 2,
         "wc": 5,
-        "sid": null
+        "sid": "2yHg8zS8ktkZr61fossnP9",
+        "spotifyUri": "spotify:track:2yHg8zS8ktkZr61fossnP9",
+        "spotifyUrl": "https://open.spotify.com/track/2yHg8zS8ktkZr61fossnP9",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Da Da Da I Don't Love You You Don't Love Me Aha Aha Aha",
+        "am": "Trio",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-08-06",
@@ -3493,7 +3962,14 @@
         "lw": 7,
         "pk": 5,
         "wc": 5,
-        "sid": null
+        "sid": "3U7RdUdPsJQqnZHEI0ifo9",
+        "spotifyUri": "spotify:track:3U7RdUdPsJQqnZHEI0ifo9",
+        "spotifyUrl": "https://open.spotify.com/track/3U7RdUdPsJQqnZHEI0ifo9",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Walking on Sunshine '82 (Edit)",
+        "am": "Rocker's Revenge, Donnie Calvin",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-09-17",
@@ -3550,7 +4026,14 @@
         "lw": 26,
         "pk": 5,
         "wc": 2,
-        "sid": null
+        "sid": "3o1AFukFi4OhiNW23wDbaj",
+        "spotifyUri": "spotify:track:3o1AFukFi4OhiNW23wDbaj",
+        "spotifyUrl": "https://open.spotify.com/track/3o1AFukFi4OhiNW23wDbaj",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Jackie Wilson Said (I'm In Heaven When You Smile)",
+        "am": "Dexys Midnight Runners, Kevin Rowland",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-10-15",
@@ -3559,7 +4042,14 @@
         "lw": 4,
         "pk": 4,
         "wc": 9,
-        "sid": null
+        "sid": "58DXqHKK7TfxUmhCq2ux4E",
+        "spotifyUri": "spotify:track:58DXqHKK7TfxUmhCq2ux4E",
+        "spotifyUrl": "https://open.spotify.com/track/58DXqHKK7TfxUmhCq2ux4E",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Hard to Say I'm Sorry",
+        "am": "Chicago",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-10-22",
@@ -3568,7 +4058,14 @@
         "lw": 14,
         "pk": 5,
         "wc": 2,
-        "sid": null
+        "sid": "3VbGCXWRiouAq8VyMYN2MI",
+        "spotifyUri": "spotify:track:3VbGCXWRiouAq8VyMYN2MI",
+        "spotifyUrl": "https://open.spotify.com/track/3VbGCXWRiouAq8VyMYN2MI",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Love Me Do - Remastered 2009",
+        "am": "The Beatles",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-10-29",
@@ -3619,7 +4116,14 @@
         "lw": 11,
         "pk": 5,
         "wc": 3,
-        "sid": null
+        "sid": "7CTSDg60OC15XUJusBLPuo",
+        "spotifyUri": "spotify:track:7CTSDg60OC15XUJusBLPuo",
+        "spotifyUrl": "https://open.spotify.com/track/7CTSDg60OC15XUJusBLPuo",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Theme from Harry's Game",
+        "am": "Clannad",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-11-26",
@@ -3731,7 +4235,14 @@
         "lw": 2,
         "pk": 2,
         "wc": 8,
-        "sid": null
+        "sid": "4TxH5YTe6924BjRC6NtUXP",
+        "spotifyUri": "spotify:track:4TxH5YTe6924BjRC6NtUXP",
+        "spotifyUrl": "https://open.spotify.com/track/4TxH5YTe6924BjRC6NtUXP",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Daddy's Home - 2003 Remaster",
+        "am": "Cliff Richard",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-01-15",
@@ -3756,7 +4267,14 @@
         "lw": 8,
         "pk": 6,
         "wc": 7,
-        "sid": null
+        "sid": "3RjyVvrqmS26Sq6vUMswWd",
+        "spotifyUri": "spotify:track:3RjyVvrqmS26Sq6vUMswWd",
+        "spotifyUrl": "https://open.spotify.com/track/3RjyVvrqmS26Sq6vUMswWd",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I'll Find My Way Home",
+        "am": "Jon & Vangelis",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-01-29",
@@ -3781,7 +4299,14 @@
         "lw": 17,
         "pk": 6,
         "wc": 3,
-        "sid": null
+        "sid": "5KGPz0EcptGsUt3mziN0T4",
+        "spotifyUri": "spotify:track:5KGPz0EcptGsUt3mziN0T4",
+        "spotifyUrl": "https://open.spotify.com/track/5KGPz0EcptGsUt3mziN0T4",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Maid Of Orleans (The Waltz Joan Of Arc)",
+        "am": "Orchestral Manoeuvres In The Dark",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-02-12",
@@ -3790,7 +4315,14 @@
         "lw": 6,
         "pk": 6,
         "wc": 4,
-        "sid": null
+        "sid": "5KGPz0EcptGsUt3mziN0T4",
+        "spotifyUri": "spotify:track:5KGPz0EcptGsUt3mziN0T4",
+        "spotifyUrl": "https://open.spotify.com/track/5KGPz0EcptGsUt3mziN0T4",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Maid Of Orleans (The Waltz Joan Of Arc)",
+        "am": "Orchestral Manoeuvres In The Dark",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-02-19",
@@ -3831,7 +4363,14 @@
         "lw": 9,
         "pk": 6,
         "wc": 4,
-        "sid": null
+        "sid": "6zMmd8cgljvjDlVriRAfv3",
+        "spotifyUri": "spotify:track:6zMmd8cgljvjDlVriRAfv3",
+        "spotifyUrl": "https://open.spotify.com/track/6zMmd8cgljvjDlVriRAfv3",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "It Ain't What You Do It's the Way That You Do It",
+        "am": "Fun Boy Three, Bananarama",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-03-12",
@@ -3936,7 +4475,14 @@
         "lw": 16,
         "pk": 6,
         "wc": 3,
-        "sid": null
+        "sid": "23MbJwSXJRfM8rwQ6RUdD5",
+        "spotifyUri": "spotify:track:23MbJwSXJRfM8rwQ6RUdD5",
+        "spotifyUrl": "https://open.spotify.com/track/23MbJwSXJRfM8rwQ6RUdD5",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "One Step Further - Original 7 Inch Mix",
+        "am": "Bardo",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-04-30",
@@ -3961,7 +4507,14 @@
         "lw": 2,
         "pk": 2,
         "wc": 5,
-        "sid": null
+        "sid": "23MbJwSXJRfM8rwQ6RUdD5",
+        "spotifyUri": "spotify:track:23MbJwSXJRfM8rwQ6RUdD5",
+        "spotifyUrl": "https://open.spotify.com/track/23MbJwSXJRfM8rwQ6RUdD5",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "One Step Further - Original 7 Inch Mix",
+        "am": "Bardo",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-05-14",
@@ -3970,7 +4523,14 @@
         "lw": 5,
         "pk": 5,
         "wc": 6,
-        "sid": null
+        "sid": "4IZqQrcECMKcLxHWDzhzMV",
+        "spotifyUri": "spotify:track:4IZqQrcECMKcLxHWDzhzMV",
+        "spotifyUrl": "https://open.spotify.com/track/4IZqQrcECMKcLxHWDzhzMV",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Really Saying Something",
+        "am": "Bananarama, Fun Boy Three",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-05-21",
@@ -3979,7 +4539,14 @@
         "lw": 5,
         "pk": 5,
         "wc": 4,
-        "sid": null
+        "sid": "5r1Zt0s7y3pZf4V0PxVfzj",
+        "spotifyUri": "spotify:track:5r1Zt0s7y3pZf4V0PxVfzj",
+        "spotifyUrl": "https://open.spotify.com/track/5r1Zt0s7y3pZf4V0PxVfzj",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "We Have a Dream",
+        "am": "The Scottish World Cup Squad",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-05-28",
@@ -3988,7 +4555,14 @@
         "lw": 13,
         "pk": 6,
         "wc": 3,
-        "sid": null
+        "sid": "6HvUtPLqkP0t6zd6YNdWby",
+        "spotifyUri": "spotify:track:6HvUtPLqkP0t6zd6YNdWby",
+        "spotifyUrl": "https://open.spotify.com/track/6HvUtPLqkP0t6zd6YNdWby",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "The Look Of Love, Pt.1",
+        "am": "ABC",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-06-04",
@@ -4045,7 +4619,14 @@
         "lw": 4,
         "pk": 4,
         "wc": 7,
-        "sid": null
+        "sid": "6HvUtPLqkP0t6zd6YNdWby",
+        "spotifyUri": "spotify:track:6HvUtPLqkP0t6zd6YNdWby",
+        "spotifyUrl": "https://open.spotify.com/track/6HvUtPLqkP0t6zd6YNdWby",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "The Look Of Love, Pt.1",
+        "am": "ABC",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-07-02",
@@ -4054,7 +4635,14 @@
         "lw": 4,
         "pk": 4,
         "wc": 8,
-        "sid": null
+        "sid": "1XgAvoD8fJQ1WMSYubcJXy",
+        "spotifyUri": "spotify:track:1XgAvoD8fJQ1WMSYubcJXy",
+        "spotifyUrl": "https://open.spotify.com/track/1XgAvoD8fJQ1WMSYubcJXy",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I'm A Wonderful Thing, Baby",
+        "am": "Kid Creole And The Coconuts",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-07-09",
@@ -4127,7 +4715,14 @@
         "lw": 5,
         "pk": 2,
         "wc": 6,
-        "sid": null
+        "sid": "2yHg8zS8ktkZr61fossnP9",
+        "spotifyUri": "spotify:track:2yHg8zS8ktkZr61fossnP9",
+        "spotifyUrl": "https://open.spotify.com/track/2yHg8zS8ktkZr61fossnP9",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Da Da Da I Don't Love You You Don't Love Me Aha Aha Aha",
+        "am": "Trio",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-08-13",
@@ -4152,7 +4747,14 @@
         "lw": 21,
         "pk": 6,
         "wc": 4,
-        "sid": null
+        "sid": "3QaF9cHXm42zYpagUeTfUy",
+        "spotifyUri": "spotify:track:3QaF9cHXm42zYpagUeTfUy",
+        "spotifyUrl": "https://open.spotify.com/track/3QaF9cHXm42zYpagUeTfUy",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Can't Take My Eyes Off Of You",
+        "am": "Boys Town Gang",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-08-27",
@@ -4177,7 +4779,14 @@
         "lw": 4,
         "pk": 4,
         "wc": 6,
-        "sid": null
+        "sid": "3QaF9cHXm42zYpagUeTfUy",
+        "spotifyUri": "spotify:track:3QaF9cHXm42zYpagUeTfUy",
+        "spotifyUrl": "https://open.spotify.com/track/3QaF9cHXm42zYpagUeTfUy",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Can't Take My Eyes Off Of You",
+        "am": "Boys Town Gang",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-09-10",
@@ -4227,7 +4836,14 @@
         "lw": 4,
         "pk": 4,
         "wc": 8,
-        "sid": null
+        "sid": "3U7RdUdPsJQqnZHEI0ifo9",
+        "spotifyUri": "spotify:track:3U7RdUdPsJQqnZHEI0ifo9",
+        "spotifyUrl": "https://open.spotify.com/track/3U7RdUdPsJQqnZHEI0ifo9",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Walking on Sunshine '82 (Edit)",
+        "am": "Rocker's Revenge, Donnie Calvin",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-10-08",
@@ -4252,7 +4868,14 @@
         "lw": 5,
         "pk": 5,
         "wc": 3,
-        "sid": null
+        "sid": "3o1AFukFi4OhiNW23wDbaj",
+        "spotifyUri": "spotify:track:3o1AFukFi4OhiNW23wDbaj",
+        "spotifyUrl": "https://open.spotify.com/track/3o1AFukFi4OhiNW23wDbaj",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Jackie Wilson Said (I'm In Heaven When You Smile)",
+        "am": "Dexys Midnight Runners, Kevin Rowland",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-10-22",
@@ -4261,7 +4884,14 @@
         "lw": 5,
         "pk": 4,
         "wc": 10,
-        "sid": null
+        "sid": "58DXqHKK7TfxUmhCq2ux4E",
+        "spotifyUri": "spotify:track:58DXqHKK7TfxUmhCq2ux4E",
+        "spotifyUrl": "https://open.spotify.com/track/58DXqHKK7TfxUmhCq2ux4E",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Hard to Say I'm Sorry",
+        "am": "Chicago",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-10-29",
@@ -4286,7 +4916,14 @@
         "lw": 2,
         "pk": 2,
         "wc": 5,
-        "sid": null
+        "sid": "5paJLghWSGmEf6sY7LeYel",
+        "spotifyUri": "spotify:track:5paJLghWSGmEf6sY7LeYel",
+        "spotifyUrl": "https://open.spotify.com/track/5paJLghWSGmEf6sY7LeYel",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Annie, I'm Not Your Daddy",
+        "am": "Kid Creole And The Coconuts",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-11-12",
@@ -4295,7 +4932,14 @@
         "lw": 11,
         "pk": 6,
         "wc": 5,
-        "sid": null
+        "sid": "58Omjh8UQKrup5Wu0itGfW",
+        "spotifyUri": "spotify:track:58Omjh8UQKrup5Wu0itGfW",
+        "spotifyUrl": "https://open.spotify.com/track/58Omjh8UQKrup5Wu0itGfW",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Let's Go Dancin' (Ooh La, La, La) - Single Version",
+        "am": "Kool & The Gang",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-11-19",
@@ -4445,7 +5089,14 @@
         "lw": 26,
         "pk": 7,
         "wc": 9,
-        "sid": null
+        "sid": "71XUT6NKJULv7uX6WydqOl",
+        "spotifyUri": "spotify:track:71XUT6NKJULv7uX6WydqOl",
+        "spotifyUrl": "https://open.spotify.com/track/71XUT6NKJULv7uX6WydqOl",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Dead Ringer for Love (with Cher)",
+        "am": "Meat Loaf, Cher",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-01-29",
@@ -4454,7 +5105,14 @@
         "lw": 6,
         "pk": 6,
         "wc": 8,
-        "sid": null
+        "sid": "3RjyVvrqmS26Sq6vUMswWd",
+        "spotifyUri": "spotify:track:3RjyVvrqmS26Sq6vUMswWd",
+        "spotifyUrl": "https://open.spotify.com/track/3RjyVvrqmS26Sq6vUMswWd",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I'll Find My Way Home",
+        "am": "Jon & Vangelis",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-02-05",
@@ -4463,7 +5121,14 @@
         "lw": 10,
         "pk": 7,
         "wc": 9,
-        "sid": null
+        "sid": "5fnOrhQ4KgT5irGCjIccGH",
+        "spotifyUri": "spotify:track:5fnOrhQ4KgT5irGCjIccGH",
+        "spotifyUrl": "https://open.spotify.com/track/5fnOrhQ4KgT5irGCjIccGH",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Arthur's Theme (Best That You Can Do)",
+        "am": "Christopher Cross",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-02-12",
@@ -4472,7 +5137,14 @@
         "lw": 7,
         "pk": 7,
         "wc": 10,
-        "sid": null
+        "sid": "5fnOrhQ4KgT5irGCjIccGH",
+        "spotifyUri": "spotify:track:5fnOrhQ4KgT5irGCjIccGH",
+        "spotifyUrl": "https://open.spotify.com/track/5fnOrhQ4KgT5irGCjIccGH",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Arthur's Theme (Best That You Can Do)",
+        "am": "Christopher Cross",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-02-19",
@@ -4497,7 +5169,14 @@
         "lw": 4,
         "pk": 4,
         "wc": 6,
-        "sid": null
+        "sid": "5KGPz0EcptGsUt3mziN0T4",
+        "spotifyUri": "spotify:track:5KGPz0EcptGsUt3mziN0T4",
+        "spotifyUrl": "https://open.spotify.com/track/5KGPz0EcptGsUt3mziN0T4",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Maid Of Orleans (The Waltz Joan Of Arc)",
+        "am": "Orchestral Manoeuvres In The Dark",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-03-05",
@@ -4555,7 +5234,14 @@
         "lw": 16,
         "pk": 7,
         "wc": 4,
-        "sid": null
+        "sid": "2kkvB3RNRzwjFdGhaUA0tz",
+        "spotifyUri": "spotify:track:2kkvB3RNRzwjFdGhaUA0tz",
+        "spotifyUrl": "https://open.spotify.com/track/2kkvB3RNRzwjFdGhaUA0tz",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Layla",
+        "am": "Derek & The Dominos",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-04-02",
@@ -4564,7 +5250,14 @@
         "lw": 14,
         "pk": 7,
         "wc": 4,
-        "sid": null
+        "sid": "0owaXsPfNwYLyOv2goThTX",
+        "spotifyUri": "spotify:track:0owaXsPfNwYLyOv2goThTX",
+        "spotifyUrl": "https://open.spotify.com/track/0owaXsPfNwYLyOv2goThTX",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Ain't No Pleasing You",
+        "am": "Chas & Dave",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-04-09",
@@ -4637,7 +5330,14 @@
         "lw": 3,
         "pk": 3,
         "wc": 6,
-        "sid": null
+        "sid": "50ZorxsKK4skrDDqtwLuJf",
+        "spotifyUri": "spotify:track:50ZorxsKK4skrDDqtwLuJf",
+        "spotifyUrl": "https://open.spotify.com/track/50ZorxsKK4skrDDqtwLuJf",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Papas Got a Brand New Pigbag - 7\" Version",
+        "am": "Pigbag",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-05-14",
@@ -4727,7 +5427,14 @@
         "lw": 17,
         "pk": 7,
         "wc": 6,
-        "sid": null
+        "sid": "1XgAvoD8fJQ1WMSYubcJXy",
+        "spotifyUri": "spotify:track:1XgAvoD8fJQ1WMSYubcJXy",
+        "spotifyUrl": "https://open.spotify.com/track/1XgAvoD8fJQ1WMSYubcJXy",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I'm A Wonderful Thing, Baby",
+        "am": "Kid Creole And The Coconuts",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-06-25",
@@ -4768,7 +5475,14 @@
         "lw": 2,
         "pk": 1,
         "wc": 9,
-        "sid": null
+        "sid": "6DMOzL2zPZBAW0LDYCYLWm",
+        "spotifyUri": "spotify:track:6DMOzL2zPZBAW0LDYCYLWm",
+        "spotifyUrl": "https://open.spotify.com/track/6DMOzL2zPZBAW0LDYCYLWm",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I've Never Been To Me",
+        "am": "Charlene",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-07-16",
@@ -4777,7 +5491,14 @@
         "lw": 30,
         "pk": 7,
         "wc": 3,
-        "sid": null
+        "sid": "2yHg8zS8ktkZr61fossnP9",
+        "spotifyUri": "spotify:track:2yHg8zS8ktkZr61fossnP9",
+        "spotifyUrl": "https://open.spotify.com/track/2yHg8zS8ktkZr61fossnP9",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Da Da Da I Don't Love You You Don't Love Me Aha Aha Aha",
+        "am": "Trio",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-07-23",
@@ -4876,7 +5597,14 @@
         "lw": 19,
         "pk": 7,
         "wc": 4,
-        "sid": null
+        "sid": "3U7RdUdPsJQqnZHEI0ifo9",
+        "spotifyUri": "spotify:track:3U7RdUdPsJQqnZHEI0ifo9",
+        "spotifyUrl": "https://open.spotify.com/track/3U7RdUdPsJQqnZHEI0ifo9",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Walking on Sunshine '82 (Edit)",
+        "am": "Rocker's Revenge, Donnie Calvin",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-09-10",
@@ -5006,7 +5734,14 @@
         "lw": 4,
         "pk": 4,
         "wc": 4,
-        "sid": null
+        "sid": "3VbGCXWRiouAq8VyMYN2MI",
+        "spotifyUri": "spotify:track:3VbGCXWRiouAq8VyMYN2MI",
+        "spotifyUrl": "https://open.spotify.com/track/3VbGCXWRiouAq8VyMYN2MI",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Love Me Do - Remastered 2009",
+        "am": "The Beatles",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-11-12",
@@ -5147,7 +5882,14 @@
         "lw": 9,
         "pk": 8,
         "wc": 9,
-        "sid": null
+        "sid": "0PWzw28ei5W16wyYIrEEJR",
+        "spotifyUri": "spotify:track:0PWzw28ei5W16wyYIrEEJR",
+        "spotifyUrl": "https://open.spotify.com/track/0PWzw28ei5W16wyYIrEEJR",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Mirror Mirror",
+        "am": "Dollar",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-01-15",
@@ -5156,7 +5898,14 @@
         "lw": 9,
         "pk": 8,
         "wc": 6,
-        "sid": null
+        "sid": "3RjyVvrqmS26Sq6vUMswWd",
+        "spotifyUri": "spotify:track:3RjyVvrqmS26Sq6vUMswWd",
+        "spotifyUrl": "https://open.spotify.com/track/3RjyVvrqmS26Sq6vUMswWd",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I'll Find My Way Home",
+        "am": "Jon & Vangelis",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-01-22",
@@ -5181,7 +5930,14 @@
         "lw": 11,
         "pk": 4,
         "wc": 12,
-        "sid": null
+        "sid": "0PWzw28ei5W16wyYIrEEJR",
+        "spotifyUri": "spotify:track:0PWzw28ei5W16wyYIrEEJR",
+        "spotifyUrl": "https://open.spotify.com/track/0PWzw28ei5W16wyYIrEEJR",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Mirror Mirror",
+        "am": "Dollar",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-02-05",
@@ -5222,7 +5978,14 @@
         "lw": 7,
         "pk": 7,
         "wc": 11,
-        "sid": null
+        "sid": "5fnOrhQ4KgT5irGCjIccGH",
+        "spotifyUri": "spotify:track:5fnOrhQ4KgT5irGCjIccGH",
+        "spotifyUrl": "https://open.spotify.com/track/5fnOrhQ4KgT5irGCjIccGH",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Arthur's Theme (Best That You Can Do)",
+        "am": "Christopher Cross",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-02-26",
@@ -5231,7 +5994,14 @@
         "lw": 12,
         "pk": 8,
         "wc": 6,
-        "sid": null
+        "sid": "1bwgAeL1xmQf5iGm8768zm",
+        "spotifyUri": "spotify:track:1bwgAeL1xmQf5iGm8768zm",
+        "spotifyUrl": "https://open.spotify.com/track/1bwgAeL1xmQf5iGm8768zm",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I Can't Go For That (No Can Do)",
+        "am": "Daryl Hall & John Oates",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-03-05",
@@ -5320,7 +6090,14 @@
         "lw": 4,
         "pk": 4,
         "wc": 6,
-        "sid": null
+        "sid": "2kkvB3RNRzwjFdGhaUA0tz",
+        "spotifyUri": "spotify:track:2kkvB3RNRzwjFdGhaUA0tz",
+        "spotifyUrl": "https://open.spotify.com/track/2kkvB3RNRzwjFdGhaUA0tz",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Layla",
+        "am": "Derek & The Dominos",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-04-16",
@@ -5377,7 +6154,14 @@
         "lw": "New",
         "pk": 8,
         "wc": 1,
-        "sid": null
+        "sid": "3q07nyhbjPf2izxg12WvQl",
+        "spotifyUri": "spotify:track:3q07nyhbjPf2izxg12WvQl",
+        "spotifyUrl": "https://open.spotify.com/track/3q07nyhbjPf2izxg12WvQl",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "A Little Peace",
+        "am": "Nicole",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-05-14",
@@ -5386,7 +6170,14 @@
         "lw": 2,
         "pk": 2,
         "wc": 6,
-        "sid": null
+        "sid": "4SLVywG6MwIdxmnmoRrxUb",
+        "spotifyUri": "spotify:track:4SLVywG6MwIdxmnmoRrxUb",
+        "spotifyUrl": "https://open.spotify.com/track/4SLVywG6MwIdxmnmoRrxUb",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "This Time We'll Get It Right",
+        "am": "England World Cup Squad 82",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-05-21",
@@ -5395,7 +6186,14 @@
         "lw": "New",
         "pk": 8,
         "wc": 1,
-        "sid": null
+        "sid": "7JIr53FZOBcTjZFn5ddJmJ",
+        "spotifyUri": "spotify:track:7JIr53FZOBcTjZFn5ddJmJ",
+        "spotifyUrl": "https://open.spotify.com/track/7JIr53FZOBcTjZFn5ddJmJ",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "House of Fun",
+        "am": "Madness",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-05-28",
@@ -5501,7 +6299,14 @@
         "lw": 13,
         "pk": 8,
         "wc": 2,
-        "sid": null
+        "sid": "3etwLlqrcPp56Jo8ox5LTS",
+        "spotifyUri": "spotify:track:3etwLlqrcPp56Jo8ox5LTS",
+        "spotifyUrl": "https://open.spotify.com/track/3etwLlqrcPp56Jo8ox5LTS",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Just Who Is The 5 O'Clock Hero?",
+        "am": "The Jam",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-07-16",
@@ -5623,7 +6428,14 @@
         "lw": 9,
         "pk": 8,
         "wc": 5,
-        "sid": null
+        "sid": "4vtTsVxuNUsXYGnt0OnshJ",
+        "spotifyUri": "spotify:track:4vtTsVxuNUsXYGnt0OnshJ",
+        "spotifyUrl": "https://open.spotify.com/track/4vtTsVxuNUsXYGnt0OnshJ",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I Eat Cannibals, Pt. 1",
+        "am": "Toto Coelo",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-09-10",
@@ -5680,7 +6492,14 @@
         "lw": 3,
         "pk": 2,
         "wc": 5,
-        "sid": null
+        "sid": "49oTeJ5xTJw6jEaJP3HV2i",
+        "spotifyUri": "spotify:track:49oTeJ5xTJw6jEaJP3HV2i",
+        "spotifyUrl": "https://open.spotify.com/track/49oTeJ5xTJw6jEaJP3HV2i",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Private Investigations",
+        "am": "Dire Straits",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-10-08",
@@ -5721,7 +6540,14 @@
         "lw": 27,
         "pk": 8,
         "wc": 6,
-        "sid": null
+        "sid": "2y8Js6dBaCdps7XLuvSruW",
+        "spotifyUri": "spotify:track:2y8Js6dBaCdps7XLuvSruW",
+        "spotifyUrl": "https://open.spotify.com/track/2y8Js6dBaCdps7XLuvSruW",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Danger Games",
+        "am": "The Pinkees",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-10-29",
@@ -5778,7 +6604,14 @@
         "lw": 9,
         "pk": 8,
         "wc": 3,
-        "sid": null
+        "sid": "4IT6vDuKprKl6jyVndlY8V",
+        "spotifyUri": "spotify:track:4IT6vDuKprKl6jyVndlY8V",
+        "spotifyUrl": "https://open.spotify.com/track/4IT6vDuKprKl6jyVndlY8V",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "The Girl Is Mine (with Paul McCartney)",
+        "am": "Michael Jackson, Paul McCartney",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-11-26",
@@ -5787,7 +6620,14 @@
         "lw": 5,
         "pk": 5,
         "wc": 4,
-        "sid": null
+        "sid": "7CTSDg60OC15XUJusBLPuo",
+        "spotifyUri": "spotify:track:7CTSDg60OC15XUJusBLPuo",
+        "spotifyUrl": "https://open.spotify.com/track/7CTSDg60OC15XUJusBLPuo",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Theme from Harry's Game",
+        "am": "Clannad",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-12-03",
@@ -5887,7 +6727,14 @@
         "lw": 10,
         "pk": 9,
         "wc": 5,
-        "sid": null
+        "sid": "3RjyVvrqmS26Sq6vUMswWd",
+        "spotifyUri": "spotify:track:3RjyVvrqmS26Sq6vUMswWd",
+        "spotifyUrl": "https://open.spotify.com/track/3RjyVvrqmS26Sq6vUMswWd",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I'll Find My Way Home",
+        "am": "Jon & Vangelis",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-01-15",
@@ -5928,7 +6775,14 @@
         "lw": 7,
         "pk": 7,
         "wc": 10,
-        "sid": null
+        "sid": "71XUT6NKJULv7uX6WydqOl",
+        "spotifyUri": "spotify:track:71XUT6NKJULv7uX6WydqOl",
+        "spotifyUrl": "https://open.spotify.com/track/71XUT6NKJULv7uX6WydqOl",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Dead Ringer for Love (with Cher)",
+        "am": "Meat Loaf, Cher",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-02-05",
@@ -5970,7 +6824,14 @@
         "lw": 5,
         "pk": 5,
         "wc": 13,
-        "sid": null
+        "sid": "71XUT6NKJULv7uX6WydqOl",
+        "spotifyUri": "spotify:track:71XUT6NKJULv7uX6WydqOl",
+        "spotifyUrl": "https://open.spotify.com/track/71XUT6NKJULv7uX6WydqOl",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Dead Ringer for Love (with Cher)",
+        "am": "Meat Loaf, Cher",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-02-26",
@@ -5979,7 +6840,14 @@
         "lw": 36,
         "pk": 9,
         "wc": 3,
-        "sid": null
+        "sid": "6zMmd8cgljvjDlVriRAfv3",
+        "spotifyUri": "spotify:track:6zMmd8cgljvjDlVriRAfv3",
+        "spotifyUrl": "https://open.spotify.com/track/6zMmd8cgljvjDlVriRAfv3",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "It Ain't What You Do It's the Way That You Do It",
+        "am": "Fun Boy Three, Bananarama",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-03-05",
@@ -6084,7 +6952,14 @@
         "lw": 30,
         "pk": 9,
         "wc": 3,
-        "sid": null
+        "sid": "50ZorxsKK4skrDDqtwLuJf",
+        "spotifyUri": "spotify:track:50ZorxsKK4skrDDqtwLuJf",
+        "spotifyUrl": "https://open.spotify.com/track/50ZorxsKK4skrDDqtwLuJf",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Papas Got a Brand New Pigbag - 7\" Version",
+        "am": "Pigbag",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-04-23",
@@ -6110,7 +6985,14 @@
         "lw": 12,
         "pk": 9,
         "wc": 4,
-        "sid": null
+        "sid": "3We8DweFg2egGugoKevegV",
+        "spotifyUri": "spotify:track:3We8DweFg2egGugoKevegV",
+        "spotifyUrl": "https://open.spotify.com/track/3We8DweFg2egGugoKevegV",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Fantastic Day",
+        "am": "Haircut 100",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-05-07",
@@ -6151,7 +7033,14 @@
         "lw": 2,
         "pk": 1,
         "wc": 7,
-        "sid": null
+        "sid": "1FYTt8izKA8EMqhULwqOcU",
+        "spotifyUri": "spotify:track:1FYTt8izKA8EMqhULwqOcU",
+        "spotifyUrl": "https://open.spotify.com/track/1FYTt8izKA8EMqhULwqOcU",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Ebony And Ivory",
+        "am": "Paul McCartney, Stevie Wonder",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-05-28",
@@ -6192,7 +7081,14 @@
         "lw": 15,
         "pk": 9,
         "wc": 5,
-        "sid": null
+        "sid": "6DMOzL2zPZBAW0LDYCYLWm",
+        "spotifyUri": "spotify:track:6DMOzL2zPZBAW0LDYCYLWm",
+        "spotifyUrl": "https://open.spotify.com/track/6DMOzL2zPZBAW0LDYCYLWm",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I've Never Been To Me",
+        "am": "Charlene",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-06-18",
@@ -6201,7 +7097,14 @@
         "lw": "New",
         "pk": 9,
         "wc": 1,
-        "sid": null
+        "sid": "5F2dnJasuBGVTfokggH016",
+        "spotifyUri": "spotify:track:5F2dnJasuBGVTfokggH016",
+        "spotifyUrl": "https://open.spotify.com/track/5F2dnJasuBGVTfokggH016",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "We Take Mystery (To Bed) - Edit",
+        "am": "Gary Numan",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-06-25",
@@ -6274,7 +7177,14 @@
         "lw": 31,
         "pk": 9,
         "wc": 4,
-        "sid": null
+        "sid": "4MQoct1QCZVGuDHW55aE0k",
+        "spotifyUri": "spotify:track:4MQoct1QCZVGuDHW55aE0k",
+        "spotifyUrl": "https://open.spotify.com/track/4MQoct1QCZVGuDHW55aE0k",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Come On Eileen",
+        "am": "Dexys Midnight Runners",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-07-30",
@@ -6283,7 +7193,14 @@
         "lw": 14,
         "pk": 9,
         "wc": 5,
-        "sid": null
+        "sid": "2AxMP4pDZ3cEuEXwVrGkcA",
+        "spotifyUri": "spotify:track:2AxMP4pDZ3cEuEXwVrGkcA",
+        "spotifyUrl": "https://open.spotify.com/track/2AxMP4pDZ3cEuEXwVrGkcA",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I Second That Emotion",
+        "am": "Japan, Steve Nye",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-08-06",
@@ -6292,7 +7209,14 @@
         "lw": 9,
         "pk": 9,
         "wc": 6,
-        "sid": null
+        "sid": "2AxMP4pDZ3cEuEXwVrGkcA",
+        "spotifyUri": "spotify:track:2AxMP4pDZ3cEuEXwVrGkcA",
+        "spotifyUrl": "https://open.spotify.com/track/2AxMP4pDZ3cEuEXwVrGkcA",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I Second That Emotion",
+        "am": "Japan, Steve Nye",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-08-13",
@@ -6301,7 +7225,14 @@
         "lw": 21,
         "pk": 9,
         "wc": 3,
-        "sid": null
+        "sid": "7C0q5TcCdiwphG3GObFl5v",
+        "spotifyUri": "spotify:track:7C0q5TcCdiwphG3GObFl5v",
+        "spotifyUrl": "https://open.spotify.com/track/7C0q5TcCdiwphG3GObFl5v",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "My Girl Lollipop - 7'' Version",
+        "am": "Bad Manners",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-08-20",
@@ -6326,7 +7257,14 @@
         "lw": 12,
         "pk": 9,
         "wc": 4,
-        "sid": null
+        "sid": "4vtTsVxuNUsXYGnt0OnshJ",
+        "spotifyUri": "spotify:track:4vtTsVxuNUsXYGnt0OnshJ",
+        "spotifyUrl": "https://open.spotify.com/track/4vtTsVxuNUsXYGnt0OnshJ",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I Eat Cannibals, Pt. 1",
+        "am": "Toto Coelo",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-09-03",
@@ -6335,7 +7273,14 @@
         "lw": 10,
         "pk": 9,
         "wc": 3,
-        "sid": null
+        "sid": "0l3KrpHozeW9l0wfW1eZJL",
+        "spotifyUri": "spotify:track:0l3KrpHozeW9l0wfW1eZJL",
+        "spotifyUrl": "https://open.spotify.com/track/0l3KrpHozeW9l0wfW1eZJL",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Nobody's Fool - 7\" Single",
+        "am": "Haircut 100",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-09-10",
@@ -6344,7 +7289,14 @@
         "lw": 8,
         "pk": 8,
         "wc": 6,
-        "sid": null
+        "sid": "4vtTsVxuNUsXYGnt0OnshJ",
+        "spotifyUri": "spotify:track:4vtTsVxuNUsXYGnt0OnshJ",
+        "spotifyUrl": "https://open.spotify.com/track/4vtTsVxuNUsXYGnt0OnshJ",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I Eat Cannibals, Pt. 1",
+        "am": "Toto Coelo",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-09-17",
@@ -6353,7 +7305,14 @@
         "lw": 3,
         "pk": 1,
         "wc": 12,
-        "sid": null
+        "sid": "4MQoct1QCZVGuDHW55aE0k",
+        "spotifyUri": "spotify:track:4MQoct1QCZVGuDHW55aE0k",
+        "spotifyUrl": "https://open.spotify.com/track/4MQoct1QCZVGuDHW55aE0k",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Come On Eileen",
+        "am": "Dexys Midnight Runners",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-09-24",
@@ -6426,7 +7385,14 @@
         "lw": 15,
         "pk": 9,
         "wc": 3,
-        "sid": null
+        "sid": "5paJLghWSGmEf6sY7LeYel",
+        "spotifyUri": "spotify:track:5paJLghWSGmEf6sY7LeYel",
+        "spotifyUrl": "https://open.spotify.com/track/5paJLghWSGmEf6sY7LeYel",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Annie, I'm Not Your Daddy",
+        "am": "Kid Creole And The Coconuts",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-10-29",
@@ -6435,7 +7401,14 @@
         "lw": 6,
         "pk": 4,
         "wc": 11,
-        "sid": null
+        "sid": "58DXqHKK7TfxUmhCq2ux4E",
+        "spotifyUri": "spotify:track:58DXqHKK7TfxUmhCq2ux4E",
+        "spotifyUrl": "https://open.spotify.com/track/58DXqHKK7TfxUmhCq2ux4E",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Hard to Say I'm Sorry",
+        "am": "Chicago",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-11-05",
@@ -6460,7 +7433,14 @@
         "lw": 33,
         "pk": 9,
         "wc": 2,
-        "sid": null
+        "sid": "4IT6vDuKprKl6jyVndlY8V",
+        "spotifyUri": "spotify:track:4IT6vDuKprKl6jyVndlY8V",
+        "spotifyUrl": "https://open.spotify.com/track/4IT6vDuKprKl6jyVndlY8V",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "The Girl Is Mine (with Paul McCartney)",
+        "am": "Michael Jackson, Paul McCartney",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-11-19",
@@ -6615,7 +7595,14 @@
         "lw": 21,
         "pk": 10,
         "wc": 12,
-        "sid": null
+        "sid": "7G3zERqh2d2tij0pVQfohU",
+        "spotifyUri": "spotify:track:7G3zERqh2d2tij0pVQfohU",
+        "spotifyUrl": "https://open.spotify.com/track/7G3zERqh2d2tij0pVQfohU",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "The Model",
+        "am": "Kraftwerk",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-01-22",
@@ -6640,7 +7627,14 @@
         "lw": 18,
         "pk": 10,
         "wc": 8,
-        "sid": null
+        "sid": "5fnOrhQ4KgT5irGCjIccGH",
+        "spotifyUri": "spotify:track:5fnOrhQ4KgT5irGCjIccGH",
+        "spotifyUrl": "https://open.spotify.com/track/5fnOrhQ4KgT5irGCjIccGH",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Arthur's Theme (Best That You Can Do)",
+        "am": "Christopher Cross",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-02-05",
@@ -6713,7 +7707,14 @@
         "lw": 7,
         "pk": 4,
         "wc": 7,
-        "sid": null
+        "sid": "5KGPz0EcptGsUt3mziN0T4",
+        "spotifyUri": "spotify:track:5KGPz0EcptGsUt3mziN0T4",
+        "spotifyUrl": "https://open.spotify.com/track/5KGPz0EcptGsUt3mziN0T4",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Maid Of Orleans (The Waltz Joan Of Arc)",
+        "am": "Orchestral Manoeuvres In The Dark",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-03-12",
@@ -6850,7 +7851,14 @@
         "lw": 9,
         "pk": 9,
         "wc": 5,
-        "sid": null
+        "sid": "3We8DweFg2egGugoKevegV",
+        "spotifyUri": "spotify:track:3We8DweFg2egGugoKevegV",
+        "spotifyUrl": "https://open.spotify.com/track/3We8DweFg2egGugoKevegV",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Fantastic Day",
+        "am": "Haircut 100",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-05-14",
@@ -6907,7 +7915,14 @@
         "lw": 4,
         "pk": 1,
         "wc": 5,
-        "sid": null
+        "sid": "3q07nyhbjPf2izxg12WvQl",
+        "spotifyUri": "spotify:track:3q07nyhbjPf2izxg12WvQl",
+        "spotifyUrl": "https://open.spotify.com/track/3q07nyhbjPf2izxg12WvQl",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "A Little Peace",
+        "am": "Nicole",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-06-11",
@@ -6916,7 +7931,14 @@
         "lw": 19,
         "pk": 10,
         "wc": 4,
-        "sid": null
+        "sid": "3Dt212rT553UIiYV0lS3q7",
+        "spotifyUri": "spotify:track:3Dt212rT553UIiYV0lS3q7",
+        "spotifyUrl": "https://open.spotify.com/track/3Dt212rT553UIiYV0lS3q7",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Paperlate",
+        "am": "Genesis",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-06-18",
@@ -7062,7 +8084,14 @@
         "lw": 9,
         "pk": 9,
         "wc": 4,
-        "sid": null
+        "sid": "7C0q5TcCdiwphG3GObFl5v",
+        "spotifyUri": "spotify:track:7C0q5TcCdiwphG3GObFl5v",
+        "spotifyUrl": "https://open.spotify.com/track/7C0q5TcCdiwphG3GObFl5v",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "My Girl Lollipop - 7'' Version",
+        "am": "Bad Manners",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-08-27",
@@ -7071,7 +8100,14 @@
         "lw": 33,
         "pk": 10,
         "wc": 2,
-        "sid": null
+        "sid": "0l3KrpHozeW9l0wfW1eZJL",
+        "spotifyUri": "spotify:track:0l3KrpHozeW9l0wfW1eZJL",
+        "spotifyUrl": "https://open.spotify.com/track/0l3KrpHozeW9l0wfW1eZJL",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Nobody's Fool - 7\" Single",
+        "am": "Haircut 100",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-09-03",
@@ -7096,7 +8132,14 @@
         "lw": 6,
         "pk": 4,
         "wc": 7,
-        "sid": null
+        "sid": "3QaF9cHXm42zYpagUeTfUy",
+        "spotifyUri": "spotify:track:3QaF9cHXm42zYpagUeTfUy",
+        "spotifyUrl": "https://open.spotify.com/track/3QaF9cHXm42zYpagUeTfUy",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Can't Take My Eyes Off Of You",
+        "am": "Boys Town Gang",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-09-17",
@@ -7185,7 +8228,14 @@
         "lw": 6,
         "pk": 5,
         "wc": 4,
-        "sid": null
+        "sid": "3o1AFukFi4OhiNW23wDbaj",
+        "spotifyUri": "spotify:track:3o1AFukFi4OhiNW23wDbaj",
+        "spotifyUrl": "https://open.spotify.com/track/3o1AFukFi4OhiNW23wDbaj",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Jackie Wilson Said (I'm In Heaven When You Smile)",
+        "am": "Dexys Midnight Runners, Kevin Rowland",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-10-29",
@@ -7398,7 +8448,14 @@
         "lw": 4,
         "pk": 4,
         "wc": 11,
-        "sid": null
+        "sid": "0PWzw28ei5W16wyYIrEEJR",
+        "spotifyUri": "spotify:track:0PWzw28ei5W16wyYIrEEJR",
+        "spotifyUrl": "https://open.spotify.com/track/0PWzw28ei5W16wyYIrEEJR",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Mirror Mirror",
+        "am": "Dollar",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-01-29",
@@ -7423,7 +8480,14 @@
         "lw": 7,
         "pk": 6,
         "wc": 9,
-        "sid": null
+        "sid": "3RjyVvrqmS26Sq6vUMswWd",
+        "spotifyUri": "spotify:track:3RjyVvrqmS26Sq6vUMswWd",
+        "spotifyUrl": "https://open.spotify.com/track/3RjyVvrqmS26Sq6vUMswWd",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I'll Find My Way Home",
+        "am": "Jon & Vangelis",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-02-12",
@@ -7432,7 +8496,14 @@
         "lw": 27,
         "pk": 11,
         "wc": 4,
-        "sid": null
+        "sid": "1bwgAeL1xmQf5iGm8768zm",
+        "spotifyUri": "spotify:track:1bwgAeL1xmQf5iGm8768zm",
+        "spotifyUrl": "https://open.spotify.com/track/1bwgAeL1xmQf5iGm8768zm",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I Can't Go For That (No Can Do)",
+        "am": "Daryl Hall & John Oates",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-02-19",
@@ -7572,7 +8643,14 @@
         "lw": 25,
         "pk": 11,
         "wc": 3,
-        "sid": null
+        "sid": "4SLVywG6MwIdxmnmoRrxUb",
+        "spotifyUri": "spotify:track:4SLVywG6MwIdxmnmoRrxUb",
+        "spotifyUrl": "https://open.spotify.com/track/4SLVywG6MwIdxmnmoRrxUb",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "This Time We'll Get It Right",
+        "am": "England World Cup Squad 82",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-04-30",
@@ -7693,7 +8771,14 @@
         "lw": 10,
         "pk": 10,
         "wc": 5,
-        "sid": null
+        "sid": "3Dt212rT553UIiYV0lS3q7",
+        "spotifyUri": "spotify:track:3Dt212rT553UIiYV0lS3q7",
+        "spotifyUrl": "https://open.spotify.com/track/3Dt212rT553UIiYV0lS3q7",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Paperlate",
+        "am": "Genesis",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-06-25",
@@ -7702,7 +8787,14 @@
         "lw": 9,
         "pk": 9,
         "wc": 2,
-        "sid": null
+        "sid": "5F2dnJasuBGVTfokggH016",
+        "spotifyUri": "spotify:track:5F2dnJasuBGVTfokggH016",
+        "spotifyUrl": "https://open.spotify.com/track/5F2dnJasuBGVTfokggH016",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "We Take Mystery (To Bed) - Edit",
+        "am": "Gary Numan",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-07-02",
@@ -7800,7 +8892,14 @@
         "lw": 9,
         "pk": 9,
         "wc": 7,
-        "sid": null
+        "sid": "2AxMP4pDZ3cEuEXwVrGkcA",
+        "spotifyUri": "spotify:track:2AxMP4pDZ3cEuEXwVrGkcA",
+        "spotifyUrl": "https://open.spotify.com/track/2AxMP4pDZ3cEuEXwVrGkcA",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I Second That Emotion",
+        "am": "Japan, Steve Nye",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-08-20",
@@ -7905,7 +9004,14 @@
         "lw": 22,
         "pk": 11,
         "wc": 7,
-        "sid": null
+        "sid": "58DXqHKK7TfxUmhCq2ux4E",
+        "spotifyUri": "spotify:track:58DXqHKK7TfxUmhCq2ux4E",
+        "spotifyUrl": "https://open.spotify.com/track/58DXqHKK7TfxUmhCq2ux4E",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Hard to Say I'm Sorry",
+        "am": "Chicago",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-10-08",
@@ -7964,7 +9070,14 @@
         "lw": 16,
         "pk": 11,
         "wc": 4,
-        "sid": null
+        "sid": "58Omjh8UQKrup5Wu0itGfW",
+        "spotifyUri": "spotify:track:58Omjh8UQKrup5Wu0itGfW",
+        "spotifyUrl": "https://open.spotify.com/track/58Omjh8UQKrup5Wu0itGfW",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Let's Go Dancin' (Ooh La, La, La) - Single Version",
+        "am": "Kool & The Gang",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-11-12",
@@ -7973,7 +9086,14 @@
         "lw": 46,
         "pk": 11,
         "wc": 2,
-        "sid": null
+        "sid": "7CTSDg60OC15XUJusBLPuo",
+        "spotifyUri": "spotify:track:7CTSDg60OC15XUJusBLPuo",
+        "spotifyUrl": "https://open.spotify.com/track/7CTSDg60OC15XUJusBLPuo",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Theme from Harry's Game",
+        "am": "Clannad",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-11-19",
@@ -7982,7 +9102,14 @@
         "lw": 6,
         "pk": 6,
         "wc": 6,
-        "sid": null
+        "sid": "58Omjh8UQKrup5Wu0itGfW",
+        "spotifyUri": "spotify:track:58Omjh8UQKrup5Wu0itGfW",
+        "spotifyUrl": "https://open.spotify.com/track/58Omjh8UQKrup5Wu0itGfW",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Let's Go Dancin' (Ooh La, La, La) - Single Version",
+        "am": "Kool & The Gang",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-11-26",
@@ -8121,7 +9248,14 @@
         "lw": 6,
         "pk": 2,
         "wc": 9,
-        "sid": null
+        "sid": "4TxH5YTe6924BjRC6NtUXP",
+        "spotifyUri": "spotify:track:4TxH5YTe6924BjRC6NtUXP",
+        "spotifyUrl": "https://open.spotify.com/track/4TxH5YTe6924BjRC6NtUXP",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Daddy's Home - 2003 Remaster",
+        "am": "Cliff Richard",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-01-22",
@@ -8146,7 +9280,14 @@
         "lw": 5,
         "pk": 1,
         "wc": 9,
-        "sid": null
+        "sid": "3AIEEEIDJFnqv8rozNVCRZ",
+        "spotifyUri": "spotify:track:3AIEEEIDJFnqv8rozNVCRZ",
+        "spotifyUrl": "https://open.spotify.com/track/3AIEEEIDJFnqv8rozNVCRZ",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Don't You Want Me",
+        "am": "The Human League",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-02-05",
@@ -8187,7 +9328,14 @@
         "lw": 11,
         "pk": 11,
         "wc": 5,
-        "sid": null
+        "sid": "1bwgAeL1xmQf5iGm8768zm",
+        "spotifyUri": "spotify:track:1bwgAeL1xmQf5iGm8768zm",
+        "spotifyUrl": "https://open.spotify.com/track/1bwgAeL1xmQf5iGm8768zm",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I Can't Go For That (No Can Do)",
+        "am": "Daryl Hall & John Oates",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-02-26",
@@ -8196,7 +9344,14 @@
         "lw": 8,
         "pk": 7,
         "wc": 12,
-        "sid": null
+        "sid": "5fnOrhQ4KgT5irGCjIccGH",
+        "spotifyUri": "spotify:track:5fnOrhQ4KgT5irGCjIccGH",
+        "spotifyUrl": "https://open.spotify.com/track/5fnOrhQ4KgT5irGCjIccGH",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Arthur's Theme (Best That You Can Do)",
+        "am": "Christopher Cross",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-03-05",
@@ -8205,7 +9360,14 @@
         "lw": 8,
         "pk": 8,
         "wc": 7,
-        "sid": null
+        "sid": "1bwgAeL1xmQf5iGm8768zm",
+        "spotifyUri": "spotify:track:1bwgAeL1xmQf5iGm8768zm",
+        "spotifyUrl": "https://open.spotify.com/track/1bwgAeL1xmQf5iGm8768zm",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I Can't Go For That (No Can Do)",
+        "am": "Daryl Hall & John Oates",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-03-12",
@@ -8246,7 +9408,14 @@
         "lw": 5,
         "pk": 4,
         "wc": 7,
-        "sid": null
+        "sid": "6zMmd8cgljvjDlVriRAfv3",
+        "spotifyUri": "spotify:track:6zMmd8cgljvjDlVriRAfv3",
+        "spotifyUrl": "https://open.spotify.com/track/6zMmd8cgljvjDlVriRAfv3",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "It Ain't What You Do It's the Way That You Do It",
+        "am": "Fun Boy Three, Bananarama",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-04-02",
@@ -8296,7 +9465,14 @@
         "lw": 19,
         "pk": 12,
         "wc": 3,
-        "sid": null
+        "sid": "3We8DweFg2egGugoKevegV",
+        "spotifyUri": "spotify:track:3We8DweFg2egGugoKevegV",
+        "spotifyUrl": "https://open.spotify.com/track/3We8DweFg2egGugoKevegV",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Fantastic Day",
+        "am": "Haircut 100",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-04-30",
@@ -8305,7 +9481,14 @@
         "lw": 5,
         "pk": 2,
         "wc": 8,
-        "sid": null
+        "sid": "0owaXsPfNwYLyOv2goThTX",
+        "spotifyUri": "spotify:track:0owaXsPfNwYLyOv2goThTX",
+        "spotifyUrl": "https://open.spotify.com/track/0owaXsPfNwYLyOv2goThTX",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Ain't No Pleasing You",
+        "am": "Chas & Dave",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-05-07",
@@ -8346,7 +9529,14 @@
         "lw": 6,
         "pk": 5,
         "wc": 7,
-        "sid": null
+        "sid": "4IZqQrcECMKcLxHWDzhzMV",
+        "spotifyUri": "spotify:track:4IZqQrcECMKcLxHWDzhzMV",
+        "spotifyUrl": "https://open.spotify.com/track/4IZqQrcECMKcLxHWDzhzMV",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Really Saying Something",
+        "am": "Bananarama, Fun Boy Three",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-05-28",
@@ -8435,7 +9625,14 @@
         "lw": 3,
         "pk": 2,
         "wc": 6,
-        "sid": null
+        "sid": "5b3NxkCIUD5Yo8OTj3eEum",
+        "spotifyUri": "spotify:track:5b3NxkCIUD5Yo8OTj3eEum",
+        "spotifyUrl": "https://open.spotify.com/track/5b3NxkCIUD5Yo8OTj3eEum",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Torch - Original 7\" Single Version",
+        "am": "Soft Cell",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-07-09",
@@ -8541,7 +9738,14 @@
         "lw": 34,
         "pk": 12,
         "wc": 3,
-        "sid": null
+        "sid": "4vtTsVxuNUsXYGnt0OnshJ",
+        "spotifyUri": "spotify:track:4vtTsVxuNUsXYGnt0OnshJ",
+        "spotifyUrl": "https://open.spotify.com/track/4vtTsVxuNUsXYGnt0OnshJ",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I Eat Cannibals, Pt. 1",
+        "am": "Toto Coelo",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-08-27",
@@ -8583,7 +9787,14 @@
         "lw": 9,
         "pk": 9,
         "wc": 4,
-        "sid": null
+        "sid": "0l3KrpHozeW9l0wfW1eZJL",
+        "spotifyUri": "spotify:track:0l3KrpHozeW9l0wfW1eZJL",
+        "spotifyUrl": "https://open.spotify.com/track/0l3KrpHozeW9l0wfW1eZJL",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Nobody's Fool - 7\" Single",
+        "am": "Haircut 100",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-09-17",
@@ -8640,7 +9851,14 @@
         "lw": 6,
         "pk": 4,
         "wc": 9,
-        "sid": null
+        "sid": "3U7RdUdPsJQqnZHEI0ifo9",
+        "spotifyUri": "spotify:track:3U7RdUdPsJQqnZHEI0ifo9",
+        "spotifyUrl": "https://open.spotify.com/track/3U7RdUdPsJQqnZHEI0ifo9",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Walking on Sunshine '82 (Edit)",
+        "am": "Rocker's Revenge, Donnie Calvin",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-10-15",
@@ -8674,7 +9892,14 @@
         "lw": 8,
         "pk": 8,
         "wc": 7,
-        "sid": null
+        "sid": "2y8Js6dBaCdps7XLuvSruW",
+        "spotifyUri": "spotify:track:2y8Js6dBaCdps7XLuvSruW",
+        "spotifyUrl": "https://open.spotify.com/track/2y8Js6dBaCdps7XLuvSruW",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Danger Games",
+        "am": "The Pinkees",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-11-05",
@@ -8683,7 +9908,14 @@
         "lw": 9,
         "pk": 4,
         "wc": 12,
-        "sid": null
+        "sid": "58DXqHKK7TfxUmhCq2ux4E",
+        "spotifyUri": "spotify:track:58DXqHKK7TfxUmhCq2ux4E",
+        "spotifyUrl": "https://open.spotify.com/track/58DXqHKK7TfxUmhCq2ux4E",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Hard to Say I'm Sorry",
+        "am": "Chicago",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-11-12",
@@ -8692,7 +9924,14 @@
         "lw": 6,
         "pk": 2,
         "wc": 6,
-        "sid": null
+        "sid": "5paJLghWSGmEf6sY7LeYel",
+        "spotifyUri": "spotify:track:5paJLghWSGmEf6sY7LeYel",
+        "spotifyUrl": "https://open.spotify.com/track/5paJLghWSGmEf6sY7LeYel",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Annie, I'm Not Your Daddy",
+        "am": "Kid Creole And The Coconuts",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-11-19",
@@ -8717,7 +9956,14 @@
         "lw": 8,
         "pk": 8,
         "wc": 4,
-        "sid": null
+        "sid": "4IT6vDuKprKl6jyVndlY8V",
+        "spotifyUri": "spotify:track:4IT6vDuKprKl6jyVndlY8V",
+        "spotifyUrl": "https://open.spotify.com/track/4IT6vDuKprKl6jyVndlY8V",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "The Girl Is Mine (with Paul McCartney)",
+        "am": "Michael Jackson, Paul McCartney",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-12-03",
@@ -8923,7 +10169,14 @@
         "lw": 5,
         "pk": 1,
         "wc": 18,
-        "sid": null
+        "sid": "7G3zERqh2d2tij0pVQfohU",
+        "spotifyUri": "spotify:track:7G3zERqh2d2tij0pVQfohU",
+        "spotifyUrl": "https://open.spotify.com/track/7G3zERqh2d2tij0pVQfohU",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "The Model",
+        "am": "Kraftwerk",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-03-05",
@@ -9063,7 +10316,14 @@
         "lw": 24,
         "pk": 13,
         "wc": 2,
-        "sid": null
+        "sid": "5r1Zt0s7y3pZf4V0PxVfzj",
+        "spotifyUri": "spotify:track:5r1Zt0s7y3pZf4V0PxVfzj",
+        "spotifyUrl": "https://open.spotify.com/track/5r1Zt0s7y3pZf4V0PxVfzj",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "We Have a Dream",
+        "am": "The Scottish World Cup Squad",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-05-14",
@@ -9088,7 +10348,14 @@
         "lw": 26,
         "pk": 13,
         "wc": 2,
-        "sid": null
+        "sid": "6HvUtPLqkP0t6zd6YNdWby",
+        "spotifyUri": "spotify:track:6HvUtPLqkP0t6zd6YNdWby",
+        "spotifyUrl": "https://open.spotify.com/track/6HvUtPLqkP0t6zd6YNdWby",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "The Look Of Love, Pt.1",
+        "am": "ABC",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-05-28",
@@ -9097,7 +10364,14 @@
         "lw": 6,
         "pk": 5,
         "wc": 5,
-        "sid": null
+        "sid": "5r1Zt0s7y3pZf4V0PxVfzj",
+        "spotifyUri": "spotify:track:5r1Zt0s7y3pZf4V0PxVfzj",
+        "spotifyUrl": "https://open.spotify.com/track/5r1Zt0s7y3pZf4V0PxVfzj",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "We Have a Dream",
+        "am": "The Scottish World Cup Squad",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-06-04",
@@ -9171,7 +10445,14 @@
         "lw": "New",
         "pk": 13,
         "wc": 1,
-        "sid": null
+        "sid": "3etwLlqrcPp56Jo8ox5LTS",
+        "spotifyUri": "spotify:track:3etwLlqrcPp56Jo8ox5LTS",
+        "spotifyUrl": "https://open.spotify.com/track/3etwLlqrcPp56Jo8ox5LTS",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Just Who Is The 5 O'Clock Hero?",
+        "am": "The Jam",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-07-09",
@@ -9253,7 +10534,14 @@
         "lw": 6,
         "pk": 2,
         "wc": 7,
-        "sid": null
+        "sid": "2yHg8zS8ktkZr61fossnP9",
+        "spotifyUri": "spotify:track:2yHg8zS8ktkZr61fossnP9",
+        "spotifyUrl": "https://open.spotify.com/track/2yHg8zS8ktkZr61fossnP9",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Da Da Da I Don't Love You You Don't Love Me Aha Aha Aha",
+        "am": "Trio",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-08-20",
@@ -9294,7 +10582,14 @@
         "lw": "New",
         "pk": 13,
         "wc": 1,
-        "sid": null
+        "sid": "49oTeJ5xTJw6jEaJP3HV2i",
+        "spotifyUri": "spotify:track:49oTeJ5xTJw6jEaJP3HV2i",
+        "spotifyUrl": "https://open.spotify.com/track/49oTeJ5xTJw6jEaJP3HV2i",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Private Investigations",
+        "am": "Dire Straits",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-09-10",
@@ -9319,7 +10614,14 @@
         "lw": 9,
         "pk": 8,
         "wc": 7,
-        "sid": null
+        "sid": "4vtTsVxuNUsXYGnt0OnshJ",
+        "spotifyUri": "spotify:track:4vtTsVxuNUsXYGnt0OnshJ",
+        "spotifyUrl": "https://open.spotify.com/track/4vtTsVxuNUsXYGnt0OnshJ",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I Eat Cannibals, Pt. 1",
+        "am": "Toto Coelo",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-09-24",
@@ -9706,7 +11008,14 @@
         "lw": 31,
         "pk": 14,
         "wc": 3,
-        "sid": null
+        "sid": "0owaXsPfNwYLyOv2goThTX",
+        "spotifyUri": "spotify:track:0owaXsPfNwYLyOv2goThTX",
+        "spotifyUrl": "https://open.spotify.com/track/0owaXsPfNwYLyOv2goThTX",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Ain't No Pleasing You",
+        "am": "Chas & Dave",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-04-02",
@@ -9812,7 +11121,14 @@
         "lw": 10,
         "pk": 9,
         "wc": 6,
-        "sid": null
+        "sid": "3We8DweFg2egGugoKevegV",
+        "spotifyUri": "spotify:track:3We8DweFg2egGugoKevegV",
+        "spotifyUrl": "https://open.spotify.com/track/3We8DweFg2egGugoKevegV",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Fantastic Day",
+        "am": "Haircut 100",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-05-21",
@@ -9901,7 +11217,14 @@
         "lw": 5,
         "pk": 1,
         "wc": 6,
-        "sid": null
+        "sid": "7JIr53FZOBcTjZFn5ddJmJ",
+        "spotifyUri": "spotify:track:7JIr53FZOBcTjZFn5ddJmJ",
+        "spotifyUrl": "https://open.spotify.com/track/7JIr53FZOBcTjZFn5ddJmJ",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "House of Fun",
+        "am": "Madness",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-07-02",
@@ -9926,7 +11249,14 @@
         "lw": 6,
         "pk": 4,
         "wc": 9,
-        "sid": null
+        "sid": "1XgAvoD8fJQ1WMSYubcJXy",
+        "spotifyUri": "spotify:track:1XgAvoD8fJQ1WMSYubcJXy",
+        "spotifyUrl": "https://open.spotify.com/track/1XgAvoD8fJQ1WMSYubcJXy",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I'm A Wonderful Thing, Baby",
+        "am": "Kid Creole And The Coconuts",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-07-16",
@@ -9951,7 +11281,14 @@
         "lw": 20,
         "pk": 14,
         "wc": 4,
-        "sid": null
+        "sid": "2AxMP4pDZ3cEuEXwVrGkcA",
+        "spotifyUri": "spotify:track:2AxMP4pDZ3cEuEXwVrGkcA",
+        "spotifyUrl": "https://open.spotify.com/track/2AxMP4pDZ3cEuEXwVrGkcA",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I Second That Emotion",
+        "am": "Japan, Steve Nye",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-07-30",
@@ -10081,7 +11418,14 @@
         "lw": 9,
         "pk": 1,
         "wc": 13,
-        "sid": null
+        "sid": "4MQoct1QCZVGuDHW55aE0k",
+        "spotifyUri": "spotify:track:4MQoct1QCZVGuDHW55aE0k",
+        "spotifyUrl": "https://open.spotify.com/track/4MQoct1QCZVGuDHW55aE0k",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Come On Eileen",
+        "am": "Dexys Midnight Runners",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-10-01",
@@ -10122,7 +11466,14 @@
         "lw": "New",
         "pk": 14,
         "wc": 1,
-        "sid": null
+        "sid": "3VbGCXWRiouAq8VyMYN2MI",
+        "spotifyUri": "spotify:track:3VbGCXWRiouAq8VyMYN2MI",
+        "spotifyUrl": "https://open.spotify.com/track/3VbGCXWRiouAq8VyMYN2MI",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Love Me Do - Remastered 2009",
+        "am": "The Beatles",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-10-22",
@@ -10411,7 +11762,14 @@
         "lw": 9,
         "pk": 5,
         "wc": 14,
-        "sid": null
+        "sid": "71XUT6NKJULv7uX6WydqOl",
+        "spotifyUri": "spotify:track:71XUT6NKJULv7uX6WydqOl",
+        "spotifyUrl": "https://open.spotify.com/track/71XUT6NKJULv7uX6WydqOl",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Dead Ringer for Love (with Cher)",
+        "am": "Meat Loaf, Cher",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-03-05",
@@ -10599,7 +11957,14 @@
         "lw": 8,
         "pk": 2,
         "wc": 7,
-        "sid": null
+        "sid": "4SLVywG6MwIdxmnmoRrxUb",
+        "spotifyUri": "spotify:track:4SLVywG6MwIdxmnmoRrxUb",
+        "spotifyUrl": "https://open.spotify.com/track/4SLVywG6MwIdxmnmoRrxUb",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "This Time We'll Get It Right",
+        "am": "England World Cup Squad 82",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-05-28",
@@ -10624,7 +11989,14 @@
         "lw": 30,
         "pk": 15,
         "wc": 4,
-        "sid": null
+        "sid": "6DMOzL2zPZBAW0LDYCYLWm",
+        "spotifyUri": "spotify:track:6DMOzL2zPZBAW0LDYCYLWm",
+        "spotifyUrl": "https://open.spotify.com/track/6DMOzL2zPZBAW0LDYCYLWm",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I've Never Been To Me",
+        "am": "Charlene",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-06-11",
@@ -10809,7 +12181,14 @@
         "lw": 10,
         "pk": 9,
         "wc": 5,
-        "sid": null
+        "sid": "7C0q5TcCdiwphG3GObFl5v",
+        "spotifyUri": "spotify:track:7C0q5TcCdiwphG3GObFl5v",
+        "spotifyUrl": "https://open.spotify.com/track/7C0q5TcCdiwphG3GObFl5v",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "My Girl Lollipop - 7'' Version",
+        "am": "Bad Manners",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-09-03",
@@ -10907,7 +12286,14 @@
         "lw": 39,
         "pk": 15,
         "wc": 2,
-        "sid": null
+        "sid": "5paJLghWSGmEf6sY7LeYel",
+        "spotifyUri": "spotify:track:5paJLghWSGmEf6sY7LeYel",
+        "spotifyUrl": "https://open.spotify.com/track/5paJLghWSGmEf6sY7LeYel",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Annie, I'm Not Your Daddy",
+        "am": "Kid Creole And The Coconuts",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-10-22",
@@ -10957,7 +12343,14 @@
         "lw": 7,
         "pk": 4,
         "wc": 5,
-        "sid": null
+        "sid": "3VbGCXWRiouAq8VyMYN2MI",
+        "spotifyUri": "spotify:track:3VbGCXWRiouAq8VyMYN2MI",
+        "spotifyUrl": "https://open.spotify.com/track/3VbGCXWRiouAq8VyMYN2MI",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Love Me Do - Remastered 2009",
+        "am": "The Beatles",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-11-19",
@@ -11146,7 +12539,14 @@
         "lw": 8,
         "pk": 4,
         "wc": 13,
-        "sid": null
+        "sid": "0PWzw28ei5W16wyYIrEEJR",
+        "spotifyUri": "spotify:track:0PWzw28ei5W16wyYIrEEJR",
+        "spotifyUrl": "https://open.spotify.com/track/0PWzw28ei5W16wyYIrEEJR",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Mirror Mirror",
+        "am": "Dollar",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-02-12",
@@ -11235,7 +12635,14 @@
         "lw": 30,
         "pk": 16,
         "wc": 3,
-        "sid": null
+        "sid": "2kkvB3RNRzwjFdGhaUA0tz",
+        "spotifyUri": "spotify:track:2kkvB3RNRzwjFdGhaUA0tz",
+        "spotifyUrl": "https://open.spotify.com/track/2kkvB3RNRzwjFdGhaUA0tz",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Layla",
+        "am": "Derek & The Dominos",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-03-26",
@@ -11293,7 +12700,14 @@
         "lw": 43,
         "pk": 16,
         "wc": 2,
-        "sid": null
+        "sid": "23MbJwSXJRfM8rwQ6RUdD5",
+        "spotifyUri": "spotify:track:23MbJwSXJRfM8rwQ6RUdD5",
+        "spotifyUrl": "https://open.spotify.com/track/23MbJwSXJRfM8rwQ6RUdD5",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "One Step Further - Original 7 Inch Mix",
+        "am": "Bardo",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-04-23",
@@ -11382,7 +12796,14 @@
         "lw": "New",
         "pk": 16,
         "wc": 1,
-        "sid": null
+        "sid": "5b3NxkCIUD5Yo8OTj3eEum",
+        "spotifyUri": "spotify:track:5b3NxkCIUD5Yo8OTj3eEum",
+        "spotifyUrl": "https://open.spotify.com/track/5b3NxkCIUD5Yo8OTj3eEum",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Torch - Original 7\" Single Version",
+        "am": "Soft Cell",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-06-04",
@@ -11407,7 +12828,14 @@
         "lw": 10,
         "pk": 1,
         "wc": 6,
-        "sid": null
+        "sid": "3q07nyhbjPf2izxg12WvQl",
+        "spotifyUri": "spotify:track:3q07nyhbjPf2izxg12WvQl",
+        "spotifyUrl": "https://open.spotify.com/track/3q07nyhbjPf2izxg12WvQl",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "A Little Peace",
+        "am": "Nicole",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-06-18",
@@ -11480,7 +12908,14 @@
         "lw": 8,
         "pk": 8,
         "wc": 3,
-        "sid": null
+        "sid": "3etwLlqrcPp56Jo8ox5LTS",
+        "spotifyUri": "spotify:track:3etwLlqrcPp56Jo8ox5LTS",
+        "spotifyUrl": "https://open.spotify.com/track/3etwLlqrcPp56Jo8ox5LTS",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Just Who Is The 5 O'Clock Hero?",
+        "am": "The Jam",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-07-23",
@@ -11596,7 +13031,14 @@
         "lw": 12,
         "pk": 9,
         "wc": 5,
-        "sid": null
+        "sid": "0l3KrpHozeW9l0wfW1eZJL",
+        "spotifyUri": "spotify:track:0l3KrpHozeW9l0wfW1eZJL",
+        "spotifyUrl": "https://open.spotify.com/track/0l3KrpHozeW9l0wfW1eZJL",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Nobody's Fool - 7\" Single",
+        "am": "Haircut 100",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-09-24",
@@ -11685,7 +13127,14 @@
         "lw": 31,
         "pk": 16,
         "wc": 3,
-        "sid": null
+        "sid": "58Omjh8UQKrup5Wu0itGfW",
+        "spotifyUri": "spotify:track:58Omjh8UQKrup5Wu0itGfW",
+        "spotifyUrl": "https://open.spotify.com/track/58Omjh8UQKrup5Wu0itGfW",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Let's Go Dancin' (Ooh La, La, La) - Single Version",
+        "am": "Kool & The Gang",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-11-05",
@@ -11835,7 +13284,14 @@
         "lw": 22,
         "pk": 2,
         "wc": 18,
-        "sid": null
+        "sid": "7898lL7SphUC4Qg9Srtqub",
+        "spotifyUri": "spotify:track:7898lL7SphUC4Qg9Srtqub",
+        "spotifyUrl": "https://open.spotify.com/track/7898lL7SphUC4Qg9Srtqub",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Birdie Song (Birdie Dance)",
+        "am": "The Tweets",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-01-15",
@@ -11877,7 +13333,14 @@
         "lw": 31,
         "pk": 17,
         "wc": 2,
-        "sid": null
+        "sid": "5KGPz0EcptGsUt3mziN0T4",
+        "spotifyUri": "spotify:track:5KGPz0EcptGsUt3mziN0T4",
+        "spotifyUrl": "https://open.spotify.com/track/5KGPz0EcptGsUt3mziN0T4",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Maid Of Orleans (The Waltz Joan Of Arc)",
+        "am": "Orchestral Manoeuvres In The Dark",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-02-05",
@@ -12034,7 +13497,14 @@
         "lw": 24,
         "pk": 17,
         "wc": 3,
-        "sid": null
+        "sid": "4IZqQrcECMKcLxHWDzhzMV",
+        "spotifyUri": "spotify:track:4IZqQrcECMKcLxHWDzhzMV",
+        "spotifyUrl": "https://open.spotify.com/track/4IZqQrcECMKcLxHWDzhzMV",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Really Saying Something",
+        "am": "Bananarama, Fun Boy Three",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-04-30",
@@ -12075,7 +13545,14 @@
         "lw": 7,
         "pk": 3,
         "wc": 7,
-        "sid": null
+        "sid": "50ZorxsKK4skrDDqtwLuJf",
+        "spotifyUri": "spotify:track:50ZorxsKK4skrDDqtwLuJf",
+        "spotifyUrl": "https://open.spotify.com/track/50ZorxsKK4skrDDqtwLuJf",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Papas Got a Brand New Pigbag - 7\" Version",
+        "am": "Pigbag",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-05-21",
@@ -12132,7 +13609,14 @@
         "lw": 24,
         "pk": 17,
         "wc": 5,
-        "sid": null
+        "sid": "1XgAvoD8fJQ1WMSYubcJXy",
+        "spotifyUri": "spotify:track:1XgAvoD8fJQ1WMSYubcJXy",
+        "spotifyUrl": "https://open.spotify.com/track/1XgAvoD8fJQ1WMSYubcJXy",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I'm A Wonderful Thing, Baby",
+        "am": "Kid Creole And The Coconuts",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-06-18",
@@ -12400,7 +13884,14 @@
         "lw": 12,
         "pk": 4,
         "wc": 10,
-        "sid": null
+        "sid": "3U7RdUdPsJQqnZHEI0ifo9",
+        "spotifyUri": "spotify:track:3U7RdUdPsJQqnZHEI0ifo9",
+        "spotifyUrl": "https://open.spotify.com/track/3U7RdUdPsJQqnZHEI0ifo9",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Walking on Sunshine '82 (Edit)",
+        "am": "Rocker's Revenge, Donnie Calvin",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-10-22",
@@ -12425,7 +13916,14 @@
         "lw": 10,
         "pk": 5,
         "wc": 5,
-        "sid": null
+        "sid": "3o1AFukFi4OhiNW23wDbaj",
+        "spotifyUri": "spotify:track:3o1AFukFi4OhiNW23wDbaj",
+        "spotifyUrl": "https://open.spotify.com/track/3o1AFukFi4OhiNW23wDbaj",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Jackie Wilson Said (I'm In Heaven When You Smile)",
+        "am": "Dexys Midnight Runners, Kevin Rowland",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-11-05",
@@ -12573,7 +14071,14 @@
         "lw": 27,
         "pk": 18,
         "wc": 7,
-        "sid": null
+        "sid": "5fnOrhQ4KgT5irGCjIccGH",
+        "spotifyUri": "spotify:track:5fnOrhQ4KgT5irGCjIccGH",
+        "spotifyUrl": "https://open.spotify.com/track/5fnOrhQ4KgT5irGCjIccGH",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Arthur's Theme (Best That You Can Do)",
+        "am": "Christopher Cross",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-01-29",
@@ -12737,7 +14242,14 @@
         "lw": 8,
         "pk": 4,
         "wc": 7,
-        "sid": null
+        "sid": "2kkvB3RNRzwjFdGhaUA0tz",
+        "spotifyUri": "spotify:track:2kkvB3RNRzwjFdGhaUA0tz",
+        "spotifyUrl": "https://open.spotify.com/track/2kkvB3RNRzwjFdGhaUA0tz",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Layla",
+        "am": "Derek & The Dominos",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-04-23",
@@ -12842,7 +14354,14 @@
         "lw": 13,
         "pk": 5,
         "wc": 6,
-        "sid": null
+        "sid": "5r1Zt0s7y3pZf4V0PxVfzj",
+        "spotifyUri": "spotify:track:5r1Zt0s7y3pZf4V0PxVfzj",
+        "spotifyUrl": "https://open.spotify.com/track/5r1Zt0s7y3pZf4V0PxVfzj",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "We Have a Dream",
+        "am": "The Scottish World Cup Squad",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-06-11",
@@ -12892,7 +14411,14 @@
         "lw": 6,
         "pk": 4,
         "wc": 8,
-        "sid": null
+        "sid": "6HvUtPLqkP0t6zd6YNdWby",
+        "spotifyUri": "spotify:track:6HvUtPLqkP0t6zd6YNdWby",
+        "spotifyUrl": "https://open.spotify.com/track/6HvUtPLqkP0t6zd6YNdWby",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "The Look Of Love, Pt.1",
+        "am": "ABC",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-07-09",
@@ -13081,7 +14607,14 @@
         "lw": 8,
         "pk": 2,
         "wc": 6,
-        "sid": null
+        "sid": "49oTeJ5xTJw6jEaJP3HV2i",
+        "spotifyUri": "spotify:track:49oTeJ5xTJw6jEaJP3HV2i",
+        "spotifyUrl": "https://open.spotify.com/track/49oTeJ5xTJw6jEaJP3HV2i",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Private Investigations",
+        "am": "Dire Straits",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-10-15",
@@ -13324,7 +14857,14 @@
         "lw": 11,
         "pk": 6,
         "wc": 10,
-        "sid": null
+        "sid": "3RjyVvrqmS26Sq6vUMswWd",
+        "spotifyUri": "spotify:track:3RjyVvrqmS26Sq6vUMswWd",
+        "spotifyUrl": "https://open.spotify.com/track/3RjyVvrqmS26Sq6vUMswWd",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I'll Find My Way Home",
+        "am": "Jon & Vangelis",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-02-19",
@@ -13383,7 +14923,14 @@
         "lw": 10,
         "pk": 4,
         "wc": 8,
-        "sid": null
+        "sid": "5KGPz0EcptGsUt3mziN0T4",
+        "spotifyUri": "spotify:track:5KGPz0EcptGsUt3mziN0T4",
+        "spotifyUrl": "https://open.spotify.com/track/5KGPz0EcptGsUt3mziN0T4",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Maid Of Orleans (The Waltz Joan Of Arc)",
+        "am": "Orchestral Manoeuvres In The Dark",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-03-19",
@@ -13426,7 +14973,14 @@
         "lw": "New",
         "pk": 19,
         "wc": 1,
-        "sid": null
+        "sid": "1FYTt8izKA8EMqhULwqOcU",
+        "spotifyUri": "spotify:track:1FYTt8izKA8EMqhULwqOcU",
+        "spotifyUrl": "https://open.spotify.com/track/1FYTt8izKA8EMqhULwqOcU",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Ebony And Ivory",
+        "am": "Paul McCartney, Stevie Wonder",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-04-16",
@@ -13435,7 +14989,14 @@
         "lw": 32,
         "pk": 19,
         "wc": 2,
-        "sid": null
+        "sid": "3We8DweFg2egGugoKevegV",
+        "spotifyUri": "spotify:track:3We8DweFg2egGugoKevegV",
+        "spotifyUrl": "https://open.spotify.com/track/3We8DweFg2egGugoKevegV",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Fantastic Day",
+        "am": "Haircut 100",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-04-23",
@@ -13526,7 +15087,14 @@
         "lw": 21,
         "pk": 19,
         "wc": 3,
-        "sid": null
+        "sid": "3Dt212rT553UIiYV0lS3q7",
+        "spotifyUri": "spotify:track:3Dt212rT553UIiYV0lS3q7",
+        "spotifyUrl": "https://open.spotify.com/track/3Dt212rT553UIiYV0lS3q7",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Paperlate",
+        "am": "Genesis",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-06-11",
@@ -13704,7 +15272,14 @@
         "lw": 37,
         "pk": 19,
         "wc": 3,
-        "sid": null
+        "sid": "3U7RdUdPsJQqnZHEI0ifo9",
+        "spotifyUri": "spotify:track:3U7RdUdPsJQqnZHEI0ifo9",
+        "spotifyUrl": "https://open.spotify.com/track/3U7RdUdPsJQqnZHEI0ifo9",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Walking on Sunshine '82 (Edit)",
+        "am": "Rocker's Revenge, Donnie Calvin",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-09-03",
@@ -13745,7 +15320,14 @@
         "lw": 10,
         "pk": 4,
         "wc": 8,
-        "sid": null
+        "sid": "3QaF9cHXm42zYpagUeTfUy",
+        "spotifyUri": "spotify:track:3QaF9cHXm42zYpagUeTfUy",
+        "spotifyUrl": "https://open.spotify.com/track/3QaF9cHXm42zYpagUeTfUy",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Can't Take My Eyes Off Of You",
+        "am": "Boys Town Gang",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-09-24",
@@ -14079,7 +15661,14 @@
         "lw": 12,
         "pk": 8,
         "wc": 8,
-        "sid": null
+        "sid": "1bwgAeL1xmQf5iGm8768zm",
+        "spotifyUri": "spotify:track:1bwgAeL1xmQf5iGm8768zm",
+        "spotifyUrl": "https://open.spotify.com/track/1bwgAeL1xmQf5iGm8768zm",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I Can't Go For That (No Can Do)",
+        "am": "Daryl Hall & John Oates",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-03-19",
@@ -14312,7 +15901,14 @@
         "lw": 11,
         "pk": 10,
         "wc": 6,
-        "sid": null
+        "sid": "3Dt212rT553UIiYV0lS3q7",
+        "spotifyUri": "spotify:track:3Dt212rT553UIiYV0lS3q7",
+        "spotifyUrl": "https://open.spotify.com/track/3Dt212rT553UIiYV0lS3q7",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Paperlate",
+        "am": "Genesis",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-07-02",
@@ -14353,7 +15949,14 @@
         "lw": 31,
         "pk": 20,
         "wc": 3,
-        "sid": null
+        "sid": "2AxMP4pDZ3cEuEXwVrGkcA",
+        "spotifyUri": "spotify:track:2AxMP4pDZ3cEuEXwVrGkcA",
+        "spotifyUrl": "https://open.spotify.com/track/2AxMP4pDZ3cEuEXwVrGkcA",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I Second That Emotion",
+        "am": "Japan, Steve Nye",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-07-23",
@@ -14419,7 +16022,14 @@
         "lw": 11,
         "pk": 9,
         "wc": 8,
-        "sid": null
+        "sid": "2AxMP4pDZ3cEuEXwVrGkcA",
+        "spotifyUri": "spotify:track:2AxMP4pDZ3cEuEXwVrGkcA",
+        "spotifyUrl": "https://open.spotify.com/track/2AxMP4pDZ3cEuEXwVrGkcA",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I Second That Emotion",
+        "am": "Japan, Steve Nye",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-08-27",
@@ -14485,7 +16095,14 @@
         "lw": 19,
         "pk": 4,
         "wc": 9,
-        "sid": null
+        "sid": "3QaF9cHXm42zYpagUeTfUy",
+        "spotifyUri": "spotify:track:3QaF9cHXm42zYpagUeTfUy",
+        "spotifyUrl": "https://open.spotify.com/track/3QaF9cHXm42zYpagUeTfUy",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Can't Take My Eyes Off Of You",
+        "am": "Boys Town Gang",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-10-01",
@@ -14494,7 +16111,14 @@
         "lw": 14,
         "pk": 1,
         "wc": 14,
-        "sid": null
+        "sid": "4MQoct1QCZVGuDHW55aE0k",
+        "spotifyUri": "spotify:track:4MQoct1QCZVGuDHW55aE0k",
+        "spotifyUrl": "https://open.spotify.com/track/4MQoct1QCZVGuDHW55aE0k",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Come On Eileen",
+        "am": "Dexys Midnight Runners",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-10-08",
@@ -14610,7 +16234,14 @@
         "lw": 8,
         "pk": 5,
         "wc": 5,
-        "sid": null
+        "sid": "7CTSDg60OC15XUJusBLPuo",
+        "spotifyUri": "spotify:track:7CTSDg60OC15XUJusBLPuo",
+        "spotifyUrl": "https://open.spotify.com/track/7CTSDg60OC15XUJusBLPuo",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Theme from Harry's Game",
+        "am": "Clannad",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-12-10",
@@ -14701,7 +16332,14 @@
         "lw": 50,
         "pk": 21,
         "wc": 11,
-        "sid": null
+        "sid": "7G3zERqh2d2tij0pVQfohU",
+        "spotifyUri": "spotify:track:7G3zERqh2d2tij0pVQfohU",
+        "spotifyUrl": "https://open.spotify.com/track/7G3zERqh2d2tij0pVQfohU",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "The Model",
+        "am": "Kraftwerk",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-01-15",
@@ -14710,7 +16348,14 @@
         "lw": 17,
         "pk": 2,
         "wc": 19,
-        "sid": null
+        "sid": "7898lL7SphUC4Qg9Srtqub",
+        "spotifyUri": "spotify:track:7898lL7SphUC4Qg9Srtqub",
+        "spotifyUrl": "https://open.spotify.com/track/7898lL7SphUC4Qg9Srtqub",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Birdie Song (Birdie Dance)",
+        "am": "The Tweets",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-01-22",
@@ -14787,7 +16432,14 @@
         "lw": 15,
         "pk": 5,
         "wc": 15,
-        "sid": null
+        "sid": "71XUT6NKJULv7uX6WydqOl",
+        "spotifyUri": "spotify:track:71XUT6NKJULv7uX6WydqOl",
+        "spotifyUrl": "https://open.spotify.com/track/71XUT6NKJULv7uX6WydqOl",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Dead Ringer for Love (with Cher)",
+        "am": "Meat Loaf, Cher",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-03-12",
@@ -14933,7 +16585,14 @@
         "lw": 6,
         "pk": 2,
         "wc": 6,
-        "sid": null
+        "sid": "23MbJwSXJRfM8rwQ6RUdD5",
+        "spotifyUri": "spotify:track:23MbJwSXJRfM8rwQ6RUdD5",
+        "spotifyUrl": "https://open.spotify.com/track/23MbJwSXJRfM8rwQ6RUdD5",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "One Step Further - Original 7 Inch Mix",
+        "am": "Bardo",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-05-21",
@@ -14958,7 +16617,14 @@
         "lw": 30,
         "pk": 21,
         "wc": 2,
-        "sid": null
+        "sid": "3Dt212rT553UIiYV0lS3q7",
+        "spotifyUri": "spotify:track:3Dt212rT553UIiYV0lS3q7",
+        "spotifyUrl": "https://open.spotify.com/track/3Dt212rT553UIiYV0lS3q7",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Paperlate",
+        "am": "Genesis",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-06-04",
@@ -15098,7 +16764,14 @@
         "lw": 42,
         "pk": 21,
         "wc": 2,
-        "sid": null
+        "sid": "7C0q5TcCdiwphG3GObFl5v",
+        "spotifyUri": "spotify:track:7C0q5TcCdiwphG3GObFl5v",
+        "spotifyUrl": "https://open.spotify.com/track/7C0q5TcCdiwphG3GObFl5v",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "My Girl Lollipop - 7'' Version",
+        "am": "Bad Manners",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-08-13",
@@ -15107,7 +16780,14 @@
         "lw": 39,
         "pk": 21,
         "wc": 3,
-        "sid": null
+        "sid": "3QaF9cHXm42zYpagUeTfUy",
+        "spotifyUri": "spotify:track:3QaF9cHXm42zYpagUeTfUy",
+        "spotifyUrl": "https://open.spotify.com/track/3QaF9cHXm42zYpagUeTfUy",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Can't Take My Eyes Off Of You",
+        "am": "Boys Town Gang",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-08-20",
@@ -15175,7 +16855,14 @@
         "lw": 13,
         "pk": 8,
         "wc": 8,
-        "sid": null
+        "sid": "4vtTsVxuNUsXYGnt0OnshJ",
+        "spotifyUri": "spotify:track:4vtTsVxuNUsXYGnt0OnshJ",
+        "spotifyUrl": "https://open.spotify.com/track/4vtTsVxuNUsXYGnt0OnshJ",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I Eat Cannibals, Pt. 1",
+        "am": "Toto Coelo",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-10-01",
@@ -15448,7 +17135,14 @@
         "lw": 12,
         "pk": 1,
         "wc": 10,
-        "sid": null
+        "sid": "3AIEEEIDJFnqv8rozNVCRZ",
+        "spotifyUri": "spotify:track:3AIEEEIDJFnqv8rozNVCRZ",
+        "spotifyUrl": "https://open.spotify.com/track/3AIEEEIDJFnqv8rozNVCRZ",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Don't You Want Me",
+        "am": "The Human League",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-02-12",
@@ -15491,7 +17185,14 @@
         "lw": 12,
         "pk": 7,
         "wc": 13,
-        "sid": null
+        "sid": "5fnOrhQ4KgT5irGCjIccGH",
+        "spotifyUri": "spotify:track:5fnOrhQ4KgT5irGCjIccGH",
+        "spotifyUrl": "https://open.spotify.com/track/5fnOrhQ4KgT5irGCjIccGH",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Arthur's Theme (Best That You Can Do)",
+        "am": "Christopher Cross",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-03-12",
@@ -15541,7 +17242,14 @@
         "lw": 12,
         "pk": 4,
         "wc": 8,
-        "sid": null
+        "sid": "6zMmd8cgljvjDlVriRAfv3",
+        "spotifyUri": "spotify:track:6zMmd8cgljvjDlVriRAfv3",
+        "spotifyUrl": "https://open.spotify.com/track/6zMmd8cgljvjDlVriRAfv3",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "It Ain't What You Do It's the Way That You Do It",
+        "am": "Fun Boy Three, Bananarama",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-04-09",
@@ -15607,7 +17315,14 @@
         "lw": 12,
         "pk": 2,
         "wc": 9,
-        "sid": null
+        "sid": "0owaXsPfNwYLyOv2goThTX",
+        "spotifyUri": "spotify:track:0owaXsPfNwYLyOv2goThTX",
+        "spotifyUrl": "https://open.spotify.com/track/0owaXsPfNwYLyOv2goThTX",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Ain't No Pleasing You",
+        "am": "Chas & Dave",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-05-14",
@@ -15753,7 +17468,14 @@
         "lw": 7,
         "pk": 1,
         "wc": 10,
-        "sid": null
+        "sid": "6DMOzL2zPZBAW0LDYCYLWm",
+        "spotifyUri": "spotify:track:6DMOzL2zPZBAW0LDYCYLWm",
+        "spotifyUrl": "https://open.spotify.com/track/6DMOzL2zPZBAW0LDYCYLWm",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I've Never Been To Me",
+        "am": "Charlene",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-07-23",
@@ -15819,7 +17541,14 @@
         "lw": 13,
         "pk": 2,
         "wc": 8,
-        "sid": null
+        "sid": "2yHg8zS8ktkZr61fossnP9",
+        "spotifyUri": "spotify:track:2yHg8zS8ktkZr61fossnP9",
+        "spotifyUrl": "https://open.spotify.com/track/2yHg8zS8ktkZr61fossnP9",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Da Da Da I Don't Love You You Don't Love Me Aha Aha Aha",
+        "am": "Trio",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-08-27",
@@ -15885,7 +17614,14 @@
         "lw": 33,
         "pk": 22,
         "wc": 6,
-        "sid": null
+        "sid": "58DXqHKK7TfxUmhCq2ux4E",
+        "spotifyUri": "spotify:track:58DXqHKK7TfxUmhCq2ux4E",
+        "spotifyUrl": "https://open.spotify.com/track/58DXqHKK7TfxUmhCq2ux4E",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Hard to Say I'm Sorry",
+        "am": "Chicago",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-10-01",
@@ -16001,7 +17737,14 @@
         "lw": 11,
         "pk": 6,
         "wc": 7,
-        "sid": null
+        "sid": "58Omjh8UQKrup5Wu0itGfW",
+        "spotifyUri": "spotify:track:58Omjh8UQKrup5Wu0itGfW",
+        "spotifyUrl": "https://open.spotify.com/track/58Omjh8UQKrup5Wu0itGfW",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Let's Go Dancin' (Ooh La, La, La) - Single Version",
+        "am": "Kool & The Gang",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-12-03",
@@ -16357,7 +18100,14 @@
         "lw": 14,
         "pk": 9,
         "wc": 7,
-        "sid": null
+        "sid": "3We8DweFg2egGugoKevegV",
+        "spotifyUri": "spotify:track:3We8DweFg2egGugoKevegV",
+        "spotifyUrl": "https://open.spotify.com/track/3We8DweFg2egGugoKevegV",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Fantastic Day",
+        "am": "Haircut 100",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-05-28",
@@ -16366,7 +18116,14 @@
         "lw": 12,
         "pk": 5,
         "wc": 8,
-        "sid": null
+        "sid": "4IZqQrcECMKcLxHWDzhzMV",
+        "spotifyUri": "spotify:track:4IZqQrcECMKcLxHWDzhzMV",
+        "spotifyUrl": "https://open.spotify.com/track/4IZqQrcECMKcLxHWDzhzMV",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Really Saying Something",
+        "am": "Bananarama, Fun Boy Three",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-06-04",
@@ -16425,7 +18182,14 @@
         "lw": 11,
         "pk": 9,
         "wc": 3,
-        "sid": null
+        "sid": "5F2dnJasuBGVTfokggH016",
+        "spotifyUri": "spotify:track:5F2dnJasuBGVTfokggH016",
+        "spotifyUrl": "https://open.spotify.com/track/5F2dnJasuBGVTfokggH016",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "We Take Mystery (To Bed) - Edit",
+        "am": "Gary Numan",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-07-09",
@@ -16434,7 +18198,14 @@
         "lw": 18,
         "pk": 4,
         "wc": 9,
-        "sid": null
+        "sid": "6HvUtPLqkP0t6zd6YNdWby",
+        "spotifyUri": "spotify:track:6HvUtPLqkP0t6zd6YNdWby",
+        "spotifyUrl": "https://open.spotify.com/track/6HvUtPLqkP0t6zd6YNdWby",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "The Look Of Love, Pt.1",
+        "am": "ABC",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-07-16",
@@ -16717,7 +18488,14 @@
         "lw": 12,
         "pk": 2,
         "wc": 7,
-        "sid": null
+        "sid": "5paJLghWSGmEf6sY7LeYel",
+        "spotifyUri": "spotify:track:5paJLghWSGmEf6sY7LeYel",
+        "spotifyUrl": "https://open.spotify.com/track/5paJLghWSGmEf6sY7LeYel",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Annie, I'm Not Your Daddy",
+        "am": "Kid Creole And The Coconuts",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-11-26",
@@ -16837,7 +18615,14 @@
         "lw": 12,
         "pk": 2,
         "wc": 10,
-        "sid": null
+        "sid": "4TxH5YTe6924BjRC6NtUXP",
+        "spotifyUri": "spotify:track:4TxH5YTe6924BjRC6NtUXP",
+        "spotifyUrl": "https://open.spotify.com/track/4TxH5YTe6924BjRC6NtUXP",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Daddy's Home - 2003 Remaster",
+        "am": "Cliff Richard",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-01-29",
@@ -16864,7 +18649,14 @@
         "lw": 16,
         "pk": 4,
         "wc": 14,
-        "sid": null
+        "sid": "0PWzw28ei5W16wyYIrEEJR",
+        "spotifyUri": "spotify:track:0PWzw28ei5W16wyYIrEEJR",
+        "spotifyUrl": "https://open.spotify.com/track/0PWzw28ei5W16wyYIrEEJR",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Mirror Mirror",
+        "am": "Dollar",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-02-19",
@@ -16980,7 +18772,14 @@
         "lw": 37,
         "pk": 24,
         "wc": 2,
-        "sid": null
+        "sid": "4IZqQrcECMKcLxHWDzhzMV",
+        "spotifyUri": "spotify:track:4IZqQrcECMKcLxHWDzhzMV",
+        "spotifyUrl": "https://open.spotify.com/track/4IZqQrcECMKcLxHWDzhzMV",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Really Saying Something",
+        "am": "Bananarama, Fun Boy Three",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-04-23",
@@ -16989,7 +18788,14 @@
         "lw": 18,
         "pk": 4,
         "wc": 8,
-        "sid": null
+        "sid": "2kkvB3RNRzwjFdGhaUA0tz",
+        "spotifyUri": "spotify:track:2kkvB3RNRzwjFdGhaUA0tz",
+        "spotifyUrl": "https://open.spotify.com/track/2kkvB3RNRzwjFdGhaUA0tz",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Layla",
+        "am": "Derek & The Dominos",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-04-30",
@@ -16998,7 +18804,14 @@
         "lw": "New",
         "pk": 24,
         "wc": 1,
-        "sid": null
+        "sid": "5r1Zt0s7y3pZf4V0PxVfzj",
+        "spotifyUri": "spotify:track:5r1Zt0s7y3pZf4V0PxVfzj",
+        "spotifyUrl": "https://open.spotify.com/track/5r1Zt0s7y3pZf4V0PxVfzj",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "We Have a Dream",
+        "am": "The Scottish World Cup Squad",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-05-07",
@@ -17058,7 +18871,14 @@
         "lw": 35,
         "pk": 24,
         "wc": 4,
-        "sid": null
+        "sid": "1XgAvoD8fJQ1WMSYubcJXy",
+        "spotifyUri": "spotify:track:1XgAvoD8fJQ1WMSYubcJXy",
+        "spotifyUrl": "https://open.spotify.com/track/1XgAvoD8fJQ1WMSYubcJXy",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I'm A Wonderful Thing, Baby",
+        "am": "Kid Creole And The Coconuts",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-06-11",
@@ -17108,7 +18928,14 @@
         "lw": 14,
         "pk": 1,
         "wc": 7,
-        "sid": null
+        "sid": "7JIr53FZOBcTjZFn5ddJmJ",
+        "spotifyUri": "spotify:track:7JIr53FZOBcTjZFn5ddJmJ",
+        "spotifyUrl": "https://open.spotify.com/track/7JIr53FZOBcTjZFn5ddJmJ",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "House of Fun",
+        "am": "Madness",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-07-09",
@@ -17286,7 +19113,14 @@
         "lw": 16,
         "pk": 9,
         "wc": 6,
-        "sid": null
+        "sid": "0l3KrpHozeW9l0wfW1eZJL",
+        "spotifyUri": "spotify:track:0l3KrpHozeW9l0wfW1eZJL",
+        "spotifyUrl": "https://open.spotify.com/track/0l3KrpHozeW9l0wfW1eZJL",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Nobody's Fool - 7\" Single",
+        "am": "Haircut 100",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-10-01",
@@ -17432,7 +19266,14 @@
         "lw": 12,
         "pk": 8,
         "wc": 5,
-        "sid": null
+        "sid": "4IT6vDuKprKl6jyVndlY8V",
+        "spotifyUri": "spotify:track:4IT6vDuKprKl6jyVndlY8V",
+        "spotifyUrl": "https://open.spotify.com/track/4IT6vDuKprKl6jyVndlY8V",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "The Girl Is Mine (with Paul McCartney)",
+        "am": "Michael Jackson, Paul McCartney",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-12-10",
@@ -17577,7 +19418,14 @@
         "lw": 19,
         "pk": 6,
         "wc": 11,
-        "sid": null
+        "sid": "3RjyVvrqmS26Sq6vUMswWd",
+        "spotifyUri": "spotify:track:3RjyVvrqmS26Sq6vUMswWd",
+        "spotifyUrl": "https://open.spotify.com/track/3RjyVvrqmS26Sq6vUMswWd",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I'll Find My Way Home",
+        "am": "Jon & Vangelis",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-02-26",
@@ -17684,7 +19532,14 @@
         "lw": 35,
         "pk": 25,
         "wc": 2,
-        "sid": null
+        "sid": "4SLVywG6MwIdxmnmoRrxUb",
+        "spotifyUri": "spotify:track:4SLVywG6MwIdxmnmoRrxUb",
+        "spotifyUrl": "https://open.spotify.com/track/4SLVywG6MwIdxmnmoRrxUb",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "This Time We'll Get It Right",
+        "am": "England World Cup Squad 82",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-04-23",
@@ -17766,7 +19621,14 @@
         "lw": 9,
         "pk": 1,
         "wc": 8,
-        "sid": null
+        "sid": "1FYTt8izKA8EMqhULwqOcU",
+        "spotifyUri": "spotify:track:1FYTt8izKA8EMqhULwqOcU",
+        "spotifyUrl": "https://open.spotify.com/track/1FYTt8izKA8EMqhULwqOcU",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Ebony And Ivory",
+        "am": "Paul McCartney, Stevie Wonder",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-06-04",
@@ -17834,7 +19696,14 @@
         "lw": 12,
         "pk": 2,
         "wc": 7,
-        "sid": null
+        "sid": "5b3NxkCIUD5Yo8OTj3eEum",
+        "spotifyUri": "spotify:track:5b3NxkCIUD5Yo8OTj3eEum",
+        "spotifyUrl": "https://open.spotify.com/track/5b3NxkCIUD5Yo8OTj3eEum",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Torch - Original 7\" Single Version",
+        "am": "Soft Cell",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-07-16",
@@ -17843,7 +19712,14 @@
         "lw": 14,
         "pk": 4,
         "wc": 10,
-        "sid": null
+        "sid": "1XgAvoD8fJQ1WMSYubcJXy",
+        "spotifyUri": "spotify:track:1XgAvoD8fJQ1WMSYubcJXy",
+        "spotifyUrl": "https://open.spotify.com/track/1XgAvoD8fJQ1WMSYubcJXy",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I'm A Wonderful Thing, Baby",
+        "am": "Kid Creole And The Coconuts",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-07-23",
@@ -18151,7 +20027,14 @@
         "lw": 20,
         "pk": 5,
         "wc": 6,
-        "sid": null
+        "sid": "7CTSDg60OC15XUJusBLPuo",
+        "spotifyUri": "spotify:track:7CTSDg60OC15XUJusBLPuo",
+        "spotifyUrl": "https://open.spotify.com/track/7CTSDg60OC15XUJusBLPuo",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Theme from Harry's Game",
+        "am": "Clannad",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-12-17",
@@ -18214,7 +20097,14 @@
         "lw": 30,
         "pk": 26,
         "wc": 8,
-        "sid": null
+        "sid": "71XUT6NKJULv7uX6WydqOl",
+        "spotifyUri": "spotify:track:71XUT6NKJULv7uX6WydqOl",
+        "spotifyUrl": "https://open.spotify.com/track/71XUT6NKJULv7uX6WydqOl",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Dead Ringer for Love (with Cher)",
+        "am": "Meat Loaf, Cher",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-01-22",
@@ -18458,7 +20348,14 @@
         "lw": "New",
         "pk": 26,
         "wc": 1,
-        "sid": null
+        "sid": "6HvUtPLqkP0t6zd6YNdWby",
+        "spotifyUri": "spotify:track:6HvUtPLqkP0t6zd6YNdWby",
+        "spotifyUrl": "https://open.spotify.com/track/6HvUtPLqkP0t6zd6YNdWby",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "The Look Of Love, Pt.1",
+        "am": "ABC",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-05-21",
@@ -18483,7 +20380,14 @@
         "lw": 15,
         "pk": 2,
         "wc": 8,
-        "sid": null
+        "sid": "4SLVywG6MwIdxmnmoRrxUb",
+        "spotifyUri": "spotify:track:4SLVywG6MwIdxmnmoRrxUb",
+        "spotifyUrl": "https://open.spotify.com/track/4SLVywG6MwIdxmnmoRrxUb",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "This Time We'll Get It Right",
+        "am": "England World Cup Squad 82",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-06-04",
@@ -18751,7 +20655,14 @@
         "lw": "New",
         "pk": 26,
         "wc": 1,
-        "sid": null
+        "sid": "3o1AFukFi4OhiNW23wDbaj",
+        "spotifyUri": "spotify:track:3o1AFukFi4OhiNW23wDbaj",
+        "spotifyUrl": "https://open.spotify.com/track/3o1AFukFi4OhiNW23wDbaj",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Jackie Wilson Said (I'm In Heaven When You Smile)",
+        "am": "Dexys Midnight Runners, Kevin Rowland",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-10-08",
@@ -18776,7 +20687,14 @@
         "lw": 18,
         "pk": 2,
         "wc": 7,
-        "sid": null
+        "sid": "49oTeJ5xTJw6jEaJP3HV2i",
+        "spotifyUri": "spotify:track:49oTeJ5xTJw6jEaJP3HV2i",
+        "spotifyUrl": "https://open.spotify.com/track/49oTeJ5xTJw6jEaJP3HV2i",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Private Investigations",
+        "am": "Dire Straits",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-10-22",
@@ -18810,7 +20728,14 @@
         "lw": 17,
         "pk": 5,
         "wc": 6,
-        "sid": null
+        "sid": "3o1AFukFi4OhiNW23wDbaj",
+        "spotifyUri": "spotify:track:3o1AFukFi4OhiNW23wDbaj",
+        "spotifyUrl": "https://open.spotify.com/track/3o1AFukFi4OhiNW23wDbaj",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Jackie Wilson Said (I'm In Heaven When You Smile)",
+        "am": "Dexys Midnight Runners, Kevin Rowland",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-11-12",
@@ -18939,7 +20864,14 @@
         "lw": 54,
         "pk": 27,
         "wc": 6,
-        "sid": null
+        "sid": "5fnOrhQ4KgT5irGCjIccGH",
+        "spotifyUri": "spotify:track:5fnOrhQ4KgT5irGCjIccGH",
+        "spotifyUrl": "https://open.spotify.com/track/5fnOrhQ4KgT5irGCjIccGH",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Arthur's Theme (Best That You Can Do)",
+        "am": "Christopher Cross",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-01-22",
@@ -18980,7 +20912,14 @@
         "lw": 40,
         "pk": 27,
         "wc": 3,
-        "sid": null
+        "sid": "1bwgAeL1xmQf5iGm8768zm",
+        "spotifyUri": "spotify:track:1bwgAeL1xmQf5iGm8768zm",
+        "spotifyUrl": "https://open.spotify.com/track/1bwgAeL1xmQf5iGm8768zm",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I Can't Go For That (No Can Do)",
+        "am": "Daryl Hall & John Oates",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-02-12",
@@ -19030,7 +20969,14 @@
         "lw": 13,
         "pk": 1,
         "wc": 19,
-        "sid": null
+        "sid": "7G3zERqh2d2tij0pVQfohU",
+        "spotifyUri": "spotify:track:7G3zERqh2d2tij0pVQfohU",
+        "spotifyUrl": "https://open.spotify.com/track/7G3zERqh2d2tij0pVQfohU",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "The Model",
+        "am": "Kraftwerk",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-03-12",
@@ -19048,7 +20994,14 @@
         "lw": 19,
         "pk": 4,
         "wc": 9,
-        "sid": null
+        "sid": "5KGPz0EcptGsUt3mziN0T4",
+        "spotifyUri": "spotify:track:5KGPz0EcptGsUt3mziN0T4",
+        "spotifyUrl": "https://open.spotify.com/track/5KGPz0EcptGsUt3mziN0T4",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Maid Of Orleans (The Waltz Joan Of Arc)",
+        "am": "Orchestral Manoeuvres In The Dark",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-03-26",
@@ -19171,7 +21124,14 @@
         "lw": 17,
         "pk": 3,
         "wc": 8,
-        "sid": null
+        "sid": "50ZorxsKK4skrDDqtwLuJf",
+        "spotifyUri": "spotify:track:50ZorxsKK4skrDDqtwLuJf",
+        "spotifyUrl": "https://open.spotify.com/track/50ZorxsKK4skrDDqtwLuJf",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Papas Got a Brand New Pigbag - 7\" Version",
+        "am": "Pigbag",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-05-28",
@@ -19472,7 +21432,14 @@
         "lw": 30,
         "pk": 27,
         "wc": 5,
-        "sid": null
+        "sid": "2y8Js6dBaCdps7XLuvSruW",
+        "spotifyUri": "spotify:track:2y8Js6dBaCdps7XLuvSruW",
+        "spotifyUrl": "https://open.spotify.com/track/2y8Js6dBaCdps7XLuvSruW",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Danger Games",
+        "am": "The Pinkees",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-10-22",
@@ -19653,7 +21620,14 @@
         "lw": 24,
         "pk": 2,
         "wc": 11,
-        "sid": null
+        "sid": "4TxH5YTe6924BjRC6NtUXP",
+        "spotifyUri": "spotify:track:4TxH5YTe6924BjRC6NtUXP",
+        "spotifyUrl": "https://open.spotify.com/track/4TxH5YTe6924BjRC6NtUXP",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Daddy's Home - 2003 Remaster",
+        "am": "Cliff Richard",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-02-05",
@@ -19678,7 +21652,14 @@
         "lw": 22,
         "pk": 1,
         "wc": 11,
-        "sid": null
+        "sid": "3AIEEEIDJFnqv8rozNVCRZ",
+        "spotifyUri": "spotify:track:3AIEEEIDJFnqv8rozNVCRZ",
+        "spotifyUrl": "https://open.spotify.com/track/3AIEEEIDJFnqv8rozNVCRZ",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Don't You Want Me",
+        "am": "The Human League",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-02-19",
@@ -19737,7 +21718,14 @@
         "lw": 20,
         "pk": 8,
         "wc": 9,
-        "sid": null
+        "sid": "1bwgAeL1xmQf5iGm8768zm",
+        "spotifyUri": "spotify:track:1bwgAeL1xmQf5iGm8768zm",
+        "spotifyUrl": "https://open.spotify.com/track/1bwgAeL1xmQf5iGm8768zm",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I Can't Go For That (No Can Do)",
+        "am": "Daryl Hall & John Oates",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-03-26",
@@ -20231,7 +22219,14 @@
         "lw": 22,
         "pk": 6,
         "wc": 8,
-        "sid": null
+        "sid": "58Omjh8UQKrup5Wu0itGfW",
+        "spotifyUri": "spotify:track:58Omjh8UQKrup5Wu0itGfW",
+        "spotifyUrl": "https://open.spotify.com/track/58Omjh8UQKrup5Wu0itGfW",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Let's Go Dancin' (Ooh La, La, La) - Single Version",
+        "am": "Kool & The Gang",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-12-10",
@@ -20319,7 +22314,14 @@
         "lw": 21,
         "pk": 2,
         "wc": 20,
-        "sid": null
+        "sid": "7898lL7SphUC4Qg9Srtqub",
+        "spotifyUri": "spotify:track:7898lL7SphUC4Qg9Srtqub",
+        "spotifyUrl": "https://open.spotify.com/track/7898lL7SphUC4Qg9Srtqub",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Birdie Song (Birdie Dance)",
+        "am": "The Tweets",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-01-29",
@@ -20631,7 +22633,14 @@
         "lw": 20,
         "pk": 10,
         "wc": 7,
-        "sid": null
+        "sid": "3Dt212rT553UIiYV0lS3q7",
+        "spotifyUri": "spotify:track:3Dt212rT553UIiYV0lS3q7",
+        "spotifyUrl": "https://open.spotify.com/track/3Dt212rT553UIiYV0lS3q7",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Paperlate",
+        "am": "Genesis",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-07-09",
@@ -20898,7 +22907,14 @@
         "lw": 12,
         "pk": 8,
         "wc": 8,
-        "sid": null
+        "sid": "2y8Js6dBaCdps7XLuvSruW",
+        "spotifyUri": "spotify:track:2y8Js6dBaCdps7XLuvSruW",
+        "spotifyUrl": "https://open.spotify.com/track/2y8Js6dBaCdps7XLuvSruW",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Danger Games",
+        "am": "The Pinkees",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-11-12",
@@ -20923,7 +22939,14 @@
         "lw": 15,
         "pk": 4,
         "wc": 6,
-        "sid": null
+        "sid": "3VbGCXWRiouAq8VyMYN2MI",
+        "spotifyUri": "spotify:track:3VbGCXWRiouAq8VyMYN2MI",
+        "spotifyUrl": "https://open.spotify.com/track/3VbGCXWRiouAq8VyMYN2MI",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Love Me Do - Remastered 2009",
+        "am": "The Beatles",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-11-26",
@@ -21032,7 +23055,14 @@
         "lw": 30,
         "pk": 30,
         "wc": 7,
-        "sid": null
+        "sid": "71XUT6NKJULv7uX6WydqOl",
+        "spotifyUri": "spotify:track:71XUT6NKJULv7uX6WydqOl",
+        "spotifyUrl": "https://open.spotify.com/track/71XUT6NKJULv7uX6WydqOl",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Dead Ringer for Love (with Cher)",
+        "am": "Meat Loaf, Cher",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-01-15",
@@ -21149,7 +23179,14 @@
         "lw": 68,
         "pk": 30,
         "wc": 2,
-        "sid": null
+        "sid": "2kkvB3RNRzwjFdGhaUA0tz",
+        "spotifyUri": "spotify:track:2kkvB3RNRzwjFdGhaUA0tz",
+        "spotifyUrl": "https://open.spotify.com/track/2kkvB3RNRzwjFdGhaUA0tz",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Layla",
+        "am": "Derek & The Dominos",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-03-19",
@@ -21199,7 +23236,14 @@
         "lw": 50,
         "pk": 30,
         "wc": 2,
-        "sid": null
+        "sid": "50ZorxsKK4skrDDqtwLuJf",
+        "spotifyUri": "spotify:track:50ZorxsKK4skrDDqtwLuJf",
+        "spotifyUrl": "https://open.spotify.com/track/50ZorxsKK4skrDDqtwLuJf",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Papas Got a Brand New Pigbag - 7\" Version",
+        "am": "Pigbag",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-04-16",
@@ -21281,7 +23325,14 @@
         "lw": "New",
         "pk": 30,
         "wc": 1,
-        "sid": null
+        "sid": "3Dt212rT553UIiYV0lS3q7",
+        "spotifyUri": "spotify:track:3Dt212rT553UIiYV0lS3q7",
+        "spotifyUrl": "https://open.spotify.com/track/3Dt212rT553UIiYV0lS3q7",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Paperlate",
+        "am": "Genesis",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-05-28",
@@ -21290,7 +23341,14 @@
         "lw": 40,
         "pk": 30,
         "wc": 3,
-        "sid": null
+        "sid": "6DMOzL2zPZBAW0LDYCYLWm",
+        "spotifyUri": "spotify:track:6DMOzL2zPZBAW0LDYCYLWm",
+        "spotifyUrl": "https://open.spotify.com/track/6DMOzL2zPZBAW0LDYCYLWm",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I've Never Been To Me",
+        "am": "Charlene",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-06-04",
@@ -21372,7 +23430,14 @@
         "lw": 54,
         "pk": 30,
         "wc": 2,
-        "sid": null
+        "sid": "2yHg8zS8ktkZr61fossnP9",
+        "spotifyUri": "spotify:track:2yHg8zS8ktkZr61fossnP9",
+        "spotifyUrl": "https://open.spotify.com/track/2yHg8zS8ktkZr61fossnP9",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Da Da Da I Don't Love You You Don't Love Me Aha Aha Aha",
+        "am": "Trio",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-07-16",
@@ -21529,7 +23594,14 @@
         "lw": 44,
         "pk": 30,
         "wc": 3,
-        "sid": null
+        "sid": "2y8Js6dBaCdps7XLuvSruW",
+        "spotifyUri": "spotify:track:2y8Js6dBaCdps7XLuvSruW",
+        "spotifyUrl": "https://open.spotify.com/track/2y8Js6dBaCdps7XLuvSruW",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Danger Games",
+        "am": "The Pinkees",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-10-08",
@@ -21538,7 +23610,14 @@
         "lw": 30,
         "pk": 30,
         "wc": 4,
-        "sid": null
+        "sid": "2y8Js6dBaCdps7XLuvSruW",
+        "spotifyUri": "spotify:track:2y8Js6dBaCdps7XLuvSruW",
+        "spotifyUrl": "https://open.spotify.com/track/2y8Js6dBaCdps7XLuvSruW",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Danger Games",
+        "am": "The Pinkees",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-10-15",
@@ -21583,7 +23662,14 @@
         "lw": 12,
         "pk": 4,
         "wc": 13,
-        "sid": null
+        "sid": "58DXqHKK7TfxUmhCq2ux4E",
+        "spotifyUri": "spotify:track:58DXqHKK7TfxUmhCq2ux4E",
+        "spotifyUrl": "https://open.spotify.com/track/58DXqHKK7TfxUmhCq2ux4E",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Hard to Say I'm Sorry",
+        "am": "Chicago",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-11-19",
@@ -21712,7 +23798,14 @@
         "lw": "New",
         "pk": 31,
         "wc": 1,
-        "sid": null
+        "sid": "5KGPz0EcptGsUt3mziN0T4",
+        "spotifyUri": "spotify:track:5KGPz0EcptGsUt3mziN0T4",
+        "spotifyUrl": "https://open.spotify.com/track/5KGPz0EcptGsUt3mziN0T4",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Maid Of Orleans (The Waltz Joan Of Arc)",
+        "am": "Orchestral Manoeuvres In The Dark",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-01-29",
@@ -21813,7 +23906,14 @@
         "lw": 61,
         "pk": 31,
         "wc": 2,
-        "sid": null
+        "sid": "0owaXsPfNwYLyOv2goThTX",
+        "spotifyUri": "spotify:track:0owaXsPfNwYLyOv2goThTX",
+        "spotifyUrl": "https://open.spotify.com/track/0owaXsPfNwYLyOv2goThTX",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Ain't No Pleasing You",
+        "am": "Chas & Dave",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-03-26",
@@ -22049,7 +24149,14 @@
         "lw": 56,
         "pk": 31,
         "wc": 2,
-        "sid": null
+        "sid": "2AxMP4pDZ3cEuEXwVrGkcA",
+        "spotifyUri": "spotify:track:2AxMP4pDZ3cEuEXwVrGkcA",
+        "spotifyUrl": "https://open.spotify.com/track/2AxMP4pDZ3cEuEXwVrGkcA",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I Second That Emotion",
+        "am": "Japan, Steve Nye",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-07-16",
@@ -22058,7 +24165,14 @@
         "lw": 41,
         "pk": 31,
         "wc": 3,
-        "sid": null
+        "sid": "4MQoct1QCZVGuDHW55aE0k",
+        "spotifyUri": "spotify:track:4MQoct1QCZVGuDHW55aE0k",
+        "spotifyUrl": "https://open.spotify.com/track/4MQoct1QCZVGuDHW55aE0k",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Come On Eileen",
+        "am": "Dexys Midnight Runners",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-07-23",
@@ -22156,7 +24270,14 @@
         "lw": 15,
         "pk": 9,
         "wc": 6,
-        "sid": null
+        "sid": "7C0q5TcCdiwphG3GObFl5v",
+        "spotifyUri": "spotify:track:7C0q5TcCdiwphG3GObFl5v",
+        "spotifyUrl": "https://open.spotify.com/track/7C0q5TcCdiwphG3GObFl5v",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "My Girl Lollipop - 7'' Version",
+        "am": "Bad Manners",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-09-10",
@@ -22254,7 +24375,14 @@
         "lw": 64,
         "pk": 31,
         "wc": 2,
-        "sid": null
+        "sid": "58Omjh8UQKrup5Wu0itGfW",
+        "spotifyUri": "spotify:track:58Omjh8UQKrup5Wu0itGfW",
+        "spotifyUrl": "https://open.spotify.com/track/58Omjh8UQKrup5Wu0itGfW",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Let's Go Dancin' (Ooh La, La, La) - Single Version",
+        "am": "Kool & The Gang",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-10-29",
@@ -22413,7 +24541,14 @@
         "lw": 25,
         "pk": 3,
         "wc": 10,
-        "sid": null
+        "sid": "5UJ4pcepw1ELSfEQKrfxQN",
+        "spotifyUri": "spotify:track:5UJ4pcepw1ELSfEQKrfxQN",
+        "spotifyUrl": "https://open.spotify.com/track/5UJ4pcepw1ELSfEQKrfxQN",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Let's Groove",
+        "am": "Earth, Wind & Fire",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-01-15",
@@ -22588,7 +24723,14 @@
         "lw": "New",
         "pk": 32,
         "wc": 1,
-        "sid": null
+        "sid": "3We8DweFg2egGugoKevegV",
+        "spotifyUri": "spotify:track:3We8DweFg2egGugoKevegV",
+        "spotifyUrl": "https://open.spotify.com/track/3We8DweFg2egGugoKevegV",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Fantastic Day",
+        "am": "Haircut 100",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-04-16",
@@ -23080,7 +25222,14 @@
         "lw": 24,
         "pk": 8,
         "wc": 6,
-        "sid": null
+        "sid": "4IT6vDuKprKl6jyVndlY8V",
+        "spotifyUri": "spotify:track:4IT6vDuKprKl6jyVndlY8V",
+        "spotifyUrl": "https://open.spotify.com/track/4IT6vDuKprKl6jyVndlY8V",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "The Girl Is Mine (with Paul McCartney)",
+        "am": "Michael Jackson, Paul McCartney",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-12-17",
@@ -23404,7 +25553,14 @@
         "lw": 21,
         "pk": 2,
         "wc": 7,
-        "sid": null
+        "sid": "23MbJwSXJRfM8rwQ6RUdD5",
+        "spotifyUri": "spotify:track:23MbJwSXJRfM8rwQ6RUdD5",
+        "spotifyUrl": "https://open.spotify.com/track/23MbJwSXJRfM8rwQ6RUdD5",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "One Step Further - Original 7 Inch Mix",
+        "am": "Bardo",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-05-28",
@@ -23520,7 +25676,14 @@
         "lw": 16,
         "pk": 8,
         "wc": 4,
-        "sid": null
+        "sid": "3etwLlqrcPp56Jo8ox5LTS",
+        "spotifyUri": "spotify:track:3etwLlqrcPp56Jo8ox5LTS",
+        "spotifyUrl": "https://open.spotify.com/track/3etwLlqrcPp56Jo8ox5LTS",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Just Who Is The 5 O'Clock Hero?",
+        "am": "The Jam",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-07-30",
@@ -23563,7 +25726,14 @@
         "lw": "New",
         "pk": 33,
         "wc": 1,
-        "sid": null
+        "sid": "0l3KrpHozeW9l0wfW1eZJL",
+        "spotifyUri": "spotify:track:0l3KrpHozeW9l0wfW1eZJL",
+        "spotifyUrl": "https://open.spotify.com/track/0l3KrpHozeW9l0wfW1eZJL",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Nobody's Fool - 7\" Single",
+        "am": "Haircut 100",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-08-27",
@@ -23620,7 +25790,14 @@
         "lw": 46,
         "pk": 33,
         "wc": 5,
-        "sid": null
+        "sid": "58DXqHKK7TfxUmhCq2ux4E",
+        "spotifyUri": "spotify:track:58DXqHKK7TfxUmhCq2ux4E",
+        "spotifyUrl": "https://open.spotify.com/track/58DXqHKK7TfxUmhCq2ux4E",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Hard to Say I'm Sorry",
+        "am": "Chicago",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-09-24",
@@ -23711,7 +25888,14 @@
         "lw": "New",
         "pk": 33,
         "wc": 1,
-        "sid": null
+        "sid": "4IT6vDuKprKl6jyVndlY8V",
+        "spotifyUri": "spotify:track:4IT6vDuKprKl6jyVndlY8V",
+        "spotifyUrl": "https://open.spotify.com/track/4IT6vDuKprKl6jyVndlY8V",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "The Girl Is Mine (with Paul McCartney)",
+        "am": "Michael Jackson, Paul McCartney",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-11-12",
@@ -24202,7 +26386,14 @@
         "lw": 22,
         "pk": 1,
         "wc": 11,
-        "sid": null
+        "sid": "6DMOzL2zPZBAW0LDYCYLWm",
+        "spotifyUri": "spotify:track:6DMOzL2zPZBAW0LDYCYLWm",
+        "spotifyUrl": "https://open.spotify.com/track/6DMOzL2zPZBAW0LDYCYLWm",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I've Never Been To Me",
+        "am": "Charlene",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-07-30",
@@ -24243,7 +26434,14 @@
         "lw": 70,
         "pk": 34,
         "wc": 2,
-        "sid": null
+        "sid": "4vtTsVxuNUsXYGnt0OnshJ",
+        "spotifyUri": "spotify:track:4vtTsVxuNUsXYGnt0OnshJ",
+        "spotifyUrl": "https://open.spotify.com/track/4vtTsVxuNUsXYGnt0OnshJ",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I Eat Cannibals, Pt. 1",
+        "am": "Toto Coelo",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-08-20",
@@ -24382,7 +26580,14 @@
         "lw": 17,
         "pk": 4,
         "wc": 11,
-        "sid": null
+        "sid": "3U7RdUdPsJQqnZHEI0ifo9",
+        "spotifyUri": "spotify:track:3U7RdUdPsJQqnZHEI0ifo9",
+        "spotifyUrl": "https://open.spotify.com/track/3U7RdUdPsJQqnZHEI0ifo9",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Walking on Sunshine '82 (Edit)",
+        "am": "Rocker's Revenge, Donnie Calvin",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-10-29",
@@ -24576,7 +26781,14 @@
         "lw": 29,
         "pk": 2,
         "wc": 21,
-        "sid": null
+        "sid": "7898lL7SphUC4Qg9Srtqub",
+        "spotifyUri": "spotify:track:7898lL7SphUC4Qg9Srtqub",
+        "spotifyUrl": "https://open.spotify.com/track/7898lL7SphUC4Qg9Srtqub",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Birdie Song (Birdie Dance)",
+        "am": "The Tweets",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-02-05",
@@ -24715,7 +26927,14 @@
         "lw": "New",
         "pk": 35,
         "wc": 1,
-        "sid": null
+        "sid": "4SLVywG6MwIdxmnmoRrxUb",
+        "spotifyUri": "spotify:track:4SLVywG6MwIdxmnmoRrxUb",
+        "spotifyUrl": "https://open.spotify.com/track/4SLVywG6MwIdxmnmoRrxUb",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "This Time We'll Get It Right",
+        "am": "England World Cup Squad 82",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-04-16",
@@ -24820,7 +27039,14 @@
         "lw": 57,
         "pk": 35,
         "wc": 3,
-        "sid": null
+        "sid": "1XgAvoD8fJQ1WMSYubcJXy",
+        "spotifyUri": "spotify:track:1XgAvoD8fJQ1WMSYubcJXy",
+        "spotifyUrl": "https://open.spotify.com/track/1XgAvoD8fJQ1WMSYubcJXy",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I'm A Wonderful Thing, Baby",
+        "am": "Kid Creole And The Coconuts",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-06-04",
@@ -24902,7 +27128,14 @@
         "lw": 23,
         "pk": 9,
         "wc": 4,
-        "sid": null
+        "sid": "5F2dnJasuBGVTfokggH016",
+        "spotifyUri": "spotify:track:5F2dnJasuBGVTfokggH016",
+        "spotifyUrl": "https://open.spotify.com/track/5F2dnJasuBGVTfokggH016",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "We Take Mystery (To Bed) - Edit",
+        "am": "Gary Numan",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-07-16",
@@ -25074,7 +27307,14 @@
         "lw": 21,
         "pk": 8,
         "wc": 9,
-        "sid": null
+        "sid": "4vtTsVxuNUsXYGnt0OnshJ",
+        "spotifyUri": "spotify:track:4vtTsVxuNUsXYGnt0OnshJ",
+        "spotifyUrl": "https://open.spotify.com/track/4vtTsVxuNUsXYGnt0OnshJ",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I Eat Cannibals, Pt. 1",
+        "am": "Toto Coelo",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-10-08",
@@ -25260,7 +27500,14 @@
         "lw": 28,
         "pk": 2,
         "wc": 22,
-        "sid": null
+        "sid": "27RYrbL6S02LNVhDWVl38b",
+        "spotifyUri": "spotify:track:27RYrbL6S02LNVhDWVl38b",
+        "spotifyUrl": "https://open.spotify.com/track/27RYrbL6S02LNVhDWVl38b",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Happy Xmas (War Is Over) - Remastered 2010",
+        "am": "John Lennon, Yoko Ono",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-01-15",
@@ -25342,7 +27589,14 @@
         "lw": 43,
         "pk": 36,
         "wc": 2,
-        "sid": null
+        "sid": "6zMmd8cgljvjDlVriRAfv3",
+        "spotifyUri": "spotify:track:6zMmd8cgljvjDlVriRAfv3",
+        "spotifyUrl": "https://open.spotify.com/track/6zMmd8cgljvjDlVriRAfv3",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "It Ain't What You Do It's the Way That You Do It",
+        "am": "Fun Boy Three, Bananarama",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-02-26",
@@ -25485,7 +27739,14 @@
         "lw": 22,
         "pk": 2,
         "wc": 10,
-        "sid": null
+        "sid": "0owaXsPfNwYLyOv2goThTX",
+        "spotifyUri": "spotify:track:0owaXsPfNwYLyOv2goThTX",
+        "spotifyUrl": "https://open.spotify.com/track/0owaXsPfNwYLyOv2goThTX",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Ain't No Pleasing You",
+        "am": "Chas & Dave",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-05-21",
@@ -25542,7 +27803,14 @@
         "lw": 18,
         "pk": 5,
         "wc": 7,
-        "sid": null
+        "sid": "5r1Zt0s7y3pZf4V0PxVfzj",
+        "spotifyUri": "spotify:track:5r1Zt0s7y3pZf4V0PxVfzj",
+        "spotifyUrl": "https://open.spotify.com/track/5r1Zt0s7y3pZf4V0PxVfzj",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "We Have a Dream",
+        "am": "The Scottish World Cup Squad",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-06-18",
@@ -25780,7 +28048,14 @@
         "lw": 20,
         "pk": 1,
         "wc": 15,
-        "sid": null
+        "sid": "4MQoct1QCZVGuDHW55aE0k",
+        "spotifyUri": "spotify:track:4MQoct1QCZVGuDHW55aE0k",
+        "spotifyUrl": "https://open.spotify.com/track/4MQoct1QCZVGuDHW55aE0k",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Come On Eileen",
+        "am": "Dexys Midnight Runners",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-10-15",
@@ -25959,7 +28234,14 @@
         "lw": 32,
         "pk": 3,
         "wc": 11,
-        "sid": null
+        "sid": "5UJ4pcepw1ELSfEQKrfxQN",
+        "spotifyUri": "spotify:track:5UJ4pcepw1ELSfEQKrfxQN",
+        "spotifyUrl": "https://open.spotify.com/track/5UJ4pcepw1ELSfEQKrfxQN",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Let's Groove",
+        "am": "Earth, Wind & Fire",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-01-22",
@@ -26117,7 +28399,14 @@
         "lw": "New",
         "pk": 37,
         "wc": 1,
-        "sid": null
+        "sid": "4IZqQrcECMKcLxHWDzhzMV",
+        "spotifyUri": "spotify:track:4IZqQrcECMKcLxHWDzhzMV",
+        "spotifyUrl": "https://open.spotify.com/track/4IZqQrcECMKcLxHWDzhzMV",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Really Saying Something",
+        "am": "Bananarama, Fun Boy Three",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-04-16",
@@ -26224,7 +28513,14 @@
         "lw": 26,
         "pk": 2,
         "wc": 9,
-        "sid": null
+        "sid": "4SLVywG6MwIdxmnmoRrxUb",
+        "spotifyUri": "spotify:track:4SLVywG6MwIdxmnmoRrxUb",
+        "spotifyUrl": "https://open.spotify.com/track/4SLVywG6MwIdxmnmoRrxUb",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "This Time We'll Get It Right",
+        "am": "England World Cup Squad 82",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-06-11",
@@ -26373,7 +28669,14 @@
         "lw": 67,
         "pk": 37,
         "wc": 2,
-        "sid": null
+        "sid": "3U7RdUdPsJQqnZHEI0ifo9",
+        "spotifyUri": "spotify:track:3U7RdUdPsJQqnZHEI0ifo9",
+        "spotifyUrl": "https://open.spotify.com/track/3U7RdUdPsJQqnZHEI0ifo9",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Walking on Sunshine '82 (Edit)",
+        "am": "Rocker's Revenge, Donnie Calvin",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-08-27",
@@ -26655,7 +28958,14 @@
         "lw": 35,
         "pk": 1,
         "wc": 9,
-        "sid": null
+        "sid": "0H6nXTof4PNmLE6uYUslHA",
+        "spotifyUri": "spotify:track:0H6nXTof4PNmLE6uYUslHA",
+        "spotifyUrl": "https://open.spotify.com/track/0H6nXTof4PNmLE6uYUslHA",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Under Pressure (feat. David Bowie)",
+        "am": "Queen, David Bowie",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-01-15",
@@ -26723,7 +29033,14 @@
         "lw": 24,
         "pk": 4,
         "wc": 15,
-        "sid": null
+        "sid": "0PWzw28ei5W16wyYIrEEJR",
+        "spotifyUri": "spotify:track:0PWzw28ei5W16wyYIrEEJR",
+        "spotifyUrl": "https://open.spotify.com/track/0PWzw28ei5W16wyYIrEEJR",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Mirror Mirror",
+        "am": "Dollar",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-02-26",
@@ -27114,7 +29431,14 @@
         "lw": 20,
         "pk": 9,
         "wc": 9,
-        "sid": null
+        "sid": "2AxMP4pDZ3cEuEXwVrGkcA",
+        "spotifyUri": "spotify:track:2AxMP4pDZ3cEuEXwVrGkcA",
+        "spotifyUrl": "https://open.spotify.com/track/2AxMP4pDZ3cEuEXwVrGkcA",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I Second That Emotion",
+        "am": "Japan, Steve Nye",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-09-03",
@@ -27278,7 +29602,14 @@
         "lw": 30,
         "pk": 4,
         "wc": 14,
-        "sid": null
+        "sid": "58DXqHKK7TfxUmhCq2ux4E",
+        "spotifyUri": "spotify:track:58DXqHKK7TfxUmhCq2ux4E",
+        "spotifyUrl": "https://open.spotify.com/track/58DXqHKK7TfxUmhCq2ux4E",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Hard to Say I'm Sorry",
+        "am": "Chicago",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-11-26",
@@ -27695,7 +30026,14 @@
         "lw": 23,
         "pk": 5,
         "wc": 9,
-        "sid": null
+        "sid": "4IZqQrcECMKcLxHWDzhzMV",
+        "spotifyUri": "spotify:track:4IZqQrcECMKcLxHWDzhzMV",
+        "spotifyUrl": "https://open.spotify.com/track/4IZqQrcECMKcLxHWDzhzMV",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Really Saying Something",
+        "am": "Bananarama, Fun Boy Three",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-06-11",
@@ -27811,7 +30149,14 @@
         "lw": 66,
         "pk": 39,
         "wc": 2,
-        "sid": null
+        "sid": "3QaF9cHXm42zYpagUeTfUy",
+        "spotifyUri": "spotify:track:3QaF9cHXm42zYpagUeTfUy",
+        "spotifyUrl": "https://open.spotify.com/track/3QaF9cHXm42zYpagUeTfUy",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Can't Take My Eyes Off Of You",
+        "am": "Boys Town Gang",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-08-13",
@@ -27941,7 +30286,14 @@
         "lw": "New",
         "pk": 39,
         "wc": 1,
-        "sid": null
+        "sid": "5paJLghWSGmEf6sY7LeYel",
+        "spotifyUri": "spotify:track:5paJLghWSGmEf6sY7LeYel",
+        "spotifyUrl": "https://open.spotify.com/track/5paJLghWSGmEf6sY7LeYel",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Annie, I'm Not Your Daddy",
+        "am": "Kid Creole And The Coconuts",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-10-15",
@@ -28152,7 +30504,14 @@
         "lw": 49,
         "pk": 40,
         "wc": 2,
-        "sid": null
+        "sid": "1bwgAeL1xmQf5iGm8768zm",
+        "spotifyUri": "spotify:track:1bwgAeL1xmQf5iGm8768zm",
+        "spotifyUrl": "https://open.spotify.com/track/1bwgAeL1xmQf5iGm8768zm",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I Can't Go For That (No Can Do)",
+        "am": "Daryl Hall & John Oates",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-02-05",
@@ -28373,7 +30732,14 @@
         "lw": 73,
         "pk": 40,
         "wc": 2,
-        "sid": null
+        "sid": "6DMOzL2zPZBAW0LDYCYLWm",
+        "spotifyUri": "spotify:track:6DMOzL2zPZBAW0LDYCYLWm",
+        "spotifyUrl": "https://open.spotify.com/track/6DMOzL2zPZBAW0LDYCYLWm",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "I've Never Been To Me",
+        "am": "Charlene",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-05-28",
@@ -28382,7 +30748,14 @@
         "lw": 27,
         "pk": 3,
         "wc": 9,
-        "sid": null
+        "sid": "50ZorxsKK4skrDDqtwLuJf",
+        "spotifyUri": "spotify:track:50ZorxsKK4skrDDqtwLuJf",
+        "spotifyUrl": "https://open.spotify.com/track/50ZorxsKK4skrDDqtwLuJf",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Papas Got a Brand New Pigbag - 7\" Version",
+        "am": "Pigbag",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-06-04",
@@ -28391,7 +30764,14 @@
         "lw": 25,
         "pk": 1,
         "wc": 9,
-        "sid": null
+        "sid": "1FYTt8izKA8EMqhULwqOcU",
+        "spotifyUri": "spotify:track:1FYTt8izKA8EMqhULwqOcU",
+        "spotifyUrl": "https://open.spotify.com/track/1FYTt8izKA8EMqhULwqOcU",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Ebony And Ivory",
+        "am": "Paul McCartney, Stevie Wonder",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-06-11",
@@ -28484,7 +30864,14 @@
         "lw": 33,
         "pk": 8,
         "wc": 5,
-        "sid": null
+        "sid": "3etwLlqrcPp56Jo8ox5LTS",
+        "spotifyUri": "spotify:track:3etwLlqrcPp56Jo8ox5LTS",
+        "spotifyUrl": "https://open.spotify.com/track/3etwLlqrcPp56Jo8ox5LTS",
+        "spotifyMatchScore": 112,
+        "spotifyMatchedBy": "ai-reviewed",
+        "tm": "Just Who Is The 5 O'Clock Hero?",
+        "am": "The Jam",
+        "spotifyDecisionSource": "global-ledger"
       },
       {
         "w": "1982-08-06",
